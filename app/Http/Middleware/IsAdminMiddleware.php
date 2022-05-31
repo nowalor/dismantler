@@ -16,7 +16,7 @@ class IsAdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->user || !auth()->user()->is_admin) {
+        if(!auth()->user() || !auth()->user()->is_admin) {
             return redirect()->route('auth.show-login');
         }
 

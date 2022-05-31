@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminHomepageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,5 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('admin', function() { return 'admin';});
+    Route::get('', AdminHomepageController::class)->name('admin.index');
 });
