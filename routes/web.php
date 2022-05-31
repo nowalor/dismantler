@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminHomepageController;
 use App\Http\Controllers\AdminDitoNumbersController;
+use App\Http\Controllers\ConnectDitoToDismantlerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,13 @@ Route::get('dismantlers', [TestController::class, 'showSelectPage']);
 Route::get('dismantlers-german', [TestController::class, 'showGermanDismantlers'])->name('german.dismantlers');
 Route::get('dismantlers-danish', [TestController::class, 'showDanishiDsmantlers'])->name('danish.dismantlers');
 
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.show');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('', AdminHomepageController::class)->name('admin.index');
     Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
+
+    Route::post('dito-numbers/{ditoNumberId}/{dismantlerId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
 });

@@ -21,7 +21,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password-login" class="form-label">Password*</label>
-                            <input name="password" type="password" class="form-control" id="password-login" placeholder="name@example.com">
+                            <input name="password" type="password" class="form-control" id="password-login" placeholder="********">
                         </div>
 
                         <div class="d-grid gap-2">

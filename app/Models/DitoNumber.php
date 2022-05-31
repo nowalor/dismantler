@@ -15,4 +15,9 @@ class DitoNumber extends Model
       'production_date',
       'dito_number',
     ];
+
+    public function germanDismantler()
+    {
+        return $this->belongsToMany(GermanDismantler::class);
+    }
 }

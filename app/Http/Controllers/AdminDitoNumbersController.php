@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DitoNumber;
+use App\Models\GermanDismantler;
 use Illuminate\Http\Request;
 
 class AdminDitoNumbersController extends Controller
@@ -46,7 +47,9 @@ class AdminDitoNumbersController extends Controller
      */
     public function show(DitoNumber $ditoNumber)
     {
-        return view('admin.dito-numbers.show', compact('ditoNumber'));
+        $germanDismantlers = GermanDismantler::paginate(100);
+
+        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers'));
     }
 
     /**
