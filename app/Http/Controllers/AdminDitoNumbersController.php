@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DitoNumber;
 use App\Models\GermanDismantler;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class AdminDitoNumbersController extends Controller
 {
@@ -45,9 +46,17 @@ class AdminDitoNumbersController extends Controller
      * @param  \App\Models\DitoNumber  $ditoNumber
      * @return \Illuminate\Http\Response
      */
-    public function show(DitoNumber $ditoNumber)
+    public function show(DitoNumber $ditoNumber, Request $request)
     {
-        $germanDismantlers = GermanDismantler::paginate(100);
+        $germanDismantlers;
+        $search = $request->input('search');
+
+        if($search) {
+            $germanDismantlers = GermanDismantler::where('manufacturer_plaintext', 'like', '%' . $search . '%')->paginate(100);
+
+        } else {
+            $germanDismantlers = GermanDismantler::paginate(100);
+        }
 
         $relatedDismantlers = $ditoNumber->germanDismantlers;
 
@@ -86,5 +95,12 @@ class AdminDitoNumbersController extends Controller
     public function destroy(DitoNumber $ditoNumber)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+
     }
 }

@@ -8,7 +8,7 @@
                     <div class="card-header">
                         Selected Dito number
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="height: 340px;">
                         <blockquote class="blockquote mb-0">
                             <p>Producer</p>
                             <footer class="blockquote-footer">{{ $ditoNumber->producer }}</footer>
@@ -33,35 +33,36 @@
                     <div class="card-header">
                         Already selected
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style=" max-height: 340px; overflow-y: scroll;">
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>HSN</th>
-                                    <th>TSN</th>
-                                    <th>Plaintext</th>
-                                    <th>Commercial name</th>
-                                    <th>Actions</th>
-                                </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>HSN</th>
+                                <th>TSN</th>
+                                <th>Plaintext</th>
+                                <th>Commercial name</th>
+                                <th>Actions</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @foreach($relatedDismantlers as $dismantler)
-                                    <tr>
-                                        <th>{{ $dismantler->id }}</th>
-                                        <td>{{ $dismantler->hsn }}</td>
-                                        <td>{{ $dismantler->tsn }}</td>
-                                        <td>{{ $dismantler->manufacturer_plaintext }}</td>
-                                        <td>{{ $dismantler->commercial_name }}</td>
-                                        <td>
-                                            <form action="{{ route('test.delete', [$ditoNumber, $dismantler]) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger btn-sm">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                            @foreach($relatedDismantlers as $dismantler)
+                                <tr>
+                                    <th>{{ $dismantler->id }}</th>
+                                    <td>{{ $dismantler->hsn }}</td>
+                                    <td>{{ $dismantler->tsn }}</td>
+                                    <td>{{ $dismantler->manufacturer_plaintext }}</td>
+                                    <td>{{ $dismantler->commercial_name }}</td>
+                                    <td>
+                                        <form action="{{ route('test.delete', [$ditoNumber, $dismantler]) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -75,37 +76,38 @@
                 <div class="card-body">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>HSN</th>
-                                <th>TSN</th>
-                                <th>Plaintext</th>
-                                <th>Commercial name</th>
-                                <th>Date</th>
-                                <th>Max net</th>
-                                <th>Engine</th>
-                                <th>Actions</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>HSN</th>
+                            <th>TSN</th>
+                            <th>Plaintext</th>
+                            <th>Commercial name</th>
+                            <th>Date</th>
+                            <th>Max net</th>
+                            <th>Engine</th>
+                            <th>Actions</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            @foreach($germanDismantlers as $dismantler)
-                                <tr>
-                                    <th>{{ $dismantler->id }}</th>
-                                    <td>{{ $dismantler->hsn }}</td>
-                                    <td>{{ $dismantler->tsn }}</td>
-                                    <td>{{ $dismantler->manufacturer_plaintext }}</td>
-                                    <td>{{ $dismantler->commercial_name }}</td>
-                                    <td>{{ $dismantler->date_of_allotment_of_type_code_number }}</td>
-                                    <td>{{ $dismantler->max_net_power_in_kw }}</td>
-                                    <td>{{ $dismantler->engine_capacity_in_cm }}</td>
-                                    <td>
-                                        <form method="POST" action="{{ route('test.store', ['ditoNumberId' => $ditoNumber->id, 'dismantlerId' => $dismantler->id]) }}">
-                                                @csrf
-                                            <button class="btn btn-primary btn-sm">Select</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach($germanDismantlers as $dismantler)
+                            <tr>
+                                <th>{{ $dismantler->id }}</th>
+                                <td>{{ $dismantler->hsn }}</td>
+                                <td>{{ $dismantler->tsn }}</td>
+                                <td>{{ $dismantler->manufacturer_plaintext }}</td>
+                                <td>{{ $dismantler->commercial_name }}</td>
+                                <td>{{ $dismantler->date_of_allotment_of_type_code_number }}</td>
+                                <td>{{ $dismantler->max_net_power_in_kw }}</td>
+                                <td>{{ $dismantler->engine_capacity_in_cm }}</td>
+                                <td>
+                                    <form method="POST"
+                                          action="{{ route('test.store', ['ditoNumberId' => $ditoNumber->id, 'dismantlerId' => $dismantler->id]) }}">
+                                        @csrf
+                                        <button class="btn btn-primary btn-sm">Select</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                     {{ $germanDismantlers->links() }}
