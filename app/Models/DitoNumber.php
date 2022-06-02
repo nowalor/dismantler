@@ -16,7 +16,7 @@ class DitoNumber extends Model
       'dito_number',
     ];
 
-    public function germanDismantler()
+    public function germanDismantlers()
     {
         return $this->belongsToMany(GermanDismantler::class);
     }

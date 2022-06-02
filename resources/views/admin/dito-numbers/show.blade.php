@@ -33,6 +33,38 @@
                     <div class="card-header">
                         Already selected
                     </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>HSN</th>
+                                    <th>TSN</th>
+                                    <th>Plaintext</th>
+                                    <th>Commercial name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($relatedDismantlers as $dismantler)
+                                    <tr>
+                                        <th>{{ $dismantler->id }}</th>
+                                        <td>{{ $dismantler->hsn }}</td>
+                                        <td>{{ $dismantler->tsn }}</td>
+                                        <td>{{ $dismantler->manufacturer_plaintext }}</td>
+                                        <td>{{ $dismantler->commercial_name }}</td>
+                                        <td>
+                                            <form action="{{ route('test.delete', [$ditoNumber, $dismantler]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,7 +93,7 @@
                                     <th>{{ $dismantler->id }}</th>
                                     <td>{{ $dismantler->hsn }}</td>
                                     <td>{{ $dismantler->tsn }}</td>
-                                    <td>{{ $dismantler->manifacturer_plaintext }}</td>
+                                    <td>{{ $dismantler->manufacturer_plaintext }}</td>
                                     <td>{{ $dismantler->commercial_name }}</td>
                                     <td>{{ $dismantler->date_of_allotment_of_type_code_number }}</td>
                                     <td>{{ $dismantler->max_net_power_in_kw }}</td>

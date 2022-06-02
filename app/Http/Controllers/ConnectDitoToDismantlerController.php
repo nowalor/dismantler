@@ -18,6 +18,18 @@ class ConnectDitoToDismantlerController extends Controller
             'german_dismantler_id' => $dismantlerId,
         ]);
 
-        return 'works';
+        return redirect()->back();
+    }
+
+    public function delete(DitoNumber $ditoNumber, GermanDismantler $germanDismantler)
+    {
+        DitoNumberGermanDismantler::where(
+            [
+                ['dito_number_id', '=',$ditoNumber->id],
+                ['german_dismantler_id', '=',$germanDismantler->id],
+            ]
+        )->delete();
+
+        return redirect()->back();
     }
 }

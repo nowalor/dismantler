@@ -35,4 +35,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
 
     Route::post('dito-numbers/{ditoNumberId}/{dismantlerId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
+    Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
 });

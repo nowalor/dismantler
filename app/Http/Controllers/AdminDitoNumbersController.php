@@ -49,7 +49,9 @@ class AdminDitoNumbersController extends Controller
     {
         $germanDismantlers = GermanDismantler::paginate(100);
 
-        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers'));
+        $relatedDismantlers = $ditoNumber->germanDismantlers;
+
+        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers'));
     }
 
     /**
