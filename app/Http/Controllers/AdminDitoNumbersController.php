@@ -40,12 +40,6 @@ class AdminDitoNumbersController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DitoNumber  $ditoNumber
-     * @return \Illuminate\Http\Response
-     */
     public function show(DitoNumber $ditoNumber, Request $request)
     {
         $germanDismantlers;
