@@ -40,32 +40,34 @@ class AdminDitoNumbersController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DitoNumber  $ditoNumber
-     * @return \Illuminate\Http\Response
-     */
     public function show(DitoNumber $ditoNumber, Request $request)
     {
         $germanDismantlers;
         $search = $request->input('search');
 
         if($search) {
+
              $germanDismantlers = GermanDismantler::whereDoesntHave(
-                    'ditoNumbers',
-                    fn($query) => $query->where('id', $ditoNumber->id)
+                    'ditoNumbers', function($query) use($ditoNumber, $search){
+                        $query->where('id', $ditoNumber->id);
+
+                    }
                 )
-                ->where('manufacturer_plaintext', 'like', '%' . $search . '%')
-                ->paginate(100)
-                ->withQueryString();
+                    ->where(function($innerQuery) use($search) {
+                         $innerQuery->where('manufacturer_plaintext', 'like', '%' . $search . '%');
+                         $innerQuery->orWhere('commercial_name', 'like', '%' . $search . '%');
+                         $innerQuery->orWhere('make', 'like', '%' . $search . '%');
+                         $innerQuery->orWhere('date_of_allotment_of_type_code_number', 'like', '%' . $search . '%');
+                    })
+                    ->paginate(100)
+                    ->withQueryString();
         } else {
-              $germanDismantlers = GermanDismantler::whereDoesntHave(
-                'ditoNumbers',
-                fn($query) => $query->where('id', $ditoNumber->id)
-                )
-              ->paginate(100)
-              ->withQueryString();
+                 $germanDismantlers = GermanDismantler::whereDoesntHave(
+                      'ditoNumbers',
+                      fn($query) => $query->where('id', $ditoNumber->id)
+                 )
+                  ->paginate(100)
+                  ->withQueryString();
         }
 
         $relatedDismantlers = $ditoNumber->germanDismantlers;
