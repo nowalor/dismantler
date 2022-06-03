@@ -72,7 +72,13 @@
 
         <div class="col-12 mx-auto pt-4">
             <div class="card">
-                <div class="card-header">Select German Dismantler</div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    Select German Dismantler
+                    <form class="d-flex" method="GET" action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
