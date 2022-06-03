@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row col-12 pt-4">
-            <div class="col-6">
+            <div class="col-4">
                 <div class="card">
                     <div class="card-header">
                         Selected Dito number
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-8">
                 <div class="card">
                     <div class="card-header">
                         Already selected
@@ -41,6 +41,7 @@
                                 <th>HSN</th>
                                 <th>TSN</th>
                                 <th>Plaintext</th>
+                                <th>Make</th>
                                 <th>Commercial name</th>
                                 <th>Actions</th>
                             </tr>
@@ -52,6 +53,7 @@
                                     <td>{{ $dismantler->hsn }}</td>
                                     <td>{{ $dismantler->tsn }}</td>
                                     <td>{{ $dismantler->manufacturer_plaintext }}</td>
+                                    <td>{{ $dismantler->make ?? 'null'  }}</td>
                                     <td>{{ $dismantler->commercial_name }}</td>
                                     <td>
                                         <form action="{{ route('test.delete', [$ditoNumber, $dismantler]) }}"
@@ -75,7 +77,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     Select German Dismantler
                     <form class="d-flex" method="GET" action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ request()->input('search') }}">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
@@ -87,6 +89,7 @@
                             <th>HSN</th>
                             <th>TSN</th>
                             <th>Plaintext</th>
+                            <th>Make</th>
                             <th>Commercial name</th>
                             <th>Date</th>
                             <th>Max net</th>
@@ -101,6 +104,7 @@
                                 <td>{{ $dismantler->hsn }}</td>
                                 <td>{{ $dismantler->tsn }}</td>
                                 <td>{{ $dismantler->manufacturer_plaintext }}</td>
+                                <td>{{ $dismantler->make ?? 'null' }}</td>
                                 <td>{{ $dismantler->commercial_name }}</td>
                                 <td>{{ $dismantler->date_of_allotment_of_type_code_number }}</td>
                                 <td>{{ $dismantler->max_net_power_in_kw }}</td>
