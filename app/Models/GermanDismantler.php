@@ -29,8 +29,8 @@ class GermanDismantler extends Model
         'technically_permissible_maximum_mass_in_kg',
     ];
 
-    public function ditoNumbers()
-    {
-        return $this->hasMany(DitoNumber::class);
-    }
+  public function ditoNumbers()
+  {
+      return $this->belongsToMany(DitoNumber::class);
+  }
 }

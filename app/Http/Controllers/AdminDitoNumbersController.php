@@ -52,13 +52,20 @@ class AdminDitoNumbersController extends Controller
         $search = $request->input('search');
 
         if($search) {
-            $germanDismantlers = GermanDismantler::where('manufacturer_plaintext', 'like', '%' . $search . '%')
+             $germanDismantlers = GermanDismantler::whereDoesntHave(
+                    'ditoNumbers',
+                    fn($query) => $query->where('id', $ditoNumber->id)
+                )
+                ->where('manufacturer_plaintext', 'like', '%' . $search . '%')
                 ->paginate(100)
                 ->withQueryString();
-
         } else {
-            $germanDismantlers = GermanDismantler::paginate(100)
-                ->withQueryString();
+              $germanDismantlers = GermanDismantler::whereDoesntHave(
+                'ditoNumbers',
+                fn($query) => $query->where('id', $ditoNumber->id)
+                )
+              ->paginate(100)
+              ->withQueryString();
         }
 
         $relatedDismantlers = $ditoNumber->germanDismantlers;
