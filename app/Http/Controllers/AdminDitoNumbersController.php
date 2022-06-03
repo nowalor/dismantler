@@ -46,16 +46,19 @@ class AdminDitoNumbersController extends Controller
         $search = $request->input('search');
 
         if($search) {
+
              $germanDismantlers = GermanDismantler::whereDoesntHave(
                     'ditoNumbers', function($query) use($ditoNumber, $search){
                         $query->where('id', $ditoNumber->id);
 
                     }
-                )->where(function($innerQuery) use($search) {
-                     $innerQuery->where('manufacturer_plaintext', 'like', '%' . $search . '%');
-                     $innerQuery->orWhere('commercial_name', 'like', '%' . $search . '%');
-                     $innerQuery->orWhere('date_of_allotment_of_type_code_number', 'like', '%' . $search . '%');
-                })
+                )
+                    ->where(function($innerQuery) use($search) {
+                         $innerQuery->where('manufacturer_plaintext', 'like', '%' . $search . '%');
+                         $innerQuery->orWhere('commercial_name', 'like', '%' . $search . '%');
+                         $innerQuery->orWhere('make', 'like', '%' . $search . '%');
+                         $innerQuery->orWhere('date_of_allotment_of_type_code_number', 'like', '%' . $search . '%');
+                    })
                     ->paginate(100)
                     ->withQueryString();
         } else {
