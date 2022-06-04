@@ -18,7 +18,7 @@ class ConnectDitoToDismantlerController extends Controller
             'german_dismantler_id' => $dismantlerId,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Connection saved to database');
     }
 
     public function delete(DitoNumber $ditoNumber, GermanDismantler $germanDismantler)
@@ -30,6 +30,6 @@ class ConnectDitoToDismantlerController extends Controller
             ]
         )->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('removed', 'Connection removed from database');
     }
 }

@@ -2,11 +2,26 @@
 @section('title', $ditoNumber->name)
 @section('content')
     <div class="container">
+        @if(session()->has('success'))
+            <div class="alert alert-success mt-4 pt-2 col-6"">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+        @if(session()->has('removed'))
+            <div class="alert alert-danger mt-4 pt-2 col-6"">
+                {{ session()->get('removed') }}
+            </div>
+        @endif
         <div class="row col-12 pt-4">
             <div class="col-4">
                 <div class="card">
-                    <div class="card-header">
-                        Selected Dito number
+                    <div class="card-header d-flex justify-content-between">
+                        Selected Dito numbers
+                        <div>
+                            <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id - 1) }}" class="btn btn-primary btn-sm"><-Prev</a>
+                            <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id + 1) }}" class="btn btn-primary btn-sm">Next-></a>
+                            <a href="{{ route('admin.index') }}" class="btn btn-success btn-sm">All</a>
+                        </div>
                     </div>
                     <div class="card-body" style="height: 340px;">
                         <blockquote class="blockquote mb-0">
