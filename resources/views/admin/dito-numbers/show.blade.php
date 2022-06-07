@@ -8,7 +8,7 @@
             </div>
         @endif
         @if(session()->has('removed'))
-            <div class="alert alert-danger mt-4 pt-2 col-6"">
+            <div class="alert alert-danger mt-4 pt-2 col-6">
                 {{ session()->get('removed') }}
             </div>
         @endif
@@ -45,8 +45,14 @@
             </div>
             <div class="col-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         Already selected
+                        <form action="{{ route('admin.dito-numbers.update', $ditoNumber) }}" method="POST" onsubmit="return confirm('Are you sure?')">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="is_selection_completed" value="1"/>
+                            <button class="btn btn-primary btn-sm">Selection completed ☑️</button>
+                        </form>
                     </div>
                     <div class="card-body" style=" max-height: 340px; overflow-y: scroll;">
                         <table class="table">
@@ -87,14 +93,52 @@
             </div>
         </div>
 
+
+    <div class="col-12 pt-4">
+        <div class="card">
+            <div class="card-header">Filters</div>
+            <div class="card-body d-flex">
+                <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}">
+                    <div class="d-flex gap-2">
+                        <div>
+                            <label>Plaintext</label>
+                            <select name="plaintext" class="form-select">
+                                <option selected disabled>Plaintext</option>
+                                @foreach($plaintexts as $option)
+                                    <option @if(request()->input('plaintext') == $option->name) selected @endif value="{{ $option->name }}">{{ $option->name }}</option>
+                                @endforeach
+                               >
+                            </select>
+                        </div>
+                        <div>
+                            <label>Commercial name</label>
+                            <select name="commercial_name" class="form-select">
+                                <option disabled selected>Commercial name</option>
+                                @foreach($commercialNames as $option)
+                                    <option @if(request()->input('commercial_name') == $option->name) selected @endif value="{{ $option->name }}">{{ $option->name }}</option>
+                                @endforeach
+                                >
+                            </select>
+                        </div>
+                        <div>
+                            <label >Search</label>
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ request()->input('search') }}">
+                        </div>
+                    </div>
+
+                    <div class="pt-4 d-flex gap-2">
+                        <button class="btn btn-primary">Submit</button>
+                        <a href="{{ route('admin.dito-numbers.show', $ditoNumber) }}" class="btn btn-warning text-white">Clear filters</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
         <div class="col-12 mx-auto pt-4">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     Select German Dismantler
-                    <form class="d-flex" method="GET" action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ request()->input('search') }}">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
                 <div class="card-body">
                     <table class="table">
