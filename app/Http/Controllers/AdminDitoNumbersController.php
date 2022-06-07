@@ -88,12 +88,13 @@ class AdminDitoNumbersController extends Controller
 
     public function update(Request $request, DitoNumber $ditoNumber)
     {
-        if($request->input('is_selection_completed')) {
-            $ditoNumber->is_selection_completed = true;
+
+        if($request->has('is_selection_completed')) {
+            $ditoNumber->is_selection_completed = $request->input('is_selection_completed');
         }
 
-         if($request->input('is_not_interesting')) {
-            $ditoNumber->is_not_interesting = true;
+         if($request->has('is_not_interesting')) {
+            $ditoNumber->is_not_interesting = $request->input('is_not_interesting');
         }
 
         if($ditoNumber->isDirty()) {
