@@ -32,6 +32,7 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('', AdminHomepageController::class)->name('admin.index');
+    Route::post('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
     Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
 
     Route::post('dito-numbers/{ditoNumberId}/{dismantlerId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');

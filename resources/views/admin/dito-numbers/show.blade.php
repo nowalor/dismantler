@@ -92,16 +92,19 @@
         <div class="card">
             <div class="card-header">Filters</div>
             <div class="card-body d-flex">
-                <form action="#" method="POST">
+                <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}" method="POST">
                     @csrf
-                    <select class="form-select">
+                    <select name="plaintext" class="form-select">
                         <option disabled selected>Plaintext</option>
                         @foreach($plaintexts as $option)
-                            <option value="{{ $option }}">{{ $option->name }}</option>
+                            <option value="{{ $option->name }}">{{ $option->name }}</option>
                         @endforeach
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                       >
                     </select>
+
+                    <div class="pt-4">
+                        <button class="btn btn-primary w-100">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

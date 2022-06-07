@@ -43,36 +43,48 @@ class AdminDitoNumbersController extends Controller
 
     public function show(DitoNumber $ditoNumber, Request $request)
     {
-        $germanDismantlers;
         $search = $request->input('search');
 
         $plaintexts = ManufacturerText::all();
 
-        if($search) {
-            $germanDismantlers = GermanDismantler::whereDoesntHave(
-                    'ditoNumbers', function($query) use($ditoNumber, $search){
-                        $query->where('id', $ditoNumber->id);
+      $germanDismantlers = GermanDismantler::whereDoesntHave(
+                  'ditoNumbers',
+                  fn($query) => $query->where('id', $ditoNumber->id)
+             );
 
-                    }
-                )
-                    ->where(function($innerQuery) use($search) {
-                         $innerQuery->where('manufacturer_plaintext', 'like', '%' . $search . '%');
-                         $innerQuery->orWhere('commercial_name', 'like', '%' . $search . '%');
-                         $innerQuery->orWhere('make', 'like', '%' . $search . '%');
-                         $innerQuery->orWhere('date_of_allotment_of_type_code_number', 'like', '%' . $search . '%');
-                    })
-                    ->paginate(100)
-                    ->withQueryString();
-        } else {
-                 $germanDismantlers = GermanDismantler::whereDoesntHave(
-                      'ditoNumbers',
-                      fn($query) => $query->where('id', $ditoNumber->id)
-                 )
-                  ->paginate(100)
-                  ->withQueryString();
+        if($search) {
+            $germanDismantlers = $germanDismantlers
+                ->where(function($innerQuery) use($search) {
+                     $innerQuery->where('manufacturer_plaintext', 'like', '%' . $search . '%');
+                     $innerQuery->orWhere('commercial_name', 'like', '%' . $search . '%');
+                     $innerQuery->orWhere('make', 'like', '%' . $search . '%');
+                     $innerQuery->orWhere('date_of_allotment_of_type_code_number', 'like', '%' . $search . '%');
+                });
         }
 
         $relatedDismantlers = $ditoNumber->germanDismantlers;
+
+        $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
+
+        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts'));
+    }
+
+    public function filter(DitoNumber $ditoNumber, Request $request)
+    {
+        $germanDismantlers = GermanDismantler::whereDoesntHave(
+            'ditoNumbers',
+            fn($query) => $query->where('id', $ditoNumber->id)
+        );
+
+        $plaintexts = ManufacturerText::all();
+
+        $relatedDismantlers = $ditoNumber->germanDismantlers;
+
+        if($request->input('plaintext')) {
+            $germanDismantlers->where('manufacturer_plaintext', $request->input('plaintext'));
+        }
+
+        $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
 
         return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts'));
     }
