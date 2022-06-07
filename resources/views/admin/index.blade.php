@@ -4,7 +4,13 @@
     <div class="container">
         <div class="col-md-12 mx-auto pt-2">
             <div class="card">
-                <div class="card-header">Dito numbers</div>
+                <div class="card-header d-flex justify-content-between">
+                    Dito numbers
+                    <form class="d-flex" method="GET" action="{{ route('admin.index') }}">
+                        <input class="form-control me-2" type="search" placeholder="Search" name="search" value="{{ request()->input('search') }}">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
