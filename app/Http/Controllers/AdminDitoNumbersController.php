@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DitoNumber;
 use App\Models\GermanDismantler;
+use App\Models\ManufacturerText;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -45,9 +46,10 @@ class AdminDitoNumbersController extends Controller
         $germanDismantlers;
         $search = $request->input('search');
 
-        if($search) {
+        $plaintexts = ManufacturerText::all();
 
-             $germanDismantlers = GermanDismantler::whereDoesntHave(
+        if($search) {
+            $germanDismantlers = GermanDismantler::whereDoesntHave(
                     'ditoNumbers', function($query) use($ditoNumber, $search){
                         $query->where('id', $ditoNumber->id);
 
@@ -72,7 +74,7 @@ class AdminDitoNumbersController extends Controller
 
         $relatedDismantlers = $ditoNumber->germanDismantlers;
 
-        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers'));
+        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts'));
     }
 
     /**

@@ -87,6 +87,26 @@
             </div>
         </div>
 
+
+    <div class="col-12 pt-4">
+        <div class="card">
+            <div class="card-header">Filters</div>
+            <div class="card-body d-flex">
+                <form action="#" method="POST">
+                    @csrf
+                    <select class="form-select">
+                        <option disabled selected>Plaintext</option>
+                        @foreach($plaintexts as $option)
+                            <option value="{{ $option }}">{{ $option->name }}</option>
+                        @endforeach
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+    </div>
+
         <div class="col-12 mx-auto pt-4">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
