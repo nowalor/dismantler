@@ -1,9 +1,13 @@
 @extends('app')
 @section('title', 'Title')
 @section('content')
-    <div class="container">
-        <div class="col-md-12 mx-auto pt-2">
-            <div class="card">
+    <div class="container mt-2">
+        <div class="flex gap-1" style="margin: 1rem 0;">
+            <button class="btn sm btn-primary">Uninteresting</button>
+            <button class="btn sm btn-warning text-white">Selection completed</button>
+        </div>
+        <div class="col-md-12 mx-auto">
+            <div class="card pt-2">
                 <div class="card-header d-flex justify-content-between">
                     Dito numbers
                     <form class="d-flex" method="GET" action="{{ route('admin.index') }}">
@@ -20,7 +24,6 @@
                                 <th>Brand</th>
                                 <th>Production date</th>
                                 <th>Dito number</th>
-                                <th>Has relations</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -32,7 +35,6 @@
                                     <td>{{ $ditoNumber->brand }}</td>
                                     <td>{{ $ditoNumber->production_date }}</td>
                                     <td>{{ $ditoNumber->dito_number }}</td>
-                                    <td>false</td>
                                     <td class="d-flex gap-1">
                                         <a href="{{ route('admin.dito-numbers.show', $ditoNumber) }}" class="btn btn-primary btn-sm">View</a>
                                         <form method="POST" action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
