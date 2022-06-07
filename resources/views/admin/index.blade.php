@@ -3,8 +3,10 @@
 @section('content')
     <div class="container mt-2">
         <div class="flex gap-1" style="margin: 1rem 0;">
-            <button class="btn sm btn-primary">Uninteresting</button>
-            <button class="btn sm btn-warning text-white">Selection completed</button>
+            <a href="{{ route('admin.index') }}" class="btn sm btn-info text-white">All relevant</a>
+
+            <a href="{{ route('admin.index', ['filter' => 'uninteresting']) }}" class="btn sm btn-primary">Uninteresting</a>
+            <a href="{{ route('admin.index', ['filter' => 'completed']) }}" class="btn sm btn-warning text-white">Selection completed</a>
         </div>
         <div class="col-md-12 mx-auto">
             <div class="card pt-2">

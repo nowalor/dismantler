@@ -10,7 +10,15 @@ class AdminHomepageController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $ditoNumbers = DitoNumber::where('is_selection_completed', 0)->where('is_not_interesting', 0);
+        $ditoNumbers;
+
+        if($request->query('filter') == 'uninteresting') {
+            $ditoNumbers = DitoNumber::where('is_not_interesting', 1);
+        } else if($request->query('filter') == 'completed') {
+            $ditoNumbers = DitoNumber::where('is_selection_completed', 1);
+        } else {
+            $ditoNumbers = DitoNumber::where('is_selection_completed', 0)->where('is_not_interesting', 0);
+        }
 
         if($request->input('search') ) {
             $ditoNumber = $ditoNumbers
@@ -20,7 +28,7 @@ class AdminHomepageController extends Controller
                 });
         }
 
-        $ditoNumbers = $ditoNumbers->paginate(50);
+        $ditoNumbers = $ditoNumbers->paginate(50)->withQueryString();
         return view('admin.index', compact('ditoNumbers'));
     }
 }
