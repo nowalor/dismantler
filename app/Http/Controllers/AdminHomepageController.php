@@ -10,7 +10,7 @@ class AdminHomepageController extends Controller
 {
     public function __invoke()
     {
-        $ditoNumbers = DitoNumber::paginate(50);
+        $ditoNumbers = DitoNumber::where('is_selection_completed', 0)->paginate(50);
 
         return view('admin.index', compact('ditoNumbers'));
     }
