@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminHomepageController;
 use App\Http\Controllers\AdminDitoNumbersController;
 use App\Http\Controllers\ConnectDitoToDismantlerController;
+use App\Http\Controllers\GermanDismantlerController;
 
 /*
 |--------------------------------------------------------------------------

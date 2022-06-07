@@ -88,7 +88,15 @@ class AdminDitoNumbersController extends Controller
 
     public function update(Request $request, DitoNumber $ditoNumber)
     {
-        //
+        if($request->input('is_selection_completed')) {
+            $ditoNumber->is_selection_completed = true;
+        }
+
+        if($ditoNumber->isDirty()) {
+            $ditoNumber->save();
+        }
+
+        return redirect()->route('admin.index');
     }
 
     public function destroy(DitoNumber $ditoNumber)

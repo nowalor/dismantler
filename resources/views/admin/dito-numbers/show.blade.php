@@ -45,8 +45,14 @@
             </div>
             <div class="col-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         Already selected
+                        <form action="{{ route('admin.dito-numbers.update', $ditoNumber) }}" method="POST" onsubmit="return confirm('Are you sure?')">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="is_selection_completed" value="1"/>
+                            <button class="btn btn-primary btn-sm">Selection completed ☑️</button>
+                        </form>
                     </div>
                     <div class="card-body" style=" max-height: 340px; overflow-y: scroll;">
                         <table class="table">
