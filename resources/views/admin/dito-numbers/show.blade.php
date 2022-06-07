@@ -8,7 +8,7 @@
             </div>
         @endif
         @if(session()->has('removed'))
-            <div class="alert alert-danger mt-4 pt-2 col-6"">
+            <div class="alert alert-danger mt-4 pt-2 col-6">
                 {{ session()->get('removed') }}
             </div>
         @endif
