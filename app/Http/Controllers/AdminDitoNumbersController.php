@@ -92,6 +92,10 @@ class AdminDitoNumbersController extends Controller
             $ditoNumber->is_selection_completed = true;
         }
 
+         if($request->input('is_not_interesting')) {
+            $ditoNumber->is_not_interesting = true;
+        }
+
         if($ditoNumber->isDirty()) {
             $ditoNumber->save();
         }

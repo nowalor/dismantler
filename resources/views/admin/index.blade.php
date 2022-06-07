@@ -33,8 +33,14 @@
                                     <td>{{ $ditoNumber->production_date }}</td>
                                     <td>{{ $ditoNumber->dito_number }}</td>
                                     <td>false</td>
-                                    <td>
+                                    <td class="d-flex gap-1">
                                         <a href="{{ route('admin.dito-numbers.show', $ditoNumber) }}" class="btn btn-primary btn-sm">View</a>
+                                        <form method="POST" action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
+                                            @csrf
+                                            @method('PATCH')
+                                            <input type="hidden" name="is_not_interesting" value="1"/>
+                                            <button class="btn btn-primary btn-warning text-white btn-sm">Remove</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

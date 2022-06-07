@@ -10,7 +10,7 @@ class AdminHomepageController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $ditoNumbers = DitoNumber::where('is_selection_completed', 0);
+        $ditoNumbers = DitoNumber::where('is_selection_completed', 0)->where('is_not_interesting', 0);
 
         if($request->input('search') ) {
             $ditoNumber = $ditoNumbers
