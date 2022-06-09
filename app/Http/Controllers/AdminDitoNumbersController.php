@@ -51,6 +51,11 @@ class AdminDitoNumbersController extends Controller
             fn($query) => $query->where('id', $ditoNumber->id)
         );
 
+        if($request->has('date_from')) {
+            return 'date from: ' . $request->input('date_from') . ' date to: ' .
+                $request->input('date_to');
+        }
+
         $plaintexts = ManufacturerText::all();
         $commercialNames = CommercialName::all();
 
@@ -76,9 +81,9 @@ class AdminDitoNumbersController extends Controller
 
         $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
 
-        return  view('admin.dito-numbers.show',
+        /* return view('admin.dito-numbers.show',
             compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
-        );
+        ); */
     }
 
     public function edit(DitoNumber $ditoNumber)
