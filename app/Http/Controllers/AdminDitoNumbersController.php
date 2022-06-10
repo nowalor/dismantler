@@ -8,6 +8,7 @@ use App\Models\ManufacturerText;
 use App\Models\CommercialName;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 
 class AdminDitoNumbersController extends Controller
 {
@@ -51,9 +52,17 @@ class AdminDitoNumbersController extends Controller
             fn($query) => $query->where('id', $ditoNumber->id)
         );
 
+        if($request->has('sort_by')) {
+            $germanDismantlers->orderBy($request->input('sort_by'));
+        }
+
+
         if($request->has('date_from')) {
-            return 'date from: ' . $request->input('date_from') . ' date to: ' .
-                $request->input('date_to');
+            $fromDate = Carbon::parse($request->input('date_from'));
+            $toDate = Carbon::parse($request->input('date_to'));
+            $germanDismantlers
+                ->where('date_of_allotment_of_type_code_number', '>=', $fromDate)
+                ->where('date_of_allotment_of_type_code_number', '<=', $toDate);
         }
 
         $plaintexts = ManufacturerText::all();
@@ -81,9 +90,9 @@ class AdminDitoNumbersController extends Controller
 
         $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
 
-        /* return view('admin.dito-numbers.show',
+        return view('admin.dito-numbers.show',
             compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
-        ); */
+        );
     }
 
     public function edit(DitoNumber $ditoNumber)

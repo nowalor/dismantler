@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
+use \Illuminate\Database\Eloquent\Casts\Attribute;
 
 class GermanDismantler extends Model
 {
@@ -32,5 +34,12 @@ class GermanDismantler extends Model
   public function ditoNumbers()
   {
       return $this->belongsToMany(DitoNumber::class);
+  }
+
+  public function dateOfAllotmentOfTypeCodeNumber (): Attribute
+  {
+    return Attribute::make(
+        set: fn ($value) => Carbon::parse($value),
+    );
   }
 }
