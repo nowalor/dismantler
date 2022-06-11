@@ -176,15 +176,20 @@
             Sort by:
             <div class="d-flex gap-2">
                 <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
-                    <input type="hidden" name="sort_by" value="manufacturer_plaintext">
+
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'plaintext') btn-primary @else btn-light @endif">
                         Plaintext
                     </button>
                 </form>
 
-                <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
+                <form action="{{ request()->getRequestUri()  }}">
                     <input type="hidden" name="sort_by" value="make">
+
+                    <!-- Store existing values in form request-->
+                    <input type="hidden" name="plaintext" value="{{ request()->input('plaintext') }}">
+
+
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'make') btn-primary @else btn-light @endif">
                         Make

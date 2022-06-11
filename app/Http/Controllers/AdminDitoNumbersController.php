@@ -70,6 +70,7 @@ class AdminDitoNumbersController extends Controller
                }
 
                $germanDismantlers = $germanDismantlers->paginate(250)->withQueryString();
+               $request->flash();
 
                return view('admin.dito-numbers.show',
                    compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
