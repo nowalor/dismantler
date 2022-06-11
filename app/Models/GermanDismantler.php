@@ -29,6 +29,7 @@ class GermanDismantler extends Model
         'max_number_of_powered_axles',
         'max_number_of_seats',
         'technically_permissible_maximum_mass_in_kg',
+        'date_of_allotment',
     ];
 
   public function ditoNumbers()

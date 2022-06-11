@@ -105,30 +105,28 @@
                         <div class="d-flex gap-2">
                             <div>
                                 <label>Plaintext</label>
-                                <select name="plaintext" class="form-select">
-                                    <option selected disabled>Plaintext</option>
+                                <input value="{{ request()->input('plaintext') }}" list="plaintext-list" name="plaintext" class="form-select">
+                                <datalist id="plaintext-list">
                                     @foreach($plaintexts as $option)
                                         <option @if(request()->input('plaintext') == $option->name) selected
-                                                @endif value="{{ $option->name }}">{{ $option->name }}</option>
+                                                @endif value="{{ $option->name }}">{{ $option->name }}
+                                        </option>
                                     @endforeach
-                                    >
-                                </select>
+                                </datalist>
                             </div>
                             <div>
                                 <label>Commercial name</label>
-                                <select name="commercial_name" class="form-select">
-                                    <option disabled selected>Commercial name</option>
+                                <input name="commercial_name"  value="{{ request()->input('commercial_name') }}" list="commercial-name-list" name="commercial_name" class="form-select">
+                                <datalist>
                                     @foreach($commercialNames as $option)
                                         <option @if(request()->input('commercial_name') == $option->name) selected
                                                 @endif value="{{ $option->name }}">{{ $option->name }}</option>
                                     @endforeach
-                                    >
-                                </select>
+                                </datalist>
                             </div>
                             <div>
-                                <label>Search</label>
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                                       name="search" value="{{ request()->input('search') }}">
+                                <label>Make</label>
+                                <input type="text" name="make" value="{{ request()->input('make') }}" class="form-control">
                             </div>
                         </div>
 
@@ -190,9 +188,9 @@
                 </form>
 
                 <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}">
-                    <input type="hidden" name="sort_by" value="date_of_allotment_of_type_code_number">
+                    <input type="hidden" name="sort_by" value="date_of_allotment">
                     <button
-                        class="btn btn-sm @if(request()->input('sort_by') === 'date_of_allotment_of_type_code_number') btn-primary @else btn-light @endif">
+                        class="btn btn-sm @if(request()->input('sort_by') === 'date_of_allotment') btn-primary @else btn-light @endif">
                         Date
                     </button>
                 </form>
@@ -247,6 +245,7 @@
                                         <button class="btn btn-primary btn-sm">Select</button>
                                     </form>
                                 </td>
+                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                             </tr>
                         @endforeach
                         </tbody>
