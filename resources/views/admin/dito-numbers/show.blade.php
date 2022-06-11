@@ -176,6 +176,14 @@
             Sort by:
             <div class="d-flex gap-2">
                 <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
+                    <input type="hidden" name="sort_by" value="manufacturer_plaintext">
+
+                    <!-- Store existing values in form request-->
+                    <input type="hidden" name="plaintext" value="{{ request()->input('plaintext') }}">
+                    <input type="hidden" name="commercial_name" value="{{ request()->input('commercial_name') }}">
+                    <input type="hidden" name="make" value="{{ request()->input('make') }}">
+                    <input type="hidden" name="date_from" value="{{ request()->input('date_from') }}">
+                    <input type="hidden" name="date_to" value="{{ request()->input('date_to') }}">
 
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'plaintext') btn-primary @else btn-light @endif">
@@ -188,7 +196,10 @@
 
                     <!-- Store existing values in form request-->
                     <input type="hidden" name="plaintext" value="{{ request()->input('plaintext') }}">
-
+                    <input type="hidden" name="commercial_name" value="{{ request()->input('commercial_name') }}">
+                    <input type="hidden" name="make" value="{{ request()->input('make') }}">
+                    <input type="hidden" name="date_from" value="{{ request()->input('date_from') }}">
+                    <input type="hidden" name="date_to" value="{{ request()->input('date_to') }}">
 
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'make') btn-primary @else btn-light @endif">
@@ -198,6 +209,14 @@
 
                 <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
                     <input type="hidden" name="sort_by" value="date_of_allotment">
+
+                    <!-- Store existing values in form request-->
+                    <input type="hidden" name="plaintext" value="{{ request()->input('plaintext') }}">
+                    <input type="hidden" name="commercial_name" value="{{ request()->input('commercial_name') }}">
+                    <input type="hidden" name="make" value="{{ request()->input('make') }}">
+                    <input type="hidden" name="date_from" value="{{ request()->input('date_from') }}">
+                    <input type="hidden" name="date_to" value="{{ request()->input('date_to') }}">
+
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'date_of_allotment') btn-primary @else btn-light @endif">
                         Date
@@ -206,6 +225,14 @@
 
                 <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
                     <input type="hidden" name="sort_by" value="commercial_name">
+
+                    <!-- Store existing values in form request-->
+                    <input type="hidden" name="plaintext" value="{{ request()->input('plaintext') }}">
+                    <input type="hidden" name="commercial_name" value="{{ request()->input('commercial_name') }}">
+                    <input type="hidden" name="make" value="{{ request()->input('make') }}">
+                    <input type="hidden" name="date_from" value="{{ request()->input('date_from') }}">
+                    <input type="hidden" name="date_to" value="{{ request()->input('date_to') }}">
+
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'commercial_name') btn-primary @else btn-light @endif">
                         Commercial name
