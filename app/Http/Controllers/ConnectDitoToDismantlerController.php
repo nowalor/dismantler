@@ -10,13 +10,14 @@ use App\Models\DitoNumber;
 
 class ConnectDitoToDismantlerController extends Controller
 {
-    public function connect($ditoNumberId, $dismantlerId)
+    public function connect($ditoNumberId, Request $request)
     {
-
-        DitoNumberGermanDismantler::create([
-            'dito_number_id' => $ditoNumberId,
-            'german_dismantler_id' => $dismantlerId,
-        ]);
+        foreach($request->get('dismantler-checkbox') as $dismantlerId) {
+            DitoNumberGermanDismantler::create([
+                        'dito_number_id' => $ditoNumberId,
+                        'german_dismantler_id' => $dismantlerId,
+                    ]);
+        }
 
         return redirect()->back()->with('success', 'Connection saved to database');
     }

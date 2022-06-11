@@ -8,6 +8,7 @@ use App\Models\ManufacturerText;
 use App\Models\CommercialName;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 
 class AdminDitoNumbersController extends Controller
 {
@@ -29,56 +30,51 @@ class AdminDitoNumbersController extends Controller
 
     public function show(DitoNumber $ditoNumber, Request $request)
     {
-        $plaintexts = ManufacturerText::all();
-        $commercialNames = CommercialName::all();
-
         $germanDismantlers = GermanDismantler::whereDoesntHave(
-              'ditoNumbers',
-              fn($query) => $query->where('id', $ditoNumber->id)
-         );
+                   'ditoNumbers',
+                   fn($query) => $query->where('id', $ditoNumber->id)
+               );
 
-        $relatedDismantlers = $ditoNumber->germanDismantlers;
+               if($request->filled('sort_by')) {
+                   $germanDismantlers->orderBy($request->input('sort_by'));
+               }
 
-        $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
+               if($request->filled('date_from')) {
+                   $fromDate = Carbon::parse($request->input('date_from'));
+                   $germanDismantlers
+                       ->where('date_of_allotment', '>=', $fromDate);
 
-        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames'));
-    }
+               }
 
-    public function filter(DitoNumber $ditoNumber, Request $request)
-    {
-        $germanDismantlers = GermanDismantler::whereDoesntHave(
-            'ditoNumbers',
-            fn($query) => $query->where('id', $ditoNumber->id)
-        );
+               if($request->filled('date_to')) {
+                   $toDate = Carbon::parse($request->input('date_to'));
+                   $germanDismantlers
+                       ->where('date_of_allotment', '<=', $toDate);
+              }
 
-        $plaintexts = ManufacturerText::all();
-        $commercialNames = CommercialName::all();
+               $plaintexts = ManufacturerText::all();
+               $commercialNames = CommercialName::all();
 
-        $relatedDismantlers = $ditoNumber->germanDismantlers;
+               $relatedDismantlers = $ditoNumber->germanDismantlers;
 
-        if($request->input('plaintext')) {
-            $germanDismantlers->where('manufacturer_plaintext', $request->input('plaintext'));
-        }
+               if($request->filled('plaintext')) {
+                   $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
+               }
 
-        if($request->input('commercial_name')) {
-            $germanDismantlers->where('commercial_name', $request->input('commercial_name'));
-        }
+               if($request->filled('commercial_name')) {
+                   $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%');
+               }
 
-        if($request->input('search')) {
-            $germanDismantlers = $germanDismantlers
-                ->where(function($innerQuery) use($request) {
-                     $innerQuery->where('manufacturer_plaintext', 'like', '%' . $request->input('search') . '%');
-                     $innerQuery->orWhere('commercial_name', 'like', '%' . $request->input('search') . '%');
-                     $innerQuery->orWhere('make', 'like', '%' . $request->input('search') . '%');
-                     $innerQuery->orWhere('date_of_allotment_of_type_code_number', 'like', '%' . $request->input('search'). '%');
-                });
-        }
+               if($request->filled('make')) {
+                   $germanDismantlers->where('make', 'like', '%'  . $request->input('make') . '%');
+               }
 
-        $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
+               $germanDismantlers = $germanDismantlers->paginate(250)->withQueryString();
+               $request->flash();
 
-        return  view('admin.dito-numbers.show',
-            compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
-        );
+               return view('admin.dito-numbers.show',
+                   compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
+               );
     }
 
     public function edit(DitoNumber $ditoNumber)
@@ -89,11 +85,11 @@ class AdminDitoNumbersController extends Controller
     public function update(Request $request, DitoNumber $ditoNumber)
     {
 
-        if($request->has('is_selection_completed')) {
+        if($request->filled('is_selection_completed')) {
             $ditoNumber->is_selection_completed = $request->input('is_selection_completed');
         }
 
-         if($request->has('is_not_interesting')) {
+         if($request->filled('is_not_interesting')) {
             $ditoNumber->is_not_interesting = $request->input('is_not_interesting');
         }
 
