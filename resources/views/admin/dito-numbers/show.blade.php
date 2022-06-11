@@ -101,11 +101,12 @@
             <div class="card">
                 <div class="card-header">Filters</div>
                 <div class="card-body d-flex">
-                    <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}">
+                    <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
                         <div class="d-flex gap-2">
                             <div>
                                 <label>Plaintext</label>
-                                <input value="{{ request()->input('plaintext') }}" list="plaintext-list" name="plaintext" class="form-select">
+                                <input value="{{ request()->input('plaintext') }}" list="plaintext-list"
+                                       name="plaintext" class="form-select">
                                 <datalist id="plaintext-list">
                                     @foreach($plaintexts as $option)
                                         <option @if(request()->input('plaintext') == $option->name) selected
@@ -116,7 +117,8 @@
                             </div>
                             <div>
                                 <label>Commercial name</label>
-                                <input name="commercial_name"  value="{{ request()->input('commercial_name') }}" list="commercial-name-list" name="commercial_name" class="form-select">
+                                <input name="commercial_name" value="{{ request()->input('commercial_name') }}"
+                                       list="commercial-name-list" name="commercial_name" class="form-select">
                                 <datalist>
                                     @foreach($commercialNames as $option)
                                         <option @if(request()->input('commercial_name') == $option->name) selected
@@ -126,7 +128,8 @@
                             </div>
                             <div>
                                 <label>Make</label>
-                                <input type="text" name="make" value="{{ request()->input('make') }}" class="form-control">
+                                <input type="text" name="make" value="{{ request()->input('make') }}"
+                                       class="form-control">
                             </div>
                         </div>
 
@@ -147,7 +150,8 @@
                             <div>
                                 <label for="date">Date to:</label>
                                 <div class="input-group date" id="datepicker">
-                                    <input name="date_to" type="text" class="form-control">
+                                    <input name="date_to" type="text" class="form-control"
+                                           value="{{ request()->input('date_to') }}">
                                     <span class="input-group-append">
                                     <span class="input-group-text bg-white d-block">
                                         <i class="fa fa-calendar"></i>
@@ -171,15 +175,15 @@
         <div class="col-12 pt-4">
             Sort by:
             <div class="d-flex gap-2">
-                <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}">
-                    <input type="hidden" name="sort_by" value="plaintext">
+                <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
+                    <input type="hidden" name="sort_by" value="manufacturer_plaintext">
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'plaintext') btn-primary @else btn-light @endif">
                         Plaintext
                     </button>
                 </form>
 
-                <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}">
+                <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
                     <input type="hidden" name="sort_by" value="make">
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'make') btn-primary @else btn-light @endif">
@@ -187,7 +191,7 @@
                     </button>
                 </form>
 
-                <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}">
+                <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
                     <input type="hidden" name="sort_by" value="date_of_allotment">
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'date_of_allotment') btn-primary @else btn-light @endif">
@@ -195,7 +199,7 @@
                     </button>
                 </form>
 
-                <form action="{{ route('admin.dito-numbers.filter', $ditoNumber) }}">
+                <form action="{{ route('admin.dito-numbers.show', $ditoNumber) }}">
                     <input type="hidden" name="sort_by" value="commercial_name">
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'commercial_name') btn-primary @else btn-light @endif">
@@ -211,45 +215,50 @@
                     Select German Dismantler
                 </div>
                 <div class="card-body">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>HSN</th>
-                            <th>TSN</th>
-                            <th>Plaintext</th>
-                            <th>Make</th>
-                            <th>Commercial name</th>
-                            <th>Date</th>
-                            <th>Max net</th>
-                            <th>Engine</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($germanDismantlers as $dismantler)
+                    <form method="POST"
+                          action="{{ route('test.store', ['ditoNumberId' => $ditoNumber->id, 'dismantlerId' => $dismantler->id]) }}">
+                        @csrf
+
+                        <table class="table">
+                            <thead>
                             <tr>
-                                <th>{{ $dismantler->id }}</th>
-                                <td>{{ $dismantler->hsn }}</td>
-                                <td>{{ $dismantler->tsn }}</td>
-                                <td>{{ $dismantler->manufacturer_plaintext }}</td>
-                                <td>{{ $dismantler->make ?? 'null' }}</td>
-                                <td>{{ $dismantler->commercial_name }}</td>
-                                <td>{{ $dismantler->date_of_allotment_of_type_code_number }}</td>
-                                <td>{{ $dismantler->max_net_power_in_kw }}</td>
-                                <td>{{ $dismantler->engine_capacity_in_cm }}</td>
-                                <td>
-                                    <form method="POST"
-                                          action="{{ route('test.store', ['ditoNumberId' => $ditoNumber->id, 'dismantlerId' => $dismantler->id]) }}">
-                                        @csrf
-                                        <button class="btn btn-primary btn-sm">Select</button>
-                                    </form>
-                                </td>
-                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                <th>#</th>
+                                <th>HSN</th>
+                                <th>TSN</th>
+                                <th>Plaintext</th>
+                                <th>Make</th>
+                                <th>Commercial name</th>
+                                <th>Date</th>
+                                <th>Max net</th>
+                                <th>Engine</th>
+                                <th>
+                                    <button class="btn btn-primary btn-sm">Save selected</button>
+                                </th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            @foreach($germanDismantlers as $dismantler)
+                                <tr>
+                                    <th>{{ $dismantler->id }}</th>
+                                    <td>{{ $dismantler->hsn }}</td>
+                                    <td>{{ $dismantler->tsn }}</td>
+                                    <td>{{ $dismantler->manufacturer_plaintext }}</td>
+                                    <td>{{ $dismantler->make ?? 'null' }}</td>
+                                    <td>{{ $dismantler->commercial_name }}</td>
+                                    <td>{{ $dismantler->date_of_allotment_of_type_code_number }}</td>
+                                    <td>{{ $dismantler->max_net_power_in_kw }}</td>
+                                    <td>{{ $dismantler->engine_capacity_in_cm }}</td>
+                                    <td>
+                                        <label id="dismantler-checkbox">Select</label>
+                                        <input name="dismantler-checkbox[]" class="form-check-input" type="checkbox"
+                                               id="dismantler-checkbox" value="{{ $dismantler->id }}"
+                                        >
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </form>
                     {{ $germanDismantlers->links() }}
                 </div>
             </div>

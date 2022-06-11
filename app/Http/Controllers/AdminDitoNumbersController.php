@@ -30,68 +30,50 @@ class AdminDitoNumbersController extends Controller
 
     public function show(DitoNumber $ditoNumber, Request $request)
     {
-        $plaintexts = ManufacturerText::all();
-        $commercialNames = CommercialName::all();
-
         $germanDismantlers = GermanDismantler::whereDoesntHave(
-              'ditoNumbers',
-              fn($query) => $query->where('id', $ditoNumber->id)
-         );
+                   'ditoNumbers',
+                   fn($query) => $query->where('id', $ditoNumber->id)
+               );
 
-        $relatedDismantlers = $ditoNumber->germanDismantlers;
+               if($request->filled('sort_by')) {
+                   $germanDismantlers->orderBy($request->input('sort_by'));
+               }
 
-        $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
+               if($request->filled('date_from')) {
+                   $fromDate = Carbon::parse($request->input('date_from'));
+                   $germanDismantlers
+                       ->where('date_of_allotment', '>=', $fromDate);
 
-        return view('admin.dito-numbers.show', compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames'));
-    }
+               }
 
-    public function filter(DitoNumber $ditoNumber, Request $request)
-    {
-        $germanDismantlers = GermanDismantler::whereDoesntHave(
-            'ditoNumbers',
-            fn($query) => $query->where('id', $ditoNumber->id)
-        );
+               if($request->filled('date_to')) {
+                   $toDate = Carbon::parse($request->input('date_to'));
+                   $germanDismantlers
+                       ->where('date_of_allotment', '<=', $toDate);
+              }
 
-        if($request->filled('sort_by')) {
-            $germanDismantlers->orderBy($request->input('sort_by'));
-        }
+               $plaintexts = ManufacturerText::all();
+               $commercialNames = CommercialName::all();
 
+               $relatedDismantlers = $ditoNumber->germanDismantlers;
 
-        if($request->filled('date_from')) {
-            $fromDate = Carbon::parse($request->input('date_from'));
-            $germanDismantlers
-                ->where('date_of_allotment', '>=', $fromDate);
+               if($request->filled('plaintext')) {
+                   $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
+               }
 
-        }
+               if($request->filled('commercial_name')) {
+                   $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%');
+               }
 
-        if($request->filled('date_to')) {
-            $toDate = Carbon::parse($request->input('date_to'));
-            $germanDismantlers
-                ->where('date_of_allotment', '<=', $toDate);
-       }
+               if($request->filled('make')) {
+                   $germanDismantlers->where('make', 'like', '%'  . $request->input('make') . '%');
+               }
 
-        $plaintexts = ManufacturerText::all();
-        $commercialNames = CommercialName::all();
+               $germanDismantlers = $germanDismantlers->paginate(250)->withQueryString();
 
-        $relatedDismantlers = $ditoNumber->germanDismantlers;
-
-        if($request->input('plaintext')) {
-            $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
-        }
-
-        if($request->input('commercial_name')) {
-            $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%');
-        }
-
-        if($request->input('make')) {
-            $germanDismantlers->where('make', 'like', '%'  . $request->input('make') . '%');
-        }
-
-        $germanDismantlers = $germanDismantlers->paginate(100)->withQueryString();
-
-        return view('admin.dito-numbers.show',
-            compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
-        );
+               return view('admin.dito-numbers.show',
+                   compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
+               );
     }
 
     public function edit(DitoNumber $ditoNumber)
