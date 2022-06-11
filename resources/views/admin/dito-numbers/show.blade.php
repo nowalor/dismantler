@@ -248,7 +248,7 @@
                 </div>
                 <div class="card-body">
                     <form method="POST"
-                          action="{{ route('test.store', ['ditoNumberId' => $ditoNumber->id, 'dismantlerId' => $dismantler->id]) }}">
+                          action="{{ route('test.store', $ditoNumber->id) }}">
                         @csrf
 
                         <table class="table">
