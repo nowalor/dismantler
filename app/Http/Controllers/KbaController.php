@@ -46,9 +46,9 @@ class KbaController extends Controller
      * @param  \App\Models\GermanDismantler  $germanDismantler
      * @return \Illuminate\Http\Response
      */
-    public function show(GermanDismantler $germanDismantler)
+    public function show(GermanDismantler $kba)
     {
-        //
+        return view('admin.kba.show', compact('kba'));
     }
 
     /**
