@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GermanDismantler;
+use App\Models\EngineType;
 use Illuminate\Http\Request;
 
 class KbaController extends Controller
@@ -46,9 +47,17 @@ class KbaController extends Controller
      * @param  \App\Models\GermanDismantler  $germanDismantler
      * @return \Illuminate\Http\Response
      */
-    public function show(GermanDismantler $kba)
+    public function show(GermanDismantler $kba, Request $request)
     {
-        return view('admin.kba.show', compact('kba'));
+        $engineTypes;
+
+        if($request->filled('search')) {
+            $engineTypes = EngineType::where('name', 'like', '%' . $request->input('search') . '%')->get();
+        } else {
+            $engineTypes = EngineType::all();
+        }
+
+        return view('admin.kba.show', compact('kba', 'engineTypes'));
     }
 
     /**
