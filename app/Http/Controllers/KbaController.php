@@ -50,6 +50,10 @@ class KbaController extends Controller
                ->where('date_of_allotment', '<=', $toDate);
       }
 
+      if($request->filled('sort_by')) {
+            $germanDismantlers->orderBy($request->input('sort_by'));
+        }
+
       $germanDismantlers = $germanDismantlers->paginate(250);
 
       return view('admin.kba.index', compact('germanDismantlers', 'plaintexts', 'commercialNames'));
