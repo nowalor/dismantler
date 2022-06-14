@@ -59,19 +59,23 @@ class KbaController extends Controller
             ['german_dismantler_id', $kba->id],
         ])->delete();
 
-        return redirect()->back()->with('connection-deleted', 'Connection saved successfully');
+        return redirect()->back()->with('connection-deleted', 'Connection deleted');
     }
 
 
     public function show(GermanDismantler $kba, Request $request)
     {
-        $engineTypes;
+        $engineTypes = EngineType::whereDoesntHave(
+            'germanDismantlers',
+            fn($query) => $query->where('id', $kba->id)
+            );
+
         $relatedEngineTypes = $kba->engineTypes;
 
         if($request->filled('search')) {
             $engineTypes = EngineType::where('name', 'like', '%' . $request->input('search') . '%')->get();
         } else {
-            $engineTypes = EngineType::all();
+            $engineTypes = $engineTypes->get();
         }
 
         return view('admin.kba.show', compact('kba', 'engineTypes', 'relatedEngineTypes'));

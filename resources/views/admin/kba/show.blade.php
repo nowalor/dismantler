@@ -3,6 +3,16 @@
 
 @section('content')
     <div class="container pt-2">
+        @if(session()->has('connection-saved'))
+            <div class="alert alert-success">
+                {{ session()->get('connection-saved') }}
+            </div>
+        @endif
+        @if(session()->has('connection-deleted'))
+            <div class="alert alert-danger">
+                {{ session()->get('connection-deleted') }}
+            </div>
+        @endif
         <div class="card">
             <div class="card-header">
                 Selected Kba
