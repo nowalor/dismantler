@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Filters</div>
                 <div class="card-body d-flex">
-                    <form action="{{ route('admin.dito-numbers.index') }}">
+                    <form action="{{ route('admin.kba.index') }}">
                         <div class="d-flex gap-2">
                             <div>
                                 <label>Plaintext</label>
@@ -119,8 +119,18 @@
 
                         </tbody>
                     </table>
+                    {{ $germanDismantlers->links() }}
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        $(function () {
+            $('#datepicker').datepicker();
+            $('#datepicker2').datepicker();
+        });
+    </script>
 @endsection
