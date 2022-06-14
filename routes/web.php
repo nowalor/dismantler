@@ -33,7 +33,7 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('', AdminHomepageController::class)->name('admin.index');
+    Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
     Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
     Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
     Route::post('kba/storeConnection/{kba}', [KbaController::class, 'storeConnectionToEngineType'])

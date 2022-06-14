@@ -22,7 +22,7 @@
                                class="btn btn-primary btn-sm"><-Prev</a>
                             <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id + 1) }}"
                                class="btn btn-primary btn-sm">Next-></a>
-                            <a href="{{ route('admin.index') }}" class="btn btn-success btn-sm">All</a>
+                            <a href="{{ route('admin.dito-numbers.index') }}" class="btn btn-success btn-sm">All</a>
                         </div>
                     </div>
                     <div class="card-body" style="height: 340px;">

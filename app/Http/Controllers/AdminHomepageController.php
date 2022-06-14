@@ -10,6 +10,6 @@ class AdminHomepageController extends Controller
 {
     public function __invoke(Request $request)
     {
-        return 'homepage';
+        return view('admin.index');
     }
 }

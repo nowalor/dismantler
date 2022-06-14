@@ -34,7 +34,7 @@ class AdminDitoNumbersController extends Controller
                 }
 
                 $ditoNumbers = $ditoNumbers->paginate(50)->withQueryString();
-                return view('admin.index', compact('ditoNumbers'));
+                return view('admin.dito-numbers.index', compact('ditoNumbers'));
 
     }
 
@@ -117,7 +117,7 @@ class AdminDitoNumbersController extends Controller
             $ditoNumber->save();
         }
 
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.dito-numbers.index');
     }
 
     public function destroy(DitoNumber $ditoNumber)
