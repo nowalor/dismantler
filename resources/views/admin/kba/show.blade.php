@@ -36,6 +36,20 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="mt-2">
+                    Selected engine types:
+                    <div class="d-flex gap-1">
+                        @foreach($relatedEngineTypes as $engineType)
+                            <form action="{{ route('admin.kba.delete-connection', $kba) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="engine_type_id" value="{{ $engineType->id }}">
+                                <button class="btn btn-danger btn-sm">
+                                    {{ $engineType->name }}
+                                </button>
+                            </form>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -44,14 +58,19 @@
             <div class="card-header d-flex justify-content-between">
                 Select engine types
                 <form action="{{ route('admin.kba.show', $kba) }}" class="d-flex gap-1">
-                    <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request()->input('search') }}">
+                    <input type="text" class="form-control" placeholder="Search" name="search"
+                           value="{{ request()->input('search') }}">
                     <button class="btn btn-primary">Search</button>
                 </form>
             </div>
             <div class="card-body">
                 <div class="d-flex gap-1 flex-wrap">
                     @foreach($engineTypes as $engineType)
-                        <div class="btn btn-sm btn-primary">{{ $engineType->name }}</div>
+                        <form action="{{ route('admin.kba.store-connection', $kba) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="engine-type-id" value="{{ $engineType->id }}"/>
+                            <button class="btn btn-sm btn-primary">{{ $engineType->name }}</button>
+                        </form>
                     @endforeach
                 </div>
             </div>

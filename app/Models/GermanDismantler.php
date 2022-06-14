@@ -37,6 +37,11 @@ class GermanDismantler extends Model
       return $this->belongsToMany(DitoNumber::class);
   }
 
+  public function engineTypes()
+  {
+    return $this->belongsToMany(EngineType::class);
+  }
+
   public function dateOfAllotmentOfTypeCodeNumber (): Attribute
   {
     return Attribute::make(

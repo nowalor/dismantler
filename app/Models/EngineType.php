@@ -12,4 +12,9 @@ class EngineType extends Model
     public $timestamps = false;
 
     protected $fillable = ['name'];
+
+    public function germanDismantlers()
+    {
+        return $this->belongsToMany(GermanDismantler::class);
+    }
 }
