@@ -1,7 +1,7 @@
 @extends('app')
 @section('title', 'Title')
 @section('content')
-    <div class="container">
+    <div class="container pt-2">
         <div class="flex gap-2">
             <a href="{{ route( 'admin.index') }}" class="btn sm btn-info">All relevant</a>
             <a href="{{ route( 'admin.index' , ['filter' => 'uninteresting']) }}" class="btn sm btn-primary">Uninteresting</a>

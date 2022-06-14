@@ -3,6 +3,81 @@
 
 @section('content')
     <div class="container">
+        <div class="col-12 pt-4">
+            <div class="card">
+                <div class="card-header">Filters</div>
+                <div class="card-body d-flex">
+                    <form action="{{ route('admin.dito-numbers.index') }}">
+                        <div class="d-flex gap-2">
+                            <div>
+                                <label>Plaintext</label>
+                                <input value="{{ request()->input('plaintext') }}" list="plaintext-list"
+                                       name="plaintext" class="form-select">
+                                <datalist id="plaintext-list">
+                                    @foreach($plaintexts as $option)
+                                        <option @if(request()->input('plaintext') == $option->name) selected
+                                                @endif value="{{ $option->name }}">{{ $option->name }}
+                                        </option>
+                                    @endforeach
+                                </datalist>
+                            </div>
+                            <div>
+                                <label>Commercial name</label>
+                                <input name="commercial_name" value="{{ request()->input('commercial_name') }}"
+                                       list="commercial-name-list" name="commercial_name" class="form-select">
+                                <datalist>
+                                    @foreach($commercialNames as $option)
+                                        <option @if(request()->input('commercial_name') == $option->name) selected
+                                                @endif value="{{ $option->name }}">{{ $option->name }}</option>
+                                    @endforeach
+                                </datalist>
+                            </div>
+                            <div>
+                                <label>Make</label>
+                                <input type="text" name="make" value="{{ request()->input('make') }}"
+                                       class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="pt-4 d-flex gap-2">
+                            <div>
+                                <label for="date">Date from</label>
+                                <div class="input-group date" id="datepicker2">
+                                    <input name="date_from" type="text" class="form-control"
+                                           value="{{ request()->input('date_from') }}">
+                                    <span class="input-group-append">
+                                    <span class="input-group-text bg-white d-block">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="date">Date to:</label>
+                                <div class="input-group date" id="datepicker">
+                                    <input name="date_to" type="text" class="form-control"
+                                           value="{{ request()->input('date_to') }}">
+                                    <span class="input-group-append">
+                                    <span class="input-group-text bg-white d-block">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="pt-4 d-flex gap-2">
+                            <button class="btn btn-primary">Submit</button>
+                            <a href="{{ route('admin.dito-numbers.index') }}"
+                               class="btn btn-warning text-white">Clear filters</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">KBA</div>
@@ -25,7 +100,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($dismantlers as $dismantler)
+                        @foreach($germanDismantlers as $dismantler)
                             <tr>
                                 <th>{{ $dismantler->id }}</th>
                                 <td>{{ $dismantler->hsn }}</td>

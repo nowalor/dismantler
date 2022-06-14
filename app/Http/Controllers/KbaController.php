@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\GermanDismantler;
 use App\Models\EngineType;
+use App\Models\CommercialName;
+use App\Models\ManufacturerText;
 use Illuminate\Http\Request;
 use App\Models\EngineTypeGermanDismantler;
 
@@ -14,11 +16,42 @@ class KbaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $dismantlers = GermanDismantler::paginate(250);
+        $germanDismantlers = GermanDismantler::query();
 
-        return view('admin.kba.index', compact('dismantlers'));
+        $plaintexts = ManufacturerText::all();
+        $commercialNames = CommercialName::all();
+
+        if($request->filled('plaintext')) {
+
+           $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
+        }
+
+       if($request->filled('commercial_name')) {
+           $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%');
+       }
+
+       if($request->filled('make')) {
+           $germanDismantlers->where('make', 'like', '%'  . $request->input('make') . '%');
+       }
+
+        if($request->filled('date_from')) {
+           $fromDate = Carbon::parse($request->input('date_from'));
+           $germanDismantlers
+               ->where('date_of_allotment', '>=', $fromDate);
+
+       }
+
+       if($request->filled('date_to')) {
+           $toDate = Carbon::parse($request->input('date_to'));
+           $germanDismantlers
+               ->where('date_of_allotment', '<=', $toDate);
+      }
+
+      $germanDismantlers = $germanDismantlers->paginate(250);
+
+      return view('admin.kba.index', compact('germanDismantlers', 'plaintexts', 'commercialNames'));
     }
 
     /**
