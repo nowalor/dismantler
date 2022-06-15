@@ -19559,20 +19559,90 @@ class EngineTypeGermanDismantlerSeeder extends Seeder
 
                 foreach($data as $obj) {
                     $dismantler = GermanDismantler::where([
-                        ['hsn', strval($obj['hsn'])],
-                        ['tsn', strval($obj['tsn'])],
-                    ])->get();
+                        ['hsn', $obj['hsn']],
+                        ['tsn', (string) $obj['tsn']],
+                    ])->first();
 
-                    if(!empty($obj['type_1'])) {
-                        $type = EngineType::where('name', $obj['type_1'])->first();
-                        Log::info(isset($type->id));
-                        if(isset($type->id)) {
-                                            EngineTypeGermanDismantler::create([
-                                                'engine_type_id' => $type->id,
-                                                'german_dismantler_id' => $dismantler->id,
-                                            ]);
+                    if($dismantler) {
+                        if(!empty($obj['type_1']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_1'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
                         }
 
+                        if(!empty($obj['type_2']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_2'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
+                        }
+
+                        if(!empty($obj['type_3']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_3'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
+                        }
+
+                        if(!empty($obj['type_4']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_4'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
+                        }
+
+                        if(!empty($obj['type_5']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_5'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
+                        }
+
+                        if(!empty($obj['type_6']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_6'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
+                        }
+
+                        if(!empty($obj['type_7']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_7'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
+                        }
+
+                        if(!empty($obj['type_8']) && $dismantler) {
+                            $type = EngineType::where('name', $obj['type_8'])->first();
+                            if(isset($type['id'])) {
+                                EngineTypeGermanDismantler::create([
+                                    'engine_type_id' => $type->id,
+                                    'german_dismantler_id' => $dismantler->id,
+                                ]);
+                            }
+                        }
                     }
                 }
     }
