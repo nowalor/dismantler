@@ -32,8 +32,8 @@ class RemoveDuplicateGermanDismantlerCommand extends Command
         $dismantlers = GermanDismantler::all();
 
         foreach($dismantlers as $dismantler) {
-            $uniqueDismantler = GermanDismantler::where('hsn', '0005')
-                ->where('tsn', '438');
+            $uniqueDismantler = GermanDismantler::where('hsn', $dismantler->hsn)
+                ->where('tsn', $dismantler->tsn);
             if($uniqueDismantler->get()->count() > 1) {
                 DitoNumberGermanDismantler::where('german_dismantler_id', $uniqueDismantler->first()->id)
                     ->delete();
