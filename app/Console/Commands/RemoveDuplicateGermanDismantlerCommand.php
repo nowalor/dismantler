@@ -39,6 +39,7 @@ class RemoveDuplicateGermanDismantlerCommand extends Command
         $dismantlerDupes = $dismantlers->diff($dismantlersUnique);
 
         foreach($dismantlerDupes as $dismantler) {
+            Log::info('deleting duplicate');
             $dismantlerToDelete = GermanDismantler::where('hsn', $dismantler->hsn)
                 ->where('tsn', $dismantler->tsn);
 
