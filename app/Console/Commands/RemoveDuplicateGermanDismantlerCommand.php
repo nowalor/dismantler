@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\GermanDismantler;
 use App\Models\DitoNumberGermanDismantler;
+use Illuminate\Support\Facades\Log;
 
 class RemoveDuplicateGermanDismantlerCommand extends Command
 {
@@ -31,14 +32,20 @@ class RemoveDuplicateGermanDismantlerCommand extends Command
     {
         $dismantlers = GermanDismantler::all();
 
-        foreach($dismantlers as $dismantler) {
-            $uniqueDismantler = GermanDismantler::where('hsn', $dismantler->hsn)
+        $dismantlersUnique = $dismantlers->unique(function ($item) {
+           return $item['hsn'].$item['tsn'];
+       });
+
+        $dismantlerDupes = $dismantlers->diff($dismantlersUnique);
+
+        foreach($dismantlerDupes as $dismantler) {
+            $dismantlerToDelete = GermanDismantler::where('hsn', $dismantler->hsn)
                 ->where('tsn', $dismantler->tsn);
-            if($uniqueDismantler->get()->count() > 1) {
-                DitoNumberGermanDismantler::where('german_dismantler_id', $uniqueDismantler->first()->id)
-                    ->delete();
-                $uniqueDismantler->first()->delete();
-            }
+
+            DitoNumberGermanDismantler::where('german_dismantler_id', $dismantlerToDelete->first()->id)
+                ->delete();
+
+           $dismantlerToDelete->first()->delete();
         }
     }
 }
