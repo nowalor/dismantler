@@ -48,4 +48,11 @@ class GermanDismantler extends Model
         set: fn ($value) => Carbon::parse($value),
     );
   }
+
+  public function getCodeAttribute(): Attribute
+  {
+       return Attribute::make(
+              get: fn ($value) => $value->hsn . $value->tsn,
+              );
+      }
 }
