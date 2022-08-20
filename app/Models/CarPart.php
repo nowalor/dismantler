@@ -4,8 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CarPart extends Model
 {
     use HasFactory;
+
+    public function carPartImages(): HasMany
+    {
+        return $this->hasMany(CarPartImage::class);
+    }
+
+    public function carPartType(): BelongsTo
+    {
+        return $this->belongsTo(CarPartType::class);
+    }
+
+    public function dismantleCompany(): BelongsTo
+    {
+        return $this->belongsTo(DismantleCompany::class);
+    }
 }
