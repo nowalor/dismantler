@@ -10,7 +10,7 @@ class AdminCarPartController extends Controller
 
     public function index()
     {
-        $parts = CarPart::with('carPartImages')->get();
+        $parts = CarPart::with('carPartImages')->paginate(15);
 
         return view('admin.car-parts.index', compact('parts'));
     }
