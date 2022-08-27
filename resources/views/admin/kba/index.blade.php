@@ -20,6 +20,7 @@
                                         </option>
                                     @endforeach
                                 </datalist>
+                                .
                             </div>
                             <div>
                                 <label>Commercial name</label>
