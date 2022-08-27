@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.kba.index') }}">KBA</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.car-parts.index') }}">Parts</a>
+                </li>
             </ul>
         </div>
     </div>
