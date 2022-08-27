@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\DismantleCompany;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\View\Engines\EngineResolver;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +20,15 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ManufacturerPlaintextSeeder::class,
             CommericalNameSeeder::class,
+            KbaSeeder::class,
+            DitoNumberSeeder::class,
+            DitoNumberKbaSeeder::class,
+            EngineTypeSeeder::class,
+            EngineTypeGermanDismantlerSeeder::class,
+            DismantleCompanySeeder::class,
+            CarPartTypeSeeder::class,
+            CarPartSeeder::class,
+            CarPartImageSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

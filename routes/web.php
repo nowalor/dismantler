@@ -42,6 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
             ->name('admin.kba.delete-connection');
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
 
+    Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
+
     Route::post('dito-numbers/{ditoNumberId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
 });
