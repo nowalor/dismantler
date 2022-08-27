@@ -10,9 +10,29 @@ use Illuminate\Http\Request;
 class AdminCarPartController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $parts = CarPart::with('carPartImages')->paginate(15);
+        $parts = CarPart::query();
+
+        if ($request->filled('part-type')) {
+
+            $value = $request->input('part-type');
+
+            $parts = $parts->whereHas('carPartType', function ($query) use ($value) {
+                return $query->where('name', 'like', "%$value%");
+            });
+
+        }
+
+        if($request->filled('dismantle-company')) {
+            $value = $request->input('dismantle-company');
+
+            $parts = $parts->whereHas('dismantleCompany', function ($query) use ($value) {
+               return $query->where('name', 'like', "%$value%");
+            });
+        }
+
+        $parts = $parts->with('carPartImages')->paginate(15);
 
         $partTypes = CarPartType::all();
 
@@ -42,15 +62,9 @@ class AdminCarPartController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\CarPart  $carPart
-     * @return \Illuminate\Http\Response
-     */
     public function show(CarPart $carPart)
     {
-        //
+        return view('admin.car-parts.show', compact('carPart'));
     }
 
     /**

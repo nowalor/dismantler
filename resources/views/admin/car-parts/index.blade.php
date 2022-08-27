@@ -6,11 +6,11 @@
             <div class="card">
                 <h5 class="card-header">Filters</h5>
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{ route('admin.car-parts.index') }}">
                         <div class="d-flex gap-2">
                             <div>
                                 <label>Part type</label>
-                                <input value="{{ request()->input('plaintext') }}" list="part-type-list"
+                                <input value="{{ request()->input('part-type') }}" list="part-type-list"
                                        name="part-type" class="form-select">
                                 <datalist id="part-type-list">
                                     @foreach($partTypes as $partType)
@@ -23,7 +23,7 @@
 
                             <div>
                                 <label>Dismantle companies</label>
-                                <input value="{{ request()->input('plaintext') }}" list="dismantle-company-list"
+                                <input value="{{ request()->input('dismantle-company') }}" list="dismantle-company-list"
                                        name="dismantle-company" class="form-select">
                                 <datalist id="dismantle-company-list">
                                     @foreach($dismantleCompanies as $dismantleCompany)
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary mt-3">Submit</button>
-                        <button class="btn btn-warning text-white mt-3">Clear filters</button>
+                        <a href="{{ route('admin.car-parts.index') }}" class="btn btn-warning text-white mt-3">Clear filters</a>
                     </form>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         <div class="card-body">
 
                             <p>
-                                <span class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany->full_name }}
+                                <span class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany->name }}
                             </p>
                             <p>
                                 <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
