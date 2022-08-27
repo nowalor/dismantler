@@ -6,9 +6,9 @@
         <div class="col-12 d-flex flex-wrap">
             @foreach($parts as $part)
                 <div class="col-4">
-                    <div class="card">
-                        <h5 class="card-header">{{ $part->item_code }}</h5>
-                        <img style="height:400px; object-fit: cover;" class="card-img-bottom" src="{{ count($part->carPartImages) ? $part->carPartImages[0]->origin_url : ''}}" alt="Card image cap">
+                    <div class="card m-3">
+                        <h5 class="card-header">{{ $part->name }}</h5>
+                        <img style="height:400px;" class="card-img-bottom" src="{{ count($part->carPartImages) ? $part->carPartImages[0]->origin_url : asset('no-image-placeholder.jpg')}}" alt="Card image cap">
 
                     </div>
                 </div>
