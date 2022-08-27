@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarPart;
+use App\Models\CarPartType;
+use App\Models\DismantleCompany;
 use Illuminate\Http\Request;
 
 class AdminCarPartController extends Controller
@@ -12,7 +14,11 @@ class AdminCarPartController extends Controller
     {
         $parts = CarPart::with('carPartImages')->paginate(15);
 
-        return view('admin.car-parts.index', compact('parts'));
+        $partTypes = CarPartType::all();
+
+        $dismantleCompanies = DismantleCompany::all();
+
+        return view('admin.car-parts.index', compact('parts', 'partTypes', 'dismantleCompanies'));
     }
 
     /**
