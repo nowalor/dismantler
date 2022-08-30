@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,5 +25,19 @@ class CarPart extends Model
     public function dismantleCompany(): BelongsTo
     {
         return $this->belongsTo(DismantleCompany::class);
+    }
+
+    public function identifer(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this->dismantle_company_id . '_' . $this->item_number,
+        );
+    }
+
+    public function price(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->price1 ? $this->price1 : 'Ask for price',
+        );
     }
 }

@@ -19,13 +19,17 @@
                     </h5>
                     <div class="card-body">
                         <p>
+                            <span class="fw-bold">Id:</span> {{ $carPart->identifer }}
+                        </p>
+
+                        <p>
                             <span class="fw-bold">Dismantle company:</span> {{ $carPart->dismantleCompany->full_name }}
                         </p>
                         <p>
                             <span class="fw-bold">Part type:</span> {{ $carPart->carPartType->name }}
                         </p>
                         <p>
-                            <span class="fw-bold">Price:</span> {{ $carPart->price1 }}
+                            <span class="fw-bold">Price:</span> {{ $carPart->price }}
                         </p>
                         <p>
                             <span class="fw-bold">Quantity:</span> {{ $carPart->quantity }}
@@ -60,6 +64,9 @@
                         <p>
                             <span class="fw-bold">Color:</span> {{ $carPart->color}}
                         </p>
+
+
+
                     </div>
                 </div>
             </div>
