@@ -46,11 +46,7 @@
                         </p>
 
                         <p>
-                            <span class="fw-bold">Notes:</span> {{ $carPart->notes }}
-                        </p>
-
-                        <p>
-                            <span class="fw-bold">Kilo watt:</span> {{ $carPart->kilo_watt }}
+                            <span class="fw-bold">Kilo watt:</span> {{ $carPart->km }}
                         </p>
 
                         <p>
@@ -65,8 +61,39 @@
                             <span class="fw-bold">Color:</span> {{ $carPart->color}}
                         </p>
 
+                        <p>
+                            <span class="fw-bold">Vin number:</span> {{ $carPart->vin_number}}
+                        </p>
+
+                        <p>
+                            <span class="fw-bold">Engine code:</span> {{ $carPart->engine_code}}
+                        </p>
+
+                        <p>
+                            <span class="fw-bold">Engine type:</span> {{ $carPart->engine_type}}
+                        </p>
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-4 pb-4">
+            <div class="col-6">
+                <div class="card">
+                    <h3 class="card-header">Notes</h3>
+                    <div class="card-body">
+                        <div style=" white-space: pre-wrap;">{{ $carPart->notes }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <h3 class="card-header">Comments</h3>
+                    <div class="card-body">
+                        <div style=" white-space: pre-wrap;">{{ $carPart->comments }}</div>
                     </div>
                 </div>
             </div>

@@ -37,7 +37,14 @@ class CarPart extends Model
     public function price(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->price1 ? $this->price1 : 'Ask for price',
+            get: fn() => $this->price1 ? $this->price1 : 'Ask for price',
+        );
+    }
+
+    public function km(): Attribute
+    {
+        return Attribute::make(
+          get: fn() => $this->kilo_watt === '999' ? 'Unknown' : $this->kilo_watt * 1000 . ' km'
         );
     }
 }
