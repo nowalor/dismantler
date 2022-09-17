@@ -14,25 +14,31 @@ class CarPartController extends Controller
     public function index(Request $request)
     {
 
-        $parts = CarPart::where('car_part_type_id', 3574)
+        /* $parts = CarPart::where('car_part_type_id', 3574)
             ->with('carPartImages', fn($query) => $query->where('origin_url', 'like', '%part-image%'))
-            ->paginate(15);
+            ->paginate(15); */
+
+        $parts = CarPart::whereIn('car_part_type_id',
+            [3575, 3744, 3746, 3749, 3616, 3617, 3812]
+        );
 
         if($request->has('hsn') && $request->has('tsn')) {
             $kba = GermanDismantler::where('hsn', $request->input('hsn'))
                  ->where('tsn', $request->input('tsn'))
                  ->first();
 
-            return $kba;
+            $engineTypeNames = $kba->engineTypes->pluck('name');
 
-            $string = $kba->ditoNumbers[0]['producer'] . ' ' . $kba->ditoNumbers[0]['brand'];
+            $parts = CarPart::whereIn('engine_code', $engineTypeNames)
+                ->with('carPartImages')
+                ->paginate(15);
+
+            // return $parts;
+
+            // $string = $kba->ditoNumbers[0]['producer'] . ' ' . $kba->ditoNumbers[0]['brand'];
 
 
-            $parts = CarPart::where('name', 'like', "%$string%")->get();
-
-            return $parts;
-
-             return $kba->ditoNumbers;
+            // $parts = CarPart::where('name', 'like', "%$string%")->get();
         }
 
         $partTypes = CarPartType::all();
