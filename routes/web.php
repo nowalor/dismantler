@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
@@ -20,9 +21,7 @@ use App\Http\Controllers\KbaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomepageController::class);
 
 Route::get('dismantlers', [TestController::class, 'showSelectPage']);
 Route::get('dismantlers-german', [TestController::class, 'showGermanDismantlers'])->name('german.dismantlers');
@@ -30,6 +29,9 @@ Route::get('dismantlers-danish', [TestController::class, 'showDanishiDsmantlers'
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
 Route::post('login', [LoginController::class, 'login'])->name('login');
+
+// Regular routes
+Route::resource('car-parts', \App\Http\Controllers\CarPartController::class);
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {

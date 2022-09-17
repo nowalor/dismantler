@@ -12,7 +12,8 @@
 </head>
 <body>
 <!-- As a heading -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+@if(auth()->user() && auth()->user()->is_admin)
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">Admin</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +34,21 @@
         </div>
     </div>
 </nav>
+@endif
+
+<header class="sticky-top bg-dark">
+    <nav class="container d-flex justify-content-between py-2">
+        <h3 class="text-white logo">Logo</h3>
+        <ul class="nav">
+            <li class="nav-item d-flex">
+                <a href="/car-parts" class="nav-link text-white">Parts</a>
+                <a href="#" class="nav-link text-white">About us</a>
+                <a href="#" class="nav-link text-white">Contact us</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
 
 @yield('content')
     <script
@@ -43,4 +59,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     @yield('js')
 </body>
+<style>
+
+    .cta {
+        background-image: url(' {{asset('img/homepage-banner.jpg') }}');
+        background-size: cover;
+
+        height: 120vh;
+        width: 100%;
+        position: relative;
+    }
+    .cta::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+    }
+</style>
 </html>
