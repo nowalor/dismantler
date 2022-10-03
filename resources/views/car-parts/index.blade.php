@@ -35,79 +35,135 @@
                             </div>
                         </div>
                         <button class="btn btn-primary mt-3">Submit</button>
-                        <a href="{{ route('admin.car-parts.index') }}" class="btn btn-warning text-white mt-3">Clear filters</a>
+                        <a href="{{ route('admin.car-parts.index') }}" class="btn btn-warning text-white mt-3">Clear
+                            filters</a>
                     </form>
                 </div>
             </div>
         </div>
 
         <div class="col-12 mb-3">
-            <div class="card">
-                <h5 class="card-header">
-                    {{ $kba->manufacturer_plaintext }}
-                </h5>
-                <div class="card-body">
-                    <div class="display-flex">
+            @if($kba)
+                <div class="card">
+                    <h5 class="card-header">
+                        {{ $kba->carName }}
+                    </h5>
+                    <div class="card-body">
+                        <div class="display-flex">
+                            <p>
+                                <span class="fw-bold">HSN</span>
+                                {{ $kba->hsn }}
+                            </p>
+                            <p>
+                                <span class="fw-bold">TSN</span>
+                                {{ $kba->tsn }}
+                            </p>
+                        </div>
                         <p>
-                            <span class="fw-bold">HSN</span>
-                            {{ $kba->hsn }}
+                            <span class="fw-bold">Plaintext</span>
+                            {{ $kba->manufacturer_plaintext }}
                         </p>
                         <p>
-                            <span class="fw-bold">TSN</span>
-                            {{ $kba->tsn }}
+                            <span class="fw-bold">Commercial name</span>
+                            {{ $kba->commercial_name }}
                         </p>
+
+
                     </div>
-                    <p>
-                        <span class="fw-bold">Plaintext</span>
-                        {{ $kba->manufacturer_plaintext }}
-                    </p>
-                    <p>
-                        <span class="fw-bold">Commercial name</span>
-                        {{ $kba->commercial_name }}
-                    </p>
-
-
                 </div>
-            </div>
+            @endif
         </div>
-        <h2>Parts</h2>
-        <div class="col-12 d-flex flex-wrap">
-            @foreach($parts as $part)
-                <div class="col-4">
-                    <div class="card m-3">
-                        <p class="card-header">{{ $part->name }}</p>
-                        <img style="height:300px;" class="card-img-top shadow-sm"
-                             src="{{ count($part->carPartImages) ? $part->carPartImages[0]->origin_url : asset('no-image-placeholder.jpg')}}"
-                             alt="Card image cap">
-                        <div class="card-body">
 
-                            <p>
-                                <span class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany->name }}
-                            </p>
-                            <p>
-                                <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
-                            </p>
-                            <p>
-                                <span class="fw-bold">Price:</span> {{ $part->price1 }}
-                            </p>
-                            <p>
-                                <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
-                            </p>
-                            <p>
-                                <span class="fw-bold">Transmission type:</span> {{ $part->transmission_type}}
-                            </p>
-                            <p>
-                                <span class="fw-bold">Condition:</span> {{ $part->condition }}
-                            </p>
 
-                            <a href="{{ route('admin.car-parts.show', $part) }}" class="btn btn-primary w-100 mt-3">View
-                                part</a>
+        <div>
+            <h2>Parts</h2>
+            <div class="col-12 d-flex flex-wrap">
+                @foreach($parts as $part)
+                    <div class="col-4">
+                        <div class="card m-3">
+                            <p class="card-header">{{ $part->name }}</p>
+                            <img style="height:300px;" class="card-img-top shadow-sm"
+                                 src="{{ count($part->carPartImages) ? $part->carPartImages[0]->origin_url : asset('no-image-placeholder.jpg')}}"
+                                 alt="Card image cap">
+                            <div class="card-body">
+
+                                <p>
+                                    <span class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany->name }}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Price:</span> {{ $part->price1 }}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Transmission type:</span> {{ $part->transmission_type}}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Condition:</span> {{ $part->condition }}
+                                </p>
+
+                                <a href="{{ route('admin.car-parts.show', $part) }}" class="btn btn-primary w-100 mt-3">View
+                                    part</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            {{ $parts->withQueryString()->links() }}
         </div>
-        {{ $parts->links() }}
+        @if($partsDifferentCarSameEngineType)
+            <div>
+                <h2>Parts from other cars</h2>
+                <p class="leading">These are parts from other cars but with the same engine type. They might fit your
+                    car. If you are
+                    unsure you can <a class="link-primary" href="{{ route('contact') }}">Contact us </a>
+                </p>
+
+                <div class="col-12 d-flex flex-wrap">
+                    @foreach($partsDifferentCarSameEngineType as $part)
+                        <div class="col-4">
+                            <div class="card m-3">
+                                <p class="card-header">{{ $part->name }}</p>
+                                <img style="height:300px;" class="card-img-top shadow-sm"
+                                     src="{{ count($part->carPartImages) ? $part->carPartImages[0]->origin_url : asset('no-image-placeholder.jpg')}}"
+                                     alt="Card image cap">
+                                <div class="card-body">
+
+                                    <p>
+                                        <span
+                                            class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany->name }}
+                                    </p>
+                                    <p>
+                                        <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
+                                    </p>
+                                    <p>
+                                        <span class="fw-bold">Price:</span> {{ $part->price1 }}
+                                    </p>
+                                    <p>
+                                        <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
+                                    </p>
+                                    <p>
+                                        <span class="fw-bold">Transmission type:</span> {{ $part->transmission_type}}
+                                    </p>
+                                    <p>
+                                        <span class="fw-bold">Condition:</span> {{ $part->condition }}
+                                    </p>
+
+                                    <a href="{{ route('admin.car-parts.show', $part) }}"
+                                       class="btn btn-primary w-100 mt-3">View
+                                        part</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                {{ $partsDifferentCarSameEngineType->withQueryString()->links() }}
+            </div>
+        @endif
     </div>
 @endsection
 

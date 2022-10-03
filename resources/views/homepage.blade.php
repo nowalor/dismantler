@@ -5,10 +5,20 @@
     <div class="cta">
         <div class="card col-3 mx-auto" style="z-index:5; top:20vh;">
             <div class="card-body">
+                @error('hsn_or_tsn_missing')
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+                @enderror
                 <form action="{{ route('car-parts.index') }}">
                     <div class="mb-3">
-                        <label for="" class="form-label">Select car model</label>
-                        <input type="text" class="form-control">
+                        <label for="car_model" class="form-label">Select car model</label>
+                        <select class="form-select" name="brand" id="car_model">
+                            <option></option>
+                            @foreach($brands as $brand)
+                                <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="mb-3">
                         <div class="row">

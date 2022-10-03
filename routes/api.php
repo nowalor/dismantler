@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\DitoNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\GetUniqueManufacturerPlaintextController;
@@ -16,6 +17,12 @@ use App\Http\Controllers\API\GetUniqueManufacturerPlaintextController;
 */
 
 Route::get('api-test', \App\Http\Controllers\ApiTestController::class);
+
+Route::get('car-brands', function() {
+    $brands = DitoNumber::distinct('producer')->pluck('producer');
+
+    return $brands;
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
