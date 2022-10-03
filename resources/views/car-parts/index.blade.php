@@ -11,7 +11,7 @@
                             <div>
                                 <label>Part type</label>
                                 <input value="{{ request()->input('part-type') }}" list="part-type-list"
-                                       name="part-type" class="form-select">
+                                       name="index-part-type" class="form-select">
                                 <datalist id="part-type-list">
                                     @foreach($partTypes as $partType)
                                         <option @if(request()->input('plaintext') == $partType->name) selected
@@ -24,7 +24,7 @@
                             <div>
                                 <label>Dismantle companies</label>
                                 <input value="{{ request()->input('dismantle-company') }}" list="dismantle-company-list"
-                                       name="dismantle-company" class="form-select">
+                                       name="index-dismantle-company" class="form-select">
                                 <datalist id="dismantle-company-list">
                                     @foreach($dismantleCompanies as $dismantleCompany)
                                         <option @if(request()->input('plaintext') == $dismantleCompany->name) selected
@@ -37,6 +37,36 @@
                         <button class="btn btn-primary mt-3">Submit</button>
                         <a href="{{ route('admin.car-parts.index') }}" class="btn btn-warning text-white mt-3">Clear filters</a>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <div class="card">
+                <h5 class="card-header">
+                    {{ $kba->manufacturer_plaintext }}
+                </h5>
+                <div class="card-body">
+                    <div class="display-flex">
+                        <p>
+                            <span class="fw-bold">HSN</span>
+                            {{ $kba->hsn }}
+                        </p>
+                        <p>
+                            <span class="fw-bold">TSN</span>
+                            {{ $kba->tsn }}
+                        </p>
+                    </div>
+                    <p>
+                        <span class="fw-bold">Plaintext</span>
+                        {{ $kba->manufacturer_plaintext }}
+                    </p>
+                    <p>
+                        <span class="fw-bold">Commercial name</span>
+                        {{ $kba->commercial_name }}
+                    </p>
+
+
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@
 
                     <div class="mb-3">
                         <label for="hsn" class="form-label">Advanced search</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="advanced_search">
                     </div>
 
                     <div class="mb-3">
@@ -33,14 +33,14 @@
                         <div class="row">
                             <div class="row">
                                 <div class="col-6">
-                                    <input class="form-check-input" type="radio" >
+                                    <input class="form-check-input" type="radio" name="search_by" checked value="everything">
                                     <label class="form-check-label">
                                         Everything
                                     </label>
                                 </div>
 
                                 <div class="col-6">
-                                    <input class="form-check-input" type="radio" >
+                                    <input class="form-check-input" type="radio" name="search_by" value="engine_type">
                                     <label class="form-check-label">
                                         Engine type
                                     </label>

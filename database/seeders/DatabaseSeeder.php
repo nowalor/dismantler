@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\DismantleCompany;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\old\CarPartSeeder;
 use Illuminate\Database\Seeder;
-use Illuminate\View\Engines\EngineResolver;
 
 class DatabaseSeeder extends Seeder
 {

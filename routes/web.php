@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutUsPageController;
+use App\Http\Controllers\ContactPageController;
+use App\Http\Controllers\FaqPageController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -22,6 +25,9 @@ use App\Http\Controllers\KbaController;
 */
 
 Route::get('/', HomepageController::class);
+Route::get('/faq', FaqPageController::class)->name('faq');
+Route::get('/about-us', AboutUsPageController::class)->name('about-us');
+Route::get('/contact', ContactPageController::class)->name('contact');
 
 Route::get('dismantlers', [TestController::class, 'showSelectPage']);
 Route::get('dismantlers-german', [TestController::class, 'showGermanDismantlers'])->name('german.dismantlers');

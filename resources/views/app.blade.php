@@ -42,8 +42,9 @@
         <ul class="nav">
             <li class="nav-item d-flex">
                 <a href="/car-parts" class="nav-link text-white">Parts</a>
-                <a href="#" class="nav-link text-white">About us</a>
-                <a href="#" class="nav-link text-white">Contact us</a>
+                <a href="{{ route('about-us') }}" class="nav-link text-white">About us</a>
+                <a href="{{ route('faq') }}" class="nav-link text-white">Faq</a>
+                <a href="{{ route('contact') }}" class="nav-link text-white">Contact</a>
             </li>
         </ul>
     </nav>
