@@ -99,7 +99,7 @@ class CarPartController extends Controller
                     foreach ($namesFromDitoNumbers as $name) {
                         $query->orWhereNot('name', 'like', "%$name%");
                     }
-                })->paginate(2, pageName: 'parts_from_different_cars');
+                })->paginate(4, pageName: 'parts_from_different_cars');
         }
 
         $parts = $parts->paginate(2, pageName: 'parts');
@@ -139,15 +139,11 @@ class CarPartController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param CarPart $carPart
-     * @return Response
-     */
     public function show(CarPart $carPart)
     {
-        //
+        return view('car-parts.show', compact(
+            'carPart'
+        ));
     }
 
     /**
