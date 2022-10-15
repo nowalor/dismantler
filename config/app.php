@@ -123,6 +123,8 @@ return [
 
     'key' => env('APP_KEY'),
 
+    'egluit_api_key' => env('EGLUIT_API_KEY'),
+
     'cipher' => 'AES-256-CBC',
 
     /*

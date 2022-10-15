@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('producer');
             $table->string('brand')->nullable();
             $table->string('production_date')->nullable();
-            $table->integer('dito_number');
+            $table->integer('dito_number')->unique();
             $table->timestamps();
         });
     }

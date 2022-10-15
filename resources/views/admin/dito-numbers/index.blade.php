@@ -2,10 +2,45 @@
 @section('title', 'Title')
 @section('content')
     <div class="container pt-2">
+        <label class="fw-bold">Relevancy</label>
         <div class="flex gap-2">
-            <a href="{{ route( 'admin.dito-numbers.index') }}" class="btn sm btn-info">All relevant</a>
-            <a href="{{ route( 'admin.dito-numbers.index' , ['filter' => 'uninteresting']) }}" class="btn sm btn-primary">Uninteresting</a>
-            <a href="{{ route( 'admin.dito-numbers.index' , ['filter' => 'completed']) }}" class="btn sm btn-warning text-white">Selection completed</a>
+            <a href="{{ route( 'admin.dito-numbers.index') }}" class="btn sm btn-info">All</a>
+            <a href="{{ route( 'admin.dito-numbers.index', ['filter' => 'all_relevant']) }}" class="btn sm btn-info">All
+                relevant</a>
+            <a href="{{ route( 'admin.dito-numbers.index' , ['filter' => 'uninteresting']) }}"
+               class="btn sm btn-primary">Uninteresting</a>
+            <a href="{{ route( 'admin.dito-numbers.index' , ['filter' => 'completed']) }}"
+               class="btn sm btn-warning text-white">Selection completed</a>
+        </div>
+        <label class="fw-bold">Connection</label>
+        <div class="flex gap-2">
+            <a href="{{ route( 'admin.dito-numbers.index', ['kba_connection' => 'has']) }}"
+               class="btn sm btn-info text-white @if(request()->input('kba_connection') === 'has') opacity-50 @endif">With
+                kba
+                @if(request()->input('kba_connection') === 'has')
+                    🗑️
+                @endif
+            </a>
+            <a href="{{ route( 'admin.dito-numbers.index' , ['kba_connection' => 'dont_have']) }}"
+               class="btn sm btn-info text-white @if(request()->input('kba_connection') === 'dont_have') opacity-50 @endif">Without kba
+                @if(request()->input('kba_connection') === 'dont_have')
+                    🗑️
+                @endif
+            </a>
+
+            <a href="{{ route( 'admin.dito-numbers.index', ['engine_connection' => 'has']) }}"
+               class="btn sm btn-info text-white @if(request()->input('engine_connection') === 'has') opacity-50 @endif">With engines
+                @if(request()->input('engine_connection') === 'has')
+                    🗑️
+                @endif
+            </a>
+            <a href="{{ route( 'admin.dito-numbers.index', ['engine_connection' => 'dont_have'])}}"
+               class="btn sm btn-info text-white @if(request()->input('engine_connection') === 'dont_have') opacity-50 @endif">Without engines
+                @if(request()->input('engine_connection') === 'dont_have')
+                    🗑️
+                @endif
+            </a>
+
         </div>
         <div class="col-md-12 mx-auto">
             <div class="card pt-2">
@@ -45,25 +80,29 @@
                                         @method('PATCH')
                                         @if($ditoNumber->is_not_interesting)
                                             <input type="hidden" name="is_not_interesting" value="0"/>
-                                            <button class="btn btn-primary btn-info text-white btn-sm">Mark as interesting</button>
+                                            <button class="btn btn-primary btn-info text-white btn-sm">Mark as
+                                                interesting
+                                            </button>
                                         @else
                                             <input type="hidden" name="is_not_interesting" value="1"/>
-                                            <button class="btn btn-primary btn-warning text-white btn-sm">Mark as uninteresting</button>
+                                            <button class="btn btn-primary btn-warning text-white btn-sm">Mark as
+                                                uninteresting
+                                            </button>
                                         @endif
                                     </form>
 
-                                        <form action="{{ route('admin.dito-numbers.update', $ditoNumber) }}" method="POST">
-                                            @csrf
-                                            @method('PATCH')
-                                            @if($ditoNumber->is_selection_completed)
-                                                <input type="hidden" name="is_selection_completed" value="0" />
-                                                <button class="btn btn-success btn-sm">Set as incomplete</button>
-                                            @else
-                                                <input type="hidden" name="is_selection_completed" value="1" />
-                                                <button class="btn btn-success btn-sm">Set as complete</button>
-                                            @endif
+                                    <form action="{{ route('admin.dito-numbers.update', $ditoNumber) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        @if($ditoNumber->is_selection_completed)
+                                            <input type="hidden" name="is_selection_completed" value="0"/>
+                                            <button class="btn btn-success btn-sm">Set as incomplete</button>
+                                        @else
+                                            <input type="hidden" name="is_selection_completed" value="1"/>
+                                            <button class="btn btn-success btn-sm">Set as complete</button>
+                                        @endif
 
-                                        </form>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

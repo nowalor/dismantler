@@ -6,8 +6,27 @@
         <div class="col-12 pt-4">
             <div class="card">
                 <div class="card-header">Filters</div>
+
                 <div class="card-body d-flex">
                     <form action="{{ route('admin.kba.index') }}">
+
+                        <label>Engine type connection</label>
+
+                        <div class="d-flex gap-2 mb-3">
+                            <div>
+                                <input checked="{{ request()->input('engine_type_connection' === 'not_made') }}"
+                                       type="radio" class="form-check-input" name="engine_type_connection"
+                                       value="not_made">
+                                <label for="not_made">Not made</label>
+                            </div>
+
+                            <div>
+                                <input checked="{{ request()->input('engine_type_connection' === 'made') }}" type="radio"
+                                       class="form-check-input" name="engine_type_connection" value="made">
+                                <label for="not_made">Made</label>
+                            </div>
+                        </div>
+
                         <div class="d-flex gap-2">
                             <div>
                                 <label>Plaintext</label>
