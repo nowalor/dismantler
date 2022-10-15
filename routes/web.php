@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsPageController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
@@ -13,16 +14,21 @@ use App\Http\Controllers\ConnectDitoToDismantlerController;
 use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Payment routes
+Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
+    ->name('pay');
+Route::get('payments/approval', [App\Http\Controllers\PaymentController::class, 'approval'])
+    ->name('approval');
+Route::get('payments/cancelled', [App\Http\Controllers\PaymentController::class, 'cancelled'])
+    ->name('cancelled');
+
+// Checkout
+Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
+    ->name('checkout');
+
+
+
+// Payment routes end
 
 Route::get('/', HomepageController::class);
 Route::get('/faq', FaqPageController::class)->name('faq');
@@ -55,3 +61,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('dito-numbers/{ditoNumberId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
 });
+

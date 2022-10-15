@@ -6,7 +6,10 @@
         <h3 class="pt-4">{{ $carPart->name }}</h3>
         <div class="row">
             <div class="col-6 pt-4">
-                <img style="max-height: 500px;" class="w-100" src="{{ $carPart->carPartImages[0]->origin_url }}" alt="">
+                <img style="max-height: 500px;" class="w-100" src="{{
+    !empty($carPart->carPartImages[0]) ? $carPart->carPartImages[0]?->origin_url :
+    asset('no-image-placeholder.jpg')
+    }}" alt="">
                 @foreach($carPart->carPartImages as $image)
                     <img src="{{ $image->thumbnail_url }}" alt=""/>
                 @endforeach
