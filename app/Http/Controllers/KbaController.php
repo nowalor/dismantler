@@ -24,6 +24,15 @@ class KbaController extends Controller
         $plaintexts = ManufacturerText::all();
         $commercialNames = CommercialName::all();
 
+        if($request->filled('engine_type_connection')) {
+            if($request->input('engine_type_connection') === 'made') {
+                $germanDismantlers->has('engineTypes');
+
+            } else if($request->input('engine_type_connection') === 'not_made') {
+                $germanDismantlers->doesntHave('engineTypes');
+            }
+        }
+
         if($request->filled('plaintext')) {
 
            $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');

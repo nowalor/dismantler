@@ -21,7 +21,6 @@ class AdminCarPartController extends Controller
             $parts = $parts->whereHas('carPartType', function ($query) use ($value) {
                 return $query->where('name', 'like', "%$value%");
             });
-
         }
 
         if($request->filled('dismantle-company')) {
@@ -32,7 +31,9 @@ class AdminCarPartController extends Controller
             });
         }
 
-        $parts = $parts->with('carPartImages')->paginate(15);
+        $parts = $parts->with('carPartImages', function ($query) {
+            $query->where('origin_url', 'like', '%part-image%');
+        })->paginate(15);
 
         $partTypes = CarPartType::all();
 
@@ -64,6 +65,11 @@ class AdminCarPartController extends Controller
 
     public function show(CarPart $carPart)
     {
+       $carPart->carPartImages =
+           $carPart->carPartImages()
+               ->where('origin_url', 'like', '%part-image%')
+               ->get();
+
         return view('admin.car-parts.show', compact('carPart'));
     }
 

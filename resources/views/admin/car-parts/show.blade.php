@@ -6,7 +6,10 @@
         <h3 class="pt-4">{{ $carPart->name }}</h3>
         <div class="row">
             <div class="col-6 pt-4">
-                <img style="max-height: 500px;" class="w-100" src="{{ $carPart->carPartImages[0]->origin_url }}" alt="">
+                <img style="max-height: 500px;" class="w-100" src="{{
+    !empty($carPart->carPartImages[0]) ? $carPart->carPartImages[0]?->origin_url :
+    asset('no-image-placeholder.jpg')
+    }}" alt="">
                 @foreach($carPart->carPartImages as $image)
                     <img src="{{ $image->thumbnail_url }}" alt=""/>
                 @endforeach
@@ -19,13 +22,17 @@
                     </h5>
                     <div class="card-body">
                         <p>
+                            <span class="fw-bold">Id:</span> {{ $carPart->identifer }}
+                        </p>
+
+                        <p>
                             <span class="fw-bold">Dismantle company:</span> {{ $carPart->dismantleCompany->full_name }}
                         </p>
                         <p>
                             <span class="fw-bold">Part type:</span> {{ $carPart->carPartType->name }}
                         </p>
                         <p>
-                            <span class="fw-bold">Price:</span> {{ $carPart->price1 }}
+                            <span class="fw-bold">Price:</span> {{ $carPart->price }}
                         </p>
                         <p>
                             <span class="fw-bold">Quantity:</span> {{ $carPart->quantity }}
@@ -42,11 +49,7 @@
                         </p>
 
                         <p>
-                            <span class="fw-bold">Notes:</span> {{ $carPart->notes }}
-                        </p>
-
-                        <p>
-                            <span class="fw-bold">Kilo watt:</span> {{ $carPart->kilo_watt }}
+                            <span class="fw-bold">Kilo watt:</span> {{ $carPart->km }}
                         </p>
 
                         <p>
@@ -60,6 +63,40 @@
                         <p>
                             <span class="fw-bold">Color:</span> {{ $carPart->color}}
                         </p>
+
+                        <p>
+                            <span class="fw-bold">Vin number:</span> {{ $carPart->vin_number}}
+                        </p>
+
+                        <p>
+                            <span class="fw-bold">Engine code:</span> {{ $carPart->engine_code}}
+                        </p>
+
+                        <p>
+                            <span class="fw-bold">Engine type:</span> {{ $carPart->engine_type}}
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-4 pb-4">
+            <div class="col-6">
+                <div class="card">
+                    <h3 class="card-header">Notes</h3>
+                    <div class="card-body">
+                        <div style=" white-space: pre-wrap;">{{ $carPart->notes }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <h3 class="card-header">Comments</h3>
+                    <div class="card-body">
+                        <div style=" white-space: pre-wrap;">{{ $carPart->comments }}</div>
                     </div>
                 </div>
             </div>

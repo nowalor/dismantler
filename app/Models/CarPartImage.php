@@ -10,6 +10,12 @@ class CarPartImage extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+      'car_part_id',
+      'origin_url',
+      'thumbnail_url',
+    ];
+
     public function CarPart(): BelongsTo
     {
         return $this->belongsTo(CarPart::class);

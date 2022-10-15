@@ -45,6 +45,9 @@ return new class extends Migration
             $table->string('color');
             $table->string('alternative_numbers')->nullable();
 
+            /* $table->string('dito_number_fk'); */
+
+            /* $table->foreign('dito_number_fk')->references('dito_number')->on('dito_numbers')->onDelete('cascade'); */
             $table->timestamps();
         });
     }
