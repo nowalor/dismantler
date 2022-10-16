@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CarPart;
 use App\Models\CarPartImage;
+use App\Scopes\CarPartScope;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
