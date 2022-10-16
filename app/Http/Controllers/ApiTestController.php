@@ -72,8 +72,7 @@ class ApiTestController extends Controller
                 $transformedImages = $this->transformImages($response);
 
                 foreach($transformedImages as $image) {
-                    CarPartImage::withoutGlobalScope()
-                        ->firstOrCreate($image);
+                    CarPartImage::firstOrCreate($image);
                 }
 
             }
