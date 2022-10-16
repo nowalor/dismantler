@@ -16,7 +16,7 @@ use App\Http\Controllers\API\GetUniqueManufacturerPlaintextController;
 |
 */
 
-Route::get('api-test', \App\Http\Controllers\ApiTestController::class);
+/* Route::get('api-test', \App\Http\Controllers\ApiTestController::class); */
 
 Route::get('car-brands', function() {
     $brands = DitoNumber::distinct('producer')->pluck('producer');
@@ -32,5 +32,4 @@ Route::get('plaintexts', GetUniqueManufacturerPlaintextController::class);
 Route::get('', function() {
     return 'Welcome to API';
 });
-
 
