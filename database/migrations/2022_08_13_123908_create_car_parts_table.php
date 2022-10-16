@@ -14,12 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('car_parts', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id')->primary();
             $table->foreignId('car_part_type_id')->constrained();
             $table->foreignId('dismantle_company_id')->constrained();
-
-
-
             $table->string('name');
             $table->longText('comments');
             $table->longText('notes');
@@ -27,7 +24,6 @@ return new class extends Migration
             $table->string('car_first_registration_date');
             $table->integer('kilo_watt')->unsigned();
             $table->string('transmission_type');
-
             $table->string('item_number');
             $table->string('car_item_number');
             $table->string('item_code');
