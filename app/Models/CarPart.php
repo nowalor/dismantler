@@ -13,6 +13,8 @@ class CarPart extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected static function booted()
     {
         static::addGlobalScope(new CarPartScope());
@@ -47,6 +49,8 @@ class CarPart extends Model
             'color',
             'car_first_registration_date',
         ];
+
+    public $incrementing = false;
 
     public function carPartImages(): HasMany
     {

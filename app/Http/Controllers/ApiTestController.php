@@ -16,7 +16,7 @@ class ApiTestController extends Controller
     {
         $newItem = [];
 
-        $newItem['id'] = (int)$item['id'];
+        $newItem['id'] = intval($item['id']);
         $newItem['name'] = $item['name'];
         $newItem['comments'] = $item['comments'];
         $newItem['notes'] = $item['notes'];
@@ -63,13 +63,16 @@ class ApiTestController extends Controller
                 $transformedData = $this->transformData($response);
 
                 foreach($transformedData as $item) {
-                    CarPart::firstOrCreate($item);
+                    $itemId = $item['id'];
+                    unset($item['id']);
+                    CarPart::withoutGlobalScope()->updateOrCreate(['id' => $itemId], $item);
                 }
 
                 $transformedImages = $this->transformImages($response);
 
                 foreach($transformedImages as $image) {
-                    CarPartImage::firstOrCreate($image);
+                    CarPartImage::withoutGlobalScope()
+                        ->firstOrCreate($image);
                 }
 
             }
