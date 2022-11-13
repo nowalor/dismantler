@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PayRequest;
 use App\Models\CarPart;
+use App\Models\PaymentPlatform;
 use App\Resolvers\PaymentPlatformResolver;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -19,8 +20,12 @@ class PaymentController extends Controller
 
     public function index(CarPart $carPart): View
     {
+        $paymentPlatforms = PaymentPlatform::all();
+
+
         return view('checkout.index', compact(
             'carPart',
+            'paymentPlatforms',
         ));
     }
 
@@ -30,7 +35,6 @@ class PaymentController extends Controller
          $validated = $request->validated();
 
          $validated = array_merge($validated, [
-             'currency' => 'DKK',
              'value' => $carPart->price1,
          ]);
 
@@ -64,5 +68,10 @@ class PaymentController extends Controller
         /*return redirect()
             ->route('home')
             ->withErrors('You canceled the payment.'); */
+    }
+
+    public function success()
+    {
+        return view('checkout.success');
     }
 }

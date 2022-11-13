@@ -4,9 +4,11 @@
     <div class="container">
         <div>
             <div class="py-5 text-center">
-             <!--   <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+                <!--   <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
                 <h2>Checkout</h2>
-                <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+                <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required
+                    form group has a validation state that can be triggered by attempting to submit the form without
+                    completing it.</p>
             </div>
 
             <div class="row g-5">
@@ -50,28 +52,25 @@
                         </li>
                     </ul>
 
-                    <form class="card p-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                        </div>
-                    </form>
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Billing address</h4>
-                    <form class="needs-validation" novalidate>
+                    <form action="{{ route('pay', $carPart) }}" class="needs-validation" novalidate id="payment-form"
+                          method="POST">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-12">
                                 <label for="name" class="form-label">Name*</label>
-                                <input type="text" class="form-control" id="name" placeholder="Please enter your name" value="" required>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Please enter your name"
+                                       value="" required>
                                 <div class="invalid-feedback">
                                     Valid name is required.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <label for="email" class="form-label">Email*</label>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com">
                                 <div class="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
                                 </div>
@@ -79,26 +78,27 @@
 
                             <div class="col-12">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                                <input name="address" type="text" class="form-control" id="address" placeholder="1234 Main St"
+                                       required>
                                 <div class="invalid-feedback">
                                     Please enter your shipping address.
                                 </div>
                             </div>
 
-                            <div class="col-md-5">
+                            <!-- <div class="col-md-5">
                                 <label for="country" class="form-label">Country</label>
-                                <select class="form-select" id="country" required>
+                                <select name="country" class="form-select" id="country" required>
                                     <option value="">Choose...</option>
-                                    <option>United States</option>
+                                    <option value="US">United States</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a valid country.
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="col-md-3">
                                 <label for="zip" class="form-label">Town</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required>
+                                <input name="town" type="text" class="form-control" id="zip" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Town code required.
                                 </div>
@@ -107,7 +107,7 @@
 
                             <div class="col-md-3">
                                 <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required>
+                                <input name="zip_code" type="text" class="form-control" id="zip" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Zip code required.
                                 </div>
@@ -118,23 +118,45 @@
 
                         <h4 class="mb-3">Payment</h4>
 
-                        <div class="my-3">
-                            <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                                <label class="form-check-label" for="credit">PayPal</label>
+                        <div class="mb-3" id="toggler">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                @foreach($paymentPlatforms as $paymentPlatform)
+
+                                    <label class="btn btn-outline-secondary rounded mt p-1"
+                                           data-bs-target="#{{ $paymentPlatform->name  }}Collapse"
+                                           data-bs-toggle="collapse"
+                                    >
+                                        <div>{{ $paymentPlatform->name }}</div>
+                                        <input type="radio" name="payment_platform"
+                                               value="{{ $paymentPlatform->id }}" required>
+                                        <img src="{{ asset(strtolower($paymentPlatform->name) . '.jpg') }}"
+                                             class="img-thumbnail">
+                                    </label>
+                                @endforeach
                             </div>
-                            <div class="form-check">
-                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                                <label class="form-check-label" for="paypal">Invoice</label>
-                            </div>
+                            @foreach($paymentPlatforms as $paymentPlatform)
+                                <div
+                                    id="{{ $paymentPlatform->name }}Collapse"
+                                    class="collapse"
+                                    data-bs-parent="#toggler"
+                                >
+                                    @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
+                                </div>
+                            @endforeach
                         </div>
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                        <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            {{ $error }}
+        @endforeach
+    @endif
 @endsection

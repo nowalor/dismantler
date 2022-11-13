@@ -64,21 +64,31 @@
 
                     </div>
                 </div>
-                <div class="pt-2">
-                    <h3>Buy now with</h3>
-                    <div class="d-flex gap-2">
-                        <form action="{{ route('checkout', $carPart) }}">
-                            @csrf
-                            <input type="hidden" value="1" name="payment_platform">
-                            <button class="btn btn-primary" style="background-color: #FFC439; border: none;">
+                @if($carPart->price1 > 0)
+                    <div class="pt-2">
+                        <h3>Buy now with</h3>
+                        <div class="d-flex gap-2">
+                            <form action="{{ route('checkout', $carPart) }}">
+                                @csrf
+                                <!-- <button class="btn btn-primary" style="background-color: #FFC439; border: none;">
                                 <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;" alt="Paypal Logo">
-                            </button>
-                        </form>
+                            </button> -->
+                                <button class="btn btn-primary">
+                                    Buy now
+                                </button>
+                            </form>
 
-                        <button class="btn btn-primary">Invoice 📄</button>
+                            <!-- <button class="btn btn-primary">Invoice 📄</button> -->
+                        </div>
                     </div>
-                </div>
-
+                @else
+                    <div class="pt-2">
+                        <h3>This part does not have a price yet</h3>
+                        <p>If you are interested in this part you can <a href="{{ route('contact') }}">contact us</a>
+                            about the price </p>
+                        <a href="{{ route('contact') }}" class="btn btn-primary">Contact us</a>
+                    </div>
+                @endif
             </div>
         </div>
 

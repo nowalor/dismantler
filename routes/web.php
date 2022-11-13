@@ -21,10 +21,15 @@ Route::get('payments/approval', [App\Http\Controllers\PaymentController::class, 
     ->name('approval');
 Route::get('payments/cancelled', [App\Http\Controllers\PaymentController::class, 'cancelled'])
     ->name('cancelled');
+Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
+    ->name('checkout.success');
 
 // Checkout
 Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
     ->name('checkout');
+
+Route::post('car-parts/{carPart}/checkout', [App\Http\Controllers\PaymentController::class, 'pay'])->name('pay');
+
 
 
 
@@ -62,3 +67,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
 });
 
+
+// Stripe webhooks
+Route::webhooks('marcus-webhook-test');

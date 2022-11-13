@@ -28,6 +28,13 @@ return [
         'class' => App\Services\PayPalService::class,
     ],
 
+    'stripe' => [
+        'base_uri' => env('STRIPE_BASE_URI'),
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
+        'class' => App\Services\StripeService::class,
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

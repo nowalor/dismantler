@@ -13,7 +13,7 @@ use Illuminate\View\View;
 
 class CarPartController extends Controller
 {
-    public function index(Request $request): View | RedirectResponse
+    public function index(Request $request): View|RedirectResponse
     {
         $parts = CarPart::query();
         $kba = null;
@@ -84,11 +84,11 @@ class CarPartController extends Controller
                     fn($query) => $query->where('origin_url', 'like', '%part-image%')
                 )->where(function ($query) use ($namesFromDitoNumbers) {
                     foreach ($namesFromDitoNumbers as $name) {
-                        $query->orWhereNot('name', 'like', "%$name%");
+                        $query->orWhere('name', 'like', "%$name%");
                     }
                 });
 
-            $carName = $namesFromDitoNumbers[0];
+            $carName = !empty($namesFromDitoNumbers) ? $namesFromDitoNumbers[0] : null;
             $kba->carName = $carName;
 
             $partsDifferentCarSameEngineType = CarPart::whereIn('engine_code', $engineTypeNames)
@@ -141,6 +141,10 @@ class CarPartController extends Controller
 
     public function show(CarPart $carPart)
     {
+        $carPart->load(['carPartImages' =>
+                fn($query) => $query->where('origin_url', 'like', '%part-image%')]
+        );
+
         return view('car-parts.show', compact(
             'carPart'
         ));
