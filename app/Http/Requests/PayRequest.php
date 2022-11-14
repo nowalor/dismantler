@@ -15,7 +15,7 @@ class PayRequest extends FormRequest
     {
         return [
             'payment_platform' => ['required', 'exists:payment_platforms,id'],
-            'payment_method' => 'required',
+            'payment_method' => 'required_if:payment_platform,2',
             /* 'currency' => ['required', 'exists:currencies,iso'], */
             'name' => 'required|string',
             'email' => 'required|string',
@@ -23,7 +23,6 @@ class PayRequest extends FormRequest
             /* 'country' => 'required|string', */
             'town' => 'required|string',
             'zip_code' => 'required|string',
-
         ];
     }
 }

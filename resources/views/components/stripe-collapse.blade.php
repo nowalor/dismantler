@@ -1,42 +1,44 @@
-@push('styles')
-    <style>
-        .StripeElement {
-            box-sizing: border-box;
-            height: 40px;
-            padding: 10px 12px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            background-color: white;
-            box-shadow: 0 1px 3px 0 #e6ebf1;
-            -webkit-transition: box-shadow 150ms ease;
-            transition: box-shadow 150ms ease;
-        }
-
-        .StripeElement--focus {
-            box-shadow: 0 1px 3px 0 #cfd7df;
-        }
-
-        .StripeElement--invalid {
-            border-color: #fa755a;
-        }
-
-        .StripeElement--webkit-autofill {
-            background-color: #fefde5 !important;
-        }
-    </style>
-@endpush
-
-<div>
-    <label for="card-element" class="mt-3">
-        Credit details
-    </label>
-    <div id="cardElement">
-        <!-- Elements will create input elements here -->
+<div class="w-50">
+ <hr />
+    <h3 class="display-6">Card information</h3>
+    <p>Pay with credit or debit card.</p>
+    <div class="mb-3">
+        <label>Cardholder name*</label>
+        <input type="text" class="form-control"/>
     </div>
 
-    <!-- We'll put the error messages in this element -->
-    <small class="form-text text-muted" id="cardErrors" role="alert"></small>
-    <input type="hidden" name="payment_method" id="paymentMethod">
+    <div class="mb-3">
+        <label>Cardholder email*</label>
+        <input type="text" class="form-control"/>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="card-element">Card information*</label>
+        <div id="cardElement" class="form-control" style='height: 2.4em; padding-top: .7em;'>
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>Address*</label>
+        <input type="text" class="form-control"/>
+    </div>
+
+    <div class="d-flex mb-3 gap-2">
+        <div>
+            <label>City*</label>
+            <input type="text" class="form-control"/>
+        </div>
+        <div>
+            <label>Postal code*</label>
+            <input type="text" class="form-control"/>
+            </div>
+    </div>
+    <div class="mb-3">
+        <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now
+            €{{ $carPart->price }}</button>
+    </div>
 </div>
 
 @push('js')
@@ -58,14 +60,27 @@
 
         payButton.addEventListener('click', async (e) => {
             e.preventDefault()
-            alert('prevented default...')
+
             if (form.elements.payment_platform.value === "{{ $paymentPlatform->id }}") {
+                const buyerName = document.getElementById('checkout_name').value
+                const buyerEmail = document.getElementById('checkout_email').value
+                const address = document.getElementById('checkout_address').value
+                const town = document.getElementById('checkout_town').value
+                const zipCode = document.getElementById('checkout_zip').value
+
                 const {paymentMethod, error} = await stripe.createPaymentMethod(
                     'card',
                     cardElement,
                     {
                         billing_details: {
-
+                            name: buyerName,
+                            email: buyerEmail,
+                            address: {
+                                city: town,
+                                country: null,
+                                line1: address,
+                                postal_code: zipCode,
+                            },
                         },
                     }
                 )

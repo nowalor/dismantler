@@ -45,7 +45,7 @@ class PayPalService
 
     public function handlePayment(array $paymentData)
     {
-        $order = $this->createOrder($paymentData['value'], $paymentData['currency']);
+        $order = $this->createOrder($paymentData['value'], 'EUR');
 
         $orderLinks = collect($order->links);
 

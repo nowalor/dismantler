@@ -28,7 +28,6 @@ Route::get('payments/success', [App\Http\Controllers\PaymentController::class, '
 Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
     ->name('checkout');
 
-Route::post('car-parts/{carPart}/checkout', [App\Http\Controllers\PaymentController::class, 'pay'])->name('pay');
 
 
 
@@ -69,4 +68,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
 
 // Stripe webhooks
-Route::webhooks('marcus-webhook-test');
+Route::stripeWebhooks('marcus-webhook-test');

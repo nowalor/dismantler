@@ -104,8 +104,7 @@ class StripeService
 
 
         return redirect()
-            ->route('home')
-            ->withSuccess(['payment' => "Thanks, $name"]);
+            ->route('checkout.success');
     }
 
     public function confirmPayment($paymentIntentId)

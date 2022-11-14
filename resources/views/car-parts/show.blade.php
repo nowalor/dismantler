@@ -12,6 +12,33 @@
                 @foreach($carPart->carPartImages as $image)
                     <img src="{{ $image->thumbnail_url }}" alt=""/>
                 @endforeach
+
+                @if($carPart->price1 > 0)
+                    <div class="pt-2">
+                        <h3>Purchase this part</h3>
+                        <p>Purchase this part with either paypal or card.</p>
+                        <div class="d-flex gap-2">
+                            <form action="{{ route('checkout', $carPart) }}" class="w-100">
+                                @csrf
+                                <!-- <button class="btn btn-primary" style="background-color: #FFC439; border: none;">
+                                <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;" alt="Paypal Logo">
+                            </button> -->
+                                <button class="mt-4 btn btn-primary btn-lg w-100">
+                                    Buy €{{ $carPart->price }}
+                                </button>
+                            </form>
+
+                            <!-- <button class="btn btn-primary">Invoice 📄</button> -->
+                        </div>
+                    </div>
+                @else
+                    <div class="pt-2">
+                        <h3>This part does not have a price yet</h3>
+                        <p>If you are interested in this part you can <a href="{{ route('contact') }}">contact us</a>
+                            about the price </p>
+                        <a href="{{ route('contact') }}" class="btn btn-primary">Contact us</a>
+                    </div>
+                @endif
             </div>
             <div class="col-6">
                 <div class="card">
@@ -64,31 +91,6 @@
 
                     </div>
                 </div>
-                @if($carPart->price1 > 0)
-                    <div class="pt-2">
-                        <h3>Buy now with</h3>
-                        <div class="d-flex gap-2">
-                            <form action="{{ route('checkout', $carPart) }}">
-                                @csrf
-                                <!-- <button class="btn btn-primary" style="background-color: #FFC439; border: none;">
-                                <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;" alt="Paypal Logo">
-                            </button> -->
-                                <button class="btn btn-primary">
-                                    Buy now
-                                </button>
-                            </form>
-
-                            <!-- <button class="btn btn-primary">Invoice 📄</button> -->
-                        </div>
-                    </div>
-                @else
-                    <div class="pt-2">
-                        <h3>This part does not have a price yet</h3>
-                        <p>If you are interested in this part you can <a href="{{ route('contact') }}">contact us</a>
-                            about the price </p>
-                        <a href="{{ route('contact') }}" class="btn btn-primary">Contact us</a>
-                    </div>
-                @endif
             </div>
         </div>
 
@@ -103,7 +105,7 @@
 
 
             </div>
-
+            @if($carPart->comments)
             <div class="col-6">
                 <div class="card">
                     <h3 class="card-header">Comments</h3>
@@ -112,6 +114,7 @@
                     </div>
                 </div>
             </div>
+                @endif
         </div>
 
 

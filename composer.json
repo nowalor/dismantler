@@ -11,7 +11,8 @@
         "laravel/cashier": "^14.3",
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "spatie/laravel-stripe-webhooks": "^3.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
