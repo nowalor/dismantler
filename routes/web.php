@@ -53,7 +53,7 @@ Route::resource('car-parts', \App\Http\Controllers\CarPartController::class);
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
     Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
-    Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
+/*    Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']); */
     Route::post('kba/storeConnection/{kba}', [KbaController::class, 'storeConnectionToEngineType'])
         ->name('admin.kba.store-connection');
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])

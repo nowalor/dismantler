@@ -1,15 +1,18 @@
 <div class="w-50 mt-2">
+    <input type="hidden" name="payment_method" id="paymentMethod">
+
+
     <img src="{{ asset('img/stripe-logo.png') }}" style="height: 60px;"
          alt="Paypal Logo">
     <p class="mb-3 text-muted fw-light">Pay with credit or debit card.</p>
     <div class="mb-3">
         <label>Cardholder name*</label>
-        <input type="text" class="form-control"/>
+        <input type="text" name="stripe_name" class="form-control"/>
     </div>
 
     <div class="mb-3">
         <label>Cardholder email*</label>
-        <input type="text" class="form-control"/>
+        <input type="text" name="stripe_email" class="form-control"/>
     </div>
 
     <div class="mb-3">
@@ -62,7 +65,11 @@
         payButton.addEventListener('click', async (e) => {
             e.preventDefault()
 
+            alert('it ran..')
+            console.log('form.elements.payment_platform', form.elements.payment_platform.value)
+            console.log('test', "{{ $paymentPlatform->id }}")
             if (form.elements.payment_platform.value === "{{ $paymentPlatform->id }}") {
+                alert('if')
                 const buyerName = document.getElementById('checkout_name').value
                 const buyerEmail = document.getElementById('checkout_email').value
                 const address = document.getElementById('checkout_address').value
@@ -88,7 +95,8 @@
 
                 if (error) {
                     const displayError = document.getElementById('cardErrors')
-
+                    alert('in error')
+                    console.log('error', error)
                     displayError.textContent = error.message
                 } else {
                     const tokenInput = document.getElementById('paymentMethod')

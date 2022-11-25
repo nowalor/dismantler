@@ -18,5 +18,12 @@ class Order extends Model
         'quantity',
         'part_price',
         'is_part_delivered',
+        'buyer_name',
+        'buyer_email',
+        'quantity',
+        'city',
+        'zip_code',
+        'address',
+        'payment_provider_id',
     ];
 }

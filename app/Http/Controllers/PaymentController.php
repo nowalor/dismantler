@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PayRequest;
 use App\Models\CarPart;
+use App\Models\Order;
 use App\Models\PaymentPlatform;
 use App\Resolvers\PaymentPlatformResolver;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class PaymentController extends Controller
@@ -36,7 +38,18 @@ class PaymentController extends Controller
 
          $validated = array_merge($validated, [
              'value' => $carPart->price1,
+             'car_part_id' => $carPart->id,
+             'dismantle_company_id' => $carPart->dismantle_company_id,
+             'payment_platform_id' => $request->get('payment_platform'),
+             'buyer_name' => $request->get('name'),
+             'buyer_email' => $request->get('email'),
+             'quantity' => 1,
+             'part_price' => $carPart->price,
+             'city' => $request->get('town'),
          ]);
+
+
+         $order = Order::create($validated);
 
          $paymentPlatform = $this->paymentPlatformResolver
              ->resolveService($request->get('payment_platform'));
@@ -45,7 +58,7 @@ class PaymentController extends Controller
         session()->put('paymentPlatformId', $request->get('payment_platform'));
 
 
-        return $paymentPlatform->handlePayment($validated);
+        return $paymentPlatform->handlePayment($validated, $order->id);
     }
 
     public function approval()

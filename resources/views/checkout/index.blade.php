@@ -42,6 +42,8 @@
                     <form action="{{ route('pay', $carPart) }}" class="needs-validation" novalidate id="payment-form"
                           method="POST">
                         @csrf
+                        <input type="hidden" name="car_part_id" value="{{ $carPart->id }}"/>
+
                         <div class="row g-3">
                             <div class="col-12">
                                 <label for="checkout_name" class="form-label">Name*</label>
@@ -114,20 +116,28 @@
                             <div class="btn-group btn-group-toggle d-flex gap-2 align-items-center"
                                  data-toggle="buttons">
                                 <label data-bs-target="#StripeCollapse"
-                                       data-bs-toggle="collapse">
+                                       data-bs-toggle="collapse"
+                                       for="payment_platform_stripe"
+                                >
                                     <button class="btn btn-primary disabled" id="checkout-card-button">
                                         <i class="fa fa-credit-card"></i>
-                                        Card</button>
-                                    <input type="radio" name="payment_platform" class="invisible" value="2" required>
+                                        Card
+                                    </button>
+                                    <input type="radio" name="payment_platform" class="invisible" value="2"
+                                           id="payment_platform_stripe">
                                 </label>
                                 or
                                 <label data-bs-target="#PaypalCollapse"
-                                       data-bs-toggle="collapse">
-                                        <button id="checkout-paypal-button" class="btn btn-primary disabled" style="background-color: #FFC439; border: none;">
-                                            <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;"
-                                                 alt="Paypal Logo">
-                                        </button>
-                                    <input type="radio" name="payment_platform" class="invisible" value="1" required>
+                                       data-bs-toggle="collapse"
+                                       for="payment_platform_paypal"
+
+                                >
+                                    <button id="checkout-paypal-button" class="btn btn-primary disabled"
+                                            style="background-color: #FFC439; border: none;">
+                                        <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;"
+                                             alt="Paypal Logo">
+                                    </button>
+                                    <input type="radio" name="payment_platform" class="invisible" value="1" id="payment_platform_paypal">
                                 </label>
                             </div>
 
@@ -140,6 +150,7 @@
                                     @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
                                 </div>
                             @endforeach
+                            <input type="hidden"
                         </div>
 
                         <hr class="my-4">
@@ -166,7 +177,7 @@
 
         checkoutButtonCardEl.addEventListener('click', (event) => {
             event.preventDefault()
-            if(checkoutButtonCardEl.classList.contains('active')) {
+            if (checkoutButtonCardEl.classList.contains('active')) {
                 checkoutButtonCardEl.classList.add('disabled')
                 checkoutButtonCardEl.classList.remove('active')
             } else {
@@ -181,7 +192,7 @@
         checkoutButtonPaypalEl.addEventListener('click', (event) => {
             event.preventDefault()
 
-            if(checkoutButtonPaypalEl.classList.contains('active')) {
+            if (checkoutButtonPaypalEl.classList.contains('active')) {
                 checkoutButtonCardEl.classList.remove('disabled')
                 checkoutButtonCardEl.classList.add('active')
             } else {

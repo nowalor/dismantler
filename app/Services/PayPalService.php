@@ -5,7 +5,9 @@ namespace App\Services;
 use App\Traits\ConsumeExternalServiceTrait;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
+use App\Models\Order;
 
 class PayPalService
 {
@@ -43,7 +45,7 @@ class PayPalService
         return json_decode($response);
     }
 
-    public function handlePayment(array $paymentData)
+    public function handlePayment(array $paymentData, int $orderId)
     {
         $order = $this->createOrder($paymentData['value'], 'EUR');
 
@@ -52,6 +54,9 @@ class PayPalService
         $approve = $orderLinks->where('rel', 'approve')->first();
 
         session()->put('approvalId', $order->id);
+        session()->put('orderId', $orderId);
+
+
         return redirect($approve->href);
     }
 
@@ -101,14 +106,25 @@ class PayPalService
                 ->withErrors('We cannot capture the payment. Try again, please.');
         }
 
+        if (!session()->has('orderId')) {
+            return redirect()
+                ->route('home')
+                ->withErrors('We cannot capture the order. Try again, please.');
+        }
+
         $approvalId = session()->get('approvalId');
+        $orderId = session()->get('orderId');
+
+        $order = Order::findOrFail($orderId);
 
         $payment = $this->capturePayment($approvalId);
+        $order->update(['payment_provider_id' => $payment->id]);
 
         $name = $payment->payer->name->given_name;
         /* $payment = $payment->purchase_units[0]->payments->captures[0]->amount;
         $amount = $payment->amount;
         $currency = $payment->currrency_code; */
+        // $payment->id
 
 
         // Save to orders table

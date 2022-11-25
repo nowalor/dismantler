@@ -2,9 +2,15 @@
 
 namespace App\Services;
 
+use App\Mail\SellerPaymentSuccessfulMail;
+use App\Models\Order;
+use App\Notifications\PaymentSuccessfulNotification;
 use App\Traits\ConsumeExternalServiceTrait;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class StripeService
 {
@@ -40,7 +46,7 @@ class StripeService
         return json_decode($response);
     }
 
-    public function handlePayment(Array $validated)
+    public function handlePayment(Array $validated, int $orderId)
     {
         extract($validated);
         $intent = $this->createIntent(
@@ -50,6 +56,7 @@ class StripeService
         );
 
         session()->put('paymentIntentId', $intent->id);
+        session()->put('orderId', $orderId);
 
         return redirect()->route('approval');
     }
@@ -88,9 +95,22 @@ class StripeService
                 ->withErrors('We cannot capture the payment. Try again, please.');
         }
 
+        if (!session()->has('orderId')) {
+            return redirect()
+                ->route('home')
+                ->withErrors('We cannot capture the order. Try again, please.');
+        }
+
         $paymentIntentId = session()->get('paymentIntentId');
+        $orderId = session()->get('orderId');
+
+        $order = Order::findOrFail($orderId);
 
         $confirmation = $this->confirmPayment($paymentIntentId);
+
+        $order->update([
+            'payment_provider_id' => $confirmation->id,
+        ]);
 
         if (!$confirmation->status === 'succeeded') {
             return redirect()
@@ -102,6 +122,14 @@ class StripeService
         $currency = strtoupper($confirmation->currency);
         $amount = $confirmation->amount / $this->resolveFactor($currency);
 
+        // $confirmation->id
+
+        // Send emails
+        /*Mail::send(new SellerPaymentSuccessfulMail()); */
+
+       /* Notification::route('mail', [
+            'nikulasoskarsson@gmail.com' => 'Nikulás Óskarsson',
+        ])->notify(new PaymentSuccessfulNotification($offerData)); */
 
         return redirect()
             ->route('checkout.success');
