@@ -1,7 +1,7 @@
-<div class="w-50">
- <hr />
-    <h3 class="display-6">Card information</h3>
-    <p>Pay with credit or debit card.</p>
+<div class="w-50 mt-2">
+    <img src="{{ asset('img/stripe-logo.png') }}" style="height: 60px;"
+         alt="Paypal Logo">
+    <p class="mb-3 text-muted fw-light">Pay with credit or debit card.</p>
     <div class="mb-3">
         <label>Cardholder name*</label>
         <input type="text" class="form-control"/>
@@ -11,7 +11,6 @@
         <label>Cardholder email*</label>
         <input type="text" class="form-control"/>
     </div>
-
 
     <div class="mb-3">
         <label for="card-element">Card information*</label>
@@ -35,7 +34,7 @@
             <input type="text" class="form-control"/>
             </div>
     </div>
-    <div class="mb-3">
+    <div class="pt-3">
         <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now
             €{{ $carPart->price }}</button>
     </div>
@@ -50,7 +49,9 @@
             locale: 'en',
         })
 
-        const cardElement = elements.create('card')
+        const cardElement = elements.create('card', {
+            hidePostalCode: true
+        })
 
         cardElement.mount('#cardElement')
     </script>

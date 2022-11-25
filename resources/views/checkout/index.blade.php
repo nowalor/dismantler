@@ -118,7 +118,7 @@
                                     <button class="btn btn-primary disabled" id="checkout-card-button">
                                         <i class="fa fa-credit-card"></i>
                                         Card</button>
-                                    <input type="radio" name="payment_platform" class="" value="2" required>
+                                    <input type="radio" name="payment_platform" class="invisible" value="2" required>
                                 </label>
                                 or
                                 <label data-bs-target="#PaypalCollapse"
@@ -127,7 +127,7 @@
                                             <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;"
                                                  alt="Paypal Logo">
                                         </button>
-                                    <input type="radio" name="payment_platform" class="" value="1" required>
+                                    <input type="radio" name="payment_platform" class="invisible" value="1" required>
                                 </label>
                             </div>
 
