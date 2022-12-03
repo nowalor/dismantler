@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
@@ -26,4 +27,14 @@ class Order extends Model
         'address',
         'payment_provider_id',
     ];
+
+    public function carPart(): BelongsTo
+    {
+        return $this->belongsTo(CarPart::class);
+    }
+
+    public function dismantleCompany(): BelongsTo
+    {
+        return $this->belongsTo(DismantleCompany::class);
+    }
 }

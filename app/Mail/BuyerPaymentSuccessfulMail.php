@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -18,7 +19,7 @@ class BuyerPaymentSuccessfulMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(private Order $order)
     {
         //
     }
@@ -31,7 +32,9 @@ class BuyerPaymentSuccessfulMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Buyer Payment Successful Mail',
+            from: config('mail.from.address'),
+            to: $this->order->buyer_email,
+            subject: 'Payment successful!',
         );
     }
 
@@ -43,7 +46,7 @@ class BuyerPaymentSuccessfulMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.payments.buyer-success',
         );
     }
 

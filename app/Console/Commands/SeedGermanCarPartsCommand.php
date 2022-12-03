@@ -1,19 +1,37 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Console\Commands;
 
 use App\Models\CarPart;
 use App\Models\CarPartImage;
 use App\Scopes\CarPartScope;
-use Exception;
-use Illuminate\Http\Request;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-class ApiTestController extends Controller
+class SeedGermanCarPartsCommand extends Command
 {
-    public function __invoke()
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'german:parts:seed';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Seed parts from German dismantlers on a schedule';
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
     {
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
@@ -47,10 +65,9 @@ class ApiTestController extends Controller
 
                 }
 
-            } catch (Exception $ex) {
-                Log::info($ex->getMessage());
 
-                return 'in catch';
+            } catch (Exception $ex) {
+
             }
         }
     }
@@ -146,6 +163,5 @@ class ApiTestController extends Controller
 
         return $newArr;
     }
-
 
 }

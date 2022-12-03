@@ -2,7 +2,9 @@
 
 namespace App\Notifications;
 
+use App\Mail\BuyerPaymentSuccessfulMail;
 use App\Mail\SellerPaymentSuccessfulMail;
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -18,7 +20,7 @@ class PaymentSuccessfulNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(private Order $order)
     {
         //
     }
@@ -37,7 +39,10 @@ class PaymentSuccessfulNotification extends Notification
 
     public function toMail()
     {
-        return Mail::send(new SellerPaymentSuccessfulMail());
+        return [
+            Mail::send(new SellerPaymentSuccessfulMail($this->order)),
+            Mail::send(new BuyerPaymentSuccessfulMail($this->order)),
+        ];
     }
 
     /**

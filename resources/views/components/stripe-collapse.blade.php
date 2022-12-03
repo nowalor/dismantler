@@ -65,11 +65,7 @@
         payButton.addEventListener('click', async (e) => {
             e.preventDefault()
 
-            alert('it ran..')
-            console.log('form.elements.payment_platform', form.elements.payment_platform.value)
-            console.log('test', "{{ $paymentPlatform->id }}")
             if (form.elements.payment_platform.value === "{{ $paymentPlatform->id }}") {
-                alert('if')
                 const buyerName = document.getElementById('checkout_name').value
                 const buyerEmail = document.getElementById('checkout_email').value
                 const address = document.getElementById('checkout_address').value
@@ -95,7 +91,6 @@
 
                 if (error) {
                     const displayError = document.getElementById('cardErrors')
-                    alert('in error')
                     console.log('error', error)
                     displayError.textContent = error.message
                 } else {

@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,7 +14,7 @@ class SellerPaymentSuccessfulMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct()
+    public function __construct(public Order $order)
     {
         //
     }
@@ -21,9 +22,9 @@ class SellerPaymentSuccessfulMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: 'nikulasoskarsson@gmail.com',
-            to:'nikulasoskarsson@gmail.com',
-            subject: 'Seller Payment Successful Mail',
+            from: config('mail.from.address'),
+            to: config('mail.from.address'),
+            subject: 'New order for a part',
         );
     }
 

@@ -125,11 +125,7 @@ class StripeService
         // $confirmation->id
 
         // Send emails
-        /*Mail::send(new SellerPaymentSuccessfulMail()); */
-
-       /* Notification::route('mail', [
-            'nikulasoskarsson@gmail.com' => 'Nikulás Óskarsson',
-        ])->notify(new PaymentSuccessfulNotification($offerData)); */
+        Mail::send(new SellerPaymentSuccessfulMail());
 
         return redirect()
             ->route('checkout.success');
