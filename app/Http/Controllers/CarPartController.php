@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarBrand;
 use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DismantleCompany;
@@ -13,10 +14,12 @@ use Illuminate\View\View;
 
 class CarPartController extends Controller
 {
-    public function index(Request $request): View | RedirectResponse
+    public function index(Request $request) // : View | RedirectResponse
     {
         $parts = CarPart::query();
         $kba = null;
+
+        $brands = CarBrand::all();
 
         $partsDifferentCarSameEngineType = null;
 
@@ -40,7 +43,9 @@ class CarPartController extends Controller
         ) {
             $brand = $request->input('brand');
 
-            $parts->where('name', 'like', "%$brand%");
+            $parts = $parts->where('name', 'like', "%$brand%")
+                ->with('carPartImages',)
+                ->paginate(10, pageName: 'parts');
         }
 
         if (
@@ -68,45 +73,47 @@ class CarPartController extends Controller
         if ($request->filled('hsn') && $request->filled('tsn')) {
             $kba = GermanDismantler::where('hsn', $request->input('hsn'))
                 ->where('tsn', $request->input('tsn'))
+                ->with('engineTypes')
+                ->with('ditoNumbers')
                 ->first();
-
-            $namesFromDitoNumbers = [];
-            foreach ($kba->ditoNumbers as $ditoNumber) {
-                $name = "$ditoNumber->producer $ditoNumber->brand";
-
-                array_push($namesFromDitoNumbers, $name);
-            }
 
             $engineTypeNames = $kba->engineTypes->pluck('name');
 
-            $parts = CarPart::whereIn('engine_code', $engineTypeNames)
-                ->with('carPartImages',
-                    fn($query) => $query->where('origin_url', 'like', '%part-image%')
-                )->where(function ($query) use ($namesFromDitoNumbers) {
-                    foreach ($namesFromDitoNumbers as $name) {
-                        $query->orWhere('name', 'like', "%$name%");
-                    }
-                });
+            $ditoNumber = $kba->ditoNumbers->first();
 
-            $carName = !empty($namesFromDitoNumbers) ? $namesFromDitoNumbers[0] : null;
-            $kba->carName = $carName;
+            $carPartIds = GermanDismantler::with('ditoNumbers.carParts')
+                ->where('hsn', $request->input('hsn'))
+                ->where('tsn', $request->input('tsn'))
+                ->get()
+                ->pluck('ditoNumbers')
+                ->collapse()
+                ->pluck('carParts')
+                ->collapse()
+                ->unique('id')
+                ->pluck('id')
+                ->values();
 
-            $partsDifferentCarSameEngineType = CarPart::whereIn('engine_code', $engineTypeNames)
+
+            $parts = CarPart::whereIn('id', $carPartIds)
+                ->whereIn('engine_type', $engineTypeNames)
                 ->with('carPartImages',
                     fn($query) => $query->where('origin_url', 'like', '%part-image%')
                 )
-                ->where(function ($query) use ($namesFromDitoNumbers) {
-                    foreach ($namesFromDitoNumbers as $name) {
-                        $query->orWhereNot('name', 'like', "%$name%");
-                    }
-                })->paginate(4, pageName: 'parts_from_different_cars');
+                ->paginate(8, pageName: 'parts');
+
+            $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', optional($ditoNumber)->id)
+                ->whereNotIn('engine_type', $engineTypeNames)
+                ->with('carPartImages',
+                    fn($query) => $query->where('origin_url', 'like', '%part-image%')
+                )
+                ->paginate(8, pageName: 'parts_from_different_cars');
+
+
         }
 
-        $parts = $parts->paginate(2, pageName: 'parts');
-
         $partTypes = CarPartType::all();
-
         $dismantleCompanies = DismantleCompany::all();
+
 
         return view('car-parts.index', compact
         (
@@ -115,6 +122,7 @@ class CarPartController extends Controller
             'dismantleCompanies',
             'kba',
             'partsDifferentCarSameEngineType',
+            'brands',
         ));
     }
 

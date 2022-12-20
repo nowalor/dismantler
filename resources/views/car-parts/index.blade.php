@@ -8,6 +8,14 @@
                 <div class="card-body">
                     <form action="{{ route('admin.car-parts.index') }}">
                         <div>
+                            <div>
+                                <label for="brand">Brand</label>
+                                <select class="form-control" id="brand">
+                                    @foreach($brands as $brand)
+                                        <option value="{{ $brand->id }}" @if($brand->name == request()->get('brand')) selected @endif >{{ $brand->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="d-flex gap-2 mb-1">
                                 <div>
                                     <label>HSN</label>

@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             CarPartTypeSeeder::class,
             CarPartSeeder::class,
             CarPartImageSeeder::class,
+            CardBrandSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 
