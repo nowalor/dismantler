@@ -87,4 +87,20 @@ class CarPart extends Model
             get: fn() => $this->kilo_watt === '999' ? 'Unknown' : $this->kilo_watt * 1000 . ' km'
         );
     }
+
+    public function ditoNumber(): BelongsTo
+    {
+        return $this->belongsTo(DitoNumber::class);
+    }
+    public function name_for_search(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => strtolower(str_replace(' ', '', $this->getAttribute('name'))) ,
+        );
+    }
+
+    public function getDitoNumberFromItemCodeAttribute()
+    {
+        return substr($this->item_code, 0, 4);
+    }
 }

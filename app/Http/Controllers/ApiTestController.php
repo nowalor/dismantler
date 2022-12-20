@@ -18,7 +18,7 @@ class ApiTestController extends Controller
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
 
-        $dismantleCompanyIds = ['44', '97'];
+        $dismantleCompanyIds = ['44', '50', '70'];
 
         foreach($dismantleCompanyIds as $companyId) {
 

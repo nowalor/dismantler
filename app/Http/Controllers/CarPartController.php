@@ -13,7 +13,7 @@ use Illuminate\View\View;
 
 class CarPartController extends Controller
 {
-    public function index(Request $request): View|RedirectResponse
+    public function index(Request $request): View | RedirectResponse
     {
         $parts = CarPart::query();
         $kba = null;

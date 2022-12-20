@@ -14,7 +14,8 @@ class AdminDitoNumbersController extends Controller
 
     public function index(Request $request)
     {
-        $ditoNumbers = DitoNumber::query();
+        $ditoNumbers = DitoNumber::with('carParts');
+
 
         if ($request->query('filter') === 'uninteresting') {
             $ditoNumbers = DitoNumber::where('is_not_interesting', 1);

@@ -10,6 +10,12 @@
                 </div>
             @endif
 
+                @if(session()->has('order-updated'))
+                    <div class="alert alert-success">
+                        {{ session()->get('order-updated') }}
+                    </div>
+                @endif
+
             <div class="card">
                 <div class="card-header">Orders</div>
                 <div class="card-body">
@@ -38,13 +44,16 @@
                                 <td>{{ $order->is_part_delivered ? '✅' : '❌' }}</td>
                                 <th class="d-flex gap-1">
                                     <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-primary btn-sm">View</a>
-                                    <form>
+                                    <form method="POST" action="{{ route('admin.orders.update', $order) }}">
+                                        @csrf
+                                        @method('PATCH')
+
                                         <button class="btn btn-success btn-sm">Delivered</button>
                                     </form>
-                                    <form method="post" action="{{ route('admin.orders.destroy', $order) }}">
+                                    <form method="POST" action="{{ route('admin.orders.destroy', $order) }}">
                                         @csrf
                                         @method('DELETE')
-                                        
+
                                         <button class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </th>

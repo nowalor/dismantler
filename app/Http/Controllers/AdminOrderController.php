@@ -17,13 +17,17 @@ class AdminOrderController extends Controller
 
     public function show(Order $order)
     {
-        //
+
     }
 
 
-    public function update(Request $request, Order $order)
+    public function update(Order $order)
     {
-        //
+        $order->update([
+            'is_part_delivered' => TRUE,
+        ]);
+
+        return redirect()->back()->with('order-updated', 'Order has been updated');
     }
 
 

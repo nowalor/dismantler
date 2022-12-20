@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\CarPart;
 use App\Models\CarPartImage;
 use App\Scopes\CarPartScope;
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -36,16 +37,16 @@ class SeedGermanCarPartsCommand extends Command
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
 
-        $dismantleCompanyIds = ['44', '97'];
+        $dismantleCompanyIds = ['44', '50' , '70'];
 
         foreach($dismantleCompanyIds as $companyId) {
-
             try {
                 for ($i = 0; $i < 199999; $i++) {
                     $response = $this->fetchPage($i, $companyId);
 
                     if (empty($response)) {
                         Log::info("Broke on page $i");
+                        $this->info('About to break on page ' . $i);
                         break;
                     }
 
@@ -65,8 +66,12 @@ class SeedGermanCarPartsCommand extends Command
 
                 }
 
-
+                $this->info('Loop done');
             } catch (Exception $ex) {
+                Log::info('------- ERROR ---------');
+                Log::info($ex->getMessage());
+
+                $this->info('In catch');
 
             }
         }
@@ -90,7 +95,7 @@ class SeedGermanCarPartsCommand extends Command
         $newItem['shelf_number'] = $item['shelfNumber'];
         $newItem['year'] = $item['year'];
         $newItem['car_part_type_id'] = (int)$item['itemTypeId'];
-        $newItem['dismantle_company_id'] = 50;
+        $newItem['dismantle_company_id'] = $item['companyId'];
         $newItem['kilo_watt'] = $item['kiloWatt'];
         $newItem['transmission_type'] = $item['transmissionType'];
         $newItem['item_number'] = $item['itemNumber'];
