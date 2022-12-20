@@ -41,8 +41,8 @@
                                     <datalist id="dismantle-company-list">
                                         @foreach($dismantleCompanies as $dismantleCompany)
                                             <option
-                                                @if(request()->input('plaintext') == $dismantleCompany->name) selected
-                                                @endif value="{{ $dismantleCompany->name }}">{{ $dismantleCompany->name }}
+                                                @if(request()->input('plaintext') == $dismantleCompany?->name) selected
+                                                @endif value="{{ $dismantleCompany?->name }}">{{ $dismantleCompany?->name }}
                                             </option>
                                         @endforeach
                                     </datalist>
@@ -130,13 +130,13 @@
                             <div class="card-body">
 
                                 <p>
-                                    <span class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany->name }}
+                                    <span class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany?->name }}
                                 </p>
                                 <p>
                                     <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
                                 </p>
                                 <p>
-                                    <span class="fw-bold">Price:</span> {{ $part->price1 }}
+                                    <span class="fw-bold">Price:</span> {{ $part->price1 > 0 ? $part->price1 : 'Contact us for price' }}
                                 </p>
                                 <p>
                                     <span class="fw-bold">Quantity:</span> {{ $part->quantity }}

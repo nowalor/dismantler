@@ -4,38 +4,42 @@
     <div class="container pt-2">
         <label class="fw-bold">Relevancy</label>
         <div class="flex gap-2">
-            <a href="{{ route( 'admin.dito-numbers.index') }}" class="btn sm btn-info">All</a>
-            <a href="{{ route( 'admin.dito-numbers.index', ['filter' => 'all_relevant']) }}" class="btn sm btn-info">All
+            <a href="{{ route( 'admin.dito-numbers.index',  array_merge(request()->all(), ['filter' => 'all'])) }}" class="btn sm btn-info">All</a>
+            <a href="{{ route( 'admin.dito-numbers.index', array_merge(request()->all(), ['filter' => 'all_relevant'])) }}"
+               class="btn sm btn-info">All
                 relevant</a>
-            <a href="{{ route( 'admin.dito-numbers.index' , ['filter' => 'uninteresting']) }}"
+            <a href="{{ route( 'admin.dito-numbers.index' , array_merge(request()->all(), ['filter' => 'uninteresting'])) }}"
                class="btn sm btn-primary">Uninteresting</a>
-            <a href="{{ route( 'admin.dito-numbers.index' , ['filter' => 'completed']) }}"
+            <a href="{{ route( 'admin.dito-numbers.index' , array_merge(request()->all(), ['filter' => 'completed'])) }}"
                class="btn sm btn-warning text-white">Selection completed</a>
         </div>
         <label class="fw-bold">Connection</label>
         <div class="flex gap-2">
-            <a href="{{ route( 'admin.dito-numbers.index', ['kba_connection' => 'has']) }}"
+            <a href="{{ route( 'admin.dito-numbers.index', array_merge(request()->all(), ['kba_connection' => 'has'])) }}"
                class="btn sm btn-info text-white @if(request()->input('kba_connection') === 'has') opacity-50 @endif">With
                 kba
                 @if(request()->input('kba_connection') === 'has')
                     🗑️
                 @endif
             </a>
-            <a href="{{ route( 'admin.dito-numbers.index' , ['kba_connection' => 'dont_have']) }}"
-               class="btn sm btn-info text-white @if(request()->input('kba_connection') === 'dont_have') opacity-50 @endif">Without kba
+            <a href="{{ route( 'admin.dito-numbers.index' , array_merge(request()->all(), ['kba_connection' => 'dont_have'])) }}"
+               class="btn sm btn-info text-white @if(request()->input('kba_connection') === 'dont_have') opacity-50 @endif">Without
+                kba
                 @if(request()->input('kba_connection') === 'dont_have')
                     🗑️
                 @endif
             </a>
 
             <a href="{{ route( 'admin.dito-numbers.index', ['engine_connection' => 'has']) }}"
-               class="btn sm btn-info text-white @if(request()->input('engine_connection') === 'has') opacity-50 @endif">With engines
+               class="btn sm btn-info text-white @if(request()->input('engine_connection') === 'has') opacity-50 @endif">With
+                engines
                 @if(request()->input('engine_connection') === 'has')
                     🗑️
                 @endif
             </a>
             <a href="{{ route( 'admin.dito-numbers.index', ['engine_connection' => 'dont_have'])}}"
-               class="btn sm btn-info text-white @if(request()->input('engine_connection') === 'dont_have') opacity-50 @endif">Without engines
+               class="btn sm btn-info text-white @if(request()->input('engine_connection') === 'dont_have') opacity-50 @endif">Without
+                engines
                 @if(request()->input('engine_connection') === 'dont_have')
                     🗑️
                 @endif
@@ -61,6 +65,7 @@
                             <th>Brand</th>
                             <th>Production date</th>
                             <th>Dito number</th>
+                            <th>Car parts</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -72,6 +77,7 @@
                                 <td>{{ $ditoNumber->brand }}</td>
                                 <td>{{ $ditoNumber->production_date }}</td>
                                 <td>{{ $ditoNumber->dito_number }}</td>
+                                <td>{{ $ditoNumber->carParts->count() }}</td>
                                 <td class="d-flex gap-1">
                                     <a href="{{ route('admin.dito-numbers.show', $ditoNumber) }}"
                                        class="btn btn-primary btn-sm">View</a>
