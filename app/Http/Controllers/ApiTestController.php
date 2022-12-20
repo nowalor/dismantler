@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CarPart;
 use App\Models\CarPartImage;
+use App\Scopes\CarPartScope;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,6 +13,49 @@ use Illuminate\Support\Facades\Log;
 
 class ApiTestController extends Controller
 {
+    public function __invoke()
+    {
+        ini_set('max_execution_time', 50000000);
+        ini_set('max_input_time', 50000000);
+
+        $dismantleCompanyIds = ['44', '50', '70'];
+
+        foreach($dismantleCompanyIds as $companyId) {
+
+            try {
+                for ($i = 0; $i < 199999; $i++) {
+                    $response = $this->fetchPage($i, $companyId);
+
+                    if (empty($response)) {
+                        Log::info("Broke on page $i");
+                        break;
+                    }
+
+                    $transformedData = $this->transformData($response);
+
+                    foreach($transformedData as $item) {
+                        $itemId = $item['id'];
+                        unset($item['id']);
+                        CarPart::withoutGlobalScope(new CarPartScope())->updateOrCreate(['id' => $itemId], $item);
+                    }
+
+                    $transformedImages = $this->transformImages($response);
+
+                    foreach($transformedImages as $image) {
+                        CarPartImage::firstOrCreate($image);
+                    }
+
+                }
+
+            } catch (Exception $ex) {
+                Log::info($ex->getMessage());
+
+                return 'in catch';
+            }
+        }
+    }
+
+
     static private function transformSingle($item)
     {
         $newItem = [];
@@ -46,52 +90,14 @@ class ApiTestController extends Controller
         return $newItem;
     }
 
-    public function __invoke()
-    {
-        ini_set('max_execution_time', 50000000);
-        ini_set('max_input_time', 50000000);
-        DB::beginTransaction();
-        try {
-            for ($i = 0; $i < 199999; $i++) {
-                $response = $this->fetchPage($i);
-
-                if (empty($response)) {
-                    Log::info("Broke on page $i");
-                    break;
-                }
-
-                $transformedData = $this->transformData($response);
-
-                foreach($transformedData as $item) {
-                    $itemId = $item['id'];
-                    unset($item['id']);
-                    CarPart::withoutGlobalScope()->updateOrCreate(['id' => $itemId], $item);
-                }
-
-                $transformedImages = $this->transformImages($response);
-
-                foreach($transformedImages as $image) {
-                    CarPartImage::withoutGlobalScope()
-                        ->firstOrCreate($image);
-                }
-
-            }
-
-            DB::commit();
-        } catch (Exception $ex) {
-            DB::rollBack();
-            return $ex;
-        }
-    }
-
-    private function fetchPage(int $page)
+    private function fetchPage(int $page, string $companyId)
     {
         $apiKey = config()->get('app.egluit_api_key');
         $url = 'https://v2-cloud.egluit.dk/gql/graphql';
 
         $variables = [
             'input' => [
-                'companyId' => '50',
+                'companyId' => $companyId,
                 'dateHourBack' => null,
                 'maxRows' => 1000000000,
                 'pageNumber' => $page,
@@ -140,5 +146,6 @@ class ApiTestController extends Controller
 
         return $newArr;
     }
+
 
 }

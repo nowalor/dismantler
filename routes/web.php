@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminDitoNumbersController;
 use App\Http\Controllers\ConnectDitoToDismantlerController;
 use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
+use App\Http\Controllers\AdminCarPartNoKbaConnectionController;
 
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
@@ -21,10 +22,14 @@ Route::get('payments/approval', [App\Http\Controllers\PaymentController::class, 
     ->name('approval');
 Route::get('payments/cancelled', [App\Http\Controllers\PaymentController::class, 'cancelled'])
     ->name('cancelled');
+Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
+    ->name('checkout.success');
 
 // Checkout
 Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
     ->name('checkout');
+
+
 
 
 
@@ -49,7 +54,7 @@ Route::resource('car-parts', \App\Http\Controllers\CarPartController::class);
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
     Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
-    Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
+ Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
     Route::post('kba/storeConnection/{kba}', [KbaController::class, 'storeConnectionToEngineType'])
         ->name('admin.kba.store-connection');
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])
@@ -58,7 +63,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
 
+    Route::resource('orders', \App\Http\Controllers\AdminOrderController::class, ['as' => 'admin'])
+        ->only(['index', 'show', 'update', 'destroy',]);
+
+    Route::get('new-parts', AdminCarPartNoKbaConnectionController::class)->name('admin.new-parts');
+
     Route::post('dito-numbers/{ditoNumberId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
 });
 
+
+// Stripe webhooks
+Route::stripeWebhooks('marcus-webhook-test');

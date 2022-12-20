@@ -3,6 +3,7 @@
 namespace App\Resolvers;
 
 use App\Models\PaymentPlatform;
+use Illuminate\Support\Facades\Log;
 
 class PaymentPlatformResolver
 {
@@ -20,7 +21,9 @@ class PaymentPlatformResolver
                 ->firstWhere('id', $paymentPlatformId)
                 ->name
         );
+        Log::info('--- NAME ---');
 
+        Log::info($name);
         $service = config("services.$name.class");
 
         if(empty($service)) {
