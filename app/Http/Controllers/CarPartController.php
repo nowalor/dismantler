@@ -96,16 +96,12 @@ class CarPartController extends Controller
 
             $parts = CarPart::whereIn('id', $carPartIds)
                 ->whereIn('engine_type', $engineTypeNames)
-                ->with('carPartImages',
-                    fn($query) => $query->where('origin_url', 'like', '%part-image%')
-                )
+                ->with('carPartImages')
                 ->paginate(8, pageName: 'parts');
 
             $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', optional($ditoNumber)->id)
                 ->whereNotIn('engine_type', $engineTypeNames)
-                ->with('carPartImages',
-                    fn($query) => $query->where('origin_url', 'like', '%part-image%')
-                )
+                ->with('carPartImages')
                 ->paginate(8, pageName: 'parts_from_different_cars');
 
 
@@ -123,6 +119,7 @@ class CarPartController extends Controller
             'kba',
             'partsDifferentCarSameEngineType',
             'brands',
+            'ditoNumber'
         ));
     }
 

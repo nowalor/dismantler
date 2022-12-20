@@ -2,126 +2,97 @@
 
 @section('content')
     <div class="container mx-auto pt-4">
-        <div class="col-12 mb-3">
-            <div class="card">
-                <h5 class="card-header">Filters</h5>
-                <div class="card-body">
-                    <form action="{{ route('admin.car-parts.index') }}">
-                        <div>
+        <div class="row">
+            <div class="col-6 mb-3">
+                @if($kba)
+                    <div class="card">
+                        <h5 class="card-header">
+                            {{ "$ditoNumber->producer $ditoNumber->brand"}}
+                        </h5>
+                        <div class="card-body">
+                            <div class="display-flex">
+                                <p>
+                                    <span class="fw-bold">Producer:</span>
+                                    {{ $ditoNumber->producer }}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Brand</span>
+                                    {{ $ditoNumber->brand }}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Parts for this car: </span>
+                                    {{ $parts->count() }}
+                                </p>
+                                <p>
+                                    <span class="fw-bold">Parts with same engine type </span>
+                                    {{ $partsDifferentCarSameEngineType->count() }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+            <div class="col-6 mb-3">
+                <div class="card">
+                    <h5 class="card-header">Filters</h5>
+                    <div class="card-body">
+                        <form action="{{ route('admin.car-parts.index') }}">
                             <div>
-                                <label for="brand">Brand</label>
-                                <select class="form-control" id="brand">
-                                    @foreach($brands as $brand)
-                                        <option value="{{ $brand->id }}" @if($brand->name == request()->get('brand')) selected @endif >{{ $brand->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="d-flex gap-2 mb-1">
                                 <div>
-                                    <label>HSN</label>
-                                    <input value="{{request()->get('hsn')}}" class="form-control" type="text">
-                                </div>
-                                <div>
-                                    <label>TSN</label>
-                                    <input value="{{request()->get('tsn')}}" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="d-flex gap-2 mb-1">
-                                <div>
-                                    <div>
-                                        <label>Part type</label>
-                                        <input value="{{ request()->input('part-type') }}" list="part-type-list"
-                                               name="index-part-type" class="form-select">
-                                        <datalist id="part-type-list">
-                                            @foreach($partTypes as $partType)
-                                                <option @if(request()->input('plaintext') == $partType->name) selected
-                                                        @endif value="{{$partType->name }}">{{ $partType->name }}
-                                                </option>
-                                            @endforeach
-                                        </datalist>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label>Dismantle companies</label>
-                                    <input value="{{ request()->input('dismantle-company') }}"
-                                           list="dismantle-company-list"
-                                           name="index-dismantle-company" class="form-select">
-                                    <datalist id="dismantle-company-list">
-                                        @foreach($dismantleCompanies as $dismantleCompany)
-                                            <option
-                                                @if(request()->input('plaintext') == $dismantleCompany?->name) selected
-                                                @endif value="{{ $dismantleCompany?->name }}">{{ $dismantleCompany?->name }}
+                                    <label for="brand">Car model</label>
+                                    <select class="form-control" id="brand">
+                                        @foreach($brands as $brand)
+                                            <option value="{{ $brand->id }}"
+                                                    @if($brand->name == request()->get('brand')) selected
+                                                    @elseif($ditoNumber && $ditoNumber->producer === $brand->name) selected @endif >
+                                                {{ $brand->name }}
                                             </option>
                                         @endforeach
-                                    </datalist>
+                                    </select>
                                 </div>
-
-                            </div>
-                            <div class="d-flex gap-2 mb-1">
-                                <div>
-                                    <label>Selected car model</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                                <div>
-                                    <label>Advanced search</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label>Search by</label>
-                                <div class="d-flex gap-2">
+                                <div class="d-flex gap-2 mb-1">
                                     <div>
-                                        <input class="form-check-input" type="radio" name="search_by" checked
-                                               value="everything">
-                                        <label class="form-check-label">
-                                            Everything
-                                        </label>
+                                        <label>HSN</label>
+                                        <input value="{{request()->get('hsn')}}" class="form-control" type="text">
                                     </div>
                                     <div>
-                                        <input class="form-check-input" type="radio" name="search_by"
-                                               value="engine_type">
-                                        <label class="form-check-label">
-                                            Engine type
-                                        </label>
+                                        <label>TSN</label>
+                                        <input value="{{request()->get('tsn')}}" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-2 mb-1">
+                                    <div>
+                                        <label>Advanced search</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Search by</label>
+                                    <div class="d-flex gap-2">
+                                        <div>
+                                            <input class="form-check-input" type="radio" name="search_by" checked
+                                                   value="everything">
+                                            <label class="form-check-label">
+                                                Everything
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="radio" name="search_by"
+                                                   value="engine_type">
+                                            <label class="form-check-label">
+                                                Engine type
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <button class="btn btn-primary mt-3">Submit</button>
-                        <a href="{{ route('admin.car-parts.index') }}" class="btn btn-warning text-white mt-3">Clear
-                            filters</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 mb-3">
-            @if($kba)
-                <div class="card">
-                    <h5 class="card-header">
-                        {{ $kba->carName }}
-                    </h5>
-                    <div class="card-body">
-                        <div class="display-flex">
-                            <p>
-                                <span class="fw-bold">HSN</span>
-                                {{ $kba->hsn }}
-                            </p>
-                            <p>
-                                <span class="fw-bold">TSN</span>
-                                {{ $kba->tsn }}
-                            </p>
-                        </div>
-                        <p>
-                            <span class="fw-bold">Plaintext</span>
-                            {{ $kba->manufacturer_plaintext }}
-                        </p>
-                        <p>
-                            <span class="fw-bold">Commercial name</span>
-                            {{ $kba->commercial_name }}
-                        </p>
+                            <button class="btn btn-primary mt-3">Search</button>
+                            <a href="{{ route('car-parts.index') }}" class="btn btn-warning text-white mt-3">Clear
+                                filters</a>
+                        </form>
                     </div>
                 </div>
-            @endif
+            </div>
         </div>
 
 
@@ -144,7 +115,8 @@
                                     <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
                                 </p>
                                 <p>
-                                    <span class="fw-bold">Price:</span> {{ $part->price1 > 0 ? $part->price1 : 'Contact us for price' }}
+                                    <span
+                                        class="fw-bold">Price:</span> {{ $part->price1 > 0 ? $part->price1 : 'Contact us for price' }}
                                 </p>
                                 <p>
                                     <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
