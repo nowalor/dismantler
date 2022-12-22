@@ -59,32 +59,37 @@
                                 <div class="d-flex gap-2 mb-1">
                                     <div>
                                         <label>HSN</label>
-                                        <input value="{{request()->get('hsn')}}" class="form-control" type="text">
+                                        <input value="{{ request()->get('hsn') }}" class="form-control" type="text">
                                     </div>
                                     <div>
                                         <label>TSN</label>
-                                        <input value="{{request()->get('tsn')}}" class="form-control" type="text">
+                                        <input value="{{ request()->get('tsn') }}" class="form-control" type="text">
                                     </div>
                                 </div>
                                 <div>
                                     <div>
                                         <label>Advanced search</label>
-                                        <input class="form-control" type="text">
+                                        <input value="{{ request()->get('advanced_search') }}" class="form-control"
+                                               type="text">
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label>Search by</label>
                                     <div class="d-flex gap-2">
                                         <div>
-                                             <input class="form-check-input" type="radio" name="search_by" checked
-                                                   value="everything">
+                                            <input class="form-check-input" type="radio" name="search_by"
+                                                   value="everything"
+                                                   @if(request()->get('search_by') === 'everything') checked @endif>
+
                                             <label class="form-check-label">
                                                 Everything
                                             </label>
                                         </div>
                                         <div>
                                             <input class="form-check-input" type="radio" name="search_by"
-                                                   value="engine_type">
+                                                   value="engine_type"
+                                                   @if(request()->get('search_by') === 'engine_type') checked @endif
+                                            >
                                             <label class="form-check-label">
                                                 Engine type
                                             </label>

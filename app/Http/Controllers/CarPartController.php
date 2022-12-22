@@ -35,15 +35,12 @@ class CarPartController extends Controller
         }
 
         if (
-            $request->filled('brand') &&
-            !$request->filled('hsn') &&
-            !$request->filled('tsn')
+            $request->filled('brand')
         ) {
             $brand = $request->input('brand');
 
             $parts = $parts->where('name', 'like', "%$brand%")
-                ->with('carPartImages',)
-                ->paginate(10, pageName: 'parts');
+                ->with('carPartImages',);
         }
 
         if ($request->filled('advanced_search')) {
@@ -98,7 +95,7 @@ class CarPartController extends Controller
                 ->paginate(8, pageName: 'parts_from_different_cars');
         }
 
-        $parts = $parts->paginate(10, pageName: 'parts');
+        $parts = $parts->paginate(9, pageName: 'parts');
 
         $partTypes = CarPartType::all();
         $dismantleCompanies = DismantleCompany::all();
