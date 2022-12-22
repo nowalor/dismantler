@@ -2,9 +2,14 @@
 
 @section('content')
     <div class="container mx-auto pt-4">
+        <div class="col-6">
+            <h1>Find your spare part today! <i class="fa fa-solid fa-car"></i></h1>
+            <p>We currently have 12364231 parts available so hopefully you are able to find what you are looking
+                for!</p>
+        </div>
         <div class="row">
-            <div class="col-6 mb-3">
-                @if($kba)
+            @if($ditoNumber)
+                <div class="col-6 mb-3">
                     <div class="card">
                         <h5 class="card-header">
                             {{ "$ditoNumber->producer $ditoNumber->brand"}}
@@ -30,8 +35,9 @@
                             </div>
                         </div>
                     </div>
-                @endif
-            </div>
+                </div>
+            @endif
+
             <div class="col-6 mb-3">
                 <div class="card">
                     <h5 class="card-header">Filters</h5>
@@ -60,7 +66,7 @@
                                         <input value="{{request()->get('tsn')}}" class="form-control" type="text">
                                     </div>
                                 </div>
-                                <div class="d-flex gap-2 mb-1">
+                                <div>
                                     <div>
                                         <label>Advanced search</label>
                                         <input class="form-control" type="text">
@@ -70,7 +76,7 @@
                                     <label>Search by</label>
                                     <div class="d-flex gap-2">
                                         <div>
-                                            <input class="form-check-input" type="radio" name="search_by" checked
+                                             <input class="form-check-input" type="radio" name="search_by" checked
                                                    value="everything">
                                             <label class="form-check-label">
                                                 Everything

@@ -35,7 +35,7 @@ Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
 
 // Payment routes end
 
-Route::get('/', HomepageController::class);
+Route::get('/', HomepageController::class)->name('home');
 Route::get('/faq', FaqPageController::class)->name('faq');
 Route::get('/about-us', AboutUsPageController::class)->name('about-us');
 Route::get('/contact', ContactPageController::class)->name('contact');

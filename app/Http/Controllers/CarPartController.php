@@ -21,6 +21,8 @@ class CarPartController extends Controller
 
         $brands = CarBrand::all();
 
+        $ditoNumber = null;
+
         $partsDifferentCarSameEngineType = null;
 
         if (
@@ -32,10 +34,6 @@ class CarPartController extends Controller
             ]);
         }
 
-        // Only need to filter by brand
-        // If HSN and TSN not filled
-        // Because otherwise we filter by car name anyway
-        // Which includes the brand
         if (
             $request->filled('brand') &&
             !$request->filled('hsn') &&
@@ -48,11 +46,7 @@ class CarPartController extends Controller
                 ->paginate(10, pageName: 'parts');
         }
 
-        if (
-            $request->filled('advanced_search') &&
-            !$request->filled('hsn') &&
-            !$request->filled('tsn')
-        ) {
+        if ($request->filled('advanced_search')) {
             $search = $request->input('advanced_search');
 
             $parts = $parts
@@ -96,16 +90,15 @@ class CarPartController extends Controller
 
             $parts = CarPart::whereIn('id', $carPartIds)
                 ->whereIn('engine_type', $engineTypeNames)
-                ->with('carPartImages')
-                ->paginate(8, pageName: 'parts');
+                ->with('carPartImages');
 
             $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', optional($ditoNumber)->id)
                 ->whereNotIn('engine_type', $engineTypeNames)
                 ->with('carPartImages')
                 ->paginate(8, pageName: 'parts_from_different_cars');
-
-
         }
+
+        $parts = $parts->paginate(10, pageName: 'parts');
 
         $partTypes = CarPartType::all();
         $dismantleCompanies = DismantleCompany::all();

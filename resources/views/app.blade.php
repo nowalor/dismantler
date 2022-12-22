@@ -41,7 +41,10 @@
 
 <header class="sticky-top bg-dark">
     <nav class="container d-flex justify-content-between py-2">
-        <h3 class="text-white logo">Logo</h3>
+        <a href="{{ route('home') }}" class="d-flex gap-2 align-items-center text-decoration-none">
+            <i style="font-size: 1.6rem;" class="fa fa-solid fa-car"></i>
+            <h3 class="text-white">Autoteile</h3>
+        </a>
         <ul class="nav">
             <li class="nav-item d-flex">
                 <a href="/car-parts" class="nav-link text-white">Parts</a>
