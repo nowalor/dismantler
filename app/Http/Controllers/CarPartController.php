@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarBrand;
 use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DismantleCompany;
@@ -13,10 +14,14 @@ use Illuminate\View\View;
 
 class CarPartController extends Controller
 {
-    public function index(Request $request): View | RedirectResponse
+    public function index(Request $request)// : View | RedirectResponse
     {
         $parts = CarPart::query();
         $kba = null;
+
+        $brands = CarBrand::all();
+
+        $ditoNumber = null;
 
         $partsDifferentCarSameEngineType = null;
 
@@ -24,30 +29,70 @@ class CarPartController extends Controller
             ($request->filled('hsn') && !$request->filled('tsn')) ||
             ($request->filled('tsn') && !$request->filled('hsn'))
         ) {
-            return redirect()->back()->withErrors([
-                'hsn_or_tsn_missing' => 'Both HSN and TSN must be included if you want to search with them',
-            ]);
+            $errors = ['hsn' => 'Please fill in both HSN and TSN'];
+
+            return $this->redirectBack($errors);
         }
 
-        // Only need to filter by brand
-        // If HSN and TSN not filled
-        // Because otherwise we filter by car name anyway
-        // Which includes the brand
+        if ($request->filled('hsn') && $request->filled('tsn')) {
+            $kba = GermanDismantler::where('hsn', $request->input('hsn'))
+                ->where('tsn', $request->input('tsn'))
+                ->with('engineTypes')
+                ->with('ditoNumbers')
+                ->first();
+
+            $engineTypeNames = $kba->engineTypes->pluck('name');
+
+            $ditoNumber = $kba->ditoNumbers->first();
+
+            if(is_null($ditoNumber)) {
+                $errors = [
+                    'error' => 'We could not find information on your car based on the HSN + TSN',
+                    'error3' => '!',
+                ];
+
+                return $this->redirectBack($errors);
+            }
+
+            $carPartIds = GermanDismantler::with('ditoNumbers.carParts')
+                ->where('hsn', $request->input('hsn'))
+                ->where('tsn', $request->input('tsn'))
+                ->get()
+                ->pluck('ditoNumbers')
+                ->collapse()
+                ->pluck('carParts')
+                ->collapse()
+                ->unique('id')
+                ->pluck('id')
+                ->values();
+
+            $parts = $parts->whereIn('id', $carPartIds)
+                ->whereIn('engine_type', $engineTypeNames)
+                ->with('carPartImages');
+
+            $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', optional($ditoNumber)->id)
+                ->whereIn('engine_type', $engineTypeNames)
+                ->paginate(8, pageName: 'parts_from_different_cars');
+        }
+
         if (
-            $request->filled('brand') &&
-            !$request->filled('hsn') &&
-            !$request->filled('tsn')
+            $request->filled('brand')
         ) {
             $brand = $request->input('brand');
 
-            $parts->where('name', 'like', "%$brand%");
+            if (!is_null($ditoNumber) && $ditoNumber->producer !== $brand) {
+                $errors = [
+                    'error' => "Car model does not match the brand of the HSN + TSN. We detected that the model of the car matching the HSN + TSN is $ditoNumber->producer while you selected $brand",
+                    'error2' => '!',
+                ];
+
+                return $this->redirectBack($errors);
+            }
+
+            $parts = $parts->where('name', 'like', "%$brand%");
         }
 
-        if (
-            $request->filled('advanced_search') &&
-            !$request->filled('hsn') &&
-            !$request->filled('tsn')
-        ) {
+        if ($request->filled('advanced_search')) {
             $search = $request->input('advanced_search');
 
             $parts = $parts
@@ -65,47 +110,11 @@ class CarPartController extends Controller
             }
         }
 
-        if ($request->filled('hsn') && $request->filled('tsn')) {
-            $kba = GermanDismantler::where('hsn', $request->input('hsn'))
-                ->where('tsn', $request->input('tsn'))
-                ->first();
-
-            $namesFromDitoNumbers = [];
-            foreach ($kba->ditoNumbers as $ditoNumber) {
-                $name = "$ditoNumber->producer $ditoNumber->brand";
-
-                array_push($namesFromDitoNumbers, $name);
-            }
-
-            $engineTypeNames = $kba->engineTypes->pluck('name');
-
-            $parts = CarPart::whereIn('engine_code', $engineTypeNames)
-                ->with('carPartImages',
-                    fn($query) => $query->where('origin_url', 'like', '%part-image%')
-                )->where(function ($query) use ($namesFromDitoNumbers) {
-                    foreach ($namesFromDitoNumbers as $name) {
-                        $query->orWhere('name', 'like', "%$name%");
-                    }
-                });
-
-            $carName = !empty($namesFromDitoNumbers) ? $namesFromDitoNumbers[0] : null;
-            $kba->carName = $carName;
-
-            $partsDifferentCarSameEngineType = CarPart::whereIn('engine_code', $engineTypeNames)
-                ->with('carPartImages',
-                    fn($query) => $query->where('origin_url', 'like', '%part-image%')
-                )
-                ->where(function ($query) use ($namesFromDitoNumbers) {
-                    foreach ($namesFromDitoNumbers as $name) {
-                        $query->orWhereNot('name', 'like', "%$name%");
-                    }
-                })->paginate(4, pageName: 'parts_from_different_cars');
-        }
-
-        $parts = $parts->paginate(2, pageName: 'parts');
+        $parts = $parts
+            ->with('carPartImages')
+            ->paginate(9, pageName: 'parts');
 
         $partTypes = CarPartType::all();
-
         $dismantleCompanies = DismantleCompany::all();
 
         return view('car-parts.index', compact
@@ -115,30 +124,10 @@ class CarPartController extends Controller
             'dismantleCompanies',
             'kba',
             'partsDifferentCarSameEngineType',
+            'brands',
+            'ditoNumber'
         ));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     public function show(CarPart $carPart)
     {
         $carPart->load(['carPartImages' =>
@@ -150,37 +139,15 @@ class CarPartController extends Controller
         ));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param CarPart $carPart
-     * @return Response
-     */
-    public function edit(CarPart $carPart)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param CarPart $carPart
-     * @return Response
-     */
     public function update(Request $request, CarPart $carPart)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param CarPart $carPart
-     * @return Response
-     */
-    public function destroy(CarPart $carPart)
+    private function redirectBack(array $errors): RedirectResponse
     {
-        //
+        request()->flash();
+
+        return redirect()->back()->withErrors($errors);
     }
 }
