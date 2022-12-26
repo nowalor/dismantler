@@ -12,9 +12,12 @@
                 <div class="col-6 mb-3">
                     <div class="card">
                         <h5 class="card-header">
-                            {{ "$ditoNumber->producer $ditoNumber->brand"}}
+                            Showing parts for
                         </h5>
                         <div class="card-body">
+                            <h3>{{ "$ditoNumber->producer $ditoNumber->brand"}}</h3>
+                            <p>Based on the combination of your HSN + TSN we detected this is your car</p>
+                            <p>If it's not correct please <a href="{{ route('contact') }}" class="link-info">Contact us</a> and we will fix it</p>
                             <div class="display-flex">
                                 <p>
                                     <span class="fw-bold">Producer:</span>
@@ -26,11 +29,11 @@
                                 </p>
                                 <p>
                                     <span class="fw-bold">Parts for this car: </span>
-                                    {{ $parts->count() }}
+                                    {{ $parts->total() }}
                                 </p>
                                 <p>
-                                    <span class="fw-bold">Parts with same engine type </span>
-                                    {{ $partsDifferentCarSameEngineType->count() }}
+                                    <span class="fw-bold">Parts with same engine type for different cars: </span>
+                                    {{ $partsDifferentCarSameEngineType->total() }}
                                 </p>
                             </div>
                         </div>
@@ -42,15 +45,15 @@
                 <div class="card">
                     <h5 class="card-header">Filters</h5>
                     <div class="card-body">
-                        <form action="{{ route('admin.car-parts.index') }}">
+                        <form action="{{ route('car-parts.index') }}">
                             <div>
                                 <div>
                                     <label for="brand">Car model</label>
                                     <select class="form-control" id="brand">
                                         @foreach($brands as $brand)
                                             <option value="{{ $brand->id }}"
-                                                    @if($brand->name == request()->get('brand')) selected
-                                                    @elseif($ditoNumber && $ditoNumber->producer === $brand->name) selected @endif >
+                                                    @if($brand->name === request()->get('brand')) selected
+                                                    @elseif(empty(request()->get('brand')) && $ditoNumber && $ditoNumber->producer === $brand->name) selected @endif >
                                                 {{ $brand->name }}
                                             </option>
                                         @endforeach
@@ -108,47 +111,54 @@
 
 
         <div>
-            <h2>Parts</h2>
-            <div class="col-12 d-flex flex-wrap">
-                @foreach($parts as $part)
-                    <div class="col-4">
-                        <div class="card m-3">
-                            <p class="card-header">{{ $part->name }}</p>
-                            <img style="height:300px;" class="card-img-top shadow-sm"
-                                 src="{{ count($part->carPartImages) ? $part->carPartImages[0]->origin_url : asset('no-image-placeholder.jpg')}}"
-                                 alt="Card image cap">
-                            <div class="card-body">
+            @if($parts && $parts->total())
+                <div>
+                    <h2>Parts</h2>
+                    <div class="col-12 d-flex flex-wrap">
+                        @foreach($parts as $part)
+                            <div class="col-4">
+                                <div class="card m-3">
+                                    <p class="card-header">{{ $part->name }}</p>
+                                    <img style="height:300px;" class="card-img-top shadow-sm"
+                                         src="{{ count($part->carPartImages) ? $part->carPartImages[0]->origin_url : asset('no-image-placeholder.jpg')}}"
+                                         alt="Card image cap">
+                                    <div class="card-body">
 
-                                <p>
-                                    <span class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany?->name }}
-                                </p>
-                                <p>
-                                    <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
-                                </p>
-                                <p>
+                                        <p>
+                                            <span
+                                                class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany?->name }}
+                                        </p>
+                                        <p>
+                                            <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
+                                        </p>
+                                        <p>
                                     <span
                                         class="fw-bold">Price:</span> {{ $part->price1 > 0 ? $part->price1 : 'Contact us for price' }}
-                                </p>
-                                <p>
-                                    <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
-                                </p>
-                                <p>
-                                    <span class="fw-bold">Transmission type:</span> {{ $part->transmission_type}}
-                                </p>
-                                <p>
-                                    <span class="fw-bold">Condition:</span> {{ $part->condition }}
-                                </p>
+                                        </p>
+                                        <p>
+                                            <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
+                                        </p>
+                                        <p>
+                                            <span
+                                                class="fw-bold">Transmission type:</span> {{ $part->transmission_type}}
+                                        </p>
+                                        <p>
+                                            <span class="fw-bold">Condition:</span> {{ $part->condition }}
+                                        </p>
 
-                                <a href="{{ route('car-parts.show', $part) }}" class="btn btn-primary w-100 mt-3">View
-                                    part</a>
+                                        <a href="{{ route('car-parts.show', $part) }}"
+                                           class="btn btn-primary w-100 mt-3">View
+                                            part</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
-            </div>
-            {{ $parts->withQueryString()->links() }}
+                    {{ $parts->withQueryString()->links() }}
+                </div>
+            @endif
         </div>
-        @if($partsDifferentCarSameEngineType)
+        @if($partsDifferentCarSameEngineType && $partsDifferentCarSameEngineType->total())
             <div>
                 <h2>Parts from other cars</h2>
                 <p class="leading">These are parts from other cars but with the same engine type. They might fit your
@@ -191,6 +201,14 @@
                     {{ $partsDifferentCarSameEngineType->withQueryString()->links() }}
 
                 </div>
+            </div>
+        @endif
+        @if(
+            (!$parts || !$parts->total()) &&
+            (!$partsDifferentCarSameEngineType || !$partsDifferentCarSameEngineType->total())
+        )
+            <div>
+                We did not find any parts for your car.
             </div>
         @endif
     </div>
