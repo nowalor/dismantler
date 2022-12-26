@@ -92,7 +92,7 @@ class CarPart extends Model
     {
         return $this->belongsTo(DitoNumber::class);
     }
-    public function name_for_search(): Attribute
+    public function nameForSearch(): Attribute
     {
         return Attribute::make(
             get: fn() => strtolower(str_replace(' ', '', $this->getAttribute('name'))) ,
