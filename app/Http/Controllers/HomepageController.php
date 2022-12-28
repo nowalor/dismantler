@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\CarBrand;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomepageController extends Controller
 {
-    public function __invoke()
+    public function __invoke(): View
     {
-        $brands = CarBrand::all();
+        $brands = CarBrand::withCount('carParts')
+            ->having('car_parts_count', '>', 0)
+            ->get();
 
         return view('homepage', compact('brands'));
     }

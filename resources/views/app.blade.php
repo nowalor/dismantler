@@ -71,7 +71,7 @@
         background-image: url(' {{asset('img/homepage-banner.jpg') }}');
         background-size: cover;
 
-        height: 120vh;
+        height: calc(100vh - 56px);
         width: 100%;
         position: relative;
     }

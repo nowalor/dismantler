@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container mx-auto pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Car parts</li>
+            </ol>
+        </nav>
         <div class="col-6">
             <h1>Find your spare part today! <i class="fa fa-solid fa-car"></i></h1>
             <p>We currently have 12364231 parts available so hopefully you are able to find what you are looking

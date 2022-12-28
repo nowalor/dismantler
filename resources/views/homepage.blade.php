@@ -81,4 +81,79 @@
             </div>
         </div>
     </div>
+    <div class="container pt-3">
+        <h1 class="text-center pt-3">
+            Benefits of buying from us
+        </h1>
+        <p class="text-center pb-3" style="width: 50vw;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem eligendi facilis fugit, iure nesciunt
+            nihil non obcaecati, quia quo ratione rem sequi unde vel veniam. Culpa ex mollitia quod.
+        </p>
+        <div class="row pt-3">
+            <div class="col-4">
+                <h6>Reason one</h6>
+                <img style="height: 400px; width: 100%;" src="{{ asset('img/car-banner2.jpg') }}" alt="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere fuga itaque molestias provident
+                    quibusdam? Cumque dolore dolorum esse illum molestias necessitatibus nobis. Aspernatur beatae dolor
+                    exercitationem praesentium saepe? Doloremque, laborum?</p>
+            </div>
+
+            <div class="col-4">
+                <h6>Reason one</h6>
+                <img style="height: 400px; width: 100%;" src="{{ asset('img/car-banner2.jpg') }}" alt="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere fuga itaque molestias provident
+                    quibusdam? Cumque dolore dolorum esse illum molestias necessitatibus nobis. Aspernatur beatae dolor
+                    exercitationem praesentium saepe? Doloremque, laborum?</p>
+            </div>
+
+            <div class="col-4">
+                <h6>Reason one</h6>
+                <img style="height: 400px; width: 100%;" src="{{ asset('img/car-banner2.jpg') }}" alt="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere fuga itaque molestias provident
+                    quibusdam? Cumque dolore dolorum esse illum molestias necessitatibus nobis. Aspernatur beatae dolor
+                    exercitationem praesentium saepe? Doloremque, laborum?</p>
+            </div>
+
+        </div>
+
+        <div class="row pt-3 pb-3">
+            <div class="row g-2">
+                <div class="col-12">
+                    <img style="width: 100%;" src="{{ asset('img/homepage-gallery/img-1.jpg') }}" alt="">
+                </div>
+                <div class="col-6">
+                    <img style="width: 100%;" src="{{ asset('img/homepage-gallery/img-2.jpg') }}" alt="">
+                </div>
+                <div class="col-6">
+                    <img style="width: 100%;" src="{{ asset('img/homepage-gallery/img-3.jpg') }}" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <h1 class="text-center pt-3">
+            Brands
+        </h1>
+        <p class="text-center">
+            We currently have parts from <span class="fw-bold">{{ $brands->count() }}</span> brands available. We are
+            only showing brands on here where we currenty have at least one part in the system
+        </p>
+        <div class="row g-2">
+            @foreach($brands as $brand)
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $brand->name }}</h5>
+                            <p class="card-text pb-2">We currently have <span
+                                    class="fw-bold">{{ $brand->car_parts_count }}</span> parts available for
+                                this {{ $brand->name }}</p>
+                            <img class="mb-2" style="width:50%;" src="{{ asset('img/car-brand-logos/audi-logo.png') }}"
+                                 alt="">
+                            <a href="#" class="btn btn-primary w-100 d-block mt-2">View parts for {{ $brand->name }}</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 @endsection('content')

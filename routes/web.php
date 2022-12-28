@@ -32,13 +32,14 @@ Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
 
 
 
-
+// testing remove later
+Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
-Route::get('/', HomepageController::class)->name('home');
-Route::get('/faq', FaqPageController::class)->name('faq');
-Route::get('/about-us', AboutUsPageController::class)->name('about-us');
+Route::get('', HomepageController::class)->name('home');
+Route::get('faq', FaqPageController::class)->name('faq');
+Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');
 Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
 

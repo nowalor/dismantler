@@ -1,7 +1,16 @@
 @extends('app')
 @section('title', 'Single car part')
 @section('content')
-    <div class="container mx-auto">
+    <div class="container mx-auto pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('car-parts.index') }}">Car parts</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $carPart->name }}</li>
+            </ol>
+        </nav>
         <div class="row pt-4">
             <div class="col-6">
                 <h3 class="pt-4">{{ $carPart->name }}</h3>

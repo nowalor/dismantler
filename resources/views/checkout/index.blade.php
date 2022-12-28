@@ -1,7 +1,19 @@
 @extends('app')
 @section('title', 'Buy part now ' . $carPart->name)
 @section('content')
-    <div class="container pb-4">
+    <div class="container pb-4 pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('car-parts.index') }}">Car parts</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('car-parts.show', $carPart) }}">{{ $carPart->name }}</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+            </ol>
+        </nav>
         <div>
             <div class="py-5 text-center col-8 mx-auto">
                 <!--   <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
@@ -137,7 +149,8 @@
                                         <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;"
                                              alt="Paypal Logo">
                                     </button>
-                                    <input type="radio" name="payment_platform" class="invisible" value="1" id="payment_platform_paypal">
+                                    <input type="radio" name="payment_platform" class="invisible" value="1"
+                                           id="payment_platform_paypal">
                                 </label>
                             </div>
 

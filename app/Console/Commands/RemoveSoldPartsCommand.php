@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\CarPart;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -18,8 +19,9 @@ class RemoveSoldPartsCommand extends Command
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
 
-        $data = [];
+        $partIdsFromAPI = [];
 
+        // We need to make a different API request for each dismantler we want parts from
         $dismantleCompanyIds = ['44', '50', '70'];
 
         foreach ($dismantleCompanyIds as $companyId) {
@@ -32,23 +34,27 @@ class RemoveSoldPartsCommand extends Command
                 }
 
                 foreach ($response as $item) {
-                    array_push($data, $item['id']);
+                    array_push($partIdsFromAPI, $item['id']);
                 }
 
             }
         }
 
-        Log::info('------- THE DATA -------');
-        Log::info(json_encode($data));
+        Log::info('------- PARTS FROM API ------- :' .  count($partIdsFromAPI));
+        Log::info(json_encode($partIdsFromAPI));
 
         return Command::SUCCESS;
 
-        // $carParts = CarPart::all();
-        // foreach($carParts as $carPart) {
-        // if(!in_array($data,  $carPart->id)) {
-        // $carPart->delete();
-        // }
-    // }
+        $partIdsFromDB  = CarPart::all()->pluck('id');
+
+        /* Log::info('------- PARTS FROM DB -------: ' . count($partIdsFromDB ));
+        Log::info(json_encode($partIdsFromDB )); */
+
+        $partsSold = array_diff($partIdsFromAPI, $partIdsFromDB );
+
+        $partsAdded = array_diff($partIdsFromDB , $partIdsFromAPI);
+
+
     }
 
 
