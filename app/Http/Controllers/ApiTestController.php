@@ -33,17 +33,20 @@ class ApiTestController extends Controller
 
                     $transformedData = $this->transformData($response);
 
-                    foreach($transformedData as $item) {
+                    CarPart::insertOrIgnore($transformedData);
+   /*                 foreach($transformedData as $item) {
                         $itemId = $item['id'];
                         unset($item['id']);
+
                         CarPart::withoutGlobalScope(new CarPartScope())->updateOrCreate(['id' => $itemId], $item);
                     }
-
+ */
                     $transformedImages = $this->transformImages($response);
 
-                    foreach($transformedImages as $image) {
+                    CarPartImage::insertOrIgnore($transformedImages);
+                    /*foreach($transformedImages as $image) {
                         CarPartImage::firstOrCreate($image);
-                    }
+                    }*/
 
                 }
 
