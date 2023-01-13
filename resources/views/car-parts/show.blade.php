@@ -18,9 +18,14 @@
     !empty($carPart->carPartImages[0]) ? $carPart->carPartImages[0]?->origin_url :
     asset('no-image-placeholder.jpg')
     }}" alt="">
-                @foreach($carPart->carPartImages as $image)
-                    <img src="{{ $image->thumbnail_url }}" alt=""/>
-                @endforeach
+                <div class="mt-2 d-flex gap-2">
+                    @foreach($carPart->carPartImages as $image)
+                        <div>
+                            <img style="height: 200px; width: 200px; object-fit: cover;" src="{{ $image->origin_url }}"
+                                 alt=""/>
+                        </div>
+                    @endforeach
+                </div>
 
                 @if($carPart->price1 > 0)
                     <div class="pt-2">
@@ -115,15 +120,15 @@
 
             </div>
             @if($carPart->comments)
-            <div class="col-6">
-                <div class="card">
-                    <h3 class="card-header">Comments</h3>
-                    <div class="card-body">
-                        <div style=" white-space: pre-wrap;">{{ $carPart->comments }}</div>
+                <div class="col-6">
+                    <div class="card">
+                        <h3 class="card-header">Comments</h3>
+                        <div class="card-body">
+                            <div style=" white-space: pre-wrap;">{{ $carPart->comments }}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-                @endif
+            @endif
         </div>
 
 

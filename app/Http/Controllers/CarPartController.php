@@ -16,7 +16,8 @@ class CarPartController extends Controller
 {
     public function index(Request $request)// : View | RedirectResponse
     {
-        $parts = CarPart::query();
+        $parts = CarPart::select(['id', 'name', 'oem_number', 'price3', 'engine_type', 'car_part_type_id'])->
+        with('ditoNumber', 'carPartType');
         $kba = null;
 
         $brands = CarBrand::all();
@@ -43,9 +44,11 @@ class CarPartController extends Controller
 
             $engineTypeNames = $kba->engineTypes->pluck('name');
 
+
+
             $ditoNumber = $kba->ditoNumbers->first();
 
-            if(is_null($ditoNumber)) {
+            if (is_null($ditoNumber)) {
                 $errors = [
                     'error' => 'We could not find information on your car based on the HSN + TSN',
                     'error3' => '!',
@@ -67,11 +70,13 @@ class CarPartController extends Controller
                 ->values();
 
             $parts = $parts->whereIn('id', $carPartIds)
-                ->whereIn('engine_type', $engineTypeNames)
+                // ->whereIn('engine_type', $engineTypeNames)
+                //->whereNotNull('engine_type_id') // Experimental code
                 ->with('carPartImages');
 
             $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', optional($ditoNumber)->id)
                 ->whereIn('engine_type', $engineTypeNames)
+                // ->whereNotNull('engine_type_id') // Experimental code
                 ->paginate(8, pageName: 'parts_from_different_cars');
         }
 
@@ -128,11 +133,16 @@ class CarPartController extends Controller
             'ditoNumber'
         ));
     }
+
+    private function redirectBack(array $errors): RedirectResponse
+    {
+        request()->flash();
+
+        return redirect()->back()->withErrors($errors);
+    }
+
     public function show(CarPart $carPart)
     {
-        $carPart->load(['carPartImages' =>
-                fn($query) => $query->where('origin_url', 'like', '%part-image%')]
-        );
 
         return view('car-parts.show', compact(
             'carPart'
@@ -142,12 +152,5 @@ class CarPartController extends Controller
     public function update(Request $request, CarPart $carPart)
     {
         //
-    }
-
-    private function redirectBack(array $errors): RedirectResponse
-    {
-        request()->flash();
-
-        return redirect()->back()->withErrors($errors);
     }
 }

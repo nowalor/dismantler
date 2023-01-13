@@ -55,6 +55,22 @@ class AdminDitoNumbersController extends Controller
         }
 
         $ditoNumbers = $ditoNumbers->paginate(50)->withQueryString();
+
+        // Counters
+        $totalDitoNumbers = DitoNumber::count();
+        $totalDitoNumbersWithKbaConnection = DitoNumber::has('germanDismantlers')->count();
+        $totalDitoNumbersWithoutKbaConnection = DitoNumber::doesntHave('germanDismantlers')->count();
+        $totalDitoNumbersWithEngineConnection = DitoNumber::has('germanDismantlers.engineTypes')->count();
+        $totalDitoNumbersWithoutEngineConnection = DitoNumber::doesntHave('germanDismantlers.engineTypes')->count();
+        // Total dito numbers with engine connection and kba connection and car parts
+        $totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts = DitoNumber::has('germanDismantlers.engineTypes')
+            ->has('germanDismantlers')
+            ->has('carParts')
+            ->with('germanDismantlers')
+            ->with('carParts')
+            ->get();
+
+        // return $totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts;
         return view('admin.dito-numbers.index', compact('ditoNumbers'));
 
     }

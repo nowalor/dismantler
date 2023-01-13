@@ -35,10 +35,9 @@ class TestController extends Controller
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
 
-        $partIdsFromAPI = [];
-
         // We need to make a different API request for each dismantler we want parts from
         $dismantleCompanyIds = ['44', '50', '70'];
+        $partIds = [];
 
         foreach ($dismantleCompanyIds as $companyId) {
             for ($i = 0; $i < 199999; $i++) {
@@ -49,23 +48,32 @@ class TestController extends Controller
                     break;
                 }
 
-                foreach ($response as $item) {
-                    array_push($partIdsFromAPI, $item['id']);
-                }
+                $collectedResponse = collect($response);
+                $partIdsFromAPI = $collectedResponse
+                    ->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+                    ->pluck('id')
+                    ->toArray();
+
+                $test = CarPart::take(15)->pluck('id');
+
+                return [
+                    'db' => $test,
+                    'api' => $partIdsFromAPI
+                ];
+
+               array_merge($partIds, $partIdsFromAPI);
+
 
             }
         }
 
         $partIdsFromDB = CarPart::withoutGlobalScopes()->get()->pluck('id')->toArray();
 
-        $partsSold = array_diff($partIdsFromDB, $partIdsFromAPI);
-
-        $partsAdded = array_diff($partIdsFromAPI, $partIdsFromDB);
+        $partsSold = array_diff($partIdsFromDB, $partIds);
 
         return [
-            'sold_parts_count' => count($partsSold),
-            'sold_parts' => $partsSold,
-            'added_parts' => $partsAdded,
+            'parts_sold_count' => count($partsSold),
+            'parts_sold' => $partIdsFromDB,
         ];
     }
 

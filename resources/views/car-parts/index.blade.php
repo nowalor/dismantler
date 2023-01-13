@@ -132,24 +132,24 @@
 
                                         <p>
                                             <span
-                                                class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany?->name }}
+                                                class="fw-bold">Name:</span> {{ $part->name }}
                                         </p>
                                         <p>
-                                            <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
+                                            <span class="fw-bold">Part type:</span> {{ $part->carPartType?->name }}
                                         </p>
                                         <p>
                                     <span
                                         class="fw-bold">Price:</span> {{ $part->price1 > 0 ? $part->price1 : 'Contact us for price' }}
                                         </p>
                                         <p>
-                                            <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
+                                            <span class="fw-bold">Oem number:</span> {{ $part->oem_number }}
                                         </p>
                                         <p>
                                             <span
-                                                class="fw-bold">Transmission type:</span> {{ $part->transmission_type}}
+                                                class="fw-bold">Producer:</span> {{ $part->ditoNumber->producer ?? 'Information missing' }}
                                         </p>
                                         <p>
-                                            <span class="fw-bold">Condition:</span> {{ $part->condition }}
+                                            <span class="fw-bold">Brand:</span> {{ $part->ditoNumber->brand ?? 'Information missing'}}
                                         </p>
 
                                         <a href="{{ route('car-parts.show', $part) }}"

@@ -19,8 +19,6 @@ class RemoveSoldPartsCommand extends Command
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
 
-        $partIdsFromAPI = [];
-
         // We need to make a different API request for each dismantler we want parts from
         $dismantleCompanyIds = ['44', '50', '70'];
 
@@ -33,28 +31,20 @@ class RemoveSoldPartsCommand extends Command
                     break;
                 }
 
-                foreach ($response as $item) {
-                    array_push($partIdsFromAPI, $item['id']);
-                }
-
+                $collectedResponse = collect($response);
+                $partIdsFromAPI = $collectedResponse
+                    ->whereIn('carItemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+                    ->all()
+                    ->pluck('id');
             }
         }
 
-        Log::info('------- PARTS FROM API ------- :' .  count($partIdsFromAPI));
-        Log::info(json_encode($partIdsFromAPI));
-
-        return Command::SUCCESS;
-
         $partIdsFromDB  = CarPart::all()->pluck('id');
 
-        /* Log::info('------- PARTS FROM DB -------: ' . count($partIdsFromDB ));
-        Log::info(json_encode($partIdsFromDB )); */
+        $partsSold = array_diff($partIdsFromDB , $partIdsFromAPI);
 
-        $partsSold = array_diff($partIdsFromAPI, $partIdsFromDB );
-
-        $partsAdded = array_diff($partIdsFromDB , $partIdsFromAPI);
-
-
+        $this->info('Finished removing sold parts');
+        return Command::SUCCESS;
     }
 
 
