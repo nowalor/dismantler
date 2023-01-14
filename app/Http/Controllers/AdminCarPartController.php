@@ -69,8 +69,13 @@ class AdminCarPartController extends Controller
             'carPartImages',
             'carPartType',
             'ditoNumber.germanDismantlers.engineTypes',
+            'ditoNumber.germanDismantlers.ditoNumbers',
             'dismantleCompany',
         );
+
+        /* $totalKba= $carPart->ditoNumber->germanDismantlers->count();
+        $totalEngineTypeConnected = $carPart->ditoNumber->germanDismantlers->engineTypes->count(); */
+
 
         return view('admin.car-parts.show', compact('carPart'));
     }

@@ -68,15 +68,13 @@ class CarPartController extends Controller
                 ->unique('id')
                 ->pluck('id')
                 ->values();
-
             $parts = $parts->whereIn('id', $carPartIds)
-                // ->whereIn('engine_type', $engineTypeNames)
-                //->whereNotNull('engine_type_id') // Experimental code
+                 ->whereIn('engine_code', $engineTypeNames)
                 ->with('carPartImages');
 
-            $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', optional($ditoNumber)->id)
-                ->whereIn('engine_type', $engineTypeNames)
-                // ->whereNotNull('engine_type_id') // Experimental code
+
+            $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', $ditoNumber->id)
+                ->whereIn('engine_code', $engineTypeNames)
                 ->paginate(8, pageName: 'parts_from_different_cars');
         }
 

@@ -14,8 +14,8 @@ class AdminDitoNumbersController extends Controller
 
     public function index(Request $request)
     {
-        $ditoNumbers = DitoNumber::with('carParts');
-
+        $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
+            ->with('germanDismantlers.engineTypes');
 
         if ($request->query('filter') === 'uninteresting') {
             $ditoNumbers = DitoNumber::where('is_not_interesting', 1);
@@ -71,7 +71,15 @@ class AdminDitoNumbersController extends Controller
             ->get();
 
         // return $totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts;
-        return view('admin.dito-numbers.index', compact('ditoNumbers'));
+        return view('admin.dito-numbers.index', compact(
+            'ditoNumbers',
+            'totalDitoNumbers',
+            'totalDitoNumbersWithKbaConnection',
+            'totalDitoNumbersWithoutKbaConnection',
+            'totalDitoNumbersWithEngineConnection',
+            'totalDitoNumbersWithoutEngineConnection',
+            'totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts'
+        ));
 
     }
 

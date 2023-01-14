@@ -27,12 +27,12 @@
                                 class="blockquote-footer">{{ $carPart->engine_code ?  : 'Information missing' }}</footer>
                         </blockquote>
                         <blockquote class="blockquote mb-0">
-                            <p>Brand</p>
-                            <footer class="blockquote-footer">{{ $carPart->ditoNumber?->brand }}</footer>
+                            <p>Item code</p>
+                            <footer class="blockquote-footer">{{ $carPart->item_code }}</footer>
                         </blockquote>
                         <blockquote class="blockquote mb-0">
-                            <p>Production date</p>
-                            <footer class="blockquote-footer">{{ $carPart->ditoNumber?->production_date }}</footer>
+                            <p>replace later</p>
+                            <footer class="blockquote-footer">replace later</footer>
                         </blockquote>
                         <blockquote class="blockquote mb-0">
                             <p>Dito number</p>
@@ -41,10 +41,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        German dismantlers
+                        KBA
                         <form action="" method="POST"
                               onsubmit="return confirm('Are you sure?')">
                             @csrf
@@ -57,10 +57,12 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>#</th>
                                 <th>HSN</th>
                                 <th>TSN</th>
-                                <th>Engine type connections</th>
+                                <th>Engine connections</th>
+                                <th>Dito connections</th>
+                                <th>max_net_power_in_kw</th>
+                                <th>engine_capacity_in_cm</th>
                                 <th>Make</th>
                                 <th>Commercial name</th>
                                 <th>Actions</th>
@@ -69,10 +71,12 @@
                             <tbody>
                             @foreach($carPart->ditoNumber?->germanDismantlers as $dismantler)
                                 <tr>
-                                    <th>{{ $dismantler->id }}</th>
                                     <td>{{ $dismantler->hsn }}</td>
                                     <td>{{ $dismantler->tsn }}</td>
                                     <td>{{ $dismantler->engineTypes->count() }}</td>
+                                    <td>{{ $dismantler->ditoNumbers->count() }}</td>
+                                    <td>{{ $dismantler->max_net_power_in_kw }}</td>
+                                    <td>{{ $dismantler->engine_capacity_in_cm }}</td>
                                     <td>{{ $dismantler->make ?? 'null'  }}</td>
                                     <td>{{ $dismantler->commercial_name }}</td>
                                     <td class="d-flex gap-1">
@@ -104,7 +108,7 @@
                                                 </button>
                                             </form>
                                         @endif
-                                        <a class="btn btn-info btn-sm text-white">View</a>
+                                        <a href="{{ route('admin.kba.show', $dismantler) }}" class="btn btn-info btn-sm text-white">View</a>
                                     </td>
                                 </tr>
                             @endforeach

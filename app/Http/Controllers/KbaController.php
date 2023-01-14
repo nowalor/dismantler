@@ -8,6 +8,7 @@ use App\Models\CommercialName;
 use App\Models\ManufacturerText;
 use Illuminate\Http\Request;
 use App\Models\EngineTypeGermanDismantler;
+use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 
 class KbaController extends Controller
@@ -15,7 +16,7 @@ class KbaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index(Request $request)
     {
@@ -24,65 +25,73 @@ class KbaController extends Controller
         $plaintexts = ManufacturerText::all();
         $commercialNames = CommercialName::all();
 
-        if($request->filled('engine_type_connection')) {
-            if($request->input('engine_type_connection') === 'made') {
+        if ($request->filled('engine_type_connection')) {
+            if ($request->input('engine_type_connection') === 'made') {
                 $germanDismantlers->has('engineTypes');
 
-            } else if($request->input('engine_type_connection') === 'not_made') {
+            } else if ($request->input('engine_type_connection') === 'not_made') {
                 $germanDismantlers->doesntHave('engineTypes');
             }
         }
 
-        if($request->filled('plaintext')) {
+        if ($request->filled('plaintext')) {
 
-           $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
+            $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
         }
 
-       if($request->filled('commercial_name')) {
-           $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%');
-       }
+        if ($request->filled('commercial_name')) {
+            $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%');
+        }
 
-       if($request->filled('make')) {
-           $germanDismantlers->where('make', 'like', '%'  . $request->input('make') . '%');
-       }
+        if ($request->filled('make')) {
+            $germanDismantlers->where('make', 'like', '%' . $request->input('make') . '%');
+        }
 
-        if($request->filled('date_from')) {
-           $fromDate = Carbon::parse($request->input('date_from'));
-           $germanDismantlers
-               ->where('date_of_allotment', '>=', $fromDate);
+        if ($request->filled('date_from')) {
+            $fromDate = Carbon::parse($request->input('date_from'));
+            $germanDismantlers
+                ->where('date_of_allotment', '>=', $fromDate);
 
-       }
+        }
 
-       if($request->filled('date_to')) {
-           $toDate = Carbon::parse($request->input('date_to'));
-           $germanDismantlers
-               ->where('date_of_allotment', '<=', $toDate);
-      }
+        if ($request->filled('date_to')) {
+            $toDate = Carbon::parse($request->input('date_to'));
+            $germanDismantlers
+                ->where('date_of_allotment', '<=', $toDate);
+        }
 
-      if($request->filled('sort_by')) {
+        if ($request->filled('sort_by')) {
             $germanDismantlers->orderBy($request->input('sort_by'));
         }
 
-      $germanDismantlers = $germanDismantlers->paginate(250);
+        // counters
+        $totalKba = $germanDismantlers->count();
+        $totalKbaWithDitoNumberConnection = GermanDismantler::has('ditoNumbers')->count();
+        $totalKbaWithoutDitoNumberConnection = GermanDismantler::doesntHave('ditoNumbers')->count();
+        $totalKbaWithEngineConnection = GermanDismantler::has('engineTypes')->count();
+        $totalKbaWithoutEngineConnection = GermanDismantler::doesntHave('engineTypes')->count();
 
-      return view('admin.kba.index', compact('germanDismantlers', 'plaintexts', 'commercialNames'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $germanDismantlers = $germanDismantlers->paginate(250);
+
+
+        return view('admin.kba.index', compact(
+            'germanDismantlers',
+            'plaintexts',
+            'commercialNames',
+            'totalKba',
+            'totalKbaWithDitoNumberConnection',
+            'totalKbaWithoutDitoNumberConnection',
+            'totalKbaWithEngineConnection',
+            'totalKbaWithoutEngineConnection'
+        ));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -97,6 +106,16 @@ class KbaController extends Controller
         ]);
 
         return redirect()->back()->with('connection-saved', 'Connection saved successfully');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        //
     }
 
     public function deleteConnectionToEngineType(GermanDismantler $kba, Request $request)
@@ -115,11 +134,11 @@ class KbaController extends Controller
         $engineTypes = EngineType::whereDoesntHave(
             'germanDismantlers',
             fn($query) => $query->where('id', $kba->id)
-            );
+        );
 
         $relatedEngineTypes = $kba->engineTypes;
 
-        if($request->filled('search')) {
+        if ($request->filled('search')) {
             $engineTypes = EngineType::where('name', 'like', '%' . $request->input('search') . '%')->get();
         } else {
             $engineTypes = $engineTypes->get();
@@ -131,8 +150,8 @@ class KbaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\GermanDismantler  $germanDismantler
-     * @return \Illuminate\Http\Response
+     * @param GermanDismantler $germanDismantler
+     * @return Response
      */
     public function edit(GermanDismantler $germanDismantler)
     {
@@ -142,9 +161,9 @@ class KbaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\GermanDismantler  $germanDismantler
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param GermanDismantler $germanDismantler
+     * @return Response
      */
     public function update(Request $request, GermanDismantler $germanDismantler)
     {
@@ -154,8 +173,8 @@ class KbaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\GermanDismantler  $germanDismantler
-     * @return \Illuminate\Http\Response
+     * @param GermanDismantler $germanDismantler
+     * @return Response
      */
     public function destroy(GermanDismantler $germanDismantler)
     {
