@@ -38,6 +38,14 @@ class AdminCarPartNoKbaConnectionController extends Controller
             $carParts = $carParts->whereRelation('ditoNumber', 'is_selection_completed', 0);
         }
 
+        if($request->has('engine_type_filter')) {
+            if($request->get('engine_type_filter') === 'without_engine_type') {
+                $carParts = $carParts->whereNull('engine_type_id');
+            } else {
+                $carParts = $carParts->whereNotNull('engine_type_id');
+            }
+        }
+
         $carParts = $carParts->paginate(20);
 
 

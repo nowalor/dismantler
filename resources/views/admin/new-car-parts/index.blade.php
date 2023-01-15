@@ -23,7 +23,7 @@
                     missing a kba connection through the dito number</p>
             </div>
         </div>
-        <div class="card col-12 mb-4 mt-4">
+        <div class="card col-12 mt-4">
             <div class="card-header">Filters</div>
             <div class="card-body">
                 <div class="d-flex gap-4">
@@ -57,10 +57,27 @@
                             </a>
                         </div>
                     </div>
+                    <div>
+                        With usable engine type
+                        <div class="flex">
+                            <a href="{{ route('admin.new-parts', ['engine_type_filter' => 'with_engine_type']) }}"
+                               class="btn btn-primary">
+                                With engine type
+                            </a>
+                            <a href="{{ route('admin.new-parts', ['engine_type_filter' => 'without_engine_type']) }}"
+                               class="btn btn-primary">
+                                Without engine type
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-        <div class="row">
+
+        <div class="row pt-4">
+            <h3 class="pt-4">Showing {{ $carParts->total() }} results</h3>
+
             @foreach($carParts as $carPart)
                 <div class="col-6 mb-3">
                     <div class="card">
