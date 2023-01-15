@@ -16,6 +16,18 @@ class AdminCarPartNoKbaConnectionController extends Controller
             ->with('dismantleCompany')
             ->with('carPartType');
 
+        // Counters
+        $totalCarParts = CarPart::count();
+        $totalCarPartsWithDitoNumber = CarPart::has('ditoNumber')->count();
+        $totalCarPartsWithoutDitoNumber = CarPart::doesntHave('ditoNumber')->count();
+        $totalCarPartsWithDitoNumberAndIsInteresting = CarPart::has('ditoNumber')
+            ->whereRelation('ditoNumber', 'is_not_interesting', 0)
+            ->count();
+
+        $totalCarPartsWithKbaConnection = CarPart::has('ditoNumber.germanDismantlers')->count();
+        $totalCarPartsWithoutKbaConnection = CarPart::doesntHave('ditoNumber.germanDismantlers')->count();
+
+
         if ($request->get('kba_filter') === 'without_kba') {
             $carParts = $carParts->doesntHave('ditoNumber.germanDismantlers');
         } else if ($request->get('kba_filter') === 'with_kba') {
@@ -29,6 +41,14 @@ class AdminCarPartNoKbaConnectionController extends Controller
         $carParts = $carParts->paginate(20);
 
 
-        return view('admin.new-car-parts.index', compact('carParts'));
+        return view('admin.new-car-parts.index', compact(
+            'carParts',
+            'totalCarParts',
+            'totalCarPartsWithDitoNumber',
+            'totalCarPartsWithoutDitoNumber',
+            'totalCarPartsWithDitoNumberAndIsInteresting',
+            'totalCarPartsWithKbaConnection',
+            'totalCarPartsWithoutKbaConnection',
+        ));
     }
 }

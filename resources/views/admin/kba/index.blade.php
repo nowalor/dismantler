@@ -3,6 +3,31 @@
 
 @section('content')
     <div class="container">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Information</div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <span class="fw-bold">{{ $totalKba }}</span> Total kbas
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">{{ $totalKbaWithDitoNumberConnection }}</span> Total kbas with dito number
+                        connection
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">{{ $totalKbaWithoutDitoNumberConnection }}</span> Total kbas without dito
+                        number connection
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">{{ $totalKbaWithEngineConnection }}</span> Total kbas with engine connection
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">{{ $totalKbaWithoutEngineConnection }}</span> Total kbas without engine
+                        connection
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="col-12 pt-4">
             <div class="card">
                 <div class="card-header">Filters</div>

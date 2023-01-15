@@ -14,8 +14,8 @@ class AdminDitoNumbersController extends Controller
 
     public function index(Request $request)
     {
-        $ditoNumbers = DitoNumber::with('carParts');
-
+        $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
+            ->with('germanDismantlers.engineTypes');
 
         if ($request->query('filter') === 'uninteresting') {
             $ditoNumbers = DitoNumber::where('is_not_interesting', 1);
@@ -55,7 +55,31 @@ class AdminDitoNumbersController extends Controller
         }
 
         $ditoNumbers = $ditoNumbers->paginate(50)->withQueryString();
-        return view('admin.dito-numbers.index', compact('ditoNumbers'));
+
+        // Counters
+        $totalDitoNumbers = DitoNumber::count();
+        $totalDitoNumbersWithKbaConnection = DitoNumber::has('germanDismantlers')->count();
+        $totalDitoNumbersWithoutKbaConnection = DitoNumber::doesntHave('germanDismantlers')->count();
+        $totalDitoNumbersWithEngineConnection = DitoNumber::has('germanDismantlers.engineTypes')->count();
+        $totalDitoNumbersWithoutEngineConnection = DitoNumber::doesntHave('germanDismantlers.engineTypes')->count();
+        // Total dito numbers with engine connection and kba connection and car parts
+        $totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts = DitoNumber::has('germanDismantlers.engineTypes')
+            ->has('germanDismantlers')
+            ->has('carParts')
+            ->with('germanDismantlers')
+            ->with('carParts')
+            ->get();
+
+        // return $totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts;
+        return view('admin.dito-numbers.index', compact(
+            'ditoNumbers',
+            'totalDitoNumbers',
+            'totalDitoNumbersWithKbaConnection',
+            'totalDitoNumbersWithoutKbaConnection',
+            'totalDitoNumbersWithEngineConnection',
+            'totalDitoNumbersWithoutEngineConnection',
+            'totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts'
+        ));
 
     }
 

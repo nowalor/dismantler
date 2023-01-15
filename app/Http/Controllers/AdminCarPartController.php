@@ -12,7 +12,7 @@ class AdminCarPartController extends Controller
 
     public function index(Request $request)
     {
-        $parts = CarPart::query();
+        $parts = CarPart::has('ditoNumber.germanDismantlers')->whereNotNull('engine_type_id'); // TODO Experimental code
 
         if ($request->filled('part-type')) {
 
@@ -65,10 +65,17 @@ class AdminCarPartController extends Controller
 
     public function show(CarPart $carPart)
     {
-       $carPart->carPartImages =
-           $carPart->carPartImages()
-               ->where('origin_url', 'like', '%part-image%')
-               ->get();
+        $carPart->load(
+            'carPartImages',
+            'carPartType',
+            'ditoNumber.germanDismantlers.engineTypes',
+            'ditoNumber.germanDismantlers.ditoNumbers',
+            'dismantleCompany',
+        );
+
+        /* $totalKba= $carPart->ditoNumber->germanDismantlers->count();
+        $totalEngineTypeConnected = $carPart->ditoNumber->germanDismantlers->engineTypes->count(); */
+
 
         return view('admin.car-parts.show', compact('carPart'));
     }

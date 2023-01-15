@@ -12,7 +12,11 @@ class Faq extends Model
     public $timestamps = false;
 
     const CATEGORY_DELIVERY = 'delivery';
+    const CATEGORY_PAYMENT = 'payment';
+    const CATEGORY_RETURN = 'return';
     const CATEGORIES = [
-        self::CATEGORY_DELIVERY
+        self::CATEGORY_DELIVERY,
+        self::CATEGORY_PAYMENT,
+        self::CATEGORY_RETURN,
     ];
 }

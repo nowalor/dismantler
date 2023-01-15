@@ -3,6 +3,26 @@
 @section('content')
     <div class="container pt-2">
         <h3>Car parts</h3>
+        <div class="card">
+            <div class="card-header">
+                Information
+            </div>
+            <div class="card-body">
+                <h3 class="card-text">Hey Marcus</h3>
+                <p class="card-text">Currently you have <span class="fw-bold">{{ $totalCarParts }}</span> total car
+                    parts</p>
+                <p class="card-text"><span class="fw-bold">{{ $totalCarPartsWithDitoNumber }}</span> Have a connection
+                    to a dito number</p>
+                <p class="card-text"><span class="fw-bold">{{ $totalCarPartsWithoutDitoNumber }}</span> Do not have a
+                    connection to a dito number</p>
+                <p class="card-text"><span class="fw-bold">{{ $totalCarPartsWithDitoNumberAndIsInteresting }} </span>have
+                    a connection to a dito number and is marked as interesting</p>
+                <p class="card-text"><span class="fw-bold">{{ $totalCarPartsWithKbaConnection }}</span> parts have a
+                    connection to a kba through the dito number</p>
+                <p class="card-text"><span class="fw-bold">{{ $totalCarPartsWithoutKbaConnection }}</span> parts are
+                    missing a kba connection through the dito number</p>
+            </div>
+        </div>
         <div class="card col-10 mx-auto mb-4">
             <div class="card-header">Filters</div>
             <div class="card-body">
@@ -27,10 +47,12 @@
                     <div>
                         Completion
                         <div class="flex">
-                            <a href="{{ route('admin.new-parts', ['completion_filter' => 'completed']) }}" class="btn btn-primary">
+                            <a href="{{ route('admin.new-parts', ['completion_filter' => 'completed']) }}"
+                               class="btn btn-primary">
                                 Complete
                             </a>
-                            <a href="{{ route('admin.new-parts', ['completion_filter' => 'uncompleted']) }}" class="btn btn-primary">
+                            <a href="{{ route('admin.new-parts', ['completion_filter' => 'uncompleted']) }}"
+                               class="btn btn-primary">
                                 Incomplete
                             </a>
                         </div>
