@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\CarPart;
 use App\Models\CarPartImage;
-use App\Scopes\CarPartScope;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-class ApiTestController extends Controller
+class ApiTestController2 extends Controller
 {
     static private function transformSingle($item)
     {
@@ -65,21 +62,15 @@ class ApiTestController extends Controller
                     }
                     $collectedResponse = collect($response);
                     $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
+                    // return $filteredResponse;
 
-                    $transformedData = $this->transformData($filteredResponse);
-                    if(!empty($transformedData)) {
-                        Log::info('------------------- TRANSFORMED DATA -------------------');
-                        Log::info(json_encode($transformedData));
-                    }
-                    CarPart::insertOrIgnore($transformedData);
+                    // CarPart::insertOrIgnore($transformedData);
 
                     $transformedImages = $this->transformImages($filteredResponse);
 
-                    CarPartImage::insertOrIgnore($transformedImages);
-                    foreach ($transformedImages as $image) {
-                        CarPartImage::firstOrCreate($image);
-                    }
+                    //return $transformedImages;
 
+                    CarPartImage::insertOrIgnore($transformedImages);
                 }
                 return 'loops finished';
 
@@ -139,7 +130,10 @@ class ApiTestController extends Controller
 
         foreach ($data as $item) {
             $collectedImages = collect($item['images']);
-            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
+
+            $filteredImages =
+                $collectedImages->filter(fn($image) => stristr($image['originUrl'], '/P/'));
+
             foreach ($filteredImages as $image) {
                 array_push($newArr, [
                     'car_part_id' => $item['id'],

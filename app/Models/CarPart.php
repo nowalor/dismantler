@@ -20,6 +20,8 @@ class CarPart extends Model
         static::addGlobalScope(new CarPartScope());
     }
 
+    public const CAR_PART_TYPE_IDS_TO_INCLUDE = [3575, 3744, 3746, 3749, 3616, 3617, 3812];
+
     protected $fillable =
         [
             'id',

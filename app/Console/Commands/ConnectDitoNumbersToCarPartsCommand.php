@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\CarPart;
 use App\Models\DitoNumber;
 use Illuminate\Console\Command;
+use Symfony\Component\Console\Command\Command as CommandAlias;
 
 class ConnectDitoNumbersToCarPartsCommand extends Command
 {
@@ -14,13 +15,6 @@ class ConnectDitoNumbersToCarPartsCommand extends Command
 
     public function handle()
     {
-        /* $ditoNumbers = DitoNumber::all();
-
-        foreach($ditoNumbers as $ditoNumber) {
-            CarPart::where('name_for_search', 'like', "%$ditoNumber->new_name%")
-                ->update(['dito_number_id' => $ditoNumber->id]);
-        } */
-
         $carParts = CarPart::all();
 
         foreach($carParts as $carPart) {
@@ -34,6 +28,6 @@ class ConnectDitoNumbersToCarPartsCommand extends Command
              }
         }
 
-        return Command::SUCCESS;
+        return CommandAlias::SUCCESS;
     }
 }

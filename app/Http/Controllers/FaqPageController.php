@@ -7,10 +7,12 @@ use Illuminate\View\View;
 
 class FaqPageController extends Controller
 {
-    public function __invoke(): View
+    public function __invoke()// : View
     {
-        $faqs = Faq::all();
+        $questions = Faq::all()->groupBy('question_category');
 
-        return view('faq.index', compact('faqs'));
+        $questionCategories = Faq::CATEGORIES;
+
+        return view('faq.index', compact('questionCategories', 'questions'));
     }
 }

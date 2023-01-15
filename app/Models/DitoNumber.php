@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class DitoNumber extends Model
 {
@@ -28,6 +29,11 @@ class DitoNumber extends Model
     public function carParts(): HasMany
     {
         return $this->hasMany(CarPart::class);
+    }
+
+    public function engineTypes(): HasManyThrough
+    {
+        return $this->hasManyThrough(EngineType::class, GermanDismantler::class,);
     }
 
     public function getFormattedDateAttribute()

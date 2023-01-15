@@ -281,9 +281,9 @@
                                     <td>{{ $dismantler->max_net_power_in_kw }}</td>
                                     <td>{{ $dismantler->engine_capacity_in_cm }}</td>
                                     <td>
-                                        <label id="dismantler-checkbox">Select</label>
-                                        <input name="dismantler-checkbox[]" class="form-check-input" type="checkbox"
-                                               id="dismantler-checkbox" value="{{ $dismantler->id }}"
+                                        <label id="kba-checkbox">Select</label>
+                                        <input name="kba-checkbox[]" class="form-check-input" type="checkbox"
+                                               id="kba-checkbox" value="{{ $dismantler->id }}"
                                         >
                                     </td>
                                 </tr>

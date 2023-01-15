@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\CarPart;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -18,8 +19,7 @@ class RemoveSoldPartsCommand extends Command
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
 
-        $data = [];
-
+        // We need to make a different API request for each dismantler we want parts from
         $dismantleCompanyIds = ['44', '50', '70'];
 
         foreach ($dismantleCompanyIds as $companyId) {
@@ -31,24 +31,20 @@ class RemoveSoldPartsCommand extends Command
                     break;
                 }
 
-                foreach ($response as $item) {
-                    array_push($data, $item['id']);
-                }
-
+                $collectedResponse = collect($response);
+                $partIdsFromAPI = $collectedResponse
+                    ->whereIn('carItemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+                    ->all()
+                    ->pluck('id');
             }
         }
 
-        Log::info('------- THE DATA -------');
-        Log::info(json_encode($data));
+        $partIdsFromDB  = CarPart::all()->pluck('id');
 
+        $partsSold = array_diff($partIdsFromDB , $partIdsFromAPI);
+
+        $this->info('Finished removing sold parts');
         return Command::SUCCESS;
-
-        // $carParts = CarPart::all();
-        // foreach($carParts as $carPart) {
-        // if(!in_array($data,  $carPart->id)) {
-        // $carPart->delete();
-        // }
-    // }
     }
 
 

@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container mx-auto pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Car parts</li>
+            </ol>
+        </nav>
         <div class="col-6">
             <h1>Find your spare part today! <i class="fa fa-solid fa-car"></i></h1>
             <p>We currently have 12364231 parts available so hopefully you are able to find what you are looking
@@ -126,24 +132,24 @@
 
                                         <p>
                                             <span
-                                                class="fw-bold">Dismantle company:</span> {{ $part->dismantleCompany?->name }}
+                                                class="fw-bold">Name:</span> {{ $part->name }}
                                         </p>
                                         <p>
-                                            <span class="fw-bold">Part type:</span> {{ $part->carPartType->name }}
+                                            <span class="fw-bold">Part type:</span> {{ $part->carPartType?->name }}
                                         </p>
                                         <p>
                                     <span
                                         class="fw-bold">Price:</span> {{ $part->price1 > 0 ? $part->price1 : 'Contact us for price' }}
                                         </p>
                                         <p>
-                                            <span class="fw-bold">Quantity:</span> {{ $part->quantity }}
+                                            <span class="fw-bold">Oem number:</span> {{ $part->oem_number }}
                                         </p>
                                         <p>
                                             <span
-                                                class="fw-bold">Transmission type:</span> {{ $part->transmission_type}}
+                                                class="fw-bold">Producer:</span> {{ $part->ditoNumber->producer ?? 'Information missing' }}
                                         </p>
                                         <p>
-                                            <span class="fw-bold">Condition:</span> {{ $part->condition }}
+                                            <span class="fw-bold">Brand:</span> {{ $part->ditoNumber->brand ?? 'Information missing'}}
                                         </p>
 
                                         <a href="{{ route('car-parts.show', $part) }}"

@@ -1,7 +1,16 @@
 @extends('app')
 @section('title', 'Single car part')
 @section('content')
-    <div class="container mx-auto">
+    <div class="container mx-auto pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('car-parts.index') }}">Car parts</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $carPart->name }}</li>
+            </ol>
+        </nav>
         <div class="row pt-4">
             <div class="col-6">
                 <h3 class="pt-4">{{ $carPart->name }}</h3>
@@ -9,9 +18,14 @@
     !empty($carPart->carPartImages[0]) ? $carPart->carPartImages[0]?->origin_url :
     asset('no-image-placeholder.jpg')
     }}" alt="">
-                @foreach($carPart->carPartImages as $image)
-                    <img src="{{ $image->thumbnail_url }}" alt=""/>
-                @endforeach
+                <div class="mt-2 d-flex gap-2">
+                    @foreach($carPart->carPartImages as $image)
+                        <div>
+                            <img style="height: 200px; width: 200px; object-fit: cover;" src="{{ $image->origin_url }}"
+                                 alt=""/>
+                        </div>
+                    @endforeach
+                </div>
 
                 @if($carPart->price1 > 0)
                     <div class="pt-2">
@@ -106,15 +120,15 @@
 
             </div>
             @if($carPart->comments)
-            <div class="col-6">
-                <div class="card">
-                    <h3 class="card-header">Comments</h3>
-                    <div class="card-body">
-                        <div style=" white-space: pre-wrap;">{{ $carPart->comments }}</div>
+                <div class="col-6">
+                    <div class="card">
+                        <h3 class="card-header">Comments</h3>
+                        <div class="card-body">
+                            <div style=" white-space: pre-wrap;">{{ $carPart->comments }}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-                @endif
+            @endif
         </div>
 
 
