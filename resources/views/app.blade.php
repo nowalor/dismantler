@@ -22,10 +22,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
+                    <a class="nav-link {{ activeMenu('admin/dito-numbers') }}" href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.kba.index') }}">KBA</a>
+                    <a class="nav-link {{ activeMenu('admin/kba') }}" href="{{ route('admin.kba.index') }}">KBA</a>
                 </li>
                 <!-- °<li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.car-parts.index') }}">Parts</a>

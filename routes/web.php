@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsPageController;
+use App\Http\Controllers\AdminConnectMultipleKbaToEngineTypeController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
 use App\Http\Controllers\HomepageController;
@@ -57,11 +58,11 @@ Route::resource('car-parts', \App\Http\Controllers\CarPartController::class);
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
     Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
- Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
+    Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
     Route::post('kba/storeConnection/{kba}', [KbaController::class, 'storeConnectionToEngineType'])
         ->name('admin.kba.store-connection');
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])
-            ->name('admin.kba.delete-connection');
+        ->name('admin.kba.delete-connection');
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
@@ -73,6 +74,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::post('dito-numbers/{ditoNumberId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
+
+    Route::put('engine-types/{engineType}', AdminConnectMultipleKbaToEngineTypeController::class)
+        ->name('admin.engine-types.connect');
 });
 
 
