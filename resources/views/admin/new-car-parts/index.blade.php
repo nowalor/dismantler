@@ -23,7 +23,7 @@
                     missing a kba connection through the dito number</p>
             </div>
         </div>
-        <div class="card col-10 mx-auto mb-4">
+        <div class="card col-12 mb-4 mt-4">
             <div class="card-header">Filters</div>
             <div class="card-body">
                 <div class="d-flex gap-4">
@@ -60,42 +60,47 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex flex-wrap gap-4 justify-content-center">
+        <div class="row">
             @foreach($carParts as $carPart)
-                <div class="card mb-2 col-5">
-                    <div class="card-header">
-                        {{  $carPart->name }}
-                    </div>
-                    <div class="card-body">
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            {{  $carPart->name }}
+                        </div>
+                        <div class="card-body">
 
-                        <p>
-                            <span class="fw-bold">Dismantle company:</span> {{ $carPart->dismantleCompany?->name }}
-                        </p>
-                        <p>
-                            <span class="fw-bold">Part type:</span> {{ $carPart->carPartType->name }}
-                        </p>
-                        <p>
+                            <p>
+                                <span class="fw-bold">Dismantle company:</span> {{ $carPart->dismantleCompany?->name }}
+                            </p>
+                            <p>
+                                <span class="fw-bold">Part type:</span> {{ $carPart->carPartType->name }}
+                            </p>
+                            <p>
                             <span
                                 class="fw-bold">Price:</span> {{ $carPart->price1 > 0 ? $carPart->price1 : 'Contact us for price' }}
-                        </p>
-                        <p>
-                            <span class="fw-bold">Quantity:</span> {{ $carPart->quantity }}
-                        </p>
-                        <p>
-                            <span class="fw-bold">Transmission type:</span> {{ $carPart->transmission_type}}
-                        </p>
-                        <p>
-                            <span class="fw-bold">Condition:</span> {{ $carPart->condition }}
-                        </p>
-
-                        <a href=" {{ route('admin.dito-numbers.show', $carPart->ditoNumber) }} "
-                           class="btn btn-primary w-100">
-                            Dito number {{ $carPart->ditoNumber->dito_number }}
-                        </a>
+                            </p>
+                            <p>
+                                <span class="fw-bold">Quantity:</span> {{ $carPart->quantity }}
+                            </p>
+                            <p>
+                                <span class="fw-bold">Transmission type:</span> {{ $carPart->transmission_type}}
+                            </p>
+                            <p>
+                                <span class="fw-bold">Condition:</span> {{ $carPart->condition }}
+                            </p>
 
 
+                            <a href="{{ route('admin.car-parts.show', $carPart) }}" class="btn btn-primary w-100 mb-2">View</a>
+                            <a href=" {{ route('admin.dito-numbers.show', $carPart->ditoNumber) }} "
+                               class="btn btn-primary w-100">
+                                Dito number {{ $carPart->ditoNumber->dito_number }}
+                            </a>
+
+
+                        </div>
                     </div>
                 </div>
+
             @endforeach
         </div>
 

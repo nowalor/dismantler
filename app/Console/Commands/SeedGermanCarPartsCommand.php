@@ -27,57 +27,6 @@ class SeedGermanCarPartsCommand extends Command
      */
     protected $description = 'Seed parts from German dismantlers on a schedule';
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
-    public function handle()
-    {
-        ini_set('max_execution_time', 50000000);
-        ini_set('max_input_time', 50000000);
-
-        $dismantleCompanyIds = ['44', '50' , '70'];
-
-        foreach($dismantleCompanyIds as $companyId) {
-            try {
-                for ($i = 0; $i < 199999; $i++) {
-                    $response = $this->fetchPage($i, $companyId);
-
-                    if (empty($response)) {
-                        Log::info("Broke on page $i");
-                        $this->info('About to break on page ' . $i);
-                        break;
-                    }
-
-                    $transformedData = $this->transformData($response);
-
-                    foreach($transformedData as $item) {
-                        $itemId = $item['id'];
-                        unset($item['id']);
-                        CarPart::withoutGlobalScope(new CarPartScope())->updateOrCreate(['id' => $itemId], $item);
-                    }
-
-                    $transformedImages = $this->transformImages($response);
-
-                    foreach($transformedImages as $image) {
-                        CarPartImage::firstOrCreate($image);
-                    }
-
-                }
-
-                $this->info('Loop done');
-            } catch (Exception $ex) {
-                Log::info('------- ERROR ---------');
-                Log::info($ex->getMessage());
-
-                $this->info('In catch');
-
-            }
-        }
-    }
-
-
     static private function transformSingle($item)
     {
         $newItem = [];
@@ -95,7 +44,7 @@ class SeedGermanCarPartsCommand extends Command
         $newItem['shelf_number'] = $item['shelfNumber'];
         $newItem['year'] = $item['year'];
         $newItem['car_part_type_id'] = (int)$item['itemTypeId'];
-        $newItem['dismantle_company_id'] = $item['companyId'];
+        $newItem['dismantle_company_id'] = 50;
         $newItem['kilo_watt'] = $item['kiloWatt'];
         $newItem['transmission_type'] = $item['transmissionType'];
         $newItem['item_number'] = $item['itemNumber'];
@@ -112,6 +61,56 @@ class SeedGermanCarPartsCommand extends Command
         return $newItem;
     }
 
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
+    {
+        ini_set('max_execution_time', 50000000);
+        ini_set('max_input_time', 50000000);
+
+        $dismantleCompanyIds = ['44', '50', '70'];
+
+        foreach ($dismantleCompanyIds as $companyId) {
+            try {
+                for ($i = 0; $i < 199999; $i++) {
+                    $response = $this->fetchPage($i, $companyId);
+
+                    if (empty($response)) {
+                        Log::info("Broke on page $i");
+                        break;
+                    }
+                    $collectedResponse = collect($response);
+                    $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
+
+                    $transformedData = $this->transformData($filteredResponse);
+                    if(!empty($transformedData)) {
+                        Log::info('------------------- TRANSFORMED DATA -------------------');
+                        Log::info(json_encode($transformedData));
+                    }
+                    CarPart::insertOrIgnore($transformedData);
+
+                    $transformedImages = $this->transformImages($filteredResponse);
+
+                    CarPartImage::insertOrIgnore($transformedImages);
+                    foreach ($transformedImages as $image) {
+                        CarPartImage::firstOrCreate($image);
+                    }
+
+                }
+                return 'loops finished';
+
+            } catch (Exception $ex) {
+                Log::info($ex->getMessage());
+
+                return 'in catch';
+            }
+        }
+
+        return 'finished';
+    }
     private function fetchPage(int $page, string $companyId)
     {
         $apiKey = config()->get('app.egluit_api_key');
@@ -156,8 +155,10 @@ class SeedGermanCarPartsCommand extends Command
     {
         $newArr = [];
 
-        foreach($data as $item) {
-            foreach($item['images'] as $image) {
+        foreach ($data as $item) {
+            $collectedImages = collect($item['images']);
+            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
+            foreach ($filteredImages as $image) {
                 array_push($newArr, [
                     'car_part_id' => $item['id'],
                     'origin_url' => $image['originUrl'],
@@ -168,5 +169,4 @@ class SeedGermanCarPartsCommand extends Command
 
         return $newArr;
     }
-
 }
