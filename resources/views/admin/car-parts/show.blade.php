@@ -52,7 +52,9 @@
             </div>
             <div class="col-12">
                 <div class="card">
-                    <form action=" {{ route('admin.engine-types.connect', $carPart->engine_type_id) }}" method="POST">
+                    <form
+                        action=" {{ $carPart->engine_type_id  && route('admin.engine-types.connect', $carPart->engine_type_id) }}"
+                        method="POST">
                         <div class="card-header d-flex justify-content-between">
                             KBA
                             @csrf
@@ -104,11 +106,11 @@
                                             @endif
                                             @if($dismantler->engineTypes->contains($carPart->engine_type_id))
                                                 Connected
-                                                    <!-- <form action="{{ route('admin.kba.delete-connection', $dismantler) }}"
+                                                <!-- <form action="{{ route('admin.kba.delete-connection', $dismantler) }}"
                                                       method="POST">
                                                     @csrf
-                                                    <input type="hidden" name="engine_type_id"
-                                                           value="{{ $carPart->engine_type_id }}"/>
+                                                <input type="hidden" name="engine_type_id"
+                                                       value="{{ $carPart->engine_type_id }}"/>
                                                     <button class="btn btn-danger btn-sm">
                                                         Delete
                                                     </button>
