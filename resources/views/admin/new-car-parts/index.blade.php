@@ -122,7 +122,6 @@
                             {{  $carPart->name }}
                         </div>
                         <div class="card-body">
-
                             <p>
                                 <span class="fw-bold">Transmission type:</span> {{ $carPart->transmission_type}}
                             </p>
@@ -140,8 +139,6 @@
                                class="btn btn-primary w-100">
                                 Dito number {{ $carPart->ditoNumber->dito_number }}
                             </a>
-
-
                         </div>
                     </div>
                 </div>
