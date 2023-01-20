@@ -159,6 +159,16 @@
                                 </span>
                                 </div>
                             </div>
+                            <div>
+                                <label for="max-net">Max net</label>
+                                <select name="max_net" class="form-select">
+                                    <option value="0">Pick</option>
+                                    @foreach($uniqueMaxNet  as $option)
+                                        <option @if(request()->input('max_net') == $option) selected
+                                                @endif value="{{ $option }}">{{ $option }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                         </div>
 
