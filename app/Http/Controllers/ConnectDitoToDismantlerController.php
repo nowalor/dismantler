@@ -12,7 +12,7 @@ class ConnectDitoToDismantlerController extends Controller
 {
     public function connect($ditoNumberId, Request $request)
     {
-        foreach($request->get('dismantler-checkbox') as $dismantlerId) {
+        foreach($request->get('kba-checkbox') as $dismantlerId) {
             DitoNumberGermanDismantler::create([
                         'dito_number_id' => $ditoNumberId,
                         'german_dismantler_id' => $dismantlerId,
