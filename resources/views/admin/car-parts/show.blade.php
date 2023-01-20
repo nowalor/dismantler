@@ -53,7 +53,7 @@
             <div class="col-12">
                 <div class="card">
                     <form
-                        action=" {{ $carPart->engine_type_id  && route('admin.engine-types.connect', $carPart->engine_type_id) }}"
+                        action=" {{ route('admin.engine-types.connect', $carPart->engine_type_id) }}"
                         method="POST">
                         <div class="card-header d-flex justify-content-between">
                             KBA
