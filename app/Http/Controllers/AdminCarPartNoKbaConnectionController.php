@@ -27,6 +27,10 @@ class AdminCarPartNoKbaConnectionController extends Controller
         $totalCarPartsWithKbaConnection = CarPart::has('ditoNumber.germanDismantlers')->count();
         $totalCarPartsWithoutKbaConnection = CarPart::doesntHave('ditoNumber.germanDismantlers')->count();
 
+        $totalPartsWithEngineType = CarPart::where('engine_code', '!=', '')->count();
+        $totalPartsWithoutEngineType = CarPart::where('engine_code', '=', '')->count();
+        $totalPartsWithUsableEngineType = CarPart::whereNotNull('engine_type_id')->count();
+
 
         if ($request->get('kba_filter') === 'without_kba') {
             $carParts = $carParts->doesntHave('ditoNumber.germanDismantlers');
@@ -46,7 +50,13 @@ class AdminCarPartNoKbaConnectionController extends Controller
             }
         }
 
-        $carParts = $carParts->paginate(20);
+        // Marcus filter
+        if($request->get('filter') === 'dito_number_no_kba_engine_type') {
+            $carParts = $carParts->doesntHave('ditoNumber.germanDismantlers')
+                ->where('engine_code', '!=', '');
+        }
+
+        $carParts = $carParts->paginate(20)->withQueryString();
 
 
         return view('admin.new-car-parts.index', compact(
@@ -57,6 +67,9 @@ class AdminCarPartNoKbaConnectionController extends Controller
             'totalCarPartsWithDitoNumberAndIsInteresting',
             'totalCarPartsWithKbaConnection',
             'totalCarPartsWithoutKbaConnection',
+            'totalPartsWithEngineType',
+            'totalPartsWithoutEngineType',
+            'totalPartsWithUsableEngineType',
         ));
     }
 }
