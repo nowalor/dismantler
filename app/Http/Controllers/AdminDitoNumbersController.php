@@ -95,6 +95,8 @@ class AdminDitoNumbersController extends Controller
 
     public function show(DitoNumber $ditoNumber, Request $request)
     {
+        $uniqueMaxNet = GermanDismantler::select('max_net_power_in_kw')->distinct()->pluck('max_net_power_in_kw');
+
         $germanDismantlers = GermanDismantler::whereDoesntHave(
             'ditoNumbers',
             fn($query) => $query->where('id', $ditoNumber->id)
@@ -115,6 +117,10 @@ class AdminDitoNumbersController extends Controller
             $toDate = Carbon::parse($request->input('date_to'));
             $germanDismantlers
                 ->where('date_of_allotment', '<=', $toDate);
+        }
+
+        if($request->get('max_net') != 0) {
+            $germanDismantlers->where('max_net_power_in_kw', $request->get('max_net'));
         }
 
         $plaintexts = ManufacturerText::all();
@@ -138,7 +144,14 @@ class AdminDitoNumbersController extends Controller
         $request->flash();
 
         return view('admin.dito-numbers.show',
-            compact('ditoNumber', 'germanDismantlers', 'relatedDismantlers', 'plaintexts', 'commercialNames')
+            compact(
+                'ditoNumber',
+                'germanDismantlers',
+                'relatedDismantlers',
+                'plaintexts',
+                'commercialNames',
+                'uniqueMaxNet'
+            )
         );
     }
 
