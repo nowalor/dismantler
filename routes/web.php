@@ -78,8 +78,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::put('engine-types/{engineType}', AdminConnectMultipleKbaToEngineTypeController::class)
         ->name('admin.engine-types.connect');
 
-    Route::get('information', \App\Http\Controllers\MissingInformationController::class)
+    Route::get('information', [\App\Http\Controllers\MissingInformationController::class, 'index'])
         ->name('admin.information');
+
+    Route::get('information/{ditoNumber}', [\App\Http\Controllers\MissingInformationController::class, 'show'])
+        ->name('admin.information.show');
+
+
 });
 
 

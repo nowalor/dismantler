@@ -3,28 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarPart;
+use App\Models\DitoNumber;
 use App\Models\EngineType;
 use Illuminate\Http\Request;
 
 class MissingInformationController extends Controller
 {
-    public function __invoke()
+    public function index()
     {
-        $uniqueEngineCodesFromCarParts = CarPart::select('engine_code')
-            ->where('engine_code', '!=', '')
-            ->distinct()
+        $carPartDitoNumbers = CarPart::distinct('ditoNumberFromItemCode')
             ->get()
-            ->pluck('engine_code')
-            ->toArray();
+            ->pluck('ditoNumberFromItemCode');
 
-        $engineTypesFromDB = EngineType::select('name')
-            ->distinct()
-            ->get()
-            ->pluck('name')
-            ->toArray();
+        $ditoNumbers = DitoNumber::pluck('dito_number');
 
-        // Create a array with all the uniqueEngineCodesFromCarParts
+        $carPartDitoNumbersNotInTable =
+            $carPartDitoNumbers->diff($ditoNumbers);
 
+        $ditoNumbers =  CarPart::get()
+            ->whereIn('ditoNumberFromItemCode', $carPartDitoNumbersNotInTable)
+            ->countBy('ditoNumberFromItemCode');
 
+        return view('admin.information.index', compact('ditoNumbers'));
+    }
+
+    public function show($ditoNumber)
+    {
+        $carParts = CarPart::get()->where('ditoNumberFromItemCode', $ditoNumber);
+
+        return view('admin.information.show', compact('carParts', 'ditoNumber'));
     }
 }
