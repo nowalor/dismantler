@@ -13,11 +13,6 @@ use Illuminate\Support\Carbon;
 
 class KbaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
     public function index(Request $request)
     {
         $germanDismantlers = GermanDismantler::query();
