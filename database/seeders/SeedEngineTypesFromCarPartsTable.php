@@ -1,14 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Database\Seeders;
 
 use App\Models\CarPart;
 use App\Models\EngineType;
-use Illuminate\Http\Request;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class MissingInformationController extends Controller
+class SeedEngineTypesFromCarPartsTable extends Seeder
 {
-    public function __invoke()
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
     {
         $uniqueEngineCodesFromCarParts = CarPart::select('engine_code')
             ->where('engine_code', '!=', '')
@@ -26,7 +32,10 @@ class MissingInformationController extends Controller
         // Create an array with all the uniqueEngineCodesFromCarParts that don't exist in engineTypesFromDb
         $missingEngineTypes = array_diff($uniqueEngineCodesFromCarParts, $engineTypesFromDB);
 
-        return $missingEngineTypes;
-        return count($missingEngineTypes);
+        foreach ($missingEngineTypes as $engineType) {
+            EngineType::create([
+                'name' => $engineType,
+            ]);
+        }
     }
 }
