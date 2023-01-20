@@ -32,7 +32,7 @@ class AdminCarPartNoKbaConnectionController extends Controller
         $totalPartsWithUsableEngineType = CarPart::whereNotNull('engine_type_id')->count();
 
 
-        if ($request->get('kba_filter') === 'without_kba') {
+        /* if ($request->get('kba_filter') === 'without_kba') {
             $carParts = $carParts->doesntHave('ditoNumber.germanDismantlers');
         } else if ($request->get('kba_filter') === 'with_kba') {
             $carParts->has('ditoNumber.germanDismantlers');
@@ -48,7 +48,7 @@ class AdminCarPartNoKbaConnectionController extends Controller
             } else {
                 $carParts = $carParts->whereNotNull('engine_type_id');
             }
-        }
+        } */
 
         // Marcus filter
         if($request->get('filter') === 'dito_number_no_kba_engine_type') {
