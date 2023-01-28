@@ -3,6 +3,25 @@
 
 @section('content')
     <div class="container">
+        <div class="col-4">
+            <h1>Orders</h1>
+
+            <form action="{{  route('admin.orders.index') }}">
+                <div class="pb-3">
+                    <label for="status">Status</label>
+                    <select name="status" id="status" class="form-select">
+                        <option value="all">All</option>
+                        @foreach($statuses as $statusLabel => $statusValue)
+                            <option value="{{ $statusLabel }}" {{ $statusValue == request('status') ? 'selected' : '' }}>
+                                {{ $statusLabel }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <button class="btn btn-primary w-100">Submit</button>
+            </form>
+        </div>
         <div class="col-12 pt-4">
             @if(session()->has('order-deleted'))
                 <div class="alert alert-danger">

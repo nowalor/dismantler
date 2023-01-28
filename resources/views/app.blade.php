@@ -34,6 +34,10 @@
                     <a class="nav-link" href="{{ route('admin.new-parts') }}">Parts</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>
+                    <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.information') }}">Information</a>
                 </li>
             </ul>
