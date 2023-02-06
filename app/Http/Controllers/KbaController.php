@@ -120,7 +120,9 @@ class KbaController extends Controller
             ['german_dismantler_id', $kba->id],
         ])->delete();
 
-        return redirect()->back()->with('connection-deleted', 'Connection deleted');
+        return redirect()
+            ->back()
+            ->with('connection-deleted', 'Connection deleted');
     }
 
 
@@ -134,12 +136,19 @@ class KbaController extends Controller
         $relatedEngineTypes = $kba->engineTypes;
 
         if ($request->filled('search')) {
-            $engineTypes = EngineType::where('name', 'like', '%' . $request->input('search') . '%')->get();
+            $engineTypes =
+                EngineType::where(
+                    'name', 'like', '%' . $request->input('search') . '%'
+                )->get();
         } else {
             $engineTypes = $engineTypes->get();
         }
 
-        return view('admin.kba.show', compact('kba', 'engineTypes', 'relatedEngineTypes'));
+        return view('admin.kba.show', compact(
+            'kba',
+            'engineTypes',
+            'relatedEngineTypes'
+        ));
     }
 
     /**

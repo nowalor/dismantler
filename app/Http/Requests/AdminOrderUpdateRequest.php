@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Order;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -25,7 +26,9 @@ class AdminOrderUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'status' => ['required', Rule::in(Order::STATUSES)],
+            'status' => [
+                'required', Rule::in(Order::STATUSES)
+            ],
         ];
     }
 }

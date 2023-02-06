@@ -10,12 +10,12 @@ use Illuminate\View\View;
 
 class AdminOrderController extends Controller
 {
-    public function index(Request $request): View
+    public function index(Request $request)// : View
     {
         $orders = Order::query();
 
         if ($request->has('status') && $request->get('status') !== 'all') {
-            $orders->where('status', $request->get('status'))->get();
+            $orders = $orders->where('status', $request->get('status'))->get();
         } else {
             $orders = Order::all();
         }
@@ -27,13 +27,15 @@ class AdminOrderController extends Controller
 
     public function show(Order $order)
     {
+        $statuses = Order::STATUS_LABELS;
 
+        return view('admin.orders.show', compact('order', 'statuses'));
     }
 
 
-    public function update(Order $order, AdminOrderUpdateRequest $request): RedirectResponse
+    public function update(Order $order, AdminOrderUpdateRequest $request)// : RedirectResponse
     {
-       $validated = $request->validated();
+        $validated = $request->validated();
 
        $order->update($validated);
 

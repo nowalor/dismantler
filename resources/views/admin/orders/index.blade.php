@@ -12,8 +12,8 @@
                     <select name="status" id="status" class="form-select">
                         <option value="all">All</option>
                         @foreach($statuses as $statusLabel => $statusValue)
-                            <option value="{{ $statusLabel }}" {{ $statusValue == request('status') ? 'selected' : '' }}>
-                                {{ $statusLabel }}
+                            <option value="{{ $statusLabel }}" {{ $statusLabel == request('status') ? 'selected' : '' }}>
+                                {{ $statusValue }}
                             </option>
                         @endforeach
                     </select>
@@ -47,7 +47,7 @@
                                 <th>Buyer name</th>
                                 <th>Buyer email</th>
                                 <th>Part price</th>
-                                <th>Delivered</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -60,7 +60,7 @@
                                 <td>{{ $order->buyer_name }}</td>
                                 <td>{{ $order->buyer_email }}</td>
                                 <td>{{ $order->part_price }}</td>
-                                <td>{{ $order->is_part_delivered ? '✅' : '❌' }}</td>
+                                <td>{{ $statuses[$order->status] }}</td>
                                 <th class="d-flex gap-1">
                                     <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-primary btn-sm">View</a>
                                     <form method="POST" action="{{ route('admin.orders.update', $order) }}">
@@ -68,12 +68,6 @@
                                         @method('PATCH')
 
                                         <button class="btn btn-success btn-sm">Delivered</button>
-                                    </form>
-                                    <form method="POST" action="{{ route('admin.orders.destroy', $order) }}">
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </th>
                             </tr>
