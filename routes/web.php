@@ -32,7 +32,6 @@ Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
     ->name('checkout');
 
 
-
 // testing remove later
 Route::get('test3', [TestController::class, 'carPartIds']);
 

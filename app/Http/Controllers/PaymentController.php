@@ -7,8 +7,6 @@ use App\Models\CarPart;
 use App\Models\Order;
 use App\Models\PaymentPlatform;
 use App\Resolvers\PaymentPlatformResolver;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class PaymentController extends Controller

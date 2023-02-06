@@ -18,7 +18,7 @@ class Order extends Model
         'currency_id',
         'quantity',
         'part_price',
-        'is_part_delivered',
+        'status',
         'buyer_name',
         'buyer_email',
         'quantity',
@@ -27,6 +27,29 @@ class Order extends Model
         'address',
         'payment_provider_id',
     ];
+
+    const STATUS_PENDING = 'pending';
+    const STATUS_BEING_DELIVERED = 'being_delivered';
+    const STATUS_DELIVERED = 'delivered';
+    const STATUS_CANCELED = 'canceled';
+    const STATUS_REFUNDED = 'refunded';
+
+    const STATUSES = [
+        self::STATUS_PENDING,
+        self::STATUS_BEING_DELIVERED,
+        self::STATUS_DELIVERED,
+        self::STATUS_CANCELED,
+        self::STATUS_REFUNDED,
+    ];
+
+    const STATUS_LABELS = [
+        self::STATUS_PENDING => 'Pending',
+        self::STATUS_BEING_DELIVERED => 'Being delivered',
+        self::STATUS_DELIVERED => 'Delivered',
+        self::STATUS_CANCELED => 'Canceled',
+        self::STATUS_REFUNDED => 'Refunded',
+    ];
+
 
     public function carPart(): BelongsTo
     {
