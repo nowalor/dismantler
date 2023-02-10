@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsPageController;
 use App\Http\Controllers\AdminConnectMultipleKbaToEngineTypeController;
+use App\Http\Controllers\AdminEngineTypeController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
 use App\Http\Controllers\HomepageController;
@@ -80,10 +81,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('information', [\App\Http\Controllers\MissingInformationController::class, 'index'])
         ->name('admin.information');
 
+    Route::resource('engine-types', AdminEngineTypeController::class, ['as' => 'admin'])
+        ->only(['index', 'show', 'update']);
+    Route::delete('engine-types/{engineType}/german-dismantlers/{germanDismantler}', [AdminEngineTypeController::class, 'destroy'])
+        ->name('admin.engine-types.destroy');
+    Route::delete('engine-types/{engineType}/delete', [AdminEngineTypeController::class, 'destroyMultiple'])
+        ->name('admin.engine-types.destroy-multiple');
+    Route::delete('engine-types/{engineType}/delete/max-wat', [AdminEngineTypeController::class, 'destroyAllWithoutMaxWat'])
+        ->name('admin.engine-types.delete-max-wat');
+
     Route::get('information/{ditoNumber}', [\App\Http\Controllers\MissingInformationController::class, 'show'])
         ->name('admin.information.show');
-
-
 });
 
 
