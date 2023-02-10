@@ -9,22 +9,52 @@ use Illuminate\Http\Request;
 
 class AdminEngineTypeController extends Controller
 {
-    public function index(): mixed
+    public function index(Request $request): mixed
     {
+        $completed = $request->query('completed');
+
         $engineTypes = EngineType::has('carParts')
             ->has('germanDismantlers')
             ->withCount('carParts')
             ->with('germanDismantlers')
-            ->withCount('germanDismantlers')
-            ->paginate(25);
+            ->withCount('germanDismantlers');
+
+        $totalEngineTypes = EngineType::count();
+
+        $totalEngineTypesWithCarPartsAndKba = EngineType::has('carParts')
+            ->has('germanDismantlers')
+            ->count();
+
+        $totalConnectedEngineTypesCount = EngineType::has('carParts')
+            ->has('germanDismantlers')
+            ->whereNotNull('connection_completed_at')
+            ->count();
+
+        $totalUnconnectedEngineTypesCount = EngineType::has('carParts')
+            ->has('germanDismantlers')
+            ->whereNull('connection_completed_at')
+            ->count();
+
+
+        if($completed) {
+            $engineTypes = $engineTypes->whereNotNull('connection_completed_at');
+        } else {
+            $engineTypes = $engineTypes->whereNull('connection_completed_at');
+        }
+
+        $engineTypes = $engineTypes->paginate(25);
 
         $totalKbaConnected = GermanDismantler::has('engineTypes')->count();
         $totalCarPartsConnected = CarPart::has('engineType')->count();
 
         return view('admin.engine-types.index', compact(
             'engineTypes',
+            'totalEngineTypes',
+            'totalEngineTypesWithCarPartsAndKba',
             'totalKbaConnected',
             'totalCarPartsConnected',
+            'totalConnectedEngineTypesCount',
+            'totalUnconnectedEngineTypesCount',
         ));
     }
 
@@ -47,16 +77,20 @@ class AdminEngineTypeController extends Controller
             ->unique('id')
             ->values(); */
 
-
-
         $germanDismantlers = GermanDismantler::query();
 
         return view('admin.engine-types.show', compact('engineType', 'kbaMaxWat'));
     }
 
-    public function update(EngineType $engineType): mixed
+    public function update(EngineType $engineType, Request $request): mixed
     {
-        $engineType->update(['connection_completed_at' => now()]);
+        $completed = $request->get('completed');
+
+        if($completed === 'incomplete') {
+            $engineType->update(['connection_completed_at' => null]);
+        } else if($completed === 'complete'){
+            $engineType->update(['connection_completed_at' => now()]);
+        }
 
         return redirect()->back()->with('success', 'Connection completed');
     }

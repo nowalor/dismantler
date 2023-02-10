@@ -7,31 +7,60 @@
                 {{ session()->get('success') }}
             </div>
         @endif
+
+        @if(session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session()->get('error') }}
+            </div>
+        @endif
+
         <h1>Engine types</h1>
+        <div class="my-2">
+            <div class="d-flex gap-1">
+                <a href="{{ route('admin.engine-types.index', ['completed' => 0]) }}" class="btn btn-primary @if(!request()->get('completed')) disabled @endif">Not
+                    completed</a>
+                <a href="{{ route('admin.engine-types.index', ['completed' => 1]) }}"
+                   class="btn btn-primary @if(request()->get('completed')) disabled @endif">Completed</a>
+            </div>
+        </div>
         <div class="col-12 row">
             <div class="col-12 mb-2">
                 <div class="card">
                     <div class="card-header">Statistics</div>
                     <div class="card-body">
+                        <p>Out of <span class="fw-bold">{{ $totalEngineTypes }} </span>only <span
+                                class="fw-bold">{{ $totalEngineTypesWithCarPartsAndKba }}</span> have a car part and kba
+                            connection. Only those are shown in the list and the statistics</p>
                         <p><span
-                                class="fw-bold">Total engine types with kba and car parts: </span>{{ $engineTypes->total() }}
+                                class="fw-bold">Total engine types marked complete: </span>{{ $totalConnectedEngineTypesCount }}
+                        </p>
+                        <p><span
+                                class="fw-bold">Total engine types not marked complete: </span>{{ $totalUnconnectedEngineTypesCount }}
                         </p>
                         <p><span class="fw-bold">Total kba connected: </span>{{ $totalKbaConnected }}</p>
                         <p><span class="fw-bold">Total car parts connected: </span>{{ $totalCarPartsConnected }}</p>
                     </div>
                 </div>
             </div>
+
+            <h3 class="my-2">Showing {{ $engineTypes->total() }} results</h3>
             @foreach($engineTypes as $engineType)
                 <div class="col-6 mb-2">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             {{ $engineType->name }}
 
-                            <form action="{{ route('admin.engine-types.update', $engineType ) }}" method="POST">
+                            <form
+                                action="{{ route('admin.engine-types.update', $engineType) }}"
+                                method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <button class="btn btn-sm btn-primary">Mark completed ☑️</button>
-
+                                <input type="hidden" name="completed" value="{{ $engineType->connection_completed_at ? 'incomplete' : 'complete' }}">
+                                @if(is_null($engineType->connection_completed_at))
+                                    <button class="btn btn-sm btn-primary">Mark completed ☑️</button>
+                                @else
+                                    <button class="btn btn-sm btn-danger">Mark not completed ❌</button>
+                                @endif
                             </form>
                         </div>
                         <div class="card-body">
