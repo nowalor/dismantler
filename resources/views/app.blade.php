@@ -22,6 +22,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a href="{{ route('admin.engine-types.index') }}" class="nav-link text-danger">Engine Types</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ activeMenu('admin/dito-numbers') }}" href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
                 </li>
                 <li class="nav-item">

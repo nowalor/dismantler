@@ -69,6 +69,11 @@ class CarPart extends Model
         return $this->belongsTo(DismantleCompany::class);
     }
 
+    public function engineType(): BelongsTo
+    {
+        return $this->belongsTo(EngineType::class);
+    }
+
     public function identifer(): Attribute
     {
         return Attribute::make(
