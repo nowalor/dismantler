@@ -19,41 +19,45 @@
                 @else
                     Not completed
                 @endif
-                @if(!$engineType->connection_completed_at)
                     <div>
                         <form action="{{ route('admin.engine-types.update', $engineType ) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button class="btn btn-success btn-sm">Mark as completed ✅</button>
+                            <input type="hidden" name="completed"
+                                   value="{{ $engineType->connection_completed_at ? 'incomplete' : 'complete' }}">
+                            @if(is_null($engineType->connection_completed_at))
+                                <button class="btn btn-primary">Mark completed ☑️</button>
+                            @else
+                                <button class="btn btn-danger">Mark not completed ❌</button>
+                            @endif
                         </form>
                     </div>
-                @endif
             </div>
         </div>
 
-            <div class="row mb-3">
-                <div class="col-6">
-                    <div class="card">
-                        <div class="card-header">Remove all with selected max wat</div>
-                        <div class="card-body">
-                            <form action="{{ route('admin.engine-types.delete-max-wat', $engineType) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <div class="mb-3">
-                                    <label for="">Max wat:</label>
-                                    <select class="form-select" name="max_wat">
-                                        <option value="">Select</option>
-                                        @foreach($kbaMaxWat as $maxWat)
-                                            <option value="{{ $maxWat }}">{{ $maxWat }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <button class="btn btn-primary w-100">Remove all with selected max wat 🗑️</button>
-                            </form>
-                        </div>
+        <div class="row mb-3">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">Remove all without selected max wat</div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.engine-types.delete-max-wat', $engineType) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="mb-3">
+                                <label for="">Max wat:</label>
+                                <select class="form-select" name="max_wat">
+                                    <option value="">Select</option>
+                                    @foreach($kbaMaxWat as $maxWat)
+                                        <option value="{{ $maxWat }}">{{ $maxWat }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button class="btn btn-primary w-100">Remove all without selected max wat 🗑️</button>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
 
         <div class="col-12">
             <div class="card">
@@ -77,6 +81,7 @@
                                 <th>Commercial name</th>
                                 <th>Make</th>
                                 <th>Max wat</th>
+                                <th>Engine capacity</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -91,6 +96,7 @@
 
                                     <td>{{ $dismantler->make ?? 'null'  }}</td>
                                     <td> {{ $dismantler->max_net_power_in_kw }}kw</td>
+                                    <td> {{ $dismantler->engine_capacity_in_cm }}CM</td>
 
                                     <td>
                                         <label for="kba-{{ $dismantler->id }}">Select</label>
