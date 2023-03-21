@@ -34,6 +34,7 @@
                             @endforeach
                         </select>
                     </div>
+                    <livewire:car-model-dropdowns />
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-6">
