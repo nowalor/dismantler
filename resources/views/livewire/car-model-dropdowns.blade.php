@@ -1,8 +1,8 @@
 <div>
     <div class="mb-3">
-        <label for="car_model" class="form-label">Select car model</label>
+        <label for="car_model" class="form-label">Brand</label>
         <select class="form-select" name="brand" id="car_model" wire:model="selectedBrand" wire:change="changeBrand">
-            <option selected disabled>Select car Brand</option>
+            <option value="-1" selected disabled>Select car Brand</option>
             @foreach($brands as $brand)
                 <option value="{{ $brand->id }}"
                         @if($brand->name === old('brand')) selected @endif>{{ $brand->name }}</option>
@@ -10,8 +10,10 @@
         </select>
     </div>
 
+
+    @if($selectedBrand !== -1)
     <div class="mb-3">
-        <label for="car_model" class="form-label">Select car model</label>
+        <label for="car_model" class="form-label">Model</label>
         <select class="form-select" wire:loading>
             <option>
                 Loading...
@@ -25,4 +27,5 @@
             @endforeach
         </select>
     </div>
+        @endif
 </div>

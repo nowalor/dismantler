@@ -13,7 +13,7 @@ class CarModelDropdowns extends Component
     public Collection $brands;
     public Collection $models;
 
-    public $selectedBrand;
+    public int $selectedBrand = -1;
 
     public function mount(): void
     {
