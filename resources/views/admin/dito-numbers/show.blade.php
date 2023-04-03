@@ -11,7 +11,7 @@
             <div class="alert alert-danger mt-4 pt-2 col-6">
                 <form class="d-flex align-items-center" action="{{ route('test.restore', $ditoNumber) }}" method="POST">
                     @csrf
-                    <input type="hidden" name="kba_ids[]" value="{{ session()->get('removed') }}">
+                    <input type="hidden" name="kba_ids" value="{{ session()->get('removed') }}">
                     Removed successfully
                     <button class="btn btn-link btn-danger">Undo</button>
                 </form>

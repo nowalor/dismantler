@@ -68,12 +68,12 @@ class ConnectDitoToDismantlerController extends Controller
 
     public function restore(DitoNumber $ditoNumber, Request $request)// : RedirectResponse
     {
-        return $kbaToRemove = $request->get('kba_ids');
+        $kbaToRemove = json_decode($request->get('kba_ids'));
 
-        return DitoNumberGermanDismantler::withTrashed()
+        DitoNumberGermanDismantler::withTrashed()
             ->where('dito_number_id', $ditoNumber->id)
             ->whereIn('german_dismantler_id', $kbaToRemove)
-            ->get();
+            ->restore();
 
         return redirect()->back()->with('restored', 'Connection restored');
     }
