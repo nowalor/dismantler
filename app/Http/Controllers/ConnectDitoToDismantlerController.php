@@ -31,7 +31,7 @@ class ConnectDitoToDismantlerController extends Controller
         $kbaToRemove = $ditoNumber->germanDismantlers()->where($key, '!=', $value)->pluck('id');
         DitoNumberGermanDismantler::where('dito_number_id', $ditoNumber->id)->whereIn('german_dismantler_id', $kbaToRemove)->delete();
 
-        return redirect()->back()->with('removed', 'Connections removed from database');
+        return redirect()->back()->with('removed', $kbaToRemove);
     }
 
     public function delete(DitoNumber $ditoNumber, GermanDismantler $germanDismantler)
@@ -66,7 +66,7 @@ class ConnectDitoToDismantlerController extends Controller
         return redirect()->back()->with('removed', $kbaToRemove);
     }
 
-    public function restore(DitoNumber $ditoNumber, Request $request)// : RedirectResponse
+    public function restore(DitoNumber $ditoNumber, Request $request): RedirectResponse
     {
         $kbaToRemove = json_decode($request->get('kba_ids'));
 
