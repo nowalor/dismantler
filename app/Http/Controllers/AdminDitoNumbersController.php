@@ -95,7 +95,9 @@ class AdminDitoNumbersController extends Controller
 
     public function show(DitoNumber $ditoNumber, Request $request)
     {
-        $uniqueMaxNet = GermanDismantler::select('max_net_power_in_kw')->distinct()->pluck('max_net_power_in_kw');
+        $uniqueMaxNet = GermanDismantler::select('max_net_power_in_kw')
+            ->distinct()
+            ->pluck('max_net_power_in_kw');
 
         $germanDismantlers = GermanDismantler::whereDoesntHave(
             'ditoNumbers',
@@ -126,7 +128,7 @@ class AdminDitoNumbersController extends Controller
         $plaintexts = ManufacturerText::all();
         $commercialNames = CommercialName::all();
 
-        $relatedDismantlers = $ditoNumber->germanDismantlers;
+        $relatedDismantlers = $ditoNumber->germanDismantlers()->paginate(500);
 
         if ($request->filled('plaintext')) {
             $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
@@ -140,8 +142,12 @@ class AdminDitoNumbersController extends Controller
             $germanDismantlers->where('make', 'like', '%' . $request->input('make') . '%');
         }
 
-        $germanDismantlers = $germanDismantlers->paginate(250)->withQueryString();
+        $germanDismantlers = $germanDismantlers->paginate(15)->withQueryString();
         $request->flash();
+
+        $uniquePlaintext = $ditoNumber->germanDismantlers()->select('manufacturer_plaintext')->distinct()->pluck('manufacturer_plaintext');
+        $uniqueMake = $ditoNumber->germanDismantlers()->select('make')->distinct()->pluck('make');
+        $uniqueCommercialNames = $ditoNumber->germanDismantlers()->select('commercial_name')->distinct()->pluck('commercial_name');
 
         return view('admin.dito-numbers.show',
             compact(
@@ -150,7 +156,10 @@ class AdminDitoNumbersController extends Controller
                 'relatedDismantlers',
                 'plaintexts',
                 'commercialNames',
-                'uniqueMaxNet'
+                'uniqueMaxNet',
+                'uniquePlaintext',
+                'uniqueMake',
+                'uniqueCommercialNames',
             )
         );
     }

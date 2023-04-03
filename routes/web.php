@@ -74,6 +74,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::post('dito-numbers/{ditoNumberId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
+    Route::delete('dito-numbers/{ditoNumber}/delete/multiple', [ConnectDitoToDismantlerController::class, 'deleteMultiple'])
+        ->name('test.delete-multiple');
+    Route::delete('dito-numbers/{ditoNumber}/delete/except-selected', [ConnectDitoToDismantlerController::class, 'deleteExceptSelected'])
+        ->name('test.delete-except-selected');
+    Route::post('dito-numbers/{ditoNumber}/connections/restore', [ConnectDitoToDismantlerController::class, 'restore'])
+        ->name('test.restore');
 
     Route::put('engine-types/{engineType}', AdminConnectMultipleKbaToEngineTypeController::class)
         ->name('admin.engine-types.connect');

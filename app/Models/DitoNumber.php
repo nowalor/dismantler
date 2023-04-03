@@ -23,7 +23,8 @@ class DitoNumber extends Model
 
     public function germanDismantlers()
     {
-        return $this->belongsToMany(GermanDismantler::class);
+        return $this->belongsToMany(GermanDismantler::class)
+            ->wherePivot('deleted_at', null);
     }
 
     public function carParts(): HasMany
