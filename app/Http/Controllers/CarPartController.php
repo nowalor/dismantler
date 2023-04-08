@@ -132,13 +132,6 @@ class CarPartController extends Controller
         ));
     }
 
-    private function redirectBack(array $errors): RedirectResponse
-    {
-        request()->flash();
-
-        return redirect()->back()->withErrors($errors);
-    }
-
     public function show(CarPart $carPart)
     {
 
@@ -151,4 +144,25 @@ class CarPartController extends Controller
     {
         //
     }
+
+
+    // Non-Resourceful Methods
+    public function searchByCode(): mixed
+    {
+
+    }
+
+    public function searchByModel(): mixed
+    {
+
+    }
+
+    // Private methods for modularizing this controller
+    private function redirectBack(array $errors): RedirectResponse
+    {
+        request()?->flash();
+
+        return redirect()->back()->withErrors($errors);
+    }
+
 }

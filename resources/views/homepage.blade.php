@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <p>
-                    Search for a spesific car if you know the HSN and TSN. This is the most accurate and fastest way to
+                    Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to
                     find car parts for your car.
                 </p>
                 <form>
