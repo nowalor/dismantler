@@ -12,7 +12,8 @@
                     Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to
                     find car parts for your car.
                 </p>
-                <form>
+                <form action="{{ route('car-parts.search-by-code') }}" method="POSt">
+                    @csrf
                     <div class="mb-3">
                         <label for="hsn" class="form-label">HSN</label>
                         <input type="text" class="form-control" name="hsn" value="{{ old('hsn') }}">
@@ -55,7 +56,8 @@
                     If you don't know the HSN and TSN or you want a more open search you can search by car model.
                 </p>
 
-                <form action="{{ route('car-parts.index') }}">
+                <form action="{{ route('car-parts.search-by-model') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="car_model" class="form-label">Select car model</label>
                         <select class="form-select" name="brand" id="car_model">

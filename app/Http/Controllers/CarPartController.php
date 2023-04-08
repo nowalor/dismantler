@@ -149,12 +149,12 @@ class CarPartController extends Controller
     // Non-Resourceful Methods
     public function searchByCode(): mixed
     {
-
+        return 'searchByCode';
     }
 
     public function searchByModel(): mixed
     {
-
+        return 'searchByModel';
     }
 
     // Private methods for modularizing this controller
