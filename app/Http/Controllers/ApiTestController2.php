@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\CarPart;
 use App\Models\CarPartImage;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -48,50 +50,48 @@ class ApiTestController2 extends Controller
     {
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
+        DB::beginTransaction();
+        try {
+            for ($i = 0; $i < 199999; $i++) {
+                $response = $this->fetchPage($i);
 
-        $dismantleCompanyIds = ['44', '50', '70'];
-
-        foreach ($dismantleCompanyIds as $companyId) {
-            try {
-                for ($i = 0; $i < 199999; $i++) {
-                    $response = $this->fetchPage($i, $companyId);
-
-                    if (empty($response)) {
-                        Log::info("Broke on page $i");
-                        break;
-                    }
-                    $collectedResponse = collect($response);
-                    $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
-                    // return $filteredResponse;
-
-                    // CarPart::insertOrIgnore($transformedData);
-
-                    $transformedImages = $this->transformImages($filteredResponse);
-
-                    //return $transformedImages;
-
-                    CarPartImage::insertOrIgnore($transformedImages);
+                if (empty($response)) {
+                    Log::info("Broke on page $i");
+                    break;
                 }
-                return 'loops finished';
 
-            } catch (Exception $ex) {
-                Log::info($ex->getMessage());
+                $transformedData = $this->transformData($response);
 
-                return 'in catch';
+                foreach($transformedData as $item) {
+                    $itemId = $item['id'];
+                    unset($item['id']);
+                    CarPart::query()->updateOrCreate(['id' => $itemId], $item);
+                }
+
+                $transformedImages = $this->transformImages($response);
+
+                foreach($transformedImages as $image) {
+                    CarPartImage::query()
+                        ->firstOrCreate($image);
+                }
+
             }
-        }
 
-        return 'finished';
+            DB::commit();
+        } catch (Exception $ex) {
+            DB::rollBack();
+            return $ex;
+        }
     }
 
-    private function fetchPage(int $page, string $companyId)
+    private function fetchPage(int $page)
     {
         $apiKey = config()->get('app.egluit_api_key');
         $url = 'https://v2-cloud.egluit.dk/gql/graphql';
 
         $variables = [
             'input' => [
-                'companyId' => $companyId,
+                'companyId' => '50',
                 'dateHourBack' => null,
                 'maxRows' => 1000000000,
                 'pageNumber' => $page,
@@ -128,13 +128,8 @@ class ApiTestController2 extends Controller
     {
         $newArr = [];
 
-        foreach ($data as $item) {
-            $collectedImages = collect($item['images']);
-
-            $filteredImages =
-                $collectedImages->filter(fn($image) => stristr($image['originUrl'], '/P/'));
-
-            foreach ($filteredImages as $image) {
+        foreach($data as $item) {
+            foreach($item['images'] as $image) {
                 array_push($newArr, [
                     'car_part_id' => $item['id'],
                     'origin_url' => $image['originUrl'],
@@ -145,4 +140,5 @@ class ApiTestController2 extends Controller
 
         return $newArr;
     }
+
 }

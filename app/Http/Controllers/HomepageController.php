@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarBrand;
+use App\Models\ManufacturerText;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -14,6 +15,8 @@ class HomepageController extends Controller
             ->having('car_parts_count', '>', 0)
             ->get();
 
-        return view('homepage', compact('brands'));
+        $plainTexts = ManufacturerText::all();
+
+        return view('homepage', compact('brands', 'plainTexts'));
     }
 }

@@ -2,8 +2,37 @@
 
 
 @section('content')
-    <div class="cta">
-        <div class="card col-3 mx-auto" style="z-index:5; top:20vh;">
+    <div class="cta d-flex justify-content-center gap-3">
+        <div class="card col-3 mb-3" style="z-index:5; top:20vh; height: 26rem;">
+            <div class="card-header">
+                <h3>Search by HSN + TSN</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to
+                    find car parts for your car.
+                </p>
+                <form action="{{ route('car-parts.search-by-code') }}" method="POSt">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="hsn" class="form-label">HSN</label>
+                        <input type="text" class="form-control" name="hsn" value="{{ old('hsn') }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hsn" class="form-label">TSN</label>
+                        <input type="text" class="form-control" name="tsn" value="{{ old('tsn') }}">
+                    </div>
+
+                    <div style="margin-top: 3rem;">
+                        <button class="btn btn-primary w-100 uppercase">Search 🔍</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card col-3" style="z-index:5; top:20vh; height: 34rem;">
+            <div class="card-header">
+                <h3>Search by car model</h3>
+            </div>
             <div class="card-body">
                 @error('error')
                 <div class="alert alert-danger">
@@ -23,7 +52,12 @@
                     <a target="_blank" href="{{ route('contact') }}">contact us.</a>
                 </div>
                 @enderror
-                <form action="{{ route('car-parts.index') }}">
+                <p>
+                    If you don't know the HSN and TSN or you want a more open search you can search by car model.
+                </p>
+
+                <form action="{{ route('car-parts.search-by-model') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="car_model" class="form-label">Select car model</label>
                         <select class="form-select" name="brand" id="car_model">
@@ -34,19 +68,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="hsn" class="form-label">HSN</label>
-                                <input type="text" class="form-control" name="hsn" value="{{ old('hsn') }}">
-                            </div>
-                            <div class="col-6">
-                                <label for="hsn" class="form-label">TSN</label>
-                                <input type="text" class="form-control" name="tsn" value="{{ old('tsn') }}">
-                            </div>
-                        </div>
-                    </div>
-
+                    <livewire:car-model-dropdowns/>
                     <div class="mb-3">
                         <label for="hsn" class="form-label">Advanced search</label>
                         <input type="text" class="form-control" name="advanced_search"
@@ -74,8 +96,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <button class="btn btn-primary w-100 uppercase">Search</button>
+                    <div style="margin-top: 3rem;">
+                        <button class="btn btn-primary w-100 uppercase">Search 🔍</button>
                     </div>
                 </form>
             </div>

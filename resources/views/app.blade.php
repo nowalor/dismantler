@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title>
+    @livewireStyles
 </head>
 <body>
 <!-- As a heading -->
@@ -22,10 +23,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{{ route('admin.engine-types.index') }}" class="nav-link text-danger">Engine Types</a>
+                    <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ activeMenu('admin/dito-numbers') }}" href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
+                    <a class="text-danger nav-link {{ activeMenu('admin/dito-numbers') }}" href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ activeMenu('admin/kba') }}" href="{{ route('admin.kba.index') }}">KBA</a>
@@ -67,6 +68,7 @@
 
 
 @yield('content')
+    @livewireScripts
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

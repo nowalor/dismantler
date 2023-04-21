@@ -10,8 +10,9 @@ class GetUniqueManufacturerPlaintextController extends Controller
 {
     public function __invoke()
     {
-        $plainTexts = GermanDismantler::select('manufacturer_plaintext')
-            ->distinct()
+        $plainTexts = GermanDismantler::select(['id', 'hsn', 'tsn','manufacturer_plaintext'])
+//            ->distinct()
+                ->where('manufacturer_plaintext', 'like', '%audi%')
             ->get();
 
         return $plainTexts;

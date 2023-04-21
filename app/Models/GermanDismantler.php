@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use \Illuminate\Database\Eloquent\Casts\Attribute;
 
@@ -37,10 +38,15 @@ class GermanDismantler extends Model
       return $this->belongsToMany(DitoNumber::class);
   }
 
-  public function engineTypes()
+  public function engineTypes(): BelongsToMany
   {
     return $this->belongsToMany(EngineType::class);
   }
+
+    public function motorTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(MotorType::class);
+    }
 
   public function dateOfAllotmentOfTypeCodeNumber (): Attribute
   {

@@ -18,844 +18,844 @@ class ManufacturerPlaintextSeeder extends Seeder
         ManufacturerText::insert(
             [
                 [
-                "name" =>  "BAYER.MOT.WERKE-BMW"
+                    "name" =>  "BAYER.MOT.WERKE-BMW"
                 ],
                 [
-                "name" =>  "BUESSING"
+                    "name" =>  "BUESSING"
                 ],
                 [
-                "name" =>  "DAIMLER-BENZ"
+                    "name" =>  "DAIMLER-BENZ"
                 ],
                 [
-                "name" =>  "ARBGEM.DB/HHF"
+                    "name" =>  "ARBGEM.DB/HHF"
                 ],
                 [
-                "name" =>  "Dkw"
+                    "name" =>  "Dkw"
                 ],
                 [
-                "name" =>  "FAUN-WERKE"
+                    "name" =>  "FAUN-WERKE"
                 ],
                 [
-                "name" =>  "BARKAS-VEB"
+                    "name" =>  "BARKAS-VEB"
                 ],
                 [
-                "name" =>  "RHEINSTAHL HANOMAG"
+                    "name" =>  "RHEINSTAHL HANOMAG"
                 ],
                 [
-                "name" =>  "BORGWARD"
+                    "name" =>  "BORGWARD"
                 ],
                 [
-                "name" =>  "HENSCHEL"
+                    "name" =>  "HENSCHEL"
                 ],
                 [
-                "name" =>  "RHEINSTAHL HENSCHEL"
+                    "name" =>  "RHEINSTAHL HENSCHEL"
                 ],
                 [
-                "name" =>  "HANOMAG-HENSCHEL"
+                    "name" =>  "HANOMAG-HENSCHEL"
                 ],
                 [
-                "name" =>  "KRAUSS-MAFFEI"
+                    "name" =>  "KRAUSS-MAFFEI"
                 ],
                 [
-                "name" =>  "MASCH.F.A-NUERNB-MAN"
+                    "name" =>  "MASCH.F.A-NUERNB-MAN"
                 ],
                 [
-                "name" =>  "OPEL"
+                    "name" =>  "OPEL"
                 ],
                 [
-                "name" =>  "NECKAR-NSU-AUTOMOBIL"
+                    "name" =>  "NECKAR-NSU-AUTOMOBIL"
                 ],
                 [
-                "name" =>  "NECKAR-AUTOMOBILW."
+                    "name" =>  "NECKAR-AUTOMOBILW."
                 ],
                 [
-                "name" =>  "NSU-MOTORENWERKE"
+                    "name" =>  "NSU-MOTORENWERKE"
                 ],
                 [
-                "name" =>  "EISENACHER MOT.W-EMW"
+                    "name" =>  "EISENACHER MOT.W-EMW"
                 ],
                 [
-                "name" =>  "VIDAL & SOHN"
+                    "name" =>  "VIDAL & SOHN"
                 ],
                 [
-                "name" =>  "VICTORIA WERKE"
+                    "name" =>  "VICTORIA WERKE"
                 ],
                 [
-                "name" =>  "ZUENDAPP-WERKE"
+                    "name" =>  "ZUENDAPP-WERKE"
                 ],
                 [
-                "name" =>  "INDUST.KARLSRUHE-IWK"
+                    "name" =>  "INDUST.KARLSRUHE-IWK"
                 ],
                 [
-                "name" =>  "KLOECKNER-H-DEUTZ"
+                    "name" =>  "KLOECKNER-H-DEUTZ"
                 ],
                 [
-                "name" =>  "ELEKTROMASCH.FULDA"
+                    "name" =>  "ELEKTROMASCH.FULDA"
                 ],
                 [
-                "name" =>  "FRIEDRICH,SPATZ-FZB."
+                    "name" =>  "FRIEDRICH,SPATZ-FZB."
                 ],
                 [
-                "name" =>  "ROBUR"
+                    "name" =>  "ROBUR"
                 ],
                 [
-                "name" =>  "FZ-MA-REGENSBURG-FMR"
+                    "name" =>  "FZ-MA-REGENSBURG-FMR"
                 ],
                 [
-                "name" =>  "AUWAERTER,GOTTLOB"
+                    "name" =>  "AUWAERTER,GOTTLOB"
                 ],
                 [
-                "name" =>  "LLOYD"
+                    "name" =>  "LLOYD"
                 ],
                 [
-                "name" =>  "DEUTSCHE WAG.U.M-DWM"
+                    "name" =>  "DEUTSCHE WAG.U.M-DWM"
                 ],
                 [
-                "name" =>  "NORDWESTD.FAHRZB-NWF"
+                    "name" =>  "NORDWESTD.FAHRZB-NWF"
                 ],
                 [
-                "name" =>  "GOLIATH-WERK"
+                    "name" =>  "GOLIATH-WERK"
                 ],
                 [
-                "name" =>  "MAICO-FAHRZEUGFABRIK"
+                    "name" =>  "MAICO-FAHRZEUGFABRIK"
                 ],
                 [
-                "name" =>  "THURNER"
+                    "name" =>  "THURNER"
                 ],
                 [
-                "name" =>  "TATRA (CS)"
+                    "name" =>  "TATRA (CS)"
                 ],
                 [
-                "name" =>  "BMW MOTORSPORT"
+                    "name" =>  "BMW MOTORSPORT"
                 ],
                 [
-                "name" =>  "PORSCHE"
+                    "name" =>  "PORSCHE"
                 ],
                 [
-                "name" =>  "AUDI"
+                    "name" =>  "AUDI"
                 ],
                 [
-                "name" =>  "AUTO UNION"
+                    "name" =>  "AUTO UNION"
                 ],
                 [
-                "name" =>  "AUDI NSU AUTO UNION"
+                    "name" =>  "AUDI NSU AUTO UNION"
                 ],
                 [
-                "name" =>  "HEINKEL,STUTTGART"
+                    "name" =>  "HEINKEL,STUTTGART"
                 ],
                 [
-                "name" =>  "GLAS"
+                    "name" =>  "GLAS"
                 ],
                 [
-                "name" =>  "VOLKSWAGEN-VW"
+                    "name" =>  "VOLKSWAGEN-VW"
                 ],
                 [
-                "name" =>  "SOLO"
+                    "name" =>  "SOLO"
                 ],
                 [
-                "name" =>  "KAESSBOHRER"
+                    "name" =>  "KAESSBOHRER"
                 ],
                 [
-                "name" =>  "MERCEDES-BENZ (D)"
+                    "name" =>  "MERCEDES-BENZ (D)"
                 ],
                 [
-                "name" =>  "DAIMLER-BENZ (D)"
+                    "name" =>  "DAIMLER-BENZ (D)"
                 ],
                 [
-                "name" =>  "DAIMLERCHRYSLER (D)"
+                    "name" =>  "DAIMLERCHRYSLER (D)"
                 ],
                 [
-                "name" =>  "SACHSENRING"
+                    "name" =>  "SACHSENRING"
                 ],
                 [
-                "name" =>  "AUTOMOB-EISENACH-AWE"
+                    "name" =>  "AUTOMOB-EISENACH-AWE"
                 ],
                 [
-                "name" =>  "FORD (D)"
+                    "name" =>  "FORD (D)"
                 ],
                 [
-                "name" =>  "CHRYSLER (F)"
+                    "name" =>  "CHRYSLER (F)"
                 ],
                 [
-                "name" =>  "CHRYSLER (USA)"
+                    "name" =>  "CHRYSLER (USA)"
                 ],
                 [
-                "name" =>  "DAIMLERCHRYSLER(USA)"
+                    "name" =>  "DAIMLERCHRYSLER(USA)"
                 ],
                 [
-                "name" =>  "FORD"
+                    "name" =>  "FORD"
                 ],
                 [
-                "name" =>  "FORD (UK)"
+                    "name" =>  "FORD (UK)"
                 ],
                 [
-                "name" =>  "FORD (USA)"
+                    "name" =>  "FORD (USA)"
                 ],
                 [
-                "name" =>  "FORD (F)"
+                    "name" =>  "FORD (F)"
                 ],
                 [
-                "name" =>  "GENERAL MOT-GMC(USA)"
+                    "name" =>  "GENERAL MOT-GMC(USA)"
                 ],
                 [
-                "name" =>  "MITSUBISHI (USA)"
+                    "name" =>  "MITSUBISHI (USA)"
                 ],
                 [
-                "name" =>  "MAZDA (USA)"
+                    "name" =>  "MAZDA (USA)"
                 ],
                 [
-                "name" =>  "DIAMOND (USA)"
+                    "name" =>  "DIAMOND (USA)"
                 ],
                 [
-                "name" =>  "VDL BUS (NL)"
+                    "name" =>  "VDL BUS (NL)"
                 ],
                 [
-                "name" =>  "AVTOVAZ (RUS)"
+                    "name" =>  "AVTOVAZ (RUS)"
                 ],
                 [
-                "name" =>  "HONDA (USA)"
+                    "name" =>  "HONDA (USA)"
                 ],
                 [
-                "name" =>  "JEEP EAGLE (USA)"
+                    "name" =>  "JEEP EAGLE (USA)"
                 ],
                 [
-                "name" =>  "TOYOTA (USA)"
+                    "name" =>  "TOYOTA (USA)"
                 ],
                 [
-                "name" =>  "HONDA TURKIYE (TR)"
+                    "name" =>  "HONDA TURKIYE (TR)"
                 ],
                 [
-                "name" =>  "Otokar (TR)"
+                    "name" =>  "Otokar (TR)"
                 ],
                 [
-                "name" =>  "GUMPERT"
+                    "name" =>  "GUMPERT"
                 ],
                 [
-                "name" =>  "KIA Motors (SK)"
+                    "name" =>  "KIA Motors (SK)"
                 ],
                 [
-                "name" =>  "Daimler (D)"
+                    "name" =>  "Daimler (D)"
                 ],
                 [
-                "name" =>  "NISSAN (CH)"
+                    "name" =>  "NISSAN (CH)"
                 ],
                 [
-                "name" =>  "Hyundai Motor (CZ)"
+                    "name" =>  "Hyundai Motor (CZ)"
                 ],
                 [
-                "name" =>  "SHUANGHUAN (RC)"
+                    "name" =>  "SHUANGHUAN (RC)"
                 ],
                 [
-                "name" =>  "KTM-Sportcar (A)"
+                    "name" =>  "KTM-Sportcar (A)"
                 ],
                 [
-                "name" =>  "VDL Bus & Coach (NL)"
+                    "name" =>  "VDL Bus & Coach (NL)"
                 ],
                 [
-                "name" =>  "MITSUBISHI (AUS)"
+                    "name" =>  "MITSUBISHI (AUS)"
                 ],
                 [
-                "name" =>  "Mercedes-AMG"
+                    "name" =>  "Mercedes-AMG"
                 ],
                 [
-                "name" =>  "Tesla (USA)"
+                    "name" =>  "Tesla (USA)"
                 ],
                 [
-                "name" =>  "MAN Truck & Bus"
+                    "name" =>  "MAN Truck & Bus"
                 ],
                 [
-                "name" =>  "MIA ELECTRIC (F)"
+                    "name" =>  "MIA ELECTRIC (F)"
                 ],
                 [
-                "name" =>  "McLaren (UK)"
+                    "name" =>  "McLaren (UK)"
                 ],
                 [
-                "name" =>  "LADA"
+                    "name" =>  "LADA"
                 ],
                 [
-                "name" =>  "JIANGLING (RC)"
+                    "name" =>  "JIANGLING (RC)"
                 ],
                 [
-                "name" =>  "Fisker (USA)"
+                    "name" =>  "Fisker (USA)"
                 ],
                 [
-                "name" =>  "Jaguar Land Rover (UK)"
+                    "name" =>  "Jaguar Land Rover (UK)"
                 ],
                 [
-                "name" =>  "LAZ (UA)"
+                    "name" =>  "LAZ (UA)"
                 ],
                 [
-                "name" =>  "Meier"
+                    "name" =>  "Meier"
                 ],
                 [
-                "name" =>  "SUZUKI (THA)"
+                    "name" =>  "SUZUKI (THA)"
                 ],
                 [
-                "name" =>  "FCA (USA)"
+                    "name" =>  "FCA (USA)"
                 ],
                 [
-                "name" =>  "FCA Italy (I)"
+                    "name" =>  "FCA Italy (I)"
                 ],
                 [
-                "name" =>  "KTM Sportcar (A)"
+                    "name" =>  "KTM Sportcar (A)"
                 ],
                 [
-                "name" =>  "sileo"
+                    "name" =>  "sileo"
                 ],
                 [
-                "name" =>  "MG Motor (UK)"
+                    "name" =>  "MG Motor (UK)"
                 ],
                 [
-                "name" =>  "Alfa Romeo (I)"
+                    "name" =>  "Alfa Romeo (I)"
                 ],
                 [
-                "name" =>  "General Motors (USA)"
+                    "name" =>  "General Motors (USA)"
                 ],
                 [
-                "name" =>  "FORD (IND)"
+                    "name" =>  "FORD (IND)"
                 ],
                 [
-                "name" =>  "BLUECAR (F)"
+                    "name" =>  "BLUECAR (F)"
                 ],
                 [
-                "name" =>  "SUBARU (J)"
+                    "name" =>  "SUBARU (J)"
                 ],
                 [
-                "name" =>  "Opel Automobile"
+                    "name" =>  "Opel Automobile"
                 ],
                 [
-                "name" =>  "KIA MOTORS (MEX)"
+                    "name" =>  "KIA MOTORS (MEX)"
                 ],
                 [
-                "name" =>  "TCV (TR)"
+                    "name" =>  "TCV (TR)"
                 ],
                 [
-                "name" =>  "Audi Sport"
+                    "name" =>  "Audi Sport"
                 ],
                 [
-                "name" =>  "Italdesign-Giugiaro (I)"
+                    "name" =>  "Italdesign-Giugiaro (I)"
                 ],
                 [
-                "name" =>  "Beijing Borgward (RC)"
+                    "name" =>  "Beijing Borgward (RC)"
                 ],
                 [
-                "name" =>  "Dallara (I)"
+                    "name" =>  "Dallara (I)"
                 ],
                 [
-                "name" =>  "PSA Automobiles (F)"
+                    "name" =>  "PSA Automobiles (F)"
                 ],
                 [
-                "name" =>  "CAMI (CDN)"
+                    "name" =>  "CAMI (CDN)"
                 ],
                 [
-                "name" =>  "e.GO"
+                    "name" =>  "e.GO"
                 ],
                 [
-                "name" =>  "RENAULT (F)"
+                    "name" =>  "RENAULT (F)"
                 ],
                 [
-                "name" =>  "DR AUTOMOBILES (I)"
+                    "name" =>  "DR AUTOMOBILES (I)"
                 ],
                 [
-                "name" =>  "AUSTIN (GB)"
+                    "name" =>  "AUSTIN (GB)"
                 ],
                 [
-                "name" =>  "ROLLS-ROYCE (UK)"
+                    "name" =>  "ROLLS-ROYCE (UK)"
                 ],
                 [
-                "name" =>  "WESTFIELD (UK)"
+                    "name" =>  "WESTFIELD (UK)"
                 ],
                 [
-                "name" =>  "LDV (UK)"
+                    "name" =>  "LDV (UK)"
                 ],
                 [
-                "name" =>  "London EV Company (UK)"
+                    "name" =>  "London EV Company (UK)"
                 ],
                 [
-                "name" =>  "LEYLAND (UK)"
+                    "name" =>  "LEYLAND (UK)"
                 ],
                 [
-                "name" =>  "JAGUAR (GB)"
+                    "name" =>  "JAGUAR (GB)"
                 ],
                 [
-                "name" =>  "MORRIS (GB)"
+                    "name" =>  "MORRIS (GB)"
                 ],
                 [
-                "name" =>  "ROVER (GB)"
+                    "name" =>  "ROVER (GB)"
                 ],
                 [
-                "name" =>  "VAUXHALL (GB)"
+                    "name" =>  "VAUXHALL (GB)"
                 ],
                 [
-                "name" =>  "TALBOT MOTOR (UK)"
+                    "name" =>  "TALBOT MOTOR (UK)"
                 ],
                 [
-                "name" =>  "CHRYSLER (GB)"
+                    "name" =>  "CHRYSLER (GB)"
                 ],
                 [
-                "name" =>  "BENTLEY (UK)"
+                    "name" =>  "BENTLEY (UK)"
                 ],
                 [
-                "name" =>  "LAND ROVER (GB)"
+                    "name" =>  "LAND ROVER (GB)"
                 ],
                 [
-                "name" =>  "AUSTIN ROVER (GB)"
+                    "name" =>  "AUSTIN ROVER (GB)"
                 ],
                 [
-                "name" =>  "NISSAN (UK)"
+                    "name" =>  "NISSAN (UK)"
                 ],
                 [
-                "name" =>  "GENERAL MOTORS (UK)"
+                    "name" =>  "GENERAL MOTORS (UK)"
                 ],
                 [
-                "name" =>  "IBC VEHICLES (UK)"
+                    "name" =>  "IBC VEHICLES (UK)"
                 ],
                 [
-                "name" =>  "TOYOTA (UK)"
+                    "name" =>  "TOYOTA (UK)"
                 ],
                 [
-                "name" =>  "HONDA (UK)"
+                    "name" =>  "HONDA (UK)"
                 ],
                 [
-                "name" =>  "LAND ROVER GROUP(GB)"
+                    "name" =>  "LAND ROVER GROUP(GB)"
                 ],
                 [
-                "name" =>  "MG ROVER (UK)"
+                    "name" =>  "MG ROVER (UK)"
                 ],
                 [
-                "name" =>  "BL CARS (GB)"
+                    "name" =>  "BL CARS (GB)"
                 ],
                 [
-                "name" =>  "BYD (RC)"
+                    "name" =>  "BYD (RC)"
                 ],
                 [
-                "name" =>  "SAIC (RC)"
+                    "name" =>  "SAIC (RC)"
                 ],
                 [
-                "name" =>  "ZHEJIANG GEELY (RC)"
+                    "name" =>  "ZHEJIANG GEELY (RC)"
                 ],
                 [
-                "name" =>  "HIREUS (UK)"
+                    "name" =>  "HIREUS (UK)"
                 ],
                 [
-                "name" =>  "ROLLS-ROYCE MC (UK)"
+                    "name" =>  "ROLLS-ROYCE MC (UK)"
                 ],
                 [
-                "name" =>  "Next.e.GO"
+                    "name" =>  "Next.e.GO"
                 ],
                 [
-                "name" =>  "Polestar (S)"
+                    "name" =>  "Polestar (S)"
                 ],
                 [
-                "name" =>  "Mercedes-Benz"
+                    "name" =>  "Mercedes-Benz"
                 ],
                 [
-                "name" =>  "NISSAN AUTOMOTIVE (F)"
+                    "name" =>  "NISSAN AUTOMOTIVE (F)"
                 ],
                 [
-                "name" =>  "Kia (ROK)"
+                    "name" =>  "Kia (ROK)"
                 ],
                 [
-                "name" =>  "Kia (SK)"
+                    "name" =>  "Kia (SK)"
                 ],
                 [
-                "name" =>  "Nanjing Gold. Dragon (RC)"
+                    "name" =>  "Nanjing Gold. Dragon (RC)"
                 ],
                 [
-                "name" =>  "NIO (RC)"
+                    "name" =>  "NIO (RC)"
                 ],
                 [
-                "name" =>  "Lanzhou Zhidou (RC)"
+                    "name" =>  "Lanzhou Zhidou (RC)"
                 ],
                 [
-                "name" =>  "BUGATTI (F)"
+                    "name" =>  "BUGATTI (F)"
                 ],
                 [
-                "name" =>  "CITROEN (F)"
+                    "name" =>  "CITROEN (F)"
                 ],
                 [
-                "name" =>  "PEUGEOT (F)"
+                    "name" =>  "PEUGEOT (F)"
                 ],
                 [
-                "name" =>  "ALPINE (F)"
+                    "name" =>  "ALPINE (F)"
                 ],
                 [
-                "name" =>  "SOVAB (F)"
+                    "name" =>  "SOVAB (F)"
                 ],
                 [
-                "name" =>  "ACMA (F)"
+                    "name" =>  "ACMA (F)"
                 ],
                 [
-                "name" =>  "SAVIEM (F)"
+                    "name" =>  "SAVIEM (F)"
                 ],
                 [
-                "name" =>  "TALBOT AUTOMOB.(F)"
+                    "name" =>  "TALBOT AUTOMOB.(F)"
                 ],
                 [
-                "name" =>  "SIMCA (F)"
+                    "name" =>  "SIMCA (F)"
                 ],
                 [
-                "name" =>  "MATRA (F)"
+                    "name" =>  "MATRA (F)"
                 ],
                 [
-                "name" =>  "NISSAN EUROPE (F)"
+                    "name" =>  "NISSAN EUROPE (F)"
                 ],
                 [
-                "name" =>  "FIAT (I)"
+                    "name" =>  "FIAT (I)"
                 ],
                 [
-                "name" =>  "DEUTSCHE FIAT"
+                    "name" =>  "DEUTSCHE FIAT"
                 ],
                 [
-                "name" =>  "LANCIA (I)"
+                    "name" =>  "LANCIA (I)"
                 ],
                 [
-                "name" =>  "AUTOBIANCHI (I)"
+                    "name" =>  "AUTOBIANCHI (I)"
                 ],
                 [
-                "name" =>  "SIATA (I)"
+                    "name" =>  "SIATA (I)"
                 ],
                 [
-                "name" =>  "MASERATI (I)"
+                    "name" =>  "MASERATI (I)"
                 ],
                 [
-                "name" =>  "FERRARI (I)"
+                    "name" =>  "FERRARI (I)"
                 ],
                 [
-                "name" =>  "FIAT LANCIA (I)"
+                    "name" =>  "FIAT LANCIA (I)"
                 ],
                 [
-                "name" =>  "LAMBORGHINI (I)"
+                    "name" =>  "LAMBORGHINI (I)"
                 ],
                 [
-                "name" =>  "OSI (I)"
+                    "name" =>  "OSI (I)"
                 ],
                 [
-                "name" =>  "ALFAROMEO ALFASUD(I)"
+                    "name" =>  "ALFAROMEO ALFASUD(I)"
                 ],
                 [
-                "name" =>  "LEYLAND-INNOCENTI(I)"
+                    "name" =>  "LEYLAND-INNOCENTI(I)"
                 ],
                 [
-                "name" =>  "NUOVA-INNOCENTI (I)"
+                    "name" =>  "NUOVA-INNOCENTI (I)"
                 ],
                 [
-                "name" =>  "BERTONE (I)"
+                    "name" =>  "BERTONE (I)"
                 ],
                 [
-                "name" =>  "PININFARINA (I)"
+                    "name" =>  "PININFARINA (I)"
                 ],
                 [
-                "name" =>  "ALFA LANCIA (I)"
+                    "name" =>  "ALFA LANCIA (I)"
                 ],
                 [
-                "name" =>  "IVECO (I)"
+                    "name" =>  "IVECO (I)"
                 ],
                 [
-                "name" =>  "MAZDA (B)"
+                    "name" =>  "MAZDA (B)"
                 ],
                 [
-                "name" =>  "TOYOTA EUROPE (B)"
+                    "name" =>  "TOYOTA EUROPE (B)"
                 ],
                 [
-                "name" =>  "VOLVO (B)"
+                    "name" =>  "VOLVO (B)"
                 ],
                 [
-                "name" =>  "SAAB EUROPE (B)"
+                    "name" =>  "SAAB EUROPE (B)"
                 ],
                 [
-                "name" =>  "TOYOTA MEM (B)"
+                    "name" =>  "TOYOTA MEM (B)"
                 ],
                 [
-                "name" =>  "MERCEDES-B.TUERK(TR)"
+                    "name" =>  "MERCEDES-B.TUERK(TR)"
                 ],
                 [
-                "name" =>  "TEMSA (TR)"
+                    "name" =>  "TEMSA (TR)"
                 ],
                 [
-                "name" =>  "HYUNDAI (TR)"
+                    "name" =>  "HYUNDAI (TR)"
                 ],
                 [
-                "name" =>  "ANADOLU ISUZU (TR)"
+                    "name" =>  "ANADOLU ISUZU (TR)"
                 ],
                 [
-                "name" =>  "STEYR-D-PUCH (A)"
+                    "name" =>  "STEYR-D-PUCH (A)"
                 ],
                 [
-                "name" =>  "KTM (A)"
+                    "name" =>  "KTM (A)"
                 ],
                 [
-                "name" =>  "GELAENDEF.GES-GFG(A)"
+                    "name" =>  "GELAENDEF.GES-GFG(A)"
                 ],
                 [
-                "name" =>  "BERLINER-VERK.B-BVG"
+                    "name" =>  "BERLINER-VERK.B-BVG"
                 ],
                 [
-                "name" =>  "RH.AUTOMOBILFAB.-RAF"
+                    "name" =>  "RH.AUTOMOBILFAB.-RAF"
                 ],
                 [
-                "name" =>  "REGENSBURGER-ST.-RSM"
+                    "name" =>  "REGENSBURGER-ST.-RSM"
                 ],
                 [
-                "name" =>  "MCC (CH)"
+                    "name" =>  "MCC (CH)"
                 ],
                 [
-                "name" =>  "HONDA MOTOR (J)"
+                    "name" =>  "HONDA MOTOR (J)"
                 ],
                 [
-                "name" =>  "SUZUKI (J)"
+                    "name" =>  "SUZUKI (J)"
                 ],
                 [
-                "name" =>  "TOYOTA (J)"
+                    "name" =>  "TOYOTA (J)"
                 ],
                 [
-                "name" =>  "NISSAN (J)"
+                    "name" =>  "NISSAN (J)"
                 ],
                 [
-                "name" =>  "FUJI HEAVY IND.(J)"
+                    "name" =>  "FUJI HEAVY IND.(J)"
                 ],
                 [
-                "name" =>  "MITSUBISHI (J)"
+                    "name" =>  "MITSUBISHI (J)"
                 ],
                 [
-                "name" =>  "TOYO KOGYO (J)"
+                    "name" =>  "TOYO KOGYO (J)"
                 ],
                 [
-                "name" =>  "DAIHATSU (J)"
+                    "name" =>  "DAIHATSU (J)"
                 ],
                 [
-                "name" =>  "ISUZU (J)"
+                    "name" =>  "ISUZU (J)"
                 ],
                 [
-                "name" =>  "MAZDA (J)"
+                    "name" =>  "MAZDA (J)"
                 ],
                 [
-                "name" =>  "PROTON (MAL)"
+                    "name" =>  "PROTON (MAL)"
                 ],
                 [
-                "name" =>  "MITSUBISHI (THA)"
+                    "name" =>  "MITSUBISHI (THA)"
                 ],
                 [
-                "name" =>  "HONDA (RC)"
+                    "name" =>  "HONDA (RC)"
                 ],
                 [
-                "name" =>  "N.M.I.S.A.(E)"
+                    "name" =>  "N.M.I.S.A.(E)"
                 ],
                 [
-                "name" =>  "GENERAL MOTORS (E)"
+                    "name" =>  "GENERAL MOTORS (E)"
                 ],
                 [
-                "name" =>  "FORD (E)"
+                    "name" =>  "FORD (E)"
                 ],
                 [
-                "name" =>  "MOTOR IBERICA (E)"
+                    "name" =>  "MOTOR IBERICA (E)"
                 ],
                 [
-                "name" =>  "SEAT (E)"
+                    "name" =>  "SEAT (E)"
                 ],
                 [
-                "name" =>  "CHRYSLER (E)"
+                    "name" =>  "CHRYSLER (E)"
                 ],
                 [
-                "name" =>  "MERCEDES-BENZ (E)"
+                    "name" =>  "MERCEDES-BENZ (E)"
                 ],
                 [
-                "name" =>  "NISSAN (E)"
+                    "name" =>  "NISSAN (E)"
                 ],
                 [
-                "name" =>  "SANTANA (E)"
+                    "name" =>  "SANTANA (E)"
                 ],
                 [
-                "name" =>  "ALPINA"
+                    "name" =>  "ALPINA"
                 ],
                 [
-                "name" =>  "MAN NUTZFAHRZEUGE"
+                    "name" =>  "MAN NUTZFAHRZEUGE"
                 ],
                 [
-                "name" =>  "MELKUS"
+                    "name" =>  "MELKUS"
                 ],
                 [
-                "name" =>  "BARKAS"
+                    "name" =>  "BARKAS"
                 ],
                 [
-                "name" =>  "ARGE AUDI/PORSCHE"
+                    "name" =>  "ARGE AUDI/PORSCHE"
                 ],
                 [
-                "name" =>  "BMW M"
+                    "name" =>  "BMW M"
                 ],
                 [
-                "name" =>  "EVOBUS"
+                    "name" =>  "EVOBUS"
                 ],
                 [
-                "name" =>  "QUATTRO"
+                    "name" =>  "QUATTRO"
                 ],
                 [
-                "name" =>  "AZNP-SKODA (CS)"
+                    "name" =>  "AZNP-SKODA (CS)"
                 ],
                 [
-                "name" =>  "SKODA (CS)"
+                    "name" =>  "SKODA (CS)"
                 ],
                 [
-                "name" =>  "SKODA (CZ)"
+                    "name" =>  "SKODA (CZ)"
                 ],
                 [
-                "name" =>  "KAROSA (CS)"
+                    "name" =>  "KAROSA (CS)"
                 ],
                 [
-                "name" =>  "LIAZ (CS)"
+                    "name" =>  "LIAZ (CS)"
                 ],
                 [
-                "name" =>  "ZASTAVA (YU)"
+                    "name" =>  "ZASTAVA (YU)"
                 ],
                 [
-                "name" =>  "UAP (R)"
+                    "name" =>  "UAP (R)"
                 ],
                 [
-                "name" =>  "UZINA MECANICA (R)"
+                    "name" =>  "UZINA MECANICA (R)"
                 ],
                 [
-                "name" =>  "INTREPRINDEREA (R)"
+                    "name" =>  "INTREPRINDEREA (R)"
                 ],
                 [
-                "name" =>  "OLTCIT (R)"
+                    "name" =>  "OLTCIT (R)"
                 ],
                 [
-                "name" =>  "DACIA (RO)"
+                    "name" =>  "DACIA (RO)"
                 ],
                 [
-                "name" =>  "SSANGYONG (ROK)"
+                    "name" =>  "SSANGYONG (ROK)"
                 ],
                 [
-                "name" =>  "HYUNDAI MOTOR (ROK)"
+                    "name" =>  "HYUNDAI MOTOR (ROK)"
                 ],
                 [
-                "name" =>  "KIA MOTOR (ROK)"
+                    "name" =>  "KIA MOTOR (ROK)"
                 ],
                 [
-                "name" =>  "DAEWOO (ROK)"
+                    "name" =>  "DAEWOO (ROK)"
                 ],
                 [
-                "name" =>  "HYUNDAI PREC.(ROK)"
+                    "name" =>  "HYUNDAI PREC.(ROK)"
                 ],
                 [
-                "name" =>  "GM DAEWOO (ROK)"
+                    "name" =>  "GM DAEWOO (ROK)"
                 ],
                 [
-                "name" =>  "GM Korea"
+                    "name" =>  "GM Korea"
                 ],
                 [
-                "name" =>  "IKARUS (H)"
+                    "name" =>  "IKARUS (H)"
                 ],
                 [
-                "name" =>  "MAGYAR SUZUKI (H)"
+                    "name" =>  "MAGYAR SUZUKI (H)"
                 ],
                 [
-                "name" =>  "AUDI (H)"
+                    "name" =>  "AUDI (H)"
                 ],
                 [
-                "name" =>  "MARUTI (IND)"
+                    "name" =>  "MARUTI (IND)"
                 ],
                 [
-                "name" =>  "HYUNDAI MOTOR (IND)"
+                    "name" =>  "HYUNDAI MOTOR (IND)"
                 ],
                 [
-                "name" =>  "TATA ENG.(IND)"
+                    "name" =>  "TATA ENG.(IND)"
                 ],
                 [
-                "name" =>  "REWACO"
+                    "name" =>  "REWACO"
                 ],
                 [
-                "name" =>  "MCC SMART"
+                    "name" =>  "MCC SMART"
                 ],
                 [
-                "name" =>  "VOLVO (S)"
+                    "name" =>  "VOLVO (S)"
                 ],
                 [
-                "name" =>  "SAAB (S)"
+                    "name" =>  "SAAB (S)"
                 ],
                 [
-                "name" =>  "SAAB-SCANIA (S)"
+                    "name" =>  "SAAB-SCANIA (S)"
                 ],
                 [
-                "name" =>  "SAAB AUTOMOBILE (S)"
+                    "name" =>  "SAAB AUTOMOBILE (S)"
                 ],
                 [
-                "name" =>  "SCANIA (S)"
+                    "name" =>  "SCANIA (S)"
                 ],
                 [
-                "name" =>  "FSO (PL)"
+                    "name" =>  "FSO (PL)"
                 ],
                 [
-                "name" =>  "FSM (PL)"
+                    "name" =>  "FSM (PL)"
                 ],
                 [
-                "name" =>  "FSC (PL)"
+                    "name" =>  "FSC (PL)"
                 ],
                 [
-                "name" =>  "SOLARIS (PL)"
+                    "name" =>  "SOLARIS (PL)"
                 ],
                 [
-                "name" =>  "GAS (SU)"
+                    "name" =>  "GAS (SU)"
                 ],
                 [
-                "name" =>  "WOLGA-AUTOW.-VAZ(SU)"
+                    "name" =>  "WOLGA-AUTOW.-VAZ(SU)"
                 ],
                 [
-                "name" =>  "WOLGA-AUTOW.-VAZ/RUS"
+                    "name" =>  "WOLGA-AUTOW.-VAZ/RUS"
                 ],
                 [
-                "name" =>  "UAZ (SU)"
+                    "name" =>  "UAZ (SU)"
                 ],
                 [
-                "name" =>  "AZLK MOSKAU (SU)"
+                    "name" =>  "AZLK MOSKAU (SU)"
                 ],
                 [
-                "name" =>  "SAS (SU)"
+                    "name" =>  "SAS (SU)"
                 ],
                 [
-                "name" =>  "RYBINSK V.F.M.(SU)"
+                    "name" =>  "RYBINSK V.F.M.(SU)"
                 ],
                 [
-                "name" =>  "RIGA AUTOMOBILW.(SU)"
+                    "name" =>  "RIGA AUTOMOBILW.(SU)"
                 ],
                 [
-                "name" =>  "LWOW AUTOBUSW.(SU)"
+                    "name" =>  "LWOW AUTOBUSW.(SU)"
                 ],
                 [
-                "name" =>  "PAWLOWSK (SU)"
+                    "name" =>  "PAWLOWSK (SU)"
                 ],
                 [
-                "name" =>  "SAAB VALMET (SF)"
+                    "name" =>  "SAAB VALMET (SF)"
                 ],
                 [
-                "name" =>  "FORD (NL)"
+                    "name" =>  "FORD (NL)"
                 ],
                 [
-                "name" =>  "VOLVO (NL)"
+                    "name" =>  "VOLVO (NL)"
                 ],
                 [
-                "name" =>  "NETHERLANDS CAR (NL)"
+                    "name" =>  "NETHERLANDS CAR (NL)"
                 ],
                 [
-                "name" =>  "NISSAN EUROPE (NL)"
+                    "name" =>  "NISSAN EUROPE (NL)"
                 ],
                 [
-                "name" =>  "VAN DOORNE-DAF (NL)"
+                    "name" =>  "VAN DOORNE-DAF (NL)"
                 ],
                 [
-                "name" =>  "DAF (NL)"
+                    "name" =>  "DAF (NL)"
                 ],
                 [
-                "name" =>  "BOVA (NL)"
+                    "name" =>  "BOVA (NL)"
                 ],
                 [
-                "name" =>  "MITSUBISHI (NL)"
+                    "name" =>  "MITSUBISHI (NL)"
                 ],
                 [
-                "name" =>  "NEOPLAN BUS"
+                    "name" =>  "NEOPLAN BUS"
                 ],
                 [
-                "name" =>  "SMART"
+                    "name" =>  "SMART"
                 ]
             ]
         );

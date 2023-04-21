@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsPageController;
 use App\Http\Controllers\AdminConnectMultipleKbaToEngineTypeController;
 use App\Http\Controllers\AdminEngineTypeController;
+use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
 use App\Http\Controllers\HomepageController;
@@ -52,7 +53,9 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
 // Regular routes
-Route::resource('car-parts', \App\Http\Controllers\CarPartController::class);
+Route::resource('car-parts', CarPartController::class);
+Route::post('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
+Route::post('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -74,6 +77,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::post('dito-numbers/{ditoNumberId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
+    Route::delete('dito-numbers/{ditoNumber}/delete/multiple', [ConnectDitoToDismantlerController::class, 'deleteMultiple'])
+        ->name('test.delete-multiple');
+    Route::delete('dito-numbers/{ditoNumber}/delete/except-selected', [ConnectDitoToDismantlerController::class, 'deleteExceptSelected'])
+        ->name('test.delete-except-selected');
+    Route::post('dito-numbers/{ditoNumber}/connections/restore', [ConnectDitoToDismantlerController::class, 'restore'])
+        ->name('test.restore');
 
     Route::put('engine-types/{engineType}', AdminConnectMultipleKbaToEngineTypeController::class)
         ->name('admin.engine-types.connect');

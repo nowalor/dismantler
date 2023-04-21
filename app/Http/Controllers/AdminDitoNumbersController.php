@@ -15,36 +15,39 @@ class AdminDitoNumbersController extends Controller
     public function index(Request $request)
     {
         $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
-            ->with('germanDismantlers.engineTypes');
+            ->where('producer', 'audi');
 
-        if ($request->query('filter') === 'uninteresting') {
-            $ditoNumbers = DitoNumber::where('is_not_interesting', 1);
-        } else if ($request->query('filter') === 'completed') {
-            $ditoNumbers = DitoNumber::where('is_selection_completed', 1);
-        } else if ($request->query('filter') === 'all_relevant'){
-            $ditoNumbers = DitoNumber::where('is_selection_completed', 0)->where('is_not_interesting', 0);
-        }
-
-        /*
-          Filter those that have / don't have a connection to a kba
-        */
-
-        if($request->has('kba_connection')) {
-            if($request->input('kba_connection') === 'has') {
-                $ditoNumbers = $ditoNumbers->has('germanDismantlers');
-            } else if ($request->input('kba_connection') === 'dont_have') {
-                $ditoNumbers = $ditoNumbers->doesntHave('germanDismantlers');
+            $filter = $request->get('filter');
+            if($filter === 'uninteresting') {
+                $ditoNumbers = $ditoNumbers->where('is_not_interesting', 1);
+            } else {
+                $ditoNumbers = $ditoNumbers->where('is_not_interesting', 0);
             }
-        }
+
+
+            if ($filter === 'completed') {
+                $ditoNumbers = $ditoNumbers->where('is_selection_completed', 1);
+            } else {
+                $ditoNumbers = $ditoNumbers->where('is_selection_completed', 0);
+
+            }
+
+//        if($request->has('kba_connection')) {
+//            if($request->input('kba_connection') === 'has') {
+//                $ditoNumbers = $ditoNumbers->has('germanDismantlers');
+//            } else if ($request->input('kba_connection') === 'dont_have') {
+//                $ditoNumbers = $ditoNumbers->doesntHave('germanDismantlers');
+//            }
+//        }
 
         /* Filter those that have / don't have a connection to a engine type */
-        if($request->has('engine_connection')) {
-            if($request->input('engine_connection') === 'has') {
-                $ditoNumbers = $ditoNumbers->has('germanDismantlers.engineTypes');
-            } else if ($request->input('engine_connection') === 'dont_have') {
-                $ditoNumbers = $ditoNumbers->doesntHave('germanDismantlers.engineTypes');
-            }
-        }
+//        if($request->has('engine_connection')) {
+//            if($request->input('engine_connection') === 'has') {
+//                $ditoNumbers = $ditoNumbers->has('germanDismantlers.engineTypes');
+//            } else if ($request->input('engine_connection') === 'dont_have') {
+//                $ditoNumbers = $ditoNumbers->doesntHave('germanDismantlers.engineTypes');
+//            }
+//        }
 
         if ($request->input('search')) {
             $ditoNumber = $ditoNumbers
@@ -66,8 +69,8 @@ class AdminDitoNumbersController extends Controller
         $totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts = DitoNumber::has('germanDismantlers.engineTypes')
             ->has('germanDismantlers')
             ->has('carParts')
-            ->with('germanDismantlers')
-            ->with('carParts')
+            ->withCount('germanDismantlers')
+            ->withCount('carParts')
             ->get();
 
         // return $totalDitoNumbersWithEngineConnectionAndKbaConnectionAndCarParts;
@@ -95,7 +98,9 @@ class AdminDitoNumbersController extends Controller
 
     public function show(DitoNumber $ditoNumber, Request $request)
     {
-        $uniqueMaxNet = GermanDismantler::select('max_net_power_in_kw')->distinct()->pluck('max_net_power_in_kw');
+        $uniqueMaxNet = GermanDismantler::select('max_net_power_in_kw')
+            ->distinct()
+            ->pluck('max_net_power_in_kw');
 
         $germanDismantlers = GermanDismantler::whereDoesntHave(
             'ditoNumbers',
@@ -126,22 +131,27 @@ class AdminDitoNumbersController extends Controller
         $plaintexts = ManufacturerText::all();
         $commercialNames = CommercialName::all();
 
-        $relatedDismantlers = $ditoNumber->germanDismantlers;
+        $relatedDismantlers = $ditoNumber->germanDismantlers()->paginate(500);
 
         if ($request->filled('plaintext')) {
             $germanDismantlers->where('manufacturer_plaintext', 'like', '%' . $request->input('plaintext') . '%');
         }
 
         if ($request->filled('commercial_name')) {
-            $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%');
+            $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%')
+                ->orWhere('full_name', 'like', '%' . $request->input('commercial_name') . '%');
         }
 
         if ($request->filled('make')) {
             $germanDismantlers->where('make', 'like', '%' . $request->input('make') . '%');
         }
 
-        $germanDismantlers = $germanDismantlers->paginate(250)->withQueryString();
+        $germanDismantlers = $germanDismantlers->paginate(50)->withQueryString();
         $request->flash();
+
+        $uniquePlaintext = $ditoNumber->germanDismantlers()->select('manufacturer_plaintext')->distinct()->pluck('manufacturer_plaintext');
+        $uniqueMake = $ditoNumber->germanDismantlers()->select('make')->distinct()->pluck('make');
+        $uniqueCommercialNames = $ditoNumber->germanDismantlers()->select('commercial_name')->distinct()->pluck('commercial_name');
 
         return view('admin.dito-numbers.show',
             compact(
@@ -150,7 +160,10 @@ class AdminDitoNumbersController extends Controller
                 'relatedDismantlers',
                 'plaintexts',
                 'commercialNames',
-                'uniqueMaxNet'
+                'uniqueMaxNet',
+                'uniquePlaintext',
+                'uniqueMake',
+                'uniqueCommercialNames',
             )
         );
     }

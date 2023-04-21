@@ -23,7 +23,8 @@ class DitoNumber extends Model
 
     public function germanDismantlers()
     {
-        return $this->belongsToMany(GermanDismantler::class);
+        return $this->belongsToMany(GermanDismantler::class)
+            ->wherePivot('deleted_at', null);
     }
 
     public function carParts(): HasMany
@@ -31,9 +32,10 @@ class DitoNumber extends Model
         return $this->hasMany(CarPart::class);
     }
 
+    // Does not seem to work...
     public function engineTypes(): HasManyThrough
     {
-        return $this->hasManyThrough(EngineType::class, GermanDismantler::class,);
+        return $this->hasManyThrough(EngineType::class, GermanDismantler::class, );
     }
 
     public function getFormattedDateAttribute()

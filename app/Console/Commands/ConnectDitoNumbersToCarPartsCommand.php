@@ -18,7 +18,7 @@ class ConnectDitoNumbersToCarPartsCommand extends Command
         $carParts = CarPart::all();
 
         foreach($carParts as $carPart) {
-             $id = optional(DitoNumber::where('dito_number', $carPart->dito_number_from_item_code)
+             $id = optional(DitoNumber::where('dito_number', $carPart->dito_number_id)
                 ->first())
                 ->id;
 
