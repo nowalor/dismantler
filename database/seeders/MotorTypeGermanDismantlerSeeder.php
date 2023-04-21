@@ -16,22 +16,12 @@ class MotorTypeGermanDismantlerSeeder extends Seeder
 
         $data = json_decode($file, true);
 
-//        foreach($data as $kba) {
-//            $motorTypeNames = MotorType::whereIn('name', array_values($kba['motor_types']))->pluck('id');
-//
-//            $kbaFromDB = GermanDismantler::find($kba['id']);
-//
-//            $kbaFromDB->motorTypes()->syncWithoutDetaching($motorTypeNames);
-//        }
+        foreach ($data as $kba) {
+            $motorTypeNames = MotorType::whereIn('name', array_values($kba['motor_types']))->pluck('id');
 
-        // It's for full_name and construction_year actually
-        foreach($data as $kba) {
-            $germanDismantler= GermanDismantler::find($kba['id']);
+            $kbaFromDB = GermanDismantler::find($kba['id']);
 
-            $germanDismantler->full_name = $kba['full_name'];
-            $germanDismantler->construction_year = $kba['construction_year'];
-
-            $germanDismantler->save();
+            $kbaFromDB->motorTypes()->syncWithoutDetaching($motorTypeNames);
         }
     }
 }
