@@ -129,6 +129,7 @@
                                     <th>Plaintext</th>
                                     <th>Make</th>
                                     <th>Commercial name</th>
+                                    <th>Full name</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -139,6 +140,7 @@
                                         <td>{{ $dismantler->hsn }}</td>
                                         <td>{{ $dismantler->tsn }}</td>
                                         <td>{{ $dismantler->manufacturer_plaintext }}</td>
+                                        <td>{{ $dismantler->full_name }}</td>
                                         <td>{{ $dismantler->make ?? 'null'  }}</td>
                                         <td>{{ $dismantler->commercial_name }}</td>
                                         <td>
@@ -313,7 +315,7 @@
 
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'commercial_name') btn-primary @else btn-light @endif">
-                        Commercial name
+                        Commercial name  / full name
                     </button>
                 </form>
             </div>
@@ -338,6 +340,7 @@
                                 <th>Plaintext</th>
                                 <th>Make</th>
                                 <th>Commercial name</th>
+                                <th>Full name</th>
                                 <th>Date</th>
                                 <th>Max net</th>
                                 <th>Engine</th>
@@ -355,6 +358,7 @@
                                     <td>{{ $dismantler->manufacturer_plaintext }}</td>
                                     <td>{{ $dismantler->make ?? 'null' }}</td>
                                     <td>{{ $dismantler->commercial_name }}</td>
+                                    <td>{{ $dismantler->full_name }}</td>
                                     <td>{{ $dismantler->date_of_allotment_of_type_code_number }}</td>
                                     <td>{{ $dismantler->max_net_power_in_kw }}</td>
                                     <td>{{ $dismantler->engine_capacity_in_cm }}</td>
