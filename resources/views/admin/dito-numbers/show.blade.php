@@ -108,11 +108,13 @@
                             <div class="d-flex gap-2 align-items-center">
                                 <div class="form-check">
                                     <label class="form-check-label" for="selected">Selected</label>
-                                    <input class="form-check-input" id="selected" type="radio" name="select-status" value="selected"/>
+                                    <input class="form-check-input" id="selected" type="radio" name="select-status"
+                                           value="selected"/>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="excepted">Except selected</label>
-                                    <input class="form-check-input" id="excepted" type="radio" name="select-status" value="excepted"/>
+                                    <input class="form-check-input" id="excepted" type="radio" name="select-status"
+                                           value="excepted"/>
                                 </div>
                                 <button class="btn btn-danger">Remove</button>
                             </div>
@@ -140,9 +142,9 @@
                                         <td>{{ $dismantler->hsn }}</td>
                                         <td>{{ $dismantler->tsn }}</td>
                                         <td>{{ $dismantler->manufacturer_plaintext }}</td>
-                                        <td>{{ $dismantler->full_name }}</td>
                                         <td>{{ $dismantler->make ?? 'null'  }}</td>
                                         <td>{{ $dismantler->commercial_name }}</td>
+                                        <td>{{ $dismantler->full_name }}</td>
                                         <td>
                                             <div class="form-check">
                                                 <label class="form-check-label" for="kba_check_{{ $dismantler->id }}">Select</label>
@@ -186,7 +188,7 @@
                                 </datalist>
                             </div>
                             <div>
-                                <label>Commercial name</label>
+                                <label>Commercial / full name</label>
                                 <input name="commercial_name" value="{{ request()->input('commercial_name') }}"
                                        list="commercial-name-list" name="commercial_name" class="form-select">
                                 <datalist>
@@ -315,22 +317,22 @@
 
                     <button
                         class="btn btn-sm @if(request()->input('sort_by') === 'commercial_name') btn-primary @else btn-light @endif">
-                        Commercial name  / full name
-                    </button>
+                        Commercial name
                 </form>
             </div>
         </div>
 
         <div class="col-12 mx-auto pt-4">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    Select German Dismantler
-                </div>
-                <div class="card-body">
-                    <form method="POST"
-                          action="{{ route('test.store', $ditoNumber->id) }}">
-                        @csrf
+            <form method="POST"
+                  action="{{ route('test.store', $ditoNumber->id) }}">
+                @csrf
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        Select German Dismantler
+                        <button class="btn btn-primary btn-sm">Save selected</button>
 
+                    </div>
+                    <div class="card-body">
                         <table class="table">
                             <thead>
                             <tr>
@@ -345,7 +347,7 @@
                                 <th>Max net</th>
                                 <th>Engine</th>
                                 <th>
-                                    <button class="btn btn-primary btn-sm">Save selected</button>
+                                    <div class="btn btn-primary btn-info text-white" id="select-all-kba-button">Select all on page</div>
                                 </th>
                             </tr>
                             </thead>
@@ -372,11 +374,12 @@
                             @endforeach
                             </tbody>
                         </table>
-                    </form>
-                    {{ $germanDismantlers->links() }}
+                        {{ $germanDismantlers->links() }}
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
+
         @endsection
         @section('js')
             <script type="text/javascript">
@@ -384,5 +387,17 @@
                     $('#datepicker').datepicker();
                     $('#datepicker2').datepicker();
                 });
+
+                const selectAllBtn = document.getElementById('select-all-kba-button')
+                const checkBoxes = document.getElementsByName('kba-checkbox[]')
+
+                function handleSelectAll() {
+                    checkBoxes.forEach(checkbox => checkbox.checked = true)
+                }
+
+                selectAllBtn.addEventListener('click', handleSelectAll)
             </script>
+
+
 @endsection
+

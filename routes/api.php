@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\API\ExportDataForAutoteileMarkt;
+use App\Http\Controllers\ApiTestController;
+use App\Http\Controllers\ApiTestController2;
+use App\Http\Controllers\ApiTestController3;
 use App\Models\DitoNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,12 +20,13 @@ use App\Http\Controllers\API\GetUniqueManufacturerPlaintextController;
 |
 */
 
- Route::get('api-test', \App\Http\Controllers\ApiTestController::class);
- Route::get('api-test2', \App\Http\Controllers\ApiTestController2::class);
- Route::get('api-test3', \App\Http\Controllers\ApiTestController3::class);
+Route::get('api-test', ApiTestController::class);
+Route::get('api-test2', ApiTestController2::class);
+Route::get('api-test3', ApiTestController3::class);
+Route::get('export-data', ExportDataForAutoteileMarkt::class);
 
 
-Route::get('car-brands', function() {
+Route::get('car-brands', function () {
     $brands = DitoNumber::distinct('producer')->pluck('producer');
 
     return $brands;
@@ -32,7 +37,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('plaintexts', GetUniqueManufacturerPlaintextController::class);
-Route::get('', function() {
+Route::get('', function () {
     return 'Welcome to API';
 });
+
+
 
