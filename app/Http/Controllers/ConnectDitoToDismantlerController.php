@@ -13,12 +13,15 @@ class ConnectDitoToDismantlerController extends Controller
 {
     public function connect($ditoNumberId, Request $request)
     {
-        foreach ($request->get('kba-checkbox') as $dismantlerId) {
-            DitoNumberGermanDismantler::create([
-                'dito_number_id' => $ditoNumberId,
-                'german_dismantler_id' => $dismantlerId,
-            ]);
-        }
+//        foreach ($request->get('kba-checkbox') as $dismantlerId) {
+//            DitoNumberGermanDismantler::create([
+//                'dito_number_id' => $ditoNumberId,
+//                'german_dismantler_id' => $dismantlerId,
+//            ]);
+//        }
+        $ids =  array_map('intval', $request->get('kba-checkbox'));
+
+        DitoNumber::find($ditoNumberId)->germanDismantlers()->syncWithoutDetaching($ids);
 
         return redirect()->back()->with('success', 'Connection saved to database');
     }

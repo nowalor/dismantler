@@ -17,20 +17,20 @@ class AdminDitoNumbersController extends Controller
         $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
             ->where('producer', 'audi');
 
-            $filter = $request->get('filter');
-            if($filter === 'uninteresting') {
-                $ditoNumbers = $ditoNumbers->where('is_not_interesting', 1);
-            } else {
-                $ditoNumbers = $ditoNumbers->where('is_not_interesting', 0);
-            }
+        $filter = $request->get('filter');
+        if ($filter === 'uninteresting') {
+            $ditoNumbers = $ditoNumbers->where('is_not_interesting', 1);
+        } else {
+            $ditoNumbers = $ditoNumbers->where('is_not_interesting', 0);
+        }
 
 
-            if ($filter === 'completed') {
-                $ditoNumbers = $ditoNumbers->where('is_selection_completed', 1);
-            } else {
-                $ditoNumbers = $ditoNumbers->where('is_selection_completed', 0);
+        if ($filter === 'completed') {
+            $ditoNumbers = $ditoNumbers->where('is_selection_completed', 1);
+        } else {
+            $ditoNumbers = $ditoNumbers->where('is_selection_completed', 0);
 
-            }
+        }
 
 //        if($request->has('kba_connection')) {
 //            if($request->input('kba_connection') === 'has') {
@@ -102,10 +102,11 @@ class AdminDitoNumbersController extends Controller
             ->distinct()
             ->pluck('max_net_power_in_kw');
 
-        $germanDismantlers = GermanDismantler::whereDoesntHave(
-            'ditoNumbers',
-            fn($query) => $query->where('id', $ditoNumber->id)
-        );
+       $germanDismantlers = GermanDismantler::whereNotIn('id', function ($query) use ($ditoNumber) {
+            $query->select('german_dismantler_id')
+                ->from('dito_number_german_dismantler')
+                ->where('dito_number_id', $ditoNumber->id);
+        });
 
         if ($request->filled('sort_by')) {
             $germanDismantlers->orderBy($request->input('sort_by'));
@@ -124,7 +125,7 @@ class AdminDitoNumbersController extends Controller
                 ->where('date_of_allotment', '<=', $toDate);
         }
 
-        if($request->get('max_net') != 0) {
+        if ($request->get('max_net') != 0) {
             $germanDismantlers->where('max_net_power_in_kw', $request->get('max_net'));
         }
 
@@ -138,15 +139,17 @@ class AdminDitoNumbersController extends Controller
         }
 
         if ($request->filled('commercial_name')) {
-            $germanDismantlers->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%')
-                ->orWhere('full_name', 'like', '%' . $request->input('commercial_name') . '%');
+            $germanDismantlers->where(function ($query) use ($request) {
+                $query->where('commercial_name', 'like', '%' . $request->input('commercial_name') . '%')
+                    ->orWhere('full_name', 'like', '%' . $request->input('commercial_name') . '%');
+            });
         }
 
         if ($request->filled('make')) {
             $germanDismantlers->where('make', 'like', '%' . $request->input('make') . '%');
         }
 
-        $germanDismantlers = $germanDismantlers->paginate(50)->withQueryString();
+        $germanDismantlers = $germanDismantlers->paginate(150)->withQueryString();
         $request->flash();
 
         $uniquePlaintext = $ditoNumber->germanDismantlers()->select('manufacturer_plaintext')->distinct()->pluck('manufacturer_plaintext');
