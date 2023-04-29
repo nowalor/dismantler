@@ -16,7 +16,7 @@ class SeedFullNameAndConstructionYearForAudiSeeder extends Seeder
      */
     public function run()
     {
-        $file = File::get(base_path() . '/database/data/kfz-audi.dump.json');
+        $file = File::get(base_path() . '/database/data/kfz-volvo-dump.json');
 
         $data = json_decode($file, true);
 
