@@ -23,11 +23,11 @@ class EngineTypeGermanDismantlerSeeder extends Seeder
     {
         $file = File::get(base_path() . '/database/data/engine-type-connections.json');
 
-        $data = json_decode($file, true);
-        
+        $data = json_decode($file, true, 512, JSON_THROW_ON_ERROR);
+
         foreach($data as $kba) {
             $engineTypeIds = EngineType::whereIn('name', array_values($kba['engine_types']))->pluck('id');
-        
+
         $kbaFromDB = GermanDismantler::find($kba['id']);
 
         $kbaFromDB->engineTypes()->syncWithoutDetaching($engineTypeIds);

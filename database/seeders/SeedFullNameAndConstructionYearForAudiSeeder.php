@@ -16,7 +16,33 @@ class SeedFullNameAndConstructionYearForAudiSeeder extends Seeder
      */
     public function run()
     {
-        $file = File::get(base_path() . '/database/data/kfz-volvo-dump.json');
+        $file = File::get(base_path() . '/database/data/kfz/opel.json');
+
+        $data = json_decode($file, true);
+
+        foreach($data as $kba) {
+            $germanDismantler= GermanDismantler::find($kba['id']);
+
+            $germanDismantler->full_name = $kba['full_name'];
+            $germanDismantler->construction_year = $kba['construction_year'];
+
+            $germanDismantler->save();
+        }
+
+        $file = File::get(base_path() . '/database/data/kfz/vw.json');
+
+        $data = json_decode($file, true);
+
+        foreach($data as $kba) {
+            $germanDismantler= GermanDismantler::find($kba['id']);
+
+            $germanDismantler->full_name = $kba['full_name'];
+            $germanDismantler->construction_year = $kba['construction_year'];
+
+            $germanDismantler->save();
+        }
+
+        $file = File::get(base_path() . '/database/data/kfz/mercedes.json');
 
         $data = json_decode($file, true);
 

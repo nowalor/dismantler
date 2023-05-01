@@ -133,6 +133,9 @@
                             <p>
                                 <span class="fw-bold">Engine type:</span> {{ $carPart->engine_type }}
                             </p>
+                            <p>
+                                <span class="fw-bold">KBA:</span> {{ $carPart->kbas }}
+                            </p>
 
                             <a href="{{ route('admin.car-parts.show', $carPart) }}" class="btn btn-primary w-100 mb-2">View</a>
                             <a href=" {{ route('admin.dito-numbers.show', $carPart->ditoNumber) }} "

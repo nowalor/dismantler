@@ -15,10 +15,10 @@ class CarPart extends Model
 
     protected $primaryKey = 'id';
 
-//    protected static function booted()
-//    {
-//        static::addGlobalScope(new CarPartScope());
-//    }
+    protected static function booted()
+    {
+        static::addGlobalScope(new CarPartScope());
+    }
 
     public const CAR_PART_TYPE_IDS_TO_INCLUDE = [3575, 3744, 3746, 3749, 3616, 3617, 3812];
 

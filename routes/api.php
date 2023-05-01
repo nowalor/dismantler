@@ -4,6 +4,7 @@ use App\Http\Controllers\API\ExportDataForAutoteileMarkt;
 use App\Http\Controllers\ApiTestController;
 use App\Http\Controllers\ApiTestController2;
 use App\Http\Controllers\ApiTestController3;
+use App\Models\CarPart;
 use App\Models\DitoNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,26 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('plaintexts', GetUniqueManufacturerPlaintextController::class);
 Route::get('', function () {
     return 'Welcome to API';
+});
+
+Route::get('parts', function () {
+//    $kbas = \App\Models\GermanDismantler::select(['id', 'hsn', 'tsn', 'full_name'])
+//        ->where('manufacturer_plaintext', 'like', '%audi%')
+//        ->take(50)
+//        ->get();
+//
+//    $parts = \App\Models\CarPart::select(['id', 'name'])
+//        ->take(50)
+//        ->get();
+
+    $carPartNames = CarPart::take(10000)->pluck('name');
+
+    $uniqueWords = $carPartNames->flatMap(function ($name) {
+        return preg_split('/\s+/', $name, -1, PREG_SPLIT_NO_EMPTY);
+    })->unique()->values()->all();
+
+
+    return count($uniqueWords);
 });
 
 
