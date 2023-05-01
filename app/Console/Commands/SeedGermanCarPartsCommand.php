@@ -82,8 +82,8 @@ class SeedGermanCarPartsCommand extends Command
                         Log::info("Broke on page $i");
                         break;
                     }
-                    $filteredResponse = collect($response)->all();
-                    // $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
+                    $collectedResponse = collect($response);
+                    $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
 
                     $transformedData = $this->transformData($filteredResponse);
                     if(!empty($transformedData)) {

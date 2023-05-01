@@ -6,7 +6,7 @@ use App\Models\CarPart;
 use App\Models\DitoNumber;
 use Illuminate\Http\Request;
 
-class AdminCarPartNoKbaConnectionController extends Controller
+class AdminNewCarpartController extends Controller
 {
     public function __invoke(Request $request)
     {
@@ -57,6 +57,23 @@ class AdminCarPartNoKbaConnectionController extends Controller
         }
 
         $carParts = $carParts->paginate(20)->withQueryString();
+
+        foreach($carParts as $carPart) {
+            $germanDismantlers = $carPart->ditoNumber()->with('germanDismantlers', function($query) use($carPart) {
+                $engineName = $carPart->engine_code;
+
+                $query->whereHas('engineTypes', function($query) use($engineName) {
+                    $query->where('name', $engineName);
+                });
+
+            })->get()->pluck('germanDismantlers')->flatten(1)->toArray();
+
+            $kbas = array_map(function($germanDismantler) {
+                return $germanDismantler['hsn'] . $germanDismantler['tsn'];
+            }, $germanDismantlers);
+
+            $carPart->kbas = implode(',', $kbas);
+        }
 
 
         return view('admin.new-car-parts.index', compact(

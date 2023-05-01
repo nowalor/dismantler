@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminDitoNumbersController;
 use App\Http\Controllers\ConnectDitoToDismantlerController;
 use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
-use App\Http\Controllers\AdminCarPartNoKbaConnectionController;
+use App\Http\Controllers\AdminNewCarpartController;
 
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
@@ -73,7 +73,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('orders', \App\Http\Controllers\AdminOrderController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'update', 'destroy',]);
 
-    Route::get('new-parts', AdminCarPartNoKbaConnectionController::class)->name('admin.new-parts');
+    Route::get('new-parts', AdminNewCarpartController::class)->name('admin.new-parts');
 
     Route::post('dito-numbers/{ditoNumberId}', [ConnectDitoToDismantlerController::class, 'connect'])->name('test.store');
     Route::delete('dito-numbers/{ditoNumber}/{germanDismantler}', [ConnectDitoToDismantlerController::class, 'delete'])->name('test.delete');
