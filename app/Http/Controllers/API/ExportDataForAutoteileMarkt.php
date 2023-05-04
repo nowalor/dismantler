@@ -11,25 +11,26 @@ class ExportDataForAutoteileMarkt extends Controller
 {
     public function __invoke()
     {
-        $ditoNumbers = DitoNumber::where('producer', 'audi')->take(2)->get()->pluck('id');
+        $ditoNumbers = DitoNumber::where('producer', 'audi')->take(100)->get()->pluck('id');
 
         $carParts = CarPart::whereIn('dito_number_id', $ditoNumbers)
-            ->has('carPartImages')
             ->with('carPartImages')
-            ->take(1000)
+            ->whereNot('price1', 0)
+            ->take(10)
             ->get();
 
+
         foreach ($carParts as $carPart) {
-            $germanDismantlers = $carPart->ditoNumber()->with('germanDismantlers', function($query) use($carPart) {
+            $germanDismantlers = $carPart->ditoNumber()->with('germanDismantlers', function ($query) use ($carPart) {
                 $engineName = $carPart->engine_code;
 
-                $query->whereHas('engineTypes', function($query) use($engineName) {
+                $query->whereHas('engineTypes', function ($query) use ($engineName) {
                     $query->where('name', $engineName);
                 });
 
             })->get()->pluck('germanDismantlers')->flatten(1)->toArray();
 
-            $kbas = array_map(function($germanDismantler) {
+            $kbas = array_map(function ($germanDismantler) {
                 return $germanDismantler['hsn'] . $germanDismantler['tsn'];
             }, $germanDismantlers);
 
@@ -40,6 +41,7 @@ class ExportDataForAutoteileMarkt extends Controller
         $carParts = array_filter($carParts->toArray(), function($carPart) {
             return count($carPart['kba']) > 0;
         });
+
 
         return $this->exportToCsv($carParts);
 //         return $carParts;
@@ -54,7 +56,6 @@ class ExportDataForAutoteileMarkt extends Controller
         $header = [
             'article_nr',
             'title',
-            'description',
             'brand',
             'kba',
             'part_state',
@@ -72,20 +73,21 @@ class ExportDataForAutoteileMarkt extends Controller
 
         fputcsv($file, $header);
 
-        $partsFormatted = array_map(function($part) {
+        $partsFormatted = array_map(function ($part) {
             $data = [];
-            $images = $this->getImages($part['car_part_images']);
+            $images = count($part['car_part_images']) ?
+                $this->getImages($part['car_part_images']) :
+                [];
 
-            $partInformation =  [
+            $partInformation = [
                 'article_nr' => 'TODO',
                 'title' => $part['name'],
-                'description' => $part['comments'],
                 'brand' => $part['brand'],
                 'kba' => implode(',', $part['kba']),
-                'part_state' => $part['condition'],
+                'part_state' => 2, // used
                 'quantity' => $part['quantity'],
                 'vat' => 'TODO',
-                'price' => $part['price1'],
+                'price' => $this->getPrice($part['price1']),
                 'price_b2b' => $part['price1'],
             ];
 
@@ -93,7 +95,7 @@ class ExportDataForAutoteileMarkt extends Controller
         }, $parts);
 
 
-        foreach($partsFormatted as $part) {
+        foreach ($partsFormatted as $part) {
             fputcsv($file, $part);
         }
 
@@ -102,7 +104,7 @@ class ExportDataForAutoteileMarkt extends Controller
         return $partsFormatted;
     }
 
-    private function getImages(array $images)
+    private function getImages(array $images): array
     {
         $newImages = [
             'img_1' => '',
@@ -112,10 +114,19 @@ class ExportDataForAutoteileMarkt extends Controller
             'img_5' => '',
             'img_6' => '',
         ];
-        foreach($images as $index => $image) {
+        foreach ($images as $index => $image) {
             $newImages['img_' . ($index + 1)] = $image['origin_url'];
         }
 
         return $newImages;
+    }
+
+    private function getPrice(int $price): float
+    {
+        $partPrice = (float)($price / 75) * 1.2;
+
+        $deliveryPrice = 150 * 1.19;
+
+        return $partPrice + $deliveryPrice;
     }
 }

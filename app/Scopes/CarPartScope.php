@@ -14,7 +14,7 @@ class CarPartScope implements Scope
     ): void
     {
         $builder->whereIn('car_part_type_id',
-            [3575, 3744, 3746, 3749, 3616, 3617, 3812]
+            [3574, 3744, 3746, 3749, 3616, 3617, 3812]
         );
     }
 }
