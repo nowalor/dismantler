@@ -37,7 +37,7 @@ class DitoNumber extends Model
         return $this->hasManyThrough(EngineType::class, GermanDismantler::class, );
     }
 
-    public function getFormattedDateAttribute()
+    public function getProductionDateAttribute()
     {
         // Get the original date value from the model
         $date = $this->attributes['production_date'];

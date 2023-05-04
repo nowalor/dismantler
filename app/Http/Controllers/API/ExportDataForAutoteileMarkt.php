@@ -15,10 +15,11 @@ class ExportDataForAutoteileMarkt extends Controller
 
         $carParts = CarPart::whereIn('dito_number_id', $ditoNumbers)
             ->with('carPartImages')
+            ->with('carPartType')
+            ->with('ditoNumber')
             ->whereNot('price1', 0)
             ->take(10)
             ->get();
-
 
         foreach ($carParts as $carPart) {
             $germanDismantlers = $carPart->ditoNumber()->with('germanDismantlers', function ($query) use ($carPart) {
@@ -41,7 +42,6 @@ class ExportDataForAutoteileMarkt extends Controller
         $carParts = array_filter($carParts->toArray(), function($carPart) {
             return count($carPart['kba']) > 0;
         });
-
 
         return $this->exportToCsv($carParts);
 //         return $carParts;
@@ -80,15 +80,15 @@ class ExportDataForAutoteileMarkt extends Controller
                 [];
 
             $partInformation = [
-                'article_nr' => 'TODO',
-                'title' => $part['name'],
+                'article_nr' => $part['car_part_type']['autoteile_markt_article_nr'],
+                'title' => $this->getTitle($part) ,
                 'brand' => $part['brand'],
                 'kba' => implode(',', $part['kba']),
                 'part_state' => 2, // used
                 'quantity' => $part['quantity'],
                 'vat' => 'TODO',
                 'price' => $this->getPrice($part['price1']),
-                'price_b2b' => $part['price1'],
+                'price_b2b' => "TODO",
             ];
 
             return array_merge($partInformation, $images);
@@ -128,5 +128,16 @@ class ExportDataForAutoteileMarkt extends Controller
         $deliveryPrice = 150 * 1.19;
 
         return $partPrice + $deliveryPrice;
+    }
+
+    public function getTitle(array $part): string
+    {
+        $producer = $part['dito_number']['producer'];
+        $brand = $part['dito_number']['brand'];
+        $productionDate = $part['dito_number']['production_date'];
+
+        $partName = $part['car_part_type']['german_name'];
+
+        return "$producer $brand $productionDate $partName";
     }
 }
