@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
@@ -20,6 +21,11 @@ class DitoNumber extends Model
         'is_not_interesting',
         'is_selection_completed',
     ];
+
+    public function sbrCodes(): BelongsToMany
+    {
+        return $this->belongsToMany(SbrCode::class);
+    }
 
     public function germanDismantlers()
     {
@@ -37,7 +43,7 @@ class DitoNumber extends Model
         return $this->hasManyThrough(EngineType::class, GermanDismantler::class, );
     }
 
-    public function getProductionDateAttribute()
+    public function getFormattedDateAttribute()
     {
         // Get the original date value from the model
         $date = $this->attributes['production_date'];

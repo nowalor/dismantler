@@ -17,8 +17,8 @@ class CarModelDropdowns extends Component
 
     public function mount(): void
     {
-        $this->brands = CarBrand::all();
         $this->models = CarModel::all();
+        $this->brands = CarBrand::all();
     }
 
     public function changeBrand(): void
