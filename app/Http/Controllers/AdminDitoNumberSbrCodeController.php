@@ -34,7 +34,9 @@ class AdminDitoNumberSbrCodeController extends Controller
             return redirect()->back()->with('error', 'No SBR Codes selected.');
         }
 
-        return $request->get('sbr_code_checkboxes');
+        $ditoNumber->sbrCodes()->syncWithoutDetaching($request->get('sbr_code_checkboxes'));
+
+        return redirect()->back()->with('success', 'SBR Codes added.');
     }
 
     /**
