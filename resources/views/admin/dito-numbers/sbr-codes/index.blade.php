@@ -112,7 +112,7 @@
                                     <th>Removed Code</th>
                                     <th>Remark</th>
                                     <th>
-                                        <div class="btn btn-primary btn-info text-white" id="select-all-kba-button">Select all on page</div>
+                                        <div class="btn btn-primary btn-info text-white" id="select-all-sbr-button">Select all on page</div>
                                     </th>
                                 </tr>
                                 </thead>
@@ -142,5 +142,16 @@
                 </form>
             </div>
     </div>
+@endsection
+@section('js')
+    <script type="text/javascript">
+        const selectAllBtn = document.getElementById('select-all-sbr-button')
+        const checkBoxes = document.getElementsByName('sbr_code_checkboxes[]')
 
+        function handleSelectAll() {
+            checkBoxes.forEach(checkbox => checkbox.checked = true)
+        }
+
+        selectAllBtn.addEventListener('click', handleSelectAll)
+    </script>
 @endsection
