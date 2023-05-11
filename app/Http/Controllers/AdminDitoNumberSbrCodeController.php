@@ -6,18 +6,28 @@ use App\Models\DitoNumber;
 use App\Models\SbrCode;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class AdminDitoNumberSbrCodeController extends Controller
 {
-    public function index(DitoNumber $ditoNumber)
+    public function index(DitoNumber $ditoNumber, Request $request): View
     {
         $ditoNumber->load('sbrCodes');
 
-        $sbrCodes = SbrCode::where('name', 'LIKE', "%$ditoNumber->producer%")
-            ->orWhere('name', 'LIKE', "%$ditoNumber->brand%")
-            ->paginate(150);
+        $query = SbrCode::where(function ($query) use ($ditoNumber) {
+            $query->where('name', 'LIKE', "%$ditoNumber->producer%");
+            $query->orWhere('name', 'LIKE', "%$ditoNumber->brand%");
+        })->whereDoesntHave('ditoNumbers', function ($query) use ($ditoNumber) {
+            $query->where('id', $ditoNumber->id);
+        });
 
-        $ditoNumber->sbrCodes;
+        if ($request->filled('search')) {
+            $query->where('name', 'LIKE', "%{$request->get('search')}%");
+        }
+
+        $sbrCodes = $query->paginate(150);
+
 
         return view('admin.dito-numbers.sbr-codes.index', compact('ditoNumber', 'sbrCodes'));
     }
@@ -25,7 +35,7 @@ class AdminDitoNumberSbrCodeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -35,7 +45,7 @@ class AdminDitoNumberSbrCodeController extends Controller
 
     public function store(DitoNumber $ditoNumber, Request $request)
     {
-        if(!$request->filled('sbr_code_checkboxes')) {
+        if (!$request->filled('sbr_code_checkboxes')) {
             return redirect()->back()->with('error', 'No SBR Codes selected.');
         }
 
@@ -47,14 +57,14 @@ class AdminDitoNumberSbrCodeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DitoNumber  $ditoNumber
-     * @return \Illuminate\Http\Response
+     * @param DitoNumber $ditoNumber
+     * @return Response
      */
     public function show(DitoNumber $ditoNumber)
     {
         return $ditoNumber;
         $sbrCodes = SbrCode::where('name', 'LIKE', "%{$ditoNumber->brand}%")
-           // ->orWhere('name', 'LIKE', "%{$ditoNumber->brand}%")
+            // ->orWhere('name', 'LIKE', "%{$ditoNumber->brand}%")
             ->count();
 
         return "count: $sbrCodes";
@@ -63,8 +73,8 @@ class AdminDitoNumberSbrCodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DitoNumber  $ditoNumber
-     * @return \Illuminate\Http\Response
+     * @param DitoNumber $ditoNumber
+     * @return Response
      */
     public function edit(DitoNumber $ditoNumber)
     {
@@ -74,9 +84,9 @@ class AdminDitoNumberSbrCodeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DitoNumber  $ditoNumber
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param DitoNumber $ditoNumber
+     * @return Response
      */
     public function update(Request $request, DitoNumber $ditoNumber)
     {
@@ -86,7 +96,7 @@ class AdminDitoNumberSbrCodeController extends Controller
 
     public function destroy(
         DitoNumber $ditoNumber,
-        SbrCode $sbrCode
+        SbrCode    $sbrCode,
     ): RedirectResponse
     {
         $ditoNumber->sbrCodes()->detach($sbrCode);

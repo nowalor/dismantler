@@ -14,46 +14,41 @@
         @endif
         @if(session()->has('removed'))
             <div class="alert alert-danger mt-4 pt-2 col-6">
-                <form class="d-flex align-items-center" action="{{ route('test.restore', $ditoNumber) }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="kba_ids" value="{{ session()->get('removed') }}">
-                    Removed successfully
-                    <button class="btn btn-link btn-danger">Undo</button>
-                </form>
+                {{ session()->get('removed') }}
             </div>
         @endif
 
         <div class="row col-12 pt-4">
             <div class="col-4">
                 <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            Selected Dito number
-                            <div>
-                                <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id - 1) }}"
-                                   class="btn btn-primary btn-sm"><-Prev</a>
-                                <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id + 1) }}"
-                                   class="btn btn-primary btn-sm">Next-></a>
-                                <a href="{{ route('admin.dito-numbers.index') }}" class="btn btn-success btn-sm">All</a>
-                            </div>
+                    <div class="card-header d-flex justify-content-between">
+                        Selected Dito number
+                        <div>
+                            <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id - 1) }}"
+                               class="btn btn-primary btn-sm"><-Prev</a>
+                            <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id + 1) }}"
+                               class="btn btn-primary btn-sm">Next-></a>
+                            <a href="{{ route('admin.dito-numbers.index') }}" class="btn btn-success btn-sm">All</a>
                         </div>
-                        <div class="card-body" style="height: 340px;">
-                            <blockquote class="blockquote mb-0">
-                                <p>Producer</p>
-                                <footer class="blockquote-footer">{{ $ditoNumber->producer }}</footer>
-                            </blockquote>
-                            <blockquote class="blockquote mb-0">
-                                <p>Brand</p>
-                                <footer class="blockquote-footer">{{ $ditoNumber->brand }}</footer>
-                            </blockquote>
-                            <blockquote class="blockquote mb-0">
-                                <p>Production date</p>
-                                <footer class="blockquote-footer">{{ $ditoNumber->production_date }}</footer>
-                            </blockquote>
-                            <blockquote class="blockquote mb-0">
-                                <p>Dito number</p>
-                                <footer class="blockquote-footer">{{ $ditoNumber->dito_number }}</footer>
-                            </blockquote>
-                        </div>
+                    </div>
+                    <div class="card-body" style="height: 340px;">
+                        <blockquote class="blockquote mb-0">
+                            <p>Producer</p>
+                            <footer class="blockquote-footer">{{ $ditoNumber->producer }}</footer>
+                        </blockquote>
+                        <blockquote class="blockquote mb-0">
+                            <p>Brand</p>
+                            <footer class="blockquote-footer">{{ $ditoNumber->brand }}</footer>
+                        </blockquote>
+                        <blockquote class="blockquote mb-0">
+                            <p>Production date</p>
+                            <footer class="blockquote-footer">{{ $ditoNumber->production_date }}</footer>
+                        </blockquote>
+                        <blockquote class="blockquote mb-0">
+                            <p>Dito number</p>
+                            <footer class="blockquote-footer">{{ $ditoNumber->dito_number }}</footer>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
             <div class="col-8">
@@ -84,7 +79,9 @@
                                     <td>{{ $sbrCode->removed_code }}</td>
                                     <td>{{ $sbrCode->remark }}</td>
                                     <td>
-                                        <form action="{{ route('admin.dito-numbers.sbr-codes.destroy', [$ditoNumber, $sbrCode]) }}" method="POST">
+                                        <form
+                                            action="{{ route('admin.dito-numbers.sbr-codes.destroy', [$ditoNumber, $sbrCode]) }}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm">Remove</button>
@@ -99,6 +96,15 @@
             </div>
         </div>
 
+        <div class="col-4">
+            <form action="{{ route('admin.dito-numbers.sbr-codes.index', $ditoNumber) }}">
+                <label for="sbr-codes-search">Search</label>
+                <input name="search" type="text" id="sbr-codes-search" class="form-control mb-2" value="{{ request()->get('search') }}">
+                <button class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+        </div>
         <div class="col-12 mx-auto pt-4">
             <form method="POST" action="{{ route('admin.dito-numbers.sbr-codes.store', $ditoNumber) }}">
                 @csrf
