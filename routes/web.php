@@ -69,7 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
-        ->only(['index','show', 'store']);
+        ->only(['index','show', 'store', 'destroy']);
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
 
