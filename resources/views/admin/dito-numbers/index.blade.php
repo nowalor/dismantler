@@ -158,8 +158,10 @@
                                 <td>{{ $ditoNumber->german_dismantlers_count }}</td>
                                 <td>TODO</td>
                                 <td class="d-flex gap-1">
+                                    <a href="{{ route('admin.dito-numbers.sbr-codes.index', $ditoNumber) }}"
+                                       class="btn btn-primary btn-sm">View SBR</a>
                                     <a href="{{ route('admin.dito-numbers.show', $ditoNumber) }}"
-                                       class="btn btn-primary btn-sm">View</a>
+                                       class="btn btn-primary btn-sm">View KBAS</a>
                                     <form method="POST" action="{{ route('admin.dito-numbers.update', $ditoNumber) }}">
                                         @csrf
                                         @method('PATCH')

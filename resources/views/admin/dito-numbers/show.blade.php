@@ -17,6 +17,7 @@
                 </form>
             </div>
         @endif
+
         <div class="row col-12 pt-4">
             <div class="col-4">
                 <div class="card">
@@ -347,7 +348,9 @@
                                 <th>Max net</th>
                                 <th>Engine</th>
                                 <th>
-                                    <div class="btn btn-primary btn-info text-white" id="select-all-kba-button">Select all on page</div>
+                                    <div class="btn btn-primary btn-info text-white" id="select-all-kba-button">Select
+                                        all on page
+                                    </div>
                                 </th>
                             </tr>
                             </thead>
@@ -397,7 +400,5 @@
 
                 selectAllBtn.addEventListener('click', handleSelectAll)
             </script>
-
-
-@endsection
+    @endsection
 
