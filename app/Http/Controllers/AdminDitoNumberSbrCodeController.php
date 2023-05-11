@@ -10,9 +10,13 @@ class AdminDitoNumberSbrCodeController extends Controller
 {
     public function index(DitoNumber $ditoNumber)
     {
+        $ditoNumber->load('sbrCodes');
+
         $sbrCodes = SbrCode::where('name', 'LIKE', "%$ditoNumber->producer%")
             ->orWhere('name', 'LIKE', "%$ditoNumber->brand%")
             ->paginate(150);
+
+        $ditoNumber->sbrCodes;
 
         return view('admin.dito-numbers.sbr-codes.index', compact('ditoNumber', 'sbrCodes'));
     }

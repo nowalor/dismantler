@@ -27,7 +27,7 @@
             <div class="col-4">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        Selected Dito numbers
+                        Selected Dito number
                         <div>
                             <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id - 1) }}"
                                class="btn btn-primary btn-sm"><-Prev</a>
@@ -60,7 +60,32 @@
                 <div class="card">
                     <div class="card-header">Selected SBR codes</div>
                     <div class="card-body">
-                        <h3>TODO</h3>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>SBR code</th>
+                                <th>Name</th>
+                                <th>New code</th>
+                                <th>Update code</th>
+                                <th>Removed Code</th>
+                                <th>Remark</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($ditoNumber->sbrCodes as $sbrCode)
+                                <tr>
+                                    <th>{{ $sbrCode->id }}</th>
+                                    <th>{{ $sbrCode->sbr_code }}</th>
+                                    <td>{{ $sbrCode->name }}</td>
+                                    <td>{{ $sbrCode->new_code }}</td>
+                                    <td>{{ $sbrCode->update_code }}</td>
+                                    <td>{{ $sbrCode->removed_code }}</td>
+                                    <td>{{ $sbrCode->remark }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
