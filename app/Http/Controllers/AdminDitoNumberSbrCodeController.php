@@ -51,7 +51,14 @@ class AdminDitoNumberSbrCodeController extends Controller
 
         $ditoNumber->sbrCodes()->syncWithoutDetaching($request->get('sbr_code_checkboxes'));
 
-        return redirect()->back()->with('success', 'SBR Codes added.');
+
+        $ditoNumber->update([
+            'is_selection_completed' => true,
+        ]);
+
+        return redirect()
+            ->route('admin.dito-numbers.index')
+            ->with('success', 'SBR Codes added.');
     }
 
     /**
