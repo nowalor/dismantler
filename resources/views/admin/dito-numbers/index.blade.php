@@ -2,6 +2,11 @@
 @section('title', 'Admin - Dito Numbers')
 @section('content')
     <div class="container pt-2">
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="col-6">
             <h1 class="pt-4">
                 Admin - Dito Numbers
