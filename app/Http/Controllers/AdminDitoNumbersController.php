@@ -15,7 +15,18 @@ class AdminDitoNumbersController extends Controller
     public function index(Request $request)
     {
         $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
-            ->whereIn('producer', ['volvo', 'vw', 'opel', 'seat', 'skoda']);
+            ->whereIn('producer', [
+                'Nissan' ,
+                'Mazda',
+                'Citroen',
+                'Renault',
+                'Peugeot',
+                'Saab',
+                'Ford',
+                'Fiat',
+                'BMW',
+                'Honda',
+            ]);
 
         $filter = $request->get('filter');
         if ($filter === 'uninteresting') {

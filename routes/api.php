@@ -62,5 +62,11 @@ Route::get('parts', function () {
     return count($uniqueWords);
 });
 
+Route::get('kbas', function() {
+   $kbas = \App\Models\GermanDismantler::select(['id', 'hsn', 'tsn', 'manufacturer_plaintext'])->get();
+
+   return response()->json($kbas);
+});
+
 
 
