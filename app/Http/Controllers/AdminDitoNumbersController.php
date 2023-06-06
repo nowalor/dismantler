@@ -16,16 +16,14 @@ class AdminDitoNumbersController extends Controller
     {
         $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
             ->whereIn('producer', [
-                'Nissan' ,
-                'Mazda',
-                'Citroen',
-                'Renault',
-                'Peugeot',
-                'Saab',
-                'Ford',
-                'Fiat',
-                'BMW',
-                'Honda',
+                'Hyundai',
+                'Kia',
+                'Suzuki',
+                //'Chevrolet',
+                'Subaru',
+                'Jaguar',
+                'Alfa Romeo',
+                // 'Chrysler',
             ]);
 
         $filter = $request->get('filter');
