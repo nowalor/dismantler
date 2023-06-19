@@ -73,9 +73,10 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         $options['json'] = $payload;
 
         $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
+        $response = $response->getBody();
 
-        logger()->info($response->getBody()->getContents());
-        // status
-        logger()->info($response->getStatusCode());
+        $parts[] = $response['parts'];
+
+        logger()->info(json_encode($parts));
     }
 }
