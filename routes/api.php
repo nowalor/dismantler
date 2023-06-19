@@ -5,6 +5,7 @@ use App\Http\Controllers\ApiTestController;
 use App\Http\Controllers\ApiTestController2;
 use App\Http\Controllers\ApiTestController3;
 use App\Models\CarPart;
+use App\Models\CarPartType;
 use App\Models\DitoNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +67,12 @@ Route::get('kbas', function() {
    $kbas = \App\Models\GermanDismantler::select(['id', 'hsn', 'tsn', 'manufacturer_plaintext'])->get();
 
    return response()->json($kbas);
+});
+
+Route::get('car-part-types', function() {
+    $carPartTypes = CarPartType::getAllCarPartTypes();
+
+    return response()->json($carPartTypes);
 });
 
 
