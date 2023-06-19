@@ -2,43 +2,17 @@
 
 namespace App\Console\Commands;
 
+use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\SwedishCarPartType;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
-class SeedFenixApiParts extends Command
+class SeedFenixApiParts extends FenixApiBaseCommand
 {
     protected $signature = 'fenixapi:seed';
 
     protected $description = 'Command description';
-
-    private Client $httpClient;
-
-    private string $apiUrl;
-    private string $email;
-    private string $password;
-
-    // API token
-    private string $token;
-    private string $tokenExpiresAt; //  "2023-06-19T08:53:12Z"
-
-    public function __construct()
-    {
-        $this->apiUrl = config('services.fenix_api.base_uri');
-        $this->email = config('services.fenix_api.email');
-        $this->password = config('services.fenix_api.password');
-
-        $this->httpClient  = new Client([
-            'verify' => false,
-            'headers' => [
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
-            ],
-        ]);
-
-        parent::__construct();
-    }
 
     public function handle()
     {
@@ -51,7 +25,7 @@ class SeedFenixApiParts extends Command
         $swedishCarPartTypes = SwedishCarPartType::all();
 
 //        foreach($swedishCarPartTypes as $swedishCarPartType) {
-//            
+//
 //        }
 
         return Command::SUCCESS;
