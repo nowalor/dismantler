@@ -31,32 +31,12 @@ class SeedFenixApiParts extends FenixApiBaseCommand
         return Command::SUCCESS;
     }
 
-    private function authenticate(): void
-    {
-        $payload = [
-            'username' => $this->email,
-            'password' => $this->password,
-        ];
-
-        logger(json_encode($payload));
-
-        $response = $this->httpClient->post($this->apiUrl . '/account', [
-            'body' => json_encode($payload),
-        ]);
-
-        $responseBody = json_decode($response->getBody()->getContents(), true);
-
-        $this->token = $responseBody['Token'];
-        $this->tokenExpiresAt = $responseBody['Expiration'];
-    }
-
     private function getParts(string $sbrCode): array
     {
         if($this->tokenExpiresAt < now()->toIso8601String()) {
             logger()->info('Token expired, re-authenticating');
             $this->authenticate();
         }
-
         $payload = [
             "Take" => 1000,
             "Skip" => 0,
