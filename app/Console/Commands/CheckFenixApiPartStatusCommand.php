@@ -21,21 +21,45 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
     protected $description = 'Command description';
 
+    private array $partsFromApi = [];
+    private array $partsToRemove = [];
+
     public function handle()
     {
         $this->authenticate();
 
         foreach (self::PARTS as $part) {
-            $this->checkPartStatus($part);
+            $this->getParts($part);
         }
+
+        $this->checkIfPartsAreSold();
 
         return Command::SUCCESS;
     }
 
-    private function checkPartStatus(array $part)
+    private function checkIfPartsAreSold()
+    {
+        foreach (self::PARTS as $partToCheck) {
+            $found = false;
+
+            foreach ($this->partsFromApi as $part) {
+                logger()->info(json_encode($part));
+                if ($part['Id'] === $partToCheck['id'] && $part['SbrCarCode'] === $partToCheck['sbr_car_code'] && $part['SbrPartCode'] === $partToCheck['sbr_part_type_code']) {
+                    $found = true;
+
+                    break; // Exit the loop if the part is found
+                }
+            }
+
+            if (!$found) {
+                $partsToRemove[] = $partToCheck;
+            }
+        }
+    }
+
+    private function getParts(array $part)
     {
         if ($this->tokenExpiresAt < now()->toIso8601String()) {
-            logger()->info('Token expired, re-authenticating');
             $this->authenticate();
         }
         $parts = [];
@@ -73,10 +97,10 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         $options['json'] = $payload;
 
         $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
-        $response = $response->getBody();
+        $response = json_decode($response->getBody(), true);
 
-        $parts[] = $response['parts'];
+        $parts[] = $response['Parts'][0];
 
-        logger()->info(json_encode($parts));
+        $this->partsFromApi = $parts;
     }
 }
