@@ -41,8 +41,6 @@ abstract class FenixApiBaseCommand extends Command
             'password' => $this->password,
         ];
 
-        logger(json_encode($payload));
-
         $response = $this->httpClient->post($this->apiUrl . '/account', [
             'body' => json_encode($payload),
         ]);

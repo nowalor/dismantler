@@ -4,27 +4,26 @@ namespace App\Console\Commands;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 {
     private const PARTS = [
         [
-            'id' => 22587890,
+            'id' => 22587891, // TODO: Change this to the correct ID
             'sbr_car_code' => '2483',
             'sbr_part_type_code' => '7860',
         ]
     ];
-
 
     protected $signature = 'fenix:check';
 
     protected $description = 'Command description';
 
     private array $partsFromApi = [];
-    private array $partsToRemove = [];
+    private array $soldParts = [];
 
-    public function handle()
+    public function handle(): int
     {
         $this->authenticate();
 
@@ -32,18 +31,57 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             $this->getParts($part);
         }
 
-        $this->checkIfPartsAreSold();
+        $this->checkForSoldParts();
+
+        if(!empty($this->soldParts)) {
+            $this->handleSoldParts();
+        }
 
         return Command::SUCCESS;
     }
 
-    private function checkIfPartsAreSold()
+    private function handleSoldParts(): void
+    {
+        $this->generateCsv($this->soldParts);
+        Storage::disk('ftp')->put('update-test.csv', file_get_contents(base_path('public/exports/update-test.csv')));
+    }
+
+    private function generateCsv(array $parts): void
+    {
+        $path = base_path('public/exports/update-test.csv');
+
+        $file = fopen($path, 'w');
+
+        $header = [
+            'article_nr',
+            'quantity',
+            'price',
+            'price_b2b'
+        ];
+
+        fputcsv($file, $header);
+
+        $rows = [];
+        foreach($parts as $part) {
+            $rows[] = [
+                $part['id'],
+                0,
+                500,
+                500,
+            ];
+        }
+
+        foreach ($rows as $row) {
+            fputcsv($file, $row);
+        }
+    }
+
+    private function checkForSoldParts(): void
     {
         foreach (self::PARTS as $partToCheck) {
             $found = false;
 
             foreach ($this->partsFromApi as $part) {
-                logger()->info(json_encode($part));
                 if ($part['Id'] === $partToCheck['id'] && $part['SbrCarCode'] === $partToCheck['sbr_car_code'] && $part['SbrPartCode'] === $partToCheck['sbr_part_type_code']) {
                     $found = true;
 
@@ -52,12 +90,12 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             }
 
             if (!$found) {
-                $partsToRemove[] = $partToCheck;
+                $this->soldParts[] = $partToCheck;
             }
         }
     }
 
-    private function getParts(array $part)
+    private function getParts(array $part): void
     {
         if ($this->tokenExpiresAt < now()->toIso8601String()) {
             $this->authenticate();
