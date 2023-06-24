@@ -75,5 +75,11 @@ Route::get('car-part-types', function() {
     return response()->json($carPartTypes);
 });
 
+Route::get('service-test', function( ) {
+   $service = new \App\Services\ResolveKbaFromSbrCodeService();
+
+   return $service->resolve('1345', 'CCSA');
+});
+
 
 

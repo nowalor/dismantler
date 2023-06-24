@@ -10,7 +10,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 {
     private const PARTS = [
         [
-            'id' => 22587891, // TODO: Change this to the correct ID
+            'id' => 22587895, // TODO: Change this to the correct ID
             'sbr_car_code' => '2483',
             'sbr_part_type_code' => '7860',
         ]
@@ -59,7 +59,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             'price_b2b'
         ];
 
-        fputcsv($file, $header);
+        fputcsv($file, $header, '|');
 
         $rows = [];
         foreach($parts as $part) {
@@ -72,7 +72,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         }
 
         foreach ($rows as $row) {
-            fputcsv($file, $row);
+            fputcsv($file, $row, '|');
         }
     }
 
