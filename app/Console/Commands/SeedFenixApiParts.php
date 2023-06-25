@@ -30,38 +30,4 @@ class SeedFenixApiParts extends FenixApiBaseCommand
 
         return Command::SUCCESS;
     }
-
-    private function getParts(string $sbrCode): array
-    {
-        if($this->tokenExpiresAt < now()->toIso8601String()) {
-            logger()->info('Token expired, re-authenticating');
-            $this->authenticate();
-        }
-        $payload = [
-            "Take" => 1000,
-            "Skip" => 0,
-            "Page" => 1,
-            "IncludeNew" => false,
-            "PartImages" => true,
-            "CarImages" => false,
-            "IncludeSbrPartNames" => false,
-            "IncludeSbrCarNames" => true,
-            "IncludeFitsSbrCarCodes" => false,
-            "ReturnOnlyPartCodes" => false,
-            "ReturnOnlyCarCodes" => false,
-            "MustHavePrice" => false,
-            "CarBreaker" => "AT",
-            "PartnerAccessLevel" => 2,
-            "Filters" => [
-                "SbrPartCode" => [
-                    $sbrCode,
-                ]
-            ],
-            "SortBy" => [
-                "Created" => "ASC"
-            ],
-            "Action" => 1
-        ];
-
-    }
 }

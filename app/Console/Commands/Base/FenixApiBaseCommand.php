@@ -51,6 +51,69 @@ abstract class FenixApiBaseCommand extends Command
         $this->tokenExpiresAt = $responseBody['Expiration'];
     }
 
+    protected function getParts(
+        string $partTypeSbrCode,
+        string $carSbrCode = null,
+    ): array
+    {
+        if ($this->tokenExpiresAt < now()->toIso8601String()) {
+            $this->authenticate();
+        }
+
+        $filters = [
+            'SbrPartCode' => [
+                $partTypeSbrCode
+            ],
+        ];
+
+        if ($carSbrCode) {
+            $filters['SbrCarCode'] = [
+                $carSbrCode
+            ];
+        }
+
+        $parts = [];
+
+        $payload = [
+            "Take" => 100,
+            "Skip" => 0,
+            "Page" => 1,
+            "IncludeNew" => false,
+            "PartImages" => true,
+            "CarImages" => false,
+            "IncludeSbrPartNames" => false,
+            "IncludeSbrCarNames" => true,
+            "IncludeFitsSbrCarCodes" => false,
+            "ReturnOnlyPartCodes" => false,
+            "ReturnOnlyCarCodes" => false,
+            "MustHavePrice" => false,
+            "CarBreaker" => "AT",
+            "PartnerAccessLevel" => 2,
+            "Filters" => $filters,
+            "SortBy" => [
+                "Created" => "ASC"
+            ],
+            "Action" => 1
+        ];
+
+        $options = $this->getAuthHeaders();
+        $options['json'] = $payload;
+
+        $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
+        $response = json_decode($response->getBody(), true);
+
+        $parts[] = $response['Parts'];
+
+        $response = [
+            'parts' => $parts,
+            'page' => $response['Page'],
+            'count' => $response['Count'],
+            'skip' => $response['Skip'],
+        ];
+
+        return $response;
+    }
+
     protected function getAuthHeaders(): array
     {
         return [

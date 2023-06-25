@@ -27,9 +27,18 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
     {
         $this->authenticate();
 
+        $parts = [];
+
         foreach (self::PARTS as $part) {
-            $this->getParts($part);
+            $response = $this->getParts(
+                $part['sbr_part_type_code'],
+                $part['sbr_car_code']
+            );
+
+            $parts[] = $response['Parts'][0]; // TODO check logic here
         }
+
+        $this->partsFromApi = $parts;
 
         $this->checkForSoldParts();
 
@@ -93,52 +102,5 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
                 $this->soldParts[] = $partToCheck;
             }
         }
-    }
-
-    private function getParts(array $part): void
-    {
-        if ($this->tokenExpiresAt < now()->toIso8601String()) {
-            $this->authenticate();
-        }
-        $parts = [];
-
-        $payload = [
-            "Take" => 100,
-            "Skip" => 0,
-            "Page" => 1,
-            "IncludeNew" => false,
-            "PartImages" => true,
-            "CarImages" => false,
-            "IncludeSbrPartNames" => false,
-            "IncludeSbrCarNames" => true,
-            "IncludeFitsSbrCarCodes" => false,
-            "ReturnOnlyPartCodes" => false,
-            "ReturnOnlyCarCodes" => false,
-            "MustHavePrice" => false,
-            "CarBreaker" => "AT",
-            "PartnerAccessLevel" => 2,
-            "Filters" => [
-                "SbrPartCode" => [
-                    "7860"
-                ],
-                "SbrCarCode" => [
-                    "2483"
-                ]
-            ],
-            "SortBy" => [
-                "Created" => "ASC"
-            ],
-            "Action" => 1
-        ];
-
-        $options = $this->getAuthHeaders();
-        $options['json'] = $payload;
-
-        $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
-        $response = json_decode($response->getBody(), true);
-
-        $parts[] = $response['Parts'][0];
-
-        $this->partsFromApi = $parts;
     }
 }
