@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class NewCarPart extends Model
 {
@@ -24,5 +25,22 @@ class NewCarPart extends Model
         'quality',
         'dismantled_at',
         'article_nr',
+        'engine_code',
+        'engine_type',
     ];
+
+    public function carPartType(): BelongsTo
+    {
+        return $this->belongsTo(CarPartType::class);
+    }
+
+    public function dismantleCompany(): BelongsTo
+    {
+        return $this->belongsTo(DismantleCompany::class);
+    }
+
+    public function engineType(): BelongsTo
+    {
+        return $this->belongsTo(EngineType::class);
+    }
 }

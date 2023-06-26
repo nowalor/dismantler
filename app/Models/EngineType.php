@@ -22,6 +22,6 @@ class EngineType extends Model
 
     public function carParts(): HasMany
     {
-        return $this->hasMany(CarPart::class);
+        return $this->hasMany(NewCarPart::class);
     }
 }

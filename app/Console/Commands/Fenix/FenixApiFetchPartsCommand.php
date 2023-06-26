@@ -29,7 +29,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             ->pluck('code')
             ->toArray();
 
-        $sbrPartTypeCodes = ['7201'];
+        $sbrPartTypeCodes = ['7280'];
 
         foreach ($sbrPartTypeCodes as $sbrPartTypeCode) {
             $data = $this->getParts($sbrPartTypeCode);
@@ -54,6 +54,8 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             'original_number' => $part['OriginalNumber'],
             'quality' => $part['Quality'],
             'dismantled_at' => $part['DismantlingDate'],
+            'engine_code' => $part['Car']['EngineCode1'],
+            'engine_type' => $part['Car']['EngineType'],
         ];
 
         return $newPart;

@@ -22,8 +22,10 @@ return new class extends Migration
             $table->integer('quantity')->default(1);
             $table->string('sbr_part_code')->nullable();
             $table->string('sbr_car_code')->nullable();
-            $table->string('original_number')->nullable();
+            $table->string('original_numbengine_typeer')->nullable();
             $table->string('quality')->nullable();
+            $table->string('engine_code')->nullable();
+            $table->string('engine_type')->nullable();
             $table->timestamp('dismantled_at')->nullable();
 
             $table->timestamps();
