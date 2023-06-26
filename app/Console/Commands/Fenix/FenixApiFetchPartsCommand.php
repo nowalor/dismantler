@@ -5,6 +5,7 @@ namespace App\Console\Commands\Fenix;
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\CarPartImage;
 use App\Models\NewCarPart;
+use App\Models\NewCarPartImage;
 use App\Models\SwedishCarPartType;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -32,30 +33,13 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
         foreach ($sbrPartTypeCodes as $sbrPartTypeCode) {
             $data = $this->getParts($sbrPartTypeCode);
-           // logger($data);
 
-            $partsFormattedForInsert = $this->formatPartsForInsert($data['parts']);
-
-            $this->uploadParts($partsFormattedForInsert);
-
-//            $this->uploadImages($data['Parts']);
+            $this->uploadParts($data['parts'][0]);
 
             // TODO handle pagination
         }
 
         return Command::SUCCESS;
-    }
-
-    private function formatPartsForInsert(array $parts): array
-    {
-        $formattedParts = [];
-
-            foreach($parts[0] as $test) {
-                $formattedParts[] = $this->formatPart($test);
-            }
-
-
-        return $formattedParts;
     }
 
     private function formatPart(array $part): array
@@ -78,27 +62,35 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
     private function uploadParts(array $parts)
     {
         foreach($parts as $part) {
-            NewCarPart::updateOrCreate(['original_id' => $part['original_id']], $part);
+            $formattedPart = $this->formatPart($part);
+
+            $newPart = NewCarPart::updateOrCreate(['original_id' => $formattedPart['original_id']], $formattedPart);
+
+            $this->uploadImages($part['Images'], $newPart->id);
         }
     }
 
-    private function uploadImages(array $parts)
+    private function uploadImages(array $images, int $newCarPartId)
     {
-        foreach($parts as $part) {
-            $this->uploadImage($part['Images']);
+        foreach($images as $image) {
+            $formattedImage = $this->formatImage($image, $newCarPartId);
+
+            $newImage =
+                NewCarPartImage::firstOrCreate(
+                    [
+                        'new_car_part_id' => $newCarPartId,
+                        'original_url' => $formattedImage['original_url']
+                    ], $formattedImage
+                );
         }
     }
 
-    private function uploadImage(array $images)
+    private function formatImage(array $image, int $carPartId): array
     {
-        $formattedImages = array_map(function ($image) {
             return [
-                'car_part_id' => $image['car_part_id'],
-                'origin_url' => $image['Url'],
-                'image_with_our_logo_url' => $image['Url'],
+                'new_car_part_id' => $carPartId,
+                'original_url' => $image['Url'],
+                'image_name' => $image['Url'],
             ];
-        }, $images);
-
-        CarPartImage::insert($formattedImages);
     }
 }

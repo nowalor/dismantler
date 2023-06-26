@@ -6,24 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('new_car_part_images', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('new_car_part_id')->constrained();
+            $table->string('original_url')->nullable();
+            $table->string('image_name')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('new_car_part_images');
