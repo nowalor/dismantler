@@ -4,6 +4,7 @@ namespace App\Console\Commands\Fenix;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\CarPartImage;
+use App\Models\NewCarPart;
 use App\Models\SwedishCarPartType;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -31,12 +32,13 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
         foreach ($sbrPartTypeCodes as $sbrPartTypeCode) {
             $data = $this->getParts($sbrPartTypeCode);
+           // logger($data);
 
-            $partsFormattedForInsert = $this->formatPartsForInsert($data['Parts']);
+            $partsFormattedForInsert = $this->formatPartsForInsert($data['parts']);
 
             $this->uploadParts($partsFormattedForInsert);
 
-            $this->uploadImages($data['Parts']);
+//            $this->uploadImages($data['Parts']);
 
             // TODO handle pagination
         }
@@ -48,9 +50,10 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
     {
         $formattedParts = [];
 
-        foreach ($parts as $part) {
-            $formattedParts[] = $this->formatPart($part);
-        }
+            foreach($parts[0] as $test) {
+                $formattedParts[] = $this->formatPart($test);
+            }
+
 
         return $formattedParts;
     }
@@ -59,10 +62,14 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
     {
         $newPart = [
             'original_id' => $part['Id'],
-            'name' => 'MOTOR BENSIN', // TODO resolve
-            'dismantle_company_id' => $part['ArticleNumberAtCarbreaker'],
-            'quantity' => 1,
+           // 'external_dismantle_company_id' => $part['ArticleNumberAtCarbreaker'], // We don't get this information but we get the name
             'price' => $part['Price'] / 5,
+            'data_provider_id' => 1,
+            'sbr_part_code' => $part['SbrPartCode'],
+            'sbr_car_code' => $part['SbrCarCode'],
+            'original_number' => $part['OriginalNumber'],
+            'quality' => $part['Quality'],
+            'dismantled_at' => $part['DismantlingDate'],
         ];
 
         return $newPart;
@@ -70,7 +77,9 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
     private function uploadParts(array $parts)
     {
-        DB::table('car_parts')->insert($parts);
+        foreach($parts as $part) {
+            NewCarPart::updateOrCreate(['original_id' => $part['original_id']], $part);
+        }
     }
 
     private function uploadImages(array $parts)

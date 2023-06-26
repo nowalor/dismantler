@@ -3,50 +3,65 @@
 namespace App\Console\Commands;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
+use App\Models\NewCarPart;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
 class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 {
-    private const PARTS = [
-        [
-            'id' => 22587895, // TODO: Change this to the correct ID
-            'sbr_car_code' => '2483',
-            'sbr_part_type_code' => '7860',
-        ]
-    ];
-
     protected $signature = 'fenix:check';
 
     protected $description = 'Command description';
 
     private array $partsFromApi = [];
     private array $soldParts = [];
+    private array $dbParts;
 
     public function handle(): int
     {
+        $this->dbParts = NewCarPart::select(['id', 'sbr_part_code', 'sbr_car_code', 'article_nr', 'price'])->get()->toArray();
+
         $this->authenticate();
 
         $parts = [];
 
-        foreach (self::PARTS as $part) {
+        foreach ($this->dbParts as $part) {
             $response = $this->getParts(
-                $part['sbr_part_type_code'],
+                $part['sbr_part_code'],
                 $part['sbr_car_code']
             );
 
-            $parts[] = $response['Parts'][0]; // TODO check logic here
+            $parts[] = $response['parts']; // TODO check logic here
         }
 
         $this->partsFromApi = $parts;
 
         $this->checkForSoldParts();
 
-        if(!empty($this->soldParts)) {
+        if (!empty($this->soldParts)) {
             $this->handleSoldParts();
         }
 
         return Command::SUCCESS;
+    }
+
+    private function checkForSoldParts(): void
+    {
+        foreach ($this->dbParts as $partToCheck) {
+            $found = false;
+
+            foreach ($this->partsFromApi as $part) {
+                if ($part[0][0]['Id'] === $partToCheck['id'] && $part[0][0]['SbrCarCode'] === $partToCheck['sbr_car_code'] && $part[0][0]['SbrPartCode'] === $partToCheck['sbr_part_code']) {
+                    $found = true;
+
+                    break; // Exit the loop if the part is found
+                }
+            }
+
+            if (!$found) {
+                $this->soldParts[] = $partToCheck;
+            }
+        }
     }
 
     private function handleSoldParts(): void
@@ -71,36 +86,18 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         fputcsv($file, $header, '|');
 
         $rows = [];
-        foreach($parts as $part) {
+        foreach ($parts as $part) {
+            logger($part);
             $rows[] = [
-                $part['id'],
+                $part['article_nr'],
                 0,
-                500,
-                500,
+                "1200.0",
+                "1200.0",
             ];
         }
 
         foreach ($rows as $row) {
             fputcsv($file, $row, '|');
-        }
-    }
-
-    private function checkForSoldParts(): void
-    {
-        foreach (self::PARTS as $partToCheck) {
-            $found = false;
-
-            foreach ($this->partsFromApi as $part) {
-                if ($part['Id'] === $partToCheck['id'] && $part['SbrCarCode'] === $partToCheck['sbr_car_code'] && $part['SbrPartCode'] === $partToCheck['sbr_part_type_code']) {
-                    $found = true;
-
-                    break; // Exit the loop if the part is found
-                }
-            }
-
-            if (!$found) {
-                $this->soldParts[] = $partToCheck;
-            }
         }
     }
 }
