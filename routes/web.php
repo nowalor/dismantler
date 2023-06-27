@@ -73,6 +73,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
 
+    Route::resource('export-parts', \App\Http\Controllers\AdminExportPartsController::class, ['as' => 'admin'])
+        ->only(['index']);
+
     Route::resource('orders', \App\Http\Controllers\AdminOrderController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'update', 'destroy',]);
 
