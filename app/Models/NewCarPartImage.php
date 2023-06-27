@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class NewCarPartImage extends Model
 {
@@ -16,4 +17,9 @@ class NewCarPartImage extends Model
     ];
 
     public $timestamps = false;
+
+    public function carPart(): BelongsTo
+    {
+        return $this->belongsTo(NewCarPart::class, 'new_car_part_id');
+    }
 }

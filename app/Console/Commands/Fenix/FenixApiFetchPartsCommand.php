@@ -56,6 +56,16 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             'dismantled_at' => $part['DismantlingDate'],
             'engine_code' => $part['Car']['EngineCode1'],
             'engine_type' => $part['Car']['EngineType'],
+            'dismantle_company_name' => $part['CarBreaker'],
+            'article_nr_at_dismantler' => $part['ArticleNumberAtCarbreaker'],
+            'sbr_car_name' => $part['Car']['SbrCarName'],
+            'body_name' => $part['Car']['BodyName'],
+            'fuel' => $part['Car']['Fuel'],
+            'gearbox' => $part['Car']['Gearbox'],
+            'warranty' => $part['Warranty'],
+            'mileage_km' => $part['Car']['Mileage'] * 10,
+            'model_year' => $part['Car']['ModelYear'],
+            'vin' => $part['Car']['VIN'],
         ];
 
         return $newPart;

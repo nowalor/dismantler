@@ -22,11 +22,22 @@ return new class extends Migration
             $table->integer('quantity')->default(1);
             $table->string('sbr_part_code')->nullable();
             $table->string('sbr_car_code')->nullable();
-            $table->string('original_numbengine_typeer')->nullable();
+            $table->string('original_number')->nullable();
             $table->string('quality')->nullable();
             $table->string('engine_code')->nullable();
             $table->string('engine_type')->nullable();
             $table->timestamp('dismantled_at')->nullable();
+
+            $table->string('dismantle_company_name')->nullable();
+            $table->string('article_nr_at_dismantler')->nullable();
+            $table->string('sbr_car_name')->nullable();
+            $table->string('body_name')->nullable();
+            $table->string('fuel')->nullable();
+            $table->string('gearbox')->nullable();
+            $table->string('warranty')->nullable();
+            $table->string('mileage_km');
+            $table->string('model_year');
+            $table->string('vin')->nullable();
 
             $table->timestamps();
         });
