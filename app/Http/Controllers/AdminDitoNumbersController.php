@@ -14,17 +14,23 @@ class AdminDitoNumbersController extends Controller
 
     public function index(Request $request)
     {
-        $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
-            ->whereIn('producer', [
-                'Hyundai',
-                'Kia',
-                'Suzuki',
-                //'Chevrolet',
-                'Subaru',
-                'Jaguar',
-                'Alfa Romeo',
-                // 'Chrysler',
-            ]);
+//        $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')
+//            ->whereIn('producer', [
+//                'Hyundai',
+//                'Kia',
+//                'Suzuki',
+//                //'Chevrolet',
+//                'Subaru',
+//                'Jaguar',
+//                'Alfa Romeo',
+//                // 'Chrysler',
+//            ]);
+
+        // Get ditonumbers that haas germandismantlers where germanDismantler.full_name is not null and german_dismantler.updated_at is at least june 29 2023
+        $ditoNumbers = DitoNumber::withCount('carParts', 'germanDismantlers')->whereHas('germanDismantlers', function ($query) {
+            $query->whereNotNull('full_name')
+                ->where('updated_at', '>=', Carbon::parse('2023-06-29'));
+        });
 
         $filter = $request->get('filter');
         if ($filter === 'uninteresting') {
