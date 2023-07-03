@@ -40,13 +40,32 @@ class FenixResolveFieldsCommand extends Command
                 ->first()
                 ->id;
 
-            $carPart->article_nr = \Str::random(24);
+            $carPart->article_nr = $this->generateArticleNr($carPart);
             $carPart->car_part_type_id = $carPartTypeId;
+            $carPart->name = $this->generatePartName($carPart);
             $carPart->save();
 
             //$carPart->car_part_type_id = $carPart->
         }
 
         return Command::SUCCESS;
+    }
+
+    private function generateArticleNr(NewCarPart $carPart): string
+    {
+        $articleNr = "{$carPart->dismantle_company_name}{$carPart->article_nr_at_dismantler}";
+
+        return $articleNr;
+    }
+
+    // Return PartName - Vehicle - Engine Code - Original number
+    private function generatePartName(NewCarPart $carPart): string
+    {
+        $carPartTypeId = $carPart->car_part_type_id;
+        $carPartTypeNameGerman = CarPartType::find($carPartTypeId)->germanCarPartTypes()->first()->name;
+
+        $name = "$carPartTypeNameGerman / $carPart->sbr_car_name / $carPart->engine_code / $carPart->original_number";
+
+        return $name;
     }
 }

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('new_car_parts', function (Blueprint $table) {
             $table->id();
-            $table->string('article_nr')->nullable();
+            $table->string('article_nr')->unique()->nullable();
             $table->unsignedBigInteger('original_id')->nullable();
             $table->foreignId('car_part_type_id')->nullable()->constrained();
             $table->foreignId('internal_dismantle_company_id')->nullable()->constrained('dismantle_companies');
