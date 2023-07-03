@@ -11,7 +11,13 @@ class ResolveKbaFromSbrCodeService
     {
         $sbrCodeModel = SbrCode::where('sbr_code', $sbrCode)->first();
 
-        $engineTypeId = EngineType::where('name', $engineName)->first()->id;
+        $engineType = EngineType::where('name', $engineName)->first();
+
+        if(!$engineType) {
+            return '';
+        }
+
+        $engineTypeId = $engineType->id;
 
         $ditoNumbers = $sbrCodeModel->ditoNumbers()->whereHas('germanDismantlers', function ($query) use ($engineTypeId) {
             $query->whereHas('engineTypes', function ($query) use ($engineTypeId) {

@@ -59,4 +59,9 @@ class NewCarPart extends Model
     {
         return $this->hasMany(NewCarPartImage::class);
     }
+
+    public function sbrCode(): BelongsTo
+    {
+        return $this->belongsTo(SbrCode::class);
+    }
 }

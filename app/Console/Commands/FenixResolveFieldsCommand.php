@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\CarPartType;
 use App\Models\NewCarPart;
+use App\Models\SbrCode;
 use App\Models\SwedishCarPartType;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -40,9 +41,13 @@ class FenixResolveFieldsCommand extends Command
                 ->first()
                 ->id;
 
+            $sbrCodeId = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first()->id;
+
             $carPart->article_nr = $this->generateArticleNr($carPart);
             $carPart->car_part_type_id = $carPartTypeId;
             $carPart->name = $this->generatePartName($carPart);
+            $carPart->sbr_code_id = $sbrCodeId;
+
             $carPart->save();
 
             //$carPart->car_part_type_id = $carPart->

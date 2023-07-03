@@ -10,12 +10,16 @@ return new class extends Migration
     {
         Schema::create('new_car_parts', function (Blueprint $table) {
             $table->id();
-            $table->string('article_nr')->unique()->nullable();
-            $table->unsignedBigInteger('original_id')->nullable();
-            $table->foreignId('car_part_type_id')->nullable()->constrained();
-            $table->foreignId('internal_dismantle_company_id')->nullable()->constrained('dismantle_companies');
-            $table->unsignedBigInteger('external_dismantle_company_id')->nullable();
             $table->foreignId('data_provider_id')->constrained();
+            $table->foreignId('car_part_type_id')->nullable()->constrained();
+            $table->foreignId('dito_number_id')->nullable()->constrained('dito_numbers');
+            $table->foreignId('sbr_code_id')->nullable()->constrained('sbr_codes');
+            $table->foreignId('internal_dismantle_company_id')->nullable()->constrained('dismantle_companies');
+
+            $table->string('article_nr')->unique()->nullable();
+
+            $table->unsignedBigInteger('external_dismantle_company_id')->nullable();
+            $table->unsignedBigInteger('original_id')->nullable();
 
             $table->string('name')->nullable();
             $table->float('price')->nullable();
