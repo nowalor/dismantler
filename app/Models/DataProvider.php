@@ -9,6 +9,8 @@ class DataProvider extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'name',
         'api_url',
