@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class AdminExportPartsController extends Controller
@@ -11,9 +12,10 @@ class AdminExportPartsController extends Controller
     public function index()
     {
         $carParts = NewCarPart::with('carPartImages')
-            ->paginate(40);
+            ->get();
 
-        foreach ($carParts as $carPart) {
+
+        foreach ($carParts as $index => $carPart) {
             $engineCode = $carPart->engine_code;
 
             $carPart->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
@@ -23,6 +25,12 @@ class AdminExportPartsController extends Controller
             }]);
 
             $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
+
+            if ($uniqueKba->isEmpty()) {
+                $carParts->forget($index);
+                continue; // Skip car parts without KBA numbers
+            }
+
             $carPart->kba = $uniqueKba;
             $carPart->kba_string = implode(', ', $uniqueKba->map(function ($kbaNumber) {
                 return implode([
@@ -30,8 +38,9 @@ class AdminExportPartsController extends Controller
                     'tsn' => $kbaNumber->tsn,
                 ]);
             })->toArray());
-        }
 
+        }
+        
         return view('admin.export-parts.index', compact('carParts'));
     }
 
@@ -55,7 +64,6 @@ class AdminExportPartsController extends Controller
                 'tsn' => $kbaNumber->tsn,
             ]);
         })->toArray());
-        return $carPart;
 
         return view('admin.export-parts.show', compact('carPart'));
     }

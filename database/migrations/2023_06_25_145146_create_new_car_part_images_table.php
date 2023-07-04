@@ -13,6 +13,7 @@ return new class extends Migration
             $table->foreignId('new_car_part_id')->constrained();
             $table->string('original_url')->nullable();
             $table->string('image_name')->nullable();
+            $table->integer('priority')->nullable();
         });
     }
 

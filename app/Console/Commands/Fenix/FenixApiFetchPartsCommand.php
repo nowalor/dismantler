@@ -29,8 +29,6 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             ->pluck('code')
             ->toArray();
 
-        $sbrPartTypeCodes = ['7280'];
-
         foreach ($sbrPartTypeCodes as $sbrPartTypeCode) {
             $data = $this->getParts($sbrPartTypeCode);
 
