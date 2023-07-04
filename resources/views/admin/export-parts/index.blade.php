@@ -2,6 +2,17 @@
 @section('title', 'Admin - Fenix Parrts')
 @section('content')
     <div class="container">
+        <h1 class="p-4">Fenix car parts</h1>
+        <div class="col-6 p-4">
+            <form action="{{ route('admin.export-parts.index') }}">
+                <div class="mb-2">
+                    <label for="search" class="form-label">Search(part name, kba, car name, engine code)</label>
+                    <input type="text" class="form-control" id="search" name="search"
+                           value="{{ request()->get('search') }}">
+                </div>
+                <button class="btn btn-primary w-100 btn-large">Search</button>
+            </form>
+        </div>
         <div class="d-flex flex-wrap">
             @foreach($carParts as $carPart)
                 <div class="col-6 p-4">
