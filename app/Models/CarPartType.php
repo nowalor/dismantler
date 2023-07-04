@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use App\Scopes\CarPartTypeScope;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class CarPartType extends Model
 {
@@ -13,13 +14,39 @@ class CarPartType extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope(new CarPartTypeScope());
+//        static::addGlobalScope(new CarPartTypeScope());
     }
 
     protected $fillable = ['id', 'name', 'code'];
 
-    public function carPart(): HasMany
+    protected $hidden = ['pivot'];
+
+//    public function carPart(): HasMany
+//    {
+//        return $this->hasMany(CarPart::class);
+//    }
+
+    public function germanCarPartTypes(): BelongsToMany
     {
-        return $this->hasMany(CarPart::class);
+        return $this->belongsToMany(GermanCarPartType::class);
+    }
+
+    public function danishCarPartTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(DanishCarPartType::class);
+    }
+
+    public function swedishCarPartTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(SwedishCarPartType::class);
+    }
+
+    public static function getAllCarPartTypes(): Collection
+    {
+        return self::with(
+            'germanCarPartTypes',
+            'danishCarPartTypes',
+            'swedishCarPartTypes'
+        )->get();
     }
 }
