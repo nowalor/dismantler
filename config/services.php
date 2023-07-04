@@ -45,5 +45,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'fenix_api' => [
+        'base_uri' => env('FENIX_BASE_URI'),
+        'email' => env('FENIX_EMAIL'),
+        'password' => env('FENIX_PASSWORD'),
+    ],
 
 ];

@@ -23,6 +23,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}" href="{{ route('admin.export-parts.index') }}">Fenix parts</a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>
                 </li>
                 <li class="nav-item">
