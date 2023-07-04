@@ -18,6 +18,10 @@ class AdminDitoNumberSbrCodeController extends Controller
         $query = SbrCode::where(function ($query) use ($ditoNumber) {
             $query->where('name', 'LIKE', "%$ditoNumber->producer%");
             $query->orWhere('name', 'LIKE', "%$ditoNumber->brand%");
+
+            if($ditoNumber->producer === 'MERCEDES') {
+                $query->orWhere('name', 'LIKE', "%MB%");
+            }
         })->whereDoesntHave('ditoNumbers', function ($query) use ($ditoNumber) {
             $query->where('id', $ditoNumber->id);
         });
