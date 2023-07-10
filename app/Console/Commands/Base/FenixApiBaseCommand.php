@@ -68,7 +68,7 @@ abstract class FenixApiBaseCommand extends Command
 
         if ($carSbrCode) {
             $filters['SbrCarCode'] = [
-                $carSbrCode
+                $carSbrCode,
             ];
         }
 

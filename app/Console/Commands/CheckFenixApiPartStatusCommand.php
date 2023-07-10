@@ -19,7 +19,10 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
     public function handle(): int
     {
-        $this->dbParts = NewCarPart::select(['id', 'sbr_part_code', 'sbr_car_code', 'article_nr', 'price'])->get()->toArray();
+        $this->dbParts = NewCarPart::select(['id', 'original_id', 'sbr_part_code', 'sbr_car_code', 'article_nr', 'price'])
+            ->where('is_live', true)
+            ->get()
+            ->toArray();
 
         $this->authenticate();
 
@@ -34,7 +37,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             $parts[] = $response['parts']; // TODO check logic here
         }
 
-        $this->partsFromApi = $parts;
+        $this->partsFromApi = $parts[0];
 
         $this->checkForSoldParts();
 
@@ -51,11 +54,14 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             $found = false;
 
             foreach ($this->partsFromApi as $part) {
-                if ($part[0][0]['Id'] === $partToCheck['id'] && $part[0][0]['SbrCarCode'] === $partToCheck['sbr_car_code'] && $part[0][0]['SbrPartCode'] === $partToCheck['sbr_part_code']) {
-                    $found = true;
-
-                    break; // Exit the loop if the part is found
-                }
+                logger()->info('------------ PART BEGIN ------------');
+                logger($part);
+                logger()->info('------------ PART END ------------');
+//                if ($part[0][0]['Id'] === $partToCheck['original_id'] && $part[0][0]['SbrCarCode'] === $partToCheck['sbr_car_code'] && $part[0][0]['SbrPartCode'] === $partToCheck['sbr_part_code']) {
+//                    $found = true;
+//
+//                    break; // Exit the loop if the part is found
+//                }
             }
 
             if (!$found) {
@@ -87,7 +93,6 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
         $rows = [];
         foreach ($parts as $part) {
-            logger($part);
             $rows[] = [
                 $part['article_nr'],
                 0,

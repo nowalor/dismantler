@@ -20,7 +20,6 @@ class AutoteileMarkDocService
 
         // Available fields
         $header = [
-            'supplier_id',
             'article_nr',
             'title',
             'description',
@@ -50,7 +49,6 @@ class AutoteileMarkDocService
     {
         $kba = $this->resolveKbaFromSbrCodeService->resolve($carPart->sbr_car_code, $carPart->engine_code);
         $formattedPart = [
-            'supplier_id' => 'TODO',
             'article_nr' => $carPart->article_nr,
             'title' => $carPart->name,
             'description' => $this->kbaArrayToString($kba),
