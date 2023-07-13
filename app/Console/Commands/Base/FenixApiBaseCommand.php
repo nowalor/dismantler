@@ -117,6 +117,10 @@ abstract class FenixApiBaseCommand extends Command
 
     public function reservePart(NewCarPart $part): void
     {
+        if(!isset($this->token)) {
+            $this->authenticate();
+        }
+
         if ($this->tokenExpiresAt < now()->toIso8601String()) {
             $this->authenticate();
         }
