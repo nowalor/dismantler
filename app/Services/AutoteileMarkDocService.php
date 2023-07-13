@@ -51,7 +51,7 @@ class AutoteileMarkDocService
         $formattedPart = [
             'article_nr' => $carPart->article_nr,
             'title' => $carPart->name,
-            'description' => $this->kbaArrayToString($kba),
+            'description' => $this->resolveDescription($carPart),
             'brand' => $carPart->sbrCode->ditoNumbers->first()->brand,
             'kba' => $this->kbaArrayToString($kba),
             'part_state' => '2',
@@ -66,6 +66,32 @@ class AutoteileMarkDocService
         return array_merge($formattedPart, $formattedImages);
     }
 
+    public function resolveDescription(NewCarPart $carPart): string
+    {
+        $description = "
+            Lagernummer: $carPart->article_nr \n
+            Originale Ersatzteilnummer: $carPart->original_number \n
+            Preis: $carPart->price(€) Preis inklusive Versand und MwSt \n
+            Motor Kennung: $carPart->engine_code \n
+            Motortype: $carPart->engine_type \n
+            Brandstofftype: $carPart->fuel \n
+            Getriebe: $carPart->gearbox \n
+            Laufleistung: $carPart->mileage_km(km) \n
+            Fahrgestellnummer: $carPart->vin \n
+            Baujahr: $carPart->model_year \n
+            Kbas: {$this->kbaArrayToString(
+             $this->resolveKbaFromSbrCodeService->resolve($carPart->sbr_car_code, $carPart->engine_code)
+             )}
+        ";
+
+        return $description;
+    }
+
+    private function kbaArrayToString(array $kbaArray): string
+    {
+        return implode(',', $kbaArray);
+    }
+
     private function resolveImages($images): array
     {
         $formattedImages = [];
@@ -77,15 +103,5 @@ class AutoteileMarkDocService
         }
 
         return $formattedImages;
-    }
-
-    public function resolveDescription(NewCarPart $carPart): string
-    {
-        return '';
-    }
-
-    private function kbaArrayToString(array $kbaArray): string
-    {
-        return implode(',', $kbaArray);
     }
 }
