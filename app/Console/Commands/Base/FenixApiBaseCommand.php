@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Base;
 
+use App\Models\NewCarPart;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 
@@ -112,6 +113,15 @@ abstract class FenixApiBaseCommand extends Command
         ];
 
         return $response;
+    }
+
+    public function reservePart(NewCarPart $part): void
+    {
+        if ($this->tokenExpiresAt < now()->toIso8601String()) {
+            $this->authenticate();
+        }
+
+        logger($part);
     }
 
     protected function getAuthHeaders(): array

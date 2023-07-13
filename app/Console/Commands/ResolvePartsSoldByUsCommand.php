@@ -9,11 +9,12 @@
  */
 namespace App\Console\Commands;
 
+use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\NewCarPart;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
-class ResolvePartsSoldByUsCommand extends Command
+class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 {
     protected $signature = 'parts-we-sold:resolve';
 
@@ -40,7 +41,7 @@ class ResolvePartsSoldByUsCommand extends Command
             }
 
             // Send API request to Data Provider
-
+            $this->reservePart($part);
         }
 
         return Command::SUCCESS;
