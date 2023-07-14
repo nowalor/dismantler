@@ -19,8 +19,6 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
     public function handle(): int
     {
-        logger('command ran on scheduler');
-        return 123;
         $this->dbParts = NewCarPart::select(['id', 'original_id', 'sbr_part_code', 'sbr_car_code', 'article_nr', 'price'])
             ->where('is_live', true)
             ->get()
@@ -76,6 +74,10 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
     {
         $this->generateCsv($this->soldParts);
         Storage::disk('ftp')->put('update-test.csv', file_get_contents(base_path('public/exports/update-test.csv')));
+
+        foreach($this->soldParts as $part) {
+            NewCarPart::where('id', $part['id'])->update(['is_live' => false, 'sold_at' => now()]);
+        }
     }
 
     private function generateCsv(array $parts): void

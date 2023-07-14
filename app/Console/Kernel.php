@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('fenix:check')->everyMinute();
+        $schedule->command('parts-we-sold:resolve')->everyMinute();
     }
 
     /**
