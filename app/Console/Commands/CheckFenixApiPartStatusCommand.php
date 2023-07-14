@@ -19,6 +19,8 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
     public function handle(): int
     {
+        logger('command ran on scheduler');
+        return 123;
         $this->dbParts = NewCarPart::select(['id', 'original_id', 'sbr_part_code', 'sbr_car_code', 'article_nr', 'price'])
             ->where('is_live', true)
             ->get()
