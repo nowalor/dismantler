@@ -20,6 +20,7 @@ class AutoteileMarkDocService
 
         // Available fields
         $header = [
+            'cat_id',
             'article_nr',
             'title',
             'description',
@@ -49,6 +50,7 @@ class AutoteileMarkDocService
     {
         $kba = $this->resolveKbaFromSbrCodeService->resolve($carPart->sbr_car_code, $carPart->engine_code);
         $formattedPart = [
+            'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
             'title' => $carPart->name,
             'description' => $this->resolveDescription($carPart),
@@ -64,6 +66,11 @@ class AutoteileMarkDocService
         $formattedImages = $this->resolveImages($carPart->carPartImages);
 
         return array_merge($formattedPart, $formattedImages);
+    }
+
+    private function resolveCategoryId(NewCarPart $carPart)
+    {
+        return $carPart->carPartType->germanCarPartTypes->first()->autoteile_markt_category_id;
     }
 
     public function resolveDescription(NewCarPart $carPart): string
