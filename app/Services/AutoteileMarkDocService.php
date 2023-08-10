@@ -78,7 +78,6 @@ class AutoteileMarkDocService
         $description = "
             Lagernummer: $carPart->article_nr \n
             Originale Ersatzteilnummer: $carPart->original_number \n
-            Preis: $carPart->price(€) Preis inklusive Versand und MwSt \n
             Motor Kennung: $carPart->engine_code \n
             Motortype: $carPart->engine_type \n
             Brandstofftype: $carPart->fuel \n
