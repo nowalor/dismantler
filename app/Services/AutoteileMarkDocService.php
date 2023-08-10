@@ -31,6 +31,9 @@ class AutoteileMarkDocService
             'vat',
             'price',
             'price_b2b',
+            'delivery',
+            'delivery_time',
+            'properties',
             'img_1',
             'img_2',
             'img_3',
@@ -61,11 +64,22 @@ class AutoteileMarkDocService
             'vat' => '19',
             'price' => $carPart->price * 1.19,
             'price_b2b' => $carPart->price * 1.19,
+            'delivery' => '0',
+            'delivery_time' => '3-6',
+            'properties' => $this->resolveProperties($carPart),
         ];
 
         $formattedImages = $this->resolveImages($carPart->carPartImages);
 
         return array_merge($formattedPart, $formattedImages);
+    }
+    /*
+     * Resolve the properties of the car part with a coma separated string
+     */
+
+    private function resolveProperties(NewCarPart $carPart)
+    {
+        return "MOTORCODE,{$carPart->engine_code},MOTORTYPE,{$carPart->engine_type},GEARBOXCODE,{$carPart->gearbox},MILEAGE,{$carPart->mileage_km},QUALITY,{$carPart->quality}";
     }
 
     private function resolveCategoryId(NewCarPart $carPart)
