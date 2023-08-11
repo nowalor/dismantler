@@ -7,7 +7,7 @@ use App\Models\SbrCode;
 
 class ResolveKbaFromSbrCodeService
 {
-    public function resolve(string $sbrCode, string $engineName): string
+    public function resolve(string $sbrCode, string $engineName): array
     {
         $sbrCodeModel = SbrCode::where('sbr_code', $sbrCode)->first();
 

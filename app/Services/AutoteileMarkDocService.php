@@ -16,33 +16,35 @@ class AutoteileMarkDocService
     public function generateExportCSV(NewCarPart $carPart): void
     {
         $path = base_path('public/exports/import.csv');
-        $file = fopen($path, 'w');
+        $file = fopen($path, 'a');
 
-        // Available fields
-        $header = [
-            'cat_id',
-            'article_nr',
-            'title',
-            'description',
-            'brand',
-            'kba',
-            'part_state',
-            'quantity',
-            'vat',
-            'price',
-            'price_b2b',
-            'delivery',
-            'delivery_time',
-            'properties',
-            'img_1',
-            'img_2',
-            'img_3',
-            'img_4',
-            'img_5',
-            'img_6',
-        ];
+        if(filesize($path) === 0) {
+            // Available fields
+            $header = [
+                'cat_id',
+                'article_nr',
+                'title',
+                'description',
+                'brand',
+                'kba',
+                'part_state',
+                'quantity',
+                'vat',
+                'price',
+                'price_b2b',
+                'delivery',
+                'delivery_time',
+                'properties',
+                'img_1',
+                'img_2',
+                'img_3',
+                'img_4',
+                'img_5',
+                'img_6',
+            ];
 
-        fputcsv($file, $header, '|');
+            fputcsv($file, $header, '|');
+        }
 
         $partInformation = $this->resolvePartInformation($carPart);
 
