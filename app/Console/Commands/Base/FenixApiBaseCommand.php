@@ -162,7 +162,26 @@ abstract class FenixApiBaseCommand extends Command
             $this->authenticate();
         }
 
-        logger($part);
+        $payload = [
+            "Reservations" => [
+                'Id' => 0,
+                'PartId' => $part->part_id,
+                'Type' => 2,
+                'CarBreaker' => 'AT',
+                'ExternalReference' => $part->article_nr,
+                'ExternalSourceName' => 'autoteile',
+            ]
+        ];
+
+        $options = $this->getAuthHeaders();
+        $options['json'] = $payload;
+
+        $tempUrl = 'https://test-fenixapi-integration.bosab.se/api';
+
+        $response = $this->httpClient->request("post", "$tempUrl/autoteile/reservations", $options);
+
+        logger()->info('Reserve part response');
+        logger($response);
     }
 
     protected function getAuthHeaders(): array
