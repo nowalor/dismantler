@@ -13,7 +13,7 @@ class AutoteileMarkDocService
         $this->resolveKbaFromSbrCodeService = new ResolveKbaFromSbrCodeService();
     }
 
-    public function generateExportCSV(NewCarPart $carPart)
+    public function generateExportCSV(NewCarPart $carPart): void
     {
         $path = base_path('public/exports/import.csv');
         $file = fopen($path, 'w');
@@ -73,10 +73,10 @@ class AutoteileMarkDocService
 
         return array_merge($formattedPart, $formattedImages);
     }
+
     /*
      * Resolve the properties of the car part with a coma separated string
      */
-
     private function resolveProperties(NewCarPart $carPart)
     {
         return "MOTORCODE,{$carPart->engine_code},MOTORTYPE,{$carPart->engine_type},GEARBOXCODE,{$carPart->gearbox},MILEAGE,{$carPart->mileage_km},QUALITY,{$carPart->quality}";
