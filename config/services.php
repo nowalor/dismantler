@@ -51,4 +51,7 @@ return [
         'password' => env('FENIX_PASSWORD'),
     ],
 
+    'slack' => [
+        'order_failed_webhook_url' => env('SLACK_WEBHOOK_ORDER_ERROR'),
+    ],
 ];
