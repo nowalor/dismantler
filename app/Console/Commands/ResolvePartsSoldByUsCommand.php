@@ -22,6 +22,9 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     public function handle()
     {
+        $this->reservePart(NewCarPart::first());
+        exit;
+
         $file = Storage::disk('ftp')->get('sellout_standard-testing.xml');
 
         $xml = simplexml_load_string($file);

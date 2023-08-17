@@ -164,12 +164,15 @@ abstract class FenixApiBaseCommand extends Command
 
         $payload = [
             "Reservations" => [
-                'Id' => 0,
-                'PartId' => $part->part_id,
-                'Type' => 2,
-                'CarBreaker' => 'AT',
-                'ExternalReference' => $part->article_nr,
-                'ExternalSourceName' => 'autoteile',
+                [
+                    'Id' => 0,
+                    //'PartId' => $part->part_id,
+                    'PartId' => 78998657,
+                    'Type' => 2,
+                    'CarBreaker' => 'AT',
+                    'ExternalReference' => $part->article_nr,
+                    'ExternalSourceName' => 'autoteile',
+                ],
             ]
         ];
 
@@ -178,10 +181,28 @@ abstract class FenixApiBaseCommand extends Command
 
         $tempUrl = 'https://test-fenixapi-integration.bosab.se/api';
 
-        $response = $this->httpClient->request("post", "$tempUrl/autoteile/reservations", $options);
+        $response = $this->httpClient->request("post", "$tempUrl/autoteile/savereservations", $options);
 
-        logger()->info('Reserve part response');
-        logger($response);
+        // Potential error cases
+        // Status is not 200
+        // Response is empty
+        // Id we get back is 0
+        $statusCode = $response->getStatusCode();
+
+        $data = json_decode($response->getBody(), true);
+
+        if($statusCode !== 200) {
+            // TODO send slack notif
+            logger($data);
+
+        } elseif(empty($data)) {
+            // TODO send slack notif
+            logger($data);
+
+        } elseif($data[0]['Id'] === 0) {
+            // TODO send slack notif
+            logger($data);
+        }
     }
 
     protected function getAuthHeaders(): array

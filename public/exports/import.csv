@@ -1,5 +1,5 @@
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
-940|BO571483|"Automatikgetriebe / AUDI A3/S3   05-13 / AXX / 0AV409053P"|"
+940|BO571483|"Verteilergetriebe / AUDI A3/S3   05-13 / AXX / 0AV409053P"|"
             Lagernummer: BO571483 
 
             Originale Ersatzteilnummer: 0AV409053P 
@@ -19,9 +19,9 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2005 
 
             Kbas: 0588AIH,0588AII,0588857,0588860,0588ADO,0588ADP
-        "|"A3 8P"|0588AIH,0588AII,0588857,0588860,0588ADO,0588ADP|2|1|19|1428|1428|0|3-6|"MOTORCODE,AXX,MOTORTYPE,2,0T AXX,GEARBOXCODE,6VXL GVU,MILEAGE,183020,QUALITY,A"|http://46.101.206.99/storage/img/car-part/101/image1.jpg|http://46.101.206.99/storage/img/car-part/101/image2.jpg|http://46.101.206.99/storage/img/car-part/101/image3.jpg
+        "|"A3 8P"|0588AIH,0588AII,0588857,0588860,0588ADO,0588ADP|2|1|19|0|0|0|3-6|"MOTORCODE,AXX,MOTORTYPE,2.0T AXX,GEARBOXCODE,6VXL GVU,MILEAGE,183020,QUALITY,A"|http://46.101.206.99/storage/img/car-part/458/image1.jpg|http://46.101.206.99/storage/img/car-part/458/image2.jpg|http://46.101.206.99/storage/img/car-part/458/image3.jpg
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
-940|BO585624|"Automatikgetriebe / AUDI TT          99-06 / APX / 02M409053Q"|"
+940|BO585624|"Verteilergetriebe / AUDI TT          99-06 / APX / 02M409053Q"|"
             Lagernummer: BO585624 
 
             Originale Ersatzteilnummer: 02M409053Q 
@@ -41,7 +41,7 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2000 
 
             Kbas: 8307302,8307305,8307AAD,8307AAL
-        "|"TT 8N"|8307302,8307305,8307AAD,8307AAL|2|1|19|952|952|0|3-6|"MOTORCODE,APX,MOTORTYPE,1,8T APX,GEARBOXCODE,6VXL DQB,MILEAGE,153000,QUALITY,A"|http://46.101.206.99/storage/img/car-part/104/image1.jpg|http://46.101.206.99/storage/img/car-part/104/image2.jpg|http://46.101.206.99/storage/img/car-part/104/image3.jpg
+        "|"TT 8N"|8307302,8307305,8307AAD,8307AAL|2|1|19|0|0|0|3-6|"MOTORCODE,APX,MOTORTYPE,1.8T APX,GEARBOXCODE,6VXL DQB,MILEAGE,153000,QUALITY,A"|http://46.101.206.99/storage/img/car-part/460/image1.jpg|http://46.101.206.99/storage/img/car-part/460/image2.jpg|http://46.101.206.99/storage/img/car-part/460/image3.jpg
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
 852|BO443816|"Schaltgetriebe 6-Gang / AUDI A5  07-16 / CDNB / 0B1300027JX"|"
             Lagernummer: BO443816 
@@ -63,7 +63,7 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2009 
 
             Kbas: 0588AIQ,0588ALD,0588AJY
-        "|"A5 8T"|0588AIQ,0588ALD,0588AJY|2|1|19|1904|1904|0|3-6|"MOTORCODE,CDNB,MOTORTYPE,2.0TFSI CDNB,GEARBOXCODE,6VXL KBZ,MILEAGE,141910,QUALITY,A"|http://46.101.206.99/storage/img/car-part/169/image1.jpg|http://46.101.206.99/storage/img/car-part/169/image2.jpg|http://46.101.206.99/storage/img/car-part/169/image3.jpg|http://46.101.206.99/storage/img/car-part/169/image4.jpg
+        "|"A5 8T"|0588AIQ,0588ALD,0588AJY|2|1|19|0|0|0|3-6|"MOTORCODE,CDNB,MOTORTYPE,2.0TFSI CDNB,GEARBOXCODE,6VXL KBZ,MILEAGE,141910,QUALITY,A"|http://46.101.206.99/storage/img/car-part/526/image1.jpg|http://46.101.206.99/storage/img/car-part/526/image2.jpg|http://46.101.206.99/storage/img/car-part/526/image3.jpg|http://46.101.206.99/storage/img/car-part/526/image4.jpg
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
 852|BO470113|"Schaltgetriebe 6-Gang / AUDI A6/S6     05-11 / BPJ / 01X300044FX"|"
             Lagernummer: BO470113 
@@ -85,7 +85,7 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2006 
 
             Kbas: 0588901,0588902,0588ABM,0588ACD
-        "|"A6 4F"|0588901,0588902,0588ABM,0588ACD|2|1|19|1190|1190|0|3-6|"MOTORCODE,BPJ,MOTORTYPE,2.0TFSI BPJ,GEARBOXCODE,6VXL GVC,MILEAGE,153200,QUALITY,A"|http://46.101.206.99/storage/img/car-part/175/image1.jpg|http://46.101.206.99/storage/img/car-part/175/image2.jpg|http://46.101.206.99/storage/img/car-part/175/image3.jpg|http://46.101.206.99/storage/img/car-part/175/image4.jpg|http://46.101.206.99/storage/img/car-part/175/image5.jpg
+        "|"A6 4F"|0588901,0588902,0588ABM,0588ACD|2|1|19|0|0|0|3-6|"MOTORCODE,BPJ,MOTORTYPE,2.0TFSI BPJ,GEARBOXCODE,6VXL GVC,MILEAGE,153200,QUALITY,A"|http://46.101.206.99/storage/img/car-part/532/image1.jpg|http://46.101.206.99/storage/img/car-part/532/image2.jpg|http://46.101.206.99/storage/img/car-part/532/image3.jpg|http://46.101.206.99/storage/img/car-part/532/image4.jpg|http://46.101.206.99/storage/img/car-part/532/image5.jpg
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
 852|BO473172|"Schaltgetriebe 6-Gang / AUDI A4/S4  05-07 / BRD / 0A3300040CX"|"
             Lagernummer: BO473172 
@@ -107,7 +107,7 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2007 
 
             Kbas: 0588AFJ,0588AFK,0588AFL,0588AFM
-        "|"A4 8E"|0588AFJ,0588AFK,0588AFL,0588AFM|2|1|19|1428|1428|0|3-6|"MOTORCODE,BRD,MOTORTYPE,2,0TDI BRD,GEARBOXCODE,6VXL GYH,MILEAGE,162540,QUALITY,A"|http://46.101.206.99/storage/img/car-part/177/image1.jpg|http://46.101.206.99/storage/img/car-part/177/image2.jpg|http://46.101.206.99/storage/img/car-part/177/image3.jpg|http://46.101.206.99/storage/img/car-part/177/image4.jpg|http://46.101.206.99/storage/img/car-part/177/image5.jpg
+        "|"A4 8E"|0588AFJ,0588AFK,0588AFL,0588AFM|2|1|19|0|0|0|3-6|"MOTORCODE,BRD,MOTORTYPE,2.0TDI BRD,GEARBOXCODE,6VXL GYH,MILEAGE,162540,QUALITY,A"|http://46.101.206.99/storage/img/car-part/534/image1.jpg|http://46.101.206.99/storage/img/car-part/534/image2.jpg|http://46.101.206.99/storage/img/car-part/534/image3.jpg|http://46.101.206.99/storage/img/car-part/534/image4.jpg|http://46.101.206.99/storage/img/car-part/534/image5.jpg
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
 852|BO499918|"Schaltgetriebe 6-Gang / AUDI A6/S6     05-11 / BDW / 01X300044GX"|"
             Lagernummer: BO499918 
@@ -129,7 +129,7 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2005 
 
             Kbas: 0588851,0588875,0588885,0588886,0588ABG,0588ABH,0588ABX,0588ABY
-        "|"A6 4F"|0588851,0588875,0588885,0588886,0588ABG,0588ABH,0588ABX,0588ABY|2|1|19|1428|1428|0|3-6|"MOTORCODE,BDW,MOTORTYPE,2,4 BDW,GEARBOXCODE,6VXL GYF,MILEAGE,149510,QUALITY,A"|http://46.101.206.99/storage/img/car-part/186/image1.jpg|http://46.101.206.99/storage/img/car-part/186/image2.jpg|http://46.101.206.99/storage/img/car-part/186/image3.jpg
+        "|"A6 4F"|0588851,0588875,0588885,0588886,0588ABG,0588ABH,0588ABX,0588ABY|2|1|19|0|0|0|3-6|"MOTORCODE,BDW,MOTORTYPE,2.4 BDW,GEARBOXCODE,6VXL GYF,MILEAGE,149510,QUALITY,A"|http://46.101.206.99/storage/img/car-part/543/image1.jpg|http://46.101.206.99/storage/img/car-part/543/image2.jpg|http://46.101.206.99/storage/img/car-part/543/image3.jpg
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
 852|BO533324|"Schaltgetriebe 6-Gang / AUDI A4/S4  08-11 / CAKA / 0B4300027DX"|"
             Lagernummer: BO533324 
@@ -151,7 +151,7 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2011 
 
             Kbas: 0588AJV,0588AJW
-        "|A4|0588AJV,0588AJW|2|1|19|2380|2380|0|3-6|"MOTORCODE,CAKA,MOTORTYPE,CAKA,GEARBOXCODE,6VXL LPE,MILEAGE,69480,QUALITY,A*"|http://46.101.206.99/storage/img/car-part/197/image1.jpg|http://46.101.206.99/storage/img/car-part/197/image2.jpg|http://46.101.206.99/storage/img/car-part/197/image3.jpg|http://46.101.206.99/storage/img/car-part/197/image4.jpg|http://46.101.206.99/storage/img/car-part/197/image5.jpg|http://46.101.206.99/storage/img/car-part/197/image6.jpg
+        "|A4|0588AJV,0588AJW|2|1|19|0|0|0|3-6|"MOTORCODE,CAKA,MOTORTYPE,CAKA,GEARBOXCODE,6VXL LPE,MILEAGE,69480,QUALITY,A*"|http://46.101.206.99/storage/img/car-part/554/image1.jpg|http://46.101.206.99/storage/img/car-part/554/image2.jpg|http://46.101.206.99/storage/img/car-part/554/image3.jpg|http://46.101.206.99/storage/img/car-part/554/image4.jpg|http://46.101.206.99/storage/img/car-part/554/image5.jpg|http://46.101.206.99/storage/img/car-part/554/image6.jpg
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
 939|BO533589|"Differential / AUDI A4/S4  08-11 / CAKA / 0BC500044C"|"
             Lagernummer: BO533589 
@@ -173,4 +173,4 @@ cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|pric
             Baujahr: 2011 
 
             Kbas: 0588AJV,0588AJW
-        "|A4|0588AJV,0588AJW|2|1|19|2284.8|2284.8|0|3-6|"MOTORCODE,CAKA,MOTORTYPE,CAKA,GEARBOXCODE,6VXL LPE,MILEAGE,69480,QUALITY,A"|http://46.101.206.99/storage/img/car-part/335/image1.jpg|http://46.101.206.99/storage/img/car-part/335/image2.jpg|http://46.101.206.99/storage/img/car-part/335/image3.jpg
+        "|A4|0588AJV,0588AJW|2|1|19|0|0|0|3-6|"MOTORCODE,CAKA,MOTORTYPE,CAKA,GEARBOXCODE,6VXL LPE,MILEAGE,69480,QUALITY,A"|http://46.101.206.99/storage/img/car-part/689/image1.jpg|http://46.101.206.99/storage/img/car-part/689/image2.jpg|http://46.101.206.99/storage/img/car-part/689/image3.jpg

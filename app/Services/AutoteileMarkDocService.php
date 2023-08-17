@@ -18,7 +18,7 @@ class AutoteileMarkDocService
         $path = base_path('public/exports/import.csv');
         $file = fopen($path, 'a');
 
-        if(filesize($path) === 0) {
+        if (filesize($path) === 0) {
             // Available fields
             $header = [
                 'cat_id',
@@ -64,8 +64,8 @@ class AutoteileMarkDocService
             'part_state' => '2',
             'quantity' => '1',
             'vat' => '19',
-            'price' => $carPart->price * 1.19,
-            'price_b2b' => $carPart->price * 1.19,
+            'price' => $this->calculatePrice($carPart),
+            'price_b2b' => $this->calculatePrice($carPart),
             'delivery' => '0',
             'delivery_time' => '3-6',
             'properties' => $this->resolveProperties($carPart),
@@ -76,18 +76,14 @@ class AutoteileMarkDocService
         return array_merge($formattedPart, $formattedImages);
     }
 
-    /*
-     * Resolve the properties of the car part with a coma separated string
-     */
-    private function resolveProperties(NewCarPart $carPart)
-    {
-        return "MOTORCODE,{$carPart->engine_code},MOTORTYPE,{$carPart->engine_type},GEARBOXCODE,{$carPart->gearbox},MILEAGE,{$carPart->mileage_km},QUALITY,{$carPart->quality}";
-    }
-
     private function resolveCategoryId(NewCarPart $carPart)
     {
         return $carPart->carPartType->germanCarPartTypes->first()->autoteile_markt_category_id;
     }
+
+    /*
+     * Resolve the properties of the car part with a coma separated string
+     */
 
     public function resolveDescription(NewCarPart $carPart): string
     {
@@ -112,6 +108,31 @@ class AutoteileMarkDocService
     private function kbaArrayToString(array $kbaArray): string
     {
         return implode(',', $kbaArray);
+    }
+
+    /*
+     * Price from SEK to EUR with shipment and German VAT
+     * Calculations vary depending on the car part type
+     */
+    private function calculatePrice(NewCarPart $carPart): float
+    {
+        if ($carPart->car_part_type_id === 1) {
+            return ($carPart->price_sek / 10) * 1.19;
+        }
+
+        return ($carPart->price_sek / 10.5) * 1.19;
+    }
+
+    private function resolveProperties(NewCarPart $carPart): string
+    {
+        $engineCode = str_replace(',', '.', $carPart->engine_code);
+        $engineType = str_replace(',', '.', $carPart->engine_type);
+        $gearbox = str_replace(',', '.', $carPart->gearbox);
+        $mileage = str_replace(',', '.', $carPart->mileage_km);
+        $quality = str_replace(',', '.', $carPart->quality);
+
+
+        return "MOTORCODE,{$engineCode},MOTORTYPE,{$engineType},GEARBOXCODE,{$gearbox},MILEAGE,{$mileage},QUALITY,{$quality}";
     }
 
     private function resolveImages($images): array
