@@ -52,6 +52,7 @@ return [
     ],
 
     'slack' => [
+        'order_webhook_url' => env('SLACK_WEBHOOK_ORDER'),
         'order_failed_webhook_url' => env('SLACK_WEBHOOK_ORDER_ERROR'),
     ],
 ];
