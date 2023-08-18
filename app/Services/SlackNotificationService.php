@@ -45,6 +45,10 @@ class SlackNotificationService
 
     private function notifyOrderSuccess(): void
     {
-        // TODO
+       Notification::route(
+            'slack',
+            config('services.slack.order_success_webhook_url'),
+        )->notify(new SlackOrderSuccessNotification()
+       );
     }
 }
