@@ -117,10 +117,9 @@ class AutoteileMarkDocService
     private function calculatePrice(NewCarPart $carPart): float
     {
         if ($carPart->car_part_type_id === 1) {
-            return ($carPart->price_sek / 10) * 1.19;
+            return round(($carPart->price_sek / 10) * 1.19, 1);
         }
-
-        return ($carPart->price_sek / 10.5) * 1.19;
+        return round(($carPart->price_sek / 10.5) * 1.19, 1);
     }
 
     private function resolveProperties(NewCarPart $carPart): string

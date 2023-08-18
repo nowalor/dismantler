@@ -3,6 +3,8 @@
 namespace App\Console\Commands\Base;
 
 use App\Models\NewCarPart;
+use App\Notifications\SlackOrderFailedNotification;
+use App\Services\SlackNotificationService;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 
@@ -18,6 +20,8 @@ abstract class FenixApiBaseCommand extends Command
     protected string $token;
     protected string $tokenExpiresAt; //  "2023-06-19T08:53:12Z"
 
+    private SlackNotificationService $notificationService;
+
     public function __construct()
     {
         $this->apiUrl = config('services.fenix_api.base_uri');
@@ -31,6 +35,8 @@ abstract class FenixApiBaseCommand extends Command
                 'Content-Type' => 'application/json',
             ],
         ]);
+
+        $this->notificationService = new SlackNotificationService();
 
         parent::__construct();
     }
@@ -181,28 +187,48 @@ abstract class FenixApiBaseCommand extends Command
 
         $tempUrl = 'https://test-fenixapi-integration.bosab.se/api';
 
-        $response = $this->httpClient->request("post", "$tempUrl/autoteile/savereservations", $options);
 
-        // Potential error cases
-        // Status is not 200
-        // Response is empty
-        // Id we get back is 0
-        $statusCode = $response->getStatusCode();
 
-        $data = json_decode($response->getBody(), true);
+        try {
+            $response = $this->httpClient->request("post", "$tempUrl/autoteile/savereservations", $options);
 
-        if($statusCode !== 200) {
-            // TODO send slack notif
-            logger($data);
+            $statusCode = $response->getStatusCode();
 
-        } elseif(empty($data)) {
-            // TODO send slack notif
-            logger($data);
+            $data = json_decode($response->getBody(), true);
 
-        } elseif($data[0]['Id'] === 0) {
-            // TODO send slack notif
-            logger($data);
+            if($statusCode !== 200) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    $statusCode
+                );
+                logger($data);
+
+            } elseif(empty($data)) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_EMPTY,
+                );
+                logger($data);
+
+            } elseif($data[0]['Id'] === 0) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_INVALID,
+                );
+
+                logger($data);
+            }
+        } catch(ClientException $e) {
+//            $this->notificationService->notify(
+//                SlackNotificationService::ORDER_FAILED,
+//                $part,
+//                $e->getMessage()
+//            );
         }
+
     }
 
     protected function getAuthHeaders(): array
