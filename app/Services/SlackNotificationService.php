@@ -42,4 +42,9 @@ class SlackNotificationService
             $errorType,
         ));
     }
+
+    private function notifyOrderSuccess(): void
+    {
+        // TODO
+    }
 }

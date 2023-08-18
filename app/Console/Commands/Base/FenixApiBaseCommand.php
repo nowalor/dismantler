@@ -158,7 +158,7 @@ abstract class FenixApiBaseCommand extends Command
         return $count === 0;
     }
 
-    public function reservePart(NewCarPart $part): void
+    public function reservePart(NewCarPart $part): bool
     {
         if(!isset($this->token)) {
             $this->authenticate();
@@ -204,6 +204,7 @@ abstract class FenixApiBaseCommand extends Command
                 );
                 logger($data);
 
+                return false;
             } elseif(empty($data)) {
                 $this->notificationService->notify(
                     SlackNotificationService::ORDER_FAILED,
@@ -212,6 +213,7 @@ abstract class FenixApiBaseCommand extends Command
                 );
                 logger($data);
 
+                return false;
             } elseif($data[0]['Id'] === 0) {
                 $this->notificationService->notify(
                     SlackNotificationService::ORDER_FAILED,
@@ -220,14 +222,23 @@ abstract class FenixApiBaseCommand extends Command
                 );
 
                 logger($data);
+                return false;
             }
-        } catch(ClientException $e) {
+        } catch(\Exception $e) {
 //            $this->notificationService->notify(
 //                SlackNotificationService::ORDER_FAILED,
 //                $part,
 //                $e->getMessage()
 //            );
+
+            return false;
         }
+
+        return true;
+    }
+
+    protected function orderPart(array $information)
+    {
 
     }
 

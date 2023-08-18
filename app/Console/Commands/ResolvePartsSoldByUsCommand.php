@@ -7,12 +7,14 @@
  * We then need to send a API request to fenix after getting the information from the autoteile-markt FTP
  * This can work differently depending on the platform and provider
  */
+
 namespace App\Console\Commands;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\NewCarPart;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use SimpleXMLElement;
 
 class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 {
@@ -22,31 +24,99 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     public function handle()
     {
+        $parts = $this->getSoldParts();
+
+        if(count($parts)) {
+            $this->handleSoldParts($parts);
+        }
+
         $this->reservePart(NewCarPart::first());
         exit;
 
+        return Command::SUCCESS;
+    }
+
+    /*
+     * Go through all the sold parts
+     * Reserve them in the data provider
+     * Update the part in the database
+     */
+    private function handleSoldParts(array $parts)
+    {
+        foreach($parts as $part) {
+            $success = $this->reservePart($part);
+
+            if($success) {
+                $this->updadatePartInDB($part['article_nr']);
+            }
+        }
+    }
+
+    /*
+     * Make a request to the autoteile-markt FTP server
+     * Sold parts will be in the sellout_standard.xml file
+     */
+    private function getSoldParts(): array
+    {
         $file = Storage::disk('ftp')->get('sellout_standard-testing.xml');
 
         $xml = simplexml_load_string($file);
 
+        $parts = [];
+
         foreach ($xml->item as $item) {
-            $articleNr = (string) $item->number;
+            $articleNr = (string)$item->number;
 
-            // Update part in DB
-            $part = NewCarPart::where('article_nr', $articleNr)->first();
+            // Extract billing address details
+            $billingAddress = $xml->head->billingadress;
+            $billingInformation = $this->extractInformation($billingAddress);
 
-            if ($part) {
-                $part->is_live = false;
-                $part->sold_at = now();
-                $part->sold_on_platform = 'autoteile-markt.de';
+            // Extract shipping address details
+            $shippingAddress = $xml->head->shippingadress;
+            $shippingInformation = $this->extractInformation($shippingAddress);
 
-                $part->save();
-            }
+            $soldPart = [
+                'article_nr' => $articleNr,
+                'billing_information' => $billingInformation,
+                'shipping_information' => $shippingInformation,
+            ];
 
-            // Send API request to Data Provider
-            $this->reservePart($part);
+            $parts[] = $soldPart;
+
         }
 
-        return Command::SUCCESS;
+        return $parts;
+    }
+
+    private function updadatePartInDB(string $articleNr)
+    {
+        $part = NewCarPart::where('article_nr', $articleNr)->first();
+
+        if ($part) {
+            $part->is_live = false;
+            $part->sold_at = now();
+            $part->sold_on_platform = 'autoteile-markt.de';
+
+            $part->save();
+        }
+    }
+
+    private function extractInformation(SimpleXMLElement $item): array
+    {
+        $data =  [
+            'firstname' => (string)$item->firstname,
+            'surname' => (string)$item->surname,
+            'street' => (string)$item->street,
+            'zip' => (string)$item->zip,
+            'city' => (string)$item->city,
+            'country' => (string)$item->country,
+            'phone' => (string)$item->phone,
+        ];
+
+        if($item->email) {
+            $data['email'] = (string)$item->email;
+        }
+
+        return $data;
     }
 }

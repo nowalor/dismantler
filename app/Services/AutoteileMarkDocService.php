@@ -18,7 +18,7 @@ class AutoteileMarkDocService
         $path = base_path('public/exports/import.csv');
         $file = fopen($path, 'a');
 
-        if (filesize($path) === 0) {
+        if (empty(file_get_contents($path))) {
             // Available fields
             $header = [
                 'cat_id',
