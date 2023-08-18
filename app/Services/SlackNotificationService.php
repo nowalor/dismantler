@@ -3,7 +3,8 @@
 namespace App\Services;
 
 use App\Models\NewCarPart;
-use App\Notifications\SlackOrderFailedNotification;
+use App\Notifications\Slack\SlackOrderFailedNotification;
+use App\Notifications\Slack\SlackOrderSuccessNotification;
 use Illuminate\Support\Facades\Notification;
 
 class SlackNotificationService

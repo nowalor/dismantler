@@ -3,7 +3,7 @@
 namespace App\Console\Commands\Base;
 
 use App\Models\NewCarPart;
-use App\Notifications\SlackOrderFailedNotification;
+use App\Notifications\Slack\SlackOrderFailedNotification;
 use App\Services\SlackNotificationService;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
