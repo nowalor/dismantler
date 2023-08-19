@@ -160,6 +160,14 @@ abstract class FenixApiBaseCommand extends Command
 
     public function reservePart(NewCarPart $part): bool
     {
+        // testing notif rm code later
+        $this->notificationService->notify(
+            SlackNotificationService::ORDER_SUCCESS,
+            $part,
+        );
+
+        exit;
+
         if(!isset($this->token)) {
             $this->authenticate();
         }
@@ -186,7 +194,6 @@ abstract class FenixApiBaseCommand extends Command
         $options['json'] = $payload;
 
         $tempUrl = 'https://test-fenixapi-integration.bosab.se/api';
-
 
 
         try {
@@ -234,6 +241,10 @@ abstract class FenixApiBaseCommand extends Command
             return false;
         }
 
+        $this->notificationService->notify(
+            SlackNotificationService::ORDER_SUCCESS,
+            $part,
+        );
         return true;
     }
 

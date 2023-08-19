@@ -15,6 +15,7 @@ class SlackNotificationService
     public function notify(
         string     $type,
         NewCarPart $carPart = null,
+        array $data = [],
         int        $statusCode = 200,
         string $errorType = SlackOrderFailedNotification::ERROR_TYPE_REQUEST_FAIL,
     ): void
@@ -25,6 +26,8 @@ class SlackNotificationService
                 $statusCode,
                 $errorType
             );
+        } elseif ($type === self::ORDER_SUCCESS) {
+            $this->notifyOrderSuccess($carPart);
         }
     }
 
@@ -44,12 +47,12 @@ class SlackNotificationService
         ));
     }
 
-    private function notifyOrderSuccess(): void
+    public function notifyOrderSuccess(array $partData): void
     {
        Notification::route(
             'slack',
-            config('services.slack.order_success_webhook_url'),
-        )->notify(new SlackOrderSuccessNotification()
+            config('services.slack.order_webhook_url'),
+        )->notify(new SlackOrderSuccessNotification($partData)
        );
     }
 }

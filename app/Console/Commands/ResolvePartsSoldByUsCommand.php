@@ -12,6 +12,7 @@ namespace App\Console\Commands;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\NewCarPart;
+use App\Services\SlackNotificationService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use SimpleXMLElement;
@@ -22,6 +23,15 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     protected $description = 'Command description';
 
+    private SlackNotificationService $notificationService;
+
+    public function __construct()
+    {
+        $this->notificationService = new SlackNotificationService();
+
+        parent::__construct();
+    }
+
     public function handle()
     {
         $parts = $this->getSoldParts();
@@ -29,9 +39,6 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
         if(count($parts)) {
             $this->handleSoldParts($parts);
         }
-
-        $this->reservePart(NewCarPart::first());
-        exit;
 
         return Command::SUCCESS;
     }
@@ -44,9 +51,17 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
     private function handleSoldParts(array $parts)
     {
         foreach($parts as $part) {
+            $this->notificationService->notifyOrderSuccess(
+                partData: $part,
+            ); exit;
+
             $success = $this->reservePart($part);
 
             if($success) {
+                $this->notificationService->notifyOrderSuccess(
+                    partData: $part,
+                );
+
                 $this->updadatePartInDB($part['article_nr']);
             }
         }
@@ -80,6 +95,8 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
                 'billing_information' => $billingInformation,
                 'shipping_information' => $shippingInformation,
             ];
+
+            logger($soldPart);
 
             $parts[] = $soldPart;
 
