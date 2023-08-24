@@ -21,16 +21,11 @@ class AdminExportPartsController extends Controller
     public function index(Request $request) // : View
     {
         $carParts = NewCarPart::with('carPartImages')
+            ->whereNotNull('sek_price')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
 
         foreach($carParts as $index => $carPart) {
-            logger()->info('car part');
-            logger($carPart);
-
-            logger()->info('price_sek');
-            logger($carPart->price_sek);
-
             $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
             (
                 $carPart->price_sek,
