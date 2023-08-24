@@ -25,6 +25,11 @@ class AdminExportPartsController extends Controller
             ->get();
 
         foreach($carParts as $index => $carPart) {
+            logger()->info('car part');
+            logger($carPart);
+
+            logger()->info('price_sek');
+            logger($carPart->price_sek);
 
             $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
             (
