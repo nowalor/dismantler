@@ -7,13 +7,13 @@ use App\Models\SbrCode;
 
 class ResolveKbaFromSbrCodeService
 {
-    public function resolve(string $sbrCode, string $engineName)
+    public function resolve(string $sbrCode, string $engineName): array
     {
         $sbrCodeModel = SbrCode::where('sbr_code', $sbrCode)->first();
 
         $engineType = EngineType::where('name', $engineName)->first();
 
-        if(!$engineType) {
+        if (!$engineType) {
             return '';
         }
 
@@ -28,16 +28,14 @@ class ResolveKbaFromSbrCodeService
                 $query->where('engine_types.id', $engineTypeId);
             });
         }])->get()
-        ->pluck('germanDismantlers')->flatten()->unique();
+            ->pluck('germanDismantlers')->flatten()->unique();
 
-        return $hsnTsnList = $ditoNumbers->map(function ($ditoNumber) {
+        return $ditoNumbers->map(function ($ditoNumber) {
             return implode([
                 'hsn' => $ditoNumber->hsn,
                 'tsn' => $ditoNumber->tsn,
             ]);
         })->toArray();
-
-        return $ditoNumbers;
     }
 }
 

@@ -2,6 +2,9 @@
 
 namespace App\Console\Commands\Base;
 
+use App\Models\NewCarPart;
+use App\Notifications\Slack\SlackOrderFailedNotification;
+use App\Services\SlackNotificationService;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 
@@ -17,6 +20,8 @@ abstract class FenixApiBaseCommand extends Command
     protected string $token;
     protected string $tokenExpiresAt; //  "2023-06-19T08:53:12Z"
 
+    private SlackNotificationService $notificationService;
+
     public function __construct()
     {
         $this->apiUrl = config('services.fenix_api.base_uri');
@@ -30,6 +35,8 @@ abstract class FenixApiBaseCommand extends Command
                 'Content-Type' => 'application/json',
             ],
         ]);
+
+        $this->notificationService = new SlackNotificationService();
 
         parent::__construct();
     }
@@ -53,7 +60,6 @@ abstract class FenixApiBaseCommand extends Command
 
     protected function getParts(
         string $partTypeSbrCode,
-        string $carSbrCode = null,
     ): array
     {
         if ($this->tokenExpiresAt < now()->toIso8601String()) {
@@ -65,12 +71,6 @@ abstract class FenixApiBaseCommand extends Command
                 $partTypeSbrCode
             ],
         ];
-
-        if ($carSbrCode) {
-            $filters['SbrCarCode'] = [
-                $carSbrCode
-            ];
-        }
 
         $parts = [];
 
@@ -112,6 +112,146 @@ abstract class FenixApiBaseCommand extends Command
         ];
 
         return $response;
+    }
+
+    protected function isPartSold(int $partId): bool
+    {
+        if ($this->tokenExpiresAt < now()->toIso8601String()) {
+            $this->authenticate();
+        }
+
+        $payload = [
+            "Take" => 40,
+            "Skip" => 0,
+            "Page" => 1,
+            "IncludeNew" => false,
+            "PartImages" => false,
+            "CarImages" => false,
+            "IncludeSbrPartNames" => false,
+            "IncludeSbrCarNames" => false,
+            "IncludeFitsSbrCarCodes" => false,
+            "ReturnOnlyPartCodes" => false,
+            "ReturnOnlyCarCodes" => false,
+            "MustHavePrice" => false,
+            "CarBreaker" => "AT",
+            "PartnerAccessLevel" => 2,
+            "Filters" => [
+                "PartId" => [
+                    "$partId",
+                ],
+            ],
+            "SortBy" => [
+                "Created" => "ASC"
+            ],
+            "Action" => 3,
+            // Add two days to the current date
+            "DueDate" => now()->addDays(2)->toIso8601String(),
+        ];
+
+        $options = $this->getAuthHeaders();
+        $options['json'] = $payload;
+
+        $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
+        $response = json_decode($response->getBody(), true);
+
+
+        $count = $response['Count'];
+
+        return $count === 0;
+    }
+
+    public function reservePart(NewCarPart $part): bool
+    {
+        // testing notif rm code later
+        $this->notificationService->notify(
+            SlackNotificationService::ORDER_SUCCESS,
+            $part,
+        );
+
+        exit;
+
+        if(!isset($this->token)) {
+            $this->authenticate();
+        }
+
+        if ($this->tokenExpiresAt < now()->toIso8601String()) {
+            $this->authenticate();
+        }
+
+        $payload = [
+            "Reservations" => [
+                [
+                    'Id' => 0,
+                    //'PartId' => $part->part_id,
+                    'PartId' => 78998657,
+                    'Type' => 2,
+                    'CarBreaker' => 'AT',
+                    'ExternalReference' => $part->article_nr,
+                    'ExternalSourceName' => 'autoteile',
+                ],
+            ]
+        ];
+
+        $options = $this->getAuthHeaders();
+        $options['json'] = $payload;
+
+
+
+        try {
+            $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/savereservations", $options);
+
+            $statusCode = $response->getStatusCode();
+
+            $data = json_decode($response->getBody(), true);
+
+            if($statusCode !== 200) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    $statusCode
+                );
+                logger($data);
+
+                return false;
+            } elseif(empty($data)) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_EMPTY,
+                );
+                logger($data);
+
+                return false;
+            } elseif($data[0]['Id'] === 0) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_INVALID,
+                );
+
+                logger($data);
+                return false;
+            }
+        } catch(\Exception $e) {
+//            $this->notificationService->notify(
+//                SlackNotificationService::ORDER_FAILED,
+//                $part,
+//                $e->getMessage()
+//            );
+
+            return false;
+        }
+
+        $this->notificationService->notify(
+            SlackNotificationService::ORDER_SUCCESS,
+            $part,
+        );
+        return true;
+    }
+
+    protected function orderPart(array $information)
+    {
+
     }
 
     protected function getAuthHeaders(): array
