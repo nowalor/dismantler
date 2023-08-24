@@ -21,7 +21,7 @@ class AdminExportPartsController extends Controller
     public function index(Request $request) // : View
     {
         $carParts = NewCarPart::with('carPartImages')
-            ->whereNotNull('sek_price')
+            ->whereNotNull('price_sek')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
 
