@@ -45,7 +45,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
         $newPart = [
             'original_id' => $part['Id'],
            // 'external_dismantle_company_id' => $part['ArticleNumberAtCarbreaker'], // We don't get this information but we get the name
-            'price' => $part['Price'] / 5,
+            'price_sek' => $part['Price'],
             'data_provider_id' => 1,
             'sbr_part_code' => $part['SbrPartCode'],
             'sbr_car_code' => $part['SbrCarCode'],

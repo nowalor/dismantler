@@ -3,6 +3,8 @@
 namespace App\Console\Commands\Base;
 
 use App\Models\NewCarPart;
+use App\Notifications\Slack\SlackOrderFailedNotification;
+use App\Services\SlackNotificationService;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 
@@ -18,6 +20,8 @@ abstract class FenixApiBaseCommand extends Command
     protected string $token;
     protected string $tokenExpiresAt; //  "2023-06-19T08:53:12Z"
 
+    private SlackNotificationService $notificationService;
+
     public function __construct()
     {
         $this->apiUrl = config('services.fenix_api.base_uri');
@@ -31,6 +35,8 @@ abstract class FenixApiBaseCommand extends Command
                 'Content-Type' => 'application/json',
             ],
         ]);
+
+        $this->notificationService = new SlackNotificationService();
 
         parent::__construct();
     }
@@ -137,7 +143,9 @@ abstract class FenixApiBaseCommand extends Command
             "SortBy" => [
                 "Created" => "ASC"
             ],
-            "Action" => 2
+            "Action" => 3,
+            // Add two days to the current date
+            "DueDate" => now()->addDays(2)->toIso8601String(),
         ];
 
         $options = $this->getAuthHeaders();
@@ -152,8 +160,16 @@ abstract class FenixApiBaseCommand extends Command
         return $count === 0;
     }
 
-    public function reservePart(NewCarPart $part): void
+    public function reservePart(NewCarPart $part): bool
     {
+        // testing notif rm code later
+        $this->notificationService->notify(
+            SlackNotificationService::ORDER_SUCCESS,
+            $part,
+        );
+
+        exit;
+
         if(!isset($this->token)) {
             $this->authenticate();
         }
@@ -164,24 +180,78 @@ abstract class FenixApiBaseCommand extends Command
 
         $payload = [
             "Reservations" => [
-                'Id' => 0,
-                'PartId' => $part->part_id,
-                'Type' => 2,
-                'CarBreaker' => 'AT',
-                'ExternalReference' => $part->article_nr,
-                'ExternalSourceName' => 'autoteile',
+                [
+                    'Id' => 0,
+                    //'PartId' => $part->part_id,
+                    'PartId' => 78998657,
+                    'Type' => 2,
+                    'CarBreaker' => 'AT',
+                    'ExternalReference' => $part->article_nr,
+                    'ExternalSourceName' => 'autoteile',
+                ],
             ]
         ];
 
         $options = $this->getAuthHeaders();
         $options['json'] = $payload;
 
-        $tempUrl = 'https://test-fenixapi-integration.bosab.se/api';
 
-        $response = $this->httpClient->request("post", "$tempUrl/autoteile/reservations", $options);
 
-        logger()->info('Reserve part response');
-        logger($response);
+        try {
+            $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/savereservations", $options);
+
+            $statusCode = $response->getStatusCode();
+
+            $data = json_decode($response->getBody(), true);
+
+            if($statusCode !== 200) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    $statusCode
+                );
+                logger($data);
+
+                return false;
+            } elseif(empty($data)) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_EMPTY,
+                );
+                logger($data);
+
+                return false;
+            } elseif($data[0]['Id'] === 0) {
+                $this->notificationService->notify(
+                    SlackNotificationService::ORDER_FAILED,
+                    $part,
+                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_INVALID,
+                );
+
+                logger($data);
+                return false;
+            }
+        } catch(\Exception $e) {
+//            $this->notificationService->notify(
+//                SlackNotificationService::ORDER_FAILED,
+//                $part,
+//                $e->getMessage()
+//            );
+
+            return false;
+        }
+
+        $this->notificationService->notify(
+            SlackNotificationService::ORDER_SUCCESS,
+            $part,
+        );
+        return true;
+    }
+
+    protected function orderPart(array $information)
+    {
+
     }
 
     protected function getAuthHeaders(): array

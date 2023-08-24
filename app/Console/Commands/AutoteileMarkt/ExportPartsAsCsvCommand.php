@@ -14,8 +14,9 @@ class ExportPartsAsCsvCommand extends Command
 
     public function __construct()
     {
-        parent::__construct();
         $this->csvService = new AutoteileMarkDocService();
+
+        parent::__construct();
     }
 
     public function handle(): int

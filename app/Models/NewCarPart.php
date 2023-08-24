@@ -37,7 +37,11 @@ class NewCarPart extends Model
         'warranty',
         'mileage_km',
         'model_year',
-        'vin'
+        'vin',
+        'price_sek',
+        'price_eur',
+        'price_dkk',
+        'price_nok',
     ];
 
     public function carPartType(): BelongsTo
