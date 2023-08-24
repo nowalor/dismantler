@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\NewCarPart;
+use Illuminate\Support\Facades\Storage;
 
 class AutoteileMarkDocService
 {
@@ -49,6 +50,9 @@ class AutoteileMarkDocService
         $partInformation = $this->resolvePartInformation($carPart);
 
         fputcsv($file, $partInformation, '|');
+
+        // Upload to FTP server
+        Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
     }
 
     private function resolvePartInformation(NewCarPart $carPart): array
@@ -119,6 +123,7 @@ class AutoteileMarkDocService
         if ($carPart->car_part_type_id === 1) {
             return round(($carPart->price_sek / 10) * 1.19, 1);
         }
+
         return round(($carPart->price_sek / 10.5) * 1.19, 1);
     }
 
@@ -129,7 +134,6 @@ class AutoteileMarkDocService
         $gearbox = str_replace(',', '.', $carPart->gearbox);
         $mileage = str_replace(',', '.', $carPart->mileage_km);
         $quality = str_replace(',', '.', $carPart->quality);
-
 
         return "MOTORCODE,{$engineCode},MOTORTYPE,{$engineType},GEARBOXCODE,{$gearbox},MILEAGE,{$mileage},QUALITY,{$quality}";
     }

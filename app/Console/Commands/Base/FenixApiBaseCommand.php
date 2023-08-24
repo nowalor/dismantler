@@ -143,7 +143,9 @@ abstract class FenixApiBaseCommand extends Command
             "SortBy" => [
                 "Created" => "ASC"
             ],
-            "Action" => 2
+            "Action" => 3,
+            // Add two days to the current date
+            "DueDate" => now()->addDays(2)->toIso8601String(),
         ];
 
         $options = $this->getAuthHeaders();
@@ -193,11 +195,10 @@ abstract class FenixApiBaseCommand extends Command
         $options = $this->getAuthHeaders();
         $options['json'] = $payload;
 
-        $tempUrl = 'https://test-fenixapi-integration.bosab.se/api';
 
 
         try {
-            $response = $this->httpClient->request("post", "$tempUrl/autoteile/savereservations", $options);
+            $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/savereservations", $options);
 
             $statusCode = $response->getStatusCode();
 

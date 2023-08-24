@@ -15,7 +15,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
         $schedule->command('fenix:check')->everyMinute();
         $schedule->command('parts-we-sold:resolve')->everyMinute();
     }

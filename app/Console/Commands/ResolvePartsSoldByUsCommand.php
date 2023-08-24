@@ -21,8 +21,6 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 {
     protected $signature = 'parts-we-sold:resolve';
 
-    protected $description = 'Command description';
-
     private SlackNotificationService $notificationService;
 
     public function __construct()
@@ -34,6 +32,8 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     public function handle()
     {
+        logger('ResolvepartsSoldByUsCommand ran on schedule');
+
         $parts = $this->getSoldParts();
 
         if(count($parts)) {
@@ -51,18 +51,14 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
     private function handleSoldParts(array $parts)
     {
         foreach($parts as $part) {
-            $this->notificationService->notifyOrderSuccess(
-                partData: $part,
-            ); exit;
-
             $success = $this->reservePart($part);
 
             if($success) {
+                $this->updadatePartInDB($part['article_nr']);
+
                 $this->notificationService->notifyOrderSuccess(
                     partData: $part,
                 );
-
-                $this->updadatePartInDB($part['article_nr']);
             }
         }
     }
@@ -73,7 +69,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
      */
     private function getSoldParts(): array
     {
-        $file = Storage::disk('ftp')->get('sellout_standard-testing.xml');
+        $file = Storage::disk('ftp')->get('sellout_standard.xml');
 
         $xml = simplexml_load_string($file);
 
@@ -95,8 +91,6 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
                 'billing_information' => $billingInformation,
                 'shipping_information' => $shippingInformation,
             ];
-
-            logger($soldPart);
 
             $parts[] = $soldPart;
 

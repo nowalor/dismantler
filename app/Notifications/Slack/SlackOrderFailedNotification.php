@@ -45,12 +45,12 @@ class SlackOrderFailedNotification extends Notification
 
     private function message(): string
     {
-        return
-            "There was an error with the order \n
-        Message: {$this->message} \n
-        Car part: {$this->carPart->name} \n
-        Car part ID: {$this->carPart->original_id} \n
-        ExternalReference: {$this->carPart->article_nr} \n
-        ";
+        return "
+    ⚠️ Order Error ⚠️\n
+    *Message:* {$this->message}\n
+    *Car Part:* {$this->carPart->name}\n
+    *Car Part ID:* {$this->carPart->original_id}\n
+    *External Reference:* {$this->carPart->article_nr}
+    ";
     }
 }
