@@ -68,13 +68,49 @@ class CarPartTypeSeeder extends Seeder
         DB::table('danish_car_part_types')->insert($danishPartTypes);
 
         $germanPartTypes = [
-            ["id" => 1, "name" => "Motor", "code" => null],
-            ["id" => 2, "name" => "Automatikgetriebe", "code" => null],
-            ["id" => 3, "name" => "Automatikgetriebe", "code" => null],
-            ["id" => 4, "name" => "Schaltgetriebe 6-Gang", "code" => null],
-            ["id" => 5, "name" => "Partikelfilter", "code" => null],
-            ["id" => 6, "name" => "Katalysator", "code" => null],
-            ["id" => 7, "name" => "Differential", "code" => null],
+            [
+                "id" => 1,
+                "name" => "Motor",
+                "code" => null,
+                "autoteile_mark_category_id" => 183,
+            ],
+            [
+                "id" => 2,
+                "name" => "Verteilergetriebe",
+                "code" => null,
+                "autoteile_mark_category_id" => 940,
+            ],
+            [
+                "id" => 3,
+                "name" => "Automatikgetriebe",
+                "code" => null,
+                "autoteile_mark_category_id" => 851,
+            ],
+            [
+                "id" => 4,
+                "name" => "Schaltgetriebe 6-Gang",
+                "code" => null,
+                "autoteile_mark_category_id" => 852,
+
+            ],
+            [
+                "id" => 5,
+                "name" => "Partikelfilter",
+                "code" => null,
+                "autoteile_mark_category_id" => 840,
+            ],
+            [
+                "id" => 6,
+                "name" => "Katalysator",
+                "code" => null,
+                "autoteile_mark_category_id" => 838,
+            ],
+            [
+                "id" => 7,
+                "name" => "Differential",
+                "code" => null,
+                "autoteile_mark_category_id" => 939,
+            ],
         ];
 
         DB::table('german_car_part_types')->insert($germanPartTypes);
@@ -89,7 +125,7 @@ class CarPartTypeSeeder extends Seeder
         $swedishPartTypes = [
             ["id" => 1, "name" => "MOTOR BENSIN", "code" => "7201"], // 1 in danish
             ["id" => 2, "name" => "MOTOR DIESEL", "code" => "7280"], // 1 in danish
-            ["id" => 3 , "name" => "VÄXEL FÖRDELNINGSLÅDA", "code" => "7704"], // 2 in danish
+            ["id" => 3, "name" => "VÄXEL FÖRDELNINGSLÅDA", "code" => "7704"], // 2 in danish
             ["id" => 4, "name" => "VÄXELLÅDA TRONIC", "code" => "7700"], // 3 in danish
             ["id" => 5, "name" => "VÄXELLÅDA AUTOMAT", "code" => "7705"], // 3 in danish
             ["id" => 6, "name" => "VÄXELLÅDA MAN. 6 VXL", "code" => "7706"], // 4 in danish

@@ -24,7 +24,8 @@
                             <p><span class="fw-bold">#: </span> {{ $carPart->id}}</p>
                             <p><span class="fw-bold">Article number: </span> {{ $carPart->article_nr }}</p>
                             <p><span class="fw-bold">Original number: </span> {{ $carPart->original_number }}</p>
-                            <p><span class="fw-bold">Price(EUR): </span> €{{ $carPart->price }}</p>
+                            <p><span class="fw-bold">Price(SEK): </span> {{ $carPart->price_sek }}</p>
+                            <p><span class="fw-bold">Price(EUR): </span> €{{ $carPart->calculated_price }}</p>
                             <p><span class="fw-bold">Engine code: </span> {{ $carPart->engine_code }}</p>
                             <p><span class="fw-bold">Engine type: </span> {{ $carPart->engine_type }}</p>
                             <p><span class="fw-bold">Fuel: </span> {{ $carPart->fuel }}</p>

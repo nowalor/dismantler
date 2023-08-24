@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
+use App\Services\CalculatePriceService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -10,13 +11,27 @@ use Illuminate\View\View;
 
 class AdminExportPartsController extends Controller
 {
-    public function index(Request $request): View
+    public function __construct(private CalculatePriceService $calculatePriceService)
+    {
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function index(Request $request) // : View
     {
         $carParts = NewCarPart::with('carPartImages')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
 
         foreach($carParts as $index => $carPart) {
+
+            $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
+            (
+                $carPart->price_sek,
+                $carPart->car_part_type_id
+            );
+
 
             $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
 
