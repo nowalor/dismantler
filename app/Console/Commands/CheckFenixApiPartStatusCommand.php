@@ -26,12 +26,16 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 //            'price', Does not exist anoymore
             'is_live'
         ])
+            ->where('is_live', true)
             ->get()
             ->toArray();
 
         $this->authenticate();
 
         foreach ($parts as $part) {
+            logger()->info('found part');
+            logger($part);
+
             $isSold = $this->isPartSold(
                 partId: $part['original_id'],
             );

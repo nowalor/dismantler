@@ -69,7 +69,7 @@ class AutoteileMarkDocService
             'kba' => $this->kbaArrayToString($kba),
             'part_state' => '2',
             'quantity' => '1',
-            'vat' => '19',
+            'vat' => '0',
             'price' => $this->calculatePriceService
                 ->sekToEurForFenix(
                     $carPart->price_sek,

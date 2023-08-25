@@ -160,16 +160,8 @@ abstract class FenixApiBaseCommand extends Command
         return $count === 0;
     }
 
-    public function reservePart(NewCarPart $part): bool
+    public function reservePart(NewCarPart $part): bool | array
     {
-        // testing notif rm code later
-        $this->notificationService->notify(
-            SlackNotificationService::ORDER_SUCCESS,
-            $part,
-        );
-
-        exit;
-
         if(!isset($this->token)) {
             $this->authenticate();
         }
@@ -182,19 +174,18 @@ abstract class FenixApiBaseCommand extends Command
             "Reservations" => [
                 [
                     'Id' => 0,
-                    //'PartId' => $part->part_id,
-                    'PartId' => 78998657,
-                    'Type' => 2,
+                    'PartId' => $part->original_id,
+                    'Type' => 3,
                     'CarBreaker' => 'AT',
                     'ExternalReference' => $part->article_nr,
                     'ExternalSourceName' => 'autoteile',
+                    'DueDate' => now()->addDays(2)->toIso8601String(),
                 ],
             ]
         ];
 
         $options = $this->getAuthHeaders();
         $options['json'] = $payload;
-
 
 
         try {
@@ -208,7 +199,7 @@ abstract class FenixApiBaseCommand extends Command
                 $this->notificationService->notify(
                     SlackNotificationService::ORDER_FAILED,
                     $part,
-                    $statusCode
+                    statusCode: $statusCode
                 );
                 logger($data);
 
@@ -233,25 +224,21 @@ abstract class FenixApiBaseCommand extends Command
                 return false;
             }
         } catch(\Exception $e) {
-//            $this->notificationService->notify(
-//                SlackNotificationService::ORDER_FAILED,
-//                $part,
-//                $e->getMessage()
-//            );
+            $this->notificationService->notify(
+                SlackNotificationService::ORDER_FAILED,
+                $part,
+            );
+
+            logger($e->getMessage());
 
             return false;
         }
 
-        $this->notificationService->notify(
-            SlackNotificationService::ORDER_SUCCESS,
-            $part,
-        );
-        return true;
-    }
+        logger($data);
 
-    protected function orderPart(array $information)
-    {
-
+        return [
+            'Id' => $data[0]['Id'],
+        ];
     }
 
     protected function getAuthHeaders(): array

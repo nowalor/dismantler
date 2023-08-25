@@ -51,10 +51,14 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
     private function handleSoldParts(array $parts)
     {
         foreach($parts as $part) {
-            $success = $this->reservePart($part);
+            $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
 
-            if($success) {
+            $reservedPart = $this->reservePart($dbPart);
+
+            if($reservedPart) {
                 $this->updadatePartInDB($part['article_nr']);
+
+                $part['Id'] = $reservedPart['Id'];
 
                 $this->notificationService->notifyOrderSuccess(
                     partData: $part,
@@ -69,7 +73,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
      */
     private function getSoldParts(): array
     {
-        $file = Storage::disk('ftp')->get('sellout_standard.xml');
+        $file = Storage::disk('ftp')->get('sellout_standard-testing.xml');
 
         $xml = simplexml_load_string($file);
 
