@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CarPartType;
+use App\Models\GermanCarPartType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -112,6 +113,14 @@ class CarPartTypeSeeder extends Seeder
                 "autoteile_markt_category_id" => 939,
             ],
         ];
+
+        foreach($germanPartTypes as $germanPartType) {
+            $partType = GermanCarPartType::where('id', $germanPartType['id']);
+
+            $partType->update([
+                'autoteile_markt_category_id' => $germanPartType['autoteile_markt_category_id'],
+            ]);
+        }
 
         DB::table('german_car_part_types')->insert($germanPartTypes);
 
