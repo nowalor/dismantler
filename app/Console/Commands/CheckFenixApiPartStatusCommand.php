@@ -19,7 +19,13 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
     {
         logger('CheckFenixApiPartStatusCommand ran on schedule');
 
-        $parts = NewCarPart::select(['id', 'original_id', 'article_nr', 'price', 'is_live'])
+        $parts = NewCarPart::select([
+            'id',
+            'original_id',
+            'article_nr',
+//            'price', Does not exist anoymore
+            'is_live'
+        ])
             ->get()
             ->toArray();
 
@@ -72,8 +78,8 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             $rows[] = [
                 $part['article_nr'],
                 0,
-                $part['price'] * 1.19,
-                $part['price'] * 1.19,
+                0,
+                0,
             ];
         }
 

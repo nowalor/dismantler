@@ -75,6 +75,10 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
         $parts = [];
 
+        if(!$xml) {
+            return $parts;
+        }
+
         foreach ($xml->item as $item) {
             $articleNr = (string)$item->number;
 
