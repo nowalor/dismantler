@@ -12,6 +12,13 @@ class GermanCarPartType extends Model
 
     protected $hidden = ['pivot'];
 
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'autoteile_markt_id'
+    ];
+
     public function carPartTypes(): BelongsToMany
     {
         return $this->belongsToMany(CarPartType::class);

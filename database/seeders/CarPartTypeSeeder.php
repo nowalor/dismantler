@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CarPartType;
+use App\Models\GermanCarPartType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -72,46 +73,54 @@ class CarPartTypeSeeder extends Seeder
                 "id" => 1,
                 "name" => "Motor",
                 "code" => null,
-                "autoteile_mark_category_id" => 183,
+                "autoteile_markt_category_id" => 183,
             ],
             [
                 "id" => 2,
                 "name" => "Verteilergetriebe",
                 "code" => null,
-                "autoteile_mark_category_id" => 940,
+                "autoteile_markt_category_id" => 940,
             ],
             [
                 "id" => 3,
                 "name" => "Automatikgetriebe",
                 "code" => null,
-                "autoteile_mark_category_id" => 851,
+                "autoteile_markt_category_id" => 851,
             ],
             [
                 "id" => 4,
                 "name" => "Schaltgetriebe 6-Gang",
                 "code" => null,
-                "autoteile_mark_category_id" => 852,
+                "autoteile_markt_category_id" => 852,
 
             ],
             [
                 "id" => 5,
                 "name" => "Partikelfilter",
                 "code" => null,
-                "autoteile_mark_category_id" => 840,
+                "autoteile_markt_category_id" => 840,
             ],
             [
                 "id" => 6,
                 "name" => "Katalysator",
                 "code" => null,
-                "autoteile_mark_category_id" => 838,
+                "autoteile_markt_category_id" => 838,
             ],
             [
                 "id" => 7,
                 "name" => "Differential",
                 "code" => null,
-                "autoteile_mark_category_id" => 939,
+                "autoteile_markt_category_id" => 939,
             ],
         ];
+
+        foreach($germanPartTypes as $germanPartType) {
+            $partType = GermanCarPartType::where('id', $germanPartType['id']);
+
+            $partType->update([
+                'autoteile_markt_category_id' => $germanPartType['autoteile_markt_category_id'],
+            ]);
+        }
 
         DB::table('german_car_part_types')->insert($germanPartTypes);
 

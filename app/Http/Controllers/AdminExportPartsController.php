@@ -15,17 +15,17 @@ class AdminExportPartsController extends Controller
     {
     }
 
-    /**
+    /**￼
      * @throws \Exception
      */
     public function index(Request $request) // : View
     {
         $carParts = NewCarPart::with('carPartImages')
+            ->whereNotNull('price_sek')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
 
         foreach($carParts as $index => $carPart) {
-
             $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
             (
                 $carPart->price_sek,

@@ -38,6 +38,7 @@ class SlackOrderSuccessNotification extends Notification
         return "
     🔥 New Reservation 🔥\n
     *Article Number:* {$this->partData['article_nr']}\n
+    *Reservation ID:* {$this->partData['Id']}\n
     Billing information:
     - *Name:* {$this->partData['billing_information']['firstname']} {$this->partData['billing_information']['surname']}
     - *Address:* {$this->partData['billing_information']['street']}, {$this->partData['billing_information']['zip']} {$this->partData['billing_information']['city']}, {$this->partData['billing_information']['country']}

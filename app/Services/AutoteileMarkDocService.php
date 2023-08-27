@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Storage;
 class AutoteileMarkDocService
 {
     private ResolveKbaFromSbrCodeService $resolveKbaFromSbrCodeService;
-
+    private CalculatePriceService $calculatePriceService;
     public function __construct()
+
     {
         $this->resolveKbaFromSbrCodeService = new ResolveKbaFromSbrCodeService();
+        $this->calculatePriceService = new CalculatePriceService();
     }
 
     public function generateExportCSV(NewCarPart $carPart): void
@@ -52,7 +54,7 @@ class AutoteileMarkDocService
         fputcsv($file, $partInformation, '|');
 
         // Upload to FTP server
-        // Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
+        Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
     }
 
     private function resolvePartInformation(NewCarPart $carPart): array
@@ -67,9 +69,17 @@ class AutoteileMarkDocService
             'kba' => $this->kbaArrayToString($kba),
             'part_state' => '2',
             'quantity' => '1',
-            'vat' => '19',
-            'price' => $this->calculatePrice($carPart),
-            'price_b2b' => $this->calculatePrice($carPart),
+            'vat' => '0',
+            'price' => $this->calculatePriceService
+                ->sekToEurForFenix(
+                    $carPart->price_sek,
+                    $carPart->car_part_type_id
+                ),
+            'price_b2b' => $this->calculatePriceService
+                ->sekToEurForFenix(
+                    $carPart->price_sek,
+                    $carPart->car_part_type_id
+                ),
             'delivery' => '0',
             'delivery_time' => '3-6',
             'properties' => $this->resolveProperties($carPart),
@@ -112,19 +122,6 @@ class AutoteileMarkDocService
     private function kbaArrayToString(array $kbaArray): string
     {
         return implode(',', $kbaArray);
-    }
-
-    /*
-     * Price from SEK to EUR with shipment and German VAT
-     * Calculations vary depending on the car part type
-     */
-    private function calculatePrice(NewCarPart $carPart): float
-    {
-        if ($carPart->car_part_type_id === 1) {
-            return round(($carPart->price_sek / 10) * 1.19, 1);
-        }
-
-        return round(($carPart->price_sek / 10.5) * 1.19, 1);
     }
 
     private function resolveProperties(NewCarPart $carPart): string
