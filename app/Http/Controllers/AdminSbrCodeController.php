@@ -97,16 +97,15 @@ class AdminSbrCodeController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SbrCode  $sbrCode
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, SbrCode $sbrCode)
     {
-        //
+        if(!$request->filled('dito_number')) {
+            return redirect()->back();
+        }
+
+        $sbrCode->ditoNumbers()->attach($request->get('dito_number'));
+
+        return redirect()->back();
     }
 
 

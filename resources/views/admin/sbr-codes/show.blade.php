@@ -102,8 +102,15 @@
                                     <td>{{ $ditoNumber->production_date }}</td>
                                     <td>{{ $ditoNumber->dito_number}}</td>
                                     <td>
-                                        <a href="{{ route('admin.dito-numbers.show', $ditoNumber->id) }}"
-                                           class="btn btn-sm btn-primary">View</a>
+                                        <form method="POST"
+                                              action="{{ route('admin.sbr-codes.update', $sbrCode)  }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="dito_number" value="{{ $ditoNumber->id }}">
+                                            <button
+                                                class="btn btn-sm btn-primary">Save
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
