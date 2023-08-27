@@ -11,7 +11,9 @@ class AdminSbrCodeController extends Controller
 {
     public function index(Request $request) //: View
     {
-        $sbrCodes = SbrCode::select(['id', 'sbr_code', 'name', ]);
+        $sbrCodes = SbrCode::select(['id', 'sbr_code', 'name',])
+            ->withCount('ditoNumbers')
+            ->withCount('carParts');
 
         $totalSbrWithDito = SbrCode::whereHas('ditoNumbers')->count();
         $totalSbrWithoutDito = SbrCode::whereDoesntHave('ditoNumbers')->count();
@@ -42,9 +44,15 @@ class AdminSbrCodeController extends Controller
             }
         }
 
-        $sbrCodes = $sbrCodes
-            ->withCount('ditoNumbers')
-            ->paginate(200);
+        if($request->filled('sort')) {
+            $sortBy = $request->get('sort');
+
+            if($sortBy === 'car-parts') {
+                $sbrCodes = $sbrCodes->orderBy('car_parts_count', 'desc');
+            }
+        }
+
+        $sbrCodes = $sbrCodes->paginate(200);
 
         return view('admin.sbr-codes.index', compact(
             'sbrCodes',

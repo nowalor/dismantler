@@ -57,6 +57,27 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="mb-3">
+                                <label class="fw-bold">Sort by</label>
+
+                                <div class="d-flex gap-2">
+                                    <div>
+                                        <label for="Car parts">
+                                            Name
+                                        </label>
+                                        <input type="radio" class="form-check-input" name="sort"
+                                               value="car-parts" {{ request()->input('sort') === 'name' ? 'checked' : '' }}>
+                                    </div>
+                                    <div>
+                                        <label for="Car parts">
+                                            Car parts
+                                        </label>
+                                        <input type="radio" class="form-check-input" name="sort"
+                                               value="car-parts" {{ request()->input('sort') === 'car-parts' ? 'checked' : '' }}>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="mb-3">
                                 <button class="btn btn-primary w-100" type="submit">Search</button>
                             </div>
@@ -88,6 +109,7 @@
                             <th>Sbr code</th>
                             <th>Name</th>
                             <th>Dito numbers</th>
+                            <th>Car parts</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -98,6 +120,7 @@
                                 <td>{{ $sbrCode->sbr_code }}</td>
                                 <td>{{ $sbrCode->name }}</td>
                                 <td>{{ $sbrCode->dito_numbers_count }}</td>
+                                <td>{{ $sbrCode->car_parts_count }}</td>
                                 <td>
                                     <a href="{{ route('admin.sbr-codes.show', $sbrCode->id) }}" class="btn btn-primary">View</a>
                                 </td>
