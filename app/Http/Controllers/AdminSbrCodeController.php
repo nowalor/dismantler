@@ -2,61 +2,77 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DitoNumber;
 use App\Models\SbrCode;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AdminSbrCodeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(Request $request) //: View
     {
-        $sbrCodes = SbrCode::paginate(200);
+        $sbrCodes = SbrCode::select(['id', 'sbr_code', 'name', ]);
 
-        return view('admin.sbr-codes.index', compact('sbrCodes'));
+        $totalSbrWithDito = SbrCode::whereHas('ditoNumbers')->count();
+        $totalSbrWithoutDito = SbrCode::whereDoesntHave('ditoNumbers')->count();
+
+        if($request->filled('search')) {
+            $search = $request->get('search');
+
+            $sbrCodes = $sbrCodes->where('name', 'LIKE', "%{$search}%");
+        }
+
+        if($request->filled('dito-connection')) {
+            $ditoConnectionTypeFilter = $request->get('dito-connection');
+
+            if($ditoConnectionTypeFilter === 'with') {
+                $sbrCodes = $sbrCodes->whereHas('ditoNumbers');
+            } else if($ditoConnectionTypeFilter === 'without') {
+                $sbrCodes = $sbrCodes->whereDoesntHave('ditoNumbers');
+            }
+        }
+
+        if($request->filled('car-parts')) {
+            $carPartsFilter = $request->get('car-parts');
+
+            if($carPartsFilter === 'with') {
+                $sbrCodes = $sbrCodes->whereHas('carParts');
+            } else if($carPartsFilter === 'without') {
+                $sbrCodes = $sbrCodes->whereDoesntHave('carParts');
+            }
+        }
+
+        $sbrCodes = $sbrCodes
+            ->withCount('ditoNumbers')
+            ->paginate(200);
+
+        return view('admin.sbr-codes.index', compact(
+            'sbrCodes',
+            'totalSbrWithDito',
+            'totalSbrWithoutDito')
+        );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SbrCode  $sbrCode
-     * @return \Illuminate\Http\Response
-     */
     public function show(SbrCode $sbrCode)
     {
-        return 'show';
+        $sbrCode->load('ditoNumbers');
+
+        // Get all dito numbers except the ones connected to this sbr code
+        $ditoNumbers = DitoNumber::whereDoesntHave('sbrCodes', function ($query) use ($sbrCode) {
+            $query->where('sbr_code_id', $sbrCode->id);
+        });
+
+        $ditoNumbers = $ditoNumbers
+            ->paginate(200);
+
+        return view('admin.sbr-codes.show', compact('sbrCode', 'ditoNumbers'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SbrCode  $sbrCode
-     * @return \Illuminate\Http\Response
-     */
     public function edit(SbrCode $sbrCode)
     {
         //
