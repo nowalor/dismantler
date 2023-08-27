@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DitoNumber;
 use App\Models\SbrCode;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -108,14 +109,15 @@ class AdminSbrCodeController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SbrCode  $sbrCode
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SbrCode $sbrCode)
+
+    public function destroy(SbrCode $sbrCode, Request $request) : RedirectResponse
     {
-        //
+        if(!$request->filled('dito_number')) {
+            return redirect()->back();
+        }
+
+        $sbrCode->ditoNumbers()->detach($request->get('dito_number'));
+
+        return redirect()->back();
     }
 }
