@@ -10,7 +10,7 @@ use Illuminate\View\View;
 
 class AdminSbrCodeController extends Controller
 {
-    public function index(Request $request) //: View
+    public function index(Request $request): View
     {
         $sbrCodes = SbrCode::select(['id', 'sbr_code', 'name',])
             ->withCount('ditoNumbers')
@@ -62,12 +62,7 @@ class AdminSbrCodeController extends Controller
         );
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(SbrCode $sbrCode, Request $request)
+    public function show(SbrCode $sbrCode, Request $request): View
     {
         $sbrCode->load('ditoNumbers')->loadCount('carParts');
 
@@ -92,12 +87,7 @@ class AdminSbrCodeController extends Controller
         return view('admin.sbr-codes.show', compact('sbrCode', 'ditoNumbers'));
     }
 
-    public function edit(SbrCode $sbrCode)
-    {
-        //
-    }
-
-    public function update(Request $request, SbrCode $sbrCode)
+    public function update(Request $request, SbrCode $sbrCode): RedirectResponse
     {
         if(!$request->filled('dito_number')) {
             return redirect()->back();
@@ -105,7 +95,7 @@ class AdminSbrCodeController extends Controller
 
         $sbrCode->ditoNumbers()->attach($request->get('dito_number'));
 
-        return redirect()->back();
+        return redirect()->back()->withMessage('Dito number added to SBR code');
     }
 
 
@@ -117,6 +107,6 @@ class AdminSbrCodeController extends Controller
 
         $sbrCode->ditoNumbers()->detach($request->get('dito_number'));
 
-        return redirect()->back();
+        return redirect()->back()->withMessage('Dito number removed from SBR code');
     }
 }

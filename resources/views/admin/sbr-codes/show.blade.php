@@ -3,6 +3,12 @@
 @section('title', 'Admin - SBR Codes')
 @section('content')
     <div class="container">
+        @if(session()->has('message'))
+            <div class="alert alert-success mt-4">
+                <p class="mb-0">{{ session()->get('message') }}</p>
+            </div>
+        @endif
+
         <div class="row pt-4">
             <div class="col-6">
                 <div class="card">
