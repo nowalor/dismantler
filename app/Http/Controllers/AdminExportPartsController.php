@@ -22,6 +22,8 @@ class AdminExportPartsController extends Controller
     {
         $carParts = NewCarPart::with('carPartImages')
             ->whereNotNull('price_sek')
+            ->where('price_sek', '>', 0)
+            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
 
@@ -31,7 +33,6 @@ class AdminExportPartsController extends Controller
                 $carPart->price_sek,
                 $carPart->car_part_type_id
             );
-
 
             $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
 
@@ -44,10 +45,6 @@ class AdminExportPartsController extends Controller
                         return $kbaNumber->id === $kba->id;
                     });
                 }
-            }
-            if($uniqueKba->isEmpty()) {
-                $carParts->forget($index);
-                continue;
             }
 
             $carPart->kba = $uniqueKba;

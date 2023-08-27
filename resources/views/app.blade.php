@@ -25,9 +25,9 @@
                 <li class="nav-item">
                     <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}" href="{{ route('admin.export-parts.index') }}">Fenix parts</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a class="text-danger nav-link {{ activeMenu('admin/dito-numbers') }}" href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
                 </li>
@@ -37,14 +37,17 @@
                 <!-- °<li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.car-parts.index') }}">Parts</a>
                 </li> -->
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('admin.new-parts') }}">Parts</a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('admin.information') }}">Information</a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.new-parts') }}">Parts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.information') }}">Information</a>
+                    <a class="text-danger nav-link {{ activeMenu('admin/sbr-codes') }}" href="{{ route('admin.sbr-codes.index') }}">SBR</a>
                 </li>
             </ul>
         </div>
