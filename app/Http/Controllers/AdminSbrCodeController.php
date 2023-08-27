@@ -66,16 +66,26 @@ class AdminSbrCodeController extends Controller
         //
     }
 
-    public function show(SbrCode $sbrCode)
+    public function show(SbrCode $sbrCode, Request $request)
     {
-        $sbrCode->load('ditoNumbers');
+        $sbrCode->load('ditoNumbers')->loadCount('carParts');
 
         // Get all dito numbers except the ones connected to this sbr code
-        $ditoNumbers = DitoNumber::whereDoesntHave('sbrCodes', function ($query) use ($sbrCode) {
-            $query->where('sbr_code_id', $sbrCode->id);
-        });
+        $ditoNumbers = DitoNumber::query();
+
+        if($request->filled('search')) {
+            $search = $request->get('search');
+
+            $ditoNumbers = $ditoNumbers->where(function ($query) use ($search) {
+                $query->where('dito_number', 'LIKE', "%{$search}%")
+                    ->orWhere('brand', 'LIKE', "%{$search}%")
+                    ->orWhere('producer', 'LIKE', "%{$search}%")
+                    ->orWhere('production_date', 'LIKE', "%{$search}%");
+            });
+        }
 
         $ditoNumbers = $ditoNumbers
+            ->whereNotIn('id', $sbrCode->ditoNumbers->pluck('id')->toArray())
             ->paginate(200);
 
         return view('admin.sbr-codes.show', compact('sbrCode', 'ditoNumbers'));
