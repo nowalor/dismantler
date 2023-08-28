@@ -73,7 +73,19 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
      */
     private function getSoldParts(): array
     {
-        $file = Storage::disk('ftp')->get('sellout_standard-testing.xml');
+        // file = Storage::disk('ftp')->get('sellout_standard-testing.xml');
+
+        $files = Storage::disk('ftp')->files();
+
+        $xmlFiles = array_filter($files, function ($file) {
+            return strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'xml';
+        });
+
+        $file = reset($xmlFiles);
+
+        if (empty($xmlFiles)) {
+            return [];
+        }
 
         $xml = simplexml_load_string($file);
 
