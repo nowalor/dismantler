@@ -34,6 +34,9 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
             $this->uploadParts($data['parts'][0]);
 
+            logger('count test');
+            logger(count($data['parts'][0]));
+
             // TODO handle pagination
         }
 
@@ -61,7 +64,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             'fuel' => $part['Car']['Fuel'],
             'gearbox' => $part['Car']['Gearbox'],
             'warranty' => $part['Warranty'],
-            'mileage_km' => $part['Car']['Mileage'] * 10,
+            'mileage_km' => (int)$part['Car']['Mileage'] * 10,
             'model_year' => $part['Car']['ModelYear'],
             'vin' => $part['Car']['VIN'],
         ];

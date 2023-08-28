@@ -75,7 +75,7 @@ abstract class FenixApiBaseCommand extends Command
         $parts = [];
 
         $payload = [
-            "Take" => 40,
+            "Take" => 500,
             "Skip" => 0,
             "Page" => 1,
             "IncludeNew" => false,
@@ -121,7 +121,7 @@ abstract class FenixApiBaseCommand extends Command
         }
 
         $payload = [
-            "Take" => 40,
+            "Take" => 500,
             "Skip" => 0,
             "Page" => 1,
             "IncludeNew" => false,
