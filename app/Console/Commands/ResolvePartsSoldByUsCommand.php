@@ -82,7 +82,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
         });
 
         $file = reset($xmlFiles);
-        $fileContents = Storage::disk('ftp')->get($file);
+        $file = Storage::disk('ftp')->get($file);
 
         if (empty($xmlFiles)) {
             return [];
