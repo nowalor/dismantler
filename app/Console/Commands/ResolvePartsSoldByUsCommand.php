@@ -54,9 +54,9 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
 
             // Return if part sold_at is not null
-//            if($dbPart->sold_at) {
-//                continue;
-//            }
+            if($dbPart->sold_at) {
+                continue;
+            }
 
             $reservedPart = $this->reservePart($dbPart);
 
