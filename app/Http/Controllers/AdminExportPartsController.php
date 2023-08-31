@@ -25,7 +25,6 @@ class AdminExportPartsController extends Controller
             ->has('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->whereNotNull('price_sek')
             ->where('name', 'like', '%MOTOR%')
-            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
 
         foreach($carParts as $index => $carPart) {
@@ -36,22 +35,15 @@ class AdminExportPartsController extends Controller
             );
 
 
-            $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
-
             $engineCode = $carPart->engine_code;
 
-            foreach($uniqueKba as $kba) {
-                // Remove kba numbers that don't have the engine code
-                if(!$kba->engineTypes->contains('name', $engineCode)) {
-                    $uniqueKba = $uniqueKba->reject(function ($kbaNumber) use ($kba) {
-                        return $kbaNumber->id === $kba->id;
+                $carPart->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
+                    $query->whereHas('engineTypes', function ($query) use ($engineCode) {
+                        $query->where('name', 'like', "%$engineCode%");
                     });
-                }
-            }
-            if(!$uniqueKba->isEmpty()) {
-                $carParts->forget($index);
-                continue;
-            }
+                }]);
+
+            $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
 
             $carPart->kba = $uniqueKba;
             $carPart->kba_string = implode(', ', $carPart->kba->map(function ($kbaNumber) {
