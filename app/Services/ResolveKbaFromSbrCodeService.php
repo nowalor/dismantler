@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\EngineType;
 use App\Models\SbrCode;
 
 class ResolveKbaFromSbrCodeService
@@ -11,31 +10,20 @@ class ResolveKbaFromSbrCodeService
     {
         $sbrCodeModel = SbrCode::where('sbr_code', $sbrCode)->first();
 
-        $engineTypes = EngineType::where('name', 'like', "%$engineName%")->get();
-
-        if ($engineTypes->isEmpty()) {
-            return [];
-        }
-
-        $engineTypeId = $engineType->id;
-
-        $ditoNumbers = $sbrCodeModel->ditoNumbers()->whereHas('germanDismantlers', function ($query) use ($engineTypeId) {
-            $query->whereHas('engineTypes', function ($query) use ($engineTypeId) {
-                $query->where('engine_types.id', $engineTypeId);
+        $sbrCodeModel->load(['ditoNumbers.germanDismantlers' => function ($query) use ($engineName) {
+            $query->whereHas('engineTypes', function ($query) use ($engineName) {
+                $query->where('name', 'like', "%$engineName%");
             });
-        })->with(['germanDismantlers' => function ($query) use ($engineTypeId) {
-            $query->whereHas('engineTypes', function ($query) use ($engineTypeId) {
-                $query->where('engine_types.id', $engineTypeId);
-            });
-        }])->get()
-            ->pluck('germanDismantlers')->flatten()->unique();
+        }]);
 
-        return $ditoNumbers->map(function ($ditoNumber) {
-            return implode([
-                'hsn' => $ditoNumber->hsn,
-                'tsn' => $ditoNumber->tsn,
-            ]);
-        })->toArray();
+        $uniqueKba = $sbrCodeModel->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
+
+       return $uniqueKba->map(function($kba) {
+           return implode([
+               'hsn' => $kba->hsn,
+               'tsn' => $kba->tsn,
+           ]);
+       });
     }
 }
 
