@@ -21,7 +21,10 @@ class AdminExportPartsController extends Controller
     public function index(Request $request) // : View
     {
         $carParts = NewCarPart::with('carPartImages')
+            ->has('carPartImages')
+            ->has('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->whereNotNull('price_sek')
+            ->where('name', 'like', '%MOTOR%')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
 
@@ -45,7 +48,7 @@ class AdminExportPartsController extends Controller
                     });
                 }
             }
-            if($uniqueKba->isEmpty()) {
+            if(!$uniqueKba->isEmpty()) {
                 $carParts->forget($index);
                 continue;
             }
@@ -86,15 +89,24 @@ class AdminExportPartsController extends Controller
         return view('admin.export-parts.index', compact('carParts'));
     }
 
+    /*
+     * Possible solution for mismatch between part engine code and kba engine code
+     * Escape spaces on both sides. That way we won't get a mismatch between B 4164 S3 and B4164S3
+     * Use part engine code was wildcard for kba engine code
+     * That way can match CFB with CFB (1KR)
+     */
+
     public function show(NewCarPart $carPart)
     {
 
         $carPart->load('carPartImages');
         $engineCode = $carPart->engine_code;
 
+//        $carPart->load('sbrCode.ditoNumbers.germanDismantlers.engineTypes');
+
         $carPart->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
             $query->whereHas('engineTypes', function ($query) use ($engineCode) {
-                $query->where('name', '=', $engineCode);
+                $query->where('name', 'like', "%$engineCode%");
             });
         }]);
 
@@ -107,7 +119,7 @@ class AdminExportPartsController extends Controller
             ]);
         })->toArray());
 
-        return view('admin.export-parts.show', compact('carPart'));
+        return view('admin.export-parts.show', compact('carPart', 'uniqueKba'));
     }
 
     private function getKba(NewCarPart $carPart): array

@@ -11,10 +11,10 @@ class ResolveKbaFromSbrCodeService
     {
         $sbrCodeModel = SbrCode::where('sbr_code', $sbrCode)->first();
 
-        $engineType = EngineType::where('name', $engineName)->first();
+        $engineTypes = EngineType::where('name', 'like', "%$engineName%")->get();
 
-        if (!$engineType) {
-            return '';
+        if ($engineTypes->isEmpty()) {
+            return [];
         }
 
         $engineTypeId = $engineType->id;

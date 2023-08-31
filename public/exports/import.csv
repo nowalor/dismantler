@@ -1,169 +1,2836 @@
 cat_id|article_nr|title|description|brand|kba|part_state|quantity|vat|price|price_b2b|delivery|delivery_time|properties|img_1|img_2|img_3|img_4|img_5|img_6
-940|BO571483|"Verteilergetriebe / AUDI A3/S3   05-13 / AXX / 0AV409053P"|"
-            Lagernummer: BO571483 
+183|BO426791|"Motor / MAZDA 2     08-15 / ZJ-VE / ZJ46-02-300D"|"
+            Lagernummer: BO426791 
 
-            Originale Ersatzteilnummer: 0AV409053P 
+            Originale Ersatzteilnummer: ZJ46-02-300D 
 
-            Motor Kennung: AXX 
+            Motor Kennung: ZJ-VE 
 
-            Motortype: 2,0T AXX 
-
-            Brandstofftype: Bensin 
-
-            Getriebe: 6VXL GVU 
-
-            Laufleistung: 183020(km) 
-
-            Fahrgestellnummer: WAUZZZ8P85A162184 
-
-            Baujahr: 2005 
-
-            Kbas: 0588AIH,0588AII,0588857,0588860,0588ADO,0588ADP
-        "|"A3 8P"|0588AIH,0588AII,0588857,0588860,0588ADO,0588ADP|2|1|19|680|680|0|3-6|"MOTORCODE,AXX,MOTORTYPE,2.0T AXX,GEARBOXCODE,6VXL GVU,MILEAGE,183020,QUALITY,A"|http://46.101.206.99/storage/img/car-part/812/image1.jpg|http://46.101.206.99/storage/img/car-part/812/image2.jpg|http://46.101.206.99/storage/img/car-part/812/image3.jpg
-940|BO585624|"Verteilergetriebe / AUDI TT          99-06 / APX / 02M409053Q"|"
-            Lagernummer: BO585624 
-
-            Originale Ersatzteilnummer: 02M409053Q 
-
-            Motor Kennung: APX 
-
-            Motortype: 1,8T APX 
+            Motortype: 1,3 ZJ-VE 
 
             Brandstofftype: Bensin 
 
-            Getriebe: 6VXL DQB 
+            Getriebe: 5VXL 
 
-            Laufleistung: 153000(km) 
+            Laufleistung: 9330(km) 
 
-            Fahrgestellnummer: TRUZZZ8NZY1020113 
+            Fahrgestellnummer: JMZDEA4J200426055 
 
-            Baujahr: 2000 
+            Baujahr: 2011 
 
-            Kbas: 8307302,8307305,8307AAD,8307AAL
-        "|"TT 8N"|8307302,8307305,8307AAD,8307AAL|2|1|19|453.3|453.3|0|3-6|"MOTORCODE,APX,MOTORTYPE,1.8T APX,GEARBOXCODE,6VXL DQB,MILEAGE,153000,QUALITY,A"|http://46.101.206.99/storage/img/car-part/814/image1.jpg|http://46.101.206.99/storage/img/car-part/814/image2.jpg|http://46.101.206.99/storage/img/car-part/814/image3.jpg
-852|BO443816|"Schaltgetriebe 6-Gang / AUDI A5  07-16 / CDNB / 0B1300027JX"|"
-            Lagernummer: BO443816 
+            Kbas: 7118ADU,7118AEX
+        "|2|7118ADU,7118AEX|2|1|0|1000|1000|0|3-6|"MOTORCODE,ZJ-VE,MOTORTYPE,1.3 ZJ-VE,GEARBOXCODE,5VXL,MILEAGE,9330,QUALITY,A"|http://46.101.206.99/storage/img/car-part/713/image1.jpg|http://46.101.206.99/storage/img/car-part/713/image2.jpg|http://46.101.206.99/storage/img/car-part/713/image3.jpg|http://46.101.206.99/storage/img/car-part/713/image4.jpg|http://46.101.206.99/storage/img/car-part/713/image5.jpg
+183|BO438695|"Motor / NISSAN QASHQAI+2  10-14 / HR16DE / 10102JD01F"|"
+            Lagernummer: BO438695 
 
-            Originale Ersatzteilnummer: 0B1300027JX 
+            Originale Ersatzteilnummer: 10102JD01F 
 
-            Motor Kennung: CDNB 
+            Motor Kennung: HR16DE 
 
-            Motortype: 2.0TFSI CDNB 
-
-            Brandstofftype: Bensin 
-
-            Getriebe: 6VXL KBZ 
-
-            Laufleistung: 141910(km) 
-
-            Fahrgestellnummer: WAUZZZ8TX9A054040 
-
-            Baujahr: 2009 
-
-            Kbas: 0588AIQ,0588ALD,0588AJY
-        "|"A5 8T"|0588AIQ,0588ALD,0588AJY|2|1|19|906.7|906.7|0|3-6|"MOTORCODE,CDNB,MOTORTYPE,2.0TFSI CDNB,GEARBOXCODE,6VXL KBZ,MILEAGE,141910,QUALITY,A"|http://46.101.206.99/storage/img/car-part/880/image1.jpg|http://46.101.206.99/storage/img/car-part/880/image2.jpg|http://46.101.206.99/storage/img/car-part/880/image3.jpg|http://46.101.206.99/storage/img/car-part/880/image4.jpg
-852|BO470113|"Schaltgetriebe 6-Gang / AUDI A6/S6     05-11 / BPJ / 01X300044FX"|"
-            Lagernummer: BO470113 
-
-            Originale Ersatzteilnummer: 01X300044FX 
-
-            Motor Kennung: BPJ 
-
-            Motortype: 2.0TFSI BPJ 
+            Motortype: HR16DE 
 
             Brandstofftype: Bensin 
 
-            Getriebe: 6VXL GVC 
+            Getriebe: 5VXL JR132 
 
-            Laufleistung: 153200(km) 
+            Laufleistung: 13560(km) 
 
-            Fahrgestellnummer: WAUZZZ4F36N114793 
+            Fahrgestellnummer: SJNJAAJ10U7157032 
+
+            Baujahr: 2013 
+
+            Kbas: 1329ABB,1329AFG
+        "|"QASHQAI 2"|1329ABB,1329AFG|2|1|0|2023|2023|0|3-6|"MOTORCODE,HR16DE,MOTORTYPE,HR16DE,GEARBOXCODE,5VXL JR132,MILEAGE,13560,QUALITY,A"|http://46.101.206.99/storage/img/car-part/716/image1.jpg|http://46.101.206.99/storage/img/car-part/716/image2.jpg|http://46.101.206.99/storage/img/car-part/716/image3.jpg|http://46.101.206.99/storage/img/car-part/716/image4.jpg|http://46.101.206.99/storage/img/car-part/716/image5.jpg|http://46.101.206.99/storage/img/car-part/716/image6.jpg
+183|BO465553|"Motor / MAZDA 6          13- / PE-VPS / PEY7-02-300E"|"
+            Lagernummer: BO465553 
+
+            Originale Ersatzteilnummer: PEY7-02-300E 
+
+            Motor Kennung: PE-VPS 
+
+            Motortype:  
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 31270(km) 
+
+            Fahrgestellnummer: JMZGJ597611102287 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|"6 GJ"||2|1|0|1428|1428|0|3-6|MOTORCODE,PE-VPS,MOTORTYPE,,GEARBOXCODE,6VXL,MILEAGE,31270,QUALITY,A|http://46.101.206.99/storage/img/car-part/720/image1.jpg|http://46.101.206.99/storage/img/car-part/720/image2.jpg|http://46.101.206.99/storage/img/car-part/720/image3.jpg|http://46.101.206.99/storage/img/car-part/720/image4.jpg|http://46.101.206.99/storage/img/car-part/720/image5.jpg
+183|BO474518|"Motor / NISSAN NOTE (E12)  14-20 / HR12DE / 101023VU0A"|"
+            Lagernummer: BO474518 
+
+            Originale Ersatzteilnummer: 101023VU0A 
+
+            Motor Kennung: HR12DE 
+
+            Motortype: 1.2 HR12DE 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 5VXL JH3323 
+
+            Laufleistung: 10830(km) 
+
+            Fahrgestellnummer: SJNTAAE12U1067867 
+
+            Baujahr: 2014 
+
+            Kbas: 1329AHN
+        "|NOTE|1329AHN|2|1|0|1190|1190|0|3-6|"MOTORCODE,HR12DE,MOTORTYPE,1.2 HR12DE,GEARBOXCODE,5VXL JH3323,MILEAGE,10830,QUALITY,A"|http://46.101.206.99/storage/img/car-part/723/image1.jpg|http://46.101.206.99/storage/img/car-part/723/image2.jpg|http://46.101.206.99/storage/img/car-part/723/image3.jpg|http://46.101.206.99/storage/img/car-part/723/image4.jpg|http://46.101.206.99/storage/img/car-part/723/image5.jpg|http://46.101.206.99/storage/img/car-part/723/image6.jpg|http://46.101.206.99/storage/img/car-part/723/image7.jpg
+183|BO482706|"Motor / HONDA CIVIC     06-11 / LDA2 / 10002RMXE00"|"
+            Lagernummer: BO482706 
+
+            Originale Ersatzteilnummer: 10002RMXE00 
+
+            Motor Kennung: LDA2 
+
+            Motortype: 1.3 LDA2 
+
+            Brandstofftype: Elhybrid b 
+
+            Getriebe: AUT 
+
+            Laufleistung: 97890(km) 
+
+            Fahrgestellnummer: JHMFD36206S202659 
 
             Baujahr: 2006 
 
-            Kbas: 0588901,0588902,0588ABM,0588ACD
-        "|"A6 4F"|0588901,0588902,0588ABM,0588ACD|2|1|19|566.7|566.7|0|3-6|"MOTORCODE,BPJ,MOTORTYPE,2.0TFSI BPJ,GEARBOXCODE,6VXL GVC,MILEAGE,153200,QUALITY,A"|http://46.101.206.99/storage/img/car-part/886/image1.jpg|http://46.101.206.99/storage/img/car-part/886/image2.jpg|http://46.101.206.99/storage/img/car-part/886/image3.jpg|http://46.101.206.99/storage/img/car-part/886/image4.jpg|http://46.101.206.99/storage/img/car-part/886/image5.jpg
-852|BO473172|"Schaltgetriebe 6-Gang / AUDI A4/S4  05-07 / BRD / 0A3300040CX"|"
-            Lagernummer: BO473172 
+            Kbas: 7100AAM
+        "|"CIVIC FK 3D/5D"|7100AAM|2|1|0|904|904|0|3-6|"MOTORCODE,LDA2,MOTORTYPE,1.3 LDA2,GEARBOXCODE,AUT,MILEAGE,97890,QUALITY,A"|http://46.101.206.99/storage/img/car-part/724/image1.jpg|http://46.101.206.99/storage/img/car-part/724/image2.jpg|http://46.101.206.99/storage/img/car-part/724/image3.jpg|http://46.101.206.99/storage/img/car-part/724/image4.jpg|http://46.101.206.99/storage/img/car-part/724/image5.jpg
+183|BO505776|"Motor / VW CADDY      04-10 / BCA / 036100098LX"|"
+            Lagernummer: BO505776 
 
-            Originale Ersatzteilnummer: 0A3300040CX 
+            Originale Ersatzteilnummer: 036100098LX 
 
-            Motor Kennung: BRD 
+            Motor Kennung: BCA 
 
-            Motortype: 2,0TDI BRD 
+            Motortype:  
 
-            Brandstofftype: Diesel 
+            Brandstofftype: Bensin 
 
-            Getriebe: 6VXL GYH 
+            Getriebe: 5VXL GXZ 
 
-            Laufleistung: 162540(km) 
+            Laufleistung: 103050(km) 
 
-            Fahrgestellnummer: WAUZZZ8E17A149729 
+            Fahrgestellnummer: WV1ZZZ2KZ4X028016 
+
+            Baujahr: 2004 
+
+            Kbas: 060384,0603AGE,0603AGI
+        "|CADDY|060384,0603AGE,0603AGI|2|1|0|1071|1071|0|3-6|"MOTORCODE,BCA,MOTORTYPE,,GEARBOXCODE,5VXL GXZ,MILEAGE,103050,QUALITY,A*"|http://46.101.206.99/storage/img/car-part/729/image1.jpg|http://46.101.206.99/storage/img/car-part/729/image2.jpg|http://46.101.206.99/storage/img/car-part/729/image3.jpg|http://46.101.206.99/storage/img/car-part/729/image4.jpg|http://46.101.206.99/storage/img/car-part/729/image5.jpg|http://46.101.206.99/storage/img/car-part/729/image6.jpg|http://46.101.206.99/storage/img/car-part/729/image7.jpg|http://46.101.206.99/storage/img/car-part/729/image8.jpg
+183|BO517037|"Motor / PEUGEOT 308 08-13 / RFJ / 0135QQ"|"
+            Lagernummer: BO517037 
+
+            Originale Ersatzteilnummer: 0135QQ 
+
+            Motor Kennung: RFJ 
+
+            Motortype: 2.0 RFJ 
+
+            Brandstofftype: E85 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 167080(km) 
+
+            Fahrgestellnummer: VF34HRFJC55382762 
+
+            Baujahr: 2009 
+
+            Kbas: 
+        "|308||2|1|0|904|904|0|3-6|"MOTORCODE,RFJ,MOTORTYPE,2.0 RFJ,GEARBOXCODE,5VXL,MILEAGE,167080,QUALITY,A"|http://46.101.206.99/storage/img/car-part/731/image1.jpg|http://46.101.206.99/storage/img/car-part/731/image2.jpg|http://46.101.206.99/storage/img/car-part/731/image3.jpg|http://46.101.206.99/storage/img/car-part/731/image4.jpg|http://46.101.206.99/storage/img/car-part/731/image5.jpg
+183|BO518045|"Motor / MAZDA 2    15-22 /  / P5Z3-02-300"|"
+            Lagernummer: BO518045 
+
+            Originale Ersatzteilnummer: P5Z3-02-300 
+
+            Motor Kennung:  
+
+            Motortype: 1,5 
+
+            Brandstofftype: BENSIN 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 1040(km) 
+
+            Fahrgestellnummer: 3MDDJ6H551M124638 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|2||2|1|0|2737|2737|0|3-6|MOTORCODE,,MOTORTYPE,1.5,GEARBOXCODE,5VXL,MILEAGE,1040,QUALITY,A|http://46.101.206.99/storage/img/car-part/732/image1.jpg|http://46.101.206.99/storage/img/car-part/732/image2.jpg|http://46.101.206.99/storage/img/car-part/732/image3.jpg|http://46.101.206.99/storage/img/car-part/732/image4.jpg|http://46.101.206.99/storage/img/car-part/732/image5.jpg
+183|BO518516|"Motor / MAZDA 3 III   14-19 / PE-VPS / PEX2-02-300C"|"
+            Lagernummer: BO518516 
+
+            Originale Ersatzteilnummer: PEX2-02-300C 
+
+            Motor Kennung: PE-VPS 
+
+            Motortype:  
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 2580(km) 
+
+            Fahrgestellnummer: 3MZBM64661M122601 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|"3 BN"||2|1|0|2142|2142|0|3-6|MOTORCODE,PE-VPS,MOTORTYPE,,GEARBOXCODE,6VXL,MILEAGE,2580,QUALITY,A|http://46.101.206.99/storage/img/car-part/733/image1.jpg|http://46.101.206.99/storage/img/car-part/733/image2.jpg|http://46.101.206.99/storage/img/car-part/733/image3.jpg|http://46.101.206.99/storage/img/car-part/733/image4.jpg|http://46.101.206.99/storage/img/car-part/733/image5.jpg
+183|BO525169|"Motor / MAZDA 2    15-22 / P5 / P5Z3-02-300"|"
+            Lagernummer: BO525169 
+
+            Originale Ersatzteilnummer: P5Z3-02-300 
+
+            Motor Kennung: P5 
+
+            Motortype: 1,5 P5 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 9000(km) 
+
+            Fahrgestellnummer: 3MDDJ6HA62M121832 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|2||2|1|0|2737|2737|0|3-6|"MOTORCODE,P5,MOTORTYPE,1.5 P5,GEARBOXCODE,6VXL,MILEAGE,9000,QUALITY,A"|http://46.101.206.99/storage/img/car-part/737/image1.jpg|http://46.101.206.99/storage/img/car-part/737/image2.jpg|http://46.101.206.99/storage/img/car-part/737/image3.jpg|http://46.101.206.99/storage/img/car-part/737/image4.jpg|http://46.101.206.99/storage/img/car-part/737/image5.jpg
+183|BO531237|"Motor / RENAULT CLIO III  06-09 / K4M-800 / 7701476614"|"
+            Lagernummer: BO531237 
+
+            Originale Ersatzteilnummer: 7701476614 
+
+            Motor Kennung: K4M-800 
+
+            Motortype:  
+
+            Brandstofftype: Bensin 
+
+            Getriebe: AUT DP0074 
+
+            Laufleistung: 35080(km) 
+
+            Fahrgestellnummer: VF1BR1B0A38163464 
 
             Baujahr: 2007 
 
-            Kbas: 0588AFJ,0588AFK,0588AFL,0588AFM
-        "|"A4 8E"|0588AFJ,0588AFK,0588AFL,0588AFM|2|1|19|680|680|0|3-6|"MOTORCODE,BRD,MOTORTYPE,2.0TDI BRD,GEARBOXCODE,6VXL GYH,MILEAGE,162540,QUALITY,A"|http://46.101.206.99/storage/img/car-part/888/image1.jpg|http://46.101.206.99/storage/img/car-part/888/image2.jpg|http://46.101.206.99/storage/img/car-part/888/image3.jpg|http://46.101.206.99/storage/img/car-part/888/image4.jpg|http://46.101.206.99/storage/img/car-part/888/image5.jpg
-852|BO499918|"Schaltgetriebe 6-Gang / AUDI A6/S6     05-11 / BDW / 01X300044GX"|"
-            Lagernummer: BO499918 
+            Kbas: 
+        "|"CLIO III"||2|1|0|857|857|0|3-6|"MOTORCODE,K4M-800,MOTORTYPE,,GEARBOXCODE,AUT DP0074,MILEAGE,35080,QUALITY,A"|http://46.101.206.99/storage/img/car-part/738/image1.jpg|http://46.101.206.99/storage/img/car-part/738/image2.jpg|http://46.101.206.99/storage/img/car-part/738/image3.jpg|http://46.101.206.99/storage/img/car-part/738/image4.jpg|http://46.101.206.99/storage/img/car-part/738/image5.jpg
+183|BO532585|"Motor / NISSAN QASHQAI  14-17 / MR16DDT / 10102BV8MB"|"
+            Lagernummer: BO532585 
 
-            Originale Ersatzteilnummer: 01X300044GX 
+            Originale Ersatzteilnummer: 10102BV8MB 
 
-            Motor Kennung: BDW 
+            Motor Kennung: MR16DDT 
 
-            Motortype: 2,4 BDW 
+            Motortype: 1,6 MR16DDT 
 
             Brandstofftype: Bensin 
 
-            Getriebe: 6VXL GYF 
+            Getriebe: 6VXL 
 
-            Laufleistung: 149510(km) 
+            Laufleistung: 3230(km) 
 
-            Fahrgestellnummer: WAUZZZ4F65N042759 
+            Fahrgestellnummer: SJNFCAJ11U1356028 
+
+            Baujahr: 2015 
+
+            Kbas: 1329AJH
+        "|QASHQAI|1329AJH|2|1|0|3808|3808|0|3-6|"MOTORCODE,MR16DDT,MOTORTYPE,1.6 MR16DDT,GEARBOXCODE,6VXL,MILEAGE,3230,QUALITY,A"|http://46.101.206.99/storage/img/car-part/739/image1.jpg|http://46.101.206.99/storage/img/car-part/739/image2.jpg|http://46.101.206.99/storage/img/car-part/739/image3.jpg|http://46.101.206.99/storage/img/car-part/739/image4.jpg|http://46.101.206.99/storage/img/car-part/739/image5.jpg
+183|BO537112|"Motor / MAZDA CX-3 /  / PEX3-02-300A"|"
+            Lagernummer: BO537112 
+
+            Originale Ersatzteilnummer: PEX3-02-300A 
+
+            Motor Kennung:  
+
+            Motortype: PE-VPS 
+
+            Brandstofftype: BENSIN 
+
+            Getriebe: AUT 
+
+            Laufleistung: 11050(km) 
+
+            Fahrgestellnummer: JMZDKFW7A20120076 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|CX-3||2|1|0|2856|2856|0|3-6|MOTORCODE,,MOTORTYPE,PE-VPS,GEARBOXCODE,AUT,MILEAGE,11050,QUALITY,A|http://46.101.206.99/storage/img/car-part/741/image1.jpg|http://46.101.206.99/storage/img/car-part/741/image2.jpg|http://46.101.206.99/storage/img/car-part/741/image3.jpg|http://46.101.206.99/storage/img/car-part/741/image4.jpg|http://46.101.206.99/storage/img/car-part/741/image5.jpg
+183|BO538333|"Motor / MAZDA 3 III   14-19 /  / PEX2-02-300D"|"
+            Lagernummer: BO538333 
+
+            Originale Ersatzteilnummer: PEX2-02-300D 
+
+            Motor Kennung:  
+
+            Motortype: 2,0 PE-VPS 
+
+            Brandstofftype: BENSIN 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 9980(km) 
+
+            Fahrgestellnummer: 3MZBM64661M127235 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|"3 BN"||2|1|0|2142|2142|0|3-6|"MOTORCODE,,MOTORTYPE,2.0 PE-VPS,GEARBOXCODE,6VXL,MILEAGE,9980,QUALITY,A"|http://46.101.206.99/storage/img/car-part/742/image1.jpg|http://46.101.206.99/storage/img/car-part/742/image2.jpg|http://46.101.206.99/storage/img/car-part/742/image3.jpg|http://46.101.206.99/storage/img/car-part/742/image4.jpg|http://46.101.206.99/storage/img/car-part/742/image5.jpg|http://46.101.206.99/storage/img/car-part/742/image6.jpg
+183|BO542433|"Motor / PEUGEOT 108  15- / CFB / 1631737580"|"
+            Lagernummer: BO542433 
+
+            Originale Ersatzteilnummer: 1631737580 
+
+            Motor Kennung: CFB 
+
+            Motortype: CFB 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 16230(km) 
+
+            Fahrgestellnummer: VF3PSCFBBER008071 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|108||2|1|0|1428|1428|0|3-6|MOTORCODE,CFB,MOTORTYPE,CFB,GEARBOXCODE,5VXL,MILEAGE,16230,QUALITY,A*|http://46.101.206.99/storage/img/car-part/744/image1.jpg|http://46.101.206.99/storage/img/car-part/744/image2.jpg|http://46.101.206.99/storage/img/car-part/744/image3.jpg|http://46.101.206.99/storage/img/car-part/744/image4.jpg|http://46.101.206.99/storage/img/car-part/744/image5.jpg|http://46.101.206.99/storage/img/car-part/744/image6.jpg
+183|BO542737|"Motor / MAZDA 3 III   14-19 / PE-VPS / PEY7-02-300F"|"
+            Lagernummer: BO542737 
+
+            Originale Ersatzteilnummer: PEY7-02-300F 
+
+            Motor Kennung: PE-VPS 
+
+            Motortype: 2,0 PE-VPS 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 69740(km) 
+
+            Fahrgestellnummer: JMZBM546611114078 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|"3 BN"||2|1|0|1952|1952|0|3-6|"MOTORCODE,PE-VPS,MOTORTYPE,2.0 PE-VPS,GEARBOXCODE,6VXL,MILEAGE,69740,QUALITY,A"|http://46.101.206.99/storage/img/car-part/745/image1.jpg|http://46.101.206.99/storage/img/car-part/745/image2.jpg|http://46.101.206.99/storage/img/car-part/745/image3.jpg|http://46.101.206.99/storage/img/car-part/745/image4.jpg|http://46.101.206.99/storage/img/car-part/745/image5.jpg
+183|BO543899|"Motor / PEUGEOT 107 / CFB / 1607830880"|"
+            Lagernummer: BO543899 
+
+            Originale Ersatzteilnummer: 1607830880 
+
+            Motor Kennung: CFB 
+
+            Motortype: 1.0 CFB 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 41600(km) 
+
+            Fahrgestellnummer: VF3PNCFB488653478 
+
+            Baujahr: 2012 
+
+            Kbas: 
+        "|107||2|1|0|1071|1071|0|3-6|"MOTORCODE,CFB,MOTORTYPE,1.0 CFB,GEARBOXCODE,5VXL,MILEAGE,41600,QUALITY,A"|http://46.101.206.99/storage/img/car-part/746/image1.jpg|http://46.101.206.99/storage/img/car-part/746/image2.jpg|http://46.101.206.99/storage/img/car-part/746/image3.jpg|http://46.101.206.99/storage/img/car-part/746/image4.jpg|http://46.101.206.99/storage/img/car-part/746/image5.jpg|http://46.101.206.99/storage/img/car-part/746/image6.jpg
+183|BO554913|"Motor / MAZDA 2    15-22 /  / P5Z3-02-300A"|"
+            Lagernummer: BO554913 
+
+            Originale Ersatzteilnummer: P5Z3-02-300A 
+
+            Motor Kennung:  
+
+            Motortype: 1,5 
+
+            Brandstofftype: BENSIN 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 560(km) 
+
+            Fahrgestellnummer: 3MDDJ6H551M125924 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|2||2|1|0|2737|2737|0|3-6|MOTORCODE,,MOTORTYPE,1.5,GEARBOXCODE,5VXL,MILEAGE,560,QUALITY,A|http://46.101.206.99/storage/img/car-part/750/image1.jpg|http://46.101.206.99/storage/img/car-part/750/image2.jpg|http://46.101.206.99/storage/img/car-part/750/image3.jpg|http://46.101.206.99/storage/img/car-part/750/image4.jpg
+183|BO556492|"Motor / MAZDA 2     08-15 / ZJ-VE / ZJ46-02-300F"|"
+            Lagernummer: BO556492 
+
+            Originale Ersatzteilnummer: ZJ46-02-300F 
+
+            Motor Kennung: ZJ-VE 
+
+            Motortype: 1,3 ZJ-VE 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 77100(km) 
+
+            Fahrgestellnummer: JMZDEA4J210504169 
+
+            Baujahr: 2014 
+
+            Kbas: 7118ADU,7118AEX
+        "|2|7118ADU,7118AEX|2|1|0|904|904|0|3-6|"MOTORCODE,ZJ-VE,MOTORTYPE,1.3 ZJ-VE,GEARBOXCODE,5VXL,MILEAGE,77100,QUALITY,A"|http://46.101.206.99/storage/img/car-part/751/image1.jpg|http://46.101.206.99/storage/img/car-part/751/image2.jpg|http://46.101.206.99/storage/img/car-part/751/image3.jpg|http://46.101.206.99/storage/img/car-part/751/image4.jpg|http://46.101.206.99/storage/img/car-part/751/image5.jpg
+183|BO453042|"Motor / PEUGEOT 207 / 8HR / 1606280380"|"
+            Lagernummer: BO453042 
+
+            Originale Ersatzteilnummer: 1606280380 
+
+            Motor Kennung: 8HR 
+
+            Motortype: 1.4HDI DV4C 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 38480(km) 
+
+            Fahrgestellnummer: VF3WC8HR0CW011350 
+
+            Baujahr: 2012 
+
+            Kbas: 
+        "|207||2|1|0|1190|1190|0|3-6|"MOTORCODE,8HR,MOTORTYPE,1.4HDI DV4C,GEARBOXCODE,5VXL,MILEAGE,38480,QUALITY,A"|http://46.101.206.99/storage/img/car-part/753/image1.jpg|http://46.101.206.99/storage/img/car-part/753/image2.jpg|http://46.101.206.99/storage/img/car-part/753/image3.jpg|http://46.101.206.99/storage/img/car-part/753/image4.jpg
+183|BO477354|"Motor / FORD TRAN./TOUR COURIER 14- / UGCA / 1866263"|"
+            Lagernummer: BO477354 
+
+            Originale Ersatzteilnummer: 1866263 
+
+            Motor Kennung: UGCA 
+
+            Motortype: 1,5TDCI UGCB 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 1450(km) 
+
+            Fahrgestellnummer: WF0WXXTACWEU12631 
+
+            Baujahr: 2014 
+
+            Kbas: 8566BIN,8566BIN
+        "|"TRANSIT BAGHJ."|8566BIN,8566BIN|2|1|0|2142|2142|0|3-6|"MOTORCODE,UGCA,MOTORTYPE,1.5TDCI UGCB,GEARBOXCODE,5VXL,MILEAGE,1450,QUALITY,A"|http://46.101.206.99/storage/img/car-part/754/image1.jpg|http://46.101.206.99/storage/img/car-part/754/image2.jpg|http://46.101.206.99/storage/img/car-part/754/image3.jpg|http://46.101.206.99/storage/img/car-part/754/image4.jpg
+183|BO508428|"Motor / PEUGEOT 3008  09-16 / 9HD / 0135TQ"|"
+            Lagernummer: BO508428 
+
+            Originale Ersatzteilnummer: 0135TQ 
+
+            Motor Kennung: 9HD 
+
+            Motortype: 1.6HDI 9HD 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 25180(km) 
+
+            Fahrgestellnummer: VF30U9HD8ES085264 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|3008||2|1|0|2142|2142|0|3-6|"MOTORCODE,9HD,MOTORTYPE,1.6HDI 9HD,GEARBOXCODE,6VXL,MILEAGE,25180,QUALITY,A"|http://46.101.206.99/storage/img/car-part/760/image1.jpg|http://46.101.206.99/storage/img/car-part/760/image2.jpg|http://46.101.206.99/storage/img/car-part/760/image3.jpg|http://46.101.206.99/storage/img/car-part/760/image4.jpg|http://46.101.206.99/storage/img/car-part/760/image5.jpg
+183|BO510030|"Motor / KIA CEED  12-18 / D4FB / Z59712AZ00"|"
+            Lagernummer: BO510030 
+
+            Originale Ersatzteilnummer: Z59712AZ00 
+
+            Motor Kennung: D4FB 
+
+            Motortype: 1,6CRDI D4FB 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 20820(km) 
+
+            Fahrgestellnummer: U5YHN816AEL087872 
+
+            Baujahr: 2014 
+
+            Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR
+        "|CEED|1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR|2|1|0|1190|1190|0|3-6|"MOTORCODE,D4FB,MOTORTYPE,1.6CRDI D4FB,GEARBOXCODE,6VXL,MILEAGE,20820,QUALITY,A"|http://46.101.206.99/storage/img/car-part/761/image1.jpg|http://46.101.206.99/storage/img/car-part/761/image2.jpg|http://46.101.206.99/storage/img/car-part/761/image3.jpg|http://46.101.206.99/storage/img/car-part/761/image4.jpg
+183|BO517408|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO517408 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: 1.5DCI K9K636 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL TL4126 
+
+            Laufleistung: 86970(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1187759 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3213|3213|0|3-6|"MOTORCODE,K9K,MOTORTYPE,1.5DCI K9K636,GEARBOXCODE,6VXL TL4126,MILEAGE,86970,QUALITY,A"|http://46.101.206.99/storage/img/car-part/762/image1.jpg|http://46.101.206.99/storage/img/car-part/762/image2.jpg|http://46.101.206.99/storage/img/car-part/762/image3.jpg|http://46.101.206.99/storage/img/car-part/762/image4.jpg|http://46.101.206.99/storage/img/car-part/762/image5.jpg|http://46.101.206.99/storage/img/car-part/762/image6.jpg
+183|BO521845|"Motor / KIA CEED  12-18 / D4FC / Z57912AZ00"|"
+            Lagernummer: BO521845 
+
+            Originale Ersatzteilnummer: Z57912AZ00 
+
+            Motor Kennung: D4FC 
+
+            Motortype: 1,4CRDI D4FC 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 68880(km) 
+
+            Fahrgestellnummer: U5YHM815AEL063281 
+
+            Baujahr: 2014 
+
+            Kbas: 1260ACW,1260ADB
+        "|CEED|1260ACW,1260ADB|2|1|0|1785|1785|0|3-6|"MOTORCODE,D4FC,MOTORTYPE,1.4CRDI D4FC,GEARBOXCODE,6VXL,MILEAGE,68880,QUALITY,A"|http://46.101.206.99/storage/img/car-part/763/image1.jpg|http://46.101.206.99/storage/img/car-part/763/image2.jpg|http://46.101.206.99/storage/img/car-part/763/image3.jpg|http://46.101.206.99/storage/img/car-part/763/image4.jpg
+183|BO522962|"Motor / NISSAN NOTE (E12)  14-20 / K9K / 1010201Q0J"|"
+            Lagernummer: BO522962 
+
+            Originale Ersatzteilnummer: 1010201Q0J 
+
+            Motor Kennung: K9K 
+
+            Motortype: 1.5DCI K9K608 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 5VXL JR5362 
+
+            Laufleistung: 16020(km) 
+
+            Fahrgestellnummer: SJNTCAE12U1072820 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|NOTE||2|1|0|2023|2023|0|3-6|"MOTORCODE,K9K,MOTORTYPE,1.5DCI K9K608,GEARBOXCODE,5VXL JR5362,MILEAGE,16020,QUALITY,A"|http://46.101.206.99/storage/img/car-part/764/image1.jpg|http://46.101.206.99/storage/img/car-part/764/image2.jpg|http://46.101.206.99/storage/img/car-part/764/image3.jpg|http://46.101.206.99/storage/img/car-part/764/image4.jpg|http://46.101.206.99/storage/img/car-part/764/image5.jpg
+183|BO527010|"Motor / HONDA CIVIC     06-11 / N22A2 / 10002-RSR-E01"|"
+            Lagernummer: BO527010 
+
+            Originale Ersatzteilnummer: 10002-RSR-E01 
+
+            Motor Kennung: N22A2 
+
+            Motortype: 2,2 N22A2 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 211250(km) 
+
+            Fahrgestellnummer: SHHFK37606U002391 
+
+            Baujahr: 2006 
+
+            Kbas: 2131AAC,2131AAF
+        "|"CIVIC FK 3D/5D"|2131AAC,2131AAF|2|1|0|1761|1761|0|3-6|"MOTORCODE,N22A2,MOTORTYPE,2.2 N22A2,GEARBOXCODE,6VXL,MILEAGE,211250,QUALITY,A"|http://46.101.206.99/storage/img/car-part/765/image1.jpg|http://46.101.206.99/storage/img/car-part/765/image2.jpg|http://46.101.206.99/storage/img/car-part/765/image3.jpg|http://46.101.206.99/storage/img/car-part/765/image4.jpg
+183|BO535678|"Motor / KIA CEED  12-18 / D4FB / Z59712AZ00"|"
+            Lagernummer: BO535678 
+
+            Originale Ersatzteilnummer: Z59712AZ00 
+
+            Motor Kennung: D4FB 
+
+            Motortype:  
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 64950(km) 
+
+            Fahrgestellnummer: U5YHN816ADL043386 
+
+            Baujahr: 2013 
+
+            Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR
+        "|CEED|1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR|2|1|0|1428|1428|0|3-6|MOTORCODE,D4FB,MOTORTYPE,,GEARBOXCODE,6VXL,MILEAGE,64950,QUALITY,A|http://46.101.206.99/storage/img/car-part/766/image1.jpg|http://46.101.206.99/storage/img/car-part/766/image2.jpg|http://46.101.206.99/storage/img/car-part/766/image3.jpg|http://46.101.206.99/storage/img/car-part/766/image4.jpg|http://46.101.206.99/storage/img/car-part/766/image5.jpg
+183|BO554961|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q0G"|"
+            Lagernummer: BO554961 
+
+            Originale Ersatzteilnummer: 1010201Q0G 
+
+            Motor Kennung: K9K 
+
+            Motortype: 1,5DCI K9K636 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL TL4126 
+
+            Laufleistung: 39550(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1390271 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3808|3808|0|3-6|"MOTORCODE,K9K,MOTORTYPE,1.5DCI K9K636,GEARBOXCODE,6VXL TL4126,MILEAGE,39550,QUALITY,A"|http://46.101.206.99/storage/img/car-part/768/image1.jpg|http://46.101.206.99/storage/img/car-part/768/image2.jpg|http://46.101.206.99/storage/img/car-part/768/image3.jpg|http://46.101.206.99/storage/img/car-part/768/image4.jpg|http://46.101.206.99/storage/img/car-part/768/image5.jpg|http://46.101.206.99/storage/img/car-part/768/image6.jpg
+183|BO556535|"Motor / KIA CEED  12-18 / D4FB / Z59712AZ00"|"
+            Lagernummer: BO556535 
+
+            Originale Ersatzteilnummer: Z59712AZ00 
+
+            Motor Kennung: D4FB 
+
+            Motortype:  
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 13040(km) 
+
+            Fahrgestellnummer: U5YHN816AFL139559 
+
+            Baujahr: 2015 
+
+            Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR
+        "|CEED|1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR|2|1|0|1666|1666|0|3-6|MOTORCODE,D4FB,MOTORTYPE,,GEARBOXCODE,6VXL,MILEAGE,13040,QUALITY,A|http://46.101.206.99/storage/img/car-part/769/image1.jpg|http://46.101.206.99/storage/img/car-part/769/image2.jpg|http://46.101.206.99/storage/img/car-part/769/image3.jpg|http://46.101.206.99/storage/img/car-part/769/image4.jpg
+183|BO591593|"Motor / MAZDA 5       05-10 / RF / RF7J-02-300D"|"
+            Lagernummer: BO591593 
+
+            Originale Ersatzteilnummer: RF7J-02-300D 
+
+            Motor Kennung: RF 
+
+            Motortype: 2,0D RF 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 209120(km) 
+
+            Fahrgestellnummer: JMZCR19R680221011 
+
+            Baujahr: 2008 
+
+            Kbas: 
+        "|"5 CR"||2|1|0|1428|1428|0|3-6|"MOTORCODE,RF,MOTORTYPE,2.0D RF,GEARBOXCODE,6VXL,MILEAGE,209120,QUALITY,A"|http://46.101.206.99/storage/img/car-part/773/image1.jpg|http://46.101.206.99/storage/img/car-part/773/image2.jpg|http://46.101.206.99/storage/img/car-part/773/image3.jpg|http://46.101.206.99/storage/img/car-part/773/image4.jpg
+183|BO632908|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO632908 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL TL4126 
+
+            Laufleistung: 51070(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1708915 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3570|3570|0|3-6|"MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,6VXL TL4126,MILEAGE,51070,QUALITY,A"|http://46.101.206.99/storage/img/car-part/779/image1.jpg|http://46.101.206.99/storage/img/car-part/779/image2.jpg|http://46.101.206.99/storage/img/car-part/779/image3.jpg|http://46.101.206.99/storage/img/car-part/779/image4.jpg|http://46.101.206.99/storage/img/car-part/779/image5.jpg
+183|BO632914|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO632914 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL TL4126 
+
+            Laufleistung: 21670(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1729277 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3808|3808|0|3-6|"MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,6VXL TL4126,MILEAGE,21670,QUALITY,A"|http://46.101.206.99/storage/img/car-part/780/image1.jpg|http://46.101.206.99/storage/img/car-part/780/image2.jpg|http://46.101.206.99/storage/img/car-part/780/image3.jpg|http://46.101.206.99/storage/img/car-part/780/image4.jpg|http://46.101.206.99/storage/img/car-part/780/image5.jpg
+183|BO633148|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q0G"|"
+            Lagernummer: BO633148 
+
+            Originale Ersatzteilnummer: 1010201Q0G 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL TL4126 
+
+            Laufleistung: 43360(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1353270 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3808|3808|0|3-6|"MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,6VXL TL4126,MILEAGE,43360,QUALITY,A"|http://46.101.206.99/storage/img/car-part/781/image1.jpg|http://46.101.206.99/storage/img/car-part/781/image2.jpg|http://46.101.206.99/storage/img/car-part/781/image3.jpg|http://46.101.206.99/storage/img/car-part/781/image4.jpg|http://46.101.206.99/storage/img/car-part/781/image5.jpg
+183|BO635293|"Motor / NISSAN PULSAR / K9K / 1010200Q7H"|"
+            Lagernummer: BO635293 
+
+            Originale Ersatzteilnummer: 1010200Q7H 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 64860(km) 
+
+            Fahrgestellnummer: VSKDAAC13U0001274 
+
+            Baujahr: 2015 
+
+            Kbas: 1329AIR
+        "|PULSAR|1329AIR|2|1|0|2142|2142|0|3-6|MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,6VXL,MILEAGE,64860,QUALITY,A|http://46.101.206.99/storage/img/car-part/783/image1.jpg|http://46.101.206.99/storage/img/car-part/783/image2.jpg|http://46.101.206.99/storage/img/car-part/783/image3.jpg|http://46.101.206.99/storage/img/car-part/783/image4.jpg
+183|BO635312|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO635312 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: 6VXL TL4126 
+
+            Laufleistung: 58700(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1426778 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3570|3570|0|3-6|"MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,6VXL TL4126,MILEAGE,58700,QUALITY,A"|http://46.101.206.99/storage/img/car-part/784/image1.jpg|http://46.101.206.99/storage/img/car-part/784/image2.jpg|http://46.101.206.99/storage/img/car-part/784/image3.jpg|http://46.101.206.99/storage/img/car-part/784/image4.jpg
+183|BO659665|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO659665 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K646 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 13220(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U2038498 
+
+            Baujahr: 2017 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3808|3808|0|3-6|MOTORCODE,K9K,MOTORTYPE,K9K646,GEARBOXCODE,Manuell,MILEAGE,13220,QUALITY,A|http://46.101.206.99/storage/img/car-part/788/image1.jpg|http://46.101.206.99/storage/img/car-part/788/image2.jpg|http://46.101.206.99/storage/img/car-part/788/image3.jpg|http://46.101.206.99/storage/img/car-part/788/image4.jpg|http://46.101.206.99/storage/img/car-part/788/image5.jpg
+183|BO560322|"Motor / NISSAN NOTE (E12)  14-20 / HR12DE / 101023VU0A"|"
+            Lagernummer: BO560322 
+
+            Originale Ersatzteilnummer: 101023VU0A 
+
+            Motor Kennung: HR12DE 
+
+            Motortype:  
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 5VXL JH3323 
+
+            Laufleistung: 53050(km) 
+
+            Fahrgestellnummer: SJNTAAE12U1100844 
+
+            Baujahr: 2015 
+
+            Kbas: 1329AHN
+        "|NOTE|1329AHN|2|1|0|1071|1071|0|3-6|"MOTORCODE,HR12DE,MOTORTYPE,,GEARBOXCODE,5VXL JH3323,MILEAGE,53050,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1068/image1.jpg|http://46.101.206.99/storage/img/car-part/1068/image2.jpg|http://46.101.206.99/storage/img/car-part/1068/image3.jpg|http://46.101.206.99/storage/img/car-part/1068/image4.jpg|http://46.101.206.99/storage/img/car-part/1068/image5.jpg
+183|BO566480|"Motor / SKODA OCTAVIA    05-13 / CCSA / 06A100045G"|"
+            Lagernummer: BO566480 
+
+            Originale Ersatzteilnummer: 06A100045G 
+
+            Motor Kennung: CCSA 
+
+            Motortype: 1.6 CCSA 
+
+            Brandstofftype: Etanol E85 
+
+            Getriebe: 5VXL JHT 
+
+            Laufleistung: 147520(km) 
+
+            Fahrgestellnummer: TMBHA61Z382151852 
+
+            Baujahr: 2008 
+
+            Kbas: 
+        "|"OCTAVIA 1Z"||2|1|0|1000|1000|0|3-6|"MOTORCODE,CCSA,MOTORTYPE,1.6 CCSA,GEARBOXCODE,5VXL JHT,MILEAGE,147520,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1070/image1.jpg|http://46.101.206.99/storage/img/car-part/1070/image2.jpg|http://46.101.206.99/storage/img/car-part/1070/image3.jpg|http://46.101.206.99/storage/img/car-part/1070/image4.jpg|http://46.101.206.99/storage/img/car-part/1070/image5.jpg
+183|BO569375|"Motor / MAZDA 6          13- / PE-VPS / PEY7-02-300F"|"
+            Lagernummer: BO569375 
+
+            Originale Ersatzteilnummer: PEY7-02-300F 
+
+            Motor Kennung: PE-VPS 
+
+            Motortype: 2,0 PE-VPS 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 54640(km) 
+
+            Fahrgestellnummer: JMZGJ597611175004 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|"6 GJ"||2|1|0|2142|2142|0|3-6|"MOTORCODE,PE-VPS,MOTORTYPE,2.0 PE-VPS,GEARBOXCODE,6VXL,MILEAGE,54640,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1072/image1.jpg|http://46.101.206.99/storage/img/car-part/1072/image2.jpg|http://46.101.206.99/storage/img/car-part/1072/image3.jpg|http://46.101.206.99/storage/img/car-part/1072/image4.jpg
+183|BO571890|"Motor / AUDI A3/S3   05-13 / CCSA / 06A100098LX"|"
+            Lagernummer: BO571890 
+
+            Originale Ersatzteilnummer: 06A100098LX 
+
+            Motor Kennung: CCSA 
+
+            Motortype: 1,6 CCSA 
+
+            Brandstofftype: Etanol E85 
+
+            Getriebe: 5VXL JHT 
+
+            Laufleistung: 160330(km) 
+
+            Fahrgestellnummer: WAUZZZ8P69A021801 
+
+            Baujahr: 2009 
+
+            Kbas: 0588ADS,0588AHU,0588AOE,0588828,0588ADS,0588AHU,0588AOE
+        "|"A3 8P"|0588ADS,0588AHU,0588AOE,0588828,0588ADS,0588AHU,0588AOE|2|1|0|952|952|0|3-6|"MOTORCODE,CCSA,MOTORTYPE,1.6 CCSA,GEARBOXCODE,5VXL JHT,MILEAGE,160330,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1073/image1.jpg|http://46.101.206.99/storage/img/car-part/1073/image2.jpg|http://46.101.206.99/storage/img/car-part/1073/image3.jpg|http://46.101.206.99/storage/img/car-part/1073/image4.jpg|http://46.101.206.99/storage/img/car-part/1073/image5.jpg|http://46.101.206.99/storage/img/car-part/1073/image6.jpg
+183|BO590379|"Motor / MAZDA 6       08-13 / L5-VE / L510-02-300A"|"
+            Lagernummer: BO590379 
+
+            Originale Ersatzteilnummer: L510-02-300A 
+
+            Motor Kennung: L5-VE 
+
+            Motortype:  
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 110740(km) 
+
+            Fahrgestellnummer: JMZGH12L681110075 
+
+            Baujahr: 2008 
+
+            Kbas: 7118ABT,7118ABX,7118ACB,7118AEC,7118AEI,7118AEO
+        "|6|7118ABT,7118ABX,7118ACB,7118AEC,7118AEI,7118AEO|2|1|0|2380|2380|0|3-6|MOTORCODE,L5-VE,MOTORTYPE,,GEARBOXCODE,6VXL,MILEAGE,110740,QUALITY,A|http://46.101.206.99/storage/img/car-part/1080/image1.jpg|http://46.101.206.99/storage/img/car-part/1080/image2.jpg|http://46.101.206.99/storage/img/car-part/1080/image3.jpg|http://46.101.206.99/storage/img/car-part/1080/image4.jpg|http://46.101.206.99/storage/img/car-part/1080/image5.jpg
+183|BO592412|"Motor / VW GOLF VI     09-13 / CCSA / 06A100045G"|"
+            Lagernummer: BO592412 
+
+            Originale Ersatzteilnummer: 06A100045G 
+
+            Motor Kennung: CCSA 
+
+            Motortype: CCSA 
+
+            Brandstofftype: E85 
+
+            Getriebe: 5VXL LVN 
+
+            Laufleistung: 69040(km) 
+
+            Fahrgestellnummer: WVWZZZ1KZAW044798 
+
+            Baujahr: 2010 
+
+            Kbas: 0603ALG,0603AMB,0603AOF
+        "|"GOLF VI"|0603ALG,0603AMB,0603AOF|2|1|0|1190|1190|0|3-6|"MOTORCODE,CCSA,MOTORTYPE,CCSA,GEARBOXCODE,5VXL LVN,MILEAGE,69040,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1081/image1.jpg|http://46.101.206.99/storage/img/car-part/1081/image2.jpg|http://46.101.206.99/storage/img/car-part/1081/image3.jpg|http://46.101.206.99/storage/img/car-part/1081/image4.jpg|http://46.101.206.99/storage/img/car-part/1081/image5.jpg|http://46.101.206.99/storage/img/car-part/1081/image6.jpg
+183|BO603758|"Motor / PEUGEOT 108  15- / CFB / 1628926280"|"
+            Lagernummer: BO603758 
+
+            Originale Ersatzteilnummer: 1628926280 
+
+            Motor Kennung: CFB 
+
+            Motortype: 1.0 CFB 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 25090(km) 
+
+            Fahrgestellnummer: VF3PSCFB3FR064937 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|108||2|1|0|1547|1547|0|3-6|"MOTORCODE,CFB,MOTORTYPE,1.0 CFB,GEARBOXCODE,5VXL,MILEAGE,25090,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1082/image1.jpg|http://46.101.206.99/storage/img/car-part/1082/image2.jpg|http://46.101.206.99/storage/img/car-part/1082/image3.jpg|http://46.101.206.99/storage/img/car-part/1082/image4.jpg
+183|BO621212|"Motor / HYUNDAI i30   07-12 / G4GC / 107D123U00"|"
+            Lagernummer: BO621212 
+
+            Originale Ersatzteilnummer: 107D123U00 
+
+            Motor Kennung: G4GC 
+
+            Motortype: 2,0 G4GC 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: 5VXL 
+
+            Laufleistung: 145640(km) 
+
+            Fahrgestellnummer: KMHDC51EP8U026232 
+
+            Baujahr: 2008 
+
+            Kbas: 1349AAD
+        "|I30|1349AAD|2|1|0|1190|1190|0|3-6|"MOTORCODE,G4GC,MOTORTYPE,2.0 G4GC,GEARBOXCODE,5VXL,MILEAGE,145640,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1085/image1.jpg|http://46.101.206.99/storage/img/car-part/1085/image2.jpg|http://46.101.206.99/storage/img/car-part/1085/image3.jpg|http://46.101.206.99/storage/img/car-part/1085/image4.jpg|http://46.101.206.99/storage/img/car-part/1085/image5.jpg|http://46.101.206.99/storage/img/car-part/1085/image6.jpg
+183|BO627352|"Motor / MAZDA CX-3 /  / PEX3-02-300B"|"
+            Lagernummer: BO627352 
+
+            Originale Ersatzteilnummer: PEX3-02-300B 
+
+            Motor Kennung:  
+
+            Motortype: PE-VPS 
+
+            Brandstofftype: BENSIN 
+
+            Getriebe: 6VXL 
+
+            Laufleistung: 34510(km) 
+
+            Fahrgestellnummer: JMZDK6W7610104805 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|CX-3||2|1|0|2856|2856|0|3-6|MOTORCODE,,MOTORTYPE,PE-VPS,GEARBOXCODE,6VXL,MILEAGE,34510,QUALITY,A|http://46.101.206.99/storage/img/car-part/1086/image1.jpg|http://46.101.206.99/storage/img/car-part/1086/image2.jpg|http://46.101.206.99/storage/img/car-part/1086/image3.jpg|http://46.101.206.99/storage/img/car-part/1086/image4.jpg
+183|BO628845|"Motor / MAZDA 2    15-22 / P5 / P5Z3-02-300A"|"
+            Lagernummer: BO628845 
+
+            Originale Ersatzteilnummer: P5Z3-02-300A 
+
+            Motor Kennung: P5 
+
+            Motortype: P5 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: AUT 
+
+            Laufleistung: 56630(km) 
+
+            Fahrgestellnummer: 3MDDJ6H5A1M121282 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|2||2|1|0|2380|2380|0|3-6|MOTORCODE,P5,MOTORTYPE,P5,GEARBOXCODE,AUT,MILEAGE,56630,QUALITY,A|http://46.101.206.99/storage/img/car-part/1087/image1.jpg|http://46.101.206.99/storage/img/car-part/1087/image2.jpg|http://46.101.206.99/storage/img/car-part/1087/image3.jpg|http://46.101.206.99/storage/img/car-part/1087/image4.jpg
+183|BO628989|"Motor / MAZDA 2    15-22 / P5 / P5Z3-02-300A"|"
+            Lagernummer: BO628989 
+
+            Originale Ersatzteilnummer: P5Z3-02-300A 
+
+            Motor Kennung: P5 
+
+            Motortype: P5 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: AUT 
+
+            Laufleistung: 88540(km) 
+
+            Fahrgestellnummer: 3MDDJ6H5A1M101964 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|2||2|1|0|2142|2142|0|3-6|MOTORCODE,P5,MOTORTYPE,P5,GEARBOXCODE,AUT,MILEAGE,88540,QUALITY,A|http://46.101.206.99/storage/img/car-part/1088/image1.jpg|http://46.101.206.99/storage/img/car-part/1088/image2.jpg|http://46.101.206.99/storage/img/car-part/1088/image3.jpg|http://46.101.206.99/storage/img/car-part/1088/image4.jpg
+183|BO630033|"Motor / MAZDA 2    15-22 / P5 / P5Z3-02-300A"|"
+            Lagernummer: BO630033 
+
+            Originale Ersatzteilnummer: P5Z3-02-300A 
+
+            Motor Kennung: P5 
+
+            Motortype: P5 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: AUT 
+
+            Laufleistung: 48920(km) 
+
+            Fahrgestellnummer: 3MDDJ6H5A1M116022 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|2||2|1|0|2023|2023|0|3-6|MOTORCODE,P5,MOTORTYPE,P5,GEARBOXCODE,AUT,MILEAGE,48920,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1089/image1.jpg|http://46.101.206.99/storage/img/car-part/1089/image2.jpg|http://46.101.206.99/storage/img/car-part/1089/image3.jpg|http://46.101.206.99/storage/img/car-part/1089/image4.jpg|http://46.101.206.99/storage/img/car-part/1089/image5.jpg|http://46.101.206.99/storage/img/car-part/1089/image6.jpg|http://46.101.206.99/storage/img/car-part/1089/image7.jpg
+183|BO672731|"Motor / KIA CEED  12-18 / G4FJ / Z90612BZ00"|"
+            Lagernummer: BO672731 
+
+            Originale Ersatzteilnummer: Z90612BZ00 
+
+            Motor Kennung: G4FJ 
+
+            Motortype: B92Y 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: MANUELL 
+
+            Laufleistung: 68790(km) 
+
+            Fahrgestellnummer: U5YHP514AGL248654 
+
+            Baujahr: 2016 
+
+            Kbas: 1260ADJ
+        "|CEED|1260ADJ|2|1|0|3570|3570|0|3-6|MOTORCODE,G4FJ,MOTORTYPE,B92Y,GEARBOXCODE,MANUELL,MILEAGE,68790,QUALITY,A|http://46.101.206.99/storage/img/car-part/1102/image1.jpg|http://46.101.206.99/storage/img/car-part/1102/image2.jpg|http://46.101.206.99/storage/img/car-part/1102/image3.jpg|http://46.101.206.99/storage/img/car-part/1102/image4.jpg|http://46.101.206.99/storage/img/car-part/1102/image5.jpg
+183|BO673703|"Motor / NISSAN X-TRAIL  14-21 / MR16DDT / 10102BV8MB"|"
+            Lagernummer: BO673703 
+
+            Originale Ersatzteilnummer: 10102BV8MB 
+
+            Motor Kennung: MR16DDT 
+
+            Motortype: MR16DDT 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 1910(km) 
+
+            Fahrgestellnummer: JN1JDAT32U0105409 
+
+            Baujahr: 2018 
+
+            Kbas: 1329AJJ
+        "|X-TRAIL|1329AJJ|2|1|0|3808|3808|0|3-6|MOTORCODE,MR16DDT,MOTORTYPE,MR16DDT,GEARBOXCODE,Manuell,MILEAGE,1910,QUALITY,A|http://46.101.206.99/storage/img/car-part/1103/image1.jpg|http://46.101.206.99/storage/img/car-part/1103/image2.jpg|http://46.101.206.99/storage/img/car-part/1103/image3.jpg|http://46.101.206.99/storage/img/car-part/1103/image4.jpg|http://46.101.206.99/storage/img/car-part/1103/image5.jpg|http://46.101.206.99/storage/img/car-part/1103/image6.jpg
+183|BO682204|"Motor / SEAT Mii / Mii electric / CHYB / 04C100031L"|"
+            Lagernummer: BO682204 
+
+            Originale Ersatzteilnummer: 04C100031L 
+
+            Motor Kennung: CHYB 
+
+            Motortype: CHYB 
+
+            Brandstofftype: Annat 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 105140(km) 
+
+            Fahrgestellnummer: VSSZZZAAZDD300321 
+
+            Baujahr: 2013 
+
+            Kbas: 7593AGO
+        "|MII|7593AGO|2|1|0|1071|1071|0|3-6|MOTORCODE,CHYB,MOTORTYPE,CHYB,GEARBOXCODE,Manuell,MILEAGE,105140,QUALITY,A|http://46.101.206.99/storage/img/car-part/1107/image1.jpg|http://46.101.206.99/storage/img/car-part/1107/image2.jpg|http://46.101.206.99/storage/img/car-part/1107/image3.jpg|http://46.101.206.99/storage/img/car-part/1107/image4.jpg|http://46.101.206.99/storage/img/car-part/1107/image5.jpg|http://46.101.206.99/storage/img/car-part/1107/image6.jpg
+183|BO682793|"Motor / VW GOLF VI     09-13 / CMXA / 06A100045R"|"
+            Lagernummer: BO682793 
+
+            Originale Ersatzteilnummer: 06A100045R 
+
+            Motor Kennung: CMXA 
+
+            Motortype: CMXA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 138150(km) 
+
+            Fahrgestellnummer: WVWZZZ1KZBW298114 
+
+            Baujahr: 2011 
+
+            Kbas: 0603AMB,0603AOF
+        "|"GOLF VI"|0603AMB,0603AOF|2|1|0|1488|1488|0|3-6|MOTORCODE,CMXA,MOTORTYPE,CMXA,GEARBOXCODE,Manuell,MILEAGE,138150,QUALITY,A|http://46.101.206.99/storage/img/car-part/1109/image1.jpg|http://46.101.206.99/storage/img/car-part/1109/image2.jpg|http://46.101.206.99/storage/img/car-part/1109/image3.jpg|http://46.101.206.99/storage/img/car-part/1109/image4.jpg|http://46.101.206.99/storage/img/car-part/1109/image5.jpg|http://46.101.206.99/storage/img/car-part/1109/image6.jpg
+183|BO690171|"Motor / VOLVO V50      04-07 / B4204S3 / 36000295"|"
+            Lagernummer: BO690171 
+
+            Originale Ersatzteilnummer: 36000295 
+
+            Motor Kennung: B4204S3 
+
+            Motortype: B4204S3 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 189490(km) 
+
+            Fahrgestellnummer: YV1MW434272281246 
+
+            Baujahr: 2007 
+
+            Kbas: 
+        "|S40/V50||2|1|0|1309|1309|0|3-6|MOTORCODE,B4204S3,MOTORTYPE,B4204S3,GEARBOXCODE,Manuell,MILEAGE,189490,QUALITY,A|http://46.101.206.99/storage/img/car-part/1112/image1.jpg|http://46.101.206.99/storage/img/car-part/1112/image2.jpg|http://46.101.206.99/storage/img/car-part/1112/image3.jpg|http://46.101.206.99/storage/img/car-part/1112/image4.jpg|http://46.101.206.99/storage/img/car-part/1112/image5.jpg|http://46.101.206.99/storage/img/car-part/1112/image6.jpg|http://46.101.206.99/storage/img/car-part/1112/image7.jpg
+183|BO700437|"Motor / HONDA JAZZ  15-20 / L13B2 / 200115W9X71"|"
+            Lagernummer: BO700437 
+
+            Originale Ersatzteilnummer: 200115W9X71 
+
+            Motor Kennung: L13B2 
+
+            Motortype: L13B2 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 22410(km) 
+
+            Fahrgestellnummer: JHMGK3750GX258152 
+
+            Baujahr: 2017 
+
+            Kbas: 7100ACV
+        "|JAZZ|7100ACV|2|1|0|2618|2618|0|3-6|MOTORCODE,L13B2,MOTORTYPE,L13B2,GEARBOXCODE,Manuell,MILEAGE,22410,QUALITY,A|http://46.101.206.99/storage/img/car-part/1121/image1.jpg|http://46.101.206.99/storage/img/car-part/1121/image2.jpg|http://46.101.206.99/storage/img/car-part/1121/image3.jpg|http://46.101.206.99/storage/img/car-part/1121/image4.jpg|http://46.101.206.99/storage/img/car-part/1121/image5.jpg|http://46.101.206.99/storage/img/car-part/1121/image6.jpg
+183|BO701401|"Motor / VW POLO       10-17 / CJZC / 04E100098X"|"
+            Lagernummer: BO701401 
+
+            Originale Ersatzteilnummer: 04E100098X 
+
+            Motor Kennung: CJZC 
+
+            Motortype: CJZC 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 39120(km) 
+
+            Fahrgestellnummer: WVWZZZ6RZGY304761 
+
+            Baujahr: 2016 
+
+            Kbas: 0603BEB,0603BEB
+        "|"POLO 6R"|0603BEB,0603BEB|2|1|0|1904|1904|0|3-6|MOTORCODE,CJZC,MOTORTYPE,CJZC,GEARBOXCODE,Manuell,MILEAGE,39120,QUALITY,A|http://46.101.206.99/storage/img/car-part/1122/image1.jpg|http://46.101.206.99/storage/img/car-part/1122/image2.jpg|http://46.101.206.99/storage/img/car-part/1122/image3.jpg|http://46.101.206.99/storage/img/car-part/1122/image4.jpg|http://46.101.206.99/storage/img/car-part/1122/image5.jpg
+183|BO703307|"Motor / VW FOX / BKR / 030 100 037 AX"|"
+            Lagernummer: BO703307 
+
+            Originale Ersatzteilnummer: 030 100 037 AX 
+
+            Motor Kennung: BKR 
+
+            Motortype: BKR 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 111890(km) 
+
+            Fahrgestellnummer: WVWZZZ5ZZ64078454 
+
+            Baujahr: 2006 
+
+            Kbas: 0603782,0603AAS
+        "|FOX|0603782,0603AAS|2|1|0|928|928|0|3-6|MOTORCODE,BKR,MOTORTYPE,BKR,GEARBOXCODE,Manuell,MILEAGE,111890,QUALITY,A|http://46.101.206.99/storage/img/car-part/1125/image1.jpg|http://46.101.206.99/storage/img/car-part/1125/image2.jpg|http://46.101.206.99/storage/img/car-part/1125/image3.jpg|http://46.101.206.99/storage/img/car-part/1125/image4.jpg|http://46.101.206.99/storage/img/car-part/1125/image5.jpg|http://46.101.206.99/storage/img/car-part/1125/image6.jpg
+183|BO706424|"Motor / VOLVO XC90     03-06 / B6294T / 8251494"|"
+            Lagernummer: BO706424 
+
+            Originale Ersatzteilnummer: 8251494 
+
+            Motor Kennung: B6294T 
+
+            Motortype: B6294T 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 246650(km) 
+
+            Fahrgestellnummer: YV1CZ91G841061054 
+
+            Baujahr: 2004 
+
+            Kbas: 
+        "|XC90||2|1|0|1666|1666|0|3-6|MOTORCODE,B6294T,MOTORTYPE,B6294T,GEARBOXCODE,Automat,MILEAGE,246650,QUALITY,A|http://46.101.206.99/storage/img/car-part/1127/image1.jpg|http://46.101.206.99/storage/img/car-part/1127/image2.jpg|http://46.101.206.99/storage/img/car-part/1127/image3.jpg|http://46.101.206.99/storage/img/car-part/1127/image4.jpg|http://46.101.206.99/storage/img/car-part/1127/image5.jpg|http://46.101.206.99/storage/img/car-part/1127/image6.jpg
+183|BO707160|"Motor / NISSAN QASHQAI  14-17 / MR16DDT / 10102BV8MB"|"
+            Lagernummer: BO707160 
+
+            Originale Ersatzteilnummer: 10102BV8MB 
+
+            Motor Kennung: MR16DDT 
+
+            Motortype: MR16DDT 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 33590(km) 
+
+            Fahrgestellnummer: SJNFCAJ11U1530917 
+
+            Baujahr: 2016 
+
+            Kbas: 1329AJH
+        "|QASHQAI|1329AJH|2|1|0|3332|3332|0|3-6|MOTORCODE,MR16DDT,MOTORTYPE,MR16DDT,GEARBOXCODE,Manuell,MILEAGE,33590,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1128/image1.jpg|http://46.101.206.99/storage/img/car-part/1128/image2.jpg|http://46.101.206.99/storage/img/car-part/1128/image3.jpg|http://46.101.206.99/storage/img/car-part/1128/image4.jpg
+183|BO714367|"Motor / VW GOLF SPORTSVAN 15-20 / CYVB / 04E 100 098 BX"|"
+            Lagernummer: BO714367 
+
+            Originale Ersatzteilnummer: 04E 100 098 BX 
+
+            Motor Kennung: CYVB 
+
+            Motortype: CYVB 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 49100(km) 
+
+            Fahrgestellnummer: WVWZZZAUZFW613364 
+
+            Baujahr: 2015 
+
+            Kbas: 0603BMU
+        "|"GOLF SPORTSVAN"|0603BMU|2|1|0|1547|1547|0|3-6|MOTORCODE,CYVB,MOTORTYPE,CYVB,GEARBOXCODE,Automat,MILEAGE,49100,QUALITY,A|http://46.101.206.99/storage/img/car-part/1132/image1.jpg|http://46.101.206.99/storage/img/car-part/1132/image2.jpg|http://46.101.206.99/storage/img/car-part/1132/image3.jpg|http://46.101.206.99/storage/img/car-part/1132/image4.jpg|http://46.101.206.99/storage/img/car-part/1132/image5.jpg
+183|BO715375|"Motor / FORD KUGA  20- / BGDA / 2361093"|"
+            Lagernummer: BO715375 
+
+            Originale Ersatzteilnummer: 2361093 
+
+            Motor Kennung: BGDA 
+
+            Motortype: BGDA 
+
+            Brandstofftype: Elhybrid bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 0(km) 
+
+            Fahrgestellnummer: WF0FXXWPMHLB53428 
+
+            Baujahr: 2020 
+
+            Kbas: 8566BTM
+        "|KUGA|8566BTM|2|1|0|2047|2047|0|3-6|MOTORCODE,BGDA,MOTORTYPE,BGDA,GEARBOXCODE,Automat,MILEAGE,0,QUALITY,M|http://46.101.206.99/storage/img/car-part/1133/image1.jpg|http://46.101.206.99/storage/img/car-part/1133/image2.jpg|http://46.101.206.99/storage/img/car-part/1133/image3.jpg|http://46.101.206.99/storage/img/car-part/1133/image4.jpg|http://46.101.206.99/storage/img/car-part/1133/image5.jpg
+183|BO724904|"Motor / VW POLO       10-17 / CGGB / 036 100 038 P"|"
+            Lagernummer: BO724904 
+
+            Originale Ersatzteilnummer: 036 100 038 P 
+
+            Motor Kennung: CGGB 
+
+            Motortype: CGGB 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 104880(km) 
+
+            Fahrgestellnummer: WVWZZZ6RZAY266477 
+
+            Baujahr: 2010 
+
+            Kbas: 0603APO,0603APO
+        "|"POLO 6R"|0603APO,0603APO|2|1|0|1190|1190|0|3-6|MOTORCODE,CGGB,MOTORTYPE,CGGB,GEARBOXCODE,Automat,MILEAGE,104880,QUALITY,A|http://46.101.206.99/storage/img/car-part/1135/image1.jpg|http://46.101.206.99/storage/img/car-part/1135/image2.jpg|http://46.101.206.99/storage/img/car-part/1135/image3.jpg|http://46.101.206.99/storage/img/car-part/1135/image4.jpg|http://46.101.206.99/storage/img/car-part/1135/image5.jpg
+183|BO726349|"Motor / VW GOLF VI     09-13 / CMXA / 06A 100 045 R"|"
+            Lagernummer: BO726349 
+
+            Originale Ersatzteilnummer: 06A 100 045 R 
+
+            Motor Kennung: CMXA 
+
+            Motortype: CMXA 
+
+            Brandstofftype: Bensin/E85 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 107010(km) 
+
+            Fahrgestellnummer: WVWZZZ1KZBW102529 
+
+            Baujahr: 2010 
+
+            Kbas: 0603AMB,0603AOF
+        "|"GOLF VI"|0603AMB,0603AOF|2|1|0|1666|1666|0|3-6|MOTORCODE,CMXA,MOTORTYPE,CMXA,GEARBOXCODE,Manuell,MILEAGE,107010,QUALITY,A|http://46.101.206.99/storage/img/car-part/1138/image1.jpg|http://46.101.206.99/storage/img/car-part/1138/image2.jpg|http://46.101.206.99/storage/img/car-part/1138/image3.jpg|http://46.101.206.99/storage/img/car-part/1138/image4.jpg|http://46.101.206.99/storage/img/car-part/1138/image5.jpg|http://46.101.206.99/storage/img/car-part/1138/image6.jpg
+183|BO728424|"Motor / VW POLO       10-17 / CJZC / 04E100031B"|"
+            Lagernummer: BO728424 
+
+            Originale Ersatzteilnummer: 04E100031B 
+
+            Motor Kennung: CJZC 
+
+            Motortype: CJZC 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 63410(km) 
+
+            Fahrgestellnummer: WVWZZZ6RZHY015967 
+
+            Baujahr: 2017 
+
+            Kbas: 0603BEB,0603BEB
+        "|"POLO 6R"|0603BEB,0603BEB|2|1|0|1666|1666|0|3-6|MOTORCODE,CJZC,MOTORTYPE,CJZC,GEARBOXCODE,Manuell,MILEAGE,63410,QUALITY,A|http://46.101.206.99/storage/img/car-part/1140/image1.jpg|http://46.101.206.99/storage/img/car-part/1140/image2.jpg|http://46.101.206.99/storage/img/car-part/1140/image3.jpg|http://46.101.206.99/storage/img/car-part/1140/image4.jpg|http://46.101.206.99/storage/img/car-part/1140/image5.jpg
+183|BO731050|"Motor / RENAULT CLIO III  09-12 / D4F-784 / 8201437315"|"
+            Lagernummer: BO731050 
+
+            Originale Ersatzteilnummer: 8201437315 
+
+            Motor Kennung: D4F-784 
+
+            Motortype: D4F-784 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 79810(km) 
+
+            Fahrgestellnummer: VF1BR140H47262346 
+
+            Baujahr: 2012 
+
+            Kbas: 
+        "|"CLIO III"||2|1|0|952|952|0|3-6|MOTORCODE,D4F-784,MOTORTYPE,D4F-784,GEARBOXCODE,Manuell,MILEAGE,79810,QUALITY,A|http://46.101.206.99/storage/img/car-part/1143/image1.jpg|http://46.101.206.99/storage/img/car-part/1143/image2.jpg|http://46.101.206.99/storage/img/car-part/1143/image3.jpg|http://46.101.206.99/storage/img/car-part/1143/image4.jpg
+183|BO732619|"Motor / MAZDA 3 III   14-19 / PE-VPS / PEY702300H"|"
+            Lagernummer: BO732619 
+
+            Originale Ersatzteilnummer: PEY702300H 
+
+            Motor Kennung: PE-VPS 
+
+            Motortype: PE-VPS 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 89280(km) 
+
+            Fahrgestellnummer: JMZBM546811145128 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|"3 BN"||2|1|0|2142|2142|0|3-6|MOTORCODE,PE-VPS,MOTORTYPE,PE-VPS,GEARBOXCODE,Automat,MILEAGE,89280,QUALITY,A|http://46.101.206.99/storage/img/car-part/1146/image1.jpg|http://46.101.206.99/storage/img/car-part/1146/image2.jpg|http://46.101.206.99/storage/img/car-part/1146/image3.jpg|http://46.101.206.99/storage/img/car-part/1146/image4.jpg|http://46.101.206.99/storage/img/car-part/1146/image5.jpg
+183|BO732764|"Motor / FORD KA+  16- / YSKD / 1898714"|"
+            Lagernummer: BO732764 
+
+            Originale Ersatzteilnummer: 1898714 
+
+            Motor Kennung: YSKD 
+
+            Motortype: YSKE 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 46240(km) 
+
+            Fahrgestellnummer: MAJUXXMTKUGT53237 
+
+            Baujahr: 2017 
+
+            Kbas: 1778AAB,1778AAD
+        "|KA|1778AAB,1778AAD|2|1|0|1904|1904|0|3-6|MOTORCODE,YSKD,MOTORTYPE,YSKE,GEARBOXCODE,Manuell,MILEAGE,46240,QUALITY,A|http://46.101.206.99/storage/img/car-part/1147/image1.jpg|http://46.101.206.99/storage/img/car-part/1147/image2.jpg|http://46.101.206.99/storage/img/car-part/1147/image3.jpg|http://46.101.206.99/storage/img/car-part/1147/image4.jpg|http://46.101.206.99/storage/img/car-part/1147/image5.jpg|http://46.101.206.99/storage/img/car-part/1147/image6.jpg
+183|BO737299|"Motor / VOLVO S80      04-06 / B5244S2 / 36050387"|"
+            Lagernummer: BO737299 
+
+            Originale Ersatzteilnummer: 36050387 
+
+            Motor Kennung: B5244S2 
+
+            Motortype: B5244S2 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 199580(km) 
+
+            Fahrgestellnummer: YV1TS654261440059 
+
+            Baujahr: 2006 
+
+            Kbas: 
+        "|S80||2|1|0|952|952|0|3-6|MOTORCODE,B5244S2,MOTORTYPE,B5244S2,GEARBOXCODE,Manuell,MILEAGE,199580,QUALITY,A|http://46.101.206.99/storage/img/car-part/1151/image1.jpg|http://46.101.206.99/storage/img/car-part/1151/image2.jpg|http://46.101.206.99/storage/img/car-part/1151/image3.jpg|http://46.101.206.99/storage/img/car-part/1151/image4.jpg|http://46.101.206.99/storage/img/car-part/1151/image5.jpg|http://46.101.206.99/storage/img/car-part/1151/image6.jpg|http://46.101.206.99/storage/img/car-part/1151/image7.jpg
+183|BO738836|"Motor / SUBARU LEGACY    04-06 / EZ30 / 10100BM440"|"
+            Lagernummer: BO738836 
+
+            Originale Ersatzteilnummer: 10100BM440 
+
+            Motor Kennung: EZ30 
+
+            Motortype: EZ30 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 170370(km) 
+
+            Fahrgestellnummer: JF1BLELU55G009002 
 
             Baujahr: 2005 
 
-            Kbas: 0588851,0588875,0588885,0588886,0588ABG,0588ABH,0588ABX,0588ABY
-        "|"A6 4F"|0588851,0588875,0588885,0588886,0588ABG,0588ABH,0588ABX,0588ABY|2|1|19|680|680|0|3-6|"MOTORCODE,BDW,MOTORTYPE,2.4 BDW,GEARBOXCODE,6VXL GYF,MILEAGE,149510,QUALITY,A"|http://46.101.206.99/storage/img/car-part/897/image1.jpg|http://46.101.206.99/storage/img/car-part/897/image2.jpg|http://46.101.206.99/storage/img/car-part/897/image3.jpg
-852|BO533324|"Schaltgetriebe 6-Gang / AUDI A4/S4  08-11 / CAKA / 0B4300027DX"|"
-            Lagernummer: BO533324 
+            Kbas: 7106408,7106409
+        "|LEGACY|7106408,7106409|2|1|0|2142|2142|0|3-6|MOTORCODE,EZ30,MOTORTYPE,EZ30,GEARBOXCODE,Automat,MILEAGE,170370,QUALITY,A|http://46.101.206.99/storage/img/car-part/1152/image1.jpg|http://46.101.206.99/storage/img/car-part/1152/image2.jpg|http://46.101.206.99/storage/img/car-part/1152/image3.jpg|http://46.101.206.99/storage/img/car-part/1152/image4.jpg|http://46.101.206.99/storage/img/car-part/1152/image5.jpg|http://46.101.206.99/storage/img/car-part/1152/image6.jpg
+183|BO747889|"Motor / FIAT TIPO 16- / 940.B7.000 / 73504140"|"
+            Lagernummer: BO747889 
 
-            Originale Ersatzteilnummer: 0B4300027DX 
+            Originale Ersatzteilnummer: 73504140 
 
-            Motor Kennung: CAKA 
+            Motor Kennung: 940.B7.000 
 
-            Motortype: CAKA 
-
-            Brandstofftype: Bensin 
-
-            Getriebe: 6VXL LPE 
-
-            Laufleistung: 69480(km) 
-
-            Fahrgestellnummer: WAUZZZ8K2BA122571 
-
-            Baujahr: 2011 
-
-            Kbas: 0588AJV,0588AJW
-        "|A4|0588AJV,0588AJW|2|1|19|1133.3|1133.3|0|3-6|"MOTORCODE,CAKA,MOTORTYPE,CAKA,GEARBOXCODE,6VXL LPE,MILEAGE,69480,QUALITY,A*"|http://46.101.206.99/storage/img/car-part/908/image1.jpg|http://46.101.206.99/storage/img/car-part/908/image2.jpg|http://46.101.206.99/storage/img/car-part/908/image3.jpg|http://46.101.206.99/storage/img/car-part/908/image4.jpg|http://46.101.206.99/storage/img/car-part/908/image5.jpg|http://46.101.206.99/storage/img/car-part/908/image6.jpg
-939|BO533589|"Differential / AUDI A4/S4  08-11 / CAKA / 0BC500044C"|"
-            Lagernummer: BO533589 
-
-            Originale Ersatzteilnummer: 0BC500044C 
-
-            Motor Kennung: CAKA 
-
-            Motortype: CAKA 
+            Motortype: 940.B7.000 
 
             Brandstofftype: Bensin 
 
-            Getriebe: 6VXL LPE 
+            Getriebe: Manuell 
 
-            Laufleistung: 69480(km) 
+            Laufleistung: 5190(km) 
 
-            Fahrgestellnummer: WAUZZZ8K2BA122571 
+            Fahrgestellnummer: ZFA35600006P93296 
+
+            Baujahr: 2020 
+
+            Kbas: 
+        "|TIPO||2|1|0|3094|3094|0|3-6|MOTORCODE,940.B7.000,MOTORTYPE,940.B7.000,GEARBOXCODE,Manuell,MILEAGE,5190,QUALITY,A|http://46.101.206.99/storage/img/car-part/1155/image1.jpg|http://46.101.206.99/storage/img/car-part/1155/image2.jpg|http://46.101.206.99/storage/img/car-part/1155/image3.jpg|http://46.101.206.99/storage/img/car-part/1155/image4.jpg
+183|BO747917|"Motor / FORD PUMA  20- / B7JA / 2462618"|"
+            Lagernummer: BO747917 
+
+            Originale Ersatzteilnummer: 2462618 
+
+            Motor Kennung: B7JA 
+
+            Motortype: B7JA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 23650(km) 
+
+            Fahrgestellnummer: WF02XXERK2LB45019 
+
+            Baujahr: 2020 
+
+            Kbas: 8566BSK,8566BSO
+        "|PUMA|8566BSK,8566BSO|2|1|0|2618|2618|0|3-6|MOTORCODE,B7JA,MOTORTYPE,B7JA,GEARBOXCODE,Manuell,MILEAGE,23650,QUALITY,A|http://46.101.206.99/storage/img/car-part/1156/image1.jpg|http://46.101.206.99/storage/img/car-part/1156/image2.jpg|http://46.101.206.99/storage/img/car-part/1156/image3.jpg|http://46.101.206.99/storage/img/car-part/1156/image4.jpg|http://46.101.206.99/storage/img/car-part/1156/image5.jpg
+183|BO756474|"Motor / AUDI A3/S3 8V  13-20 / CHZD / 04C100032F"|"
+            Lagernummer: BO756474 
+
+            Originale Ersatzteilnummer: 04C100032F 
+
+            Motor Kennung: CHZD 
+
+            Motortype: CHZD 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 118410(km) 
+
+            Fahrgestellnummer: WAUZZZ8V7HA073662 
+
+            Baujahr: 2017 
+
+            Kbas: 0588BHT,0588BHX,0588BIB,0588BHT,0588BHX,0588BIB,0588BHT,0588BHX,0588BIB
+        "|"A3 8V"|0588BHT,0588BHX,0588BIB,0588BHT,0588BHX,0588BIB,0588BHT,0588BHX,0588BIB|2|1|0|1047|1047|0|3-6|MOTORCODE,CHZD,MOTORTYPE,CHZD,GEARBOXCODE,Manuell,MILEAGE,118410,QUALITY,A|http://46.101.206.99/storage/img/car-part/1163/image1.jpg|http://46.101.206.99/storage/img/car-part/1163/image2.jpg|http://46.101.206.99/storage/img/car-part/1163/image3.jpg|http://46.101.206.99/storage/img/car-part/1163/image4.jpg|http://46.101.206.99/storage/img/car-part/1163/image5.jpg
+183|BO756852|"Motor / VOLVO XC60  18- / B4204T23 / 36010307"|"
+            Lagernummer: BO756852 
+
+            Originale Ersatzteilnummer: 36010307 
+
+            Motor Kennung: B4204T23 
+
+            Motortype: B4204T26 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 76250(km) 
+
+            Fahrgestellnummer: YV1UZ25BDJ1084983 
+
+            Baujahr: 2018 
+
+            Kbas: 
+        "|XC60||2|1|0|3427|3427|0|3-6|MOTORCODE,B4204T23,MOTORTYPE,B4204T26,GEARBOXCODE,Automat,MILEAGE,76250,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1164/image1.jpg|http://46.101.206.99/storage/img/car-part/1164/image2.jpg|http://46.101.206.99/storage/img/car-part/1164/image3.jpg|http://46.101.206.99/storage/img/car-part/1164/image4.jpg|http://46.101.206.99/storage/img/car-part/1164/image5.jpg|http://46.101.206.99/storage/img/car-part/1164/image6.jpg
+183|BO757797|"Motor / VOLVO S40       04-07 / B4164S3 / 36050046"|"
+            Lagernummer: BO757797 
+
+            Originale Ersatzteilnummer: 36050046 
+
+            Motor Kennung: B4164S3 
+
+            Motortype: B4164S3 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 133060(km) 
+
+            Fahrgestellnummer: YV1MS204272293477 
+
+            Baujahr: 2007 
+
+            Kbas: 
+        "|S40/V50||2|1|0|1190|1190|0|3-6|MOTORCODE,B4164S3,MOTORTYPE,B4164S3,GEARBOXCODE,Manuell,MILEAGE,133060,QUALITY,A|http://46.101.206.99/storage/img/car-part/1165/image1.jpg|http://46.101.206.99/storage/img/car-part/1165/image2.jpg|http://46.101.206.99/storage/img/car-part/1165/image3.jpg|http://46.101.206.99/storage/img/car-part/1165/image4.jpg|http://46.101.206.99/storage/img/car-part/1165/image5.jpg|http://46.101.206.99/storage/img/car-part/1165/image6.jpg
+183|BO762800|"Motor / FIAT TIPO 16- / 940.B7.000 / 73504140"|"
+            Lagernummer: BO762800 
+
+            Originale Ersatzteilnummer: 73504140 
+
+            Motor Kennung: 940.B7.000 
+
+            Motortype: 940.B7.000 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 23340(km) 
+
+            Fahrgestellnummer: ZFA35600006P70905 
+
+            Baujahr: 2020 
+
+            Kbas: 
+        "|TIPO||2|1|0|3094|3094|0|3-6|MOTORCODE,940.B7.000,MOTORTYPE,940.B7.000,GEARBOXCODE,Manuell,MILEAGE,23340,QUALITY,A|http://46.101.206.99/storage/img/car-part/1172/image1.jpg|http://46.101.206.99/storage/img/car-part/1172/image2.jpg|http://46.101.206.99/storage/img/car-part/1172/image3.jpg|http://46.101.206.99/storage/img/car-part/1172/image4.jpg|http://46.101.206.99/storage/img/car-part/1172/image5.jpg
+183|BO763257|"Motor / FIAT TIPO 16- / 843.A1.000 / 73504472"|"
+            Lagernummer: BO763257 
+
+            Originale Ersatzteilnummer: 73504472 
+
+            Motor Kennung: 843.A1.000 
+
+            Motortype: 843.A1.000 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 10230(km) 
+
+            Fahrgestellnummer: ZFA35600006P87165 
+
+            Baujahr: 2020 
+
+            Kbas: 
+        "|TIPO||2|1|0|4522|4522|0|3-6|MOTORCODE,843.A1.000,MOTORTYPE,843.A1.000,GEARBOXCODE,Manuell,MILEAGE,10230,QUALITY,A|http://46.101.206.99/storage/img/car-part/1175/image1.jpg|http://46.101.206.99/storage/img/car-part/1175/image2.jpg|http://46.101.206.99/storage/img/car-part/1175/image3.jpg|http://46.101.206.99/storage/img/car-part/1175/image4.jpg|http://46.101.206.99/storage/img/car-part/1175/image5.jpg
+183|BO767727|"Motor / MAZDA CX-3 / PE-VPS / PEX302300C"|"
+            Lagernummer: BO767727 
+
+            Originale Ersatzteilnummer: PEX302300C 
+
+            Motor Kennung: PE-VPS 
+
+            Motortype: PE-VPS 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 49010(km) 
+
+            Fahrgestellnummer: JMZDKFW7A20121400 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|CX-3||2|1|0|2618|2618|0|3-6|MOTORCODE,PE-VPS,MOTORTYPE,PE-VPS,GEARBOXCODE,Automat,MILEAGE,49010,QUALITY,A|http://46.101.206.99/storage/img/car-part/1180/image1.jpg|http://46.101.206.99/storage/img/car-part/1180/image2.jpg|http://46.101.206.99/storage/img/car-part/1180/image3.jpg|http://46.101.206.99/storage/img/car-part/1180/image4.jpg
+183|BO770542|"Motor / MAZDA 3 II   09-13 / Z6 / Z66802300E"|"
+            Lagernummer: BO770542 
+
+            Originale Ersatzteilnummer: Z66802300E 
+
+            Motor Kennung: Z6 
+
+            Motortype: Z6 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 78630(km) 
+
+            Fahrgestellnummer: JMZBLA4Z201247019 
 
             Baujahr: 2011 
 
-            Kbas: 0588AJV,0588AJW
-        "|A4|0588AJV,0588AJW|2|1|19|1088|1088|0|3-6|"MOTORCODE,CAKA,MOTORTYPE,CAKA,GEARBOXCODE,6VXL LPE,MILEAGE,69480,QUALITY,A"|http://46.101.206.99/storage/img/car-part/1043/image1.jpg|http://46.101.206.99/storage/img/car-part/1043/image2.jpg|http://46.101.206.99/storage/img/car-part/1043/image3.jpg
+            Kbas: 
+        "|"3 BL"||2|1|0|1428|1428|0|3-6|MOTORCODE,Z6,MOTORTYPE,Z6,GEARBOXCODE,Manuell,MILEAGE,78630,QUALITY,A|http://46.101.206.99/storage/img/car-part/1183/image1.jpg|http://46.101.206.99/storage/img/car-part/1183/image2.jpg|http://46.101.206.99/storage/img/car-part/1183/image3.jpg|http://46.101.206.99/storage/img/car-part/1183/image4.jpg|http://46.101.206.99/storage/img/car-part/1183/image5.jpg
+183|BO776622|"Motor / FORD FOCUS 19- / B7DA / 2522403"|"
+            Lagernummer: BO776622 
+
+            Originale Ersatzteilnummer: 2522403 
+
+            Motor Kennung: B7DA 
+
+            Motortype: B7DA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 11650(km) 
+
+            Fahrgestellnummer: WF0PXXGCHPMK84167 
+
+            Baujahr: 2022 
+
+            Kbas: 8566BPN,8566BPO,8566BPP,8566BUB
+        "|FOCUS|8566BPN,8566BPO,8566BPP,8566BUB|2|1|0|4046|4046|0|3-6|MOTORCODE,B7DA,MOTORTYPE,B7DA,GEARBOXCODE,Manuell,MILEAGE,11650,QUALITY,A|http://46.101.206.99/storage/img/car-part/1186/image1.jpg|http://46.101.206.99/storage/img/car-part/1186/image2.jpg|http://46.101.206.99/storage/img/car-part/1186/image3.jpg|http://46.101.206.99/storage/img/car-part/1186/image4.jpg|http://46.101.206.99/storage/img/car-part/1186/image5.jpg
+183|BO777338|"Motor / SKODA FABIA         07-14 / CBZA / 03F 100 031 FX"|"
+            Lagernummer: BO777338 
+
+            Originale Ersatzteilnummer: 03F 100 031 FX 
+
+            Motor Kennung: CBZA 
+
+            Motortype: CBZA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 107840(km) 
+
+            Fahrgestellnummer: TMBJM65J7D3079393 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|"FABIA 5J"||2|1|0|1666|1666|0|3-6|MOTORCODE,CBZA,MOTORTYPE,CBZA,GEARBOXCODE,Manuell,MILEAGE,107840,QUALITY,A|http://46.101.206.99/storage/img/car-part/1188/image1.jpg|http://46.101.206.99/storage/img/car-part/1188/image2.jpg|http://46.101.206.99/storage/img/car-part/1188/image3.jpg|http://46.101.206.99/storage/img/car-part/1188/image4.jpg|http://46.101.206.99/storage/img/car-part/1188/image5.jpg
+183|BO777341|"Motor / FORD FOCUS 19- / B7DA / 2463334"|"
+            Lagernummer: BO777341 
+
+            Originale Ersatzteilnummer: 2463334 
+
+            Motor Kennung: B7DA 
+
+            Motortype: B7DA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 38820(km) 
+
+            Fahrgestellnummer: WF0NXXGCHNKU45034 
+
+            Baujahr: 2020 
+
+            Kbas: 8566BPN,8566BPO,8566BPP,8566BUB
+        "|FOCUS|8566BPN,8566BPO,8566BPP,8566BUB|2|1|0|3082|3082|0|3-6|MOTORCODE,B7DA,MOTORTYPE,B7DA,GEARBOXCODE,Manuell,MILEAGE,38820,QUALITY,A|http://46.101.206.99/storage/img/car-part/1189/image1.jpg|http://46.101.206.99/storage/img/car-part/1189/image2.jpg|http://46.101.206.99/storage/img/car-part/1189/image3.jpg|http://46.101.206.99/storage/img/car-part/1189/image4.jpg|http://46.101.206.99/storage/img/car-part/1189/image5.jpg
+183|BO780690|"Motor / CITROEN C3 17- / HMR / 16 192 345 80"|"
+            Lagernummer: BO780690 
+
+            Originale Ersatzteilnummer: 16 192 345 80 
+
+            Motor Kennung: HMR 
+
+            Motortype: HMR 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 53980(km) 
+
+            Fahrgestellnummer: VF7SXHMRPJT652561 
+
+            Baujahr: 2019 
+
+            Kbas: 
+        "|C3||2|1|0|1642|1642|0|3-6|MOTORCODE,HMR,MOTORTYPE,HMR,GEARBOXCODE,Manuell,MILEAGE,53980,QUALITY,A|http://46.101.206.99/storage/img/car-part/1191/image1.jpg|http://46.101.206.99/storage/img/car-part/1191/image2.jpg|http://46.101.206.99/storage/img/car-part/1191/image3.jpg|http://46.101.206.99/storage/img/car-part/1191/image4.jpg|http://46.101.206.99/storage/img/car-part/1191/image5.jpg
+183|BO780694|"Motor / CITROEN C3 17- / HMR / 16 192 345 80"|"
+            Lagernummer: BO780694 
+
+            Originale Ersatzteilnummer: 16 192 345 80 
+
+            Motor Kennung: HMR 
+
+            Motortype: HMR 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 8290(km) 
+
+            Fahrgestellnummer: VF7SXHMRVLT583968 
+
+            Baujahr: 2020 
+
+            Kbas: 
+        "|C3||2|1|0|1785|1785|0|3-6|MOTORCODE,HMR,MOTORTYPE,HMR,GEARBOXCODE,Manuell,MILEAGE,8290,QUALITY,A|http://46.101.206.99/storage/img/car-part/1192/image1.jpg|http://46.101.206.99/storage/img/car-part/1192/image2.jpg|http://46.101.206.99/storage/img/car-part/1192/image3.jpg|http://46.101.206.99/storage/img/car-part/1192/image4.jpg|http://46.101.206.99/storage/img/car-part/1192/image5.jpg
+183|BO781356|"Motor / CITROEN C3 17- / HMR / 16 192 345 80"|"
+            Lagernummer: BO781356 
+
+            Originale Ersatzteilnummer: 16 192 345 80 
+
+            Motor Kennung: HMR 
+
+            Motortype: HMR 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 51410(km) 
+
+            Fahrgestellnummer: VF7SXHMRPJT602925 
+
+            Baujahr: 2018 
+
+            Kbas: 
+        "|C3||2|1|0|1642|1642|0|3-6|MOTORCODE,HMR,MOTORTYPE,HMR,GEARBOXCODE,Manuell,MILEAGE,51410,QUALITY,A|http://46.101.206.99/storage/img/car-part/1194/image1.jpg|http://46.101.206.99/storage/img/car-part/1194/image2.jpg|http://46.101.206.99/storage/img/car-part/1194/image3.jpg|http://46.101.206.99/storage/img/car-part/1194/image4.jpg|http://46.101.206.99/storage/img/car-part/1194/image5.jpg
+183|BO784747|"Motor / VW POLO VI 18- / CHZL / 04C 100 033 HX"|"
+            Lagernummer: BO784747 
+
+            Originale Ersatzteilnummer: 04C 100 033 HX 
+
+            Motor Kennung: CHZL 
+
+            Motortype: CHZL 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 69830(km) 
+
+            Fahrgestellnummer: WVWZZZAWZJY166192 
+
+            Baujahr: 2018 
+
+            Kbas: 0603CDS
+        "|"POLO AW"|0603CDS|2|1|0|1666|1666|0|3-6|MOTORCODE,CHZL,MOTORTYPE,CHZL,GEARBOXCODE,Manuell,MILEAGE,69830,QUALITY,A|http://46.101.206.99/storage/img/car-part/1199/image1.jpg|http://46.101.206.99/storage/img/car-part/1199/image2.jpg|http://46.101.206.99/storage/img/car-part/1199/image3.jpg|http://46.101.206.99/storage/img/car-part/1199/image4.jpg
+183|BO785210|"Motor / VW POLO       10-17 / DAJA / 06K 100 035 E"|"
+            Lagernummer: BO785210 
+
+            Originale Ersatzteilnummer: 06K 100 035 E 
+
+            Motor Kennung: DAJA 
+
+            Motortype: DAJA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 79810(km) 
+
+            Fahrgestellnummer: WVWZZZ6RZGY019046 
+
+            Baujahr: 2016 
+
+            Kbas: 0603BRE,0603BRE
+        "|"POLO 6R"|0603BRE,0603BRE|2|1|0|4998|4998|0|3-6|MOTORCODE,DAJA,MOTORTYPE,DAJA,GEARBOXCODE,Manuell,MILEAGE,79810,QUALITY,A|http://46.101.206.99/storage/img/car-part/1200/image1.jpg|http://46.101.206.99/storage/img/car-part/1200/image2.jpg|http://46.101.206.99/storage/img/car-part/1200/image3.jpg|http://46.101.206.99/storage/img/car-part/1200/image4.jpg|http://46.101.206.99/storage/img/car-part/1200/image5.jpg
+183|BO785739|"Motor / MAZDA MX-5 IV MIATA  15- / PE / PEX602300G"|"
+            Lagernummer: BO785739 
+
+            Originale Ersatzteilnummer: PEX602300G 
+
+            Motor Kennung: PE 
+
+            Motortype: PE 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 110880(km) 
+
+            Fahrgestellnummer: JMZND6E7600134793 
+
+            Baujahr: 2017 
+
+            Kbas: 
+        "|MX5||2|1|0|3808|3808|0|3-6|MOTORCODE,PE,MOTORTYPE,PE,GEARBOXCODE,Manuell,MILEAGE,110880,QUALITY,A|http://46.101.206.99/storage/img/car-part/1201/image1.jpg|http://46.101.206.99/storage/img/car-part/1201/image2.jpg|http://46.101.206.99/storage/img/car-part/1201/image3.jpg|http://46.101.206.99/storage/img/car-part/1201/image4.jpg|http://46.101.206.99/storage/img/car-part/1201/image5.jpg
+183|BO786241|"Motor / MAZDA CX-5  17- / PE-VPS / PEX302300C"|"
+            Lagernummer: BO786241 
+
+            Originale Ersatzteilnummer: PEX302300C 
+
+            Motor Kennung: PE-VPS 
+
+            Motortype: PE-VPS 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 80040(km) 
+
+            Fahrgestellnummer: JMZKFGW7A00604437 
+
+            Baujahr: 2017 
+
+            Kbas: 
+        "|"CX-5 KF"||2|1|0|1904|1904|0|3-6|MOTORCODE,PE-VPS,MOTORTYPE,PE-VPS,GEARBOXCODE,Automat,MILEAGE,80040,QUALITY,A|http://46.101.206.99/storage/img/car-part/1202/image1.jpg|http://46.101.206.99/storage/img/car-part/1202/image2.jpg|http://46.101.206.99/storage/img/car-part/1202/image3.jpg|http://46.101.206.99/storage/img/car-part/1202/image4.jpg|http://46.101.206.99/storage/img/car-part/1202/image5.jpg
+183|BO787423|"Motor / MAZDA CX-3 / PEXB / PEX302300C"|"
+            Lagernummer: BO787423 
+
+            Originale Ersatzteilnummer: PEX302300C 
+
+            Motor Kennung: PEXB 
+
+            Motortype: PE-VPS 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 88770(km) 
+
+            Fahrgestellnummer: JMZDK6W7A10192350 
+
+            Baujahr: 2017 
+
+            Kbas: 7118AGV,7118AGW,7118AHM
+        "|CX-3|7118AGV,7118AGW,7118AHM|2|1|0|1904|1904|0|3-6|MOTORCODE,PEXB,MOTORTYPE,PE-VPS,GEARBOXCODE,Automat,MILEAGE,88770,QUALITY,A|http://46.101.206.99/storage/img/car-part/1204/image1.jpg|http://46.101.206.99/storage/img/car-part/1204/image2.jpg|http://46.101.206.99/storage/img/car-part/1204/image3.jpg|http://46.101.206.99/storage/img/car-part/1204/image4.jpg
+183|BO790121|"Motor / FORD FOCUS 19- / B7DA / 2522405"|"
+            Lagernummer: BO790121 
+
+            Originale Ersatzteilnummer: 2522405 
+
+            Motor Kennung: B7DA 
+
+            Motortype: B7DA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 20800(km) 
+
+            Fahrgestellnummer: WF0PXXGCHPNL23848 
+
+            Baujahr: 2022 
+
+            Kbas: 8566BPN,8566BPO,8566BPP,8566BUB
+        "|FOCUS|8566BPN,8566BPO,8566BPP,8566BUB|2|1|0|4046|4046|0|3-6|MOTORCODE,B7DA,MOTORTYPE,B7DA,GEARBOXCODE,Automat,MILEAGE,20800,QUALITY,A|http://46.101.206.99/storage/img/car-part/1209/image1.jpg|http://46.101.206.99/storage/img/car-part/1209/image2.jpg|http://46.101.206.99/storage/img/car-part/1209/image3.jpg|http://46.101.206.99/storage/img/car-part/1209/image4.jpg|http://46.101.206.99/storage/img/car-part/1209/image5.jpg
+183|BO791902|"Motor / FORD FOCUS 19- / B7DA / 2522405"|"
+            Lagernummer: BO791902 
+
+            Originale Ersatzteilnummer: 2522405 
+
+            Motor Kennung: B7DA 
+
+            Motortype: B7DA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 11230(km) 
+
+            Fahrgestellnummer: WF0NXXGCHNMA54132 
+
+            Baujahr: 2021 
+
+            Kbas: 8566BPN,8566BPO,8566BPP,8566BUB
+        "|FOCUS|8566BPN,8566BPO,8566BPP,8566BUB|2|1|0|3332|3332|0|3-6|MOTORCODE,B7DA,MOTORTYPE,B7DA,GEARBOXCODE,Automat,MILEAGE,11230,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1212/image1.jpg|http://46.101.206.99/storage/img/car-part/1212/image2.jpg|http://46.101.206.99/storage/img/car-part/1212/image3.jpg|http://46.101.206.99/storage/img/car-part/1212/image4.jpg
+183|BO792241|"Motor / NISSAN QASHQAI+2  10-14 / MR20DE / 10102BR21A"|"
+            Lagernummer: BO792241 
+
+            Originale Ersatzteilnummer: 10102BR21A 
+
+            Motor Kennung: MR20DE 
+
+            Motortype: MR20DE 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 152410(km) 
+
+            Fahrgestellnummer: SJNJBAJ10U7206881 
+
+            Baujahr: 2014 
+
+            Kbas: 1329ABC,1329ABG
+        "|"QASHQAI 2"|1329ABC,1329ABG|2|1|0|2440|2440|0|3-6|MOTORCODE,MR20DE,MOTORTYPE,MR20DE,GEARBOXCODE,Manuell,MILEAGE,152410,QUALITY,A|http://46.101.206.99/storage/img/car-part/1213/image1.jpg|http://46.101.206.99/storage/img/car-part/1213/image2.jpg|http://46.101.206.99/storage/img/car-part/1213/image3.jpg|http://46.101.206.99/storage/img/car-part/1213/image4.jpg|http://46.101.206.99/storage/img/car-part/1213/image5.jpg
+183|BO793174|"Motor / HONDA CIVIC 17-22 / L15B7 / 100025AWG01"|"
+            Lagernummer: BO793174 
+
+            Originale Ersatzteilnummer: 100025AWG01 
+
+            Motor Kennung: L15B7 
+
+            Motortype: L15B7 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 101800(km) 
+
+            Fahrgestellnummer: NLAFC1680HW004169 
+
+            Baujahr: 2018 
+
+            Kbas: 7100ADG,7100ADI,7100AEG,7100AEJ
+        "|"CIVIC FC"|7100ADG,7100ADI,7100AEG,7100AEJ|2|1|0|2142|2142|0|3-6|MOTORCODE,L15B7,MOTORTYPE,L15B7,GEARBOXCODE,Automat,MILEAGE,101800,QUALITY,A|http://46.101.206.99/storage/img/car-part/1216/image1.jpg|http://46.101.206.99/storage/img/car-part/1216/image2.jpg|http://46.101.206.99/storage/img/car-part/1216/image3.jpg|http://46.101.206.99/storage/img/car-part/1216/image4.jpg
+183|BO793476|"Motor / KIA CEED  12-18 / G4FJ / 135W12BS 00"|"
+            Lagernummer: BO793476 
+
+            Originale Ersatzteilnummer: 135W12BS 00 
+
+            Motor Kennung: G4FJ 
+
+            Motortype: G4FJ 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 165880(km) 
+
+            Fahrgestellnummer: U5YHP314AEL011034 
+
+            Baujahr: 2014 
+
+            Kbas: 1260ADJ
+        "|CEED|1260ADJ|2|1|0|2737|2737|0|3-6|MOTORCODE,G4FJ,MOTORTYPE,G4FJ,GEARBOXCODE,Manuell,MILEAGE,165880,QUALITY,A|http://46.101.206.99/storage/img/car-part/1217/image1.jpg|http://46.101.206.99/storage/img/car-part/1217/image2.jpg|http://46.101.206.99/storage/img/car-part/1217/image3.jpg|http://46.101.206.99/storage/img/car-part/1217/image4.jpg|http://46.101.206.99/storage/img/car-part/1217/image5.jpg
+183|BO796892|"Motor / FORD FIESTA  18- / M0JD / 2521467"|"
+            Lagernummer: BO796892 
+
+            Originale Ersatzteilnummer: 2521467 
+
+            Motor Kennung: M0JD 
+
+            Motortype: M0JD 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 3190(km) 
+
+            Fahrgestellnummer: WF0JXXGAHJNY08308 
+
+            Baujahr: 2022 
+
+            Kbas: 
+        "|FIESTA||2|1|0|4218|4218|0|3-6|MOTORCODE,M0JD,MOTORTYPE,M0JD,GEARBOXCODE,Manuell,MILEAGE,3190,QUALITY,A|http://46.101.206.99/storage/img/car-part/1223/image1.jpg|http://46.101.206.99/storage/img/car-part/1223/image2.jpg|http://46.101.206.99/storage/img/car-part/1223/image3.jpg|http://46.101.206.99/storage/img/car-part/1223/image4.jpg
+183|BO797405|"Motor / VOLVO 940      91-98 / B230F / "|"
+            Lagernummer: BO797405 
+
+            Originale Ersatzteilnummer:  
+
+            Motor Kennung: B230F 
+
+            Motortype: B230FD 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 33060(km) 
+
+            Fahrgestellnummer: YV1944833P1137382 
+
+            Baujahr: 1993 
+
+            Kbas: 
+        "|940/960||2|1|0|1095|1095|0|3-6|MOTORCODE,B230F,MOTORTYPE,B230FD,GEARBOXCODE,Manuell,MILEAGE,33060,QUALITY,A|http://46.101.206.99/storage/img/car-part/1224/image1.jpg|http://46.101.206.99/storage/img/car-part/1224/image2.jpg|http://46.101.206.99/storage/img/car-part/1224/image3.jpg|http://46.101.206.99/storage/img/car-part/1224/image4.jpg|http://46.101.206.99/storage/img/car-part/1224/image5.jpg|http://46.101.206.99/storage/img/car-part/1224/image6.jpg
+183|BO799696|"Motor / PEUGEOT 3008  17- / 5GB / 16 569 654 80"|"
+            Lagernummer: BO799696 
+
+            Originale Ersatzteilnummer: 16 569 654 80 
+
+            Motor Kennung: 5GB 
+
+            Motortype: 5GB 
+
+            Brandstofftype: Elhybrid bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 86260(km) 
+
+            Fahrgestellnummer: VF3M45GBUKS507570 
+
+            Baujahr: 2020 
+
+            Kbas: 
+        "|3008||2|1|0|3213|3213|0|3-6|MOTORCODE,5GB,MOTORTYPE,5GB,GEARBOXCODE,Automat,MILEAGE,86260,QUALITY,A|http://46.101.206.99/storage/img/car-part/1228/image1.jpg|http://46.101.206.99/storage/img/car-part/1228/image2.jpg|http://46.101.206.99/storage/img/car-part/1228/image3.jpg|http://46.101.206.99/storage/img/car-part/1228/image4.jpg
+183|BO799855|"Motor / KIA CEED  12-18 / G4FD / Z79112BZ 00"|"
+            Lagernummer: BO799855 
+
+            Originale Ersatzteilnummer: Z79112BZ 00 
+
+            Motor Kennung: G4FD 
+
+            Motortype: G4FD 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 91480(km) 
+
+            Fahrgestellnummer: U5YHN813AJL253185 
+
+            Baujahr: 2018 
+
+            Kbas: 1260ACV,1260ADA
+        "|CEED|1260ACV,1260ADA|2|1|0|2618|2618|0|3-6|MOTORCODE,G4FD,MOTORTYPE,G4FD,GEARBOXCODE,Manuell,MILEAGE,91480,QUALITY,A|http://46.101.206.99/storage/img/car-part/1230/image1.jpg|http://46.101.206.99/storage/img/car-part/1230/image2.jpg|http://46.101.206.99/storage/img/car-part/1230/image3.jpg|http://46.101.206.99/storage/img/car-part/1230/image4.jpg|http://46.101.206.99/storage/img/car-part/1230/image5.jpg
+183|BO799865|"Motor / BMW 2 F22/F23/F87 Coupe/Cab 13-21 / N55-B30A / 11 00 2 455 362"|"
+            Lagernummer: BO799865 
+
+            Originale Ersatzteilnummer: 11 00 2 455 362 
+
+            Motor Kennung: N55-B30A 
+
+            Motortype: N55-B30A 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 103680(km) 
+
+            Fahrgestellnummer: WBS1J5103JVD16182 
+
+            Baujahr: 2018 
+
+            Kbas: 
+        "|"2 F22/F23"||2|1|0|7140|7140|0|3-6|MOTORCODE,N55-B30A,MOTORTYPE,N55-B30A,GEARBOXCODE,Automat,MILEAGE,103680,QUALITY,A|http://46.101.206.99/storage/img/car-part/1231/image1.jpg|http://46.101.206.99/storage/img/car-part/1231/image2.jpg|http://46.101.206.99/storage/img/car-part/1231/image3.jpg|http://46.101.206.99/storage/img/car-part/1231/image4.jpg|http://46.101.206.99/storage/img/car-part/1231/image5.jpg
+183|BO800755|"Motor / FORD FOCUS 19- / B7DA / 2463341"|"
+            Lagernummer: BO800755 
+
+            Originale Ersatzteilnummer: 2463341 
+
+            Motor Kennung: B7DA 
+
+            Motortype: B7DA 
+
+            Brandstofftype: Bensin 
+
+            Getriebe: Automat 
+
+            Laufleistung: 57380(km) 
+
+            Fahrgestellnummer: WF0PXXGCHPKM79458 
+
+            Baujahr: 2020 
+
+            Kbas: 8566BPN,8566BPO,8566BPP,8566BUB
+        "|FOCUS|8566BPN,8566BPO,8566BPP,8566BUB|2|1|0|3213|3213|0|3-6|MOTORCODE,B7DA,MOTORTYPE,B7DA,GEARBOXCODE,Automat,MILEAGE,57380,QUALITY,A|http://46.101.206.99/storage/img/car-part/1233/image1.jpg|http://46.101.206.99/storage/img/car-part/1233/image2.jpg|http://46.101.206.99/storage/img/car-part/1233/image3.jpg|http://46.101.206.99/storage/img/car-part/1233/image4.jpg
+183|BO668946|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO668946 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K646 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 80360(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1731700 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3213|3213|0|3-6|MOTORCODE,K9K,MOTORTYPE,K9K646,GEARBOXCODE,Manuell,MILEAGE,80360,QUALITY,A|http://46.101.206.99/storage/img/car-part/1234/image1.jpg|http://46.101.206.99/storage/img/car-part/1234/image2.jpg|http://46.101.206.99/storage/img/car-part/1234/image3.jpg|http://46.101.206.99/storage/img/car-part/1234/image4.jpg|http://46.101.206.99/storage/img/car-part/1234/image5.jpg
+183|BO668957|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO668957 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K646 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 44090(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1427818 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3570|3570|0|3-6|MOTORCODE,K9K,MOTORTYPE,K9K646,GEARBOXCODE,Manuell,MILEAGE,44090,QUALITY,A|http://46.101.206.99/storage/img/car-part/1235/image1.jpg|http://46.101.206.99/storage/img/car-part/1235/image2.jpg|http://46.101.206.99/storage/img/car-part/1235/image3.jpg|http://46.101.206.99/storage/img/car-part/1235/image4.jpg
+183|BO672749|"Motor / CITROEN C4 PICASSO   14-18 / 9HC / 0135TQ"|"
+            Lagernummer: BO672749 
+
+            Originale Ersatzteilnummer: 0135TQ 
+
+            Motor Kennung: 9HC 
+
+            Motortype: 9HC 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 55190(km) 
+
+            Fahrgestellnummer: VF73D9HC8DJ825801 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|"C4 GRAND PICASSO"||2|1|0|1904|1904|0|3-6|MOTORCODE,9HC,MOTORTYPE,9HC,GEARBOXCODE,Automat,MILEAGE,55190,QUALITY,A|http://46.101.206.99/storage/img/car-part/1236/image1.jpg|http://46.101.206.99/storage/img/car-part/1236/image2.jpg|http://46.101.206.99/storage/img/car-part/1236/image3.jpg|http://46.101.206.99/storage/img/car-part/1236/image4.jpg
+183|BO685193|"Motor / NISSAN X-TRAIL  14-21 / M9R / 1010201Q1H"|"
+            Lagernummer: BO685193 
+
+            Originale Ersatzteilnummer: 1010201Q1H 
+
+            Motor Kennung: M9R 
+
+            Motortype: M9R868 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 26950(km) 
+
+            Fahrgestellnummer: JN1TFNT32U0100674 
+
+            Baujahr: 2017 
+
+            Kbas: 1329AKV,1329Akw
+        "|X-TRAIL|1329AKV,1329Akw|2|1|0|4046|4046|0|3-6|MOTORCODE,M9R,MOTORTYPE,M9R868,GEARBOXCODE,Automat,MILEAGE,26950,QUALITY,A|http://46.101.206.99/storage/img/car-part/1237/image1.jpg|http://46.101.206.99/storage/img/car-part/1237/image2.jpg|http://46.101.206.99/storage/img/car-part/1237/image3.jpg|http://46.101.206.99/storage/img/car-part/1237/image4.jpg
+183|BO685859|"Motor / AUDI A6/S6     05-11 / CAHA / 03L100104EX"|"
+            Lagernummer: BO685859 
+
+            Originale Ersatzteilnummer: 03L100104EX 
+
+            Motor Kennung: CAHA 
+
+            Motortype: CAHA 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 216490(km) 
+
+            Fahrgestellnummer: WAUZZZ4F9BN069465 
+
+            Baujahr: 2011 
+
+            Kbas: 0588AJO,0588AJP
+        "|"A6 4F"|0588AJO,0588AJP|2|1|0|1190|1190|0|3-6|MOTORCODE,CAHA,MOTORTYPE,CAHA,GEARBOXCODE,Automat,MILEAGE,216490,QUALITY,A|http://46.101.206.99/storage/img/car-part/1238/image1.jpg|http://46.101.206.99/storage/img/car-part/1238/image2.jpg|http://46.101.206.99/storage/img/car-part/1238/image3.jpg|http://46.101.206.99/storage/img/car-part/1238/image4.jpg
+183|BO698991|"Motor / AUDI A7/S7 4G  11-17 / CDUC / 059100099GX"|"
+            Lagernummer: BO698991 
+
+            Originale Ersatzteilnummer: 059100099GX 
+
+            Motor Kennung: CDUC 
+
+            Motortype: CDUC 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 175790(km) 
+
+            Fahrgestellnummer: WAUZZZ4G8BN004437 
+
+            Baujahr: 2011 
+
+            Kbas: 0588AQH
+        "|"A7 4G"|0588AQH|2|1|0|3808|3808|0|3-6|MOTORCODE,CDUC,MOTORTYPE,CDUC,GEARBOXCODE,Automat,MILEAGE,175790,QUALITY,A|http://46.101.206.99/storage/img/car-part/1240/image1.jpg|http://46.101.206.99/storage/img/car-part/1240/image2.jpg|http://46.101.206.99/storage/img/car-part/1240/image3.jpg|http://46.101.206.99/storage/img/car-part/1240/image4.jpg
+183|BO700998|"Motor / PEUGEOT 508  11-18 / 9HD / 0135TQ"|"
+            Lagernummer: BO700998 
+
+            Originale Ersatzteilnummer: 0135TQ 
+
+            Motor Kennung: 9HD 
+
+            Motortype: 9HD 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 80600(km) 
+
+            Fahrgestellnummer: VF38E9HD8DL021091 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|508||2|1|0|1547|1547|0|3-6|MOTORCODE,9HD,MOTORTYPE,9HD,GEARBOXCODE,Automat,MILEAGE,80600,QUALITY,A|http://46.101.206.99/storage/img/car-part/1242/image1.jpg|http://46.101.206.99/storage/img/car-part/1242/image2.jpg|http://46.101.206.99/storage/img/car-part/1242/image3.jpg|http://46.101.206.99/storage/img/car-part/1242/image4.jpg|http://46.101.206.99/storage/img/car-part/1242/image5.jpg
+183|BO708180|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q1F"|"
+            Lagernummer: BO708180 
+
+            Originale Ersatzteilnummer: 1010201Q1F 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 75180(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U1579433 
+
+            Baujahr: 2016 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3094|3094|0|3-6|MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,Manuell,MILEAGE,75180,QUALITY,A|http://46.101.206.99/storage/img/car-part/1244/image1.jpg|http://46.101.206.99/storage/img/car-part/1244/image2.jpg|http://46.101.206.99/storage/img/car-part/1244/image3.jpg|http://46.101.206.99/storage/img/car-part/1244/image4.jpg
+183|BO710687|"Motor / NISSAN QASHQAI  14-17 / K9K / 1010201Q3C"|"
+            Lagernummer: BO710687 
+
+            Originale Ersatzteilnummer: 1010201Q3C 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 31810(km) 
+
+            Fahrgestellnummer: SJNFAAJ11UZ044901 
+
+            Baujahr: 2017 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3570|3570|0|3-6|MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,Manuell,MILEAGE,31810,QUALITY,A|http://46.101.206.99/storage/img/car-part/1245/image1.jpg|http://46.101.206.99/storage/img/car-part/1245/image2.jpg|http://46.101.206.99/storage/img/car-part/1245/image3.jpg|http://46.101.206.99/storage/img/car-part/1245/image4.jpg
+183|BO719742|"Motor / RENAULT TRAFIC   02-14 / M9R-692 / 8201270299"|"
+            Lagernummer: BO719742 
+
+            Originale Ersatzteilnummer: 8201270299 
+
+            Motor Kennung: M9R-692 
+
+            Motortype: M9R-692 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 227410(km) 
+
+            Fahrgestellnummer: VF1FLB1BEDY506684 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|TRAFIC||2|1|0|2380|2380|0|3-6|MOTORCODE,M9R-692,MOTORTYPE,M9R-692,GEARBOXCODE,Manuell,MILEAGE,227410,QUALITY,A|http://46.101.206.99/storage/img/car-part/1249/image1.jpg|http://46.101.206.99/storage/img/car-part/1249/image2.jpg|http://46.101.206.99/storage/img/car-part/1249/image3.jpg|http://46.101.206.99/storage/img/car-part/1249/image4.jpg
+183|BO722256|"Motor / HONDA CR-V     13-18 / N22B4 / 10002-R7C-G00"|"
+            Lagernummer: BO722256 
+
+            Originale Ersatzteilnummer: 10002-R7C-G00 
+
+            Motor Kennung: N22B4 
+
+            Motortype: N22B4 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 124450(km) 
+
+            Fahrgestellnummer: SHSRE6780EU008688 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|CR-V||2|1|0|1499|1499|0|3-6|MOTORCODE,N22B4,MOTORTYPE,N22B4,GEARBOXCODE,Manuell,MILEAGE,124450,QUALITY,A|http://46.101.206.99/storage/img/car-part/1250/image1.jpg|http://46.101.206.99/storage/img/car-part/1250/image2.jpg|http://46.101.206.99/storage/img/car-part/1250/image3.jpg|http://46.101.206.99/storage/img/car-part/1250/image4.jpg|http://46.101.206.99/storage/img/car-part/1250/image5.jpg
+183|BO726069|"Motor / FORD TRAN./TOUR COURIER 14- / UGCA / 1866263"|"
+            Lagernummer: BO726069 
+
+            Originale Ersatzteilnummer: 1866263 
+
+            Motor Kennung: UGCA 
+
+            Motortype: UGCB 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 73100(km) 
+
+            Fahrgestellnummer: WF0WXXTACWFT80107 
+
+            Baujahr: 2016 
+
+            Kbas: 8566BIN,8566BIN
+        "|"TRANSIT BAGHJ."|8566BIN,8566BIN|2|1|0|2023|2023|0|3-6|MOTORCODE,UGCA,MOTORTYPE,UGCB,GEARBOXCODE,Manuell,MILEAGE,73100,QUALITY,A|http://46.101.206.99/storage/img/car-part/1251/image1.jpg|http://46.101.206.99/storage/img/car-part/1251/image2.jpg|http://46.101.206.99/storage/img/car-part/1251/image3.jpg|http://46.101.206.99/storage/img/car-part/1251/image4.jpg|http://46.101.206.99/storage/img/car-part/1251/image5.jpg
+183|BO727044|"Motor / KIA CEED  12-18 / D4FB / Z59712AZ 00"|"
+            Lagernummer: BO727044 
+
+            Originale Ersatzteilnummer: Z59712AZ 00 
+
+            Motor Kennung: D4FB 
+
+            Motortype: D4FB 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 78710(km) 
+
+            Fahrgestellnummer: U5YHN816AFL134796 
+
+            Baujahr: 2015 
+
+            Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR
+        "|CEED|1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR|2|1|0|1428|1428|0|3-6|MOTORCODE,D4FB,MOTORTYPE,D4FB,GEARBOXCODE,Manuell,MILEAGE,78710,QUALITY,A|http://46.101.206.99/storage/img/car-part/1252/image1.jpg|http://46.101.206.99/storage/img/car-part/1252/image2.jpg|http://46.101.206.99/storage/img/car-part/1252/image3.jpg|http://46.101.206.99/storage/img/car-part/1252/image4.jpg
+183|BO737245|"Motor / PEUGEOT EXPERT  15-16 / RHH / 0135 QP"|"
+            Lagernummer: BO737245 
+
+            Originale Ersatzteilnummer: 0135 QP 
+
+            Motor Kennung: RHH 
+
+            Motortype: RHH 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 94960(km) 
+
+            Fahrgestellnummer: VF3XTRHHAFZ043695 
+
+            Baujahr: 2015 
+
+            Kbas: 
+        "|EXPERT||2|1|0|1666|1666|0|3-6|MOTORCODE,RHH,MOTORTYPE,RHH,GEARBOXCODE,Automat,MILEAGE,94960,QUALITY,A|http://46.101.206.99/storage/img/car-part/1259/image1.jpg|http://46.101.206.99/storage/img/car-part/1259/image2.jpg|http://46.101.206.99/storage/img/car-part/1259/image3.jpg|http://46.101.206.99/storage/img/car-part/1259/image4.jpg
+183|BO740740|"Motor / RENAULT KANGOO II  08-14 / K9K-808 / 8201246258"|"
+            Lagernummer: BO740740 
+
+            Originale Ersatzteilnummer: 8201246258 
+
+            Motor Kennung: K9K-808 
+
+            Motortype: K9K-808 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 83900(km) 
+
+            Fahrgestellnummer: VF1FW14C548890615 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|KANGOO||2|1|0|1666|1666|0|3-6|MOTORCODE,K9K-808,MOTORTYPE,K9K-808,GEARBOXCODE,Manuell,MILEAGE,83900,QUALITY,A|http://46.101.206.99/storage/img/car-part/1261/image1.jpg|http://46.101.206.99/storage/img/car-part/1261/image2.jpg
+183|BO744313|"Motor / RENAULT KANGOO II  08-14 / K9K-808 / 8201246258"|"
+            Lagernummer: BO744313 
+
+            Originale Ersatzteilnummer: 8201246258 
+
+            Motor Kennung: K9K-808 
+
+            Motortype: K9K-808 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 165390(km) 
+
+            Fahrgestellnummer: VF1FW14C545978034 
+
+            Baujahr: 2012 
+
+            Kbas: 
+        "|KANGOO||2|1|0|1190|1190|0|3-6|MOTORCODE,K9K-808,MOTORTYPE,K9K-808,GEARBOXCODE,Manuell,MILEAGE,165390,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1263/image1.jpg|http://46.101.206.99/storage/img/car-part/1263/image2.jpg|http://46.101.206.99/storage/img/car-part/1263/image3.jpg|http://46.101.206.99/storage/img/car-part/1263/image4.jpg
+183|BO745174|"Motor / FIAT GRANDE PUNTO 05-10 / 199.A2.000 / 71748262"|"
+            Lagernummer: BO745174 
+
+            Originale Ersatzteilnummer: 71748262 
+
+            Motor Kennung: 199.A2.000 
+
+            Motortype: 199.A2.000 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 257600(km) 
+
+            Fahrgestellnummer: ZFA19900000359291 
+
+            Baujahr: 2008 
+
+            Kbas: 
+        "|"PUNTO EVO"||2|1|0|1071|1071|0|3-6|MOTORCODE,199.A2.000,MOTORTYPE,199.A2.000,GEARBOXCODE,Manuell,MILEAGE,257600,QUALITY,A|http://46.101.206.99/storage/img/car-part/1264/image1.jpg|http://46.101.206.99/storage/img/car-part/1264/image2.jpg|http://46.101.206.99/storage/img/car-part/1264/image3.jpg|http://46.101.206.99/storage/img/car-part/1264/image4.jpg|http://46.101.206.99/storage/img/car-part/1264/image5.jpg
+183|BO751756|"Motor / NISSAN QASHQAI  17-21 / K9K / 1010201Q3C"|"
+            Lagernummer: BO751756 
+
+            Originale Ersatzteilnummer: 1010201Q3C 
+
+            Motor Kennung: K9K 
+
+            Motortype: K9K 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 76950(km) 
+
+            Fahrgestellnummer: SJNFAAJ11U2170034 
+
+            Baujahr: 2018 
+
+            Kbas: 
+        "|QASHQAI||2|1|0|3094|3094|0|3-6|MOTORCODE,K9K,MOTORTYPE,K9K,GEARBOXCODE,Manuell,MILEAGE,76950,QUALITY,A|http://46.101.206.99/storage/img/car-part/1266/image1.jpg|http://46.101.206.99/storage/img/car-part/1266/image2.jpg|http://46.101.206.99/storage/img/car-part/1266/image3.jpg|http://46.101.206.99/storage/img/car-part/1266/image4.jpg
+183|BO755265|"Motor / RENAULT KADJAR  15- / K9K-647 / 8201718629"|"
+            Lagernummer: BO755265 
+
+            Originale Ersatzteilnummer: 8201718629 
+
+            Motor Kennung: K9K-647 
+
+            Motortype: K9K-647 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 98330(km) 
+
+            Fahrgestellnummer: VF1RFE00259452942 
+
+            Baujahr: 2018 
+
+            Kbas: 
+        "|KADJAR||2|1|0|2737|2737|0|3-6|MOTORCODE,K9K-647,MOTORTYPE,K9K-647,GEARBOXCODE,Automat,MILEAGE,98330,QUALITY,A|http://46.101.206.99/storage/img/car-part/1267/image1.jpg|http://46.101.206.99/storage/img/car-part/1267/image2.jpg|http://46.101.206.99/storage/img/car-part/1267/image3.jpg|http://46.101.206.99/storage/img/car-part/1267/image4.jpg
+183|BO762443|"Motor / VW PASSAT  15-19 / DDAA / 04L 100 090 M"|"
+            Lagernummer: BO762443 
+
+            Originale Ersatzteilnummer: 04L 100 090 M 
+
+            Motor Kennung: DDAA 
+
+            Motortype: DFCA 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 134740(km) 
+
+            Fahrgestellnummer: WVWZZZ3CZGE024703 
+
+            Baujahr: 2016 
+
+            Kbas: 0603BQZ,0603BRA,0603BRB,0603BRC
+        "|"PASSAT 3C"|0603BQZ,0603BRA,0603BRB,0603BRC|2|1|0|2142|2142|0|3-6|MOTORCODE,DDAA,MOTORTYPE,DFCA,GEARBOXCODE,Automat,MILEAGE,134740,QUALITY,A|http://46.101.206.99/storage/img/car-part/1274/image1.jpg|http://46.101.206.99/storage/img/car-part/1274/image2.jpg|http://46.101.206.99/storage/img/car-part/1274/image3.jpg|http://46.101.206.99/storage/img/car-part/1274/image4.jpg
+183|BO765339|"Motor / RENAULT KANGOO II  15-21 / K9K-608 / 8201535495 "|"
+            Lagernummer: BO765339 
+
+            Originale Ersatzteilnummer: 8201535495  
+
+            Motor Kennung: K9K-608 
+
+            Motortype: K9K-608 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 74660(km) 
+
+            Fahrgestellnummer: VF1FW17B551450439 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|KANGOO||2|1|0|1666|1666|0|3-6|MOTORCODE,K9K-608,MOTORTYPE,K9K-608,GEARBOXCODE,Manuell,MILEAGE,74660,QUALITY,A|http://46.101.206.99/storage/img/car-part/1278/image1.jpg|http://46.101.206.99/storage/img/car-part/1278/image2.jpg|http://46.101.206.99/storage/img/car-part/1278/image3.jpg|http://46.101.206.99/storage/img/car-part/1278/image4.jpg
+183|BO766706|"Motor / RENAULT TRAFIC   02-14 / M9R-692 / 8201270299"|"
+            Lagernummer: BO766706 
+
+            Originale Ersatzteilnummer: 8201270299 
+
+            Motor Kennung: M9R-692 
+
+            Motortype: M9R-692 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 136510(km) 
+
+            Fahrgestellnummer: VF1FLB1DSDY505987 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|TRAFIC||2|1|0|3332|3332|0|3-6|MOTORCODE,M9R-692,MOTORTYPE,M9R-692,GEARBOXCODE,Manuell,MILEAGE,136510,QUALITY,A|http://46.101.206.99/storage/img/car-part/1280/image1.jpg|http://46.101.206.99/storage/img/car-part/1280/image2.jpg|http://46.101.206.99/storage/img/car-part/1280/image3.jpg|http://46.101.206.99/storage/img/car-part/1280/image4.jpg
+183|BO772464|"Motor / KIA CEED  12-18 / D4FB / Z59712AZ 00"|"
+            Lagernummer: BO772464 
+
+            Originale Ersatzteilnummer: Z59712AZ 00 
+
+            Motor Kennung: D4FB 
+
+            Motortype: D4FB 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 157710(km) 
+
+            Fahrgestellnummer: U5YHN816ADL034284 
+
+            Baujahr: 2013 
+
+            Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR
+        "|CEED|1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR|2|1|0|1190|1190|0|3-6|MOTORCODE,D4FB,MOTORTYPE,D4FB,GEARBOXCODE,Manuell,MILEAGE,157710,QUALITY,A|http://46.101.206.99/storage/img/car-part/1284/image1.jpg|http://46.101.206.99/storage/img/car-part/1284/image2.jpg|http://46.101.206.99/storage/img/car-part/1284/image3.jpg|http://46.101.206.99/storage/img/car-part/1284/image4.jpg
+183|BO775688|"Motor / KIA CEED  12-18 / D4FB / Z54412AZ 00"|"
+            Lagernummer: BO775688 
+
+            Originale Ersatzteilnummer: Z54412AZ 00 
+
+            Motor Kennung: D4FB 
+
+            Motortype: D4FB 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 77260(km) 
+
+            Fahrgestellnummer: U5YHN816AGL178726 
+
+            Baujahr: 2016 
+
+            Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR
+        "|CEED|1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR|2|1|0|1666|1666|0|3-6|MOTORCODE,D4FB,MOTORTYPE,D4FB,GEARBOXCODE,Manuell,MILEAGE,77260,QUALITY,A|http://46.101.206.99/storage/img/car-part/1286/image1.jpg|http://46.101.206.99/storage/img/car-part/1286/image2.jpg|http://46.101.206.99/storage/img/car-part/1286/image3.jpg|http://46.101.206.99/storage/img/car-part/1286/image4.jpg
+183|BO778122|"Motor / VOLVO V70      08-13 / D5204T3 / 36050624"|"
+            Lagernummer: BO778122 
+
+            Originale Ersatzteilnummer: 36050624 
+
+            Motor Kennung: D5204T3 
+
+            Motortype: D5204T3 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 217300(km) 
+
+            Fahrgestellnummer: YV1BW88A1D1266314 
+
+            Baujahr: 2013 
+
+            Kbas: 
+        "|V70||2|1|0|2142|2142|0|3-6|MOTORCODE,D5204T3,MOTORTYPE,D5204T3,GEARBOXCODE,Manuell,MILEAGE,217300,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1288/image1.jpg|http://46.101.206.99/storage/img/car-part/1288/image2.jpg|http://46.101.206.99/storage/img/car-part/1288/image3.jpg|http://46.101.206.99/storage/img/car-part/1288/image4.jpg
+183|BO778834|"Motor / VOLVO V40  12-19 / D4204T8 / 36010067"|"
+            Lagernummer: BO778834 
+
+            Originale Ersatzteilnummer: 36010067 
+
+            Motor Kennung: D4204T8 
+
+            Motortype: D4204T8 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 98750(km) 
+
+            Fahrgestellnummer: YV1MV74L0H2419203 
+
+            Baujahr: 2017 
+
+            Kbas: 
+        "|V40||2|1|0|3213|3213|0|3-6|MOTORCODE,D4204T8,MOTORTYPE,D4204T8,GEARBOXCODE,Automat,MILEAGE,98750,QUALITY,A|http://46.101.206.99/storage/img/car-part/1291/image1.jpg|http://46.101.206.99/storage/img/car-part/1291/image2.jpg|http://46.101.206.99/storage/img/car-part/1291/image3.jpg|http://46.101.206.99/storage/img/car-part/1291/image4.jpg|http://46.101.206.99/storage/img/car-part/1291/image5.jpg
+183|BO783453|"Motor / NISSAN X-TRAIL  14-21 / M9R / 1010201Q1H"|"
+            Lagernummer: BO783453 
+
+            Originale Ersatzteilnummer: 1010201Q1H 
+
+            Motor Kennung: M9R 
+
+            Motortype: M9R 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 90430(km) 
+
+            Fahrgestellnummer: JN1TFNT32U0102237 
+
+            Baujahr: 2017 
+
+            Kbas: 1329AKV,1329Akw
+        "|X-TRAIL|1329AKV,1329Akw|2|1|0|3808|3808|0|3-6|MOTORCODE,M9R,MOTORTYPE,M9R,GEARBOXCODE,Automat,MILEAGE,90430,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1298/image1.jpg|http://46.101.206.99/storage/img/car-part/1298/image2.jpg|http://46.101.206.99/storage/img/car-part/1298/image3.jpg|http://46.101.206.99/storage/img/car-part/1298/image4.jpg
+183|BO785608|"Motor / AUDI A6/S6 4G   11-18 / CNHA / 04L 100 091 A"|"
+            Lagernummer: BO785608 
+
+            Originale Ersatzteilnummer: 04L 100 091 A 
+
+            Motor Kennung: CNHA 
+
+            Motortype: CNHA 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 157260(km) 
+
+            Fahrgestellnummer: WAUZZZ4G2GN027574 
+
+            Baujahr: 2015 
+
+            Kbas: 0588AYT,0588AYU,0588BEC,0588BED
+        "|"A6 4G"|0588AYT,0588AYU,0588BEC,0588BED|2|1|0|2618|2618|0|3-6|MOTORCODE,CNHA,MOTORTYPE,CNHA,GEARBOXCODE,Automat,MILEAGE,157260,QUALITY,A|http://46.101.206.99/storage/img/car-part/1299/image1.jpg|http://46.101.206.99/storage/img/car-part/1299/image2.jpg|http://46.101.206.99/storage/img/car-part/1299/image3.jpg|http://46.101.206.99/storage/img/car-part/1299/image4.jpg
+183|BO788680|"Motor / HONDA CR-V     13-18 / N22B4 / 10002R7CG00"|"
+            Lagernummer: BO788680 
+
+            Originale Ersatzteilnummer: 10002R7CG00 
+
+            Motor Kennung: N22B4 
+
+            Motortype: N22B4 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 92420(km) 
+
+            Fahrgestellnummer: SHSRE6890EU015630 
+
+            Baujahr: 2014 
+
+            Kbas: 
+        "|CR-V||2|1|0|1666|1666|0|3-6|MOTORCODE,N22B4,MOTORTYPE,N22B4,GEARBOXCODE,Automat,MILEAGE,92420,QUALITY,A|http://46.101.206.99/storage/img/car-part/1302/image1.jpg|http://46.101.206.99/storage/img/car-part/1302/image2.jpg|http://46.101.206.99/storage/img/car-part/1302/image3.jpg|http://46.101.206.99/storage/img/car-part/1302/image4.jpg|http://46.101.206.99/storage/img/car-part/1302/image5.jpg
+183|BO790839|"Motor / PEUGEOT PARTNER 16-18 / BHY / 16 144 168 80"|"
+            Lagernummer: BO790839 
+
+            Originale Ersatzteilnummer: 16 144 168 80 
+
+            Motor Kennung: BHY 
+
+            Motortype: BHY 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 112090(km) 
+
+            Fahrgestellnummer: VF37DBHYMHJ543551 
+
+            Baujahr: 2017 
+
+            Kbas: 
+        "|"PARTNER II"||2|1|0|1666|1666|0|3-6|MOTORCODE,BHY,MOTORTYPE,BHY,GEARBOXCODE,Automat,MILEAGE,112090,QUALITY,A|http://46.101.206.99/storage/img/car-part/1303/image1.jpg|http://46.101.206.99/storage/img/car-part/1303/image2.jpg|http://46.101.206.99/storage/img/car-part/1303/image3.jpg|http://46.101.206.99/storage/img/car-part/1303/image4.jpg
+183|BO794767|"Motor / OPEL MOVANO B 10- /  / 95529229"|"
+            Lagernummer: BO794767 
+
+            Originale Ersatzteilnummer: 95529229 
+
+            Motor Kennung:  
+
+            Motortype: M9T716 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 52800(km) 
+
+            Fahrgestellnummer: W0VVR3600MB252108 
+
+            Baujahr: 2021 
+
+            Kbas: 
+        "|MOVANO||2|1|0|6188|6188|0|3-6|MOTORCODE,,MOTORTYPE,M9T716,GEARBOXCODE,Manuell,MILEAGE,52800,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1311/image1.jpg|http://46.101.206.99/storage/img/car-part/1311/image2.jpg|http://46.101.206.99/storage/img/car-part/1311/image3.jpg|http://46.101.206.99/storage/img/car-part/1311/image4.jpg
+183|BO795107|"Motor / VOLVO V50      08-12 / D4164T / 36050299"|"
+            Lagernummer: BO795107 
+
+            Originale Ersatzteilnummer: 36050299 
+
+            Motor Kennung: D4164T 
+
+            Motortype: D4164T 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 151200(km) 
+
+            Fahrgestellnummer: YV1MW76F2A2548986 
+
+            Baujahr: 2010 
+
+            Kbas: 
+        "|S40/V50||2|1|0|2190|2190|0|3-6|MOTORCODE,D4164T,MOTORTYPE,D4164T,GEARBOXCODE,Manuell,MILEAGE,151200,QUALITY,A|http://46.101.206.99/storage/img/car-part/1312/image1.jpg|http://46.101.206.99/storage/img/car-part/1312/image2.jpg|http://46.101.206.99/storage/img/car-part/1312/image3.jpg|http://46.101.206.99/storage/img/car-part/1312/image4.jpg
+183|BO798968|"Motor / VOLVO V60  19- / D4204T16 / 36011597"|"
+            Lagernummer: BO798968 
+
+            Originale Ersatzteilnummer: 36011597 
+
+            Motor Kennung: D4204T16 
+
+            Motortype: D4204T16 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Automat 
+
+            Laufleistung: 62590(km) 
+
+            Fahrgestellnummer: YV1ZW72VDK1015697 
+
+            Baujahr: 2019 
+
+            Kbas: 
+        "|S60/V60||2|1|0|3332|3332|0|3-6|MOTORCODE,D4204T16,MOTORTYPE,D4204T16,GEARBOXCODE,Automat,MILEAGE,62590,QUALITY,A*|http://46.101.206.99/storage/img/car-part/1315/image1.jpg|http://46.101.206.99/storage/img/car-part/1315/image2.jpg|http://46.101.206.99/storage/img/car-part/1315/image3.jpg|http://46.101.206.99/storage/img/car-part/1315/image4.jpg|http://46.101.206.99/storage/img/car-part/1315/image5.jpg|http://46.101.206.99/storage/img/car-part/1315/image6.jpg
+183|BO799544|"Motor / FIAT TIPO 16- / 940.C1.000 / 73503862"|"
+            Lagernummer: BO799544 
+
+            Originale Ersatzteilnummer: 73503862 
+
+            Motor Kennung: 940.C1.000 
+
+            Motortype: 940.C1.000 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 45210(km) 
+
+            Fahrgestellnummer: ZFA35600006F31929 
+
+            Baujahr: 2017 
+
+            Kbas: 
+        "|TIPO||2|1|0|3451|3451|0|3-6|MOTORCODE,940.C1.000,MOTORTYPE,940.C1.000,GEARBOXCODE,Manuell,MILEAGE,45210,QUALITY,A|http://46.101.206.99/storage/img/car-part/1317/image1.jpg|http://46.101.206.99/storage/img/car-part/1317/image2.jpg|http://46.101.206.99/storage/img/car-part/1317/image3.jpg|http://46.101.206.99/storage/img/car-part/1317/image4.jpg|http://46.101.206.99/storage/img/car-part/1317/image5.jpg|http://46.101.206.99/storage/img/car-part/1317/image6.jpg
+183|BO799557|"Motor / MAZDA 6       08-13 / R2 / R2AA02300F"|"
+            Lagernummer: BO799557 
+
+            Originale Ersatzteilnummer: R2AA02300F 
+
+            Motor Kennung: R2 
+
+            Motortype: R2 
+
+            Brandstofftype: Diesel 
+
+            Getriebe: Manuell 
+
+            Laufleistung: 290000(km) 
+
+            Fahrgestellnummer: JMZGHA4A601410825 
+
+            Baujahr: 2010 
+
+            Kbas: 
+        "|6||2|1|0|238|238|0|3-6|MOTORCODE,R2,MOTORTYPE,R2,GEARBOXCODE,Manuell,MILEAGE,290000,QUALITY,A|http://46.101.206.99/storage/img/car-part/1318/image1.jpg|http://46.101.206.99/storage/img/car-part/1318/image2.jpg|http://46.101.206.99/storage/img/car-part/1318/image3.jpg|http://46.101.206.99/storage/img/car-part/1318/image4.jpg

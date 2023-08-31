@@ -21,8 +21,10 @@ class ExportPartsAsCsvCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::has('sbrCode.ditoNumbers')
-            ->where('original_number', 'like', '%10002RMXE00%')->get();
+        $parts = NewCarPart::where('name', 'like', '%MOTOR%')
+            ->has('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->has('carPartImages')
+            ->get();
 
         foreach ($parts as $part) {
             logger()->info($part->id);

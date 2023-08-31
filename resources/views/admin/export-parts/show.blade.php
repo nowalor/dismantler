@@ -26,6 +26,19 @@
                         <p><span class="fw-bold">SBR PART CODE: </span> {{ $carPart->sbr_part_code }}</p>
                         <p><span class="fw-bold">SBR CAR CODE: </span> {{ $carPart->sbr_car_code }}</p>
                         <p><span class="fw-bold">Kbas: </span> {{ $carPart->kba_string }}</p>
+                        <p><span class="fw-bold">All Kbas:</span></p>
+                        <ol>
+                            @foreach($uniqueKba as $kba)
+                                <li>
+                                    <span class="fw-bold">{{ $kba->hsn . $kba->tsn }}</span>
+                                    <ul>
+                                        @foreach($kba->engineTypes as $engineType)
+                                            <li>{{ $engineType->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endforeach
+                        </ol>
                     </div>
                 </div>
             </div>
