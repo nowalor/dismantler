@@ -18,6 +18,8 @@
                         <p><span class="fw-bold">Price(EUR): </span> €{{ $carPart->price }}</p>
                         <p><span class="fw-bold">Engine code: </span> {{ $carPart->engine_code }}</p>
                         <p><span class="fw-bold">Engine type: </span> {{ $carPart->engine_type }}</p>
+                        <p><span class="fw-bold">Complete engine code: </span> {{ $carPart->complete_engine_code }}</p>
+                        <p><span class="fw-bold">Full engine code: </span> {{ $carPart->full_engine_code }}</p>
                         <p><span class="fw-bold">Fuel: </span> {{ $carPart->fuel }}</p>
                         <p><span class="fw-bold">Gearbox: </span> {{ $carPart->gearbox }}</p>
                         <p><span class="fw-bold">Mileage(KM): </span> {{ $carPart->mileage_km }}</p>

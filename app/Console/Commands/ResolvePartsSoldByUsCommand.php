@@ -53,6 +53,11 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
         foreach($parts as $part) {
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
 
+            // Return if part sold_at is not null
+            if($dbPart->sold_at) {
+                continue;
+            }
+
             $reservedPart = $this->reservePart($dbPart);
 
             if($reservedPart) {
@@ -73,35 +78,47 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
      */
     private function getSoldParts(): array
     {
-        $file = Storage::disk('ftp')->get('sellout_standard-testing.xml');
+        $files = Storage::disk('ftp')->files();
 
-        $xml = simplexml_load_string($file);
+        $xmlFiles = array_filter($files, function ($file) {
+            return strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'xml';
+        });
+
+        if (empty($xmlFiles)) {
+            return [];
+        }
 
         $parts = [];
 
-        if(!$xml) {
-            return $parts;
-        }
+        foreach($xmlFiles as $xmlFile) {
+            $file = Storage::disk('ftp')->get($xmlFile);
 
-        foreach ($xml->item as $item) {
-            $articleNr = (string)$item->number;
+            $xml = simplexml_load_string($file);
 
-            // Extract billing address details
-            $billingAddress = $xml->head->billingadress;
-            $billingInformation = $this->extractInformation($billingAddress);
+            if(!$xml) {
+                continue;
+            }
 
-            // Extract shipping address details
-            $shippingAddress = $xml->head->shippingadress;
-            $shippingInformation = $this->extractInformation($shippingAddress);
+            foreach ($xml->item as $item) {
+                $articleNr = (string)$item->number;
 
-            $soldPart = [
-                'article_nr' => $articleNr,
-                'billing_information' => $billingInformation,
-                'shipping_information' => $shippingInformation,
-            ];
+                // Extract billing address details
+                $billingAddress = $xml->head->billingadress;
+                $billingInformation = $this->extractInformation($billingAddress);
 
-            $parts[] = $soldPart;
+                // Extract shipping address details
+                $shippingAddress = $xml->head->shippingadress;
+                $shippingInformation = $this->extractInformation($shippingAddress);
 
+                $soldPart = [
+                    'article_nr' => $articleNr,
+                    'billing_information' => $billingInformation,
+                    'shipping_information' => $shippingInformation,
+                ];
+
+                $parts[] = $soldPart;
+
+            }
         }
 
         return $parts;

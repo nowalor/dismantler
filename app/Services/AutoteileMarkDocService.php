@@ -104,7 +104,7 @@ class AutoteileMarkDocService
         $description = "
             Lagernummer: $carPart->article_nr \n
             Originale Ersatzteilnummer: $carPart->original_number \n
-            Motor Kennung: $carPart->engine_code \n
+            Motor Kennung: $carPart->full_engine_code \n
             Motortype: $carPart->engine_type \n
             Brandstofftype: $carPart->fuel \n
             Getriebe: $carPart->gearbox \n
