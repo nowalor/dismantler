@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
 use App\Services\CalculatePriceService;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ class AdminExportPartsController extends Controller
     }
 
     /**￼
-     * @throws \Exception
+     * @throws Exception
      */
     public function index(Request $request) // : View
     {
@@ -27,7 +28,7 @@ class AdminExportPartsController extends Controller
             ->where('name', 'like', '%MOTOR%')
             ->get();
 
-        foreach($carParts as $index => $carPart) {
+        foreach ($carParts as $index => $carPart) {
             $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
             (
                 $carPart->price_sek,
@@ -37,11 +38,11 @@ class AdminExportPartsController extends Controller
 
             $engineCode = $carPart->engine_code;
 
-                $carPart->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
-                    $query->whereHas('engineTypes', function ($query) use ($engineCode) {
-                        $query->where('name', 'like', "%$engineCode%");
-                    });
-                }]);
+            $carPart->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
+                $query->whereHas('engineTypes', function ($query) use ($engineCode) {
+                    $query->where('name', 'like', "%$engineCode%");
+                });
+            }]);
 
             $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
 
@@ -54,7 +55,7 @@ class AdminExportPartsController extends Controller
             })->toArray());
         }
 
-        if($request->has('search')) {
+        if ($request->has('search')) {
             $search = $request->get('search');
             $carParts = $carParts->filter(function ($carPart) use ($search) {
                 $match = false;
@@ -91,6 +92,10 @@ class AdminExportPartsController extends Controller
     public function show(NewCarPart $carPart)
     {
 
+//        $test = $carPart->load('sbrCode.ditoNumbers.germanDismantlers.engineTypes');
+//
+//        return $test->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
+
         $carPart->load('carPartImages');
         $engineCode = $carPart->engine_code;
 
@@ -110,6 +115,7 @@ class AdminExportPartsController extends Controller
                 'tsn' => $kbaNumber->tsn,
             ]);
         })->toArray());
+
 
         return view('admin.export-parts.show', compact('carPart', 'uniqueKba'));
     }
