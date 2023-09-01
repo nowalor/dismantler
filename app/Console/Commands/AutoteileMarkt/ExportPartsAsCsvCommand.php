@@ -42,6 +42,8 @@ class ExportPartsAsCsvCommand extends Command
             $part->update(['is_live' => true]);
         }
 
+        $parts->count();
+
         return Command::SUCCESS;
     }
 }
