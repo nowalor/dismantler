@@ -21,10 +21,20 @@ class ExportPartsAsCsvCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::has('sbrCode.ditoNumbers')
-            ->where('original_number', 'like', '%10002RMXE00%')->get();
+        $parts = NewCarPart::with('carPartImages')
+            ->whereNotNull('price_sek')
+            ->where('price_sek', '>', 0)
+            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->where('name', 'like', '%motor%')
+            ->get();
 
-        foreach ($parts as $part) {
+        foreach ($parts as $index => $part) {
+            if($part->my_kba->count() === 0) {
+                $parts->forget($index);
+                continue;
+            }
+
             logger()->info($part->id);
 
             $this->csvService->generateExportCSV($part);

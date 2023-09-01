@@ -96,12 +96,14 @@ class AdminExportPartsController extends Controller
         $engineCode = $carPart->engine_code;
 
         $carPart->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
-            $query->whereHas('engineTypes', function ($query) use ($engineCode) {
-                $query->where('name', '=', $engineCode);
-            });
-        }]);
+        $query->whereHas('engineTypes', function ($query) use ($engineCode) {
+            $query->where('name', '=', $engineCode);
+        });
+    }]);
 
         $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
+        $completeEngineCode = (string)round($uniqueKba->first()->engine_capacity_in_cm / 1000, 1) . ' ' .$carPart->engine_code;
+
         $carPart->kba = $uniqueKba;
         $carPart->kba_string = implode(', ', $uniqueKba->map(function ($kbaNumber) {
             return implode([
@@ -109,6 +111,8 @@ class AdminExportPartsController extends Controller
                 'tsn' => $kbaNumber->tsn,
             ]);
         })->toArray());
+
+        $carPart->complete_engine_code = $completeEngineCode;
 
         return view('admin.export-parts.show', compact('carPart'));
     }

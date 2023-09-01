@@ -54,7 +54,7 @@ class AutoteileMarkDocService
         fputcsv($file, $partInformation, '|');
 
         // Upload to FTP server
-        Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
+        // Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
     }
 
     private function resolvePartInformation(NewCarPart $carPart): array
@@ -104,7 +104,7 @@ class AutoteileMarkDocService
         $description = "
             Lagernummer: $carPart->article_nr \n
             Originale Ersatzteilnummer: $carPart->original_number \n
-            Motor Kennung: $carPart->engine_code \n
+            Motor Kennung: $carPart->full_engine_code \n
             Motortype: $carPart->engine_type \n
             Brandstofftype: $carPart->fuel \n
             Getriebe: $carPart->gearbox \n
