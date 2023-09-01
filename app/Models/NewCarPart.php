@@ -105,4 +105,12 @@ class NewCarPart extends Model
 
         return round($this->my_kba->first()->engine_capacity_in_cm / 1000, 1) . ' ' . $this->engine_code;
     }
+
+    public function getUniqueKbaAttribute()
+    {
+        $this->load('sbrCode.ditoNumbers.germanDismantlers.engineTypes');
+
+        return $this->sbrCode->ditoNumbers->pluck('germanDismantlers')->unique()->flatten();
+
+    }
 }

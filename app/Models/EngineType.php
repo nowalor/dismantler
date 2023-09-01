@@ -24,4 +24,9 @@ class EngineType extends Model
     {
         return $this->hasMany(NewCarPart::class);
     }
+
+    public function engineAliases(): BelongsToMany
+    {
+        return $this->belongsToMany(EngineAlias::class);
+    }
 }

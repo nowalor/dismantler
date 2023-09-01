@@ -80,7 +80,6 @@ class AdminExportPartsController extends Controller
 
         $carPart->load('carPartImages');
 
-
         $carPart->kba_string = implode(', ', $carPart->my_kba->map(function ($kbaNumber) {
             return implode([
                 'hsn' => $kbaNumber->hsn,
