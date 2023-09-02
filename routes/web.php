@@ -19,6 +19,7 @@ use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 
+Route::get('engine-type-engine-alias', \App\Http\Controllers\EngineTypeEngineAliasController::class);
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
     ->name('pay');
