@@ -35,26 +35,12 @@ class AdminExportPartsController extends Controller
                 $carPart->car_part_type_id
             );
 
-            $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
-
-            $engineCode = $carPart->engine_code;
-
-            foreach($uniqueKba as $kba) {
-                // Remove kba numbers that don't have the engine code
-                if(!$kba->engineTypes->contains('name', $engineCode)) {
-                    $uniqueKba = $uniqueKba->reject(function ($kbaNumber) use ($kba) {
-                        return $kbaNumber->id === $kba->id;
-                    });
-                }
-            }
-
-            if($uniqueKba->count() === 0) {
+            if($carPart->my_kba->count() !== 0) {
                 $carParts->forget($index);
                 continue;
             }
 
-            $carPart->kba = $uniqueKba;
-            $carPart->kba_string = implode(', ', $carPart->kba->map(function ($kbaNumber) {
+            $carPart->kba_string = implode(', ', $carPart->my_kba->map(function ($kbaNumber) {
                 return implode([
                     'hsn' => $kbaNumber->hsn,
                     'tsn' => $kbaNumber->tsn,
@@ -93,26 +79,13 @@ class AdminExportPartsController extends Controller
     {
 
         $carPart->load('carPartImages');
-        $engineCode = $carPart->engine_code;
 
-        $carPart->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
-        $query->whereHas('engineTypes', function ($query) use ($engineCode) {
-            $query->where('name', '=', $engineCode);
-        });
-    }]);
-
-        $uniqueKba = $carPart->sbrCode->ditoNumbers->pluck('germanDismantlers')->flatten()->unique();
-        $completeEngineCode = (string)round($uniqueKba->first()->engine_capacity_in_cm / 1000, 1) . ' ' .$carPart->engine_code;
-
-        $carPart->kba = $uniqueKba;
-        $carPart->kba_string = implode(', ', $uniqueKba->map(function ($kbaNumber) {
+        $carPart->kba_string = implode(', ', $carPart->my_kba->map(function ($kbaNumber) {
             return implode([
                 'hsn' => $kbaNumber->hsn,
                 'tsn' => $kbaNumber->tsn,
             ]);
         })->toArray());
-
-        $carPart->complete_engine_code = $completeEngineCode;
 
         return view('admin.export-parts.show', compact('carPart'));
     }

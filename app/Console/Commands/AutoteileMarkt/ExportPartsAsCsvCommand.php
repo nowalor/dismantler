@@ -37,9 +37,10 @@ class ExportPartsAsCsvCommand extends Command
 
             logger()->info($part->id);
 
-            $this->csvService->generateExportCSV($part);
+            //$this->csvService->generateExportCSV($part);
 
-            $part->update(['is_live' => true]);
+            $part->is_live = true;
+            $part->save();
         }
 
         $parts->count();

@@ -27,6 +27,12 @@ Route::get('api-test2', ApiTestController2::class);
 Route::get('api-test3', ApiTestController3::class);
 Route::get('export-data', ExportDataForAutoteileMarkt::class);
 
+Route::get('engine-types', function () {
+    $engineTypes = \App\Models\EngineType::select(['name'])->get();
+
+    return $engineTypes;
+});
+
 
 Route::get('car-brands', function () {
     $brands = DitoNumber::distinct('producer')->pluck('producer');

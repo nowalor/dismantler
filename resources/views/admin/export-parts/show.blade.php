@@ -18,7 +18,6 @@
                         <p><span class="fw-bold">Price(EUR): </span> €{{ $carPart->price }}</p>
                         <p><span class="fw-bold">Engine code: </span> {{ $carPart->engine_code }}</p>
                         <p><span class="fw-bold">Engine type: </span> {{ $carPart->engine_type }}</p>
-                        <p><span class="fw-bold">Complete engine code: </span> {{ $carPart->complete_engine_code }}</p>
                         <p><span class="fw-bold">Full engine code: </span> {{ $carPart->full_engine_code }}</p>
                         <p><span class="fw-bold">Fuel: </span> {{ $carPart->fuel }}</p>
                         <p><span class="fw-bold">Gearbox: </span> {{ $carPart->gearbox }}</p>
@@ -28,6 +27,19 @@
                         <p><span class="fw-bold">SBR PART CODE: </span> {{ $carPart->sbr_part_code }}</p>
                         <p><span class="fw-bold">SBR CAR CODE: </span> {{ $carPart->sbr_car_code }}</p>
                         <p><span class="fw-bold">Kbas: </span> {{ $carPart->kba_string }}</p>
+                        <p><span class="fw-bold">All Kbas:</span></p>
+                        <ol>
+                            @foreach($carPart->unique_kba as $kba)
+                                <li>
+                                    <span class="fw-bold">{{ $kba->hsn . $kba->tsn }}</span>
+                                    <ul>
+                                        @foreach($kba->engineTypes as $engineType)
+                                            <li>{{ $engineType->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endforeach
+                        </ol>
                     </div>
                 </div>
             </div>
