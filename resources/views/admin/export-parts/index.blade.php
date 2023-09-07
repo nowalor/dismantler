@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="p-4">Fenix car parts</h1>
+        <p><span class="fw-bold">Count: </span> {{ $carParts->count() }}</p>
         <div class="col-6 p-4">
             <form action="{{ route('admin.export-parts.index') }}">
                 <div class="mb-2">

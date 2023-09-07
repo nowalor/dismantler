@@ -25,7 +25,6 @@ class AdminExportPartsController extends Controller
             ->where('price_sek', '>', 0)
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->where('name', 'like', '%motor%')
             ->get();
 
         foreach($carParts as $index => $carPart) {
@@ -71,6 +70,7 @@ class AdminExportPartsController extends Controller
                 return $match;
             });
         }
+
 
         return view('admin.export-parts.index', compact('carParts'));
     }
