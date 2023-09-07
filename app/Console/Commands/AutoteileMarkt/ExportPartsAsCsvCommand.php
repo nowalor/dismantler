@@ -26,7 +26,6 @@ class ExportPartsAsCsvCommand extends Command
             ->where('price_sek', '>', 0)
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->where('name', 'like', '%motor%')
             ->get();
 
         foreach ($parts as $index => $part) {
