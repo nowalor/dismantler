@@ -59,7 +59,13 @@ class AutoteileMarkDocService
 
     private function resolvePartInformation(NewCarPart $carPart): array
     {
-        $kba = $this->resolveKbaFromSbrCodeService->resolve($carPart->sbr_car_code, $carPart->engine_code);
+        $kba = $carPart->my_kba->map(function ($kbaNumber) {
+            return [
+                'hsn' => $kbaNumber->hsn,
+                'tsn' => $kbaNumber->tsn,
+            ];
+        });
+
         $formattedPart = [
             'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
@@ -112,7 +118,12 @@ class AutoteileMarkDocService
             Fahrgestellnummer: $carPart->vin \n
             Baujahr: $carPart->model_year \n
             Kbas: {$this->kbaArrayToString(
-             $this->resolveKbaFromSbrCodeService->resolve($carPart->sbr_car_code, $carPart->engine_code)
+              $carPart->my_kba->map(function ($kbaNumber) {
+            return [
+                'hsn' => $kbaNumber->hsn,
+                'tsn' => $kbaNumber->tsn,
+            ];
+        })
              )}
         ";
 
