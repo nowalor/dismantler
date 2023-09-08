@@ -64,7 +64,7 @@ class AutoteileMarkDocService
                 'hsn' => $kbaNumber->hsn,
                 'tsn' => $kbaNumber->tsn,
             ];
-        });
+        })->toArray();
 
         $formattedPart = [
             'cat_id' => $this->resolveCategoryId($carPart),
