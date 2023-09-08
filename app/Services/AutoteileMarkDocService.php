@@ -66,6 +66,8 @@ class AutoteileMarkDocService
             ];
         })->toArray();
 
+        logger($kba);
+
         $formattedPart = [
             'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
@@ -107,6 +109,17 @@ class AutoteileMarkDocService
 
     public function resolveDescription(NewCarPart $carPart): string
     {
+
+        $kba = $carPart->my_kba->map(function ($kbaNumber) {
+            return [
+                'hsn' => $kbaNumber->hsn,
+                'tsn' => $kbaNumber->tsn,
+            ];
+        })->toArray();
+
+        $kbaString = $this->kbaArrayToString($kba);
+
+
         $description = "
             Lagernummer: $carPart->article_nr \n
             Originale Ersatzteilnummer: $carPart->original_number \n
@@ -117,14 +130,7 @@ class AutoteileMarkDocService
             Laufleistung: $carPart->mileage_km(km) \n
             Fahrgestellnummer: $carPart->vin \n
             Baujahr: $carPart->model_year \n
-            Kbas: {$this->kbaArrayToString(
-              $carPart->my_kba->map(function ($kbaNumber) {
-            return [
-                'hsn' => $kbaNumber->hsn,
-                'tsn' => $kbaNumber->tsn,
-            ];
-        })->toArray()
-             )}
+            Kbas: $kbaString \n
         ";
 
         return $description;
@@ -132,7 +138,11 @@ class AutoteileMarkDocService
 
     private function kbaArrayToString(array $kbaArray): string
     {
-        return implode(',', $kbaArray);
+        $propertiesArray = array_map(function ($kbaNumber) {
+            return $kbaNumber['hsn'] . $kbaNumber['tsn'];
+        }, $kbaArray);
+
+        return implode(',', $propertiesArray);
     }
 
     private function resolveProperties(NewCarPart $carPart): string

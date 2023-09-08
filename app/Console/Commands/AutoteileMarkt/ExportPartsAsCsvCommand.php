@@ -24,7 +24,6 @@ class ExportPartsAsCsvCommand extends Command
         $parts = NewCarPart::with('carPartImages')
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
-            ->where('is_live', false)
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->get();
