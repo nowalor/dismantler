@@ -123,7 +123,7 @@ class AutoteileMarkDocService
                 'hsn' => $kbaNumber->hsn,
                 'tsn' => $kbaNumber->tsn,
             ];
-        })
+        })->toArray()
              )}
         ";
 
