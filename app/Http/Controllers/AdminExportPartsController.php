@@ -21,6 +21,7 @@ class AdminExportPartsController extends Controller
     public function index(Request $request) // : View
     {
         $carParts = NewCarPart::with('carPartImages')
+            ->where('is_live', false)
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
@@ -34,7 +35,7 @@ class AdminExportPartsController extends Controller
                 $carPart->car_part_type_id
             );
 
-            if($carPart->my_kba->count() !== 0) {
+            if($carPart->my_kba->count() === 0) {
                 $carParts->forget($index);
                 continue;
             }

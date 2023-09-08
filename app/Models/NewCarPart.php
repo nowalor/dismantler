@@ -90,7 +90,7 @@ class NewCarPart extends Model
 
         $this->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
             $query->whereHas('engineTypes', function ($query) use ($engineCode) {
-                $query->where('name', '=', $engineCode);
+                $query->where('name', 'like', "%$engineCode%");
             });
         }]);
 
