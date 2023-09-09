@@ -32,9 +32,6 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         $this->authenticate();
 
         foreach ($parts as $part) {
-            logger()->info('found part');
-            logger($part);
-
             $isSold = $this->isPartSold(
                 partId: $part['original_id'],
             );
@@ -45,6 +42,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         }
 
         if (!empty($this->soldParts)) {
+            logger($this->soldParts);
             $this->handleSoldParts();
         }
 
