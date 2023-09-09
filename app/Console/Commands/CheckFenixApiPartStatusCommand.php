@@ -25,7 +25,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             'article_nr',
             'is_live'
         ])
-            ->where('is_live', true)
+//            ->where('is_live', true)
             ->get()
             ->toArray();
 
