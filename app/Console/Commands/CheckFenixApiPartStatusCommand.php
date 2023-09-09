@@ -26,6 +26,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             'is_live'
         ])
             ->where('is_live', true)
+            ->where('original_id', '82248036')
             ->get()
             ->toArray();
 
@@ -52,7 +53,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
     private function handleSoldParts(): void
     {
         $this->generateCsv($this->soldParts);
-        Storage::disk('ftp')->put('update.csv', file_get_contents(base_path('public/exports/update.csv')));
+        // Storage::disk('ftp')->put('update.csv', file_get_contents(base_path('public/exports/update.csv')));
 
         foreach ($this->soldParts as $part) {
             NewCarPart::where('id', $part['id'])->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);
