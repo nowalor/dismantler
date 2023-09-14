@@ -24,30 +24,33 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
         $this->authenticate();
 
-        $sbrPartTypeCodes = SwedishCarPartType::select('code')
-            ->get()
-            ->pluck('code')
-            ->toArray();
+        $data = $this->getParts();
 
-        foreach ($sbrPartTypeCodes as $sbrPartTypeCode) {
-            $data = $this->getParts($sbrPartTypeCode);
+        $this->uploadParts($data['parts']);
 
-            $this->uploadParts($data['parts'][0]);
+        logger($data['parts']);
 
-            logger('count test');
-            logger(count($data['parts'][0]));
-
-            // TODO handle pagination
-        }
+        // TODO handle pagination
 
         return Command::SUCCESS;
+    }
+
+    private function uploadParts(array $parts): void
+    {
+        foreach ($parts as $part) {
+            $formattedPart = $this->formatPart($part);
+
+            $newPart = NewCarPart::updateOrCreate(['original_id' => $formattedPart['original_id']], $formattedPart);
+
+            $this->uploadImages($part['Images'], $newPart->id);
+        }
     }
 
     private function formatPart(array $part): array
     {
         $newPart = [
             'original_id' => $part['Id'],
-           // 'external_dismantle_company_id' => $part['ArticleNumberAtCarbreaker'], // We don't get this information but we get the name
+            // 'external_dismantle_company_id' => $part['ArticleNumberAtCarbreaker'], // We don't get this information but we get the name
             'price_sek' => $part['Price'],
             'data_provider_id' => 1,
             'sbr_part_code' => $part['SbrPartCode'],
@@ -72,20 +75,9 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
         return $newPart;
     }
 
-    private function uploadParts(array $parts)
-    {
-        foreach($parts as $part) {
-            $formattedPart = $this->formatPart($part);
-
-            $newPart = NewCarPart::updateOrCreate(['original_id' => $formattedPart['original_id']], $formattedPart);
-
-            $this->uploadImages($part['Images'], $newPart->id);
-        }
-    }
-
     private function uploadImages(array $images, int $newCarPartId)
     {
-        foreach($images as $image) {
+        foreach ($images as $image) {
             $formattedImage = $this->formatImage($image, $newCarPartId);
 
             $newImage =
@@ -100,10 +92,10 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
     private function formatImage(array $image, int $carPartId): array
     {
-            return [
-                'new_car_part_id' => $carPartId,
-                'original_url' => $image['Url'],
-                'image_name' => $image['Url'],
-            ];
+        return [
+            'new_car_part_id' => $carPartId,
+            'original_url' => $image['Url'],
+            'image_name' => $image['Url'],
+        ];
     }
 }
