@@ -25,7 +25,15 @@ class AdminExportPartsController extends Controller
             ->where('price_sek', '>', 0)
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->with('carPartImages')
+            ->take(50)
             ->get();
+
+        // TODO get from DB
+        $uniqueDismantleCompanyCodes = [
+            "bo",
+            'F',
+        ];
 
         foreach($carParts as $index => $carPart) {
             $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
@@ -34,12 +42,13 @@ class AdminExportPartsController extends Controller
                 $carPart->car_part_type_id
             );
 
-            if($carPart->my_kba->count() === 0) {
+            $myKbas = $carPart->my_kba;
+            if(count($myKbas) === 0) {
                 $carParts->forget($index);
                 continue;
             }
 
-            $carPart->kba_string = implode(', ', $carPart->my_kba->map(function ($kbaNumber) {
+            $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
                 return implode([
                     'hsn' => $kbaNumber->hsn,
                     'tsn' => $kbaNumber->tsn,
@@ -47,6 +56,7 @@ class AdminExportPartsController extends Controller
             })->toArray());
         }
 
+        // Handle search
         if($request->has('search')) {
             $search = $request->get('search');
             $carParts = $carParts->filter(function ($carPart) use ($search) {
@@ -71,8 +81,22 @@ class AdminExportPartsController extends Controller
             });
         }
 
+        // Handle dismantle company filter
+        if($request->has('dismantle_company_code')) {
+            $dismantleCompanyCode = $request->get('dismantle_company_code');
 
-        return view('admin.export-parts.index', compact('carParts'));
+
+            if($dismantleCompanyCode !== 'all') {
+                $carParts = $carParts->filter(function ($carPart) use ($dismantleCompanyCode) {
+                    return $carPart->dismantle_company_code === $dismantleCompanyCode;
+                });
+            }
+        }
+
+        return view('admin.export-parts.index', compact(
+            'carParts',
+            'uniqueDismantleCompanyCodes')
+        );
     }
 
     public function show(NewCarPart $carPart)

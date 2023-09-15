@@ -18,11 +18,14 @@ class FenixResolveCarPartImagesCommand extends Command
 
     public function handle(): int
     {
-        $carPartImages = NewCarPartImage::all();
         $carParts = NewCarPart::all();
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $carPartImage) {
+//                if($carPartImage->image_name != null) {
+//                    continue;
+//                }
+
                 $imageUrl = $carPartImage->original_url;
 
                 // Download the image
@@ -37,9 +40,10 @@ class FenixResolveCarPartImagesCommand extends Command
                 // Load and process the image
                 $processedImage = Image::make($tempImagePath);
 
+                $scalingHeight = $this->getScalingHeight($carPart->dismantle_company_name);
                 // Determine the position to place the logo (top right corner)
-                $logoWidth = intval(0.27 * $processedImage->width());
-                $logoHeight = intval(0.29 * $processedImage->height());
+                $logoWidth = (int)(0.27 * $processedImage->width());
+                $logoHeight = (int)($scalingHeight * $processedImage->height());
                 $xOffset = $processedImage->width() - $logoWidth;
                 $yOffset = 0;
 
@@ -80,6 +84,18 @@ class FenixResolveCarPartImagesCommand extends Command
         $this->info('Image processing completed.');
 
         return Command::SUCCESS;
+    }
+
+    private function getScalingHeight(string $dismantleCompany): float
+    {
+        logger($dismantleCompany);
+        $height = 0.29;
+
+        if($dismantleCompany === 'F') {
+            $height = 0.38;
+        }
+
+        return $height;
     }
 }
 

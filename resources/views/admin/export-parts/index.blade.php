@@ -13,6 +13,20 @@
                 </div>
                 <button class="btn btn-primary w-100 btn-large">Search</button>
             </form>
+
+            <form action="{{ route('admin.export-parts.index') }}" class="pt-4">
+                <div class="mb-2">
+                    <label for="dismantle_company" class="form-label">Dismantle Company</label>
+                        <select id="dismantle_company" name="dismantle_company" class="form-select">
+                            <option value="all">All</option>
+
+                            @foreach($uniqueDismantleCompanyCodes as $code)
+                                <option value="{{ $code }}">{{ $code }}</option>
+                            @endforeach
+                        </select>
+                </div>
+                <button class="btn btn-primary w-100 btn-large">Search</button>
+            </form>
         </div>
         <div class="d-flex flex-wrap">
             @foreach($carParts as $carPart)
