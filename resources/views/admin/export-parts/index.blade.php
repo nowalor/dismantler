@@ -62,8 +62,8 @@
             @endforeach
         </div>
 
-        <div class="d-flex justify-content-center">
-            {{ $carParts->links() }}
-        </div>
+{{--        <div class="d-flex justify-content-center">--}}
+{{--            {{ $carParts->links() }}--}}
+{{--        </div>--}}
     </div>
 @endsection

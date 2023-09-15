@@ -27,8 +27,25 @@ class AdminExportPartsController extends Controller
             ->where('engine_code', '!=', '')
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->with('carPartImages')
-            ->paginate(100);
+            ->with('carPartImages');
+
+        // Handle search
+        if($request->has('search')) {
+            $search = $request->get('search');
+            $carParts = $carParts->where(function ($carPart) use ($search) {
+
+                $carPart->where('sbr_code_id', 'like', "%$search%")
+                    ->orWhere('engine_code', 'like', "%$search%")
+                    ->orWhere('name', 'like', "%$search%");
+//                    ->orWhere(function($carPart) use ($search) {
+//                        // Handle kba_string which is not a column in the DB
+//                        return str_contains(strtolower($carPart->kba_string), strtolower($search));
+//                    });
+            });
+        }
+
+        $carParts = $carParts->paginate(100);
+
 
         // TODO get from DB
         $uniqueDismantleCompanyCodes = [
@@ -36,6 +53,7 @@ class AdminExportPartsController extends Controller
             'F',
         ];
 
+        // This does not work because I haven't paginated the collection and am looping through nothing
         foreach($carParts as $index => $carPart) {
             $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
             (
@@ -44,6 +62,7 @@ class AdminExportPartsController extends Controller
             );
 
             $myKbas = $carPart->my_kba;
+
             if(count($myKbas) === 0) {
                 $carParts->forget($index);
                 continue;
@@ -57,40 +76,12 @@ class AdminExportPartsController extends Controller
             })->toArray());
         }
 
-        // Handle search
-        if($request->has('search')) {
-            $search = $request->get('search');
-            $carParts = $carParts->filter(function ($carPart) use ($search) {
-                $match = false;
-                if (str_contains(strtolower($carPart->name), strtolower($search))) {
-                    $match = true;
-                }
-
-                if (str_contains(strtolower($carPart->kba_string), strtolower($search))) {
-                    $match = true;
-                }
-
-                if (str_contains(strtolower($carPart->sbrCode->name), strtolower($search))) {
-                    $match = true;
-                }
-
-                if (str_contains(strtolower($carPart->engine_code), strtolower($search))) {
-                    $match = true;
-                }
-
-                return $match;
-            });
-        }
-
         // Handle dismantle company filter
         if($request->has('dismantle_company_code')) {
             $dismantleCompanyCode = $request->get('dismantle_company_code');
 
-
             if($dismantleCompanyCode !== 'all') {
-                $carParts = $carParts->filter(function ($carPart) use ($dismantleCompanyCode) {
-                    return $carPart->dismantle_company_code === $dismantleCompanyCode;
-                });
+                $carParts->where('dismantle_company_name', $dismantleCompanyCode);
             }
         }
 
