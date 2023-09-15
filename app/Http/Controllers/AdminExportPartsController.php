@@ -23,11 +23,12 @@ class AdminExportPartsController extends Controller
         $carParts = NewCarPart::with('carPartImages')
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
+            ->whereNotNull('engine_code')
+            ->where('engine_code', '!=', '')
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages')
-            ->take(50)
-            ->get();
+            ->paginate(100);
 
         // TODO get from DB
         $uniqueDismantleCompanyCodes = [
