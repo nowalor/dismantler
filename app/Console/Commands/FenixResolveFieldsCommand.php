@@ -41,7 +41,13 @@ class FenixResolveFieldsCommand extends Command
                 ->first()
                 ->id;
 
-            $sbrCodeId = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first()->id;
+            $sbrCode = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first();
+
+            if(!$sbrCode) {
+                logger("SbrCode not found for car part id: $carPart->id");
+                continue;
+            }
+            $sbrCodeId = $sbrCode->id;
 
             $carPart->article_nr = $this->generateArticleNr($carPart);
             $carPart->car_part_type_id = $carPartTypeId;

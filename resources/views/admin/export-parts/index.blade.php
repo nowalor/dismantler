@@ -6,6 +6,8 @@
         <div class="col-6 p-4">
             <p><span class="fw-bold">Count: </span> {{ $carParts->total() }}</p>
             <form action="{{ route('admin.export-parts.index') }}">
+                <input type="hidden" name="dismantle_company" value="{{ request()->get('dismantle_company') }}">
+
                 <div class="mb-2">
                     <label for="search" class="form-label">Search(part name, kba, car name, engine code)</label>
                     <input type="text" class="form-control" id="search" name="search"
@@ -21,7 +23,7 @@
                             <option value="all">All</option>
 
                             @foreach($uniqueDismantleCompanyCodes as $code)
-                                <option selected="{{ request()->get('dismantle_company') === $code }}" value="{{ $code }}">{{ $code }}</option>
+                                <option @if (request()->get('dismantle_company') === $code) selected @endif value="{{ $code }}">{{ $code }}</option>
                             @endforeach
                         </select>
                 </div>

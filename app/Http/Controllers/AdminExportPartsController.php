@@ -59,6 +59,7 @@ class AdminExportPartsController extends Controller
         $uniqueDismantleCompanyCodes = [
             "bo",
             'F',
+            'A',
         ];
 
         // This does not work because I haven't paginated the collection and am looping through nothing
