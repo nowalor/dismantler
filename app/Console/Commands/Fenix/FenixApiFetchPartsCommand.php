@@ -95,7 +95,6 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
         return [
             'new_car_part_id' => $carPartId,
             'original_url' => $image['Url'],
-            'image_name' => $image['Url'],
         ];
     }
 }

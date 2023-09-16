@@ -89,7 +89,7 @@ class AutoteileMarkDocService
                     $carPart->car_part_type_id
                 ),
             'delivery' => '0',
-            'delivery_time' => '3-6',
+            'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
             'properties' => $this->resolveProperties($carPart),
         ];
 

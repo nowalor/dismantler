@@ -18,8 +18,8 @@ class FenixResolveCarPartImagesCommand extends Command
 
     public function handle(): int
     {
-        $carParts = NewCarPart::all();
-
+        //$carParts = NewCarPart::all();
+        $carParts = NewCarPart::where('dismantle_company_name', 'like', 'F%')->get();
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $carPartImage) {
 //                if($carPartImage->image_name != null) {
