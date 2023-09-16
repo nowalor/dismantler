@@ -29,6 +29,15 @@ class AdminExportPartsController extends Controller
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages');
 
+        // Handle dismantle company filter
+        if($request->has('dismantle_company')) {
+            $dismantleCompanyName = $request->get('dismantle_company');
+
+            if($dismantleCompanyName !== 'all') {
+                $carParts->where('dismantle_company_name', $dismantleCompanyName);
+            }
+        }
+
         // Handle search
         if($request->has('search')) {
             $search = $request->get('search');
@@ -44,8 +53,7 @@ class AdminExportPartsController extends Controller
             });
         }
 
-        $carParts = $carParts->paginate(100);
-
+        $carParts = $carParts->paginate(100)->withQueryString();
 
         // TODO get from DB
         $uniqueDismantleCompanyCodes = [
@@ -74,15 +82,6 @@ class AdminExportPartsController extends Controller
                     'tsn' => $kbaNumber->tsn,
                 ]);
             })->toArray());
-        }
-
-        // Handle dismantle company filter
-        if($request->has('dismantle_company_code')) {
-            $dismantleCompanyCode = $request->get('dismantle_company_code');
-
-            if($dismantleCompanyCode !== 'all') {
-                $carParts->where('dismantle_company_name', $dismantleCompanyCode);
-            }
         }
 
         return view('admin.export-parts.index', compact(

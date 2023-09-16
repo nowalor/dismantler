@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <h1 class="p-4">Fenix car parts</h1>
-        <p><span class="fw-bold">Count: </span> {{ $carParts->count() }}</p>
         <div class="col-6 p-4">
+            <p><span class="fw-bold">Count: </span> {{ $carParts->total() }}</p>
             <form action="{{ route('admin.export-parts.index') }}">
                 <div class="mb-2">
                     <label for="search" class="form-label">Search(part name, kba, car name, engine code)</label>
@@ -21,7 +21,7 @@
                             <option value="all">All</option>
 
                             @foreach($uniqueDismantleCompanyCodes as $code)
-                                <option value="{{ $code }}">{{ $code }}</option>
+                                <option selected="{{ request()->get('dismantle_company') === $code }}" value="{{ $code }}">{{ $code }}</option>
                             @endforeach
                         </select>
                 </div>
@@ -62,8 +62,8 @@
             @endforeach
         </div>
 
-{{--        <div class="d-flex justify-content-center">--}}
-{{--            {{ $carParts->links() }}--}}
-{{--        </div>--}}
+        <div class="d-flex justify-content-center">
+            {{ $carParts->links() }}
+        </div>
     </div>
 @endsection
