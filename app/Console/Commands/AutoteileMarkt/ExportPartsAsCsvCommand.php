@@ -26,10 +26,10 @@ class ExportPartsAsCsvCommand extends Command
             ->where('price_sek', '>', 0)
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
-            ->where('dismantle_company_name', 'F')
+            // ->where('dismantle_company_name', 'F')
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->take(10)
+            ->whereNull('sold_at')
             ->get();
 
         foreach ($parts as $index => $part) {
@@ -38,15 +38,11 @@ class ExportPartsAsCsvCommand extends Command
                 continue;
             }
 
-            logger()->info($part->id);
-
             $this->csvService->generateExportCSV($part);
 
             $part->is_live = true;
             $part->save();
         }
-
-        $parts->count();
 
         return Command::SUCCESS;
     }
