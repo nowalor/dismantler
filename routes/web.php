@@ -19,6 +19,9 @@ use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 
+
+Route::get('test-parts', [TestController::class, 'testingParts']);
+
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
     ->name('pay');

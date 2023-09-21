@@ -66,8 +66,6 @@ class AutoteileMarkDocService
             ];
         })->toArray();
 
-        logger($kba);
-
         $formattedPart = [
             'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
@@ -120,12 +118,15 @@ class AutoteileMarkDocService
 
         $kbaString = $this->kbaArrayToString($kba);
 
+        $engineType = $carPart->engine_type ?? '';
+
+
 
         $description = "
             Lagernummer: $carPart->article_nr \n
             Originale Ersatzteilnummer: $carPart->original_number \n
             Motor Kennung: $carPart->full_engine_code \n
-            Motortype: $carPart->engine_type \n
+            Motortype: $engineType \n
             Brandstofftype: $carPart->fuel \n
             Getriebe: $carPart->gearbox \n
             Laufleistung: $carPart->mileage_km(km) \n

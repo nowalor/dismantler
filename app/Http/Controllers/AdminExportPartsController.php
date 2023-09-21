@@ -25,8 +25,6 @@ class AdminExportPartsController extends Controller
             ->where('price_sek', '>', 0)
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
-            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages');
 
         // Handle dismantle company filter
@@ -71,11 +69,6 @@ class AdminExportPartsController extends Controller
             );
 
             $myKbas = $carPart->my_kba;
-
-            if(count($myKbas) === 0) {
-                $carParts->forget($index);
-                continue;
-            }
 
             $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
                 return implode([
