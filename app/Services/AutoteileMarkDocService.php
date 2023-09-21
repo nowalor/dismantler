@@ -71,6 +71,7 @@ class AutoteileMarkDocService
         $formattedPart = [
             'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
+            'oe' => $carPart->original_number, // 'oe_nr' is the same as 'original_number
             'title' => $carPart->name,
             'description' => $this->resolveDescription($carPart),
             'brand' => $carPart->sbrCode->ditoNumbers->first()->brand,
