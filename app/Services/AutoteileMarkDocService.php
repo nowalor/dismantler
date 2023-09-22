@@ -26,6 +26,7 @@ class AutoteileMarkDocService
             $header = [
                 'cat_id',
                 'article_nr',
+                'oe',
                 'title',
                 'description',
                 'brand',
@@ -54,7 +55,7 @@ class AutoteileMarkDocService
         fputcsv($file, $partInformation, '|');
 
         // Upload to FTP server
-        Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
+        // Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
     }
 
     private function resolvePartInformation(NewCarPart $carPart): array
@@ -119,8 +120,6 @@ class AutoteileMarkDocService
         $kbaString = $this->kbaArrayToString($kba);
 
         $engineType = $carPart->engine_type ?? '';
-
-
 
         $description = "
             Lagernummer: $carPart->article_nr \n

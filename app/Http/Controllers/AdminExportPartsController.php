@@ -25,6 +25,8 @@ class AdminExportPartsController extends Controller
             ->where('price_sek', '>', 0)
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
+            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages');
 
         // Handle dismantle company filter
@@ -61,14 +63,17 @@ class AdminExportPartsController extends Controller
         ];
 
         // This does not work because I haven't paginated the collection and am looping through nothing
-        foreach($carParts as $index => $carPart) {
-            $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
-            (
+        $carParts = $carParts->filter(function ($carPart) {
+            $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix(
                 $carPart->price_sek,
                 $carPart->car_part_type_id
             );
 
             $myKbas = $carPart->my_kba;
+
+            if (count($myKbas) === 0) {
+                return false; // Filter out this item
+            }
 
             $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
                 return implode([
@@ -76,8 +81,11 @@ class AdminExportPartsController extends Controller
                     'tsn' => $kbaNumber->tsn,
                 ]);
             })->toArray());
-        }
 
+            return true; // Keep this item
+        });
+
+        return $carParts->paginate(100);
         return view('admin.export-parts.index', compact(
             'carParts',
             'uniqueDismantleCompanyCodes')

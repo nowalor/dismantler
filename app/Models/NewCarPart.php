@@ -94,7 +94,7 @@ class NewCarPart extends Model
             });
         }]);
 
-        return $this->sbrCode->ditoNumbers->pluck('germanDismantlers')->unique()->flatten();
+        return $this->sbrCode?->ditoNumbers?->pluck('germanDismantlers')->unique()->flatten() ?? collect([]);
     }
 
     public function getFullEngineCodeAttribute()

@@ -29,6 +29,7 @@ class ExportPartsAsCsvCommand extends Command
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
 //            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->whereNull('sold_at')
+            ->whereNotNull('car_part_type_id')
             ->get();
 
         foreach ($parts as $index => $part) {

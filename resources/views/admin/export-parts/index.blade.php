@@ -4,7 +4,7 @@
     <div class="container">
         <h1 class="p-4">Fenix car parts</h1>
         <div class="col-6 p-4">
-            <p><span class="fw-bold">Count: </span> {{ $carParts->total() }}</p>
+{{--            <p><span class="fw-bold">Count: </span> {{ $carParts->total() }}</p>--}}
             <form action="{{ route('admin.export-parts.index') }}">
                 <input type="hidden" name="dismantle_company" value="{{ request()->get('dismantle_company') }}">
 
