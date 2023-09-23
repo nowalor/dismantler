@@ -136,7 +136,7 @@ abstract class FenixApiBaseCommand extends Command
 
         $filters = [
             "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145"],
-            "CarBreaker" => ["AL"],
+            "CarBreaker" => ["N"],
         ];
 
         $parts = [];
