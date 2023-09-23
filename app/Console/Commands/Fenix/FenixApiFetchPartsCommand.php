@@ -28,8 +28,6 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
         $this->uploadParts($data['parts']);
 
-        logger($data['parts']);
-
         // TODO handle pagination
 
         return Command::SUCCESS;
