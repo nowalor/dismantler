@@ -87,10 +87,14 @@ class NewCarPart extends Model
     public function getMyKbaAttribute()
     {
         $engineCode = $this->engine_code;
+        $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
 
-        $this->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
-            $query->whereHas('engineTypes', function ($query) use ($engineCode) {
-                $query->where('name', 'like', "%$engineCode%");
+        $this->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode, $escapedEngineCode) {
+            $query->whereHas('engineTypes', function ($query) use ($engineCode, $escapedEngineCode) {
+                $query->where('name', 'like', "%$engineCode%")
+                    ->orWhere('escaped_name', 'like', "%$engineCode%")
+                    ->orWhere('name', 'like', "%$escapedEngineCode%")
+                    ->orWhere('escaped_name', 'like', "%$escapedEngineCode%");
             });
         }]);
 

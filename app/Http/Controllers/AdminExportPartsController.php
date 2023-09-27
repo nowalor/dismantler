@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
 use App\Services\CalculatePriceService;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -16,11 +18,11 @@ class AdminExportPartsController extends Controller
     }
 
     /**￼
-     * @throws \Exception
+     * @throws Exception
      */
     public function index(Request $request) // : View
     {
-        $carParts = NewCarPart::with('carPartImages')
+        $carPartsQuery = NewCarPart::with('carPartImages')
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
             ->whereNotNull('engine_code')
@@ -30,65 +32,74 @@ class AdminExportPartsController extends Controller
             ->with('carPartImages');
 
         // Handle dismantle company filter
-        if($request->has('dismantle_company')) {
+        if ($request->has('dismantle_company')) {
             $dismantleCompanyName = $request->get('dismantle_company');
 
-            if($dismantleCompanyName !== 'all') {
-                $carParts->where('dismantle_company_name', $dismantleCompanyName);
+            if ($dismantleCompanyName !== 'all') {
+                $carPartsQuery->where('dismantle_company_name', $dismantleCompanyName);
             }
         }
 
         // Handle search
-        if($request->has('search')) {
+        if ($request->has('search')) {
             $search = $request->get('search');
-            $carParts = $carParts->where(function ($carPart) use ($search) {
+            $carPartsQuery = $carPartsQuery->where(function ($carPart) use ($search) {
 
                 $carPart->where('sbr_code_id', 'like', "%$search%")
                     ->orWhere('engine_code', 'like', "%$search%")
                     ->orWhere('name', 'like', "%$search%");
-//                    ->orWhere(function($carPart) use ($search) {
-//                        // Handle kba_string which is not a column in the DB
-//                        return str_contains(strtolower($carPart->kba_string), strtolower($search));
-//                    });
             });
         }
 
-        $carParts = $carParts->paginate(100)->withQueryString();
+        $paginatedCarParts = $carPartsQuery->paginate(100)->withQueryString();
 
         // TODO get from DB
         $uniqueDismantleCompanyCodes = [
             "bo",
             'F',
             'A',
+            'N',
         ];
 
-        // This does not work because I haven't paginated the collection and am looping through nothing
-        $carParts = $carParts->filter(function ($carPart) {
-            $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix(
-                $carPart->price_sek,
-                $carPart->car_part_type_id
-            );
+        $total = $paginatedCarParts->total();
+        $filteredCarPartsCollection =
+            $paginatedCarParts->getCollection()->filter(function ($carPart) use(&$total) {
+                $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix(
+                    $carPart->price_sek,
+                    $carPart->car_part_type_id
+                );
 
-            $myKbas = $carPart->my_kba;
+                $myKbas = $carPart->my_kba;
 
-            if (count($myKbas) === 0) {
-                return false; // Filter out this item
-            }
+                if ($myKbas->count() === 0) {
+                    --$total;
+                 return false;
+                }
 
-            $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
-                return implode([
-                    'hsn' => $kbaNumber->hsn,
-                    'tsn' => $kbaNumber->tsn,
-                ]);
-            })->toArray());
+                $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
+                    return implode([
+                        'hsn' => $kbaNumber->hsn,
+                        'tsn' => $kbaNumber->tsn,
+                    ]);
+                })->toArray());
 
-            return true; // Keep this item
-        });
+                return true;
+            });
 
-        return $carParts->paginate(100);
+        $carParts = new LengthAwarePaginator(
+            $filteredCarPartsCollection,
+            $total,
+            $paginatedCarParts->perPage(),
+            $paginatedCarParts->currentPage(),
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]
+        );
+
         return view('admin.export-parts.index', compact(
-            'carParts',
-            'uniqueDismantleCompanyCodes')
+                'carParts',
+                'uniqueDismantleCompanyCodes')
         );
     }
 

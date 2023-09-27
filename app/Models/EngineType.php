@@ -13,7 +13,7 @@ class EngineType extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['name', 'connection_completed_at'];
+    protected $fillable = ['name', 'connection_completed_at', 'escaped_name'];
 
     public function germanDismantlers()
     {
