@@ -53,9 +53,6 @@ class AutoteileMarkDocService
         $partInformation = $this->resolvePartInformation($carPart);
 
         fputcsv($file, $partInformation, '|');
-
-        // Upload to FTP server
-        Storage::disk('ftp')->put('import.csv', file_get_contents(base_path('public/exports/import.csv')));
     }
 
     private function resolvePartInformation(NewCarPart $carPart): array
