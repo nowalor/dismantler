@@ -158,6 +158,10 @@ class AutoteileMarkDocService
     {
         $formattedImages = [];
 
+        if($images->count() === 0) {
+           $formattedImages["img_0"] = 'http://46.101.206.99/storage/img/car-part/placeholder.jpg';
+        }
+
         foreach ($images as $index => $image) {
             $url = asset("storage/img/car-part/{$image->new_car_part_id}/{$image->image_name}");
 
