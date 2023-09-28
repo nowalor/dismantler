@@ -24,9 +24,9 @@ class FenixResolveCarPartImagesCommand extends Command
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $carPartImage) {
-//                if($carPartImage->image_name != null) {
-//                    continue;
-//                }
+                if($carPartImage->image_name != null) {
+                    continue;
+                }
 
                 $imageUrl = $carPartImage->original_url;
 
