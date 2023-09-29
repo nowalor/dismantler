@@ -115,6 +115,10 @@ class NewCarPart extends Model
         $partType = $this->carPartType->germanCarPartTypes->first()->name;
         $priceSek = $this->price_sek;
 
+        if(!$priceSek) {
+            return $priceSek;
+        }
+
         $shipment = null;
 
         // Motor
@@ -133,7 +137,7 @@ class NewCarPart extends Model
             GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
             1,
         )) {
-            $shipment = 150;
+            $shipment = 100;
 
         }
 
@@ -147,10 +151,8 @@ class NewCarPart extends Model
         }
 
         if ($priceSek <= 2000) {
-            $divider = 7;
-        } else if ($priceSek <= 5000) {
             $divider = 8;
-        } else if ($priceSek <= 10000) {
+        }  else if ($priceSek <= 10000) {
             $divider = 10;
         } else {
             $divider = 11;
