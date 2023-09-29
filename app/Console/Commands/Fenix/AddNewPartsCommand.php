@@ -26,11 +26,10 @@ class AddNewPartsCommand extends Command
         $options = [
               'Filters' => [
                   "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145"],
-                  "CarBreaker" => "updated from command",
+                  "CarBreaker" => $dismantleCompanies,
               ],
             "CreatedDate" => "2023-09-11T09:00",
-            "Action" => 55,
-            "Test" => "test",
+            "Action" => 2,
         ];
 
         $this->fenixApiService->getParts($options);

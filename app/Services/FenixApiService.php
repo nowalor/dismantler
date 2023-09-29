@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class FenixApiService
 {
@@ -31,25 +32,15 @@ class FenixApiService
         ]);
     }
 
+    /**
+     * @throws \HttpException
+     * @throws GuzzleException
+     */
     public function getParts(array $options) //: array
     {
-//        if ($this->tokenExpiresAt < now()->toIso8601String()) {
-//            $this->authenticate();
-//        }
-
-//        $filters = [
-//            "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145"],
-//            "CarBreaker" => ["N"],
-//        ];
-//
-//        "Filters" => $filters,
-//            "CreatedDate" => "2013-09-11T09:00",
-//        "Skip" => 0,
-//            "Page" => 1,
-//            "Take" => 500,
-//        "Action" => 1,
-
-
+        if ($this->tokenExpiresAt < now()->toIso8601String()) {
+            $this->authenticate();
+        }
         $payload = [
             "IncludeNew" => false,
             "PartImages" => true,
@@ -71,20 +62,23 @@ class FenixApiService
             ],
         ];
 
-        logger($options);
-        $newPayload = $payload + $options;
+        $payload = array_merge($payload, $options);
 
-        logger('lne');
-        logger($newPayload);
+        try {
+            $options = $this->getAuthHeaders();
+            $options['json'] = $payload;
 
-//            $options = $this->getAuthHeaders();
-//        $options['json'] = $payload;
-//
-//        $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
-//
-//        $response = json_decode($response->getBody()->getContents(), true);
-//
-//        return $response;
+            $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
+
+            $response = json_decode($response->getBody()->getContents(), true);
+        } catch (\Exception $e) {
+            logger($e->getMessage());
+            logger($e->getTraceAsString());
+
+            throw new \HttpException($e->getMessage());
+        }
+
+        return $response;
     }
 
     protected function getAuthHeaders(): array
@@ -94,5 +88,10 @@ class FenixApiService
                 'Authorization' => 'Bearer ' . $this->token,
             ],
         ];
+    }
+
+    private function authenticate()
+    {
+
     }
 }
