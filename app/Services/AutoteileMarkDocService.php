@@ -3,19 +3,9 @@
 namespace App\Services;
 
 use App\Models\NewCarPart;
-use Illuminate\Support\Facades\Storage;
 
 class AutoteileMarkDocService
 {
-    private ResolveKbaFromSbrCodeService $resolveKbaFromSbrCodeService;
-    private CalculatePriceService $calculatePriceService;
-    public function __construct()
-
-    {
-        $this->resolveKbaFromSbrCodeService = new ResolveKbaFromSbrCodeService();
-        $this->calculatePriceService = new CalculatePriceService();
-    }
-
     public function generateExportCSV(NewCarPart $carPart): void
     {
         $path = base_path('public/exports/import.csv');
@@ -75,16 +65,8 @@ class AutoteileMarkDocService
             'part_state' => '2',
             'quantity' => '1',
             'vat' => '0',
-            'price' => $this->calculatePriceService
-                ->sekToEurForFenix(
-                    $carPart->price_sek,
-                    $carPart->car_part_type_id
-                ),
-            'price_b2b' => $this->calculatePriceService
-                ->sekToEurForFenix(
-                    $carPart->price_sek,
-                    $carPart->car_part_type_id
-                ),
+            'price' => $carPart->new_price,
+            'price_b2b' => $carPart->new_price,
             'delivery' => '0',
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
             'properties' => $this->resolveProperties($carPart),
