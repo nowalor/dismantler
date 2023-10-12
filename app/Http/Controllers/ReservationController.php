@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use App\Services\FenixApiService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class ReservationController extends Controller
@@ -12,29 +13,39 @@ class ReservationController extends Controller
     {
     }
 
-    public function show(Reservation $reservation)// : View
+    public function show(Reservation $reservation) : View
     {
         $reservation->load('carPart.carPartImages');
 
         return view('reservations.show', compact('reservation'));
     }
 
-    public function destroy(Reservation $reservation)
+    public function destroy(Reservation $reservation): RedirectResponse
     {
         $reservation->load('carPart');
 
         if(!$this->fenixApiService->hasReservation($reservation->reservation_id)) {
-            return 'Reservation does not exist';
+            return redirect()->back()->with(
+                'error',
+                'Reservation not found. Maybe it was already removed?'
+            );
         }
 
         $this->fenixApiService->removeReservation($reservation);
 
         if($this->fenixApiService->hasReservation($reservation->reservation_id)) {
-            return 'Reservation still exists';
+            return redirect()->back()->with(
+                'error',
+                'Something went wrong and the reservation could not be removed.'
+            );
         }
 
         $reservation->is_active = false;
+        $reservation->save();
 
-        return 'worked??';
+        return redirect()->back()->with(
+            'success',
+            'Reservation removed successfully.'
+        );
     }
 }
