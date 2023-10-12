@@ -136,7 +136,7 @@ abstract class FenixApiBaseCommand extends Command
 
         $filters = [
             "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145"],
-            "CarBreaker" => ["N"],
+            "CarBreaker" => ["BO"],
         ];
 
         $parts = [];
@@ -177,12 +177,6 @@ abstract class FenixApiBaseCommand extends Command
 
             ++$page;
         }
-
-        logger([
-            'count' => $response['Count'],
-            'page' => $response['Page'],
-            'skip' => $response['Skip'],
-        ]);
 
         $response = [
             'parts' => $parts,
