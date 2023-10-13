@@ -48,7 +48,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
      * Reserve them in the data provider
      * Update the part in the database
      */
-    private function handleSoldParts(array $parts)
+    public function handleSoldParts(array $parts)
     {
         foreach($parts as $part) {
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
@@ -65,8 +65,11 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
                 $part['Id'] = $reservedPart['Id'];
 
+                logger("test2 {$reservedPart['Reservation']}");
+
                 $this->notificationService->notifyOrderSuccess(
                     partData: $part,
+                    reservationId: $reservedPart['Reservation'],
                 );
             }
         }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use App\Services\FenixApiService;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class ReservationController extends Controller
@@ -20,7 +19,7 @@ class ReservationController extends Controller
         return view('reservations.show', compact('reservation'));
     }
 
-    public function destroy(Reservation $reservation): RedirectResponse
+    public function destroy(Reservation $reservation)//: RedirectResponse
     {
         $reservation->load('carPart');
 

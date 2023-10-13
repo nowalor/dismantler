@@ -9,10 +9,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->uuid('id')->primary();
             $table->integer('car_part_id')->unsigned();
             $table->integer('reservation_id')->unsigned();
             $table->boolean('is_active')->default(true);
+            $table->uuid()->primary();
+
             $table->timestamps();
         });
     }

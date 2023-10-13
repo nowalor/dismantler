@@ -30,7 +30,7 @@
                         </p>
 
                         @if($reservation->is_active)
-                        <form action="{{ route('reservations.destroy', $reservation) }}" method="POST">
+                        <form action="{{ route('reservations.destroy', $reservation->uuid) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger">Remove reservation</button>
