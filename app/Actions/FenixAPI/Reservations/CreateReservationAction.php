@@ -12,6 +12,7 @@ use Exception;
 class CreateReservationAction extends FenixApiAction
 {
     private SlackNotificationService $notificationService;
+
     public function __construct()
     {
         parent::__construct();

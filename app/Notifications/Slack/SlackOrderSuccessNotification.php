@@ -15,7 +15,7 @@ class SlackOrderSuccessNotification extends Notification
 {
     use Queueable;
 
-    private $appUrl;
+    private string $appUrl;
 
     public function __construct(
         private array $partData,
@@ -25,12 +25,12 @@ class SlackOrderSuccessNotification extends Notification
         $this->appUrl = config('app.url');
     }
 
-    public function via($notifiable)
+    public function via($notifiable): array
     {
         return ['slack'];
     }
 
-    public function toSlack()
+    public function toSlack(): SlackMessage
     {
         return (new SlackMessage)
             ->content($this->message());

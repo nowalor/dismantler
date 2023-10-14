@@ -2,15 +2,10 @@
 
 namespace App\Console\Commands\Base;
 
-use App\Models\NewCarPart;
-use App\Models\Reservation;
-use App\Notifications\Slack\SlackOrderFailedNotification;
 use App\Services\SlackNotificationService;
-use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 use JsonException;
 
 abstract class FenixApiBaseCommand extends Command

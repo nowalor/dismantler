@@ -96,7 +96,19 @@ class FenixApiService
 
     private function authenticate(): void
     {
+        $payload = [
+            'username' => $this->email,
+            'password' => $this->password,
+        ];
 
+        $response = $this->httpClient->post($this->apiUrl . '/account', [
+            'body' => json_encode($payload),
+        ]);
+
+        $responseBody = json_decode($response->getBody()->getContents(), true);
+
+        $this->token = $responseBody['Token'];
+        $this->tokenExpiresAt = $responseBody['Expiration'];
     }
 
     public function createReservation(NewCarPart $carPart): bool | Reservation

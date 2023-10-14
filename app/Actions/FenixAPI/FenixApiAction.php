@@ -25,7 +25,7 @@ class FenixApiAction
         ]);
     }
 
-    protected function authenticate()
+    protected function authenticate(): void
     {
         $payload = [
             'username' => $this->email,

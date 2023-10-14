@@ -13,6 +13,7 @@ namespace App\Console\Commands;
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\NewCarPart;
 use App\Models\Reservation;
+use App\Services\FenixApiService;
 use App\Services\SlackNotificationService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -33,10 +34,8 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
         parent::__construct();
     }
 
-    public function handle()
+    public function handle(): int
     {
-        logger('ResolvepartsSoldByUsCommand ran on schedule');
-
         $parts = $this->getSoldParts();
 
         if(count($parts)) {
@@ -66,7 +65,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
             if($reservation instanceof Reservation) {
                 $this->notificationService->notifyOrderSuccess(
                     partData: $part,
-                    reservationId: $reservation->reservation_id
+                    reservationId: $reservation->uuid,
                 );
             }
         }
