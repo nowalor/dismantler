@@ -18,6 +18,6 @@ class KbaSeeder extends Seeder
     {
         $file = File::get(base_path() . '/database/data/kba.sql');
 
-        DB::unprepared($file);
+        DB::raw($file);
     }
 }

@@ -2,13 +2,11 @@
 
 namespace App\Console\Commands\Base;
 
-use App\Models\NewCarPart;
-use App\Notifications\Slack\SlackOrderFailedNotification;
 use App\Services\SlackNotificationService;
-use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
+use JsonException;
 
 abstract class FenixApiBaseCommand extends Command
 {
@@ -43,90 +41,35 @@ abstract class FenixApiBaseCommand extends Command
         parent::__construct();
     }
 
-    public function reservePart(NewCarPart $part): bool|array
+    protected function authenticate(): void
     {
-        if (!isset($this->token)) {
-            $this->authenticate();
-        }
-
-        if ($this->tokenExpiresAt < now()->toIso8601String()) {
-            $this->authenticate();
-        }
-
         $payload = [
-            "Reservations" => [
-                [
-                    'Id' => 0,
-                    'PartId' => $part->original_id,
-                    'Type' => 3,
-                    'CarBreaker' => 'AT',
-                    'ExternalReference' => $part->article_nr,
-                    'ExternalSourceName' => 'autoteile',
-                    'DueDate' => now()->addDays(2)->toIso8601String(),
-                ],
-            ]
+            'username' => $this->email,
+            'password' => $this->password,
         ];
 
-        $options = $this->getAuthHeaders();
-        $options['json'] = $payload;
+        $response = $this->httpClient->post($this->apiUrl . '/account', [
+            'body' => json_encode($payload),
+        ]);
 
+        $responseBody = json_decode($response->getBody()->getContents(), true);
 
-        try {
-            $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/savereservations", $options);
+        $this->token = $responseBody['Token'];
+        $this->tokenExpiresAt = $responseBody['Expiration'];
+    }
 
-            $statusCode = $response->getStatusCode();
-
-            $data = json_decode($response->getBody(), true);
-
-            if ($statusCode !== 200) {
-                $this->notificationService->notify(
-                    SlackNotificationService::ORDER_FAILED,
-                    $part,
-                    statusCode: $statusCode
-                );
-                logger($data);
-
-                return false;
-            } elseif (empty($data)) {
-                $this->notificationService->notify(
-                    SlackNotificationService::ORDER_FAILED,
-                    $part,
-                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_EMPTY,
-                );
-                logger($data);
-
-                return false;
-            } elseif ($data[0]['Id'] === 0) {
-                $this->notificationService->notify(
-                    SlackNotificationService::ORDER_FAILED,
-                    $part,
-                    errorType: SlackOrderFailedNotification::ERROR_TYPE_RESPONSE_INVALID,
-                );
-
-                logger($data);
-                return false;
-            }
-        } catch (Exception $e) {
-            $this->notificationService->notify(
-                SlackNotificationService::ORDER_FAILED,
-                $part,
-            );
-
-            logger($e->getMessage());
-
-            return false;
-        }
-
-        logger($data);
-
+    protected function getAuthHeaders(): array
+    {
         return [
-            'Id' => $data[0]['Id'],
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->token,
+            ],
         ];
     }
 
     /**
      * @throws GuzzleException
-     * @throws \JsonException
+     * @throws JsonException
      */
     protected function getParts(): array
     {
@@ -136,7 +79,7 @@ abstract class FenixApiBaseCommand extends Command
 
         $filters = [
             "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145"],
-            "CarBreaker" => ["N"],
+            "CarBreaker" => ["BO"],
         ];
 
         $parts = [];
@@ -145,7 +88,7 @@ abstract class FenixApiBaseCommand extends Command
         $increment = 500;
         $page = 1;
 
-       // Keep incrementing take by 500 until we have no parts left
+        // Keep incrementing take by 500 until we have no parts left
         for ($skip = 0; $skip < $count + $increment; $skip += $increment) {
             logger("Skip: $skip");
             $payload = [
@@ -178,12 +121,6 @@ abstract class FenixApiBaseCommand extends Command
             ++$page;
         }
 
-        logger([
-            'count' => $response['Count'],
-            'page' => $response['Page'],
-            'skip' => $response['Skip'],
-        ]);
-
         $response = [
             'parts' => $parts,
             'page' => $response['Page'],
@@ -192,32 +129,6 @@ abstract class FenixApiBaseCommand extends Command
         ];
 
         return $response;
-    }
-
-    protected function authenticate(): void
-    {
-        $payload = [
-            'username' => $this->email,
-            'password' => $this->password,
-        ];
-
-        $response = $this->httpClient->post($this->apiUrl . '/account', [
-            'body' => json_encode($payload),
-        ]);
-
-        $responseBody = json_decode($response->getBody()->getContents(), true);
-
-        $this->token = $responseBody['Token'];
-        $this->tokenExpiresAt = $responseBody['Expiration'];
-    }
-
-    protected function getAuthHeaders(): array
-    {
-        return [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->token,
-            ],
-        ];
     }
 
     protected function getCount(): int

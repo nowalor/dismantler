@@ -15,19 +15,22 @@ class SlackOrderSuccessNotification extends Notification
 {
     use Queueable;
 
+    private string $appUrl;
+
     public function __construct(
         private array $partData,
+        private string $reservationId,
     )
     {
-        //
+        $this->appUrl = config('app.url');
     }
 
-    public function via($notifiable)
+    public function via($notifiable): array
     {
         return ['slack'];
     }
 
-    public function toSlack()
+    public function toSlack(): SlackMessage
     {
         return (new SlackMessage)
             ->content($this->message());
@@ -49,6 +52,10 @@ class SlackOrderSuccessNotification extends Notification
     - *Name:* {$this->partData['shipping_information']['firstname']} {$this->partData['shipping_information']['surname']}
     - *Address:* {$this->partData['shipping_information']['street']}, {$this->partData['shipping_information']['zip']} {$this->partData['shipping_information']['city']}, {$this->partData['shipping_information']['country']}
     - *Phone:* {$this->partData['shipping_information']['phone']}
+
+
+    Remove reservation link:
+    - *Link:* {$this->appUrl}/reservations/{$this->reservationId}
     ";
     }
 }
