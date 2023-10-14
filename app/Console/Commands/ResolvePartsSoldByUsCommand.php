@@ -12,6 +12,7 @@ namespace App\Console\Commands;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\NewCarPart;
+use App\Models\Reservation;
 use App\Services\SlackNotificationService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -22,10 +23,12 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
     protected $signature = 'parts-we-sold:resolve';
 
     private SlackNotificationService $notificationService;
+    private FenixApiService $fenixApiService;
 
     public function __construct()
     {
         $this->notificationService = new SlackNotificationService();
+        $this->fenixApiService = new FenixApiService();
 
         parent::__construct();
     }
@@ -58,27 +61,17 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
                 continue;
             }
 
-            $reservedPart = $this->reservePart($dbPart);
+            $reservation = $this->fenixApiService->createReservation($dbPart);
 
-            if($reservedPart) {
-                $this->updadatePartInDB($part['article_nr']);
-
-                $part['Id'] = $reservedPart['Id'];
-
-                logger("test2 {$reservedPart['Reservation']}");
-
+            if($reservation instanceof Reservation) {
                 $this->notificationService->notifyOrderSuccess(
                     partData: $part,
-                    reservationId: $reservedPart['Reservation'],
+                    reservationId: $reservation->reservation_id
                 );
             }
         }
     }
 
-    /*
-     * Make a request to the autoteile-markt FTP server
-     * Sold parts will be in the sellout_standard.xml file
-     */
     private function getSoldParts(): array
     {
         $files = Storage::disk('ftp')->files();
@@ -125,19 +118,6 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
         }
 
         return $parts;
-    }
-
-    private function updadatePartInDB(string $articleNr)
-    {
-        $part = NewCarPart::where('article_nr', $articleNr)->first();
-
-        if ($part) {
-            $part->is_live = false;
-            $part->sold_at = now();
-            $part->sold_on_platform = 'autoteile-markt.de';
-
-            $part->save();
-        }
     }
 
     private function extractInformation(SimpleXMLElement $item): array

@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Actions\FenixAPI\Reservations\CreateReservationAction;
+use App\Models\NewCarPart;
 use App\Models\Reservation;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -94,19 +96,31 @@ class FenixApiService
 
     private function authenticate(): void
     {
-        $payload = [
-            'username' => $this->email,
-            'password' => $this->password,
-        ];
 
-        $response = $this->httpClient->post($this->apiUrl . '/account', [
-            'body' => json_encode($payload),
-        ]);
+    }
 
-        $responseBody = json_decode($response->getBody()->getContents(), true);
+    public function createReservation(NewCarPart $carPart): bool | Reservation
+    {
+        $reservation = (new CreateReservationAction())->execute($carPart);
 
-        $this->token = $responseBody['Token'];
-        $this->tokenExpiresAt = $responseBody['Expiration'];
+        if($reservation instanceof Reservation) {
+            $this->markAsSold($carPart->article_nr);
+        }
+
+        return $reservation;
+    }
+
+    private function markAsSold(string $articleNr): void
+    {
+        $part = NewCarPart::where('article_nr', $articleNr)->first();
+
+        if ($part) {
+            $part->is_live = false;
+            $part->sold_at = now();
+            $part->sold_on_platform = 'autoteile-markt.de';
+
+            $part->save();
+        }
     }
 
     public function getReservation(int $reservationId): \Illuminate\Http\JsonResponse|ResponseInterface
@@ -127,9 +141,6 @@ class FenixApiService
                 "$this->apiUrl/autoteile/getreservation",
                 $options,
             );
-
-            logger("response");
-            logger($response->getBody()->getContents());
         } catch(GuzzleException $e) {
             logger($e->getMessage());
             logger($e->getTraceAsString());
