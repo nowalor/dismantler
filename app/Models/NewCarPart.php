@@ -114,6 +114,7 @@ class NewCarPart extends Model
     {
         $partType = $this->carPartType->germanCarPartTypes->first()->name;
         $priceSek = $this->price_sek;
+        $dismantleCompanyName = $this->dismantle_company_name;
 
         if(!$priceSek) {
             return $priceSek;
@@ -149,6 +150,25 @@ class NewCarPart extends Model
         )) {
             $shipment = 70;
         }
+
+        /*
+         * Longer delivery
+         */
+        if($dismantleCompanyName === 'F') {
+            if  (in_array(
+                $partType,
+                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
+                1,
+            )) {
+                $shipment += 150;
+            } else {
+                $shipment += 100;
+            }
+        }
+
+        /*
+         * Calc divider
+         */
 
         if ($priceSek <= 2000) {
             $divider = 8;
