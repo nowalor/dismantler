@@ -65,7 +65,8 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
             if($reservation instanceof Reservation) {
                 $this->notificationService->notifyOrderSuccess(
                     partData: $part,
-                    reservationId: $reservation->uuid,
+                    reservationId: $reservation->reservation_id,
+                    reservationUuid: $reservation->uuid,
                 );
             }
         }

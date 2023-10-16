@@ -20,6 +20,7 @@ class SlackOrderSuccessNotification extends Notification
     public function __construct(
         private array $partData,
         private string $reservationId,
+        private string $reservationUuid,
     )
     {
         $this->appUrl = config('app.url');
@@ -38,10 +39,12 @@ class SlackOrderSuccessNotification extends Notification
 
     private function message(): string
     {
+        logger($this->partData);
+
         return "
     🔥 New Reservation 🔥\n
     *Article Number:* {$this->partData['article_nr']}\n
-    *Reservation ID:* {$this->partData['Id']}\n
+    *Reservation ID:* {$this->reservationId}\n
     Billing information:
     - *Name:* {$this->partData['billing_information']['firstname']} {$this->partData['billing_information']['surname']}
     - *Address:* {$this->partData['billing_information']['street']}, {$this->partData['billing_information']['zip']} {$this->partData['billing_information']['city']}, {$this->partData['billing_information']['country']}
@@ -55,7 +58,7 @@ class SlackOrderSuccessNotification extends Notification
 
 
     Remove reservation link:
-    - *Link:* {$this->appUrl}/reservations/{$this->reservationId}
+    - *Link:* {$this->appUrl}/reservations/{$this->reservationUuid}
     ";
     }
 }
