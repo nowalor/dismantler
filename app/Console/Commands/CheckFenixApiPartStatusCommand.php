@@ -42,7 +42,6 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         }
 
         if (!empty($this->soldParts)) {
-            logger($this->soldParts);
             $this->handleSoldParts();
         }
 
