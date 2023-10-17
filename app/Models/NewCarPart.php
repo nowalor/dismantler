@@ -43,6 +43,7 @@ class NewCarPart extends Model
         'price_eur',
         'price_dkk',
         'price_nok',
+        'originally_created_at',
     ];
 
     public function carPartType(): BelongsTo
