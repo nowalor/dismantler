@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('fenix:check')->everyFifteenMinutes();
         $schedule->command('parts-we-sold:resolve')->everyMinute();
+        //$schedule->command('fenix:add-new-parts')->dailyAt('00:00');
     }
 
     /**

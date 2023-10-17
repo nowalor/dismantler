@@ -101,6 +101,7 @@ class AutoteileMarkDocService
         $engineType = $carPart->engine_type ?? '';
 
         $description = "
+            Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten. Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen. \n
             Lagernummer: $carPart->article_nr \n
             Originale Ersatzteilnummer: $carPart->original_number \n
             Motor Kennung: $carPart->full_engine_code \n

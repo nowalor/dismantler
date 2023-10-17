@@ -3,29 +3,22 @@
 namespace App\Actions\FenixAPI;
 
 use App\Models\NewCarPart;
+use App\Models\NewCarPartImage;
 
 class SaveFenixPartInDbAction
 {
-    public function execute(
-        array $part,
-        bool $checkDuplicates = false,
-    )
+    public function execute(array $part)
     {
         $formattedPart = $this->formatPart($part);
 
-        if($checkDuplicates) {
-            $newPart = NewCarPart::firstOrCreate(
-                ['original_id' => $formattedPart['original_id']],
-                $formattedPart
-            );
-        } else {
-            $newPart = NewCarPart::create($formattedPart);
-        }
+        $newPart = NewCarPart::firstOrCreate(
+            ['original_id' => $formattedPart['original_id']],
+            $formattedPart
+        );
 
-        if($newPart->wasRecentlyCreated && $part['Images']) {
+        if ($newPart->wasRecentlyCreated && $part['Images']) {
             $this->uploadImages($part['Images'], $newPart->id);
         }
-
     }
 
     private function formatPart(array $part): array
@@ -51,6 +44,29 @@ class SaveFenixPartInDbAction
             'mileage_km' => (int)$part['Car']['Mileage'] * 10,
             'model_year' => $part['Car']['ModelYear'],
             'vin' => $part['Car']['VIN'],
+            'originally_created_at' => $part['CreatedDate'],
+        ];
+    }
+
+    private function uploadImages(array $images, int $newCarPartId): void
+    {
+        foreach ($images as $image) {
+            $formattedImage = $this->formatImage($image, $newCarPartId);
+
+            NewCarPartImage::firstOrCreate(
+                [
+                    'new_car_part_id' => $newCarPartId,
+                    'original_url' => $formattedImage['original_url']
+                ], $formattedImage
+            );
+        }
+    }
+
+    private function formatImage(array $image, int $carPartId): array
+    {
+        return [
+            'new_car_part_id' => $carPartId,
+            'original_url' => $image['Url'],
         ];
     }
 }
