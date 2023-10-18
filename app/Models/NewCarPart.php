@@ -181,9 +181,9 @@ class NewCarPart extends Model
         } else if($priceSek <= 10000) {
             $divider = 10;
         } else if($priceSek <= 20000) {
-            $divider = 11;
+            $divider = 10;
         } else {
-            $divider = 12;
+            $divider = 11;
         }
 
         if(!$shipment) {
