@@ -47,7 +47,11 @@ class SlackNotificationService
         ));
     }
 
-    public function notifyOrderSuccess(array $partData, string $reservationId, string $reservationUuid): void
+    public function notifyOrderSuccess(
+        array $partData,
+        string | null $reservationId,
+        string | null $reservationUuid
+    ): void
     {
        Notification::route(
             'slack',
