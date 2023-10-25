@@ -190,7 +190,16 @@ class NewCarPart extends Model
             return 'SHIPMENT MISSING!';
         }
 
-        return round(($priceSek / $divider) + $shipment) * 1.19;
+        return round((($priceSek / $divider) + $shipment)  * 1.19);
+    }
+
+    public function getBusinessPriceAttribute()
+    {
+        $b2cPrice = $this->new_price;
+
+        $b2bPrice = $b2cPrice * 0.95;
+
+        return round($b2bPrice);
     }
 
     public function getUniqueKbaAttribute()

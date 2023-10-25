@@ -66,7 +66,7 @@ class AutoteileMarkDocService
             'quantity' => '1',
             'vat' => '0',
             'price' => $carPart->new_price,
-            'price_b2b' => $carPart->new_price,
+            'price_b2b' => $carPart->business_price,
             'delivery' => '0',
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
             'properties' => $this->resolveProperties($carPart),
