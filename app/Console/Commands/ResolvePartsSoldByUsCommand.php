@@ -60,6 +60,16 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
                 continue;
             }
 
+            if($dbPart->dismantle_company_name === 'BO') {
+                $this->notificationService->notifyOrderSuccess(
+                    partData: $part,
+                    reservationId: null,
+                    reservationUuid: null,
+                );
+
+                continue;
+            }
+
             $reservation = $this->fenixApiService->createReservation($dbPart);
 
             if($reservation instanceof Reservation) {
