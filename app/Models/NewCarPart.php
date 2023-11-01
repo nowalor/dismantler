@@ -158,7 +158,7 @@ class NewCarPart extends Model
         if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A') {
             if  (in_array(
                 $partType,
-                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
+                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
                 1,
             )) {
                 $shipment += 150;
@@ -170,7 +170,6 @@ class NewCarPart extends Model
         /*
          * Calc divider
          */
-
         if ($priceSek <= 2000) {
             $divider = 7;
         }
