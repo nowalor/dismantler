@@ -23,8 +23,10 @@ class CalculatePriceService
             $addition = 200;
         }
 
-        if(!$addition) {
-            throw new \Exception('No addition found for part type id: ' . $partTypeId);
+        if(!isset($addition)) {
+//            throw new \Exception('No addition found for part type id: ' . $partTypeId);
+
+            $addition = 2000;
         }
 
         return round(($price / 10 + $addition) * 1.19);
