@@ -32,7 +32,7 @@ class AdminExportPartsController extends Controller
             })
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
-            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+//            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages');
 
