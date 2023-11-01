@@ -23,8 +23,8 @@ class ExportPartsAsCsvCommand extends Command
     {
         $parts = NewCarPart::with('carPartImages')->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
-            ->where('sbr_pat_code', '!=', '7143')
-            ->where('sbr_pat_code', '!=', '7302')
+            ->where('sbr_part_code', '!=', '7143')
+            ->where('sbr_part_code', '!=', '7302')
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
             ->whereNotNull('engine_code')
