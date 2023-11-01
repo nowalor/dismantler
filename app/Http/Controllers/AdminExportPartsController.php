@@ -20,11 +20,16 @@ class AdminExportPartsController extends Controller
     /**￼
      * @throws Exception
      */
+// "7143", "7302"],
     public function index(Request $request) // : View
     {
         $carPartsQuery = NewCarPart::with('carPartImages')
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
+            ->where(function ($query) {
+                return $query->where('sbr_part_code', '7143')
+                    ->orWhere('sbr_part_code', '7302');
+            })
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
             ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')

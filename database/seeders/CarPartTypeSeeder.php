@@ -52,14 +52,6 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 7,
                 'name' => 'Differential',
             ],
-            [
-                'id' => 8,
-                'name' => 'Engine Electric Rear',
-            ],
-            [
-                'id' => 9,
-                'name' => 'Engine Electric Front',
-            ]
         ];
 
         CarPartType::insert($carPartTypes);
@@ -72,9 +64,6 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 5, "name" => "PARTIKELFILTER", "code" => "1284"],
             ["id" => 6, "name" => "KATALYSATOR", "code" => "1285"],
             ["id" => 7, "name" => "BAGTØJSKLUMP", "code" => "2601"],
-
-            ["id" => 8, "name" => "Replace later", "code" => "1111"],
-            ["id" => 9, "name" => "Replace later 2", "code" => "2222"],
         ];
 
         DB::table('danish_car_part_types')->insert($danishPartTypes);
@@ -123,18 +112,6 @@ class CarPartTypeSeeder extends Seeder
                 "code" => null,
                 "autoteile_markt_category_id" => 939,
             ],
-            [
-                "id" => 8,
-                "name" => "Replace later",
-                "code" => null,
-                "autoteile_markt_category_id" => 999,
-            ],
-            [
-                "id" => 9,
-                "name" => "Replace later 2",
-                "code" => null,
-                "autoteile_markt_category_id" => 444,
-            ],
         ];
 
         foreach($germanPartTypes as $germanPartType) {
@@ -171,16 +148,13 @@ class CarPartTypeSeeder extends Seeder
 
         DB::table('swedish_car_part_types')->insert($swedishPartTypes);
 
-        CarPartType::find(1)->swedishCarPartTypes()->syncWithoutDetaching([1, 2]);
+        CarPartType::find(1)->swedishCarPartTypes()->syncWithoutDetaching([1, 2, 11, 12]);
         CarPartType::find(2)->swedishCarPartTypes()->syncWithoutDetaching([3]);
         CarPartType::find(3)->swedishCarPartTypes()->syncWithoutDetaching([4, 5]);
         CarPartType::find(4)->swedishCarPartTypes()->syncWithoutDetaching([6]);
         CarPartType::find(5)->swedishCarPartTypes()->syncWithoutDetaching([7]);
         CarPartType::find(6)->swedishCarPartTypes()->syncWithoutDetaching([8]);
         CarPartType::find(7)->swedishCarPartTypes()->syncWithoutDetaching([9, 10]);
-
-        CarPartType::find(8)->swedishCarPartTypes()->syncWithoutDetaching([11]);
-        CarPartType::find(9)->swedishCarPartTypes()->syncWithoutDetaching([12]);
 
     }
 }
