@@ -61,6 +61,12 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
             }
 
             if($dbPart->dismantle_company_name === 'BO') {
+                $part->is_live = false;
+                $part->sold_at = now();
+                $part->sold_on_platform = 'autoteile-markt.de';
+
+                $part->save();
+
                 $this->notificationService->notifyOrderSuccess(
                     partData: $part,
                     reservationId: null,
