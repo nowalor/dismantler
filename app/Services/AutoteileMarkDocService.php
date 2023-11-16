@@ -26,6 +26,7 @@ class AutoteileMarkDocService
                 'vat',
                 'price',
                 'price_b2b',
+                'bulky',
                 'delivery',
                 'delivery_time',
                 'properties',
@@ -67,7 +68,8 @@ class AutoteileMarkDocService
             'vat' => '0',
             'price' => $carPart->new_price,
             'price_b2b' => $carPart->business_price,
-            'delivery' => '0',
+            'bulky' => 1, // Customers can order in bulk and save on delivery costs
+            'delivery' => $carPart->shipment,
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
             'properties' => $this->resolveProperties($carPart),
         ];
