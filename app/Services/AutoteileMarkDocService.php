@@ -41,9 +41,9 @@ class AutoteileMarkDocService
             fputcsv($file, $header, '|');
         }
 
-        $partInformation = $this->resolvePartInformation($carPart);
-
-        fputcsv($file, $partInformation, '|');
+//        $partInformation = $this->resolvePartInformation($carPart);
+//
+//        fputcsv($file, $partInformation, '|');
     }
 
     private function resolvePartInformation(NewCarPart $carPart): array
