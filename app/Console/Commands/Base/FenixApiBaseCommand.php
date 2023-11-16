@@ -184,7 +184,7 @@ abstract class FenixApiBaseCommand extends Command
             "PartnerAccessLevel" => 2,
             "Filters" => [
                 "PartId" => [
-                    "$partId",
+                    (string)$partId,
                 ],
             ],
             "SortBy" => [
