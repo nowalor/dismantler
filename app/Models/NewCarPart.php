@@ -222,7 +222,7 @@ class NewCarPart extends Model
             $divider = 11;
         }
 
-        return round((($priceSek / $divider))  * 1.19);
+        return round(((($priceSek / $divider))  * 1.19) * 1.1);
     }
 
     public function getShipmentAttribute(): int
