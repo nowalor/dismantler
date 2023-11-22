@@ -70,7 +70,6 @@ class FenixResolveCarPartImagesCommand extends Command
                     $outputName = 'image' . $carImageNumber . '.' . $extension;
 
                     Storage::disk('public')->put("img/car-part/{$carPartImage->new_car_part_id}" . '/' . $outputName, $processedImage->stream());
-//                $processedImage->save(public_path("storage/img/car-part/{$carPartImage->new_car_part_id}" . '/' . $outputName));
 
                     $carPartImage->image_name = $outputName;
                     $carPartImage->priority = $carImageNumber;
