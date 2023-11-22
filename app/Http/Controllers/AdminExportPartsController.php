@@ -3,17 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
-use App\Services\CalculatePriceService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
 class AdminExportPartsController extends Controller
 {
-    public function __construct(private CalculatePriceService $calculatePriceService)
+    public function __construct()
     {
     }
 
@@ -71,11 +67,6 @@ class AdminExportPartsController extends Controller
         $total = $paginatedCarParts->total();
         $filteredCarPartsCollection =
             $paginatedCarParts->getCollection()->filter(function ($carPart) use(&$total) {
-                $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix(
-                    $carPart->price_sek,
-                    $carPart->car_part_type_id
-                );
-
                 $myKbas = $carPart->my_kba;
 
                 if ($myKbas->count() === 0) {
