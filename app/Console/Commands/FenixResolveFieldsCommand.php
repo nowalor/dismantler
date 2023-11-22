@@ -32,7 +32,7 @@ class FenixResolveFieldsCommand extends Command
      */
     public function handle()
     {
-        $carParts = NewCarPart::all();
+        $carParts = NewCarPart::where('dismantle_company_name', 'S');
 
         foreach($carParts as $carPart) {
             $carPartTypeId = SwedishCarPartType::where('code', $carPart->sbr_part_code)

@@ -19,7 +19,7 @@ class FenixResolveCarPartImagesCommand extends Command
     public function handle(): int
     {
         $carParts = NewCarPart::with('carPartImages')
-            ->where('dismantle_company_name', 'like', '%AL%')
+            ->where('dismantle_company_name', 'S')
 //            ->where(function($query) {
 //                return $query->where('sbr_part_code', '7143')
 //                    ->orWhere('sbr_part_code', '7302');
