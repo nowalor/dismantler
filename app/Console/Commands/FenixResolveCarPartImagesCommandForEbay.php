@@ -2,31 +2,32 @@
 
 namespace App\Console\Commands;
 
+use App\Models\NewCarPart;
+use App\Models\NewCarPartImage;
 use Illuminate\Console\Command;
 
 class FenixResolveCarPartImagesCommandForEbay extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'command:name';
+    protected $signature = 'fenix:resolve-images-ebay';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
-
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
-    public function handle()
+    public function handle(): int
     {
+        $parts = NewCarPart::select('id')
+            ->whereHas('carPartImages', function($query) {
+                $query->whereNull('image_name_blank_logo');
+            })
+            ->with(['carPartImages' => function($query) {
+                $query->whereNull('image_name_blank_logo');
+            }])
+            ->take(1000)
+            ->get();
+
+        logger($parts);
+
+//        foreach ($parts as $part) {
+//
+//        }
+
         return Command::SUCCESS;
     }
 }

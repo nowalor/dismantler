@@ -66,12 +66,12 @@ class AdminExportPartsController extends Controller
 
         $total = $paginatedCarParts->total();
         $filteredCarPartsCollection =
-            $paginatedCarParts->getCollection()->filter(function ($carPart) use(&$total) {
+            $paginatedCarParts->getCollection()->filter(function ($carPart) use (&$total) {
                 $myKbas = $carPart->my_kba;
 
                 if ($myKbas->count() === 0) {
                     --$total;
-                 return false;
+                    return false;
                 }
 
                 $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
@@ -96,9 +96,9 @@ class AdminExportPartsController extends Controller
         );
 
         return view('admin.export-parts.index', compact(
-                'carParts',
-                'uniqueDismantleCompanyCodes')
-        );
+            'carParts',
+            'uniqueDismantleCompanyCodes',
+        ));
     }
 
     public function show(NewCarPart $carPart)
