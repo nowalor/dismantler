@@ -64,6 +64,8 @@ class AdminExportPartsController extends Controller
             'F',
             'A',
             'N',
+            'S',
+            'AL',
         ];
 
         $total = $paginatedCarParts->total();
