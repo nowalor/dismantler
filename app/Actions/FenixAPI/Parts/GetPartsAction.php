@@ -49,6 +49,7 @@ class GetPartsAction extends FenixApiAction
                 return false;
             }
 
+            logger()->info("Fenix API response: " . $response->getBody()->getContents());
             $data = json_decode(
                 $response->getBody()->getContents(),
                 true,
