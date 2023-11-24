@@ -19,7 +19,7 @@ class FenixResolveCarPartImagesCommand extends Command
     public function handle(): int
     {
         $carParts = NewCarPart::with('carPartImages')
-            ->where('dismantle_company_name', 'S')
+//            ->where('dismantle_company_name', 'S')
 //            ->where(function($query) {
 //                return $query->where('sbr_part_code', '7143')
 //                    ->orWhere('sbr_part_code', '7302');
@@ -32,10 +32,17 @@ class FenixResolveCarPartImagesCommand extends Command
                     continue;
                 }
 
+
+                // TODO.. use existing action for this
                 $imageUrl = $carPartImage->original_url;
 
                 // Download the image
-                $imageContents = file_get_contents($imageUrl);
+                $imageContents = @file_get_contents($imageUrl);
+
+                if(!$imageContents) {
+                    continue;
+                }
+
                 $tempImagePath = tempnam(sys_get_temp_dir(), 'image');
                 file_put_contents($tempImagePath, $imageContents);
 
@@ -93,7 +100,6 @@ class FenixResolveCarPartImagesCommand extends Command
 
     private function getScalingHeight(string $dismantleCompany): float
     {
-        logger($dismantleCompany);
         $height = 0.29;
 
         if($dismantleCompany === 'F') {

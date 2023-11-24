@@ -3,23 +3,24 @@
 namespace App\Actions\Images;
 
 use Intervention\Image\Facades\Image;
+use Intervention\Image\Image as InterventionImage;
 
 class ReplaceDismantlerLogoAction
 {
     public function handle(
         string $imageUrl,
-        string $replacementImage,
-        float $scalingHeight
-    ): \Intervention\Image\Image
+        InterventionImage  $replacementImage,
+        float  $scalingHeight
+    ): array|bool
     {
         // Download the image
-        $imageContents = file_get_contents($imageUrl);
+        $imageContents = @file_get_contents($imageUrl);
+
+        if (!$imageContents) {
+            return false;
+        }
         $tempImagePath = tempnam(sys_get_temp_dir(), 'image');
         file_put_contents($tempImagePath, $imageContents);
-
-        // Load the custom logo
-        $logoPath = public_path('img/logo.png');
-        $logo = Image::make($logoPath);
 
         // Load and process the image
         $processedImage = Image::make($tempImagePath);
@@ -31,11 +32,14 @@ class ReplaceDismantlerLogoAction
         $yOffset = 0;
 
         // Resize the logo to fit the desired dimensions
-        $logo->resize($logoWidth, $logoHeight);
+        $replacementImage->resize($logoWidth, $logoHeight);
 
         // Replace the region in the image with the logo
-        $processedImage->insert($logo, 'top-left', $xOffset, $yOffset);
+        $processedImage->insert($replacementImage, 'top-left', $xOffset, $yOffset);
 
-        return $processedImage;
+        return [
+            'image' => $processedImage,
+            'temp_image_path' => $tempImagePath,
+        ];
     }
 }
