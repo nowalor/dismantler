@@ -15,6 +15,7 @@ class AddNewPartsCommand extends Command
     public function handle(): int
     {
         $subDays = $this->argument('sub_days');
+
         if(!$subDays) {
             $createdAt = now()->subDays(1)->format('Y-m-d');
         } else {
