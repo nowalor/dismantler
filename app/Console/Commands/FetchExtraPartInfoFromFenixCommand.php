@@ -59,7 +59,7 @@ class FetchExtraPartInfoFromFenixCommand extends Command
                     }
 
                     $dbPart->subgroup = $part['SubGroup'];
-                    $dbPart->gearbox_no = $part['Car']['GearboxNo'];
+                    $dbPart->gearbox_nr = $part['Car']['GearboxNo'];
 
                     $dbPart->save();
                 }
