@@ -39,6 +39,9 @@ class GetPartsAction extends FenixApiAction
         $options = $this->getAuthHeaders();
         $options['json'] = $payload;
 
+        logger($payload);
+        dd('died');
+
 
         try {
             $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
