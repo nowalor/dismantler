@@ -54,6 +54,10 @@ class FetchExtraPartInfoFromFenixCommand extends Command
                 foreach ($response['Parts'] as $part) {
                     $dbPart = NewCarPart::where('original_id', $part['Id'])->first();
 
+                    if(!$dbPart) {
+                        continue;
+                    }
+
                     $dbPart->subgroup = $part['SubGroup'];
                     $dbPart->gearbox_no = $part['Car']['GearboxNo'];
 
