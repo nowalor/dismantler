@@ -6,11 +6,6 @@ use App\Actions\FenixAPI\FenixApiAction;
 
 class GetPartsAction extends FenixApiAction
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function execute(
         array $filters,
         int $take = 500,
@@ -48,11 +43,15 @@ class GetPartsAction extends FenixApiAction
             $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
 
             if($response->getStatusCode() !== 200) {
+                logger()->error("Fenix API error: " . $response->getBody()->getContents());
+
                 return false;
             }
 
             $data = json_decode($response->getBody()->getContents(), true);
         } catch(\Exception $e) {
+            logger()->error("Fenix API error: " . $e->getMessage());
+
             return false;
         }
 
