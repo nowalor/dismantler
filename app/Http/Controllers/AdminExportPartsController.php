@@ -3,17 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
-use App\Services\CalculatePriceService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
 class AdminExportPartsController extends Controller
 {
-    public function __construct(private CalculatePriceService $calculatePriceService)
+    public function __construct()
     {
     }
 
@@ -34,7 +30,9 @@ class AdminExportPartsController extends Controller
             ->where('engine_code', '!=', '')
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->with('carPartImages');
+            ->with('carPartImages')
+            ->where('dismantle_company_name', 'N')
+            ->where('car_part_type_id', 1); // Engines
 
         // Handle dismantle company filter
         if ($request->has('dismantle_company')) {
@@ -70,17 +68,12 @@ class AdminExportPartsController extends Controller
 
         $total = $paginatedCarParts->total();
         $filteredCarPartsCollection =
-            $paginatedCarParts->getCollection()->filter(function ($carPart) use(&$total) {
-                $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix(
-                    $carPart->price_sek,
-                    $carPart->car_part_type_id
-                );
-
+            $paginatedCarParts->getCollection()->filter(function ($carPart) use (&$total) {
                 $myKbas = $carPart->my_kba;
 
                 if ($myKbas->count() === 0) {
                     --$total;
-                 return false;
+                    return false;
                 }
 
                 $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
@@ -105,9 +98,9 @@ class AdminExportPartsController extends Controller
         );
 
         return view('admin.export-parts.index', compact(
-                'carParts',
-                'uniqueDismantleCompanyCodes')
-        );
+            'carParts',
+            'uniqueDismantleCompanyCodes',
+        ));
     }
 
     public function show(NewCarPart $carPart)
