@@ -66,8 +66,6 @@ class FetchExtraPartInfoFromFenixCommand extends Command
 
                 $partsCount += $increment;
                 $page++;
-
-                exit;
             }
         }
 

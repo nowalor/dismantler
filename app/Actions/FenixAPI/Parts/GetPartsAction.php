@@ -51,9 +51,7 @@ class GetPartsAction extends FenixApiAction
 
             $data = $response->getBody()->getContents();
 
-            logger($data);
-
-            return json_decode($data, true);
+            $data = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
         } catch (Exception $e) {
             logger()->error("Fenix API error: " . $e->getMessage());
 
