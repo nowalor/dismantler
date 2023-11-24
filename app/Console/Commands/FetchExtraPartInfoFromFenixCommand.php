@@ -27,7 +27,7 @@ class FetchExtraPartInfoFromFenixCommand extends Command
             $filters = [
 //                "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],
                 "SbrPartCode" => ["7201"],
-                "DismantleCompany" => $dismantleCompany,
+                "CarBreaker" => $dismantleCompany,
             ];
 
             // Get count of parts
@@ -40,7 +40,7 @@ class FetchExtraPartInfoFromFenixCommand extends Command
             // Handle pagination
             $partsCount = 0;
             $increment = 500;
-            $totalParts = $response['Total'];
+            $totalParts = $response['Count'];
             $page = 1;
 
             while ($partsCount < $totalParts) {
