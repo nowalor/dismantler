@@ -72,7 +72,6 @@ class AdminExportPartsController extends Controller
                 $myKbas = $carPart->my_kba;
 
                 if ($myKbas->count() === 0) {
-                    --$total;
                     return false;
                 }
 
