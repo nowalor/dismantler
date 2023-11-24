@@ -22,12 +22,12 @@ class FetchExtraPartInfoFromFenixCommand extends Command
 //            'S',
 //            'N',
         ];
+//                "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],
 
         foreach ($dismantleCompanies as $dismantleCompany) {
             $filters = [
-//                "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],
                 "SbrPartCode" => ["7201"],
-                "CarBreaker" => [$dismantleCompany],
+                "CarBreaker" => ["N"],
             ];
 
             // Get count of parts
