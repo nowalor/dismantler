@@ -20,10 +20,14 @@ use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 
 
+
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
 
 Route::get('test-parts', [TestController::class, 'testingParts']);
+
+
+Route::get('engine-type-engine-alias', \App\Http\Controllers\EngineTypeEngineAliasController::class);
 
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
