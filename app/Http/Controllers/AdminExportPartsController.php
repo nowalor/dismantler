@@ -22,10 +22,11 @@ class AdminExportPartsController extends Controller
         $carPartsQuery = NewCarPart::with('carPartImages')
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
-            ->where(function ($query) {
-                return $query->where('sbr_part_code', '7143')
-                    ->orWhere('sbr_part_code', '7302');
-            })
+            ->has('carPartImages')
+//            ->where(function ($query) {
+//                return $query->where('sbr_part_code', '7143')
+//                    ->orWhere('sbr_part_code', '7302');
+//            }) // electric engines
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
@@ -72,6 +73,7 @@ class AdminExportPartsController extends Controller
                 $myKbas = $carPart->my_kba;
 
                 if ($myKbas->count() === 0) {
+                    --$total;
                     return false;
                 }
 
