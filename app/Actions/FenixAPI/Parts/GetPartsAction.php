@@ -3,15 +3,16 @@
 namespace App\Actions\FenixAPI\Parts;
 
 use App\Actions\FenixAPI\FenixApiAction;
+use Exception;
 
 class GetPartsAction extends FenixApiAction
 {
     public function execute(
-        array $filters,
-        int $take = 500,
-        int $skip = 0,
-        int $page = 1,
-        int $action = 1,
+        array  $filters,
+        int    $take = 500,
+        int    $skip = 0,
+        int    $page = 1,
+        int    $action = 1,
         string $createdDate = null,
     ): bool|array
     {
@@ -42,14 +43,19 @@ class GetPartsAction extends FenixApiAction
         try {
             $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
 
-            if($response->getStatusCode() !== 200) {
+            if ($response->getStatusCode() !== 200) {
                 logger()->error("Fenix API error: " . $response->getBody()->getContents());
 
                 return false;
             }
 
-            $data = json_decode($response->getBody()->getContents(), true);
-        } catch(\Exception $e) {
+            $data = json_decode(
+                $response->getBody()->getContents(),
+                true,
+                512,
+                JSON_THROW_ON_ERROR,
+            );
+        } catch (Exception $e) {
             logger()->error("Fenix API error: " . $e->getMessage());
 
             return false;
