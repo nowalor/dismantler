@@ -48,14 +48,9 @@ class GetPartsAction extends FenixApiAction
                 return false;
             }
 
-            logger()->info("Fenix API response: " . $response->getBody()->getContents());
+            logger()->info("Fenix API response: " .  $response->getBody()->getContents());
 
-            $data = json_decode(
-                $response->getBody()->getContents(),
-                true,
-//                512,
-//                JSON_THROW_ON_ERROR,
-            );
+            $data = $response->getBody()->getContents();
 
             logger($data);
         } catch (Exception $e) {
