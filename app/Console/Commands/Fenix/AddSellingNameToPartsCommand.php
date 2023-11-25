@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Fenix;
 
+use App\Models\NewCarPart;
 use App\Services\PartInformationService;
 use Illuminate\Console\Command;
 
@@ -11,7 +12,7 @@ use Illuminate\Console\Command;
  */
 class AddSellingNameToPartsCommand extends Command
 {
-    protected $signature = 'command:name';
+    protected $signature = 'fenix:resolve-name';
 
     private PartInformationService $service;
 
