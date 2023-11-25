@@ -8,9 +8,9 @@ class AutoteileMarkDocService
 {
     private PartInformationService $partInformationService;
 
-    public function __construct(PartInformationService $partInformationService)
+    public function __construct()
     {
-        $this->partInformationService = $partInformationService;
+        $this->partInformationService = new PartInformationService();
     }
 
     public function generateExportCSV(NewCarPart $carPart): void
