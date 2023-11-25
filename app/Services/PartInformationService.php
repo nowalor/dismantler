@@ -32,7 +32,7 @@ class PartInformationService
 
         $name .= $additionalInformation . ' ';
 
-        $carPart->brand_name . ' ' . $carPart->model_year . ' ' . $carPart->original_number . ' ' . $carPart->vin;
+        $name .= $carPart->brand_name . ' ' . $carPart->model_year . ' ' . $carPart->original_number . ' ' . $carPart->vin;
 
         return $name;
     }
