@@ -14,20 +14,20 @@ class FetchExtraPartInfoFromFenixCommand extends Command
     public function handle(): string
     {
         $dismantleCompanies = [
-//            "bo",
-//            'F',
-//            'A',
+            "bo",
+            'F',
+            'A',
             'N',
-//            'AL',
-//            'S',
-//            'N',
+            'AL',
+            'S',
+            'N',
         ];
-//                "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],
+
 
         foreach ($dismantleCompanies as $dismantleCompany) {
             $filters = [
-                "SbrPartCode" => ["7201"],
-                "CarBreaker" => ["N"],
+                "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],
+                "CarBreaker" => [$dismantleCompany],
             ];
 
             // Get count of parts
@@ -60,6 +60,7 @@ class FetchExtraPartInfoFromFenixCommand extends Command
 
                     $dbPart->subgroup = $part['SubGroup'];
                     $dbPart->gearbox_nr = $part['Car']['GearboxNo'];
+                    $dbPart->brand_name = $part['Car']['BrandName'];
 
                     $dbPart->save();
                 }

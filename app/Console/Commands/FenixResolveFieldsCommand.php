@@ -84,7 +84,7 @@ class FenixResolveFieldsCommand extends Command
         if($carPartTypeNameGerman === 'Motor' || (!$carPart->subgroup && !$carPart->gearbox_nr)) {
             $additionalInformation = $carPart->engine_code;
         } else if(!isset($additionalInformation)) {
-            $additionalInformation = $this->partInformationService->resolveGearbox($carPart);
+            $additionalInformation = $this->partInformationService->getGearbox($carPart);
         }
 
         $name =
