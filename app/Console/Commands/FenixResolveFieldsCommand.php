@@ -6,6 +6,7 @@ use App\Models\CarPartType;
 use App\Models\NewCarPart;
 use App\Models\SbrCode;
 use App\Models\SwedishCarPartType;
+use App\Services\PartInformationService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
