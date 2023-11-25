@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class FenixResolveFieldsCommand extends Command
 {
+    public function __construct(private PartInformationService $partInformationService)
+    {
+        parent::__construct();
+    }
+
     /**
      * The name and signature of the console command.
      *
@@ -75,7 +80,14 @@ class FenixResolveFieldsCommand extends Command
         $carPartTypeId = $carPart->car_part_type_id;
         $carPartTypeNameGerman = CarPartType::find($carPartTypeId)->germanCarPartTypes()->first()->name;
 
-        $name = "$carPartTypeNameGerman / $carPart->sbr_car_name / $carPart->engine_code / $carPart->original_number";
+        if($carPartTypeNameGerman === 'Motor' || (!$carPart->subgroup && !$carPart->gearbox_nr)) {
+            $additionalInformation = $carPart->engine_code;
+        } else if(!isset($additionalInformation)) {
+            $additionalInformation = $this->partInformationService->resolveGearbox($carPart);
+        }
+
+        $name =
+            "$carPartTypeNameGerman / $carPart->sbr_car_name / $additionalInformation / $carPart->original_number";
 
         return $name;
     }

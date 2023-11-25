@@ -6,6 +6,13 @@ use App\Models\NewCarPart;
 
 class AutoteileMarkDocService
 {
+    private PartInformationService $partInformationService;
+
+    public function __construct(PartInformationService $partInformationService)
+    {
+        $this->partInformationService = $partInformationService;
+    }
+
     public function generateExportCSV(NewCarPart $carPart): void
     {
         $path = base_path('public/exports/import.csv');
@@ -132,7 +139,7 @@ class AutoteileMarkDocService
     {
         $engineCode = str_replace(',', '.', $carPart->engine_code);
         $engineType = str_replace(',', '.', $carPart->engine_type);
-        $gearbox = str_replace(',', '.', $carPart->gearbox);
+        $gearbox = $this->partInformationService->resolveGearbox($carPart);
         $mileage = str_replace(',', '.', $carPart->mileage_km);
         $quality = str_replace(',', '.', $carPart->quality);
 
