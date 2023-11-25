@@ -14,7 +14,11 @@ class PartInformationService
 
         $name .= $germanCarPartName . ' ' . $carPart->brand_name . ' ' . $carPart->model_year . ' ' . $carPart->original_number . ' ';
 
-        if(in_array([3, 4, 5], $carPart->car_part_type_id, true)) {
+        if(in_array(
+            $carPart->car_part_type_id,
+            [3, 4, 5], 
+            true)
+        ) {
             $gearbox = $this->getGearbox($carPart);
 
              if(isset($gearbox) && $gearbox !== '') {
