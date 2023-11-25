@@ -23,7 +23,6 @@ class FetchExtraPartInfoFromFenixCommand extends Command
             'N',
         ];
 
-
         foreach ($dismantleCompanies as $dismantleCompany) {
             $filters = [
                 "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],

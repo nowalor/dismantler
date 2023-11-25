@@ -8,18 +8,22 @@ class PartInformationService
 {
     public function getNameForEbay(NewCarPart $carPart): string
     {
-        // 3,4 5
         $name = '';
 
         $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
 
         $name .= $germanCarPartName . ' ' . $carPart->brand_name . ' ' . $carPart->model_year . ' ' . $carPart->original_number . ' ';
 
-        if(in_array([3, 4, 5], $carPart->carPartType->id)) {
-            $additionalInformation = $this->getGearbox($carPart);
+        if(in_array([3, 4, 5], $carPart->car_part_type_id, true)) {
+            $gearbox = $this->getGearbox($carPart);
+
+             if(isset($gearbox) && $gearbox !== '') {
+                 $additionalInformation = $gearbox;
+             } else {
+                 $additionalInformation = $carPart->engine_code;
+             }
         } else {
             $additionalInformation = $carPart->engine_code;
-            
         }
 
         $name .= $additionalInformation . ' ' . $carPart->vin;
@@ -27,13 +31,19 @@ class PartInformationService
         return $name;
     }
 
-    public function getGearbox(NewCarPart $carPart): string
+    public function getGearbox(NewCarPart $carPart): string | null
     {
-        if($carPart->subgroup) {
+        if(
+            $carPart->subgroup &&
+            ($carPart->subgroup !== null || $carPart->subgroup !== '')
+        ) {
             return $carPart->subgroup;
         }
 
-        if($carPart->gearbox_nr){
+        if(
+            $carPart->gearbox_nr &&
+            ($carPart->gearbox_nr !== null || $carPart->gearbox_nr !== '')
+        ){
             return $carPart->gearbox_nr;
         }
 
