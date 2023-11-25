@@ -12,11 +12,11 @@ class PartInformationService
 
         $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
 
-        $name .= $germanCarPartName . ' ' . $carPart->brand_name . ' ' . $carPart->model_year . ' ' . $carPart->original_number . ' ';
+        $name .= $germanCarPartName . ' ';
 
         if(in_array(
             $carPart->car_part_type_id,
-            [3, 4, 5], 
+            [3, 4, 5],
             true)
         ) {
             $gearbox = $this->getGearbox($carPart);
@@ -30,7 +30,9 @@ class PartInformationService
             $additionalInformation = $carPart->engine_code;
         }
 
-        $name .= $additionalInformation . ' ' . $carPart->vin;
+        $name .= $additionalInformation . ' ';
+
+        $carPart->brand_name . ' ' . $carPart->model_year . ' ' . $carPart->original_number . ' ' . $carPart->vin;
 
         return $name;
     }
