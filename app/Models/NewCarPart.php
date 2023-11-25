@@ -45,7 +45,8 @@ class NewCarPart extends Model
         'price_nok',
         'originally_created_at',
         'subgroup',
-        'gearbox_nr'
+        'gearbox_nr',
+        'brand_name',
     ];
 
     public function carPartType(): BelongsTo
