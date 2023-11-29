@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Enums\DataProviderEnum;
 use App\Models\DanishCarPartType;
 use App\Models\DitoNumber;
+use App\Models\NewCarPart;
 use Illuminate\Console\Command;
 
 class FetchNemdelePartsCommand extends Command
@@ -20,6 +21,8 @@ class FetchNemdelePartsCommand extends Command
 
         foreach ($data as $part) {
             $formattedPart = $this->formatPart($part);
+
+            NewCarPart::create($formattedPart);
         }
 
         return Command::SUCCESS;
@@ -32,13 +35,14 @@ class FetchNemdelePartsCommand extends Command
             'data_provider_id' => DataProviderEnum::Nemdele->value,
             'original_number' => $part['OEMNumber1'],
             'dito_number_id' => $this->getDitonumberId($part),
-            'original_id' => $part['StockID'],
+//            'original_id' => $part['StockID'], TODO
             'price_dkk' => $part['Price'],
             'brand' => $part['ManufacturerName'],
             'vin' => $part['StelNr'],
             'model_year' => $part['Year'],
             'originally_created_at' => $part['Created'],
             'car_part_type_id' => $this->getCarPartTypeId($part), // TODO
+            'mileage_km' => $part['Mileage'],
 
 
             'model' => $part['Model'], // TODO Need to add to DB??
