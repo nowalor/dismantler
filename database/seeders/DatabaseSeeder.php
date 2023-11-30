@@ -18,16 +18,18 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ManufacturerPlaintextSeeder::class,
             CommericalNameSeeder::class,
+            DataProviderSeeder::class,
+
             KbaSeeder::class,
-            DitoNumberSeeder::class,
-            DitoNumberKbaSeeder::class,
-            EngineTypeSeeder::class,
-            EngineTypeGermanDismantlerSeeder::class,
-            DismantleCompanySeeder::class,
-            CarPartTypeSeeder::class,
-            CarPartSeeder::class,
-            CarPartImageSeeder::class,
-            CardBrandSeeder::class,
+//            DitoNumberSeeder::class,
+//            DitoNumberKbaSeeder::class,
+//            EngineTypeSeeder::class,
+//            EngineTypeGermanDismantlerSeeder::class,
+//            DismantleCompanySeeder::class,
+//            CarPartTypeSeeder::class,
+////            CarPartSeeder::class,
+//            //CarPartImageSeeder::class,
+//            CardBrandSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

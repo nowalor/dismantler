@@ -33,6 +33,16 @@ Route::get('engine-types', function () {
     return $engineTypes;
 });
 
+Route::get('for-marcus', function () {
+   $parts = \App\Models\NewCarPart::select('sbr_car_name', 'sbr_car_code', 'engine_type')
+       ->where('name', 'like', '%LIGIER%')
+       ->orWhere('name', 'like', '%AIXAM%')
+       ->get()
+       ->unique('sbr_car_code');
+
+   return response()->json($parts);
+});
+
 
 Route::get('car-brands', function () {
     $brands = DitoNumber::distinct('producer')->pluck('producer');

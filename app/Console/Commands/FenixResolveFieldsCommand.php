@@ -6,11 +6,17 @@ use App\Models\CarPartType;
 use App\Models\NewCarPart;
 use App\Models\SbrCode;
 use App\Models\SwedishCarPartType;
+use App\Services\PartInformationService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
 class FenixResolveFieldsCommand extends Command
 {
+    public function __construct(private PartInformationService $partInformationService)
+    {
+        parent::__construct();
+    }
+
     /**
      * The name and signature of the console command.
      *
@@ -32,7 +38,7 @@ class FenixResolveFieldsCommand extends Command
      */
     public function handle()
     {
-        $carParts = NewCarPart::all();
+        $carParts = NewCarPart::where('dismantle_company_name', 'N')->get();
 
         foreach($carParts as $carPart) {
             $carPartTypeId = SwedishCarPartType::where('code', $carPart->sbr_part_code)
@@ -41,7 +47,13 @@ class FenixResolveFieldsCommand extends Command
                 ->first()
                 ->id;
 
-            $sbrCodeId = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first()->id;
+            $sbrCode = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first();
+
+            if(!$sbrCode) {
+                logger("SbrCode not found for car part id: $carPart->id");
+                continue;
+            }
+            $sbrCodeId = $sbrCode->id;
 
             $carPart->article_nr = $this->generateArticleNr($carPart);
             $carPart->car_part_type_id = $carPartTypeId;
@@ -69,7 +81,14 @@ class FenixResolveFieldsCommand extends Command
         $carPartTypeId = $carPart->car_part_type_id;
         $carPartTypeNameGerman = CarPartType::find($carPartTypeId)->germanCarPartTypes()->first()->name;
 
-        $name = "$carPartTypeNameGerman / $carPart->sbr_car_name / $carPart->engine_code / $carPart->original_number";
+        if($carPartTypeNameGerman === 'Motor' || (!$carPart->subgroup && !$carPart->gearbox_nr)) {
+            $additionalInformation = $carPart->engine_code;
+        } else if(!isset($additionalInformation)) {
+            $additionalInformation = $this->partInformationService->getGearbox($carPart);
+        }
+
+        $name =
+            "$carPartTypeNameGerman / $carPart->sbr_car_name / $additionalInformation / $carPart->original_number";
 
         return $name;
     }

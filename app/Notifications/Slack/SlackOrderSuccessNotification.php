@@ -15,30 +15,61 @@ class SlackOrderSuccessNotification extends Notification
 {
     use Queueable;
 
+    private string $appUrl;
+
     public function __construct(
-        private array $partData,
+        private array       $partData,
+        private string|null $reservationId,
+        private string|null $reservationUuid,
     )
     {
-        //
+        $this->appUrl = config('app.url');
     }
 
-    public function via($notifiable)
+    public function via($notifiable): array
     {
         return ['slack'];
     }
 
-    public function toSlack()
+    public function toSlack(): SlackMessage
     {
+        if (!$this->reservationId) {
+            return (new SlackMessage)
+                ->content($this->messageWithoutReservation());
+        }
+
         return (new SlackMessage)
             ->content($this->message());
     }
 
+    private function messageWithoutReservation(): string
+    {
+        return "
+    🔥 New Order(without reservation) 🔥\n
+    *Article Number:* {$this->partData['article_nr']}\n
+
+    Billing information:
+    - *Name:* {$this->partData['billing_information']['firstname']} {$this->partData['billing_information']['surname']}
+    - *Address:* {$this->partData['billing_information']['street']}, {$this->partData['billing_information']['zip']} {$this->partData['billing_information']['city']}, {$this->partData['billing_information']['country']}
+    - *Email:* {$this->partData['billing_information']['email']}
+    - *Phone:* {$this->partData['billing_information']['phone']}
+
+
+    Shipping information:
+    - *Name:* {$this->partData['shipping_information']['firstname']} {$this->partData['shipping_information']['surname']}
+    - *Address:* {$this->partData['shipping_information']['street']}, {$this->partData['shipping_information']['zip']} {$this->partData['shipping_information']['city']}, {$this->partData['shipping_information']['country']}
+    - *Phone:* {$this->partData['shipping_information']['phone']}
+    ";
+    }
+
     private function message(): string
     {
+        logger($this->partData);
+
         return "
     🔥 New Reservation 🔥\n
     *Article Number:* {$this->partData['article_nr']}\n
-    *Reservation ID:* {$this->partData['Id']}\n
+    *Reservation ID:* {$this->reservationId}\n
     Billing information:
     - *Name:* {$this->partData['billing_information']['firstname']} {$this->partData['billing_information']['surname']}
     - *Address:* {$this->partData['billing_information']['street']}, {$this->partData['billing_information']['zip']} {$this->partData['billing_information']['city']}, {$this->partData['billing_information']['country']}
@@ -49,6 +80,10 @@ class SlackOrderSuccessNotification extends Notification
     - *Name:* {$this->partData['shipping_information']['firstname']} {$this->partData['shipping_information']['surname']}
     - *Address:* {$this->partData['shipping_information']['street']}, {$this->partData['shipping_information']['zip']} {$this->partData['shipping_information']['city']}, {$this->partData['shipping_information']['country']}
     - *Phone:* {$this->partData['shipping_information']['phone']}
+
+
+    Remove reservation link:
+    - *Link:* {$this->appUrl}/reservations/{$this->reservationUuid}
     ";
     }
 }

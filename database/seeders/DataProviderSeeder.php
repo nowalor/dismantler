@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+
 use App\Enums\DataProviderEnum;
 use App\Models\DataProvider;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DataProviderSeeder extends Seeder
@@ -15,7 +15,7 @@ class DataProviderSeeder extends Seeder
             [
                 'id' => DataProviderEnum::Fenix->value,
                 'name' => 'Fenix',
-                'api_url' => 'https://fenixapi-integration.bosab.se/api',
+                'api_url' => config('services.fenix_api.base_uri'),
                 'country' => 'Sweden',
             ],
             [

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarPart;
+use App\Models\NewCarPart;
 use Illuminate\Console\Command;
 use Illuminate\Http\Request;
 use App\Models\GermanDismantler;
@@ -11,6 +12,28 @@ use Illuminate\Support\Facades\Log;
 
 class TestController extends Controller
 {
+    public function testingParts()
+    {
+        $parts = NewCarPart::with('carPartImages')->whereNotNull('price_sek')
+            ->where('price_sek', '>', 0)
+            ->whereNotNull('engine_code')
+            ->where('engine_code', '!=', '')
+            // ->where('dismantle_company_name', 'F')
+            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->whereNull('sold_at')
+            ->get();
+
+        foreach ($parts as $index => $part) {
+            if(count($part->my_kba) === 0) {
+                $parts->forget($index);
+                continue;
+            }
+        }
+
+        return $parts->count();
+    }
+
     public function showSelectPage()
     {
         return view('select-page');
