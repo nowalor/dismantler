@@ -25,7 +25,7 @@ class AddSellingNameToPartsCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::whereNull('car_part_type_id')
+        $parts = NewCarPart::whereNotNull('car_part_type_id')
             ->get();
 
         foreach ($parts as $part) {
