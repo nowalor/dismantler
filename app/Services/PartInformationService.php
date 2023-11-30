@@ -32,9 +32,9 @@ class PartInformationService
 
         $name .= $additionalInformation . ' ';
 
-        $name .= $carPart->brand_name . ' ' . $carPart->model_year . ' ' . $carPart->original_number . ' ' . $carPart->vin;
+        $name .= $carPart->sbr_car_name . ' ' . $carPart->original_number .  ' ' . $carPart->mileage_km . 'km';
 
-        return $name;
+        return preg_replace('/\s+/', ' ', $name) ;
     }
 
     public function getGearbox(NewCarPart $carPart): string | null
