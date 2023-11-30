@@ -23,7 +23,13 @@ class FetchNemdelePartsCommand extends Command
         foreach ($data as $part) {
             $formattedPart = $this->formatPart($part);
 
-            NewCarPart::create($formattedPart);
+            $newPart = NewCarPart::create($formattedPart);
+
+            if(!empty($part['Images'])) {
+                $formattedImages = $this->formatImages($part['Images']);
+
+                $newPart->carPartImages()->createMany($formattedImages);
+            }
         }
 
         return Command::SUCCESS;
@@ -35,7 +41,7 @@ class FetchNemdelePartsCommand extends Command
             'name' => $part['PartName'],
             'data_provider_id' => DataProviderEnum::Nemdele->value,
             'original_number' => $part['OEMNumber1'],
-            'dito_number_id' => $this->getDitonumberId($part),
+            'dito_number_id' => $this->getDitoNumberId($part),
             'original_id' => $part['StockID'],
             'price_dkk' => $part['Price'],
             'brand' => $part['ManufacturerName'],
@@ -44,8 +50,7 @@ class FetchNemdelePartsCommand extends Command
             'originally_created_at' => $this->formatDate($part['Created']),
             'car_part_type_id' => $this->getCarPartTypeId($part), // TODO
             'mileage_km' => $part['Mileage'],
-
-
+            'quantity' => (int)$part['Available'],
             'model' => $part['Model'], // TODO Need to add to DB??
         ];
     }
@@ -58,7 +63,7 @@ class FetchNemdelePartsCommand extends Command
         return Carbon::createFromFormat('d-m-Y H:i:s', $date);
     }
 
-    private function getDitonumberId(array $part): int | null
+    private function getDitoNumberId(array $part): int | null
     {
         if(!isset($part['CarType'])) {
             return null;
@@ -90,5 +95,19 @@ class FetchNemdelePartsCommand extends Command
         }
 
         return $danishPartType->carPartTypes()->first()->id;
+    }
+
+    private function formatImages(array $images): array
+    {
+        $formattedImages = [];
+
+        foreach ($images as $index => $image) {
+            $formattedImages[] = [
+                'original_url' => $image,
+                'priority' => $index + 1,
+            ];
+        }
+
+        return $formattedImages;
     }
 }
