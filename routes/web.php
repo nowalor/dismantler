@@ -25,6 +25,7 @@ Route::resource('reservations', \App\Http\Controllers\ReservationController::cla
 
 Route::get('test-parts', [TestController::class, 'testingParts']);
 
+Route::get('engine-type-engine-alias', \App\Http\Controllers\EngineTypeEngineAliasController::class);
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
     ->name('pay');
