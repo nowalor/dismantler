@@ -116,7 +116,7 @@ class AutoteileMarkDocService
             Motor Kennung: $carPart->full_engine_code \n
             Motortype: $engineType \n
             Brandstofftype: $carPart->fuel \n
-            Getriebe: $this->partInformationService->getGearbox($carPart) \n
+            Getriebe: {$this->partInformationService->getGearbox($carPart)} \n
             Laufleistung: $carPart->mileage_km(km) \n
             Fahrgestellnummer: $carPart->vin \n
             Baujahr: $carPart->model_year \n
