@@ -52,6 +52,8 @@ class FetchNemdelePartsCommand extends Command
             'mileage_km' => $part['Mileage'],
             'quantity' => (int)$part['Available'],
             'model' => $part['Model'], // TODO Need to add to DB??
+            'engine_code' => $part['EngineNote'],
+            'engine_type' => $part['Engine'],
         ];
     }
 
