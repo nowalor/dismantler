@@ -43,6 +43,10 @@ class NewCarPart extends Model
         'price_eur',
         'price_dkk',
         'price_nok',
+        'originally_created_at',
+        'subgroup',
+        'gearbox_nr',
+        'brand_name',
     ];
 
     public function carPartType(): BelongsTo
@@ -73,10 +77,10 @@ class NewCarPart extends Model
     public function gearbox(): Attribute
     {
         return Attribute::make(
-            get: static function($value) {
-                $gearbox =  str_replace(['5VXL', '6VXL'], '',$value);
-                $gearbox =  str_replace('AUT', 'Automat', $gearbox);
-                $gearbox =  str_replace('aut', 'Automat', $gearbox);
+            get: static function ($value) {
+                $gearbox = str_replace(['5VXL', '6VXL'], '', $value);
+                $gearbox = str_replace('AUT', 'Automat', $gearbox);
+                $gearbox = str_replace('aut', 'Automat', $gearbox);
                 $gearbox = str_replace(',', '.', $gearbox);
 
                 return "$gearbox";
@@ -87,23 +91,204 @@ class NewCarPart extends Model
     public function getMyKbaAttribute()
     {
         $engineCode = $this->engine_code;
+        $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
 
-        $this->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode) {
-            $query->whereHas('engineTypes', function ($query) use ($engineCode) {
-                $query->where('name', '=', $engineCode);
+        $this->load(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) use ($engineCode, $escapedEngineCode) {
+            $query->whereHas('engineTypes', function ($query) use ($engineCode, $escapedEngineCode) {
+                $query->where('name', 'like', "%$engineCode%")
+                    ->orWhere('escaped_name', 'like', "%$engineCode%")
+                    ->orWhere('name', 'like', "%$escapedEngineCode%")
+                    ->orWhere('escaped_name', 'like', "%$escapedEngineCode%");
             });
         }]);
 
-        return $this->sbrCode->ditoNumbers->pluck('germanDismantlers')->unique()->flatten();
+        return $this->sbrCode?->ditoNumbers?->pluck('germanDismantlers')->unique()->flatten() ?? collect([]);
     }
 
     public function getFullEngineCodeAttribute()
     {
-        if($this->my_kba->count() === 0) {
+        if ($this->my_kba->count() === 0) {
             return $this->engine_code;
         }
 
         return round($this->my_kba->first()->engine_capacity_in_cm / 1000, 1) . ' ' . $this->engine_code;
+    }
+
+    /*
+     * Keeping the old calculation in for comparison
+     * TODO: Remove this when we are sure the new calculation is correct
+     */
+    public function getOldPriceAttribute()
+    {
+        $partType = $this->carPartType->germanCarPartTypes->first()->name;
+        $priceSek = $this->price_sek;
+        $dismantleCompanyName = $this->dismantle_company_name;
+
+        if(!$priceSek) {
+            return $priceSek;
+        }
+
+        $shipment = null;
+
+        // Motor
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
+            1,
+        )) {
+            $shipment = 200;
+
+        }
+
+        // Verteilergetriebes, Automatikgetriebe, Schaltgetriebe
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
+            1,
+        )) {
+            $shipment = 100;
+
+        }
+
+        // Partikelfilter, Katalysator, Differential
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE,
+            1,
+        )) {
+            $shipment = 70;
+        }
+
+        /*
+         * Longer delivery
+         */
+        if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A') {
+            if  (in_array(
+                $partType,
+                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
+                1,
+            )) {
+                $shipment += 150;
+            } else {
+                $shipment += 100;
+            }
+        }
+
+        /*
+         * Calc divider
+         */
+        if ($priceSek <= 2000) {
+            $divider = 7;
+        }
+        else if($priceSek <= 3000) {
+            $divider = 8;
+        } else if($priceSek <= 5000) {
+            $divider = 9;
+        } else if($priceSek <= 10000) {
+            $divider = 10;
+        } else if($priceSek <= 20000) {
+            $divider = 10;
+        } else {
+            $divider = 11;
+        }
+
+        if(!$shipment) {
+            return 'SHIPMENT MISSING!';
+        }
+
+        return round((($priceSek / $divider) + $shipment)  * 1.19);
+    }
+
+    public function getNewPriceAttribute()
+    {
+        $priceSek = $this->price_sek;
+
+        if(!$priceSek) {
+            return $priceSek;
+        }
+
+        /*
+         * Calc divider
+         */
+        if ($priceSek <= 2000) {
+            $divider = 7;
+        }
+        else if($priceSek <= 3000) {
+            $divider = 8;
+        } else if($priceSek <= 5000) {
+            $divider = 9;
+        } else if($priceSek <= 10000) {
+            $divider = 10;
+        } else if($priceSek <= 20000) {
+            $divider = 10;
+        } else {
+            $divider = 11;
+        }
+
+        return round(((($priceSek / $divider))  * 1.19) * 1.1);
+    }
+
+    public function getShipmentAttribute(): int
+    {
+        $partType = $this->carPartType->germanCarPartTypes->first()->name;
+        $dismantleCompanyName = $this->dismantle_company_name;
+
+        $shipment = null;
+
+        // Motor
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
+            1,
+        )) {
+            $shipment = 200;
+
+        }
+
+        // Verteilergetriebes, Automatikgetriebe, Schaltgetriebe
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
+            1,
+        )) {
+            $shipment = 100;
+
+        }
+
+        // Partikelfilter, Katalysator, Differential
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE,
+            1,
+        )) {
+            $shipment = 70;
+        }
+
+        /*
+         * Longer delivery
+         */
+        if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A') {
+            if  (in_array(
+                $partType,
+                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
+                1,
+            )) {
+                $shipment += 150;
+            } else {
+                $shipment += 100;
+            }
+        }
+
+        return $shipment * 1.19;
+    }
+
+    public function getBusinessPriceAttribute()
+    {
+        $b2cPrice = $this->new_price;
+
+        $b2bPrice = $b2cPrice * 0.95;
+
+        return round($b2bPrice);
     }
 
     public function getUniqueKbaAttribute()

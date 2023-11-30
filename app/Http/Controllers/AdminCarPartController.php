@@ -12,7 +12,8 @@ class AdminCarPartController extends Controller
 
     public function index(Request $request)
     {
-        $parts = CarPart::has('ditoNumber.germanDismantlers')->whereNotNull('engine_type_id'); // TODO Experimental code
+        $parts = CarPart::has('ditoNumber.germanDismantlers')
+            ->whereNotNull('engine_type_id');
 
         if ($request->filled('part-type')) {
 

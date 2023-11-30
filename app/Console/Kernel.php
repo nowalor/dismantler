@@ -15,8 +15,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('fenix:check')->everyMinute();
+        $schedule->command('fenix:check')->everyFifteenMinutes();
         $schedule->command('parts-we-sold:resolve')->everyMinute();
+        $schedule->command('fenix:add-new-parts')->dailyAt('00:00');
     }
 
     /**

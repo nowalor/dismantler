@@ -47,12 +47,16 @@ class SlackNotificationService
         ));
     }
 
-    public function notifyOrderSuccess(array $partData): void
+    public function notifyOrderSuccess(
+        array $partData,
+        string | null $reservationId,
+        string | null $reservationUuid
+    ): void
     {
        Notification::route(
             'slack',
             config('services.slack.order_webhook_url'),
-        )->notify(new SlackOrderSuccessNotification($partData)
+        )->notify(new SlackOrderSuccessNotification($partData, $reservationId, $reservationUuid)
        );
     }
 }

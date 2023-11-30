@@ -21,29 +21,32 @@ class ExportPartsAsCsvCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::with('carPartImages')
-            ->whereNotNull('price_sek')
+        $parts = NewCarPart::with('carPartImages')->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
-            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->where('name', 'like', '%motor%')
+            ->whereNotNull('price_sek')
+            ->where('price_sek', '!=', '')
+            ->whereNotNull('engine_code')
+            ->whereNotNull('article_nr')
+            ->has('carPartImages')
+            ->where('engine_code', '!=', '')
+            // ->where('dismantle_company_name', 'F')
+//            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+//            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->whereNull('sold_at')
+            ->whereNotNull('car_part_type_id')
             ->get();
 
         foreach ($parts as $index => $part) {
-            if($part->my_kba->count() === 0) {
-                $parts->forget($index);
-                continue;
-            }
+//            if($part->my_kba->count() === 0) {
+//                $parts->forget($index);
+//                continue;
+//            }
 
-            logger()->info($part->id);
-
-            //$this->csvService->generateExportCSV($part);
+            $this->csvService->generateExportCSV($part);
 
             $part->is_live = true;
             $part->save();
         }
-
-        $parts->count();
 
         return Command::SUCCESS;
     }

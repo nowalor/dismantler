@@ -3,76 +3,105 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
-use App\Services\CalculatePriceService;
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AdminExportPartsController extends Controller
 {
-    public function __construct(private CalculatePriceService $calculatePriceService)
+    public function __construct()
     {
     }
 
     /**￼
-     * @throws \Exception
+     * @throws Exception
      */
+// "7143", "7302"],
     public function index(Request $request) // : View
     {
-        $carParts = NewCarPart::with('carPartImages')
+        $carPartsQuery = NewCarPart::with('carPartImages')
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
-            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
+            ->has('carPartImages')
+//            ->where(function ($query) {
+//                return $query->where('sbr_part_code', '7143')
+//                    ->orWhere('sbr_part_code', '7302');
+//            }) // electric engines
+            ->whereNotNull('engine_code')
+            ->where('engine_code', '!=', '')
+//            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-            ->where('name', 'like', '%motor%')
-            ->get();
+            ->with('carPartImages')
+            ->where('dismantle_company_name', 'N');
+//            ->where('car_part_type_id', 1); // Engines
 
-        foreach($carParts as $index => $carPart) {
-            $carPart->calculated_price = $this->calculatePriceService->sekToEurForFenix
-            (
-                $carPart->price_sek,
-                $carPart->car_part_type_id
-            );
+        // Handle dismantle company filter
+        if ($request->has('dismantle_company')) {
+            $dismantleCompanyName = $request->get('dismantle_company');
 
-            if($carPart->my_kba->count() !== 0) {
-                $carParts->forget($index);
-                continue;
+            if ($dismantleCompanyName !== 'all') {
+                $carPartsQuery->where('dismantle_company_name', $dismantleCompanyName);
             }
-
-            $carPart->kba_string = implode(', ', $carPart->my_kba->map(function ($kbaNumber) {
-                return implode([
-                    'hsn' => $kbaNumber->hsn,
-                    'tsn' => $kbaNumber->tsn,
-                ]);
-            })->toArray());
         }
 
-        if($request->has('search')) {
+        // Handle search
+        if ($request->has('search')) {
             $search = $request->get('search');
-            $carParts = $carParts->filter(function ($carPart) use ($search) {
-                $match = false;
-                if (str_contains(strtolower($carPart->name), strtolower($search))) {
-                    $match = true;
-                }
+            $carPartsQuery = $carPartsQuery->where(function ($carPart) use ($search) {
 
-                if (str_contains(strtolower($carPart->kba_string), strtolower($search))) {
-                    $match = true;
-                }
-
-                if (str_contains(strtolower($carPart->sbrCode->name), strtolower($search))) {
-                    $match = true;
-                }
-
-                if (str_contains(strtolower($carPart->engine_code), strtolower($search))) {
-                    $match = true;
-                }
-
-                return $match;
+                $carPart->where('sbr_code_id', 'like', "%$search%")
+                    ->orWhere('engine_code', 'like', "%$search%")
+                    ->orWhere('name', 'like', "%$search%");
             });
         }
 
-        return view('admin.export-parts.index', compact('carParts'));
+        $paginatedCarParts = $carPartsQuery->paginate(100)->withQueryString();
+
+        // TODO get from DB
+        $uniqueDismantleCompanyCodes = [
+            "bo",
+            'F',
+            'A',
+            'N',
+            'S',
+            'AL',
+        ];
+
+        $total = $paginatedCarParts->total();
+        $filteredCarPartsCollection =
+            $paginatedCarParts->getCollection()->filter(function ($carPart) use (&$total) {
+                $myKbas = $carPart->my_kba;
+
+                if ($myKbas->count() === 0) {
+                    --$total;
+                    return false;
+                }
+
+                $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
+                    return implode([
+                        'hsn' => $kbaNumber->hsn,
+                        'tsn' => $kbaNumber->tsn,
+                    ]);
+                })->toArray());
+
+                return true;
+            });
+
+        $carParts = new LengthAwarePaginator(
+            $filteredCarPartsCollection,
+            $total,
+            $paginatedCarParts->perPage(),
+            $paginatedCarParts->currentPage(),
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]
+        );
+
+        return view('admin.export-parts.index', compact(
+            'carParts',
+            'uniqueDismantleCompanyCodes',
+        ));
     }
 
     public function show(NewCarPart $carPart)
