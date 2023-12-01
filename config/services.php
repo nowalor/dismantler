@@ -60,5 +60,6 @@ return [
         'app_id' => env('EBAY_APP_ID'),
         'dev_id' => env('EBAY_DEV_ID'),
         'cert_id' => env('EBAY_CERT_ID'),
+        'api_url' => env('EBAY_API_URL'),
     ],
 ];
