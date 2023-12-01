@@ -2,19 +2,28 @@
 
 namespace Database\Seeders;
 
+
+use App\Enums\DataProviderEnum;
+use App\Models\DataProvider;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DataProviderSeeder extends Seeder
 {
-    public function run(): void
+    public function run()
     {
-        $data = [
-            'name' => 'Fenix',
-            'api_url' => config('services.fenix_api.base_uri'),
-            'country' => 'Sweden',
-        ];
-
-        DB::table('data_providers')->insert($data);
+        DataProvider::insertOrIgnore([
+            [
+                'id' => DataProviderEnum::Fenix->value,
+                'name' => 'Fenix',
+                'api_url' => config('services.fenix_api.base_uri'),
+                'country' => 'Sweden',
+            ],
+            [
+                'id' => DataProviderEnum::Nemdele->value,
+                'name' => 'Nemdele',
+                'api_url' => 'TODO',
+                'country' => 'Denmark',
+            ]
+        ]);
     }
 }
