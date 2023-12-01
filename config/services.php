@@ -55,4 +55,10 @@ return [
         'order_webhook_url' => env('SLACK_WEBHOOK_ORDER'),
         'order_failed_webhook_url' => env('SLACK_WEBHOOK_ORDER_ERROR'),
     ],
+
+    'ebay' => [
+        'app_id' => env('EBAY_APP_ID'),
+        'dev_id' => env('EBAY_DEV_ID'),
+        'cert_id' => env('EBAY_CERT_ID'),
+    ],
 ];
