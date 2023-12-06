@@ -144,10 +144,17 @@ class EbayApiService
             logger($data);
 
             return $data;
-        } catch (\Exception $e) {
-            // Log errors[0]["longMessage"]
-            logger($e->getResponse()->getBody()->getContents());
-
+        } catch (
+        GuzzleHttp\Exception\ClientException|GuzzleHttp\Exception\ServerException $e
+        ) {
+            if (
+                $e->getResponse()->getStatusCode() === 400 ||
+                $e->getResponse()->getStatusCode() === 401
+            ) {
+                logger($e->getResponse()->getBody()->getContents());
+            } else {
+                throw $e;
+            }
         }
     }
 }
