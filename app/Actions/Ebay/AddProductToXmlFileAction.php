@@ -64,8 +64,8 @@ class AddProductToXmlFileAction
             $pricingDetails = $channelDetails->addChild('pricingDetails');
             $pricingDetails->addChild('listPrice', $value['product']['distribution']['channelDetails']['pricingDetails']['listPrice']);
             $pricingDetails->addChild('strikeThroughPrice', $value['product']['distribution']['channelDetails']['pricingDetails']['strikeThroughPrice']);
-            $pricingDetails->addChild('minimumAdvertisedPrice', $value['product']['distribution']['channelDetails']['pricingDetails']['minimumAdvertisedPrice']);
-            $pricingDetails->addChild('minimumAdvertisedPriceHandling', $value['product']['distribution']['channelDetails']['pricingDetails']['minimumAdvertisedPriceHandling']);
+//            $pricingDetails->addChild('minimumAdvertisedPrice', $value['product']['distribution']['channelDetails']['pricingDetails']['minimumAdvertisedPrice']);
+//            $pricingDetails->addChild('minimumAdvertisedPriceHandling', $value['product']['distribution']['channelDetails']['pricingDetails']['minimumAdvertisedPriceHandling']);
 
     //            $channelDetails->addChild('templateName', $value['product']['distribution']['channelDetails']['templateName']);
 

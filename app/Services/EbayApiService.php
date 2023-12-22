@@ -47,7 +47,7 @@ class EbayApiService
 
     public function addPartsToXml(): void
     {
-        $parts = NewCarPart::take(1)->get();
+        $parts = NewCarPart::where('article_nr', 'F535433')->take(1)->get();
 
         $formattedParts = (new FormatPartsForCsvAction())->execute($parts);
 
@@ -55,6 +55,8 @@ class EbayApiService
             'productRequest' => $formattedParts,
         ];
 
-        (new AddProductToXmlFileAction())->execute($data);
+        foreach($data as $product) {
+            (new AddProductToXmlFileAction())->execute($product);
+        }
     }
 }

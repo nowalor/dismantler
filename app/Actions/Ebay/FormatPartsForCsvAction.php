@@ -30,31 +30,31 @@ class FormatPartsForCsvAction
                         'productDescription' => $this->getDescription($part),
                     ],
                     'attribute' => [
-//                        ['name' => 'Lagernummer', 'value' => $this->article_nr],
-//                        ['name' => 'Kba', 'value' => $this->getKba($part)],
-//                        ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number],
-//                        ['name' => 'Motor Kennung', 'value' => $part->engine_code],
-//                        ['name' => 'Motortype', 'value' => $part->engine_type ?? ''],
-//                        ['name' => 'Brandstofftype', 'value' => $part->fuel],
-//                        ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km],
-//                        ['name' => 'Model Jahr', 'value' => $part->model_year],
-//                        ['name' => 'Getriebe', 'value' => $part->gearbox_nr],
-//                        ['name' => 'Fahrgestellnummer', 'value' => $part->vin],
+                        ['name' => 'Lagernummer', 'value' => $part->article_nr],
+                        ['name' => 'Kba', 'value' => $this->getKba($part)],
+                        ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number],
+                        ['name' => 'Motor Kennung', 'value' => $part->engine_code],
+                        ['name' => 'Motortype', 'value' => $part->engine_type ?? ''],
+                        ['name' => 'Brandstofftype', 'value' => $part->fuel],
+                        ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km],
+                        ['name' => 'Model Jahr', 'value' => $part->model_year],
+                        ['name' => 'Getriebe', 'value' => $part->gearbox_nr],
+                        ['name' => 'Fahrgestellnummer', 'value' => $part->vin],
                     ],
                     'EAN' => $part->article_nr, // TODO
-//                    'pictureURL' => $this->getPictureUrls($part),
+                    'pictureURL' => $this->getPictureUrls($part),
                     'conditionInfo' => [
                         'condition' => 'Used', // TODO
                     ],
-//                    'shippingDetails' => [
-//                        'measurementSystem' => '',
-//                        'weightMajor' => '',
-//                        'weightMinor' => '',
-//                        'length' => '',
-//                        'width' => '',
-//                        'height' => '',
-//                        'packageType' => '',
-//                    ],
+                    'shippingDetails' => [
+                        'measurementSystem' => '',
+                        'weightMajor' => '',
+                        'weightMinor' => '',
+                        'length' => '',
+                        'width' => '',
+                        'height' => '',
+                        'packageType' => '',
+                    ],
                 ],
                 'distribution' => [
                     'localizedFor' => 'de_DE',
@@ -69,7 +69,7 @@ class FormatPartsForCsvAction
 //                            'minimumAdvertisedPriceHandling' => '',
                         ],
 //                        'templateName' => 'plantilla_ebay.html',
-//                        'customFields' => $this->getCustomFields($part),
+                        'customFields' => $this->getCustomFields($part),
                     ],
                 ],
                 'inventory' => [
@@ -87,16 +87,16 @@ class FormatPartsForCsvAction
             $fields[]['customField'] = ["Image$index" => $image->image_name_blank_logo];
         });
 
-        $fields[]['customField'] =['name' => 'Lagernummer', 'value' => $this->article_nr];
-        $fields[]['customField'] =['name' => 'Kba', 'value' => $this->getKba($part)];
-        $fields[]['customField'] =['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number];
-        $fields[]['customField'] =['name' => 'Motor Kennung', 'value' => $part->engine_code];
-        $fields[]['customField'] =['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
-        $fields[]['customField'] =['name' => 'Brandstofftype', 'value' => $part->fuel];
-        $fields[]['customField'] =['name' => 'Laufleistung(KM)', 'value' => $part->milega_km];
-        $fields[]['customField'] =['name' => 'Model Jahr', 'value' => $part->model_year];
-        $fields[]['customField'] =['name' => 'Getriebe', 'value' => $part->gearbox_nr];
-        $fields[]['customField'] =['name' => 'Fahrgestellnummer', 'value' => $part->vin];
+        $fields['customField'][] = ['name' => 'Lagernummer', 'value' => $part->article_nr];
+        $fields['customField'][] = ['name' => 'Kba', 'value' => $this->getKba($part)];
+        $fields['customField'][] = ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number];
+        $fields['customField'][] = ['name' => 'Motor Kennung', 'value' => $part->engine_code];
+        $fields['customField'][] = ['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
+        $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $part->fuel];
+        $fields['customField'][] = ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km];
+        $fields['customField'][] = ['name' => 'Model Jahr', 'value' => $part->model_year];
+        $fields['customField'][] = ['name' => 'Getriebe', 'value' => $part->gearbox_nr];
+        $fields['customField'][] = ['name' => 'Fahrgestellnummer', 'value' => $part->vin];
 
         return $fields;
     }
