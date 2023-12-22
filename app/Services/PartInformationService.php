@@ -34,7 +34,7 @@ class PartInformationService
 
         $name .= $carPart->sbr_car_name . ' ' . $carPart->original_number .  ' ' . $carPart->mileage_km . 'km';
 
-        return preg_replace('/\s+/', ' ', $name) ;
+        return preg_replace('/\s+/', ' ', $name);
     }
 
     public function getGearbox(NewCarPart $carPart): string | null
