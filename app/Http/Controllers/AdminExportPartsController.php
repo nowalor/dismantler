@@ -72,10 +72,10 @@ class AdminExportPartsController extends Controller
             $paginatedCarParts->getCollection()->filter(function ($carPart) use (&$total) {
                 $myKbas = $carPart->my_kba;
 
-                if ($myKbas->count() === 0) {
-                    --$total;
-                    return false;
-                }
+//                if ($myKbas->count() === 0) {
+//                    --$total;
+//                    return false;
+//                }
 
                 $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
                     return implode([
