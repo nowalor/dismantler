@@ -7,6 +7,7 @@ use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DismantleCompany;
 use App\Models\GermanDismantler;
+use App\Models\NewCarPart;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -16,8 +17,15 @@ class CarPartController extends Controller
 {
     public function index(Request $request)// : View | RedirectResponse
     {
-        $parts = CarPart::select(['id', 'name', 'oem_number', 'price3', 'engine_type', 'car_part_type_id'])->
-        with('ditoNumber', 'carPartType');
+        $parts = NewCarPart::select([
+            'id',
+            'name',
+            'oem_number',
+            'price3',
+            'engine_type',
+            'car_part_type_id'
+        ])->with('ditoNumber', 'carPartType');
+
         $kba = null;
 
         $brands = CarBrand::all();
@@ -127,17 +135,19 @@ class CarPartController extends Controller
                 ->unique('id')
                 ->pluck('id')
                 ->values();
-            $parts = CarPart::whereIn('id', $carPartIds)
-                ->whereIn('engine_code', $engineTypeNames)
-                ->with('carPartImages');
+//            $parts = CarPart::whereIn('id', $carPartIds)
+//                ->whereIn('engine_code', $engineTypeNames)
+//                ->with('carPartImages');
+//
+//
+//            $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', $ditoNumber->id)
+//                ->whereIn('engine_code', $engineTypeNames)
+//                ->paginate(8, pageName: 'parts_from_different_cars');
 
 
-            $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', $ditoNumber->id)
-                ->whereIn('engine_code', $engineTypeNames)
-                ->paginate(8, pageName: 'parts_from_different_cars');
-
-
-        return 'searchByCode';
+        return [
+            'kba' => $kba,
+        ];
     }
 
     public function searchByModel(): mixed
