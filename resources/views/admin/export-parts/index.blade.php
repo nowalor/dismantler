@@ -61,7 +61,7 @@
                             <a href="{{ route('admin.export-parts.show', $carPart) }}" class="btn btn-primary w-100">View
                                 part</a>
                             <img class="card-img-bottom mt-2"
-                                 src="{{ count($carPart->carPartImages) ? asset("storage/img/car-part/{$carPart->id}/{$carPart->carPartImages[0]->image_name_blank_logo}") : 'http://46.101.206.99/storage/img/car-part/placeholder.jpg' }}"
+                                 src="{{ (count($carPart->carPartImages) && !$carPart->carPartImages[0]->is_placeholder) ? asset("storage/img/car-part/{$carPart->id}/{$carPart->carPartImages[0]->image_name_blank_logo}") : 'http://46.101.206.99/storage/img/car-part/placeholder.jpg' }}"
                                  alt="">
                         </div>
                     </div>
