@@ -30,7 +30,7 @@ class RemoveDismantlerPlaceholderImgCommand extends Command
 
         foreach($images as $image) {
             $imageUrl2 = $image->original_url;
-            $hash2 = md5($imageUrl2);
+            $hash2 = md5(file_get_contents($imageUrl2));
 
             if($hash1 === $hash2) {
                 $image->is_placeholder = true;
