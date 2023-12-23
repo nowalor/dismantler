@@ -40,6 +40,8 @@ class RemoveDismantlerPlaceholderImgCommand extends Command
             if($hash1 === $hash2) {
                 $image->is_placeholder = true;
                 $image->save();
+            } else {
+                echo $hash2;
             }
         }
 
