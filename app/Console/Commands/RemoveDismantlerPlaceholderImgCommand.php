@@ -41,7 +41,7 @@ class RemoveDismantlerPlaceholderImgCommand extends Command
                 $image->is_placeholder = true;
                 $image->save();
             } else {
-                echo $hash2;
+                echo asset("storage/img/car-part/$image->new_car_part_id/$image->image_name");
             }
         }
 
