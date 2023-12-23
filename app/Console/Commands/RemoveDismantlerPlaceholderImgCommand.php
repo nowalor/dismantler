@@ -18,7 +18,7 @@ class RemoveDismantlerPlaceholderImgCommand extends Command
     public function handle(): int
     {
         $imageUrl1 =
-            "http://46.101.206.99/storage/img/car-part/18792/image1.jpg";
+            "https://fenixapi-image.bosab.se/api/File/Download/1/GB/125020_1_GB.jpg";
 
         $hash1 = md5(file_get_contents($imageUrl1));
 
@@ -28,14 +28,9 @@ class RemoveDismantlerPlaceholderImgCommand extends Command
             ->pluck('carPartImages')
             ->flatten();
 
-        foreach($images as $key => $image) {
-            $this->info("on $key");
-
-            if($image->image_name_blank_logo === null) {
-                continue;
-            }
-
-            $hash2 = md5(file_get_contents(asset("storage/img/car-part/$image->new_car_part_id/$image->image_name")));
+        foreach($images as $image) {
+            $imageUrl2 = $image->original_url;
+            $hash2 = md5($imageUrl2);
 
             if($hash1 === $hash2) {
                 $image->is_placeholder = true;
