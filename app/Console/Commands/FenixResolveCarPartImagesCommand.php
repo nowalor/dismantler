@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Actions\Images\ReplaceDismantlerLogoAction;
 use App\Models\NewCarPart;
 use Exception;
 use File;
@@ -18,69 +19,59 @@ class FenixResolveCarPartImagesCommand extends Command
 
     public function handle(): int
     {
-        $carParts = NewCarPart::with('carPartImages')
-//            ->where('dismantle_company_name', 'S')
-//            ->where(function($query) {
-//                return $query->where('sbr_part_code', '7143')
-//                    ->orWhere('sbr_part_code', '7302');
-//            })
+        $replacementImagePath = public_path('img/logo.png');
+        $replacementImage = Image::make($replacementImagePath);
+
+        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
+            //            ->whereHas('carPartImages', function ($query) {
+            //                $query->whereNull('image_name_blank_logo');
+            //            })
+            //            ->with(['carPartImages' => function ($query) {
+            //                $query->whereNull('image_name_blank_logo');
+            //            }])
+            // ->where('dismantle_company_name', 'N')
+            ->whereHas("carPartImages")
+            ->with("carPartImages")
+//            ->where("car_part_type_id", 1)
+            ->where('dismantle_company_name', 'GB')
             ->get();
 
         foreach ($carParts as $carPart) {
-            foreach ($carPart->carPartImages as $index => $carPartImage) {
-                if($carPartImage->image_name != null) {
+            foreach ($carPart->carPartImages as $index => $image) {
+//                if($image->image_name !== null) {
+//                    continue;
+//                }
+
+                $response = (new ReplaceDismantlerLogoAction())
+                    ->handle(
+                        imageUrl: $image->original_url,
+                        replacementImage: $replacementImage,
+                        scalingHeight: $this->getScalingHeight($carPart->dismantle_company_name),
+                        position: 'bottom-left',
+                    );
+
+                if(!$response) {
                     continue;
                 }
 
-
-                // TODO.. use existing action for this
-                $imageUrl = $carPartImage->original_url;
-
-                // Download the image
-                $imageContents = @file_get_contents($imageUrl);
-
-                if(!$imageContents) {
-                    continue;
-                }
-
-                $tempImagePath = tempnam(sys_get_temp_dir(), 'image');
-                file_put_contents($tempImagePath, $imageContents);
-
-                // Load the custom logo
-                $logoPath = public_path('img/logo.png');
-                $logo = Image::make($logoPath);
-
-                // Load and process the image
-                $processedImage = Image::make($tempImagePath);
-
-                $scalingHeight = $this->getScalingHeight($carPart->dismantle_company_name);
-                // Determine the position to place the logo (top right corner)
-                $logoWidth = (int)(0.27 * $processedImage->width());
-                $logoHeight = (int)($scalingHeight * $processedImage->height());
-                $xOffset = $processedImage->width() - $logoWidth;
-                $yOffset = 0;
-
-                // Resize the logo to fit the desired dimensions
-                $logo->resize($logoWidth, $logoHeight);
-
-                // Replace the region in the image with the logo
-                $processedImage->insert($logo, 'top-left', $xOffset, $yOffset);
+                $processedImage = $response['image'];
+                $tempImagePath = $response['temp_image_path'];
 
                 // Define the output path and name
                 try {
-                    Storage::disk('public')->makeDirectory('img/car-part/' . $carPartImage->new_car_part_id);
+                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
 
-                    $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
+                    $extension = pathinfo($image->original_url, PATHINFO_EXTENSION);
 
                     $carImageNumber = $index + 1;
 
                     $outputName = 'image' . $carImageNumber . '.' . $extension;
 
-                    Storage::disk('public')->put("img/car-part/{$carPartImage->new_car_part_id}" . '/' . $outputName, $processedImage->stream());
+                    Storage::disk('public')->put("img/car-part/{$image->new_car_part_id}" . '/' . $outputName, $processedImage->stream());
 
-                    $carPartImage->image_name = $outputName;
-                    $carPartImage->priority = $carImageNumber;
-                    $carPartImage->save();
+                    $image->image_name = $outputName;
+                    $image->priority = $carImageNumber;
+                    $image->save();
                 } catch (Exception $e) {
                     $this->error('Directory creation failed: ' . $e->getMessage());
                     return Command::FAILURE;

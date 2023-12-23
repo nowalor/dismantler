@@ -30,7 +30,6 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
              ->where('dismantle_company_name', 'GB')
             ->whereHas("carPartImages")
             ->with("carPartImages")
-            ->where("car_part_type_id", 1)
             ->get();
 
         foreach ($parts as $index => $part) {
@@ -44,7 +43,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
                         imageUrl: $imageUrl,
                         replacementImage: $replacementImage,
                         scalingHeight: $this->getScalingHeight($dismantleCompany),
-                        cornerPosition: 'bottom-left',
+                        position: 'bottom-left',
                     );
 
                 if(!$response) {

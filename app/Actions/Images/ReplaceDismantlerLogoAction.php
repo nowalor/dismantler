@@ -11,7 +11,7 @@ class ReplaceDismantlerLogoAction
         string $imageUrl,
         InterventionImage  $replacementImage,
         float  $scalingHeight,
-        string $cornerPosition = 'top-right' // Default to top-right if not specified
+        string $position,
     ): array|bool
     {
         // Download the image
@@ -26,16 +26,19 @@ class ReplaceDismantlerLogoAction
         // Load and process the image
         $processedImage = Image::make($tempImagePath);
 
-        // Determine the position to place the logo
-        [$xOffset, $yOffset] = $this->calculateOffset($processedImage, $replacementImage, $cornerPosition);
-
-        // Resize the logo to fit the desired dimensions
+        // Determine the position to place the logo (top right corner)
         $logoWidth = (int)(0.27 * $processedImage->width());
         $logoHeight = (int)($scalingHeight * $processedImage->height());
+
+        [$xOffset, $yOffset] = $this->calculateOffset($processedImage, $logoHeight, $logoWidth, $position);
+//        $xOffset = $processedImage->width() - $logoWidth;
+//        $yOffset = 0;
+
+        // Resize the logo to fit the desired dimensions
         $replacementImage->resize($logoWidth, $logoHeight);
 
         // Replace the region in the image with the logo
-        $processedImage->insert($replacementImage, $cornerPosition, $xOffset, $yOffset);
+        $processedImage->insert($replacementImage, 'top-left', $xOffset, $yOffset);
 
         return [
             'image' => $processedImage,
@@ -45,26 +48,27 @@ class ReplaceDismantlerLogoAction
 
     private function calculateOffset(
         InterventionImage $processedImage,
-        InterventionImage $replacementImage,
-        string $cornerPosition
+        int $logoHeight,
+        int $logoWidth,
+        string $position
     ): array
     {
-        switch ($cornerPosition) {
+        switch ($position) {
             case 'top-right':
-                $xOffset = $processedImage->width() - $replacementImage->width();
+                $xOffset = $processedImage->width() - $logoWidth;
                 $yOffset = 0;
                 break;
-             /*
-             * Calculation does not work 100%
-             * But it's good enough to replace ethe small logo for GB
-             */
+            /*
+            * Calculation does not work 100%
+            * But it's good enough to replace ethe small logo for GB
+            */
             case 'bottom-left':
                 $xOffset = 0;
-                $yOffset = $processedImage->height() - ($replacementImage->height() * 2);
+                $yOffset = $processedImage->height() - $logoHeight;
                 break;
             case 'bottom-right':
-                $xOffset = $processedImage->width() - $replacementImage->width();
-                $yOffset = $processedImage->height() - $replacementImage->height();
+                $xOffset = $processedImage->width() - $logoWidth;
+                $yOffset = $processedImage->height() - $logoHeight;
                 break;
             default:
                 $xOffset = 0;
