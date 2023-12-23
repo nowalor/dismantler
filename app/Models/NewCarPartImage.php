@@ -16,6 +16,7 @@ class NewCarPartImage extends Model
         'new_car_part_id',
         'image_name_blank_logo',
         'priority',
+        'is_placeholder',
     ];
 
     public $timestamps = false;
