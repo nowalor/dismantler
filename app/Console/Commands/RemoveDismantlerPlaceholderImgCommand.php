@@ -28,7 +28,9 @@ class RemoveDismantlerPlaceholderImgCommand extends Command
             ->pluck('carPartImages')
             ->flatten();
 
-        foreach($images as $image) {
+        foreach($images as $key => $image) {
+            $this->info("on $key");
+            
             if($image->image_name_blank_logo === null) {
                 continue;
             }
