@@ -27,7 +27,9 @@ class ExportPartsAsCsvCommand extends Command
             ->where('price_sek', '!=', '')
             ->whereNotNull('engine_code')
             ->whereNotNull('article_nr')
-            ->has('carPartImages')
+            ->whereHas("carPartImages", function ($query) {
+                return $query->where("is_placeholder", false);
+            })
             ->where('engine_code', '!=', '')
             // ->where('dismantle_company_name', 'F')
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
