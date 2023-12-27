@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Parts\SearchByKbaAction;
 use App\Models\CarBrand;
 use App\Models\CarPart;
 use App\Models\CarPartType;
@@ -105,49 +106,18 @@ class CarPartController extends Controller
             return $this->redirectBack($errors);
         }
 
-            $kba = GermanDismantler::where('hsn', $request->input('hsn'))
-                ->where('tsn', $request->input('tsn'))
-                ->with('engineTypes')
-                ->with('ditoNumbers')
-                ->first();
+        $response = (new SearchByKbaAction())->execute(
+            $request->get('hsn'),
+            $request->get('tsn'),
+        );
 
-            $engineTypeNames = $kba->engineTypes->pluck('name');
+        if(!$response['success']) {
+            dd('Unhandeled error, let nikulas know');
+        }
 
-            $ditoNumber = $kba->ditoNumbers->first();
+        $parts = $response['data'];
 
-            if (is_null($ditoNumber)) {
-                $errors = [
-                    'error' => 'We could not find information on your car based on the HSN + TSN',
-                    'error3' => '!',
-                ];
-
-                return $this->redirectBack($errors);
-            }
-
-            $carPartIds = GermanDismantler::with('ditoNumbers.carParts')
-                ->where('hsn', $request->input('hsn'))
-                ->where('tsn', $request->input('tsn'))
-                ->get()
-                ->pluck('ditoNumbers')
-                ->collapse()
-                ->pluck('carParts')
-                ->collapse()
-                ->unique('id')
-                ->pluck('id')
-                ->values();
-//            $parts = CarPart::whereIn('id', $carPartIds)
-//                ->whereIn('engine_code', $engineTypeNames)
-//                ->with('carPartImages');
-//
-//
-//            $partsDifferentCarSameEngineType = CarPart::whereNot('dito_number_id', $ditoNumber->id)
-//                ->whereIn('engine_code', $engineTypeNames)
-//                ->paginate(8, pageName: 'parts_from_different_cars');
-
-
-        return [
-            'kba' => $kba,
-        ];
+        return view('parts-kba', compact('parts'));
     }
 
     public function searchByModel(): mixed

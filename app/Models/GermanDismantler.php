@@ -60,5 +60,13 @@ class GermanDismantler extends Model
        return Attribute::make(
               get: fn ($value) => $value->hsn . $value->tsn,
               );
-      }
+  }
+
+    /*
+    * Experimental direct relation between a car part and KBA
+    */
+    public function newCarParts(): BelongsToMany
+    {
+        return $this->belongsToMany(NewCarPart::class);
+    }
 }
