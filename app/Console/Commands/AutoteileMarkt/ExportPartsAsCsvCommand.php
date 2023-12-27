@@ -31,11 +31,10 @@ class ExportPartsAsCsvCommand extends Command
                 return $query->where("is_placeholder", false);
             })
             ->where('engine_code', '!=', '')
-            // ->where('dismantle_company_name', 'F')
-//            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
-//            ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
+            ->where('is_live', false)
+            ->take(5000)
             ->get();
 
         foreach ($parts as $index => $part) {
