@@ -30,7 +30,7 @@
                                 <select name="part-type" class="form-select" id="part-type">
                                     <option disabled selected>Everything</option>
                                     @foreach($partTypes as $type)
-                                        <option @if ($search['part-type'] === $type->id) @endif value="{{ $type->id }}">{{ $type->name }}</option>
+                                        <option @if ((int)$search['part-type'] === $type->id) selected @endif value="{{ $type->id }}">{{ $type->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
