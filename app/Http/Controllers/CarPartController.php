@@ -106,24 +106,13 @@ class CarPartController extends Controller
             return $this->redirectBack($errors);
         }
 
-        $filters = [
-            $request->get('hsn'),
-            $request->get('tsn')
-        ];
 
-        if($request->filled('part-type')) {
-            $type = CarPartType::find(
-                (int)$request->get('part-type')
-            );
-
-            if(!$type) {
-                dd('type not correct, must be wrong');
-            }
-
-            $filters[] = $type;
-        }
-
-        $response = (new SearchByKbaAction())->execute(...$filters);
+        $response = (new SearchByKbaAction())->execute(
+            hsn: $request->get('hsn'),
+            tsn: $request->get('tsn'),
+            type: null, // TODO
+            paginate: 10,
+        );
 
         if(!$response['success']) {
             dd('Unhandeled error, let nikulas know');
@@ -139,8 +128,6 @@ class CarPartController extends Controller
         ];
 
         $partTypes = CarPartType::all();
-
-        // Find the car they searched for
 
         return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
     }

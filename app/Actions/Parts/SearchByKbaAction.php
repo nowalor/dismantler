@@ -15,6 +15,7 @@ class SearchByKbaAction
         string      $hsn,
         string      $tsn,
         CarPartType $type = null,
+        int $paginate = null,
     ): array
     {
         $germanDismantler = GermanDismantler::where('hsn', $hsn)
@@ -28,14 +29,18 @@ class SearchByKbaAction
             ];
         }
 
-        $parts = $germanDismantler->newCarParts()
+        $partsQuery = $germanDismantler->newCarParts()
             ->whereHas('carPartType', function ($query) use ($type) {
                 if ($type) {
                     $query->where('id', $type->id);
                 }
             })
-            ->with('carPartImages')
-            ->get();
+            ->with('carPartImages');
+
+        $parts = is_null($paginate)
+            ? $partsQuery->get()
+            : $partsQuery->paginate($paginate);
+
 
         if (!$parts) {
             return [

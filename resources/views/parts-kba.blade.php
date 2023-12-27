@@ -65,5 +65,7 @@
         </div>
         <h3 class="pt-4">Results</h3>
         <x-part-list :parts="$parts"/>
+
+        {{ $parts->links() }}
     </div>
 @endsection
