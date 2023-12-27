@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class NewCarPart extends Model
@@ -297,5 +298,28 @@ class NewCarPart extends Model
 
         return $this->sbrCode->ditoNumbers->pluck('germanDismantlers')->unique()->flatten();
 
+    }
+
+    /*
+     * Experimental direct relation between a car part and KBA
+     */
+    public function germanDismantlers(): BelongsToMany
+    {
+        return $this->belongsToMany(GermanDismantler::class);
+    }
+
+    public function scopeWithKba($query)
+    {
+        return $query->with(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) {
+            $engineCode = $this->engine_code;
+            $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
+
+            $query->whereHas('engineTypes', function ($query) use ($engineCode, $escapedEngineCode) {
+                $query->where('name', 'like', "%$engineCode%")
+                    ->orWhere('escaped_name', 'like', "%$engineCode%")
+                    ->orWhere('name', 'like', "%$escapedEngineCode%")
+                    ->orWhere('escaped_name', 'like', "%$escapedEngineCode%");
+            });
+        }]);
     }
 }
