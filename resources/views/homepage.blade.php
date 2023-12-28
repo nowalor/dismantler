@@ -68,16 +68,6 @@
 
                 <form action="{{ route('car-parts.search-by-model') }}" method="POST">
                     @csrf
-                    <div class="mb-3">
-                        <label for="car_model" class="form-label">Select car model</label>
-                        <select class="form-select" name="brand" id="car_model">
-                            <option selected disabled>Select car model(optional)</option>
-                            @foreach($brands as $brand)
-                                <option value="{{ $brand->name }}"
-                                        @if($brand->name === old('brand')) selected @endif>{{ $brand->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <livewire:car-model-dropdowns/>
                     <div class="mb-3">
                         <label for="hsn" class="form-label">Advanced search</label>
