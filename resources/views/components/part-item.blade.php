@@ -5,11 +5,10 @@
         </div>
         <div class="card-body">
             <p><span class="fw-bold">#: </span> {{ $part->id}}</p>
+            <p><span class="fw-bold">Type: </span> {{ $part->carPartType->name }}</p>
             <p><span class="fw-bold">Article number: </span> {{ $part->article_nr }}</p>
             <p><span class="fw-bold">Original number: </span> {{ $part->original_number }}</p>
             <p><span class="fw-bold">Price(SEK): </span> {{ $part->price_sek }}</p>
-            {{--                            <p><span class="fw-bold">[OLD]Price(EUR): </span> €{{ $part->calculated_price }}</p>--}}
-            <p><span class="fw-bold">[OLD]Price(EUR): </span> €{{ $part->old_price }}</p>
             <p><span class="fw-bold">Total(EUR): </span> €{{ $part->new_price + $part->shipment }}</p>
             <p><span class="fw-bold">[NEW]Price(EUR): </span> €{{ $part->new_price }}</p>
             <p><span class="fw-bold">[B2B]Price(EUR): </span> €{{ $part->business_price }}</p>

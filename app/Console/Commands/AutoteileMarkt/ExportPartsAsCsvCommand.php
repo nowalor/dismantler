@@ -21,7 +21,7 @@ class ExportPartsAsCsvCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::with('carPartImages')->whereNotNull('price_sek')
+        $parts = NewCarPart::with('carPartImages')
             ->where('price_sek', '>', 0)
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')

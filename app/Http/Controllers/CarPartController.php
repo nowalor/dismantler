@@ -106,18 +106,30 @@ class CarPartController extends Controller
             return $this->redirectBack($errors);
         }
 
+
         $response = (new SearchByKbaAction())->execute(
-            $request->get('hsn'),
-            $request->get('tsn'),
+            hsn: $request->get('hsn'),
+            tsn: $request->get('tsn'),
+            type: null, // TODO
+            paginate: 10,
         );
 
         if(!$response['success']) {
             dd('Unhandeled error, let nikulas know');
         }
 
-        $parts = $response['data'];
+        $parts = $response['data']['parts'];
+        $kba = $response['data']['kba'];
 
-        return view('parts-kba', compact('parts'));
+        $search = [
+          'tsn' => $request->get('tsn'),
+          'hsn' => $request->get('hsn'),
+          'part-type' => $request->get('part-type'),
+        ];
+
+        $partTypes = CarPartType::all();
+
+        return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
     }
 
     public function searchByModel(): mixed

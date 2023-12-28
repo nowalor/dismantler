@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="cta d-flex justify-content-center gap-3">
-        <div class="card col-3 mb-3" style="z-index:5; top:20vh; height: 26rem;">
+        <div class="card col-3 mb-3" style="z-index:5; top:20vh; height: 34rem;">
             <div class="card-header">
                 <h3>Search by HSN + TSN</h3>
             </div>
@@ -12,7 +12,7 @@
                     Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to
                     find car parts for your car.
                 </p>
-                <form action="{{ route('car-parts.search-by-code') }}" method="POSt">
+                <form action="{{ route('car-parts.search-by-code') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="hsn" class="form-label">HSN</label>
@@ -21,6 +21,16 @@
                     <div class="mb-3">
                         <label for="hsn" class="form-label">TSN</label>
                         <input type="text" class="form-control" name="tsn" value="{{ old('tsn') }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="part-type" class="form-label">Part type</label>
+                        <select name="part-type" class="form-select" id="part-type">
+                            <option disabled selected>Everything</option>
+                            @foreach($partTypes as $type)
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div style="margin-top: 3rem;">
@@ -58,16 +68,6 @@
 
                 <form action="{{ route('car-parts.search-by-model') }}" method="POST">
                     @csrf
-                    <div class="mb-3">
-                        <label for="car_model" class="form-label">Select car model</label>
-                        <select class="form-select" name="brand" id="car_model">
-                            <option selected disabled>Select car model(optional)</option>
-                            @foreach($brands as $brand)
-                                <option value="{{ $brand->name }}"
-                                        @if($brand->name === old('brand')) selected @endif>{{ $brand->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <livewire:car-model-dropdowns/>
                     <div class="mb-3">
                         <label for="hsn" class="form-label">Advanced search</label>

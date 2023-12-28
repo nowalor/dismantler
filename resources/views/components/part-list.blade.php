@@ -1,5 +1,7 @@
 <div class="row">
-    @foreach($parts as $part)
+    @forelse($parts as $part)
         <x-part-item :part="$part"/>
-    @endforeach
+    @empty
+{{--        <p>No parts where found matching this query</p>--}}
+    @endforelse
 </div>
