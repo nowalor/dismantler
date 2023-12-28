@@ -117,7 +117,7 @@ class CarPartController extends Controller
             hsn: $request->get('hsn'),
             tsn: $request->get('tsn'),
             type: $type,
-            paginate: 10,
+            paginate: 2,
         );
 
         if(!$response['success']) {

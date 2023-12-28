@@ -61,7 +61,7 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 // Regular routes
 Route::resource('car-parts', CarPartController::class);
-Route::post('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
+Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
 Route::post('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
 
 // Admin routes
