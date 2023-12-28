@@ -106,11 +106,17 @@ class CarPartController extends Controller
             return $this->redirectBack($errors);
         }
 
+        $type = null;
+
+        if($request->filled('part-type')) {
+            $type = CarPartType::find($request->get('part-type'));
+        }
+
 
         $response = (new SearchByKbaAction())->execute(
             hsn: $request->get('hsn'),
             tsn: $request->get('tsn'),
-            type: null, // TODO
+            type: $type,
             paginate: 10,
         );
 

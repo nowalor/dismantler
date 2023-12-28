@@ -11,21 +11,33 @@
     </div>
 
 
-{{--    @if($selectedBrand !== -1)--}}
-    <div class="mb-3">
-        <label for="car_model" class="form-label">Model</label>
-        <select class="form-select" wire:loading>
-            <option>
-                Loading...
-            </option>
-        </select>
-        <select wire:loading.remove class="form-select" name="brand" id="car_model">
-            <option selected disabled>Select car model</option>
-            @foreach($models as $model)
-                <option value="{{ $model->name }}"
-                        @if($model->name === old('model')) selected @endif>{{ $model->name }}</option>
-            @endforeach
-        </select>
-    </div>
-{{--        @endif--}}
+    @if($selectedBrand !== -1)
+        <div class="mb-3">
+            <label for="car_model" class="form-label">Model</label>
+            <select class="form-select" wire:loading>
+                <option>
+                    Loading...
+                </option>
+            </select>
+            <select wire:loading.remove class="form-select" name="brand" id="car_model">
+                <option selected disabled>Select car model</option>
+                @foreach($models as $model)
+                    <option value="{{ $model->name }}"
+                            @if($model->name === old('model')) selected @endif>{{ $model->name }}</option>
+                @endforeach
+            </select>
+        </div>
+    @else
+        <div class="mb-3">
+            <label for="car_model" class="form-label">Model</label>
+            <select class="form-select" wire:loading>
+                <option>
+                    Loading...
+                </option>
+            </select>
+            <select wire:loading.remove class="form-select" name="brand" id="car_model" disabled>
+                <option selected disabled>Select brand first</option>
+            </select>
+        </div>
+    @endif
 </div>

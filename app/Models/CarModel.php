@@ -11,5 +11,5 @@ class CarModel extends Model
 
     public $timestamps = FALSE;
 
-    protected $fillable = ['car_brand_id', 'name'];
+    protected $fillable = ['car_brand_id', 'name', 'sbr_code_id', ];
 }
