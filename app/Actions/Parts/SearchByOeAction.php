@@ -2,9 +2,8 @@
 
 namespace App\Actions\Parts;
 
-use App\Models\CarPartType;
-use App\Models\GermanDismantler;
 use App\Models\NewCarPart;
+use Illuminate\Database\Eloquent\Collection;
 
 class SearchByOeAction
 {
@@ -14,9 +13,14 @@ class SearchByOeAction
     public function execute(
         string $oe,
         string $paginate = null,
-    ): array
+    ): Collection
     {
-        $parts = NewCarPart::where('original_number', $oe);
+        $partsQuery = NewCarPart::where('original_number', $oe);
 
+        if($paginate) {
+            return $partsQuery->paginate($partsQuery);
+        }
+
+        return $partsQuery->get();
     }
 }
