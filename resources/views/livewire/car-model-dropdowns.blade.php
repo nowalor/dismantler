@@ -11,7 +11,7 @@
     </div>
 
 
-    @if($selectedBrand !== -1)
+{{--    @if($selectedBrand !== -1)--}}
     <div class="mb-3">
         <label for="car_model" class="form-label">Model</label>
         <select class="form-select" wire:loading>
@@ -27,5 +27,5 @@
             @endforeach
         </select>
     </div>
-        @endif
+{{--        @endif--}}
 </div>
