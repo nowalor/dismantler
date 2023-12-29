@@ -5,7 +5,7 @@ namespace App\Actions\Ebay;
 use App\Models\NewCarPart;
 use Illuminate\Database\Eloquent\Collection;
 
-class FormatPartsForCsvAction
+class FormatPartsForXmlAction
 {
     public function execute($parts): array
     {
@@ -18,7 +18,7 @@ class FormatPartsForCsvAction
         return $products;
     }
 
-    private function formatPart(NewCarPart $part)
+    private function formatPart(NewCarPart $part): array
     {
         return [
             'product' => [

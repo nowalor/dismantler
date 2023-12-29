@@ -64,6 +64,12 @@ return [
             //'port' => 21,
         ],
 
+        'ebay_ftp' => [
+            'driver' => 'ftp',
+            'host' => env('EBAY_FTP_HOST'),
+            'username' => env('EBAY_FTP_USER'),
+            'password' => env('EBAY_FTP_PASSWORD'),
+        ],
     ],
 
     /*

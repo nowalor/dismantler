@@ -4,26 +4,32 @@ namespace App\Http\Livewire;
 
 use App\Models\CarBrand;
 use App\Models\CarModel;
-use Illuminate\Database\Eloquent\Collection;
+use App\Models\DitoNumber;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 
 class CarModelDropdowns extends Component
 {
     public Collection $brands;
-    public Collection $models;
+    public Collection | null $models;
 
     public int $selectedBrand = -1;
 
     public function mount(): void
     {
-        $this->models = CarModel::all();
         $this->brands = CarBrand::all();
+        $this->models = null;
     }
 
     public function changeBrand(): void
     {
-        $this->models = CarModel::where('car_brand_id', $this->selectedBrand)->get();
+        $brand = CarBrand::find($this->selectedBrand);
+
+        $models = DitoNumber::where('producer', $brand->name)
+            ->get();
+
+        $this->models = $models;
     }
 
     public function render(): View

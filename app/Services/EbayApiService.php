@@ -7,7 +7,7 @@ use App\Helpers\Constants\EbayCsvHeader;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Models\NewCarPart;
-use App\Actions\Ebay\FormatPartsForCsvAction;
+use App\Actions\Ebay\FormatPartsForXmlAction;
 use App\Actions\Ebay\AddProductToXmlFileAction;
 
 class EbayApiService
@@ -49,7 +49,7 @@ class EbayApiService
     {
         $parts = NewCarPart::where('article_nr', 'F535433')->take(1)->get();
 
-        $formattedParts = (new FormatPartsForCsvAction())->execute($parts);
+        $formattedParts = (new FormatPartsForXmlAction())->execute($parts);
 
         $data = [
             'productRequest' => $formattedParts,

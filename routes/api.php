@@ -134,3 +134,9 @@ Route::get('car-models', function () {
 });
 
 
+Route::get('testing123', function() {
+    return NewCarPart::distinct('sbr_car_code')->count();
+
+});
+
+

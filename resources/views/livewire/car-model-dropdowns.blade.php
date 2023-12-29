@@ -22,8 +22,8 @@
             <select wire:loading.remove class="form-select" name="brand" id="car_model">
                 <option selected disabled>Select car model</option>
                 @foreach($models as $model)
-                    <option value="{{ $model->name }}"
-                            @if($model->name === old('model')) selected @endif>{{ $model->name }}</option>
+                    <option value="{{ $model->new_name }}"
+                            @if($model->new_name === old('model')) selected @endif>{{ $model->new_name }}</option>
                 @endforeach
             </select>
         </div>
