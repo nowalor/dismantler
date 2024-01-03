@@ -2,6 +2,7 @@
 
 namespace App\Actions\Ebay;
 
+use App\Models\CarPart;
 use App\Models\NewCarPart;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -29,18 +30,7 @@ class FormatPartsForXmlAction
                     'description' => [
                         'productDescription' => $this->getDescription($part),
                     ],
-                    'attribute' => [
-                        ['name' => 'Lagernummer', 'value' => $part->article_nr],
-                        ['name' => 'Kba', 'value' => $this->getKba($part)],
-                        ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number],
-                        ['name' => 'Motor Kennung', 'value' => $part->engine_code],
-                        ['name' => 'Motortype', 'value' => $part->engine_type ?? ''],
-                        ['name' => 'Brandstofftype', 'value' => $part->fuel],
-                        ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km],
-                        ['name' => 'Model Jahr', 'value' => $part->model_year],
-                        ['name' => 'Getriebe', 'value' => $part->gearbox_nr],
-                        ['name' => 'Fahrgestellnummer', 'value' => $part->vin],
-                    ],
+                    'attribute' => $this->attributes($part),
                     'EAN' => $part->article_nr, // TODO
                     'pictureURL' => $this->getPictureUrls($part),
                     'conditionInfo' => [
@@ -128,5 +118,25 @@ class FormatPartsForXmlAction
         }, $kba);
 
         return implode(',', $propertiesArray);
+    }
+
+    private function attributes(CarPart $part): array
+    {
+        return [
+          'name' => 'Hersteller', 'value' => 'todo',
+        ];
+
+//        return [
+//            ['name' => 'Lagernummer', 'value' => $part->article_nr],
+//            ['name' => 'Kba', 'value' => $this->getKba($part)],
+//            ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number],
+//            ['name' => 'Motor Kennung', 'value' => $part->engine_code],
+//            ['name' => 'Motortype', 'value' => $part->engine_type ?? ''],
+//            ['name' => 'Brandstofftype', 'value' => $part->fuel],
+//            ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km],
+//            ['name' => 'Model Jahr', 'value' => $part->model_year],
+//            ['name' => 'Getriebe', 'value' => $part->gearbox_nr],
+//            ['name' => 'Fahrgestellnummer', 'value' => $part->vin],
+//        ];
     }
 }
