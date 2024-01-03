@@ -16,8 +16,18 @@ class FtpFileUploadAction
     public function execute(
         string $to,
         string $file
-    ): void
+    ): mixed
     {
-        $this->disk->put($to, $file);
+        try {
+            $response = $this->disk->put("$to/hello.xml", $file);
+
+            if(!$response) {
+                return 'no response';
+            }
+        } catch(\Exception $e) {
+            return "catch {$e->getMessage()}";
+        }
+
+        return $response;
     }
 }

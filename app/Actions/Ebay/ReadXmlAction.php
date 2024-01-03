@@ -42,7 +42,6 @@ class ReadXmlAction
             }
         }
 
-
         return 'done';
     }
 }
