@@ -10,7 +10,7 @@ class FtpFileUploadAction
 
     public function __construct()
     {
-        $this->disk = Storage::disk('ebay_ftp');
+        $this->disk = Storage::disk('ebay_sftp');
     }
 
     public function execute(
