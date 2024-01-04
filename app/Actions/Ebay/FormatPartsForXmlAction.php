@@ -4,7 +4,6 @@ namespace App\Actions\Ebay;
 
 use App\Models\CarPart;
 use App\Models\NewCarPart;
-use Illuminate\Database\Eloquent\Collection;
 
 class FormatPartsForXmlAction
 {
@@ -50,7 +49,7 @@ class FormatPartsForXmlAction
                     'localizedFor' => 'de_DE',
                     'channelDetails' => [
                         'channelID' => 'EBAY_DE',
-                        'category' => '20706',
+                        'category' => '33615', // Engines
                         // Add other distribution details
                         'pricingDetails' => [
                             'listPrice' => $part->getNewPriceAttribute(),
@@ -123,7 +122,13 @@ class FormatPartsForXmlAction
     private function attributes(CarPart $part): array
     {
         return [
-          'name' => 'Hersteller', 'value' => 'todo',
+          ['name' => 'Hersteller', 'value' => 'todo'], // Manufacturer
+          ['name' => 'Anzahl der Zylinder', 'value' => 'todo'], // Number of cylinders
+          ['name' => 'Kraftstoffart', 'value' => 'todo'], // Fuel type
+          ['name' => 'Hubraum', 'value' => 'todo'], // Number of Displacement
+//          ['name' => 'Produktart', 'value' => 'todo'], // Product Type
+          ['name' => 'Herstellernummer', 'value' => 'todo'], //  Manufacturer number
+          ['name' => 'OE/OEM Referenznummer(n)', 'value' => $part->original_number], //  OEM
         ];
 
 //        return [
