@@ -31,7 +31,7 @@ class UploadPartsCommand extends Command
 
     private function parts(): Collection
     {
-        $parts = NewCarPart::where('dismantle_company', 'BO')
+        $parts = NewCarPart::where('dismantle_company_name', 'BO')
             ->where(function ( $query ) {
                 $query->where('fuel', 'like', '%disel%');
                 $query->orWhere('fuel', 'like', '%bensin%');

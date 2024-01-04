@@ -24,22 +24,26 @@ class ReadXmlAction
             throw new RuntimeException("File not found at path: $dir");
         }
 
-        $filePaths = $this->disk->allFiles($dir);
+        $filePaths = $this->disk->files($dir);
 
+        dd($filePaths);
         foreach ($filePaths as $path) {
-            $file = $this->disk->get($path);
+            echo "files";
+            echo $path;
 
-            $xml = new SimpleXMLElement($file);
+//            $file = $this->disk->get($path);
+//
+//            $xml = new SimpleXMLElement($file);
 
-            foreach ($xml->feedDetails->children() as $productDetail) {
-                if ($productDetail->getName() === 'productDetail') {
-                    $status = (string)$productDetail->status;
-                    $messageID = (string)$productDetail->messages->messageInfo->messageID;
-                    $message = (string)$productDetail->messages->messageInfo->message;
-
-                    logger("status: $status message: $message");
-                }
-            }
+//            foreach ($xml->feedDetails->children() as $productDetail) {
+//                if ($productDetail->getName() === 'productDetail') {
+//                    $status = (string)$productDetail->status;
+//                    $messageID = (string)$productDetail->messages->messageInfo->messageID;
+//                    $message = (string)$productDetail->messages->messageInfo->message;
+//
+//                    logger("status: $status message: $message");
+//                }
+//            }
         }
 
         return 'done';

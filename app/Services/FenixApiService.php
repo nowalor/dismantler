@@ -111,25 +111,28 @@ class FenixApiService
         $this->tokenExpiresAt = $responseBody['Expiration'];
     }
 
-    public function createReservation(NewCarPart $carPart): bool | Reservation
+    public function createReservation(
+        NewCarPart $carPart,
+        string $platform
+    ): bool | Reservation
     {
         $reservation = (new CreateReservationAction())->execute($carPart);
 
         if($reservation instanceof Reservation) {
-            $this->markAsSold($carPart->article_nr);
+            $this->markAsSold($carPart->article_nr, $platform);
         }
 
         return $reservation;
     }
 
-    private function markAsSold(string $articleNr): void
+    private function markAsSold(string $articleNr, string $platform): void
     {
         $part = NewCarPart::where('article_nr', $articleNr)->first();
 
         if ($part) {
             $part->is_live = false;
             $part->sold_at = now();
-            $part->sold_on_platform = 'autoteile-markt.de';
+            $part->sold_on_platform = $platform;
 
             $part->save();
         }

@@ -19,7 +19,7 @@ class FtpFileUploadAction
     ): mixed
     {
         try {
-            $response = $this->disk->put("$to/hello.xml", $file);
+            $response = $this->disk->put("$to/delete-inventory.xml",  file_get_contents($file));
 
             if(!$response) {
                 return 'no response';

@@ -2,7 +2,6 @@
 
 namespace App\Actions\Ebay;
 
-use App\Models\CarPart;
 use App\Models\NewCarPart;
 
 class FormatPartsForXmlAction
@@ -119,7 +118,7 @@ class FormatPartsForXmlAction
         return implode(',', $propertiesArray);
     }
 
-    private function attributes(CarPart $part): array
+    private function attributes(NewCarPart $part): array
     {
         return [
           ['name' => 'Hersteller', 'value' => 'todo'], // Manufacturer
