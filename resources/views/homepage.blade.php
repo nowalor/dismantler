@@ -68,36 +68,33 @@
                 <form action="{{ route('car-parts.search-by-model') }}" method="POST">
                     @csrf
                     <livewire:car-model-dropdowns/>
-                    <div class="mb-3">
-                        <label for="hsn" class="form-label">Advanced search</label>
-                        <input type="text" class="form-control" name="advanced_search"
-                               value="{{ old('advanced_search') }}">
-                    </div>
+{{--                    <div class="mb-3">--}}
+{{--                        <label for="hsn" class="form-label">Advanced search</label>--}}
+{{--                        <input type="text" class="form-control" name="advanced_search"--}}
+{{--                               value="{{ old('advanced_search') }}">--}}
+{{--                    </div>--}}
 
-                    <div class="mb-3">
-                        <label>Search by</label>
-                        <div class="row">
-                            <div class="row">
-                                <div class="col-6">
-                                    <input class="form-check-input" type="radio" name="search_by" checked
-                                           value="everything">
-                                    <label class="form-check-label">
-                                        Everything
-                                    </label>
-                                </div>
+{{--                    <div class="mb-3">--}}
+{{--                        <label>Search by</label>--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-6">--}}
+{{--                                    <input class="form-check-input" type="radio" name="search_by" checked--}}
+{{--                                           value="everything">--}}
+{{--                                    <label class="form-check-label">--}}
+{{--                                        Everything--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
 
-                                <div class="col-6">
-                                    <input class="form-check-input" type="radio" name="search_by" value="engine_type">
-                                    <label class="form-check-label">
-                                        Engine type
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 3rem;">
-                        <button class="btn btn-primary w-100 uppercase">Search 🔍</button>
-                    </div>
+{{--                                <div class="col-6">--}}
+{{--                                    <input class="form-check-input" type="radio" name="search_by" value="engine_type">--}}
+{{--                                    <label class="form-check-label">--}}
+{{--                                        Engine type--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </form>
             </div>
         </div>

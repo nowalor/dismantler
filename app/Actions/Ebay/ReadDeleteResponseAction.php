@@ -18,8 +18,10 @@ class ReadDeleteResponseAction
     {
 
         $today = now()->format('M-d-Y');
-        $path = "/store/deleteInventory/$today";
+        $path = "/store/deleteInventory/output/$today";
+        
+        $filesOnDisk = $this->disk->files($path);
 
-//        $files =
+        dd($filesOnDisk);
     }
 }
