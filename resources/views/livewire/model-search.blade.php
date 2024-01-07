@@ -18,8 +18,8 @@
             </option>
         </select>
         <select wire:loading.remove class="form-select" name="brand" id="car_model" wire:model="selectedModel"
-                wire:change="changeModel">
-            <option selected disabled>Select car model</option>
+                wire:change="getPartCount">
+            <option value="-1" selected disabled>Select car model</option>
             @if($models)
                 @foreach($models as $model)
                     <option value="{{ $model->id }}"
@@ -31,7 +31,8 @@
 
     <div class="mb-3">
         <label for="type" class="form-label">Part of type</label>
-        <select name="type" id="type" class="form-select" wire:model="selectedType" wire:change="changeType">
+        <select name="type" id="type" class="form-select" wire:model="selectedType" wire:change="getPartCount">
+            <option value="-1" selected disabled>Select a type</option>
             @foreach($types as $type)
                 <option value="{{ $type->id }}">{{ $type->name }}</option>
             @endforeach
@@ -39,9 +40,9 @@
     </div>
 
     @if($partCount !== -1)
-    <div style="margin-top: 3rem;">
-        <button class="btn btn-primary w-100 uppercase">Search {{ $partCount }} results</button>
-    </div>
+        <div style="margin-top: 3rem;">
+            <button class="btn btn-primary w-100 uppercase" @if($partCount === 0 ) disabled @endif>Search {{ $partCount }} results</button>
+        </div>
     @else
         <div style="margin-top: 3rem;">
             <button class="btn btn-primary w-100 uppercase" disabled>Fill in search</button>

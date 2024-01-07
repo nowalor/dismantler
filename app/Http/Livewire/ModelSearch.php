@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class CarModelDropdowns extends Component
+class ModelSearch extends Component
 {
     public Collection $brands;
     public Collection | null $models;
@@ -38,22 +38,12 @@ class CarModelDropdowns extends Component
         $this->models = $models;
     }
 
-    public function changeModel(): void
-    {
-        $this->getPartCount();
-    }
-
-    public function changeType(): void
-    {
-        $this->getPartCount();
-    }
-
     public function render(): View
     {
-        return view('livewire.car-model-dropdowns');
+        return view('livewire.model-search');
     }
 
-    private function getPartCount(): void
+    public function getPartCount(): void
     {
         if($this->selectedModel === -1) {
             return;
