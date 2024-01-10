@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\GermanDismantler;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
@@ -11,25 +12,48 @@ class KbaSearch extends Component
 
     public string $hsn = "";
     public string $tsn = "";
-    public int | null $partType = null;
+    public int | null $partType = -1;
 
-    // Error states
-    public string $hsnError = "";
-    public string $tsnError = "";
+    protected array $rules = [
+        'hsn' => 'required|size:4',
+        'tsn' => 'required|size:3',
+    ];
+
+    public int $partCount = -1;
 
     public function render()
     {
         return view('livewire.kba-search');
     }
 
-    public function handleValidate(): void
+    public function updated($property)
     {
-        if(strlen($this->hsn) !== 4) {
-            $this->hsnError = 'HSN must be 4 characters';
+//        $this->validateOnly($property);
+
+        $this->handleCount();
+    }
+
+    public function handleCount(): void
+    {
+        if(!$this->hsn || !$this->tsn) {
+            return;
         }
 
-        if(strlen($this->tsn) !== 3) {
-            $this->tsnError = 'TSN must be 3 characters';
+        $kba = GermanDismantler::where("hsn", $this->hsn)
+            ->where("tsn", $this->tsn)
+            ->first();
+
+        if(!$kba) {
+            // TODO: handle the empty kba
+            return;
         }
+
+        $query = $kba->newCarParts();
+
+        if($this->partType !== -1) {
+            $query = $query->where('car_part_type_id', $this->partType);
+        }
+
+        $this->partCount = $query->count();
     }
 }

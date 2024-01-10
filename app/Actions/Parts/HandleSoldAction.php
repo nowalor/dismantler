@@ -19,7 +19,7 @@ class HandleSoldAction
         $this->fenixApiService = new FenixApiService();
     }
 
-    public function execute(array $parts, string $platform,)
+    public function execute(array $parts, string $platform): void
     {
         foreach($parts as $part) {
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();

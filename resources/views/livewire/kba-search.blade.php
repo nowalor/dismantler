@@ -10,7 +10,7 @@
 
     <div class="mb-3">
         <label for="part-type" class="form-label">Part type</label>
-        <select name="part-type" class="form-select" id="part-type">
+        <select name="part-type" class="form-select" id="part-type" wire:model="partType">
             <option disabled selected>Everything</option>
             @foreach($partTypes as $type)
                 <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -19,6 +19,6 @@
     </div>
 
     <div style="margin-top: 3rem;">
-        <button class="btn btn-primary w-100 uppercase">Search 🔍</button>
+        <button class="btn btn-primary w-100 uppercase">Search {{ $partCount }}</button>
     </div>
 </form>

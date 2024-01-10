@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pendingOrderFulfillmentResponse>
+
+
+
+    <pendingOrderFulfillment>
+        <order>
+            <orderID>1*-*****-****9</orderID>
+            <channelID>EBAY_US</channelID>
+            <createdDate>2023-10-19T23:20:23.000Z</createdDate>
+            <buyer>
+                <buyerID>c********************5</buyerID>
+                <firstName>q****</firstName>
+                <lastName>buyer</lastName>
+                <email>0*******************@***********ebay.com</email>
+            </buyer>
+            <seller>
+                <sellerID>t*****0</sellerID>
+            </seller>
+            <linkedLineItem>
+                <orderID>1*-****2-****8</orderID>
+                <orderLineItemID>1**********6-1*********2</orderLineItemID>
+                <sellerUserID>p***********s</sellerUserID>
+                <title>Tires Category_179680_ZIP-95125_LotSize-1-rim-16-96464_US</title>
+                <estimatedDeliveryTimeMin>2023-10-24T07:00:00.000Z</estimatedDeliveryTimeMin>
+                <estimatedDeliveryTimeMax>2023-10-27T07:00:00.000Z</estimatedDeliveryTimeMax>
+                <itemSpecifics>
+                    <name>Manufacturer Part Number</name>
+                    <value>Does Not Apply</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Tire Type</name>
+                    <value>All Season</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Overall Diameter</name>
+                    <value>20</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>UPC</name>
+                    <value>Does not apply</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Quantity</name>
+                    <value>1</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Section Width</name>
+                    <value>8</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Rim Diameter</name>
+                    <value>16</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Aspect Ratio</name>
+                    <value>30</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Brand</name>
+                    <value>American</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Load Index</name>
+                    <value>63</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Car Type</name>
+                    <value>Passenger/Performance</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Speed Index</name>
+                    <value>J</value>
+                </itemSpecifics>
+                <itemSpecifics>
+                    <name>Tire Sizing System</name>
+                    <value>Passenger</value>
+                </itemSpecifics>
+            </linkedLineItem>
+            <logisticsPlan fulfillmentType="SHIP">
+                <shipping shippingType="DIRECT">
+                    <shippingService>
+                        <service/>
+                        <method>Pickup</method>
+                    </shippingService>
+                    <shipToAddress>
+                        <addressID>1************0</addressID>
+                        <name>q**** buyer</name>
+                        <phone>4** 3** ***1</phone>
+                        <addressLine1>2125 Hamilton Ave.</addressLine1>
+                        <addressLine2/>
+                        <city>San Jose</city>
+                        <stateOrProvince>CA</stateOrProvince>
+                        <postalCode>95***-***5</postalCode>
+                        <country>US</country>
+                    </shipToAddress>
+                    <finalDestinationAddress>
+                        <addressID>1************0</addressID>
+                        <name>q**** buyer</name>
+                        <phone>4** 3** ***1</phone>
+                        <addressLine1>2***************e.</addressLine1>
+                        <addressLine2/>
+                        <city>San Jose</city>
+                        <stateOrProvince>CA</stateOrProvince>
+                        <postalCode>95***-***5</postalCode>
+                        <country>US</country>
+                    </finalDestinationAddress>
+                    <expectedDeliveryDate/>
+                </shipping>
+            </logisticsPlan>
+            <lineItem>
+                <lineItemID>1**********2-1*********2</lineItemID>
+                <listing>
+                    <channelID>EBAY_Motors</channelID>
+                    <itemID>1**********2</itemID>
+                    <SKU>F535433</SKU>
+                    <title>Tires Intallation Category_111116_12455_US</title>
+                </listing>
+                <quantity>1</quantity>
+                <unitPrice currencyCode="USD">23.0</unitPrice>
+                <ShipmentTrackingDetails>
+                    <ShippingCarrierUsed/>
+                    <ShipmentTrackingNumber/>
+                </ShipmentTrackingDetails>
+                <subtotal>
+                    <priceline type="ITEM">
+                        <amount currencyCode="USD">23.00</amount>
+                    </priceline>
+                    <priceline type="SHIPPING">
+                        <amount currencyCode="">0.00</amount>
+                    </priceline>
+                    <sumtotal currencyCode="USD">23.00</sumtotal>
+                </subtotal>
+                <salesRecordID>1***6</salesRecordID>
+                <guaranteedDelivery>false</guaranteedDelivery>
+                <eBayCollectedTax>
+                    <taxDetails>
+                        <imposition>SalesTax</imposition>
+                        <description>SalesTax</description>
+                        <amount currencyCode="USD">0.00</amount>
+                        <collectionMethod>NET</collectionMethod>
+                    </taxDetails>
+                    <totalIncludesEBayCollectedTax>false</totalIncludesEBayCollectedTax>
+                </eBayCollectedTax>
+            </lineItem>
+            <payment>
+                <paymentID>6**********1</paymentID>
+                <feeOrCreditAmount currencyCode="USD">0.0</feeOrCreditAmount>
+                <total currencyCode="USD">23.0</total>
+                <paymentClearedDate>2023-10-19T23:20:18.300Z</paymentClearedDate>
+                <paymentMethod>CreditCard</paymentMethod>
+                <externalTransactionID>6**********1</externalTransactionID>
+            </payment>
+            <total>
+                <priceline type="ITEM">
+                    <amount currencyCode="USD">23.0</amount>
+                </priceline>
+                <priceline type="ITEM_TAX">
+                    <amount currencyCode=""/>
+                </priceline>
+                <priceline type="SHIPPING">
+                    <amount currencyCode="USD">0.0</amount>
+                </priceline>
+                <priceline type="DISCOUNT">
+                    <amount currencyCode="USD">0.0</amount>
+                </priceline>
+                <sumtotal currencyCode="USD">23.0</sumtotal>
+            </total>
+            <status>
+                <paymentStatus>PAID</paymentStatus>
+                <logisticsStatus>NOT_SHIPPED</logisticsStatus>
+            </status>
+            <note/>
+        </order>
+    </pendingOrderFulfillment>
+
+
+
+
+    <pendingOrderFulfillment>
+        <order>
+            <orderID>1*-*****-****3</orderID>
+            <channelID>EBAY_US</channelID>
+            <createdDate>2023-10-19T23:23:21.000Z</createdDate>
+            <buyer>
+                <buyerID>c*********************6</buyerID>
+                <firstName>q****</firstName>
+                <lastName>buyer</lastName>
+                <email>0*******************@**********.ebay.com</email>
+            </buyer>
+            <seller>
+                <sellerID>t*****0</sellerID>
+            </seller>
+            <logisticsPlan fulfillmentType="SHIP">
+                <shipping shippingType="DIRECT">
+                    <shippingService>
+                        <service/>
+                        <method>Pickup</method>
+                    </shippingService>
+                    <shipToAddress>
+                        <addressID>1************5</addressID>
+                        <name>q**** buyer</name>
+                        <phone>4** 3** ***1</phone>
+                        <addressLine1>2***************e.</addressLine1>
+                        <addressLine2/>
+                        <city>S** ***e</city>
+                        <stateOrProvince>CA</stateOrProvince>
+                        <postalCode>95***-***5</postalCode>
+                        <country>US</country>
+                    </shipToAddress>
+                    <finalDestinationAddress>
+                        <addressID>1************5</addressID>
+                        <name>q**** buyer</name>
+                        <phone>4** 3** ***1</phone>
+                        <addressLine1>2***************e.</addressLine1>
+                        <addressLine2/>
+                        <city>S** ***e</city>
+                        <stateOrProvince>CA</stateOrProvince>
+                        <postalCode>95***-***5</postalCode>
+                        <country>US</country>
+                    </finalDestinationAddress>
+                    <expectedDeliveryDate/>
+                </shipping>
+            </logisticsPlan>
+            <lineItem>
+                <lineItemID>1**********2-1*********2</lineItemID>
+                <listing>
+                    <channelID>EBAY_Motors</channelID>
+                    <itemID>1**********2</itemID>
+                    <SKU>BO494736</SKU>
+                    <title>Tires Intallation Category_111116_12455_US</title>
+                </listing>
+                <quantity>1</quantity>
+                <unitPrice currencyCode="USD">23.0</unitPrice>
+                <ShipmentTrackingDetails>
+                    <ShippingCarrierUsed/>
+                    <ShipmentTrackingNumber/>
+                </ShipmentTrackingDetails>
+                <subtotal>
+                    <priceline type="ITEM">
+                        <amount currencyCode="USD">23.00</amount>
+                    </priceline>
+                    <priceline type="SHIPPING">
+                        <amount currencyCode="">0.00</amount>
+                    </priceline>
+                    <sumtotal currencyCode="USD">23.00</sumtotal>
+                </subtotal>
+                <salesRecordID>1***8</salesRecordID>
+                <guaranteedDelivery>false</guaranteedDelivery>
+                <eBayCollectedTax>
+                    <taxDetails>
+                        <imposition>SalesTax</imposition>
+                        <description>SalesTax</description>
+                        <amount currencyCode="USD">0.00</amount>
+                        <collectionMethod>NET</collectionMethod>
+                    </taxDetails>
+                    <totalIncludesEBayCollectedTax>false</totalIncludesEBayCollectedTax>
+                </eBayCollectedTax>
+            </lineItem>
+            <payment>
+                <paymentID>6**********1</paymentID>
+                <feeOrCreditAmount currencyCode="USD">0.0</feeOrCreditAmount>
+                <total currencyCode="USD">23.0</total>
+                <paymentClearedDate>2023-10-19T23:23:20.382Z</paymentClearedDate>
+                <paymentMethod>CreditCard</paymentMethod>
+                <externalTransactionID>6**********1</externalTransactionID>
+            </payment>
+            <total>
+                <priceline type="ITEM">
+                    <amount currencyCode="USD">23.0</amount>
+                </priceline>
+                <priceline type="ITEM_TAX">
+                    <amount currencyCode=""/>
+                </priceline>
+                <priceline type="SHIPPING">
+                    <amount currencyCode="USD">0.0</amount>
+                </priceline>
+                <priceline type="DISCOUNT">
+                    <amount currencyCode="USD">0.0</amount>
+                </priceline>
+                <sumtotal currencyCode="USD">23.0</sumtotal>
+            </total>
+            <status>
+                <paymentStatus>PAID</paymentStatus>
+                <logisticsStatus>NOT_SHIPPED</logisticsStatus>
+            </status>
+            <note/>
+        </order>
+    </pendingOrderFulfillment>
+</pendingOrderFulfillmentResponse>
