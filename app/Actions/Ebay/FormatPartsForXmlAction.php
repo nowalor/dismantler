@@ -19,6 +19,8 @@ class FormatPartsForXmlAction
 
     private function formatPart(NewCarPart $part): array
     {
+        $combatibility = $this->getCombatability($part);
+
         return [
             'product' => [
                 'SKU' => $part->article_nr,
@@ -30,6 +32,7 @@ class FormatPartsForXmlAction
                     ],
                     'attribute' => $this->attributes($part),
                     'EAN' => $part->article_nr, // TODO
+                    'compatibility' => $combatibility,
                     'pictureURL' => $this->getPictureUrls($part),
                     'conditionInfo' => [
                         'condition' => 'Used', // TODO
@@ -65,6 +68,22 @@ class FormatPartsForXmlAction
                 ],
             ],
         ];
+    }
+
+    private function getCombatability(NewCarPart $part): array
+    {
+        $kTypes = $part
+            ->germanDismantlers()
+            ->with("kTypes")
+            ->get()
+            ->pluck("kTypes")
+            ->flatten()
+            ->unique("id")
+            ->pluck("k_type");
+
+        return array_map(static function ($kType) {
+            return ["name" => "KType", "value" => $kType];
+        }, $kTypes->toArray());
     }
 
     private function getCustomFields(NewCarPart $part): array

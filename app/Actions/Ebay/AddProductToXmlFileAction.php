@@ -28,6 +28,12 @@ class AddProductToXmlFileAction
             $description = $productInformation->addChild('description');
             $description->addChild('productDescription', $value['product']['productInformation']['description']['productDescription']);
 
+            foreach($value['product']['productInformation']['compatibility'] as $compatibility) {
+                $compatibilityEl =  $productInformation->addChild('compatibility');
+
+                $compatibilityEl->addChild('value', $compatibility['value'])->addAttribute('name', $compatibility['name']);
+            }
+
             foreach ($value['product']['productInformation']['attribute'] as $attribute) {
                 $productInformation->addChild('attribute', $attribute['value'])->addAttribute('name', $attribute['name']);
             }
