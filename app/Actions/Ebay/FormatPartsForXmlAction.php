@@ -94,12 +94,18 @@ class FormatPartsForXmlAction
             $fields[]['customField'] = ["Image$index" => $image->image_name_blank_logo];
         });
 
+        $fuel = $part->fuel;
+
+        if($fuel === 'Bensin') {
+            $fuel = 'Benzin';
+        }
+
         $fields['customField'][] = ['name' => 'Lagernummer', 'value' => $part->article_nr];
         $fields['customField'][] = ['name' => 'Kba', 'value' => $this->getKba($part)];
         $fields['customField'][] = ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number];
         $fields['customField'][] = ['name' => 'Motor Kennung', 'value' => $part->engine_code];
         $fields['customField'][] = ['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
-        $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $part->fuel];
+        $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $fuel];
         $fields['customField'][] = ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km];
         $fields['customField'][] = ['name' => 'Model Jahr', 'value' => $part->model_year];
         $fields['customField'][] = ['name' => 'Getriebe', 'value' => $part->gearbox_nr];
