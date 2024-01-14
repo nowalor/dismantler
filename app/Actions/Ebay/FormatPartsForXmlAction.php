@@ -3,9 +3,14 @@
 namespace App\Actions\Ebay;
 
 use App\Models\NewCarPart;
+use App\Services\PartInformationService;
 
 class FormatPartsForXmlAction
 {
+    public function __construct(
+        private PartInformationService $partInformationService = new PartInformationService()
+    ){}
+
     public function execute($parts): array
     {
         $products = [];
@@ -28,7 +33,7 @@ class FormatPartsForXmlAction
                     'localizedFor' => 'de_DE',
                     'title' => $part->name,
                     'description' => [
-                        'productDescription' => $this->getDescription($part),
+                        'productDescription' => $this->resolveDescription($part),
                     ],
                     'attribute' => $this->attributes($part),
                     'EAN' => $part->article_nr, // TODO
@@ -37,15 +42,15 @@ class FormatPartsForXmlAction
                     'conditionInfo' => [
                         'condition' => 'Used', // TODO
                     ],
-                    'shippingDetails' => [
-                        'measurementSystem' => '',
-                        'weightMajor' => '',
-                        'weightMinor' => '',
-                        'length' => '',
-                        'width' => '',
-                        'height' => '',
-                        'packageType' => '',
-                    ],
+//                    'shippingDetails' => [
+//                        'measurementSystem' => '',
+//                        'weightMajor' => '',
+//                        'weightMinor' => '',
+//                        'length' => '',
+//                        'width' => '',
+//                        'height' => '',
+//                        'packageType' => '',
+//                    ],
                 ],
                 'distribution' => [
                     'localizedFor' => 'de_DE',
@@ -116,15 +121,11 @@ class FormatPartsForXmlAction
 
     private function getPictureUrls(NewCarPart $part): array
     {
-        return array_column(
-            $part->carPartImages->toArray() ?? [],
-            'image_name_blank_logo'
-        );
-    }
-
-    private function getDescription(NewCarPart $part): string
-    {
-        return 'description TODO';
+        return array_map(static function($img) use($part) {
+            return asset(
+                "storage/img/car-part/$part->id/{$img['image_name_blank_logo']}"
+            );
+        }, $part->carPartImages->toArray());
     }
 
     private function getKba(NewCarPart $part): string
@@ -145,27 +146,73 @@ class FormatPartsForXmlAction
 
     private function attributes(NewCarPart $part): array
     {
+        $fuel = $part->fuel;
+
+        if($fuel === 'Bensin') {
+            $fuel = 'Benzin';
+        }
+
+        // "germanDismantlers" && "kTypes" should be through eager loading and NOT relationship
+        // Reason is because they need a follow up query to prevent bugs
+        // That would be to have to do here
+        $brand = $part->germanDismantlers
+            ->first()
+            ?->kTypes
+            ->first()
+            ?->brand;
+
+        if(!$brand) {
+            die('This car has no brand');
+        }
+
         return [
-          ['name' => 'Hersteller', 'value' => 'todo'], // Manufacturer
-          ['name' => 'Anzahl der Zylinder', 'value' => 'todo'], // Number of cylinders
-          ['name' => 'Kraftstoffart', 'value' => 'todo'], // Fuel type
-          ['name' => 'Hubraum', 'value' => 'todo'], // Number of Displacement
-//          ['name' => 'Produktart', 'value' => 'todo'], // Product Type
-          ['name' => 'Herstellernummer', 'value' => 'todo'], //  Manufacturer number
+          ['name' => 'Hersteller', 'value' => $brand], // Manufacturer
+          ['name' => 'Kraftstoffart', 'value' => $fuel], // Fuel type
           ['name' => 'OE/OEM Referenznummer(n)', 'value' => $part->original_number], //  OEM
         ];
+    }
 
-//        return [
-//            ['name' => 'Lagernummer', 'value' => $part->article_nr],
-//            ['name' => 'Kba', 'value' => $this->getKba($part)],
-//            ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number],
-//            ['name' => 'Motor Kennung', 'value' => $part->engine_code],
-//            ['name' => 'Motortype', 'value' => $part->engine_type ?? ''],
-//            ['name' => 'Brandstofftype', 'value' => $part->fuel],
-//            ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km],
-//            ['name' => 'Model Jahr', 'value' => $part->model_year],
-//            ['name' => 'Getriebe', 'value' => $part->gearbox_nr],
-//            ['name' => 'Fahrgestellnummer', 'value' => $part->vin],
-//        ];
+    /*
+     * TODO: refactor this function to be reusable between this & AutoteileMartkDocService
+     */
+    private function resolveDescription(NewCarPart $carPart): string
+    {
+
+        $kba = $carPart->my_kba->map(function ($kbaNumber) {
+            return [
+                'hsn' => $kbaNumber->hsn,
+                'tsn' => $kbaNumber->tsn,
+            ];
+        })->toArray();
+
+        $kbaString = $this->kbaArrayToString($kba);
+
+        $engineType = $carPart->engine_type ?? '';
+
+        return "
+            Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten. Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen. \n
+            Lagernummer: $carPart->article_nr \n
+            Originale Ersatzteilnummer: $carPart->original_number \n
+            Motor Kennung: $carPart->full_engine_code \n
+            Motortype: $engineType \n
+            Brandstofftype: $carPart->fuel \n
+            Getriebe: {$this->partInformationService->getGearbox($carPart)} \n
+            Laufleistung: $carPart->mileage_km(km) \n
+            Fahrgestellnummer: $carPart->vin \n
+            Baujahr: $carPart->model_year \n
+            Kbas: $kbaString \n
+        ";
+    }
+
+    /*
+    * TODO: refactor this function to be reusable between this & AutoteileMartkDocService
+    */
+    private function kbaArrayToString(array $kbaArray): string
+    {
+        $propertiesArray = array_map(function ($kbaNumber) {
+            return $kbaNumber['hsn'] . $kbaNumber['tsn'];
+        }, $kbaArray);
+
+        return implode(',', $propertiesArray);
     }
 }
