@@ -29,6 +29,8 @@ class ReservationMail extends Mailable
     )
     {
         $this->dismantleCompany = FenixDismantler::DISMANTLERS[$this->dismantleCompanyCode];
+
+        logger($this->dismantleCompany);
     }
 
     /**
@@ -39,7 +41,8 @@ class ReservationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Reservation Mail',
+            to: 'nikulasoskarsson@gmail.com',
+            subject: 'New part reservation',
         );
     }
 
@@ -51,7 +54,11 @@ class ReservationMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.reservation',
+            with: [
+                'dismantleId' => $this->dismantleId,
+                'fenixId'  => $this->fenixId
+            ],
         );
     }
 
