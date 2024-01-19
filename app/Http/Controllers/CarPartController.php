@@ -120,6 +120,8 @@ class CarPartController extends Controller
             paginate: 2,
         );
 
+        dd($response);
+
         if(!$response['success']) {
             dd('Unhandeled error, let nikulas know');
         }
