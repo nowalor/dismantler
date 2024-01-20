@@ -110,7 +110,7 @@ class CarPartController extends Controller
 
         $type = null;
 
-        if($request->filled('part-type')) {
+        if ($request->filled('part-type')) {
             $type = CarPartType::find($request->get('part-type'));
         }
 
@@ -122,7 +122,7 @@ class CarPartController extends Controller
             paginate: 2,
         );
 
-        if(!$response['success']) {
+        if (!$response['success']) {
             dd('Unhandeled error, let nikulas know');
         }
 
@@ -130,9 +130,9 @@ class CarPartController extends Controller
         $kba = $response['data']['kba'];
 
         $search = [
-          'tsn' => $request->get('tsn'),
-          'hsn' => $request->get('hsn'),
-          'part-type' => $request->get('part-type'),
+            'tsn' => $request->get('tsn'),
+            'hsn' => $request->get('hsn'),
+            'part-type' => $request->get('part-type'),
         ];
 
         $partTypes = CarPartType::all();
@@ -140,24 +140,31 @@ class CarPartController extends Controller
         return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
     }
 
-    public function searchByModel(Request $request): mixed
-    {
-       $dito = DitoNumber::find($request->get('id'));
-
-       $results = (new SearchByModelAction())->execute(
-           model: $dito,
-           paginate: 2,
-    );
-
-       return $results;
-    }
-
-    // Private methods for modularizing this controller
     private function redirectBack(array $errors): RedirectResponse
     {
         request()?->flash();
 
         return redirect()->back()->withErrors($errors);
+    }
+
+    // Private methods for modularizing this controller
+
+    public function searchByModel(Request $request): mixed
+    {
+        $dito = DitoNumber::find($request->get('dito_number_id'));
+
+        if(!$dito) {
+            abort('fail');
+        }
+
+        $results = (new SearchByModelAction())->execute(
+            model: $dito,
+            paginate: 10,
+        );
+
+        $parts = $results['data']['parts'];
+
+        return view('parts-model', compact('parts'));
     }
 
 }

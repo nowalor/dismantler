@@ -1,5 +1,4 @@
-<form action="{{ route('car-parts.search-by-model') }}" method="POST">
-    @csrf
+<form action="{{ route('car-parts.search-by-model') }}">
     <div>
         <div class="mb-3">
             <label for="car_model" class="form-label">Brand*</label>
@@ -15,12 +14,13 @@
 
         <div class="mb-3">
             <label for="car_model" class="form-label">Model*</label>
-            <select class="form-select" wire:loading>
+            <select class="form-select" wire:loading name="dito_number_id">
                 <option>
                     Loading...
                 </option>
             </select>
-            <select wire:loading.remove class="form-select" name="brand" id="car_model" wire:model="selectedModel"
+            <select wire:loading.remove class="form-select" name="dito_number_id" id="car_model"
+                    wire:model="selectedModel"
                     wire:change="getPartCount">
                 <option value="-1" selected disabled>Select car model</option>
                 @if($models)
