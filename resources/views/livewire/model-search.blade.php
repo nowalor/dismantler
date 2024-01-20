@@ -34,7 +34,7 @@
 
         <div class="mb-3">
             <label for="type" class="form-label">Part of type</label>
-            <select name="type" id="type" class="form-select" wire:model="selectedType" wire:change="getPartCount">
+            <select name="type_id" id="type" class="form-select" wire:model="selectedType" wire:change="getPartCount">
                 <option value="-1" selected disabled>Select a type</option>
                 @foreach($types as $type)
                     <option value="{{ $type->id }}">{{ $type->name }}</option>

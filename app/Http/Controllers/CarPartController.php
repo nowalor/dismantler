@@ -157,8 +157,15 @@ class CarPartController extends Controller
             abort('fail');
         }
 
+        $type = null;
+
+        if($request->filled('type_id')) {
+            $type = CarPartType::find($request->get('type_id'));
+        }
+
         $results = (new SearchByModelAction())->execute(
             model: $dito,
+            type: $type,
             paginate: 10,
         );
 
