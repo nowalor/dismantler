@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Parts\SearchByKbaAction;
+use App\Actions\Parts\SearchByModelAction;
 use App\Models\CarBrand;
 use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DismantleCompany;
+use App\Models\DitoNumber;
 use App\Models\GermanDismantler;
 use App\Models\NewCarPart;
 use Illuminate\Http\RedirectResponse;
@@ -138,10 +140,16 @@ class CarPartController extends Controller
         return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
     }
 
-    public function searchByModel(): mixed
+    public function searchByModel(Request $request): mixed
     {
-        return 'searchByModel';
+       $dito = DitoNumber::find($request->get('id'));
 
+       $results = (new SearchByModelAction())->execute(
+           model: $dito,
+           paginate: 2,
+    );
+
+       return $results;
     }
 
     // Private methods for modularizing this controller
