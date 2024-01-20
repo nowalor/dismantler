@@ -44,6 +44,18 @@
                 <livewire:model-search/>
             </div>
         </div>
+
+        <div class="card col-3" style="z-index:5; top:20vh; height: 34rem;">
+            <div class="card-header">Search by OEM</div>
+            <div class="card-body">
+                <p>
+                    Very detailed search that you can use if you have the original spare part number(OEM), gearbox code or engine code.
+                </p>
+
+                <livewire:oem-search></livewire:oem-search>
+            </div>
+        </div>
+
     </div>
     <div class="container pt-3">
         <h1 class="text-center pt-3">
