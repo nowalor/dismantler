@@ -147,8 +147,6 @@ class CarPartController extends Controller
         return redirect()->back()->withErrors($errors);
     }
 
-    // Private methods for modularizing this controller
-
     public function searchByModel(Request $request): mixed
     {
         $dito = DitoNumber::find($request->get('dito_number_id'));
@@ -172,6 +170,11 @@ class CarPartController extends Controller
         $parts = $results['data']['parts'];
 
         return view('parts-model', compact('parts'));
+    }
+
+    public function searchByOEM(Request $request): mixed
+    {
+        return $request->all();
     }
 
 }
