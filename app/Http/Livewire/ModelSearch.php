@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\CarBrand;
 use App\Models\CarPartType;
 use App\Models\DitoNumber;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 

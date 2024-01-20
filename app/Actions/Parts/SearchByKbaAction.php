@@ -37,6 +37,8 @@ class SearchByKbaAction
             })
             ->with('carPartImages');
 
+        dd($partsQuery->get());
+
         $parts = is_null($paginate)
             ? $partsQuery->get()
             : $partsQuery->paginate($paginate)->withQueryString();

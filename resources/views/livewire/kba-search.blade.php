@@ -17,8 +17,15 @@
             @endforeach
         </select>
     </div>
-
-    <div style="margin-top: 3rem;">
-        <button class="btn btn-primary w-100 uppercase">Search {{ $partCount }}</button>
-    </div>
+    @if($partCount !== -1)
+        <div style="margin-top: 3rem;">
+            <button class="btn btn-primary w-100 uppercase" @if($partCount === 0 ) disabled @endif>
+                Search {{ $partCount }} results
+            </button>
+        </div>
+    @else
+        <div style="margin-top: 3rem;">
+            <button class="btn btn-primary w-100 uppercase" disabled>Fill in search</button>
+        </div>
+    @endif
 </form>
