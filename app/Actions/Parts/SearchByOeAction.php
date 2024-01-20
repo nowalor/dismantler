@@ -13,14 +13,16 @@ class SearchByOeAction
     public function execute(
         string $oe,
         string $paginate = null,
-    ): Collection
+    ): array
     {
         $partsQuery = NewCarPart::where('original_number', $oe);
 
-        if($paginate) {
-            return $partsQuery->paginate($partsQuery);
-        }
+        $parts = is_null($paginate) ? $partsQuery->get() : $partsQuery->paginate($paginate);
 
-        return $partsQuery->get();
+        return [
+            'data' => [
+                'parts' => $parts,
+            ],
+        ];
     }
 }

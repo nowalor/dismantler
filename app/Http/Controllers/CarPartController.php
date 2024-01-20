@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Parts\SearchByKbaAction;
 use App\Actions\Parts\SearchByModelAction;
+use App\Actions\Parts\SearchByOeAction;
 use App\Models\CarBrand;
 use App\Models\CarPart;
 use App\Models\CarPartType;
@@ -174,7 +175,14 @@ class CarPartController extends Controller
 
     public function searchByOEM(Request $request): mixed
     {
-        return $request->all();
+        $oem = $request->get('oem');
+
+        $results = (new SearchByOeAction())->execute(
+            oe: $oem,
+            paginate: 10,
+        );
+
+        return $results;
     }
 
 }
