@@ -124,9 +124,7 @@ class CarPartController extends Controller
             dd('Unhandeled error, let nikulas know');
         }
 
-        $parts = $response;
-
-        return $parts;
+        $parts = $response['data']['parts'];
         $kba = $response['data']['kba'];
 
         $search = [

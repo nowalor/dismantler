@@ -11,7 +11,7 @@
     <div class="mb-3">
         <label for="part-type" class="form-label">Part type</label>
         <select name="part-type" class="form-select" id="part-type" wire:model="partType">
-            <option disabled selected>Everything</option>
+            <option value="-1" disabled selected>Select a type</option>
             @foreach($partTypes as $type)
                 <option value="{{ $type->id }}">{{ $type->name }}</option>
             @endforeach
