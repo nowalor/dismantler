@@ -176,13 +176,15 @@ class CarPartController extends Controller
     public function searchByOEM(Request $request): mixed
     {
         $oem = $request->get('oem');
-
+        
         $results = (new SearchByOeAction())->execute(
             oe: $oem,
             paginate: 10,
         );
 
-        return $results;
+        $parts = $results['data']['parts'];
+
+        return view('parts-model', compact('parts')); // TODO return unique view OR rename view
     }
 
 }
