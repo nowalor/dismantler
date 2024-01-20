@@ -69,4 +69,9 @@ class GermanDismantler extends Model
     {
         return $this->belongsToMany(NewCarPart::class);
     }
+
+    public function kTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(KType::class);
+    }
 }

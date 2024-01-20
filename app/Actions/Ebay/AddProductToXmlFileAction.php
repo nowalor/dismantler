@@ -2,20 +2,17 @@
 
 namespace App\Actions\Ebay;
 
+use Illuminate\Support\Facades\Storage;
+
 class AddProductToXmlFileAction
 {
     public function execute(array $data): void
     {
-        $path = base_path('public/exports/ebay-import.xml');
-        $xml = file_get_contents($path);
+        $path = base_path('public/exports/ebay-import-' . now() . '.xml');
 
-        if(empty($xml)) {
-            $xml = new \SimpleXMLElement(
-                '<?xml version="1.0" encoding="UTF-8"?><productRequest></productRequest>'
-            );
-        } else {
-            $xml = new \SimpleXMLElement($xml);
-        }
+        $xml = new \SimpleXMLElement(
+            '<?xml version="1.0" encoding="UTF-8"?><productRequest></productRequest>'
+        );
 
         foreach ($data as $key => $value) {
             $product = $xml->addChild('product');
@@ -30,6 +27,12 @@ class AddProductToXmlFileAction
 
             $description = $productInformation->addChild('description');
             $description->addChild('productDescription', $value['product']['productInformation']['description']['productDescription']);
+
+            foreach($value['product']['productInformation']['compatibility'] as $compatibility) {
+                $compatibilityEl =  $productInformation->addChild('compatibility');
+
+                $compatibilityEl->addChild('value', $compatibility['value'])->addAttribute('name', $compatibility['name']);
+            }
 
             foreach ($value['product']['productInformation']['attribute'] as $attribute) {
                 $productInformation->addChild('attribute', $attribute['value'])->addAttribute('name', $attribute['name']);

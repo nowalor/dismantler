@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Actions\Ebay\CreateDeleteXmlAction;
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\NewCarPart;
 use Illuminate\Console\Command;
@@ -49,8 +50,12 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
     private function handleSoldParts(): void
     {
+        // This is all for autoteile-markt
         $this->generateCsv($this->soldParts);
         Storage::disk('ftp')->put('update.csv', file_get_contents(base_path('public/exports/update.csv')));
+
+        // This is all for ebay
+        $xmlName = (new CreateDeleteXmlAction())->execute($this->soldParts);
 
         foreach ($this->soldParts as $part) {
             NewCarPart::where('id', $part['id'])->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);

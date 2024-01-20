@@ -39,8 +39,7 @@ class SearchByKbaAction
 
         $parts = is_null($paginate)
             ? $partsQuery->get()
-            : $partsQuery->paginate($paginate);
-
+            : $partsQuery->paginate($paginate)->withQueryString();
 
         if (!$parts) {
             return [
