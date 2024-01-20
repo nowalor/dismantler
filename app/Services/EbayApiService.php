@@ -3,12 +3,14 @@
 
 namespace App\Services;
 
+use App\Actions\Ebay\FtpFileUploadAction;
 use App\Helpers\Constants\EbayCsvHeader;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Models\NewCarPart;
-use App\Actions\Ebay\FormatPartsForCsvAction;
+use App\Actions\Ebay\FormatPartsForXmlAction;
 use App\Actions\Ebay\AddProductToXmlFileAction;
+use Illuminate\Database\Eloquent\Collection;
 
 class EbayApiService
 {
@@ -45,11 +47,9 @@ class EbayApiService
         );
     }
 
-    public function addPartsToXml(): void
+    public function addPartsToXml(Collection $parts): void
     {
-        $parts = NewCarPart::where('article_nr', 'F535433')->take(1)->get();
-
-        $formattedParts = (new FormatPartsForCsvAction())->execute($parts);
+        $formattedParts = (new FormatPartsForXmlAction())->execute($parts);
 
         $data = [
             'productRequest' => $formattedParts,
@@ -58,5 +58,15 @@ class EbayApiService
         foreach($data as $product) {
             (new AddProductToXmlFileAction())->execute($product);
         }
+    }
+
+    public function uploadParts(): void
+    {
+        logger('EbayApiService.uploadParts');
+        // Can test it when we put the shop in vacation mode
+//        (new FtpFileUploadAction())->execute(
+//            '/store/product',
+//            base_path('public/exports/ebay-import.xml')
+//        );
     }
 }

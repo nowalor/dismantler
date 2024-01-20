@@ -11,6 +11,7 @@
 namespace App\Console\Commands;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
+use App\Helpers\Constants\SellerPlatform;
 use App\Models\NewCarPart;
 use App\Models\Reservation;
 use App\Services\FenixApiService;
@@ -19,6 +20,11 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use SimpleXMLElement;
 
+/*
+ * TODO: replace a lot of this called with shared actions / services for ebay
+ * This was all written when the only sales platform was autoteile
+ * now it should also work for ebay
+ */
 class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 {
     protected $signature = 'parts-we-sold:resolve';
@@ -63,7 +69,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
             if($dbPart->dismantle_company_name === 'BO') {
                 $part->is_live = false;
                 $part->sold_at = now();
-                $part->sold_on_platform = 'autoteile-markt.de';
+                $part->sold_on_platform = SellerPlatform::AUTOTEILE_MARKT;
 
                 $part->save();
 
@@ -76,7 +82,10 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
                 continue;
             }
 
-            $reservation = $this->fenixApiService->createReservation($dbPart);
+            $reservation = $this->fenixApiService->createReservation(
+                $dbPart,
+                SellerPlatform::AUTOTEILE_MARKT
+            );
 
             if($reservation instanceof Reservation) {
                 $this->notificationService->notifyOrderSuccess(

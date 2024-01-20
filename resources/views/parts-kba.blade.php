@@ -11,8 +11,7 @@
                         Your search
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('car-parts.search-by-code') }}" method="POST">
-                            @csrf
+                        <form action="{{ route('car-parts.search-by-code') }}">
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">

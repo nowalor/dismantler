@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Parts\SearchByKbaAction;
+use App\Actions\Parts\SearchByModelAction;
+use App\Actions\Parts\SearchByOeAction;
 use App\Models\CarBrand;
 use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DismantleCompany;
+use App\Models\DitoNumber;
 use App\Models\GermanDismantler;
 use App\Models\NewCarPart;
 use Illuminate\Http\RedirectResponse;
@@ -106,15 +109,21 @@ class CarPartController extends Controller
             return $this->redirectBack($errors);
         }
 
+        $type = null;
+
+        if ($request->filled('part-type')) {
+            $type = CarPartType::find($request->get('part-type'));
+        }
+
 
         $response = (new SearchByKbaAction())->execute(
             hsn: $request->get('hsn'),
             tsn: $request->get('tsn'),
-            type: null, // TODO
-            paginate: 10,
+            type: $type,
+            paginate: 2,
         );
 
-        if(!$response['success']) {
+        if (!$response['success']) {
             dd('Unhandeled error, let nikulas know');
         }
 
@@ -122,9 +131,9 @@ class CarPartController extends Controller
         $kba = $response['data']['kba'];
 
         $search = [
-          'tsn' => $request->get('tsn'),
-          'hsn' => $request->get('hsn'),
-          'part-type' => $request->get('part-type'),
+            'tsn' => $request->get('tsn'),
+            'hsn' => $request->get('hsn'),
+            'part-type' => $request->get('part-type'),
         ];
 
         $partTypes = CarPartType::all();
@@ -132,18 +141,50 @@ class CarPartController extends Controller
         return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
     }
 
-    public function searchByModel(): mixed
-    {
-        return 'searchByModel';
-
-    }
-
-    // Private methods for modularizing this controller
     private function redirectBack(array $errors): RedirectResponse
     {
         request()?->flash();
 
         return redirect()->back()->withErrors($errors);
+    }
+
+    public function searchByModel(Request $request): mixed
+    {
+        $dito = DitoNumber::find($request->get('dito_number_id'));
+
+        if(!$dito) {
+            abort('fail');
+        }
+
+        $type = null;
+
+        if($request->filled('type_id')) {
+            $type = CarPartType::find($request->get('type_id'));
+        }
+
+        $results = (new SearchByModelAction())->execute(
+            model: $dito,
+            type: $type,
+            paginate: 10,
+        );
+
+        $parts = $results['data']['parts'];
+
+        return view('parts-model', compact('parts'));
+    }
+
+    public function searchByOEM(Request $request): mixed
+    {
+        $oem = $request->get('oem');
+        
+        $results = (new SearchByOeAction())->execute(
+            oe: $oem,
+            paginate: 10,
+        );
+
+        $parts = $results['data']['parts'];
+
+        return view('parts-model', compact('parts')); // TODO return unique view OR rename view
     }
 
 }
