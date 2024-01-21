@@ -154,6 +154,8 @@
                                 </label>
                             </div>
 
+                            @include('components.' . 'stripe' . '-collapse')
+
                             @foreach($paymentPlatforms as $paymentPlatform)
                                 <div
                                     id="{{ $paymentPlatform->name }}Collapse"
@@ -163,7 +165,7 @@
                                     @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
                                 </div>
                             @endforeach
-                            <input type="hidden"
+                            <input type="hidden" />
                         </div>
 
                         <hr class="my-4">
