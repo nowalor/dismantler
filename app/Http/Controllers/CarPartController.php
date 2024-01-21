@@ -170,10 +170,13 @@ class CarPartController extends Controller
 
         $parts = $results['data']['parts'];
 
+        $types = CarPartType::all();
+
         return view('parts-model', compact(
             'parts',
             'dito',
-            'type'
+            'type', // Prev selected type, used to autofill search
+            'types'
         ));
     }
 

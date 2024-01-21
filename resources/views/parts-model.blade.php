@@ -16,15 +16,16 @@
 
                             <div class="mb-3">
                                 <label class="label" for="oem">Brand</label>
-                                <input class="form-control" type="text" id="oem" name="oem" value="{{ $dito->model }}">
+                                <input class="form-control" type="text" id="oem" name="oem" value="{{ $dito->new_name }}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="type" class="form-label">Part of type</label>
                                 <select name="type_id" id="type" class="form-select">
                                     <option value="-1" selected disabled>Select a type</option>
-                                    @foreach($types as $type)
-                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                    @foreach($types as $typeItem)
+                                        <option @if($typeItem->id === $type?->id) selected
+                                                @endif value="{{ $typeItem->id }}">{{ $typeItem->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
