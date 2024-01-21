@@ -170,13 +170,17 @@ class CarPartController extends Controller
 
         $parts = $results['data']['parts'];
 
-        return view('parts-model', compact('parts'));
+        return view('parts-model', compact(
+            'parts',
+            'dito',
+            'type'
+        ));
     }
 
     public function searchByOEM(Request $request): mixed
     {
         $oem = $request->get('oem');
-        
+
         $results = (new SearchByOeAction())->execute(
             oe: $oem,
             paginate: 10,
@@ -184,7 +188,7 @@ class CarPartController extends Controller
 
         $parts = $results['data']['parts'];
 
-        return view('parts-model', compact('parts')); // TODO return unique view OR rename view
+        return view('parts-oem', compact('parts', 'oem'));
     }
 
 }
