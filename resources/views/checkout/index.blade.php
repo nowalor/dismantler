@@ -154,8 +154,6 @@
                                 </label>
                             </div>
 
-                            @include('components.' . 'stripe' . '-collapse')
-
                             @foreach($paymentPlatforms as $paymentPlatform)
                                 <div
                                     id="{{ $paymentPlatform->name }}Collapse"
