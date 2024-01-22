@@ -41,8 +41,8 @@ class CreateXmlCommand extends Command
 //            ->where("sbr_car_name", "like", "%audi%")
             ->where('is_live_on_ebay', false)
             ->where(function ($q) {
-                $q->where('fuel_type', 0);
-                $q->orWhere('fuel_type', 1);
+                $q->where('fuel', 'Diesel');
+                $q->orWhere('fuel', 'Bensin');
             })
             ->whereHas("carPartImages", function ($q) {
                 $q->whereNotNull("image_name_blank_logo");
@@ -51,7 +51,7 @@ class CreateXmlCommand extends Command
             ->with("germanDismantlers", function ($q) {
                 $q->whereHas("kTypes")->with("kTypes");
             })
-            ->take(1)
+            ->take(10)
             ->get();
 
         return $parts;

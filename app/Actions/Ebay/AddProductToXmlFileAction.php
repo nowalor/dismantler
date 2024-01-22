@@ -99,6 +99,6 @@ class AddProductToXmlFileAction
     {
         $sku = $value['product']['SKU'];
 
-        NewCarPart::where('sku', $sku)->update(['is_live_on_ebay', 1]);
+        NewCarPart::where('article_nr', $sku)->update(['is_live_on_ebay' => 1]);
     }
 }
