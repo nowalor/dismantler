@@ -24,7 +24,7 @@
             <p><span class="fw-bold">SBR CAR CODE: </span> {{ $part->sbr_car_code }}</p>
             <p><span class="fw-bold">Kbas: </span> @foreach($part->my_kba as $kba) <a href="">{{ $kba->hsn }}
                     {{ $kba->tsn }}</a>,@endforeach</p>
-            <a href="{{ route('admin.export-parts.show', $part) }}" class="btn btn-primary w-100">View
+            <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">View
                 part</a>
             <img class="card-img-bottom mt-2"
                  src="{{ (count($part->carPartImages) && !$part->carPartImages[0]->is_placeholder) ? asset("storage/img/car-part/{$part->id}/{$part->carPartImages[0]->image_name_blank_logo}") : 'http://46.101.206.99/storage/img/car-part/placeholder.jpg' }}"

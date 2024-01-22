@@ -163,7 +163,7 @@
                                     @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
                                 </div>
                             @endforeach
-                            <input type="hidden"
+                            <input type="hidden" />
                         </div>
 
                         <hr class="my-4">

@@ -7,9 +7,9 @@ use App\Services\EbayApiService;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 
-class UploadPartsCommand extends Command
+class CreateXmlCommand extends Command
 {
-    protected $signature = 'ebay:upload';
+    protected $signature = 'ebay:create-xml';
 
     private EbayApiService $service;
 
@@ -20,7 +20,7 @@ class UploadPartsCommand extends Command
         parent::__construct();
     }
 
-    public function handle(): int
+    public function handle(): string
     {
         $parts = $this->parts();
 
@@ -31,12 +31,16 @@ class UploadPartsCommand extends Command
 
     private function parts(): Collection
     {
-        $parts = NewCarPart::where('dismantle_company_name', 'BO')
-            ->where(function ( $query ) {
-                $query->where('fuel', 'like', '%disel%');
-                $query->orWhere('fuel', 'like', '%bensin%');
+        $parts = NewCarPart::with("carPartImages")
+            ->where("sbr_car_name", "like", "%audi%")
+            ->whereHas("carPartImages", function ($q) {
+                $q->whereNotNull("image_name_blank_logo");
             })
-            ->take(10)
+            ->whereHas("germanDismantlers.kTypes")
+            ->with("germanDismantlers", function ($q) {
+                $q->whereHas("kTypes")->with("kTypes");
+            })
+            ->take(1)
             ->get();
 
         return $parts;
