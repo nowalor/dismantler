@@ -47,14 +47,14 @@ class AddProductToXmlFileAction
             $conditionInfo = $productInformation->addChild('conditionInfo');
             $conditionInfo->addChild('condition', $value['product']['productInformation']['conditionInfo']['condition']);
 
-            $shippingDetails = $productInformation->addChild('shippingDetails');
-            $shippingDetails->addAttribute('measurementSystem', $value['product']['productInformation']['shippingDetails']['measurementSystem']);
-            $shippingDetails->addChild('weightMajor', $value['product']['productInformation']['shippingDetails']['weightMajor']);
-            $shippingDetails->addChild('weightMinor', $value['product']['productInformation']['shippingDetails']['weightMinor']);
-            $shippingDetails->addChild('length', $value['product']['productInformation']['shippingDetails']['length']);
-            $shippingDetails->addChild('width', $value['product']['productInformation']['shippingDetails']['width']);
-            $shippingDetails->addChild('height', $value['product']['productInformation']['shippingDetails']['height']);
-            $shippingDetails->addChild('packageType', $value['product']['productInformation']['shippingDetails']['packageType']);
+//            $shippingDetails = $productInformation->addChild('shippingDetails');
+//            $shippingDetails->addAttribute('measurementSystem', $value['product']['productInformation']['shippingDetails']['measurementSystem']);
+//            $shippingDetails->addChild('weightMajor', $value['product']['productInformation']['shippingDetails']['weightMajor']);
+//            $shippingDetails->addChild('weightMinor', $value['product']['productInformation']['shippingDetails']['weightMinor']);
+//            $shippingDetails->addChild('length', $value['product']['productInformation']['shippingDetails']['length']);
+//            $shippingDetails->addChild('width', $value['product']['productInformation']['shippingDetails']['width']);
+//            $shippingDetails->addChild('height', $value['product']['productInformation']['shippingDetails']['height']);
+//            $shippingDetails->addChild('packageType', $value['product']['productInformation']['shippingDetails']['packageType']);
 
             // Add distribution information
             $distribution = $product->addChild('distribution');

@@ -7,9 +7,12 @@ use App\Services\PartInformationService;
 
 class FormatPartsForXmlAction
 {
-    public function __construct(
-        private PartInformationService $partInformationService = new PartInformationService()
-    ){}
+    private PartInformationService $partInformationService;
+
+    public function __construct()
+    {
+        $this->partInformationService = new PartInformationService();
+    }
 
     public function execute($parts): array
     {
@@ -101,7 +104,7 @@ class FormatPartsForXmlAction
 
         $fuel = $part->fuel;
 
-        if($fuel === 'Bensin') {
+        if ($fuel === 'Bensin') {
             $fuel = 'Benzin';
         }
 
@@ -121,7 +124,7 @@ class FormatPartsForXmlAction
 
     private function getPictureUrls(NewCarPart $part): array
     {
-        return array_map(static function($img) use($part) {
+        return array_map(static function ($img) use ($part) {
             return asset(
                 "storage/img/car-part/$part->id/{$img['image_name_blank_logo']}"
             );
@@ -148,7 +151,7 @@ class FormatPartsForXmlAction
     {
         $fuel = $part->fuel;
 
-        if($fuel === 'Bensin') {
+        if ($fuel === 'Bensin') {
             $fuel = 'Benzin';
         }
 
@@ -161,14 +164,14 @@ class FormatPartsForXmlAction
             ->first()
             ?->brand;
 
-        if(!$brand) {
+        if (!$brand) {
             die('This car has no brand');
         }
 
         return [
-          ['name' => 'Hersteller', 'value' => $brand], // Manufacturer
-          ['name' => 'Kraftstoffart', 'value' => $fuel], // Fuel type
-          ['name' => 'OE/OEM Referenznummer(n)', 'value' => $part->original_number], //  OEM
+            ['name' => 'Hersteller', 'value' => $brand], // Manufacturer
+            ['name' => 'Kraftstoffart', 'value' => $fuel], // Fuel type
+            ['name' => 'OE/OEM Referenznummer(n)', 'value' => $part->original_number], //  OEM
         ];
     }
 
