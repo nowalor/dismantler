@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PayRequest;
 use App\Models\CarPart;
+use App\Models\NewCarPart;
 use App\Models\Order;
 use App\Models\PaymentPlatform;
 use App\Resolvers\PaymentPlatformResolver;
@@ -18,7 +19,7 @@ class PaymentController extends Controller
         $this->paymentPlatformResolver = $paymentPlatformResolver;
     }
 
-    public function index(CarPart $carPart): View
+    public function index(NewCarPart $carPart): View
     {
         $paymentPlatforms = PaymentPlatform::all();
 
