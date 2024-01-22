@@ -26,7 +26,7 @@ class CreateXmlCommand extends Command
         logger("in CreateXmlCommand.handle");
         logger($parts);
 
-        if(count($parts) === 0) {
+        if (count($parts) === 0) {
             return 0;
         }
 
@@ -39,6 +39,11 @@ class CreateXmlCommand extends Command
     {
         $parts = NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%")
+            ->where('is_live_on_ebay', false)
+            ->where(function ($q) {
+                $q->where('fuel_type', 0);
+                $q->orWhere('fuel_type', 1);
+            })
             ->whereHas("carPartImages", function ($q) {
                 $q->whereNotNull("image_name_blank_logo");
             })

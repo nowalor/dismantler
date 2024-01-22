@@ -48,6 +48,7 @@ class NewCarPart extends Model
         'subgroup',
         'gearbox_nr',
         'brand_name',
+        'is_live_on_ebay',
     ];
 
     public function carPartType(): BelongsTo
