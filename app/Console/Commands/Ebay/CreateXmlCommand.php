@@ -23,6 +23,12 @@ class CreateXmlCommand extends Command
     public function handle(): string
     {
         $parts = $this->parts();
+        logger("in CreateXmlCommand.handle");
+        logger($parts);
+
+        if(count($parts) === 0) {
+            return 0;
+        }
 
         $this->service->addPartsToXml($parts);
 
