@@ -38,7 +38,7 @@ class CreateXmlCommand extends Command
     private function parts(): Collection
     {
         $parts = NewCarPart::with("carPartImages")
-            ->where("sbr_car_name", "like", "%audi%")
+//            ->where("sbr_car_name", "like", "%audi%")
             ->whereHas("carPartImages", function ($q) {
                 $q->whereNotNull("image_name_blank_logo");
             })
