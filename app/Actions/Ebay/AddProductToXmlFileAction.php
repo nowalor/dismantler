@@ -2,6 +2,7 @@
 
 namespace App\Actions\Ebay;
 
+use App\Models\NewCarPart;
 use Illuminate\Support\Facades\Storage;
 
 class AddProductToXmlFileAction
@@ -82,6 +83,8 @@ class AddProductToXmlFileAction
             // Add inventory information
             $inventory = $product->addChild('inventory');
             $inventory->addChild('totalShipToHomeQuantity', $value['product']['inventory']['totalShipToHomeQuantity']);
+
+            $this->markAsLive($value);
         }
 
         // Format the XML for better readability
@@ -90,5 +93,12 @@ class AddProductToXmlFileAction
 
         // Save the XML to a file
         $xml->asXML($path);
+    }
+
+    private function markAsLive(array $value): void
+    {
+        $sku = $value['product']['SKU'];
+
+        NewCarPart::where('article_nr', $sku)->update(['is_live_on_ebay' => 1]);
     }
 }
