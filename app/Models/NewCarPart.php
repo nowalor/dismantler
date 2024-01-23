@@ -269,7 +269,7 @@ class NewCarPart extends Model
         /*
          * Longer delivery
          */
-        if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A') {
+        if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A' || $dismantleCompanyName === 'AL') {
             if  (in_array(
                 $partType,
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
