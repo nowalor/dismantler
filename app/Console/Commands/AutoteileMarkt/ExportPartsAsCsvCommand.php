@@ -34,6 +34,15 @@ class ExportPartsAsCsvCommand extends Command
             ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
             ->where('is_live', false)
+            ->where(function ($query) {
+                $query
+                    ->where('dismantle_company_name', '!=', 'F')
+                    ->orWhere(function ($subQuery) {
+                        $subQuery
+                            ->where('dismantle_company_name', 'F')
+                            ->whereIn('car_part_type_id', [6, 7]);
+                    });
+            })
             ->take(5000)
             ->get();
 
