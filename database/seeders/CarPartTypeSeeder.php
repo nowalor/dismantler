@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CarPartType;
+use App\Models\DanishCarPartType;
 use App\Models\GermanCarPartType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,6 +24,12 @@ class CarPartTypeSeeder extends Seeder
         DB::table('swedish_car_part_types')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
+
+//        STYRENHET ABS 7475 ABS Bremsaggregat
+    //ABS HYDRAULAGGREGAT 7645 ABS Bremsaggregat
+    //INSTRUMENT KOMB. 3220 Instrumente Tachometer
+    //STYRENHET VÄXELLÅDA 7468 Elektrik Steuergerät Automatikgetr
+    //STYRSERVOPUMP ELEKTRISK 7082 Lenkung Servolenkung Lenkgetrie
         $carPartTypes = [
             [
                 'id' => 1,
@@ -52,6 +59,26 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 7,
                 'name' => 'Differential',
             ],
+            [
+                'id' => 8,
+                'name' => 'Break Unit ABS',
+            ],
+            [
+                'id' => 9,
+                'name' => 'ABS Hydraulic unit',
+            ],
+            [
+                'id' => 10,
+                'name' => 'Instrument comb',
+            ],
+            [
+                'id' => 11,
+                'name' => 'Steering unit gearbox',
+            ],
+            [
+                'id' => 12,
+                'name' => 'Power steering pump electric',
+            ],
         ];
 
         CarPartType::insert($carPartTypes);
@@ -64,6 +91,7 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 5, "name" => "PARTIKELFILTER", "code" => "1284"],
             ["id" => 6, "name" => "KATALYSATOR", "code" => "1285"],
             ["id" => 7, "name" => "BAGTØJSKLUMP", "code" => "2601"],
+            // TODO get dito numbers for the new parts
         ];
 
         DB::table('danish_car_part_types')->insert($danishPartTypes);
@@ -112,6 +140,34 @@ class CarPartTypeSeeder extends Seeder
                 "code" => null,
                 "autoteile_markt_category_id" => 939,
             ],
+
+            [
+                "id" => 8,
+                "name" => "ABS Bremsaggregat",
+                "code" => null,
+                "autoteile_markt_category_id" => 38,
+            ],
+
+            [
+                "id" => 9,
+                "name" => "Instrumente Tachometer",
+                "code" => null,
+                "autoteile_markt_category_id" => 160,
+            ],
+
+            [
+                "id" => 10,
+                "name" => "Elektrik Steuergerät Automatikgetr",
+                "code" => null,
+                "autoteile_markt_category_id" => 535,
+            ],
+
+            [
+                "id" => 11,
+                "name" => "Lenkung Servolenkung Lenkgetrie",
+                "code" => null,
+                "autoteile_markt_category_id" => 858,
+            ],
         ];
 
         foreach($germanPartTypes as $germanPartType) {
@@ -126,9 +182,24 @@ class CarPartTypeSeeder extends Seeder
 
         $carPartTypes = CarPartType::all();
 
+        CarPartType::find(1)->germanCarPartTypes()->syncWithoutDetaching([1]);
+        CarPartType::find(2)->germanCarPartTypes()->syncWithoutDetaching([2]);
+        CarPartType::find(3)->germanCarPartTypes()->syncWithoutDetaching([3]);
+        CarPartType::find(4)->germanCarPartTypes()->syncWithoutDetaching([4]);
+        CarPartType::find(5)->germanCarPartTypes()->syncWithoutDetaching([5]);
+        CarPartType::find(6)->germanCarPartTypes()->syncWithoutDetaching([6]);
+        CarPartType::find(7)->germanCarPartTypes()->syncWithoutDetaching([7]);
+
+        CarPartType::find(8)->germanCarPartTypes()->syncWithoutDetaching([8]);
+        CarPartType::find(9)->germanCarPartTypes()->syncWithoutDetaching([8]);
+        CarPartType::find(10)->germanCarPartTypes()->syncWithoutDetaching([9]);
+        CarPartType::find(11)->germanCarPartTypes()->syncWithoutDetaching([10]);
+        CarPartType::find(12)->germanCarPartTypes()->syncWithoutDetaching([11]);
+
         foreach ($carPartTypes as $carPartType) {
-            $carPartType->danishCarPartTypes()->attach($carPartType->id);
-            $carPartType->germanCarPartTypes()->attach($carPartType->id);
+            if(DanishCarPartType::find($carPartType->id)) {
+                $carPartType->danishCarPartTypes()->attach($carPartType->id);
+            }
         }
 
         $swedishPartTypes = [
@@ -144,6 +215,13 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 10, "name" => "BAKVÄXEL/DIFF.", "code" => "7145"], // 7
             ["id" => 11, "name" => "MOTOR ELEKTRISK BAK", "code" => "7143"],
             ["id" => 12, "name" => "MOTOR ELEKTRISK FRAM", "code" => "7302"],
+
+            // New..
+            ['id' => 13, 'name' => 'Styrenhet ABS', 'code' => '7475'],
+            ['id' => 14, 'name' => 'ABS hydraulaggerat', 'code' => '7645'],
+            ['id' => 15, 'name' => 'Instrument Komb', 'code' => '3220'],
+            ['id' => 16, 'name' => 'STYRENHET VÄXELLÅDA ', 'code' => '7468'],
+            ['id' => 17, 'name' => 'STYRSERVOPUMP ELEKTRISK', 'code' => '7082'],
         ];
 
         DB::table('swedish_car_part_types')->insert($swedishPartTypes);
@@ -156,5 +234,11 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(6)->swedishCarPartTypes()->syncWithoutDetaching([8]);
         CarPartType::find(7)->swedishCarPartTypes()->syncWithoutDetaching([9, 10]);
 
+        // TODO new types
+        CarPartType::find(8)->swedishCarPartTypes()->syncWithoutDetaching([13]);
+        CarPartType::find(9)->swedishCarPartTypes()->syncWithoutDetaching([14]);
+        CarPartType::find(10)->swedishCarPartTypes()->syncWithoutDetaching([15]);
+        CarPartType::find(11)->swedishCarPartTypes()->syncWithoutDetaching([16]);
+        CarPartType::find(12)->swedishCarPartTypes()->syncWithoutDetaching([17]);
     }
 }
