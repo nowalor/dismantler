@@ -12,6 +12,7 @@ class AdminNewCarpartController extends Controller
     {
         $carParts = CarPart::has('ditoNumber')
             ->with('ditoNumber')
+            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
             ->whereRelation('ditoNumber', 'is_not_interesting', 0)
             ->with('dismantleCompany')
             ->with('carPartType');
