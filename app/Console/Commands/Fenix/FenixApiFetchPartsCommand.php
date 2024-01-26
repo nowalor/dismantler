@@ -24,11 +24,23 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
         $this->authenticate();
 
-        $data = $this->getParts();
+        $dismantleCompanies = [
+            "bo",
+            "F",
+            "A",
+            "N",
+            "AL",
+            "S",
+            "N",
+            "GB"
+        ];
 
-        $this->uploadParts($data['parts']);
 
-        // TODO handle pagination
+        foreach ($dismantleCompanies as $dismantleCompany) {
+            $data = $this->getParts($dismantleCompany);
+
+            $this->uploadParts($data['parts']);
+        }
 
         return Command::SUCCESS;
     }
