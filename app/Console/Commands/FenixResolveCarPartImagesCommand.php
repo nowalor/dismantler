@@ -32,7 +32,7 @@ class FenixResolveCarPartImagesCommand extends Command
             //            }])
             // ->where('dismantle_company_name', 'N')
             ->whereHas("carPartImages", function($q) {
-                $q->whereNull('image_name');
+                $q->whereNotNull('image_name');
             })
             ->with("carPartImages")
             ->whereIn('sbr_part_code', ["7475", "7645", "3220", "7468", "7082"])
@@ -46,7 +46,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //                    continue;
 //                }
 
-                $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-left';
+                $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
 
                 $response = (new ReplaceDismantlerLogoAction())
                     ->handle(
