@@ -23,6 +23,8 @@ class FenixResolveCarPartImagesCommand extends Command
         $replacementImage = Image::make($replacementImagePath);
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
+            ->whereNull('image_name')
+            ->take(1000)
             //            ->whereHas('carPartImages', function ($query) {
             //                $query->whereNull('image_name_blank_logo');
             //            })
@@ -32,8 +34,9 @@ class FenixResolveCarPartImagesCommand extends Command
             // ->where('dismantle_company_name', 'N')
             ->whereHas("carPartImages")
             ->with("carPartImages")
+            ->whereIn('sbr_part_code', ["7475", "7645", "3220", "7468", "7082"])
 //            ->where("car_part_type_id", 1)
-            ->where('dismantle_company_name', 'GB')
+//            ->where('dismantle_company_name', 'GB')
             ->get();
 
         foreach ($carParts as $carPart) {
@@ -42,12 +45,14 @@ class FenixResolveCarPartImagesCommand extends Command
 //                    continue;
 //                }
 
+                $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-left';
+
                 $response = (new ReplaceDismantlerLogoAction())
                     ->handle(
                         imageUrl: $image->original_url,
                         replacementImage: $replacementImage,
                         scalingHeight: $this->getScalingHeight($carPart->dismantle_company_name),
-                        position: 'bottom-left',
+                        position: $position,
                     );
 
                 if(!$response) {
