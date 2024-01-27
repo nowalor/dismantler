@@ -47,7 +47,7 @@
                 @foreach($carPart->carPartImages as $carPartImage)
                     <div class="col-6">
                         <img class="card-img-bottom"
-                             src=" {{ $carPartImage->origin_url }}"
+                             src=" {{ $carPartImage->original_url }}"
                              alt="">
 
                     </div>
