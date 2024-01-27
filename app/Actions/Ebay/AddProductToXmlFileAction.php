@@ -27,7 +27,8 @@ class AddProductToXmlFileAction
             $productInformation->addChild('subtitle');
 
             $description = $productInformation->addChild('description');
-            $description->addChild('productDescription', $value['product']['productInformation']['description']['productDescription']);
+            $description->addChild('productDescription', '<![CDATA[' . $value['product']['productInformation']['description']['productDescription'] . ']]>');
+
 
             foreach($value['product']['productInformation']['compatibility'] as $compatibility) {
                 $compatibilityEl =  $productInformation->addChild('compatibility');
@@ -64,6 +65,10 @@ class AddProductToXmlFileAction
             $channelDetails = $distribution->addChild('channelDetails');
             $channelDetails->addChild('channelID', $value['product']['distribution']['channelDetails']['channelID']);
             $channelDetails->addChild('category', $value['product']['distribution']['channelDetails']['category']);
+
+            $channelDetails->addChild('paymentPolicyName', $value['product']['distribution']['channelDetails']['paymentPolicyName']);
+            $channelDetails->addChild('returnPolicyName', $value['product']['distribution']['channelDetails']['returnPolicyName']);
+            $channelDetails->addChild('shippingPolicyName', $value['product']['distribution']['channelDetails']['shippingPolicyName']);
 
             $pricingDetails = $channelDetails->addChild('pricingDetails');
             $pricingDetails->addChild('listPrice', $value['product']['distribution']['channelDetails']['pricingDetails']['listPrice']);
