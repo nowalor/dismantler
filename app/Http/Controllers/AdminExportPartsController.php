@@ -33,7 +33,7 @@ class AdminExportPartsController extends Controller
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages')
-            ->where('sbr_part_code', ['7475', '7645', '3220', '7468', '7082']);
+            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082']);
 
 //            ->where('dismantle_company_name', 'GB');
 //            ->where('car_part_type_id', 1); // Engines
