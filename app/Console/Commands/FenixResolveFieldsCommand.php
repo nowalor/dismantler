@@ -38,7 +38,9 @@ class FenixResolveFieldsCommand extends Command
      */
     public function handle()
     {
-        $carParts = NewCarPart::all();
+        $carParts = NewCarPart::whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
+            ->whereNull('car_part_type_id')
+            ->get();
 
         foreach($carParts as $carPart) {
             $carPartTypeId = SwedishCarPartType::where('code', $carPart->sbr_part_code)
