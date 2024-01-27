@@ -27,7 +27,8 @@ class AddProductToXmlFileAction
             $productInformation->addChild('subtitle');
 
             $description = $productInformation->addChild('description');
-            $description->addChild('productDescription', $value['product']['productInformation']['description']['productDescription']);
+            $description->addChild('productDescription', '<![CDATA[' . $value['product']['productInformation']['description']['productDescription'] . ']]>');
+
 
             foreach($value['product']['productInformation']['compatibility'] as $compatibility) {
                 $compatibilityEl =  $productInformation->addChild('compatibility');

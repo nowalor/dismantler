@@ -39,11 +39,11 @@ class FormatPartsForXmlAction
                         'productDescription' => $this->resolveDescription($part),
                     ],
                     'attribute' => $this->attributes($part),
-                    'EAN' => $part->article_nr, // TODO
+                    'EAN' => 'Nicht zutreffend',
                     'compatibility' => $combatibility,
                     'pictureURL' => $this->getPictureUrls($part),
                     'conditionInfo' => [
-                        'condition' => 'Used', // TODO
+                        'condition' => 'USED_EXCELLENT',
                     ],
 //                    'shippingDetails' => [
 //                        'measurementSystem' => '',
