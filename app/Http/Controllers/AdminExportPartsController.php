@@ -23,6 +23,7 @@ class AdminExportPartsController extends Controller
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
             ->has('carPartImages')
+            ->whereNotNull('car_part_type_id') // TEMP
 //            ->where(function ($query) {
 //                return $query->where('sbr_part_code', '7143')
 //                    ->orWhere('sbr_part_code', '7302');
