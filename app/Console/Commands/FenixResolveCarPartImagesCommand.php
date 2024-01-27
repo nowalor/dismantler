@@ -23,7 +23,6 @@ class FenixResolveCarPartImagesCommand extends Command
         $replacementImage = Image::make($replacementImagePath);
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
-            ->take(1000)
             //            ->whereHas('carPartImages', function ($query) {
             //                $query->whereNull('image_name_blank_logo');
             //            })
@@ -32,10 +31,11 @@ class FenixResolveCarPartImagesCommand extends Command
             //            }])
             // ->where('dismantle_company_name', 'N')
             ->whereHas("carPartImages", function($q) {
-                $q->whereNotNull('image_name');
+                $q->whereNull('image_name');
             })
             ->with("carPartImages")
             ->whereIn('sbr_part_code', ["7475", "7645", "3220", "7468", "7082"])
+            ->take(5000)
 //            ->where("car_part_type_id", 1)
 //            ->where('dismantle_company_name', 'GB')
             ->get();
