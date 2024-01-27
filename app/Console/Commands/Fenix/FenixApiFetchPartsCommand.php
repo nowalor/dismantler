@@ -31,7 +31,6 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             "N",
             "AL",
             "S",
-            "N",
             "GB"
         ];
 
