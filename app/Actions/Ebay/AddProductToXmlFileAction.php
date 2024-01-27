@@ -66,6 +66,10 @@ class AddProductToXmlFileAction
             $channelDetails->addChild('channelID', $value['product']['distribution']['channelDetails']['channelID']);
             $channelDetails->addChild('category', $value['product']['distribution']['channelDetails']['category']);
 
+            $channelDetails->addChild('paymentPolicyName', $value['product']['distribution']['channelDetails']['paymentPolicyName']);
+            $channelDetails->addChild('returnPolicyName', $value['product']['distribution']['channelDetails']['returnPolicyName']);
+            $channelDetails->addChild('shippingPolicyName', $value['product']['distribution']['channelDetails']['shippingPolicyName']);
+
             $pricingDetails = $channelDetails->addChild('pricingDetails');
             $pricingDetails->addChild('listPrice', $value['product']['distribution']['channelDetails']['pricingDetails']['listPrice']);
             $pricingDetails->addChild('strikeThroughPrice', $value['product']['distribution']['channelDetails']['pricingDetails']['strikeThroughPrice']);
