@@ -39,7 +39,7 @@ class CreateXmlCommand extends Command
     {
         $parts = NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%")
-            ->where('is_live_on_ebay', false)
+//            ->where('is_live_on_ebay', false)
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel');
                 $q->orWhere('fuel', 'Bensin');
@@ -51,7 +51,7 @@ class CreateXmlCommand extends Command
             ->with("germanDismantlers", function ($q) {
                 $q->whereHas("kTypes")->with("kTypes");
             })
-            ->where('article_nr', 'BO742825')
+            ->where('article_nr', 'N2011888')
             ->get();
 
         return $parts;
