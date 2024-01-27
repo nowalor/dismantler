@@ -51,7 +51,6 @@ class CreateXmlCommand extends Command
             ->with("germanDismantlers", function ($q) {
                 $q->whereHas("kTypes")->with("kTypes");
             })
-            ->take(1)
             ->where('article_nr', 'BO742825')
             ->get();
 
