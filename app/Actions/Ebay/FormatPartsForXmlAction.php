@@ -60,6 +60,9 @@ class FormatPartsForXmlAction
                     'channelDetails' => [
                         'channelID' => 'EBAY_DE',
                         'category' => '33615', // Engines
+                        'paymentPolicyName' => 'eBay Managed Payments (341130335023)',
+                        'returnPolicyName' => '30 days returns. Buyer pays return shipping',
+                        'shippingPolicyName' => 'Free Shipping',
                         // Add other distribution details
                         'pricingDetails' => [
                             'listPrice' => $part->getNewPriceAttribute(),
