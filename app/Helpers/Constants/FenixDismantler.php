@@ -40,6 +40,11 @@ class FenixDismantler
                 'code' => 'S',
                 'email' => 'info@kungsarabildemo.se',
             ],
+            'GB' => [
+              'full_name' => 'Gåresta',
+              'code' => 'GB',
+              'email' => 'info.lkp@bildelslager.se',
+            ],
         ];
 
 }

@@ -124,3 +124,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
 // Stripe webhooks
 Route::stripeWebhooks('marcus-webhook-test');
+
+Route::get('preview', function() {
+    $dismantleId = '123';
+    $fenixId = '123';
+
+    return view('emails.reservation', compact('dismantleId', 'fenixId'));
+});

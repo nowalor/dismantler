@@ -29,8 +29,6 @@ class ReservationMail extends Mailable
     )
     {
         $this->dismantleCompany = FenixDismantler::DISMANTLERS[$this->dismantleCompanyCode];
-
-        logger($this->dismantleCompany);
     }
 
     /**
