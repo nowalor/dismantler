@@ -29,7 +29,7 @@ class FenixResolveCarPartImagesCommand extends Command
             //            ->with(['carPartImages' => function ($query) {
             //                $query->whereNull('image_name_blank_logo');
             //            }])
-            // ->where('dismantle_company_name', 'N')
+             ->whereIn('dismantle_company_name', ['LI', 'D'])
             ->whereHas("carPartImages", function($q) {
                 $q->whereNull('image_name');
             })
