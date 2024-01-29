@@ -33,6 +33,7 @@ class ExportPartsAsCsvCommand extends Command
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
+            ->whereIn('sbr_part_code', ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"])
             ->where('is_live', false)
             ->where(function ($query) {
                 $query
