@@ -32,15 +32,15 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
         $this->authenticate();
 
-//        foreach ($parts as $part) {
-//            $isSold = $this->isPartSold(
-//                partId: $part['original_id'],
-//            );
-//
-//            if ($isSold) {
-//                $this->soldParts[] = $part;
-//            }
-//        }
+        foreach ($parts as $part) {
+            $isSold = $this->isPartSold(
+                partId: $part['original_id'],
+            );
+
+            if ($isSold) {
+                $this->soldParts[] = $part;
+            }
+        }
 
         $this->soldParts[] = NewCarPart::first();
 
