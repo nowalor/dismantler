@@ -3,9 +3,7 @@
 namespace App\Mail;
 
 use App\Helpers\Constants\FenixDismantler;
-use App\Models\NewCarPart;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -25,7 +23,6 @@ class ReservationMail extends Mailable
     public function __construct(
         private string $dismantleCompanyCode,
         private string $dismantleId,
-        private string $fenixId,
     )
     {
         $this->dismantleCompany = FenixDismantler::DISMANTLERS[$this->dismantleCompanyCode];
@@ -55,7 +52,6 @@ class ReservationMail extends Mailable
             view: 'emails.reservation',
             with: [
                 'dismantleId' => $this->dismantleId,
-                'fenixId'  => $this->fenixId
             ],
         );
     }
