@@ -14,6 +14,10 @@ class CreateDeleteXmlAction
         );
 
         foreach($parts as $part) {
+            if(!$part->is_live_on_ebay) {
+                continue;
+            }
+
             $delete = $xml->addChild('delete');
 
             $delete->addChild('SKU', $part['article_nr']);
@@ -21,7 +25,8 @@ class CreateDeleteXmlAction
         }
 
         $xml->asXML($path);
-        return $path;
+
+        return $fileName;
     }
 
     private function fileName(): string
