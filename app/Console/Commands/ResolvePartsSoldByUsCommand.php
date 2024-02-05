@@ -12,11 +12,13 @@ namespace App\Console\Commands;
 
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Helpers\Constants\SellerPlatform;
+use App\Mail\ReservationMail;
 use App\Models\NewCarPart;
 use App\Models\Reservation;
 use App\Services\FenixApiService;
 use App\Services\SlackNotificationService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use SimpleXMLElement;
 
@@ -25,6 +27,7 @@ use SimpleXMLElement;
  * This was all written when the only sales platform was autoteile
  * now it should also work for ebay
  */
+
 class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 {
     protected $signature = 'parts-we-sold:resolve';
@@ -44,7 +47,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
     {
         $parts = $this->getSoldParts();
 
-        if(count($parts)) {
+        if (count($parts)) {
             $this->handleSoldParts($parts);
         }
 
@@ -53,49 +56,9 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     /*
      * Go through all the sold parts
-     * Reserve them in the data provider
+     * Let the dismantler know via email
      * Update the part in the database
      */
-    public function handleSoldParts(array $parts)
-    {
-        foreach($parts as $part) {
-            $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
-
-            // Return if part sold_at is not null
-            if($dbPart->sold_at) {
-                continue;
-            }
-
-            if($dbPart->dismantle_company_name === 'BO') {
-                $part->is_live = false;
-                $part->sold_at = now();
-                $part->sold_on_platform = SellerPlatform::AUTOTEILE_MARKT;
-
-                $part->save();
-
-                $this->notificationService->notifyOrderSuccess(
-                    partData: $part,
-                    reservationId: null,
-                    reservationUuid: null,
-                );
-
-                continue;
-            }
-
-            $reservation = $this->fenixApiService->createReservation(
-                $dbPart,
-                SellerPlatform::AUTOTEILE_MARKT
-            );
-
-            if($reservation instanceof Reservation) {
-                $this->notificationService->notifyOrderSuccess(
-                    partData: $part,
-                    reservationId: $reservation->reservation_id,
-                    reservationUuid: $reservation->uuid,
-                );
-            }
-        }
-    }
 
     private function getSoldParts(): array
     {
@@ -111,12 +74,12 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
         $parts = [];
 
-        foreach($xmlFiles as $xmlFile) {
+        foreach ($xmlFiles as $xmlFile) {
             $file = Storage::disk('ftp')->get($xmlFile);
 
             $xml = simplexml_load_string($file);
 
-            if(!$xml) {
+            if (!$xml) {
                 continue;
             }
 
@@ -147,7 +110,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     private function extractInformation(SimpleXMLElement $item): array
     {
-        $data =  [
+        $data = [
             'firstname' => (string)$item->firstname,
             'surname' => (string)$item->surname,
             'street' => (string)$item->street,
@@ -157,10 +120,55 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
             'phone' => (string)$item->phone,
         ];
 
-        if($item->email) {
+        if ($item->email) {
             $data['email'] = (string)$item->email;
         }
 
         return $data;
+    }
+
+    public function handleSoldParts(array $parts)
+    {
+        foreach ($parts as $part) {
+            $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
+
+            // Return if part sold_at is not null
+            if ($dbPart->sold_at) {
+                continue;
+            }
+
+            Mail::send(
+                new ReservationMail(
+                    dismantleCompanyCode: $dbPart->dismantle_company_name,
+                    dismantleId: $dbPart->article_nr_at_dismantler
+                )
+            );
+
+            $part->is_live = false;
+            $part->sold_at = now();
+            $part->sold_on_platform = SellerPlatform::AUTOTEILE_MARKT;
+
+            $part->save();
+
+            $this->notificationService->notifyOrderSuccess(
+                partData: $part,
+                reservationId: null,
+                reservationUuid: null,
+            );
+
+// Currently we don't reserve right away since it's to hard for the dismantlers to remove the reservations sometimes
+//            $reservation = $this->fenixApiService->createReservation(
+//                $dbPart,
+//                SellerPlatform::AUTOTEILE_MARKT
+//            );
+
+//            if($reservation instanceof Reservation) {
+//                $this->notificationService->notifyOrderSuccess(
+//                    partData: $part,
+//                    reservationId: $reservation->reservation_id,
+//                    reservationUuid: $reservation->uuid,
+//                );
+//            }
+        }
     }
 }
