@@ -10,6 +10,9 @@ class FenixDismantler
 {
     const DISMANTLERS =
         [
+            'NIK' => [
+              'email' => 'nikulasoskarsson@gmail.com',
+            ],
             'A' => [
                 'full_name' => 'Ådalens Bildemontering AB',
                 'email' => 'jorgen@adalens.se',
