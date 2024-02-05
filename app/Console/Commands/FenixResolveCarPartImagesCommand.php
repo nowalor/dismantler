@@ -29,12 +29,12 @@ class FenixResolveCarPartImagesCommand extends Command
             //            ->with(['carPartImages' => function ($query) {
             //                $query->whereNull('image_name_blank_logo');
             //            }])
-             ->whereIn('dismantle_company_name', ['LI', 'D'])
+//             ->whereIn('dismantle_company_name', ['LI', 'D'])
             ->whereHas("carPartImages", function($q) {
                 $q->whereNull('image_name');
             })
             ->with("carPartImages")
-//            ->whereIn('sbr_part_code', ["7475", "7645", "3220", "7468", "7082"])
+            ->whereIn('sbr_part_code', ["7475", "7645", "3220", "7468", "7082"])
             ->take(5000)
 //            ->where("car_part_type_id", 1)
 //            ->where('dismantle_company_name', 'GB')

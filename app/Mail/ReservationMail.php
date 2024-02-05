@@ -39,7 +39,7 @@ class ReservationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            to: 'nikulasoskarsson@gmail.com',
+            to: $this->dismantleCompany['email'],
             subject: 'New part reservation',
         );
     }
