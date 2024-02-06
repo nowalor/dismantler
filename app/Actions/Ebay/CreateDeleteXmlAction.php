@@ -14,7 +14,7 @@ class CreateDeleteXmlAction
         );
 
         foreach($parts as $part) {
-            if(!$part->is_live_on_ebay) {
+            if(!$part['is_live_on_ebay']) {
                 continue;
             }
 

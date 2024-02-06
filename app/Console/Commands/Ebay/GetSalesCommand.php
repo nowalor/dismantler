@@ -15,8 +15,7 @@ class GetSalesCommand extends Command
     {
         $disk = Storage::disk('ebay_sftp');
 
-        $file = $disk->get('/store/order/output/order-latest');
-        dd($file);
+//        $file = $disk->get('/store/order/output/order-latest');
 
         $file = file_get_contents(base_path('public/poc/order-latest.xml'));
 
