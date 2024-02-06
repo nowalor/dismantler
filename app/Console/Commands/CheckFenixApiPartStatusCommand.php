@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Actions\Ebay\CreateDeleteXmlAction;
+use App\Actions\Ebay\FtpFileUploadAction;
 use App\Console\Commands\Base\FenixApiBaseCommand;
 use App\Models\NewCarPart;
 use Illuminate\Console\Command;
@@ -41,6 +42,8 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             }
         }
 
+        $this->soldParts[] = NewCarPart::first();
+
         if (!empty($this->soldParts)) {
             $this->handleSoldParts();
         }
@@ -56,6 +59,11 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
         // This is all for ebay
         $xmlName = (new CreateDeleteXmlAction())->execute($this->soldParts);
+        (new FtpFileUploadAction())->execute(
+            to: "store/deleteInventory",
+            location: base_path("public/exports/$xmlName.xml"),
+            fileName: "$xmlName.xml",
+        );
 
         foreach ($this->soldParts as $part) {
             // Temporary code, TODO remove later
