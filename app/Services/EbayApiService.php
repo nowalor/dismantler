@@ -55,7 +55,7 @@ class EbayApiService
 
         (new FtpFileUploadAction())->execute(
             '/store/product',
-            base_path('public/exports/ebay-import.xml'),
+            base_path("public/exports/$xmlName"),
             $xmlName,
         );
     }
