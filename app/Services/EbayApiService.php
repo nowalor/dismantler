@@ -47,26 +47,16 @@ class EbayApiService
         );
     }
 
-    public function addPartsToXml(Collection $parts): void
+    public function handlePartUpload(Collection $parts): void
     {
         $formattedParts = (new FormatPartsForXmlAction())->execute($parts);
 
-        $data = [
-            'productRequest' => $formattedParts,
-        ];
+        $xmlName = (new AddProductToXmlFileAction())->execute($formattedParts);
 
-        foreach($data as $product) {
-            (new AddProductToXmlFileAction())->execute($product);
-        }
-    }
-
-    public function uploadParts(): void
-    {
-        logger('EbayApiService.uploadParts');
-        // Can test it when we put the shop in vacation mode
-//        (new FtpFileUploadAction())->execute(
-//            '/store/product',
-//            base_path('public/exports/ebay-import.xml')
-//        );
+        (new FtpFileUploadAction())->execute(
+            '/store/product',
+            base_path('public/exports/ebay-import.xml'),
+            $xmlName,
+        );
     }
 }

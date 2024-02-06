@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CreateXmlCommand extends Command
 {
-    protected $signature = 'ebay:create-xml';
+    protected $signature = 'ebay:upload';
 
     private EbayApiService $service;
 
@@ -23,14 +23,12 @@ class CreateXmlCommand extends Command
     public function handle(): string
     {
         $parts = $this->parts();
-        logger("in CreateXmlCommand.handle");
-        logger($parts);
 
         if (count($parts) === 0) {
             return 0;
         }
 
-        $this->service->addPartsToXml($parts);
+        $this->service->handlePartUpload($parts);
 
         return Command::SUCCESS;
     }
@@ -38,7 +36,7 @@ class CreateXmlCommand extends Command
     private function parts(): Collection
     {
         $parts = NewCarPart::with("carPartImages")
-//            ->where("sbr_car_name", "like", "%audi%")
+            ->where("sbr_car_name", "like", "%audi%")
             ->where('is_live_on_ebay', false)
             ->where('car_part_type_id', 1)
             ->where(function ($q) {
@@ -52,7 +50,7 @@ class CreateXmlCommand extends Command
             ->with("germanDismantlers", function ($q) {
                 $q->whereHas("kTypes")->with("kTypes");
             })
-            ->take(10)
+            ->take(25)
             ->get();
 
         return $parts;
