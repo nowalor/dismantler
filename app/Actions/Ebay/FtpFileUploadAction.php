@@ -15,11 +15,12 @@ class FtpFileUploadAction
 
     public function execute(
         string $to,
-        string $file
+        string $location,
+        string $fileName,
     ): mixed
     {
         try {
-            $response = $this->disk->put("$to/delete-inventory.xml",  file_get_contents($file));
+            $response = $this->disk->put("$to/$fileName",  file_get_contents($location));
 
             if(!$response) {
                 return 'no response';

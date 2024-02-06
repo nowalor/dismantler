@@ -212,7 +212,10 @@ class NewCarPart extends Model
         /*
          * Calc divider
          */
-        if ($priceSek <= 2000) {
+        if($priceSek <= 1800) {
+            $priceSek += 500;
+            $divider = 7.5;
+        } else if ($priceSek <= 2000) {
             $divider = 7;
         }
         else if($priceSek <= 3000) {
