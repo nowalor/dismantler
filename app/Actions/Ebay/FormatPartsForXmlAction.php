@@ -65,8 +65,8 @@ class FormatPartsForXmlAction
                         'shippingPolicyName' => 'Kostenloser Versand',
                         // Add other distribution details
                         'pricingDetails' => [
-                            'listPrice' => $part->getNewPriceAttribute(),
-                            'strikeThroughPrice' => $part->getNewPriceAttribute(),
+                            'listPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
+                            'strikeThroughPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
 //                            'minimumAdvertisedPrice' => '18.18465',
 //                            'minimumAdvertisedPriceHandling' => '',
                         ],
