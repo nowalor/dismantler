@@ -3,13 +3,14 @@
 namespace App\Actions\Ebay;
 
 use App\Models\NewCarPart;
-use Illuminate\Support\Facades\Storage;
 
 class AddProductToXmlFileAction
 {
-    public function execute(array $data): void
+    public function execute(array $data): string
     {
-        $path = base_path('public/exports/ebay-import-' . now() . '.xml');
+        $xmlName = 'ebay-import-' . now() . '.xml';
+
+        $path = base_path("public/exports/$xmlName");
 
         $xml = new \SimpleXMLElement(
             '<?xml version="1.0" encoding="UTF-8"?><productRequest></productRequest>'
@@ -98,6 +99,8 @@ class AddProductToXmlFileAction
 
         // Save the XML to a file
         $xml->asXML($path);
+
+        return $xmlName;
     }
 
     private function markAsLive(array $value): void
