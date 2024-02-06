@@ -37,6 +37,7 @@ class ReservationMail extends Mailable
     {
         return new Envelope(
             to: $this->dismantleCompany['email'],
+            cc: config('mail.name'),
             subject: 'New part reservation',
         );
     }
