@@ -151,7 +151,7 @@ class AutoteileMarkDocService
         $formattedImages = [];
 
         if($images->count() === 0) {
-           $formattedImages["img_0"] = 'http://46.101.206.99/storage/img/car-part/placeholder.jpg';
+           $formattedImages["img_0"] = 'https://currus-connect.com/storage/img/car-part/placeholder.jpg';
         }
 
         foreach ($images as $index => $image) {
