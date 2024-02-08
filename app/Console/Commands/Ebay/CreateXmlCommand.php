@@ -68,6 +68,7 @@ class CreateXmlCommand extends Command
             ->take(5000)
             ->get();
 
+        
         return $parts;
     }
 }
