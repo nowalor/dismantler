@@ -36,9 +36,15 @@ class CreateXmlCommand extends Command
     private function parts(): Collection
     {
         $parts = NewCarPart::with("carPartImages")
-//            ->where("sbr_car_name", "like", "%audi%")
+//            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
+            ->where('car_part_type_id', 1) // Currently only getting engines
+            // Very important conditions so we don't upload products with data issues
             ->where('is_live_on_ebay', false)
-            ->where('car_part_type_id', 1)
+            ->where('engine_code', '!=', '')
+            ->whereNull('sold_at')
+            ->whereNotNull('engine_code')
+            ->whereNotNull('article_nr')
+            ->whereNotNull('price_sek')
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel');
                 $q->orWhere('fuel', 'Bensin');
@@ -49,6 +55,15 @@ class CreateXmlCommand extends Command
             ->whereHas("germanDismantlers.kTypes")
             ->with("germanDismantlers", function ($q) {
                 $q->whereHas("kTypes")->with("kTypes");
+            })
+            ->where(function ($query) {
+                $query
+                    ->where('dismantle_company_name', '!=', 'F')
+                    ->orWhere(function ($subQuery) {
+                        $subQuery
+                            ->where('dismantle_company_name', 'F')
+                            ->whereIn('car_part_type_id', [6, 7]);
+                    });
             })
             ->take(25)
             ->get();
