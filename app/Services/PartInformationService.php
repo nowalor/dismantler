@@ -30,7 +30,7 @@ class PartInformationService
             $additionalInformation = $carPart->engine_code;
         }
 
-        $name .= $additionalInformation . ' ' . $carPart->original_number ;
+        $name .= ' ' . $additionalInformation . ' ' . $carPart->original_number ;
 
         return preg_replace('/\s+/', ' ', $name);
     }
