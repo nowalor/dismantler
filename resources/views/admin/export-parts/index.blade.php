@@ -43,7 +43,6 @@
                             <p><span class="fw-bold">Original number: </span> {{ $carPart->original_number }}</p>
                             <p><span class="fw-bold">Price(SEK): </span> {{ $carPart->price_sek }}</p>
 {{--                            <p><span class="fw-bold">[OLD]Price(EUR): </span> €{{ $carPart->calculated_price }}</p>--}}
-                            <p><span class="fw-bold">[OLD]Price(EUR): </span> €{{ $carPart->old_price }}</p>
                             <p><span class="fw-bold">Total(EUR): </span> €{{ $carPart->new_price + $carPart->shipment }}</p>
                             <p><span class="fw-bold">[NEW]Price(EUR): </span> €{{ $carPart->new_price }}</p>
                             <p><span class="fw-bold">[B2B]Price(EUR): </span> €{{ $carPart->business_price }}</p>
