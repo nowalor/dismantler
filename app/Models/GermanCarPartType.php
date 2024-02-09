@@ -22,7 +22,7 @@ class GermanCarPartType extends Model
     public const GERMAN_CAR_PART_TYPE_KATALYSATOR = 'Katalysator';
     public const GERMAN_CAR_PART_TYPE_DIFFERENTIAL = 'Differential';
 
-    public const GERMAN_CAR_PART_TYPE_INSTRUMENTE_TACHOMETER = 'Instrumente_Tachometer';
+    public const GERMAN_CAR_PART_TYPE_INSTRUMENTE_TACHOMETER = 'Instrumente Tachometer';
     public const GERMAN_CAR_PART_TYPE_ABS_BREMSAGGREGAT= 'ABS Bremsaggregat';
     public const GERMAN_CAR_PART_TYPE_ELEKTRIK_STEUEGERAT_AUTOMATIKGETR = 'Elektrik Steuergerät Automatikgetr';
     public const GERMAN_CAR_PART_TYPE_LENKUNG_SERVOLENKUNG_LENKETRIE = 'Lenkung Servolenkung Lenkgetrie';
@@ -50,8 +50,6 @@ class GermanCarPartType extends Model
         self::GERMAN_CAR_PART_TYPE_ELEKTRIK_STEUEGERAT_AUTOMATIKGETR,
         self::GERMAN_CAR_PART_TYPE_LENKUNG_SERVOLENKUNG_LENKETRIE,
     ];
-
-
 
     protected $fillable = [
         'name',
