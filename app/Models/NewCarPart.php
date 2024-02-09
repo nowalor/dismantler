@@ -120,32 +120,21 @@ class NewCarPart extends Model
     {
         $priceSek = $this->price_sek;
 
-        if(!$priceSek) {
+        if (!$priceSek) {
             return $priceSek;
         }
-
         /*
          * Calc divider
          */
-        if($priceSek <= 1800) {
-            $priceSek += 500;
-            $divider = 7.5;
-        } else if ($priceSek <= 2000) {
+        if ($priceSek <= 3000) {
             $divider = 7;
-        }
-        else if($priceSek <= 3000) {
+        } else if ($priceSek <= 10000) {
             $divider = 8;
-        } else if($priceSek <= 5000) {
-            $divider = 9;
-        } else if($priceSek <= 10000) {
-            $divider = 10;
-        } else if($priceSek <= 20000) {
-            $divider = 10;
         } else {
-            $divider = 11;
+            $divider = 9;
         }
 
-        return round(((($priceSek / $divider))  * 1.19) * 1.1);
+        return round(((($priceSek / $divider)) * 1.19));
     }
 
     public function getShipmentAttribute(): int
@@ -187,8 +176,8 @@ class NewCarPart extends Model
         /*
          * Longer delivery
          */
-        if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A' || $dismantleCompanyName === 'AL') {
-            if  (in_array(
+        if ($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A' || $dismantleCompanyName === 'AL') {
+            if (in_array(
                 $partType,
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
                 1,
