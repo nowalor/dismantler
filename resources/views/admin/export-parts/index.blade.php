@@ -32,7 +32,7 @@
 
             <form action="{{ route('admin.export-parts.index') }}" class="pt-4">
                 <div class="mb-2">
-                    <label for="part_type" class="form-label">Engine type</label>
+                    <label for="part_type" class="form-label">Part type</label>
                     <select id="part_type" name="part_type" class="form-select">
                         <option value="all">All</option>
 
