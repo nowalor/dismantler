@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarPartType;
 use App\Models\NewCarPart;
 use Exception;
 use Illuminate\Http\Request;
@@ -60,6 +61,11 @@ class AdminExportPartsController extends Controller
             });
         }
 
+        // Handle engine type filter
+        if($request->has('part_type')) {
+            $carPartsQuery = $carPartsQuery->where('car_part_type_id', $request->get('part_type'));
+        }
+
         $paginatedCarParts = $carPartsQuery->paginate(100)->withQueryString();
 
         // TODO get from DB
@@ -106,9 +112,12 @@ class AdminExportPartsController extends Controller
             ]
         );
 
+        $partTypes = CarPartType::select(['id', 'name'])->get();
+
         return view('admin.export-parts.index', compact(
             'carParts',
             'uniqueDismantleCompanyCodes',
+            'partTypes',
         ));
     }
 

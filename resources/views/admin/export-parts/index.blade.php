@@ -29,6 +29,20 @@
                 </div>
                 <button class="btn btn-primary w-100 btn-large">Search</button>
             </form>
+
+            <form action="{{ route('admin.export-parts.index') }}" class="pt-4">
+                <div class="mb-2">
+                    <label for="part_type" class="form-label">Engine type</label>
+                    <select id="part_type" name="part_type" class="form-select">
+                        <option value="all">All</option>
+
+                        @foreach($partTypes as $type)
+                            <option @if (request()->get('part_type') === (string)$type->id) selected @endif value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <button class="btn btn-primary w-100 btn-large">Search</button>
+            </form>
         </div>
         <div class="d-flex flex-wrap">
             @foreach($carParts as $carPart)
