@@ -49,7 +49,7 @@
                 <div class="col-6 p-4">
                     <div class="card">
                         <div class="card-header">
-                            {{ $carPart->name }}
+                            {{ $carPart->new_name ?? $carPart->name }}
                         </div>
                         <div class="card-body">
                             <p><span class="fw-bold">#: </span> {{ $carPart->id}}</p>
