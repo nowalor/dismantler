@@ -173,6 +173,14 @@ class NewCarPart extends Model
             $shipment = 70;
         }
 
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
+            1,
+        )) {
+            $shipment = 50;
+        }
+
         /*
          * Longer delivery
          */
@@ -183,7 +191,14 @@ class NewCarPart extends Model
                 1,
             )) {
                 $shipment += 150;
-            } else {
+            } else if (in_array(
+                $partType,
+                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
+                1,
+            )) {
+                $shipment += 50;
+            }
+            else {
                 $shipment += 100;
             }
         }
