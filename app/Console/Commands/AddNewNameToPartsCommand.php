@@ -34,6 +34,7 @@ class AddNewNameToPartsCommand extends Command
     private function parts(): Collection
     {
         return NewCarPart::where('car_part_type_id', 1)
+            ->whereNotNull('sbr_car_name')
             ->get();
     }
 }
