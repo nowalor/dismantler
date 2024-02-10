@@ -195,7 +195,7 @@ class FenixApiService
               ],
           ],
         ];
-        
+
         $options = $this->getAuthHeaders();
         $options['json'] = $payload;
 
