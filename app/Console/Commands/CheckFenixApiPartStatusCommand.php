@@ -65,12 +65,6 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         );
 
         foreach ($this->soldParts as $part) {
-            // Temporary code, TODO remove later
-            if($part['article_nr'] === 'S544246') {
-                logger('continuing the loop because article nr S544246');
-                continue;
-            }
-
             NewCarPart::where('id', $part['id'])->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);
         }
     }
