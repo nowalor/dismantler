@@ -91,7 +91,6 @@ abstract class FenixApiBaseCommand extends Command
 
         // Keep incrementing take by 500 until we have no parts left
         for ($skip = 0; $skip < $count + $increment; $skip += $increment) {
-            logger("Skip: $skip");
             $payload = [
                 "Take" => 500,
                 "Skip" => $skip,
@@ -155,7 +154,6 @@ abstract class FenixApiBaseCommand extends Command
         $options['json'] = $payload;
 
         $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
-        logger($response->getStatusCode());
 
         $data = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
 

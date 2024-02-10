@@ -64,8 +64,6 @@ class SlackOrderSuccessNotification extends Notification
 
     private function message(): string
     {
-        logger($this->partData);
-
         return "
     🔥 New Reservation 🔥\n
     *Article Number:* {$this->partData['article_nr']}\n
