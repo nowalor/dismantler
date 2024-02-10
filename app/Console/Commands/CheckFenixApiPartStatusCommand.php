@@ -19,14 +19,13 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
 
     public function handle(): int
     {
-        logger('CheckFenixApiPartStatusCommand ran on schedule');
-
         $parts = NewCarPart::select([
             'id',
             'original_id',
             'article_nr',
             'is_live'
         ])->where('is_live', true)
+            ->whereNull('sold_at')
             ->get()
             ->toArray();
 

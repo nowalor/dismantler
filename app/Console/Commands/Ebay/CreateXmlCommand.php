@@ -35,14 +35,19 @@ class CreateXmlCommand extends Command
 
     private function parts(): Collection
     {
+
+        // Example query we can make to try to get a higher quality of parts
+//        NewCarPart::where('car_part_type_id', 1)->where('model_year', '>', 2000)->whereHas('carPartImages')->whereHas('germanDismantlers')->count();
+
         $parts = NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
             ->where('car_part_type_id', 1) // Currently only getting engines
             // Very important conditions so we don't upload products with data issues
             ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
-            ->whereNull('sold_at')
             ->whereNotNull('engine_code')
+            ->where('model_year', '>', 2009)
+            ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
             ->where(function ($q) {
