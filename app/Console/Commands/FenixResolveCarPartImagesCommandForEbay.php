@@ -21,21 +21,21 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
         $replacementImage = Image::make($replacementImagePath);
 
         $parts = NewCarPart::select(["id", "dismantle_company_name"])
-                        ->whereHas('carPartImages', function ($query) {
-                            $query->whereNull('image_name_blank_logo');
-                        })
-                        ->with(['carPartImages' => function ($query) {
-                            $query->whereNull('image_name_blank_logo');
-                        }])
-             ->where('dismantle_company_name', 'GB')
+//                        ->whereHas('carPartImages', function ($query) {
+//                            $query->whereNull('image_name_blank_logo');
+//                        })
+//                        ->with(['carPartImages' => function ($query) {
+//                            $query->whereNull('image_name_blank_logo');
+//                        }])
             ->whereHas("carPartImages")
             ->with("carPartImages")
+            ->where('id', 1)
             ->get();
 
-        foreach ($parts as $index => $part) {
+        foreach ($parts as $part) {
             $dismantleCompany = $part->dismantle_company_name;
 
-            foreach ($part->carPartImages as $image) {
+            foreach ($part->carPartImages as $index => $image) {
                 $imageUrl = $image->original_url;
 
                 $response = (new ReplaceDismantlerLogoAction())
