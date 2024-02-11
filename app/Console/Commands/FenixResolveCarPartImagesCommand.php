@@ -23,21 +23,20 @@ class FenixResolveCarPartImagesCommand extends Command
         $replacementImage = Image::make($replacementImagePath);
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
-            //            ->whereHas('carPartImages', function ($query) {
-            //                $query->whereNull('image_name_blank_logo');
-            //            })
-            //            ->with(['carPartImages' => function ($query) {
-            //                $query->whereNull('image_name_blank_logo');
-            //            }])
-//             ->whereIn('dismantle_company_name', ['LI', 'D'])
-            ->whereHas("carPartImages", function($q) {
-                $q->whereNull('image_name');
+            ->whereHas('carPartImages', function ($query) {
+                $query->whereNull('image_name');
             })
-            ->with("carPartImages")
-            ->whereIn('sbr_part_code', ["7475", "7645", "3220", "7468", "7082"])
-            ->take(5000)
-//            ->where("car_part_type_id", 1)
-//            ->where('dismantle_company_name', 'GB')
+            ->with(['carPartImages' => function ($query) {
+                $query->whereNull('image_name');
+            }])
+            ->whereNotNull('engine_code')
+            ->where('engine_code', '!=', '')
+            ->has('germanDismantlers')
+            ->where('price_sek', '>', 0)
+            ->whereNotNull('price_sek')
+            ->where('price_sek', '!=', '')
+            ->whereNull('sold_at')
+            ->take(300)
             ->get();
 
         foreach ($carParts as $carPart) {
@@ -65,7 +64,7 @@ class FenixResolveCarPartImagesCommand extends Command
 
                 // Define the output path and name
                 try {
-                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
+//                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
 
                     $extension = pathinfo($image->original_url, PATHINFO_EXTENSION);
 
@@ -73,7 +72,14 @@ class FenixResolveCarPartImagesCommand extends Command
 
                     $outputName = 'image' . $carImageNumber . '.' . $extension;
 
+
+                    $stream = $processedImage->stream();
+                    $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
+                    file_put_contents($tempFilePath, $stream);
+
                     Storage::disk('public')->put("img/car-part/{$image->new_car_part_id}" . '/' . $outputName, $processedImage->stream());
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/old-logo", $tempFilePath, $outputName, 'public');
+
 
                     $image->image_name = $outputName;
                     $image->priority = $carImageNumber;
