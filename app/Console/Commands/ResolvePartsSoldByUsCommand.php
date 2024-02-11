@@ -45,7 +45,6 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     public function handle(): int
     {
-        logger('command runs fine');
         $parts = $this->getSoldParts();
 
         if (count($parts)) {
