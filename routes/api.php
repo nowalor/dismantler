@@ -136,7 +136,14 @@ Route::get('car-models', function () {
 
 Route::get('testing123', function() {
     return NewCarPart::distinct('sbr_car_code')->count();
+});
 
+Route::post('do-upload', function (Request $request) {
+   $file = $request->file('file');
+
+    $path = Storage::disk('do')->putFileAs('test-folder', $file, 'test23.png', 'public');
+
+    return Storage::disk('do')->url($path);
 });
 
 

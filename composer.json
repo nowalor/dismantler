@@ -17,6 +17,7 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/slack-notification-channel": "^3.0",
         "laravel/tinker": "^2.7",
+        "league/flysystem-aws-s3-v3": "^3.0",
         "league/flysystem-ftp": "^3.0",
         "league/flysystem-sftp-v3": "^3.0",
         "livewire/livewire": "^2.12",

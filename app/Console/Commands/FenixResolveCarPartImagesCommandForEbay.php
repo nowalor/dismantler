@@ -27,7 +27,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
                         ->with(['carPartImages' => function ($query) {
                             $query->whereNull('image_name_blank_logo');
                         }])
-            ->take(2000)
+            ->take(500)
             ->get();
 
         foreach ($parts as $part) {
@@ -36,15 +36,17 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
             foreach ($part->carPartImages as $index => $image) {
                 $imageUrl = $image->original_url;
 
+                $position = $part->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
+
                 $response = (new ReplaceDismantlerLogoAction())
                     ->handle(
                         imageUrl: $imageUrl,
                         replacementImage: $replacementImage,
                         scalingHeight: $this->getScalingHeight($dismantleCompany),
-                        position: 'bottom-left',
+                        position: $position,
                     );
 
-                if(!$response) {
+                if (!$response) {
                     continue;
                 }
 
@@ -53,7 +55,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
                 // Define the output path and name
                 try {
-                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
+//                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
 
                     $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
 
@@ -61,7 +63,12 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
                     $outputName = 'image-blank' . $carImageNumber . '.' . $extension;
 
-                    Storage::disk('public')->put("img/car-part/{$image->new_car_part_id}" . '/' . $outputName, $processedImage->stream());
+
+                    $stream = $processedImage->stream();
+                    $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
+                    file_put_contents($tempFilePath, $stream);
+
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/logo-blank", $tempFilePath, $outputName, 'public');
 
                     $image->image_name_blank_logo = $outputName;
                     $image->priority = $carImageNumber;
