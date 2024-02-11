@@ -27,7 +27,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
                         ->with(['carPartImages' => function ($query) {
                             $query->whereNull('image_name_blank_logo');
                         }])
-            ->take(500)
+            ->take(200)
             ->get();
 
         foreach ($parts as $part) {
