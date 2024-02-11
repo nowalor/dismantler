@@ -35,6 +35,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
             ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
             ->take(300)
+            
             ->get();
 
         foreach ($parts as $part) {
