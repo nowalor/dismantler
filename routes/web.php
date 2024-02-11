@@ -20,6 +20,8 @@ use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 
 
+Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
+
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
 

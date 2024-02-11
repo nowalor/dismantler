@@ -72,14 +72,11 @@ class FenixResolveCarPartImagesCommand extends Command
 
                     $outputName = 'image' . $carImageNumber . '.' . $extension;
 
-
                     $stream = $processedImage->stream();
                     $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
                     file_put_contents($tempFilePath, $stream);
 
-                    Storage::disk('public')->put("img/car-part/{$image->new_car_part_id}" . '/' . $outputName, $processedImage->stream());
                     Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/old-logo", $tempFilePath, $outputName, 'public');
-
 
                     $image->image_name = $outputName;
                     $image->priority = $carImageNumber;
