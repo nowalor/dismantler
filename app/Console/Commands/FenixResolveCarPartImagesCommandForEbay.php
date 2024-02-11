@@ -35,8 +35,9 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
             ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
             ->take(300)
-            
             ->get();
+
+        logger('resolve images command ran');
 
         foreach ($parts as $part) {
             $dismantleCompany = $part->dismantle_company_name;
