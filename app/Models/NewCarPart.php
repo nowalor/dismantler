@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class NewCarPart extends Model
@@ -47,6 +48,8 @@ class NewCarPart extends Model
         'subgroup',
         'gearbox_nr',
         'brand_name',
+        'is_live_on_ebay',
+        'new_name',
     ];
 
     public function carPartType(): BelongsTo
@@ -114,118 +117,25 @@ class NewCarPart extends Model
         return round($this->my_kba->first()->engine_capacity_in_cm / 1000, 1) . ' ' . $this->engine_code;
     }
 
-    /*
-     * Keeping the old calculation in for comparison
-     * TODO: Remove this when we are sure the new calculation is correct
-     */
-    public function getOldPriceAttribute()
-    {
-        $partType = $this->carPartType->germanCarPartTypes->first()->name;
-        $priceSek = $this->price_sek;
-        $dismantleCompanyName = $this->dismantle_company_name;
-
-        if(!$priceSek) {
-            return $priceSek;
-        }
-
-        $shipment = null;
-
-        // Motor
-        if (in_array(
-            $partType,
-            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
-            1,
-        )) {
-            $shipment = 200;
-
-        }
-
-        // Verteilergetriebes, Automatikgetriebe, Schaltgetriebe
-        if (in_array(
-            $partType,
-            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
-            1,
-        )) {
-            $shipment = 100;
-
-        }
-
-        // Partikelfilter, Katalysator, Differential
-        if (in_array(
-            $partType,
-            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE,
-            1,
-        )) {
-            $shipment = 70;
-        }
-
-        /*
-         * Longer delivery
-         */
-        if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A') {
-            if  (in_array(
-                $partType,
-                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
-                1,
-            )) {
-                $shipment += 150;
-            } else {
-                $shipment += 100;
-            }
-        }
-
-        /*
-         * Calc divider
-         */
-        if ($priceSek <= 2000) {
-            $divider = 7;
-        }
-        else if($priceSek <= 3000) {
-            $divider = 8;
-        } else if($priceSek <= 5000) {
-            $divider = 9;
-        } else if($priceSek <= 10000) {
-            $divider = 10;
-        } else if($priceSek <= 20000) {
-            $divider = 10;
-        } else {
-            $divider = 11;
-        }
-
-        if(!$shipment) {
-            return 'SHIPMENT MISSING!';
-        }
-
-        return round((($priceSek / $divider) + $shipment)  * 1.19);
-    }
-
     public function getNewPriceAttribute()
     {
         $priceSek = $this->price_sek;
 
-        if(!$priceSek) {
+        if (!$priceSek) {
             return $priceSek;
         }
-
         /*
          * Calc divider
          */
-        if ($priceSek <= 2000) {
+        if ($priceSek <= 3000) {
             $divider = 7;
-        }
-        else if($priceSek <= 3000) {
+        } else if ($priceSek <= 10000) {
             $divider = 8;
-        } else if($priceSek <= 5000) {
-            $divider = 9;
-        } else if($priceSek <= 10000) {
-            $divider = 10;
-        } else if($priceSek <= 20000) {
-            $divider = 10;
         } else {
-            $divider = 11;
+            $divider = 9;
         }
 
-        return round(((($priceSek / $divider))  * 1.19) * 1.1);
+        return round(((($priceSek / $divider)) * 1.19));
     }
 
     public function getShipmentAttribute(): int
@@ -264,17 +174,32 @@ class NewCarPart extends Model
             $shipment = 70;
         }
 
+        if (in_array(
+            $partType,
+            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
+            1,
+        )) {
+            $shipment = 50;
+        }
+
         /*
          * Longer delivery
          */
-        if($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A') {
-            if  (in_array(
+        if ($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A' || $dismantleCompanyName === 'AL') {
+            if (in_array(
                 $partType,
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
                 1,
             )) {
                 $shipment += 150;
-            } else {
+            } else if (in_array(
+                $partType,
+                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
+                1,
+            )) {
+                $shipment += 50;
+            }
+            else {
                 $shipment += 100;
             }
         }
@@ -297,5 +222,28 @@ class NewCarPart extends Model
 
         return $this->sbrCode->ditoNumbers->pluck('germanDismantlers')->unique()->flatten();
 
+    }
+
+    /*
+     * Experimental direct relation between a car part and KBA
+     */
+    public function germanDismantlers(): BelongsToMany
+    {
+        return $this->belongsToMany(GermanDismantler::class);
+    }
+
+    public function scopeWithKba($query)
+    {
+        return $query->with(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) {
+            $engineCode = $this->engine_code;
+            $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
+
+            $query->whereHas('engineTypes', function ($query) use ($engineCode, $escapedEngineCode) {
+                $query->where('name', 'like', "%$engineCode%")
+                    ->orWhere('escaped_name', 'like', "%$engineCode%")
+                    ->orWhere('name', 'like', "%$escapedEngineCode%")
+                    ->orWhere('escaped_name', 'like', "%$escapedEngineCode%");
+            });
+        }]);
     }
 }

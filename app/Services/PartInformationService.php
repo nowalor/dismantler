@@ -12,44 +12,53 @@ class PartInformationService
 
         $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
 
-        $name .= $germanCarPartName . ' ';
+        $name .= $germanCarPartName . ' ' . $carPart->mileage_km . 'km für ' . $this->getCarName($carPart);
 
-        if(in_array(
+        if (in_array(
             $carPart->car_part_type_id,
             [3, 4, 5],
             true)
         ) {
             $gearbox = $this->getGearbox($carPart);
 
-             if(isset($gearbox) && $gearbox !== '') {
-                 $additionalInformation = $gearbox;
-             } else {
-                 $additionalInformation = $carPart->engine_code;
-             }
+            if (isset($gearbox) && $gearbox !== '') {
+                $additionalInformation = $gearbox;
+            } else {
+                $additionalInformation = $carPart->engine_code;
+            }
         } else {
             $additionalInformation = $carPart->engine_code;
         }
 
-        $name .= $additionalInformation . ' ';
-
-        $name .= $carPart->sbr_car_name . ' ' . $carPart->original_number .  ' ' . $carPart->mileage_km . 'km';
+        $name .= ' ' . $additionalInformation . ' ' . $carPart->original_number ;
 
         return preg_replace('/\s+/', ' ', $name);
     }
 
-    public function getGearbox(NewCarPart $carPart): string | null
+    private function getCarName(NewCarPart $carPart): string
     {
-        if(
+        $dito = $carPart->sbrCode?->ditoNumbers()->first();
+
+        if(!$dito) {
+            return $carPart->sbr_car_name;
+        }
+
+        return $dito->producer . ' ' . $dito->brand;
+    }
+
+    public function getGearbox(NewCarPart $carPart): string|null
+    {
+        if (
             $carPart->subgroup &&
             ($carPart->subgroup !== null || $carPart->subgroup !== '')
         ) {
             return $carPart->subgroup;
         }
 
-        if(
+        if (
             $carPart->gearbox_nr &&
             ($carPart->gearbox_nr !== null || $carPart->gearbox_nr !== '')
-        ){
+        ) {
             return $carPart->gearbox_nr;
         }
 

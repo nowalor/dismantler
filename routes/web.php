@@ -20,6 +20,8 @@ use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 
 
+Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
+
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
 
@@ -61,8 +63,9 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 // Regular routes
 Route::resource('car-parts', CarPartController::class);
-Route::post('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
-Route::post('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
+Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
+Route::get('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
+Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -120,3 +123,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
 // Stripe webhooks
 Route::stripeWebhooks('marcus-webhook-test');
+
+Route::get('preview', function() {
+    $dismantleId = '123';
+    $fenixId = '123';
+
+    return view('emails.reservation', compact('dismantleId', 'fenixId'));
+});

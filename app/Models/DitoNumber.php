@@ -107,6 +107,6 @@ class DitoNumber extends Model
 
     public function getNewNameAttribute()
     {
-        return strtolower(str_replace(' ', '', "$this->product$this->brand$this->formatted_date"));
+        return "$this->producer $this->brand ($this->formatted_date)";
     }
 }

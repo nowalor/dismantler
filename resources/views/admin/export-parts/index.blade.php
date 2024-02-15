@@ -29,13 +29,27 @@
                 </div>
                 <button class="btn btn-primary w-100 btn-large">Search</button>
             </form>
+
+            <form action="{{ route('admin.export-parts.index') }}" class="pt-4">
+                <div class="mb-2">
+                    <label for="part_type" class="form-label">Part type</label>
+                    <select id="part_type" name="part_type" class="form-select">
+                        <option value="all">All</option>
+
+                        @foreach($partTypes as $type)
+                            <option @if (request()->get('part_type') === (string)$type->id) selected @endif value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <button class="btn btn-primary w-100 btn-large">Search</button>
+            </form>
         </div>
         <div class="d-flex flex-wrap">
             @foreach($carParts as $carPart)
                 <div class="col-6 p-4">
                     <div class="card">
                         <div class="card-header">
-                            {{ $carPart->name }}
+                            {{ $carPart->new_name ?? $carPart->name }}
                         </div>
                         <div class="card-body">
                             <p><span class="fw-bold">#: </span> {{ $carPart->id}}</p>
@@ -43,7 +57,6 @@
                             <p><span class="fw-bold">Original number: </span> {{ $carPart->original_number }}</p>
                             <p><span class="fw-bold">Price(SEK): </span> {{ $carPart->price_sek }}</p>
 {{--                            <p><span class="fw-bold">[OLD]Price(EUR): </span> €{{ $carPart->calculated_price }}</p>--}}
-                            <p><span class="fw-bold">[OLD]Price(EUR): </span> €{{ $carPart->old_price }}</p>
                             <p><span class="fw-bold">Total(EUR): </span> €{{ $carPart->new_price + $carPart->shipment }}</p>
                             <p><span class="fw-bold">[NEW]Price(EUR): </span> €{{ $carPart->new_price }}</p>
                             <p><span class="fw-bold">[B2B]Price(EUR): </span> €{{ $carPart->business_price }}</p>
@@ -61,8 +74,7 @@
                             <a href="{{ route('admin.export-parts.show', $carPart) }}" class="btn btn-primary w-100">View
                                 part</a>
                             <img class="card-img-bottom mt-2"
-                                 src="{{ count($carPart->carPartImages) ? asset("storage/img/car-part/{$carPart->id}/{$carPart->carPartImages[0]->image_name_blank_logo}") : 'http://46.101.206.99/storage/img/car-part/placeholder.jpg' }}"
-                                 alt="">
+                                 src="{{ $carPart->carPartImages[0]->original_url }}" />
                         </div>
                     </div>
                 </div>

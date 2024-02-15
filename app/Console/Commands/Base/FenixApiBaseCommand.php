@@ -71,7 +71,7 @@ abstract class FenixApiBaseCommand extends Command
      * @throws GuzzleException
      * @throws JsonException
      */
-    protected function getParts(): array
+    protected function getParts($carBreaker): array
     {
         if ($this->tokenExpiresAt < now()->toIso8601String()) {
             $this->authenticate();
@@ -79,7 +79,8 @@ abstract class FenixApiBaseCommand extends Command
 
         $filters = [
             "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],
-            "CarBreaker" => ["S"],
+          //  "SbrPartCode" => ["7475", "7645", "3220", "7468", "7082"], // New part types
+            "CarBreaker" => [$carBreaker],
         ];
 
         $parts = [];
@@ -90,7 +91,6 @@ abstract class FenixApiBaseCommand extends Command
 
         // Keep incrementing take by 500 until we have no parts left
         for ($skip = 0; $skip < $count + $increment; $skip += $increment) {
-            logger("Skip: $skip");
             $payload = [
                 "Take" => 500,
                 "Skip" => $skip,
@@ -154,7 +154,6 @@ abstract class FenixApiBaseCommand extends Command
         $options['json'] = $payload;
 
         $response = $this->httpClient->request("post", "$this->apiUrl/autoteile/parts", $options);
-        logger($response->getStatusCode());
 
         $data = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
 

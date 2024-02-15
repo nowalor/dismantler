@@ -20,31 +20,40 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
         $replacementImagePath = public_path('img/blank.png');
         $replacementImage = Image::make($replacementImagePath);
 
-        $parts = NewCarPart::select(['id', 'dismantle_company_name'])
-            ->whereHas('carPartImages', function ($query) {
-                $query->whereNull('image_name_blank_logo');
-            })
-            ->with(['carPartImages' => function ($query) {
-                $query->whereNull('image_name_blank_logo');
-            }])
-            ->where('dismantle_company_name', 'N')
-            ->where('car_part_type_id', 1)
+        $parts = NewCarPart::select(["id", "dismantle_company_name"])
+                        ->whereHas('carPartImages', function ($query) {
+                            $query->whereNull('image_name_blank_logo');
+                        })
+                        ->with(['carPartImages' => function ($query) {
+                            $query->whereNull('image_name_blank_logo');
+                        }])
+            ->whereNotNull('engine_code')
+            ->where('engine_code', '!=', '')
+            ->has('germanDismantlers')
+            ->where('price_sek', '>', 0)
+            ->whereNotNull('price_sek')
+            ->where('price_sek', '!=', '')
+            ->whereNull('sold_at')
+            ->take(520)
             ->get();
 
-        foreach ($parts as $index => $part) {
+        foreach ($parts as $part) {
             $dismantleCompany = $part->dismantle_company_name;
 
-            foreach ($part->carPartImages as $image) {
+            foreach ($part->carPartImages as $index => $image) {
                 $imageUrl = $image->original_url;
+
+                $position = $part->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
 
                 $response = (new ReplaceDismantlerLogoAction())
                     ->handle(
                         imageUrl: $imageUrl,
                         replacementImage: $replacementImage,
                         scalingHeight: $this->getScalingHeight($dismantleCompany),
+                        position: $position,
                     );
 
-                if(!$response) {
+                if (!$response) {
                     continue;
                 }
 
@@ -53,15 +62,18 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
                 // Define the output path and name
                 try {
-                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
-
                     $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
 
                     $carImageNumber = $index + 1;
 
                     $outputName = 'image-blank' . $carImageNumber . '.' . $extension;
 
-                    Storage::disk('public')->put("img/car-part/{$image->new_car_part_id}" . '/' . $outputName, $processedImage->stream());
+
+                    $stream = $processedImage->stream();
+                    $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
+                    file_put_contents($tempFilePath, $stream);
+
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/logo-blank", $tempFilePath, $outputName, 'public');
 
                     $image->image_name_blank_logo = $outputName;
                     $image->priority = $carImageNumber;

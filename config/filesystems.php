@@ -39,7 +39,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -56,6 +56,19 @@ return [
             'throw' => false,
         ],
 
+        'do' => [
+            'driver' => 's3',
+            'key' => env('DO_ACCESS_KEY_ID'),
+            'secret' => env('DO_SECRET_ACCESS_KEY'),
+            'region' => env('DO_DEFAULT_REGION'),
+            'bucket' => env('DO_BUCKET'),
+//            'folder' => env('DO_FOLDER'),
+            'cdn_endpoint' => env('DO_CDN_ENDPOINT'),
+            'url' => env('DO_URL'),
+            'endpoint' => env('DO_ENDPOINT'),
+//            'use_path_style_endpoint' => env('DO_USE_PATH_STYLE_ENDPOINT', false),
+        ],
+
         'ftp' => [
             'driver' => 'ftp',
             'host' => env('FTP_HOST'),
@@ -64,6 +77,13 @@ return [
             //'port' => 21,
         ],
 
+        'ebay_sftp' => [
+            'driver' => 'sftp',
+            'host' => env('EBAY_FTP_HOST'),
+            'username' => env('EBAY_FTP_USER'),
+            'password' => env('EBAY_FTP_PASSWORD'),
+            'port' => 2222,
+        ],
     ],
 
     /*

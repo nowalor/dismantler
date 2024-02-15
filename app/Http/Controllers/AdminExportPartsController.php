@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarPartType;
 use App\Models\NewCarPart;
 use Exception;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class AdminExportPartsController extends Controller
             ->whereNotNull('price_sek')
             ->where('price_sek', '>', 0)
             ->has('carPartImages')
+            ->whereNotNull('car_part_type_id') // TEMP
 //            ->where(function ($query) {
 //                return $query->where('sbr_part_code', '7143')
 //                    ->orWhere('sbr_part_code', '7302');
@@ -32,7 +34,11 @@ class AdminExportPartsController extends Controller
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages')
-            ->where('dismantle_company_name', 'N');
+//            ->whereIn('dismantle_company_name', ['LI', 'D']);
+//            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
+        ;
+
+//            ->where('dismantle_company_name', 'GB');
 //            ->where('car_part_type_id', 1); // Engines
 
         // Handle dismantle company filter
@@ -55,6 +61,11 @@ class AdminExportPartsController extends Controller
             });
         }
 
+        // Handle engine type filter
+        if($request->has('part_type')) {
+            $carPartsQuery = $carPartsQuery->where('car_part_type_id', $request->get('part_type'));
+        }
+
         $paginatedCarParts = $carPartsQuery->paginate(100)->withQueryString();
 
         // TODO get from DB
@@ -65,6 +76,9 @@ class AdminExportPartsController extends Controller
             'N',
             'S',
             'AL',
+            'LI',
+            'D',
+            'GB',
         ];
 
         $total = $paginatedCarParts->total();
@@ -72,10 +86,10 @@ class AdminExportPartsController extends Controller
             $paginatedCarParts->getCollection()->filter(function ($carPart) use (&$total) {
                 $myKbas = $carPart->my_kba;
 
-                if ($myKbas->count() === 0) {
-                    --$total;
-                    return false;
-                }
+//                if ($myKbas->count() === 0) {
+//                    --$total;
+//                    return false;
+//                }
 
                 $carPart->kba_string = implode(', ', $myKbas->map(function ($kbaNumber) {
                     return implode([
@@ -98,9 +112,12 @@ class AdminExportPartsController extends Controller
             ]
         );
 
+        $partTypes = CarPartType::select(['id', 'name'])->get();
+
         return view('admin.export-parts.index', compact(
             'carParts',
             'uniqueDismantleCompanyCodes',
+            'partTypes',
         ));
     }
 

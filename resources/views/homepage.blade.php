@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="cta d-flex justify-content-center gap-3">
-        <div class="card col-3 mb-3" style="z-index:5; top:20vh; height: 26rem;">
+        <div class="card col-3 mb-3" style="z-index:5; top:20vh; height: 34rem;">
             <div class="card-header">
                 <h3>Search by HSN + TSN</h3>
             </div>
@@ -12,21 +12,7 @@
                     Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to
                     find car parts for your car.
                 </p>
-                <form action="{{ route('car-parts.search-by-code') }}" method="POSt">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="hsn" class="form-label">HSN</label>
-                        <input type="text" class="form-control" name="hsn" value="{{ old('hsn') }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="hsn" class="form-label">TSN</label>
-                        <input type="text" class="form-control" name="tsn" value="{{ old('tsn') }}">
-                    </div>
-
-                    <div style="margin-top: 3rem;">
-                        <button class="btn btn-primary w-100 uppercase">Search 🔍</button>
-                    </div>
-                </form>
+         <livewire:kba-search :partTypes="$partTypes"/>
             </div>
         </div>
         <div class="card col-3" style="z-index:5; top:20vh; height: 34rem;">
@@ -55,53 +41,21 @@
                 <p>
                     If you don't know the HSN and TSN or you want a more open search you can search by car model.
                 </p>
-
-                <form action="{{ route('car-parts.search-by-model') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="car_model" class="form-label">Select car model</label>
-                        <select class="form-select" name="brand" id="car_model">
-                            <option selected disabled>Select car model(optional)</option>
-                            @foreach($brands as $brand)
-                                <option value="{{ $brand->name }}"
-                                        @if($brand->name === old('brand')) selected @endif>{{ $brand->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <livewire:car-model-dropdowns/>
-                    <div class="mb-3">
-                        <label for="hsn" class="form-label">Advanced search</label>
-                        <input type="text" class="form-control" name="advanced_search"
-                               value="{{ old('advanced_search') }}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label>Search by</label>
-                        <div class="row">
-                            <div class="row">
-                                <div class="col-6">
-                                    <input class="form-check-input" type="radio" name="search_by" checked
-                                           value="everything">
-                                    <label class="form-check-label">
-                                        Everything
-                                    </label>
-                                </div>
-
-                                <div class="col-6">
-                                    <input class="form-check-input" type="radio" name="search_by" value="engine_type">
-                                    <label class="form-check-label">
-                                        Engine type
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 3rem;">
-                        <button class="btn btn-primary w-100 uppercase">Search 🔍</button>
-                    </div>
-                </form>
+                <livewire:model-search/>
             </div>
         </div>
+
+        <div class="card col-3" style="z-index:5; top:20vh; height: 34rem;">
+            <div class="card-header">Search by OEM</div>
+            <div class="card-body">
+                <p>
+                    Very detailed search that you can use if you have the original spare part number(OEM), gearbox code or engine code.
+                </p>
+
+                <livewire:oem-search></livewire:oem-search>
+            </div>
+        </div>
+
     </div>
     <div class="container pt-3">
         <h1 class="text-center pt-3">
