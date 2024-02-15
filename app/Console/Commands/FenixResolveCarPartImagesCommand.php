@@ -31,12 +31,12 @@ class FenixResolveCarPartImagesCommand extends Command
             }])
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
-            ->has('germanDismantlers')
+//            ->has('germanDismantlers')
             ->where('price_sek', '>', 0)
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
-            ->take(5)
+            ->take(520)
             ->get();
 
         foreach ($carParts as $carPart) {
