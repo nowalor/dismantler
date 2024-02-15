@@ -24,10 +24,10 @@ class FenixResolveCarPartImagesCommand extends Command
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
             ->whereHas('carPartImages', function ($query) {
-                $query->whereNull('image_name');
+                $query->whereNull('image_name_blank_logo');
             })
             ->with(['carPartImages' => function ($query) {
-                $query->whereNull('image_name');
+                $query->whereNull('image_name_blank_logo');
             }])
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
@@ -36,15 +36,11 @@ class FenixResolveCarPartImagesCommand extends Command
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
-            ->take(300)
+            ->take(5)
             ->get();
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $image) {
-//                if($image->image_name !== null) {
-//                    continue;
-//                }
-
                 $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
 
                 $response = (new ReplaceDismantlerLogoAction())
@@ -64,8 +60,6 @@ class FenixResolveCarPartImagesCommand extends Command
 
                 // Define the output path and name
                 try {
-//                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
-
                     $extension = pathinfo($image->original_url, PATHINFO_EXTENSION);
 
                     $carImageNumber = $index + 1;

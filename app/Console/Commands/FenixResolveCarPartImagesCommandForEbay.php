@@ -16,7 +16,6 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
     public function handle(): int
     {
-        logger('command ran on schedule');
         // Load the white blank image to replace the logo with
         $replacementImagePath = public_path('img/blank.png');
         $replacementImage = Image::make($replacementImagePath);
@@ -63,8 +62,6 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
                 // Define the output path and name
                 try {
-//                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
-
                     $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
 
                     $carImageNumber = $index + 1;
