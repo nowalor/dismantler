@@ -64,6 +64,8 @@ class AddProductToXmlFileAction
             $distribution->addAttribute('localizedFor', $value['product']['distribution']['localizedFor']);
 
             $channelDetails = $distribution->addChild('channelDetails');
+            $channelDetails->addChild('VATPercent', $value['product']['distribution']['channelDetails']['VATPercent']);
+            $channelDetails->addChild('templateName', $value['product']['distribution']['channelDetails']['templateName']);
             $channelDetails->addChild('channelID', $value['product']['distribution']['channelDetails']['channelID']);
             $channelDetails->addChild('category', $value['product']['distribution']['channelDetails']['category']);
 

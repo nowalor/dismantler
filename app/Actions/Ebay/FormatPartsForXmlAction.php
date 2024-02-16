@@ -58,6 +58,8 @@ class FormatPartsForXmlAction
                 'distribution' => [
                     'localizedFor' => 'de_DE',
                     'channelDetails' => [
+                        'VATPercent' => 19,
+                        'templateName' => 'default.html',
                         'channelID' => 'EBAY_DE',
                         'category' => '33615', // Engines
                         'paymentPolicyName' => 'eBay Managed Payments (341130335023)',
@@ -101,9 +103,24 @@ class FormatPartsForXmlAction
     {
         $fields = [];
 
-        $part->carPartImages->each(function ($image, $index) {
-            $fields[]['customField'] = ["Image$index" => $image->image_name_blank_logo];
-        });
+        // Old way
+//        if($part->carPartImages()->count()) {
+//            $part->carPartImages->each(function ($image, $index) use(&$fields) {
+//                $fields['customField'][] = ["Image$index" => $image->image_name_blank_logo];
+//            });
+//        } else {
+//            $fields['customField'][] = ["Image1" => "https://via.placeholder.com/500/eeeeee/999?text=Grafik-4"];
+//        }
+
+        // New way
+        $images = $part->carPartImages->toArray();
+        $image1 = isset($images[0]) ? $images[0]['image_name_blank_logo'] : 'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
+        $fields['customField'][] = ['name' => 'Image1', 'value' => $image1];
+
+        for($i = 2; $i < 7; $i++) {
+            $image =  isset($images[$i]) ? $images[$i]['image_name_blank_logo'] : 'image-missing';
+            $fields['customField'][] = ['name' => "Image$i", 'value' => $image];
+        }
 
         $fuel = $part->fuel;
 
