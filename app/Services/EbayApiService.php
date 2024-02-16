@@ -50,13 +50,14 @@ class EbayApiService
     public function handlePartUpload(Collection $parts): void
     {
         $formattedParts = (new FormatPartsForXmlAction())->execute($parts);
+        logger($formattedParts);
 
         $xmlName = (new AddProductToXmlFileAction())->execute($formattedParts);
 
-        (new FtpFileUploadAction())->execute(
-            '/store/product',
-            base_path("public/exports/$xmlName"),
-            $xmlName,
-        );
+//        (new FtpFileUploadAction())->execute(
+//            '/store/product',
+//            base_path("public/exports/$xmlName"),
+//            $xmlName,
+//        );
     }
 }
