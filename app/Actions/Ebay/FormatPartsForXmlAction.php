@@ -132,14 +132,15 @@ class FormatPartsForXmlAction
 
         $fields['customField'][] = ['name' => 'Lagernummer', 'value' => $part->article_nr];
         $fields['customField'][] = ['name' => 'Kba', 'value' => $this->getKba($part)];
-        $fields['customField'][] = ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number];
+        $fields['customField'][] = ['name' => 'OriginaleErsatzteilnummer', 'value' => $part->original_number];
         $fields['customField'][] = ['name' => 'Motor Kennung', 'value' => $part->engine_code];
         $fields['customField'][] = ['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
         $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $fuel];
-        $fields['customField'][] = ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km];
+        $fields['customField'][] = ['name' => 'LaufleistungKM', 'value' => $part->milega_km];
         $fields['customField'][] = ['name' => 'Model Jahr', 'value' => $part->model_year];
         $fields['customField'][] = ['name' => 'Getriebe', 'value' => $part->gearbox_nr];
         $fields['customField'][] = ['name' => 'Fahrgestellnummer', 'value' => $part->vin];
+        $fields['customField'][] = ['name' => 'name', 'value' => $part->name];
 
         return $fields;
     }
