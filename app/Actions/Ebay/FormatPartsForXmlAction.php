@@ -104,17 +104,16 @@ class FormatPartsForXmlAction
         $fields = [];
 
         $images = $part->carPartImages->toArray();
-        $image1 = isset($images[0]) ?
-            asset("storage/img/car-part/$part->id/{$images[0]['image_name_blank_logo']}") :
-            'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
         
-        $fields['customField'][] = ['name' => 'Image1', 'value' => $image1];
+        $url = isset($images[0]) ?
+            "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/$images[0]['image_name_blank_logo']" :
+            'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
+
+        $fields['customField'][] = ['name' => 'Image1', 'value' => $url];
 
         for($i = 2; $i < 7; $i++) {
             $image =  isset($images[$i]) ? $images[$i]['image_name_blank_logo'] : 'image-missing';
-            $url = asset(
-                "storage/img/car-part/$part->id/{$image}"
-            );
+            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/$image";
 
             $fields['customField'][] = ['name' => "Image$i", 'value' => $url];
         }
