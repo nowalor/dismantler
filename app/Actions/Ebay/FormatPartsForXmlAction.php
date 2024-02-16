@@ -104,9 +104,9 @@ class FormatPartsForXmlAction
         $fields = [];
 
         $images = $part->carPartImages->toArray();
-        
+
         $url = isset($images[0]) ?
-            "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/$images[0]['image_name_blank_logo']" :
+            "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[0]['image_name_blank_logo']}" :
             'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
 
         $fields['customField'][] = ['name' => 'Image1', 'value' => $url];
