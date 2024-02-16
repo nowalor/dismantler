@@ -109,13 +109,19 @@ class FormatPartsForXmlAction
             "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[0]['image_name_blank_logo']}" :
             'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
 
+        $imageOneSet = isset($images[0]) ? 'true' : 'false';
+
         $fields['customField'][] = ['name' => 'Image1', 'value' => $url];
+        $fields['customField'][] = ['name' => 'Image1isset', 'value' => $imageOneSet];
 
         for($i = 2; $i < 7; $i++) {
-            $image =  isset($images[$i]) ? $images[$i]['image_name_blank_logo'] : 'image-missing';
-            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/$image";
+            $url =  isset($images[$i]) ?
+                "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[$i]['image_name_blank_logo']}"
+                : 'image-missing';
+            $isSet = isset($images[$i]) ? 'true' : 'false';
 
             $fields['customField'][] = ['name' => "Image$i", 'value' => $url];
+            $fields['customField'][] = ['name' => "Image{$i}isset", 'value' => $isSet];
         }
 
         $fuel = $part->fuel;
