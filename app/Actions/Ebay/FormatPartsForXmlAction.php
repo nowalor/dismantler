@@ -34,7 +34,7 @@ class FormatPartsForXmlAction
                 'SKU' => $part->article_nr,
                 'productInformation' => [
                     'localizedFor' => 'de_DE',
-                    'title' => $part->name,
+                    'title' => $part->new_name,
                     'description' => [
                         'productDescription' => $this->resolveDescription($part),
                     ],
@@ -115,10 +115,10 @@ class FormatPartsForXmlAction
         $fields['customField'][] = ['name' => 'Image1isset', 'value' => $imageOneSet];
 
         for($i = 2; $i < 7; $i++) {
-            $url =  isset($images[$i]) ?
-                "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[$i]['image_name_blank_logo']}"
+            $url =  isset($images[$i - 1]) ?
+                "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[$i - 1]['image_name_blank_logo']}"
                 : 'image-missing';
-            $isSet = isset($images[$i]) ? 'true' : 'false';
+            $isSet = isset($images[$i - 1]) ? 'true' : 'false';
 
             $fields['customField'][] = ['name' => "Image$i", 'value' => $url];
             $fields['customField'][] = ['name' => "Image{$i}isset", 'value' => $isSet];
@@ -137,10 +137,10 @@ class FormatPartsForXmlAction
         $fields['customField'][] = ['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
         $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $fuel];
         $fields['customField'][] = ['name' => 'LaufleistungKM', 'value' => $part->milega_km];
-        $fields['customField'][] = ['name' => 'Model Jahr', 'value' => $part->model_year];
+        $fields['customField'][] = ['name' => 'ModelJahr', 'value' => $part->model_year];
         $fields['customField'][] = ['name' => 'Getriebe', 'value' => $part->gearbox_nr];
         $fields['customField'][] = ['name' => 'Fahrgestellnummer', 'value' => $part->vin];
-        $fields['customField'][] = ['name' => 'name', 'value' => $part->name];
+        $fields['customField'][] = ['name' => 'name', 'value' => $part->new_name];
 
         return $fields;
     }
