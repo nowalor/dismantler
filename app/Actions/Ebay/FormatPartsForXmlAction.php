@@ -133,7 +133,7 @@ class FormatPartsForXmlAction
         $fields['customField'][] = ['name' => 'Lagernummer', 'value' => $part->article_nr];
         $fields['customField'][] = ['name' => 'Kba', 'value' => $this->getKba($part)];
         $fields['customField'][] = ['name' => 'OriginaleErsatzteilnummer', 'value' => $part->original_number];
-        $fields['customField'][] = ['name' => 'Motor Kennung', 'value' => $part->engine_code];
+        $fields['customField'][] = ['name' => 'MotorKennung', 'value' => $part->engine_code];
         $fields['customField'][] = ['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
         $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $fuel];
         $fields['customField'][] = ['name' => 'LaufleistungKM', 'value' => $part->mileage_km];
