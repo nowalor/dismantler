@@ -136,7 +136,7 @@ class FormatPartsForXmlAction
         $fields['customField'][] = ['name' => 'Motor Kennung', 'value' => $part->engine_code];
         $fields['customField'][] = ['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
         $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $fuel];
-        $fields['customField'][] = ['name' => 'LaufleistungKM', 'value' => $part->milega_km];
+        $fields['customField'][] = ['name' => 'LaufleistungKM', 'value' => $part->mileage_km];
         $fields['customField'][] = ['name' => 'ModelJahr', 'value' => $part->model_year];
         $fields['customField'][] = ['name' => 'Getriebe', 'value' => $part->gearbox_nr];
         $fields['customField'][] = ['name' => 'Fahrgestellnummer', 'value' => $part->vin];
