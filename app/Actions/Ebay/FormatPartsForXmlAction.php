@@ -148,9 +148,7 @@ class FormatPartsForXmlAction
     private function getPictureUrls(NewCarPart $part): array
     {
         return array_map(static function ($img) use ($part) {
-            return asset(
-                "storage/img/car-part/$part->id/{$img['image_name_blank_logo']}"
-            );
+            return "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$img['image_name_blank_logo']}";
         }, $part->carPartImages->toArray());
     }
 
