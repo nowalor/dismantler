@@ -77,7 +77,7 @@ class FormatPartsForXmlAction
                     ],
                 ],
                 'inventory' => [
-                    'totalShipToHomeQuantity' => '0',
+                    'totalShipToHomeQuantity' => '1',
                 ],
             ],
         ];
