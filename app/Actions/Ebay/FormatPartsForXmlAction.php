@@ -109,19 +109,19 @@ class FormatPartsForXmlAction
             "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[0]['image_name_blank_logo']}" :
             'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
 
-        $imageOneSet = isset($images[0]) ? 'true' : 'false';
+        $imageOneSet = isset($images[0]) ? 'true' : 'none';
 
         $fields['customField'][] = ['name' => 'Image1', 'value' => $url];
-        $fields['customField'][] = ['name' => 'Image1isset', 'value' => $imageOneSet];
+        $fields['customField'][] = ['name' => 'Image1class', 'value' => $imageOneSet];
 
         for($i = 2; $i < 7; $i++) {
             $url =  isset($images[$i - 1]) ?
                 "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[$i - 1]['image_name_blank_logo']}"
                 : 'image-missing';
-            $isSet = isset($images[$i - 1]) ? 'true' : 'false';
+            $isSet = isset($images[$i - 1]) ? '' : 'none';
 
             $fields['customField'][] = ['name' => "Image$i", 'value' => $url];
-            $fields['customField'][] = ['name' => "Image{$i}isset", 'value' => $isSet];
+            $fields['customField'][] = ['name' => "Image{$i}class", 'value' => $isSet];
         }
 
         $fuel = $part->fuel;
