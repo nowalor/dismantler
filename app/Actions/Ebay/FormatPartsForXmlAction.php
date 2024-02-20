@@ -110,6 +110,7 @@ class FormatPartsForXmlAction
             'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
 
         $imageOneSet = isset($images[0]) ? 'true' : 'none';
+        
 
         $fields['customField'][] = ['name' => 'Image1', 'value' => $url];
         $fields['customField'][] = ['name' => 'Image1class', 'value' => $imageOneSet];
