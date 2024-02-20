@@ -138,6 +138,31 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
+    public function getAutoteileMarktPriceAttribute()
+    {
+        $priceSek = $this->price_sek;
+
+        if (!$priceSek) {
+            return $priceSek;
+        }
+        /*
+         * Calc divider
+         */
+        if ($priceSek <= 2000) {
+            $divider = 7;
+        } else if($priceSek <= 3000) {
+            $divider = 8;
+        } else if ($priceSek <= 10000) {
+            $divider = 9;
+        } else if ($priceSek <= 20000) {
+            $divider = 10;
+        } else {
+            $divider = 11;
+        }
+
+        return round(((($priceSek / $divider)) * 1.19));
+    }
+
     public function getShipmentAttribute(): int
     {
         $partType = $this->carPartType->germanCarPartTypes->first()->name;
@@ -185,7 +210,7 @@ class NewCarPart extends Model
         /*
          * Longer delivery
          */
-        if ($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A' || $dismantleCompanyName === 'AL') {
+        if (in_array($dismantleCompanyName, ['F', 'A', 'AL',' D', 'LI'])) {
             if (in_array(
                 $partType,
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,

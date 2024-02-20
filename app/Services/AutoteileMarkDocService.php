@@ -73,7 +73,7 @@ class AutoteileMarkDocService
             'part_state' => '2',
             'quantity' => '1',
             'vat' => '0',
-            'price' => $carPart->new_price,
+            'price' => $carPart->autoteile_markt_price,
             'price_b2b' => $carPart->business_price,
             'bulky' => 1, // Customers can order in bulk and save on delivery costs
             'delivery' => $carPart->shipment,
