@@ -70,7 +70,7 @@ class CreateXmlCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(50)
+            ->take(5)
             ->get();
 
         return $parts;
