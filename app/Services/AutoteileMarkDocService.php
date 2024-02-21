@@ -150,12 +150,12 @@ class AutoteileMarkDocService
     {
         $formattedImages = [];
 
-        if($images->count() === 0) {
-           $formattedImages["img_0"] = 'https://currus-connect.com/storage/img/car-part/placeholder.jpg';
-        }
+//        if($images->count() === 0) {
+//           $formattedImages["img_0"] = 'https://currus-connect.com/storage/img/car-part/placeholder.jpg';
+//        }
 
         foreach ($images as $index => $image) {
-            $url = asset("storage/img/car-part/{$image->new_car_part_id}/{$image->image_name}");
+            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
 
             $formattedImages["img_$index"] = $url;
         }

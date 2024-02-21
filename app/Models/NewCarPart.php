@@ -241,6 +241,16 @@ class NewCarPart extends Model
         return round($b2bPrice);
     }
 
+    public function getAutoteileMarktBusinessPriceAttribute()
+    {
+        $b2cPrice = $this->get_autoteile_markt_price;
+
+        $b2bPrice = $b2cPrice * 0.95;
+
+        return round($b2bPrice);
+    }
+
+
     public function getUniqueKbaAttribute()
     {
         $this->load('sbrCode.ditoNumbers.germanDismantlers.engineTypes');
