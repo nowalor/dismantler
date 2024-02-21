@@ -12,7 +12,7 @@ class GetPriceInfoCommand extends Command
 
     public function handle(): array
     {
-        $types = CarPartType::with("carParts")->get();
+        $types = CarPartType::where('is_live', true)->with("carParts")->get();
 
         $totals = [];
         $total = 0;
