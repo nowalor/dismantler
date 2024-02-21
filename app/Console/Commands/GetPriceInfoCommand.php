@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use App\Models\CarPartType;
+
+
+class GetPriceInfoCommand extends Command
+{
+    protected $signature = 'price:info';
+
+    public function handle(): array
+    {
+        $types = CarPartType::with("carParts")->get();
+
+        $totals = [];
+        $total = 0;
+
+        foreach ($types as $type) {
+            $totalForPart =
+                $type->carParts->sum("new_price") + $type->carParts->sum("shipment");
+
+            $totals[$type->name] = $totalForPart;
+            $total += $totalForPart;
+        }
+
+        foreach($totals as $key => $toPrint) {
+            $this->info("$key: $toPrint");
+        }
+
+        $this->info("All parts: $total");
+        return [];
+    }
+}

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CarPartType extends Model
 {
@@ -29,6 +30,11 @@ class CarPartType extends Model
     public function germanCarPartTypes(): BelongsToMany
     {
         return $this->belongsToMany(GermanCarPartType::class);
+    }
+
+    public function carParts(): HasMany
+    {
+        return $this->hasMany(NewCarPart::class);
     }
 
     public function danishCarPartTypes(): BelongsToMany
