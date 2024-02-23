@@ -243,7 +243,7 @@ class NewCarPart extends Model
 
     public function getAutoteileMarktBusinessPriceAttribute()
     {
-        $b2cPrice = $this->get_autoteile_markt_price;
+        $b2cPrice = $this->autoteile_markt_price;
 
         $b2bPrice = $b2cPrice * 0.95;
 
