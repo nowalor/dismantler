@@ -44,7 +44,7 @@ class ExportPartsAsCsvCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(5)
+            ->take(5000)
             ->get();
 
         foreach ($parts as $index => $part) {
