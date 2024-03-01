@@ -50,6 +50,8 @@ class CreateXmlCommand extends Command
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
+            ->whereNot('brand_name', 'like', '%mer%')
+            ->whereNot('brand_name', 'like', '%bmw%')
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel');
                 $q->orWhere('fuel', 'Bensin');
@@ -70,7 +72,7 @@ class CreateXmlCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(1)
+            ->take(100)
             ->get();
 
         return $parts;
