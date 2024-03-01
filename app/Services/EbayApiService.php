@@ -50,7 +50,6 @@ class EbayApiService
     public function handlePartUpload(Collection $parts): void
     {
         $formattedParts = (new FormatPartsForXmlAction())->execute($parts);
-        logger($formattedParts);
 
         $xmlName = (new AddProductToXmlFileAction())->execute($formattedParts);
 
