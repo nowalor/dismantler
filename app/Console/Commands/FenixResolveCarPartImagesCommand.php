@@ -19,6 +19,28 @@ class FenixResolveCarPartImagesCommand extends Command
 
     public function handle(): int
     {
+        $logos = [
+            [
+                'folder' => 'german-logo',
+                'image_name' => 'new-logo-german.jpg',
+                'db_field' => 'new_logo_german',
+            ],
+            [
+                'folder' => 'english-logo',
+                'image_name' => 'new-logo-english.jpg',
+                'db_field' => 'new_logo_english',
+            ],
+            [
+                'folder' => 'danish-logo',
+                'image_name' => 'new-logo-danish.jpg',
+                'db_field' => 'new_logo_danish',
+            ],
+        ];
+
+        foreach($logos as $logo) {
+
+        }
+
         $replacementImagePath = public_path('img/logo.png');
         $replacementImage = Image::make($replacementImagePath);
 
@@ -51,7 +73,7 @@ class FenixResolveCarPartImagesCommand extends Command
                         position: $position,
                     );
 
-                if(!$response) {
+                if (!$response) {
                     continue;
                 }
 
@@ -96,7 +118,7 @@ class FenixResolveCarPartImagesCommand extends Command
     {
         $height = 0.29;
 
-        if($dismantleCompany === 'F') {
+        if ($dismantleCompany === 'F') {
             $height = 0.38;
         }
 
