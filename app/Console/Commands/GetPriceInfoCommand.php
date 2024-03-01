@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\NewCarPart;
 use Illuminate\Console\Command;
 use App\Models\CarPartType;
 
@@ -12,26 +13,38 @@ class GetPriceInfoCommand extends Command
 
     public function handle(): array
     {
-        $types = CarPartType::whereHas('carParts', function($q) {
-            return $q->where('is_live', true);
-        })->with("carParts")->get();
+//        $types = CarPartType::whereHas('carParts', function($q) {
+//            return $q->where('is_live', true);
+//        })->with("carParts")->get();
+//
+//        $totals = [];
+//        $total = 0;
+//
+//        foreach ($types as $type) {
+//            $totalForPart =
+//                $type->carParts->sum("new_price") + $type->carParts->sum("shipment");
+//
+//            $totals[$type->name] = $totalForPart;
+//            $total += $totalForPart;
+//        }
+//
+//        foreach($totals as $key => $toPrint) {
+//            $this->info("$key: $toPrint");
+//        }
+//
+//        $this->info("All parts: $total");
 
-        $totals = [];
-        $total = 0;
+        $parts = NewCarPart::where('car_part_type_id', '3')
+            ->where('model_year', '>', '2008')
+            ->where('model_year', '<', '2020')
+            ->get();
 
-        foreach ($types as $type) {
-            $totalForPart =
-                $type->carParts->sum("new_price") + $type->carParts->sum("shipment");
-
-            $totals[$type->name] = $totalForPart;
-            $total += $totalForPart;
+        $price = 0;
+        foreach($parts as $part) {
+            $price += ($part->new_price + $part->shipment);
         }
 
-        foreach($totals as $key => $toPrint) {
-            $this->info("$key: $toPrint");
-        }
-
-        $this->info("All parts: $total");
+        $this->info("Price is $price");
         return [];
     }
 }
