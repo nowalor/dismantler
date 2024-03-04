@@ -30,10 +30,12 @@ class PaymentController extends Controller
         ));
     }
 
-    public function pay(PayRequest $request, CarPart $carPart)
+    public function pay(PayRequest $request, NewCarPart $carPart)
     {
 
          $validated = $request->validated();
+
+         return $validated;
 
          $validated = array_merge($validated, [
              'value' => $carPart->price1,
