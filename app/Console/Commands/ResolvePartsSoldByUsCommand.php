@@ -137,12 +137,12 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
                 continue;
             }
 
-            Mail::send(
-                new ReservationMail(
-                    dismantleCompanyCode: $dbPart->dismantle_company_name,
-                    dismantleId: $dbPart->article_nr_at_dismantler
-                )
-            );
+//            Mail::send(
+//                new ReservationMail(
+//                    dismantleCompanyCode: $dbPart->dismantle_company_name,
+//                    dismantleId: $dbPart->article_nr_at_dismantler
+//                )
+//            );
 
             $part->is_live = false;
             $part->sold_at = now();
