@@ -186,7 +186,7 @@ class NewCarPart extends Model
             GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
             1,
         )) {
-            $shipment = 100;
+            $shipment = 150;
 
         }
 
@@ -196,7 +196,7 @@ class NewCarPart extends Model
             GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE,
             1,
         )) {
-            $shipment = 70;
+            $shipment = 100;
         }
 
         if (in_array(
@@ -222,7 +222,7 @@ class NewCarPart extends Model
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
                 1,
             )) {
-                $shipment += 50;
+                $shipment += 100;
             }
             else {
                 $shipment += 100;
