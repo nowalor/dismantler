@@ -61,15 +61,15 @@ class FormatPartsForXmlAction
                         'VATPercent' => 19,
                         'templateName' => 'default.html',
                         'channelID' => 'EBAY_DE',
-                        'category' => '33615', // Engines
-//                        'category' => '171115', // Automatic gearbox
+//                        'category' => '33615', // Engines
+                        'category' => '171115', // Automatic gearbox
                         'paymentPolicyName' => 'eBay Managed Payments (341130335023)',
                         'returnPolicyName' => '30 Tage Rückgabe. Käufer zahlt Rückversand',
                         'shippingPolicyName' => 'Kostenloser Versand',
                         // Add other distribution details
                         'pricingDetails' => [
-                            'listPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
-                            'strikeThroughPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
+                            'listPrice' => $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute(),
+                            'strikeThroughPrice' => $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute(),
 //                            'minimumAdvertisedPrice' => '18.18465',
 //                            'minimumAdvertisedPriceHandling' => '',
                         ],
