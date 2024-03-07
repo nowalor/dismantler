@@ -68,8 +68,8 @@ class FormatPartsForXmlAction
                         'shippingPolicyName' => 'Kostenloser Versand',
                         // Add other distribution details
                         'pricingDetails' => [
-                            'listPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
-                            'strikeThroughPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
+                            'listPrice' => $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute(),
+                            'strikeThroughPrice' => $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute(),
 //                            'minimumAdvertisedPrice' => '18.18465',
 //                            'minimumAdvertisedPriceHandling' => '',
                         ],
