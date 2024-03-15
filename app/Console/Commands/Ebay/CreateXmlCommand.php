@@ -41,7 +41,7 @@ class CreateXmlCommand extends Command
 
         $parts = NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
-            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes
+            ->where('car_part_type_id', 3) // Currently only getting engines, gearboxes
             // Very important conditions so we don't upload products with data issues
             ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
