@@ -35,10 +35,15 @@ class FenixResolveCarPartImagesCommand extends Command
                 'image_name' => 'new-logo-danish.jpg',
                 'db_field' => 'new_logo_danish',
             ],
+            [
+                'folder' => 'old_logo',
+                'image_name' => 'logo.png',
+                'db_field' => 'image_name',
+            ],
         ];
 
         foreach($logos as $logo) {
-
+            // TODO
         }
 
         $replacementImagePath = public_path('img/logo.png');
