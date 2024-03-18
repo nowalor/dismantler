@@ -43,6 +43,25 @@ class PartInformationService
         return preg_replace('/\s+/', ' ', $name);
     }
 
+    public function getDescriptionName(NewCarPart $carPart): string
+    {
+        $name = '';
+
+        $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
+
+        if($germanCarPartName === 'Automatikgetriebe') {
+            $germanCarPartName = 'ORIGINAL Getriebe Automatik';
+        }
+
+        if($germanCarPartName === 'Motor') {
+            $germanCarPartName = 'ORIGINAL Motor';
+        }
+
+        $name .= $germanCarPartName . ' ' . $this->getCarName($carPart) . ' ' . $carPart->model_year;
+
+        return preg_replace('/\s+/', ' ', $name);
+    }
+
     private function getCarName(NewCarPart $carPart): string
     {
         $dito = $carPart->sbrCode?->ditoNumbers()->first();
