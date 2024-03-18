@@ -61,8 +61,8 @@ class FormatPartsForXmlAction
                         'VATPercent' => 19,
                         'templateName' => 'default.html',
                         'channelID' => 'EBAY_DE',
-                        'category' => '33615', // Engines
-//                        'category' => '171115', // Automatic gearbox
+//                        'category' => '33615', // Engines
+                        'category' => '171115', // Automatic gearbox
                         'paymentPolicyName' => 'eBay Managed Payments (341130335023)',
                         'returnPolicyName' => '30 Tage Rückgabe. Käufer zahlt Rückversand',
                         'shippingPolicyName' => 'Kostenloser Versand',
