@@ -142,9 +142,35 @@ class FormatPartsForXmlAction
         $fields['customField'][] = ['name' => 'ModelJahr', 'value' => $part->model_year];
         $fields['customField'][] = ['name' => 'Getriebe', 'value' => $part->gearbox_nr];
         $fields['customField'][] = ['name' => 'Fahrgestellnummer', 'value' => $part->vin];
-        $fields['customField'][] = ['name' => 'name', 'value' => $part->new_name];
+        $fields['customField'][] = ['name' => 'name', 'value' => $part->description_name];
+
+        // New
+        $fields['customField'][] = ['name' => 'Hersteller', 'value' => $this->getProducer($part)];
+        $fields['customField'][] = ['name' => 'Modell', 'value' => $this->getBrand($part)];
 
         return $fields;
+    }
+
+    private function getProducer(NewCarPart $carPart): string
+    {
+        $dito = $carPart->sbrCode?->ditoNumbers()->first();
+
+        if(!$dito) {
+            return $carPart->sbr_car_name;
+        }
+
+        return $dito->producer;
+    }
+
+    private function getBrand(NewCarPart $carPart): string
+    {
+        $dito = $carPart->sbrCode?->ditoNumbers()->first();
+
+        if(!$dito) {
+            return $carPart->sbr_car_name;
+        }
+
+        return $dito->brand;
     }
 
     private function getPictureUrls(NewCarPart $part): array
