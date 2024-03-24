@@ -146,4 +146,9 @@ Route::post('do-upload', function (Request $request) {
     return Storage::disk('do')->url($path);
 });
 
+Route::get('to-seed', function() {
+    return DitoNumber::all();
+    return \App\Models\NewCarPartImage::all();
+});
+
 
