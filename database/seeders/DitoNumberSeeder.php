@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Data\DitoNumberData;
 use App\Models\DitoNumber;
-use Database\Data\New\DitoNumberData;
 use Illuminate\Database\Seeder;
 
 class DitoNumberSeeder extends Seeder

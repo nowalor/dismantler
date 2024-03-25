@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Data\GermanDismantlerData;
 use App\Models\GermanDismantler;
-use Database\Data\New\GermanDismantlerData;
 use Illuminate\Database\Seeder;
 
 class KbaSeeder extends Seeder
