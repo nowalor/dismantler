@@ -147,7 +147,7 @@ Route::post('do-upload', function (Request $request) {
 });
 
 Route::get('to-seed', function() {
-    return DitoNumber::all();
+    return \Illuminate\Support\Facades\DB::table('german_dismantler_dito_number')->get();
     return \App\Models\NewCarPartImage::all();
 });
 

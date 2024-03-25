@@ -18,6 +18,7 @@ class DitoNumberSeeder extends Seeder
         $ditoNumbers = DitoNumberData::DATA;
 
         foreach($ditoNumbers as $ditoNumber) {
+            $ditoNumber['created_at'] = now();
             DitoNumber::create($ditoNumber);
         }
     }

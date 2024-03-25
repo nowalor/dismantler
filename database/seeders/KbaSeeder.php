@@ -18,7 +18,7 @@ class KbaSeeder extends Seeder
         $kbas = GermanDismantlerData::DATA;
 
         foreach($kbas as $kba) {
-            GermanDismantler::create($kba);
+            GermanDismantler::firstOrCreate(['id' => $kba['id'], 'hsn' => $kba['hsn'], 'tsn' => $kba['tsn']], $kba);
         }
     }
 }
