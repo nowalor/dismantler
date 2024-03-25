@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
 
             KbaSeeder::class,
             KTypeSeeder::class,
-            \Artisan::call('k-type:find-kba'), // Find k-type -> kba connections
+            DitoNumberSeeder::class,
+//            \Artisan::call('k-type:find-kba'), // Find k-type -> kba connections
 //            DitoNumberSeeder::class,
 //            DitoNumberKbaSeeder::class,
 //            EngineTypeSeeder::class,
