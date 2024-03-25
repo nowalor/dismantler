@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\GermanDismantler;
+use Database\Data\New\GermanDismantlerData;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 
 class KbaSeeder extends Seeder
 {
@@ -16,8 +15,10 @@ class KbaSeeder extends Seeder
      */
     public function run()
     {
-        $file = File::get(base_path() . '/database/data/kba.sql');
+        $kbas = GermanDismantlerData::DATA;
 
-        DB::raw($file);
+        foreach($kbas as $kba) {
+            GermanDismantler::create($kba);
+        }
     }
 }
