@@ -19,7 +19,7 @@ class DitoNumberSeeder extends Seeder
 
         foreach($ditoNumbers as $ditoNumber) {
             $ditoNumber['created_at'] = now();
-            DitoNumber::firstOrCreate(['id' => $ditoNumber['id'], 'dito_number' => $ditoNumber['dito_number']], $ditoNumber);
+            DitoNumber::firstOrCreate(['dito_number' => $ditoNumber['dito_number']], $ditoNumber);
         }
     }
 
