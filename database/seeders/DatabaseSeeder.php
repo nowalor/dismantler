@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
             CommericalNameSeeder::class,
             DataProviderSeeder::class,
 
+            CarBrandSeeder::class,
+
+
             KbaSeeder::class,
             KTypeSeeder::class,
             DitoNumberSeeder::class,
