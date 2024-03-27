@@ -151,7 +151,7 @@ Route::post('do-upload', function (Request $request) {
 //    return \App\Models\NewCarPartImage::all();
 //});
 
-Route::get('test', function() {
+Route::get('testcount', function() {
     $parts = NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
         ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes
