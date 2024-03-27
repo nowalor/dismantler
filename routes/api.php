@@ -188,7 +188,7 @@ Route::get('testcount', function() {
         ->take(200)
         ->count();
 
-    return "count is $count";
+    return "count is $parts";
 });
 
 
