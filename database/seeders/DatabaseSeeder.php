@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\KType;
 use Database\Seeders\old\CarPartSeeder;
 use Illuminate\Database\Seeder;
 
@@ -20,9 +21,15 @@ class DatabaseSeeder extends Seeder
             CommericalNameSeeder::class,
             DataProviderSeeder::class,
 
+            CarBrandSeeder::class, // Needs to be before DitoNumberSeeder
+
+
             KbaSeeder::class,
-//            DitoNumberSeeder::class,
-//            DitoNumberKbaSeeder::class,
+            KTypeSeeder::class,
+            DitoNumberSeeder::class,
+            DitoNumberKbaSeeder::class,
+
+//            \Artisan::call('k-type:find-kba'), // Find k-type -> kba connections
 //            EngineTypeSeeder::class,
 //            EngineTypeGermanDismantlerSeeder::class,
 //            DismantleCompanySeeder::class,

@@ -146,4 +146,49 @@ Route::post('do-upload', function (Request $request) {
     return Storage::disk('do')->url($path);
 });
 
+//Route::get('to-seed', function() {
+//    return \Illuminate\Support\Facades\DB::table('german_dismantler_dito_number')->get();
+//    return \App\Models\NewCarPartImage::all();
+//});
+
+Route::get('testcount', function() {
+    $parts = NewCarPart::with("carPartImages")
+//            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
+        ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes
+        // Very important conditions so we don't upload products with data issues
+        ->where('is_live_on_ebay', false)
+        ->where('engine_code', '!=', '')
+        ->whereNotNull('engine_code')
+        ->where('model_year', '>', 2009)
+        ->whereNull('sold_at')
+        ->whereNotNull('article_nr')
+        ->whereNotNull('price_sek')
+        ->whereNot('brand_name', 'like', '%mer%')
+        ->whereNot('brand_name', 'like', '%bmw%')
+        ->where(function ($q) {
+            $q->where('fuel', 'Diesel');
+            $q->orWhere('fuel', 'Bensin');
+        })
+        ->whereHas("carPartImages", function ($q) {
+            $q->whereNotNull("image_name_blank_logo");
+        })
+        ->whereHas("germanDismantlers.kTypes")
+        ->with("germanDismantlers", function ($q) {
+            $q->whereHas("kTypes")->with("kTypes");
+        })
+        ->where(function ($query) {
+            $query
+                ->where('dismantle_company_name', '!=', 'F')
+                ->orWhere(function ($subQuery) {
+                    $subQuery
+                        ->where('dismantle_company_name', 'F')
+                        ->whereIn('car_part_type_id', [6, 7]);
+                });
+        })
+        ->take(200)
+        ->count();
+
+    return "count is $count";
+});
+
 
