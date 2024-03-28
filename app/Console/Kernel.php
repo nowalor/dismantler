@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('ebay:orders')->everyMinute(); // Check our sales on ebay
         $schedule->command('fenix:add-new-parts')->dailyAt('00:00');
         $schedule->command('fenix:resolve-images')->everyThirtyMinutes();
+        $schedule->command('fenix:fetch')->dailyAt('00:00');
     }
 
     /**
