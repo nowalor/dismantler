@@ -19,24 +19,51 @@ class FenixResolveCarPartImagesCommand extends Command
 
     public function handle(): int
     {
+        $logos = [
+            [
+                'folder' => 'german-logo',
+                'image_name' => 'new-logo-german.jpg',
+                'db_field' => 'new_logo_german',
+            ],
+            [
+                'folder' => 'english-logo',
+                'image_name' => 'new-logo-english.jpg',
+                'db_field' => 'new_logo_english',
+            ],
+            [
+                'folder' => 'danish-logo',
+                'image_name' => 'new-logo-danish.jpg',
+                'db_field' => 'new_logo_danish',
+            ],
+            [
+                'folder' => 'old_logo',
+                'image_name' => 'logo.png',
+                'db_field' => 'image_name',
+            ],
+        ];
+
+        foreach($logos as $logo) {
+            // TODO
+        }
+
         $replacementImagePath = public_path('img/logo.png');
         $replacementImage = Image::make($replacementImagePath);
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
             ->whereHas('carPartImages', function ($query) {
-                $query->whereNull('image_name_blank_logo');
+                $query->whereNull('image_name');
             })
             ->with(['carPartImages' => function ($query) {
-                $query->whereNull('image_name_blank_logo');
+                $query->whereNull('image_name');
             }])
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
-            ->has('germanDismantlers')
+//            ->has('germanDismantlers')
             ->where('price_sek', '>', 0)
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
-            ->take(5)
+            ->take(520)
             ->get();
 
         foreach ($carParts as $carPart) {
@@ -51,7 +78,7 @@ class FenixResolveCarPartImagesCommand extends Command
                         position: $position,
                     );
 
-                if(!$response) {
+                if (!$response) {
                     continue;
                 }
 
@@ -96,7 +123,7 @@ class FenixResolveCarPartImagesCommand extends Command
     {
         $height = 0.29;
 
-        if($dismantleCompany === 'F') {
+        if ($dismantleCompany === 'F') {
             $height = 0.38;
         }
 

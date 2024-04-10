@@ -50,6 +50,7 @@ class NewCarPart extends Model
         'brand_name',
         'is_live_on_ebay',
         'new_name',
+        'description_name',
     ];
 
     public function carPartType(): BelongsTo
@@ -138,6 +139,31 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
+    public function getAutoteileMarktPriceAttribute()
+    {
+        $priceSek = $this->price_sek;
+
+        if (!$priceSek) {
+            return $priceSek;
+        }
+        /*
+         * Calc divider
+         */
+        if ($priceSek <= 2000) {
+            $divider = 7;
+        } else if($priceSek <= 3000) {
+            $divider = 8;
+        } else if ($priceSek <= 10000) {
+            $divider = 9;
+        } else if ($priceSek <= 20000) {
+            $divider = 10;
+        } else {
+            $divider = 11;
+        }
+
+        return round(((($priceSek / $divider)) * 1.19));
+    }
+
     public function getShipmentAttribute(): int
     {
         $partType = $this->carPartType->germanCarPartTypes->first()->name;
@@ -161,7 +187,7 @@ class NewCarPart extends Model
             GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
             1,
         )) {
-            $shipment = 100;
+            $shipment = 150;
 
         }
 
@@ -171,7 +197,7 @@ class NewCarPart extends Model
             GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE,
             1,
         )) {
-            $shipment = 70;
+            $shipment = 100;
         }
 
         if (in_array(
@@ -185,7 +211,7 @@ class NewCarPart extends Model
         /*
          * Longer delivery
          */
-        if ($dismantleCompanyName === 'F' || $dismantleCompanyName === 'A' || $dismantleCompanyName === 'AL') {
+        if (in_array($dismantleCompanyName, ['F', 'A', 'AL',' D', 'LI'])) {
             if (in_array(
                 $partType,
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
@@ -197,7 +223,7 @@ class NewCarPart extends Model
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
                 1,
             )) {
-                $shipment += 50;
+                $shipment += 100;
             }
             else {
                 $shipment += 100;
@@ -215,6 +241,16 @@ class NewCarPart extends Model
 
         return round($b2bPrice);
     }
+
+    public function getAutoteileMarktBusinessPriceAttribute()
+    {
+        $b2cPrice = $this->autoteile_markt_price;
+
+        $b2bPrice = $b2cPrice * 0.95;
+
+        return round($b2bPrice);
+    }
+
 
     public function getUniqueKbaAttribute()
     {

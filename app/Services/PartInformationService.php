@@ -12,7 +12,15 @@ class PartInformationService
 
         $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
 
-        $name .= $germanCarPartName . ' ' . $carPart->mileage_km . 'km für ' . $this->getCarName($carPart);
+        if($germanCarPartName === 'Automatikgetriebe') {
+            $germanCarPartName = 'ORIGINAL Getriebe Automatik';
+        }
+
+        if($germanCarPartName === 'Motor') {
+            $germanCarPartName = 'ORIGINAL Motor';
+        }
+
+        $name .= $germanCarPartName . ' ' . $this->getCarName($carPart) . ' ' . $carPart->model_year .' ' . $carPart->mileage_km . 'km';
 
         if (in_array(
             $carPart->car_part_type_id,
@@ -30,7 +38,26 @@ class PartInformationService
             $additionalInformation = $carPart->engine_code;
         }
 
-        $name .= ' ' . $additionalInformation . ' ' . $carPart->original_number ;
+        $name .= ' ' . $carPart->original_number  . ' ' . $additionalInformation;
+
+        return preg_replace('/\s+/', ' ', $name);
+    }
+
+    public function getDescriptionName(NewCarPart $carPart): string
+    {
+        $name = '';
+
+        $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
+
+        if($germanCarPartName === 'Automatikgetriebe') {
+            $germanCarPartName = 'ORIGINAL Getriebe Automatik';
+        }
+
+        if($germanCarPartName === 'Motor') {
+            $germanCarPartName = 'ORIGINAL Motor';
+        }
+
+        $name .= $germanCarPartName . ' ' . $this->getCarName($carPart) . ' ' . $carPart->model_year;
 
         return preg_replace('/\s+/', ' ', $name);
     }

@@ -62,10 +62,17 @@
         const form = document.getElementById('payment-form')
         const payButton = document.getElementById('payment-button')
 
+        console.log(form.elements.payment_platform)
+
+        console.log(form.elements.payment_platform.value)
+
+        console.log({{ $paymentPlatform->id }})
+
         payButton.addEventListener('click', async (e) => {
             e.preventDefault()
 
-            if (form.elements.payment_platform.value === "{{ $paymentPlatform->id }}") {
+            if (1 === {{ $paymentPlatform->id }}) {
+                alert('yes')
                 const buyerName = document.getElementById('checkout_name').value
                 const buyerEmail = document.getElementById('checkout_email').value
                 const address = document.getElementById('checkout_address').value
@@ -88,6 +95,8 @@
                         },
                     }
                 )
+
+                console.log(paymentMethod)
 
                 if (error) {
                     const displayError = document.getElementById('cardErrors')

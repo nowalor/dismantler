@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Data\DitoNumberData;
+use App\Models\DitoNumber;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 
 class DitoNumberSeeder extends Seeder
 {
@@ -16,9 +15,12 @@ class DitoNumberSeeder extends Seeder
      */
     public function run()
     {
-        $file = File::get(base_path() . '/database/data/dito-numbers.sql');
+        $ditoNumbers = DitoNumberData::DATA;
 
-        DB::unprepared($file);
+        foreach($ditoNumbers as $ditoNumber) {
+            $ditoNumber['created_at'] = now();
+            DitoNumber::firstOrCreate(['dito_number' => $ditoNumber['dito_number']], $ditoNumber);
+        }
     }
 
 }

@@ -34,7 +34,7 @@ class FormatPartsForXmlAction
                 'SKU' => $part->article_nr,
                 'productInformation' => [
                     'localizedFor' => 'de_DE',
-                    'title' => $part->name,
+                    'title' => $part->new_name,
                     'description' => [
                         'productDescription' => $this->resolveDescription($part),
                     ],
@@ -58,15 +58,19 @@ class FormatPartsForXmlAction
                 'distribution' => [
                     'localizedFor' => 'de_DE',
                     'channelDetails' => [
+                        'VATPercent' => 19,
+                        'templateName' => 'default.html',
                         'channelID' => 'EBAY_DE',
-                        'category' => '33615', // Engines
+//                        'category' => '33615', // Engines
+//                        'category' => '171115', // Automatic gearbox
+                    'category' => '171117', // Manual 6 gear gearbox
                         'paymentPolicyName' => 'eBay Managed Payments (341130335023)',
                         'returnPolicyName' => '30 Tage Rückgabe. Käufer zahlt Rückversand',
                         'shippingPolicyName' => 'Kostenloser Versand',
                         // Add other distribution details
                         'pricingDetails' => [
-                            'listPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
-                            'strikeThroughPrice' => $part->getNewPriceAttribute() + $part->getShipmentAttribute(),
+                            'listPrice' => $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute(),
+                            'strikeThroughPrice' => $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute(),
 //                            'minimumAdvertisedPrice' => '18.18465',
 //                            'minimumAdvertisedPriceHandling' => '',
                         ],
@@ -75,7 +79,7 @@ class FormatPartsForXmlAction
                     ],
                 ],
                 'inventory' => [
-                    'totalShipToHomeQuantity' => '0',
+                    'totalShipToHomeQuantity' => '1',
                 ],
             ],
         ];
@@ -101,9 +105,27 @@ class FormatPartsForXmlAction
     {
         $fields = [];
 
-        $part->carPartImages->each(function ($image, $index) {
-            $fields[]['customField'] = ["Image$index" => $image->image_name_blank_logo];
-        });
+        $images = $part->carPartImages->toArray();
+
+        $url = isset($images[0]) ?
+            "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[0]['image_name_blank_logo']}" :
+            'https://via.placeholder.com/500/eeeeee/999?text=Grafik-4';
+
+        $imageOneSet = isset($images[0]) ? '' : 'none';
+
+
+        $fields['customField'][] = ['name' => 'Image1', 'value' => $url];
+        $fields['customField'][] = ['name' => 'Image1class', 'value' => $imageOneSet];
+
+        for($i = 2; $i < 7; $i++) {
+            $url =  isset($images[$i - 1]) ?
+                "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$images[$i - 1]['image_name_blank_logo']}"
+                : 'image-missing';
+            $isSet = isset($images[$i - 1]) ? '' : 'none';
+
+            $fields['customField'][] = ['name' => "Image$i", 'value' => $url];
+            $fields['customField'][] = ['name' => "Image{$i}class", 'value' => $isSet];
+        }
 
         $fuel = $part->fuel;
 
@@ -113,24 +135,49 @@ class FormatPartsForXmlAction
 
         $fields['customField'][] = ['name' => 'Lagernummer', 'value' => $part->article_nr];
         $fields['customField'][] = ['name' => 'Kba', 'value' => $this->getKba($part)];
-        $fields['customField'][] = ['name' => 'Originale Ersatzteilnummer', 'value' => $part->original_number];
-        $fields['customField'][] = ['name' => 'Motor Kennung', 'value' => $part->engine_code];
+        $fields['customField'][] = ['name' => 'OriginaleErsatzteilnummer', 'value' => $part->original_number];
+        $fields['customField'][] = ['name' => 'MotorKennung', 'value' => $part->engine_code];
         $fields['customField'][] = ['name' => 'Motortype', 'value' => $part->engine_type ?? ''];
         $fields['customField'][] = ['name' => 'Brandstofftype', 'value' => $fuel];
-        $fields['customField'][] = ['name' => 'Laufleistung(KM)', 'value' => $part->milega_km];
-        $fields['customField'][] = ['name' => 'Model Jahr', 'value' => $part->model_year];
+        $fields['customField'][] = ['name' => 'LaufleistungKM', 'value' => $part->mileage_km];
+        $fields['customField'][] = ['name' => 'ModelJahr', 'value' => $part->model_year];
         $fields['customField'][] = ['name' => 'Getriebe', 'value' => $part->gearbox_nr];
         $fields['customField'][] = ['name' => 'Fahrgestellnummer', 'value' => $part->vin];
+        $fields['customField'][] = ['name' => 'name', 'value' => $part->description_name];
+
+        // New
+        $fields['customField'][] = ['name' => 'Hersteller', 'value' => $this->getProducer($part)];
+        $fields['customField'][] = ['name' => 'Modell', 'value' => $this->getBrand($part)];
 
         return $fields;
+    }
+
+    private function getProducer(NewCarPart $carPart): string
+    {
+        $dito = $carPart->sbrCode?->ditoNumbers()->first();
+
+        if(!$dito) {
+            return $carPart->sbr_car_name;
+        }
+
+        return $dito->producer;
+    }
+
+    private function getBrand(NewCarPart $carPart): string
+    {
+        $dito = $carPart->sbrCode?->ditoNumbers()->first();
+
+        if(!$dito) {
+            return $carPart->sbr_car_name;
+        }
+
+        return $dito->brand;
     }
 
     private function getPictureUrls(NewCarPart $part): array
     {
         return array_map(static function ($img) use ($part) {
-            return asset(
-                "storage/img/car-part/$part->id/{$img['image_name_blank_logo']}"
-            );
+            return "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$img['image_name_blank_logo']}";
         }, $part->carPartImages->toArray());
     }
 

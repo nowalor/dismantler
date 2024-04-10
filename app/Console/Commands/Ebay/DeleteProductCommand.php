@@ -30,6 +30,7 @@ class DeleteProductCommand extends Command
 
     private function partQuery(): array
     {
+//        return NewCarPart::whereIn('article_nr', ['BO490467', 'BO518045', 'BO521829', 'BO471957', 'BO438695', 'BO474518', 'BO532585', 'BO525169', 'BO471955', 'BO516139', 'BO533010', 'BO543899', 'BO426791', 'BO522962', 'BO522962', 'BO477354', 'BO455633', 'BO535678', 'BO455631', 'BO545008', 'BO521845', 'BO437213', 'BO453042', 'BO551578', 'BO542433', 'BO517408'])->get()->toArray();
         return NewCarPart::where('is_live_on_ebay', true)->get()->toArray();
     }
 }

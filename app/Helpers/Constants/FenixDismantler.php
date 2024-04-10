@@ -48,6 +48,14 @@ class FenixDismantler
               'code' => 'GB',
               'email' => 'info.lkp@bildelslager.se',
             ],
+//            'LI' => [
+//              'full_name' => ''  ,
+//              'code' => ''  ,
+//              'email' => ''  ,
+//            ],
+//            'D' => [
+//                'full_name' => '',
+//            ],
         ];
 
 }
