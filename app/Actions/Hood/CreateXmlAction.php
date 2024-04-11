@@ -26,7 +26,9 @@ class CreateXmlAction
         $parts,
     )//: void
     {
-        $xml = new \SimpleXMLElement(
+        $path = base_path("public/exports/hello.xml");
+
+        $xml = new SimpleXMLElement(
             "<?xml version='1.0' encoding='UTF-8'?>
             <api
                 user='$this->username'
@@ -50,7 +52,7 @@ class CreateXmlAction
             $item->addChild('itemName', $part->new_name);
             $item->addChild('quantity', '1');
             $item->addChild('condition', 'usedGood');
-//            $item->addChild('description', $this->resolveDescription($part));
+            $item->addChild('description', $this->resolveDescription($part));
 
             // Pay options
             $payOptions = $item->addChild('payOptions');
@@ -88,7 +90,7 @@ class CreateXmlAction
 
 
 
-        return $xml->asXML();
+        return $xml->asXML($path);
     }
 
     // Make this reusable instead of copy paste from doc service
