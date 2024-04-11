@@ -52,10 +52,30 @@ class CreateXmlAction
             $item->addChild('condition', 'usedGood');
 //            $item->addChild('description', $this->resolveDescription($part));
 
+            // Pay options
             $payOptions = $item->addChild('payOptions');
             $payOptions->addChild('option', 'wireTransfer');
             $payOptions->addChild('option', 'invoice');
             $payOptions->addChild('option', 'payPal');
+
+            // Shipment methods
+            $shipMethods = $item->addChild('shipMethods');
+
+            $shipMethod = $shipMethods->addChild('shipMethod');
+            $shipMethod->addAttribute('name', 'seeDesc_nat'); // TODO
+            $shipMethod->addChild('value', 5);
+
+            $item->addChild('startDate'); //TODO
+            $item->addChild('startDate'); //TODO
+            $item->addChild('durationInDays'); //TODO
+
+            $item->addChild('priceStart', '3,50'); //TODO
+            $item->addChild('price', '1205,95'); //TODO
+            $item->addChild('salesTax', '19'); //TODO
+            $item->addChild('warrantyShortenedFlag', '1'); //TODO
+            $item->addChild('prodCatID', '1'); //TODO
+            $item->addChild('ifIsSoldOut', 'hide'); //TODO
+            $item->addChild('isApproved', '1'); //TODO
 
 
             $images = $item->addChild('images');
