@@ -62,4 +62,10 @@ return [
         'cert_id' => env('EBAY_CERT_ID'),
         'api_url' => env('EBAY_API_URL'),
     ],
+
+    'hood' => [
+        'api_url' => env('HOOD_DE_API_URL'),
+        'username' => env('HOOD_DE_USERNAME'),
+        'api_password' => env('HOOD_DE_API_PASSWORD'),
+    ],
 ];

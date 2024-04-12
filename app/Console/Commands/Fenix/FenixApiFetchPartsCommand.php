@@ -26,6 +26,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
         $dismantleCompanies = [
             'as',
+            'p',
         ];
 
 
