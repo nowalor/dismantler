@@ -47,18 +47,18 @@ class CreateXmlAction
         foreach($parts as $part) {
             $item = $items->addChild('item');
 
-            $item->addChild('itemMode', 'classic');
-            $item->addChild('categoryID', '2413');
-            $item->addChild('itemName', $part->new_name);
+            $item->addChild('itemMode', 'shopProduct');
+            $item->addChild('categoryID', '465');
+            $item->addChild('itemName', $part->name);
             $item->addChild('quantity', '1');
             $item->addChild('condition', 'usedGood');
             $item->addChild('description', $this->resolveDescription($part));
 
-            // Pay options
-            $payOptions = $item->addChild('payOptions');
-            $payOptions->addChild('option', 'wireTransfer');
-            $payOptions->addChild('option', 'invoice');
-            $payOptions->addChild('option', 'payPal');
+//            // Pay options
+//            $payOptions = $item->addChild('payOptions');
+//            $payOptions->addChild('option', 'wireTransfer');
+//            $payOptions->addChild('option', 'invoice');
+//            $payOptions->addChild('option', 'payPal');
 
             // Shipment methods
             $shipMethods = $item->addChild('shipMethods');
@@ -71,8 +71,10 @@ class CreateXmlAction
             $item->addChild('startDate'); //TODO
             $item->addChild('durationInDays'); //TODO
 
-            $item->addChild('priceStart', '3,50'); //TODO
-            $item->addChild('price', '1205,95'); //TODO
+            $price = $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute();
+
+            $item->addChild('priceStart', $price); //TODO
+            $item->addChild('price', $price); //TODO
             $item->addChild('salesTax', '19'); //TODO
             $item->addChild('warrantyShortenedFlag', '1'); //TODO
             $item->addChild('prodCatID', '1'); //TODO
@@ -82,13 +84,17 @@ class CreateXmlAction
 
             $images = $item->addChild('images');
             foreach($part->carPartImages as $image) {
+                if(!$image->$image->image_name_blank_logo) {
+                    continue;
+                }
+
+                $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$image->image_name_blank_logo}";
+
                 $imageXml = $images->addChild('image');
 
-                $imageXml->addChild('imageURL' , $image->original_url);
+                $imageXml->addChild('imageURL' , $url);
             }
         }
-
-
 
         return $xml->asXML($path);
     }
@@ -96,7 +102,6 @@ class CreateXmlAction
     // Make this reusable instead of copy paste from doc service
     private function resolveDescription(NewCarPart $carPart): string
     {
-
         $kba = $carPart->my_kba->map(function ($kbaNumber) {
             return [
                 'hsn' => $kbaNumber->hsn,
