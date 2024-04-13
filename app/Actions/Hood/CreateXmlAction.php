@@ -84,7 +84,7 @@ class CreateXmlAction
 
             $images = $item->addChild('images');
             foreach($part->carPartImages as $image) {
-                if(!$image->$image->image_name_blank_logo) {
+                if(!$image->image_name_blank_logo) {
                     continue;
                 }
 
