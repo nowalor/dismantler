@@ -51,6 +51,7 @@ class NewCarPart extends Model
         'is_live_on_ebay',
         'new_name',
         'description_name',
+        'is_live_on_hood',
     ];
 
     public function carPartType(): BelongsTo
