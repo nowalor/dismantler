@@ -48,7 +48,7 @@ class CreateXmlAction
             $item = $items->addChild('item');
 
             $item->addChild('itemMode', 'shopProduct');
-            $item->addChild('categoryID', '465');
+            $item->addChild('categoryID', '1006');
             $item->addChild('itemName', $part->name);
             $item->addChild('quantity', '1');
             $item->addChild('condition', 'usedGood');
