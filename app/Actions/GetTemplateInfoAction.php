@@ -17,23 +17,23 @@ class GetTemplateInfoAction
         $data = [
             [
                 'label' => 'Hersteller',
-                'value' => 'TODO',
+                'value' => $this->getProducer($part),
             ],
             [
                 'label' => 'Modell',
-                'value' => 'TODO',
+                'value' => $this->getBrand($part),
             ],
             [
                 'label' => 'Bauahr',
-                'value' => 'TODO',
+                'value' => $part->model_year,
             ],
             [
                 'label' => 'Originale Ersatzteilnummer',
-                'value' => 'TODO',
+                'value' => $part->original_number,
             ],
             [
                 'label' => 'Motortype',
-                'value' => 'TODO',
+                'value' => $part->engine_type,
             ],
             [
                 'label' => 'Treibstoffart',
@@ -41,19 +41,19 @@ class GetTemplateInfoAction
             ],
             [
                 'label' => 'Qualität',
-                'value' => 'TODO',
+                'value' => 'Gebrauchtteil',
             ],
             [
                 'label' => 'Laufleistung(km)',
-                'value' => 'TODO',
+                'value' => $part->mileage_km,
             ],
             [
                 'label' => 'Getriebe',
-                'value' => 'TODO',
+                'value' => $part->gearbox_nr,
             ],
             [
                 'label' => 'Fahrgestellnummer',
-                'value' => 'TODO',
+                'value' => $part->vin,
             ],
             [
                 'label' => 'Lagernummer',
@@ -61,7 +61,7 @@ class GetTemplateInfoAction
             ],
             [
                 'label' => 'Kba',
-                'value' => $part->article_nr,
+                'value' => $this->getKba($part),
             ],
         ];
 
@@ -88,5 +88,21 @@ class GetTemplateInfoAction
         }
 
         return $dito->brand;
+    }
+
+    private function getKba(NewCarPart $part): string
+    {
+        $kba = $part->my_kba->map(function ($kbaNumber) {
+            return [
+                'hsn' => $kbaNumber->hsn,
+                'tsn' => $kbaNumber->tsn,
+            ];
+        })->toArray();
+
+        $propertiesArray = array_map(function ($kbaNumber) {
+            return $kbaNumber['hsn'] . $kbaNumber['tsn'];
+        }, $kba);
+
+        return implode(',', $propertiesArray);
     }
 }

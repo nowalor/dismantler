@@ -1421,7 +1421,7 @@
                         @foreach($part->carPartImages as $image)
                         <li class="pic{{$loop->index + 1}} img slide">
                             <img
-                                src="{{ $image->original_url }}"
+                                src="{{ $image->new_logo_german }}"
                                 class="product-img"
                             />
                         </li>
@@ -1434,7 +1434,7 @@
                             <label class="pic{{$loop->index + 1}} col-xs-3" for="slide{{$loop->index + 1}}"
                             ><span class="anker"></span>
                                 <img
-                                    src="{{ $image->original_url }}"
+                                    src="{{ $image->new_logo_german }}"
                                     class="${PRODUCT.CustomFields.Image1class}"
                                 /></label>
                         @endforeach
