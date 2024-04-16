@@ -107,12 +107,7 @@ class CreateXmlAction
     {
         $data = (new GetTemplateInfoAction())->execute($part);
 
-        $html = view('hood', compact('part', 'data'))->toHtml();
-
-        // Wrap HTML content within a CDATA section
-        $cdataHtml = "<![CDATA[$html]]>";
-
-        return $cdataHtml;
+        return view('hood', compact('part', 'data'))->toHtml();
     }
 
     private function kbaArrayToString(array $kbaArray): string
