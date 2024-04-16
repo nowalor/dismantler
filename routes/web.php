@@ -134,3 +134,11 @@ Route::get('preview', function() {
 
     return view('emails.reservation', compact('dismantleId', 'fenixId'));
 });
+
+
+// TEST HOOD TEMPLATE
+Route::get('hood/{part}', function (\App\Models\NewCarPart $part) {
+    $data = (new \App\Actions\GetTemplateInfoAction())->execute($part);
+
+    return view('hood', compact('part', 'data'));
+});

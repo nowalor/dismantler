@@ -2,6 +2,7 @@
 
 namespace App\Actions\Hood;
 
+use App\Actions\GetTemplateInfoAction;
 use App\Models\NewCarPart;
 use App\Services\PartInformationService;
 use Illuminate\Database\Eloquent\Collection;
@@ -48,11 +49,13 @@ class CreateXmlAction
             $item = $items->addChild('item');
 
             $item->addChild('itemMode', 'shopProduct');
-            $item->addChild('categoryID', '465');
+            $item->addChild('categoryID', '1006');
             $item->addChild('itemName', $part->name);
             $item->addChild('quantity', '1');
             $item->addChild('condition', 'usedGood');
-            $item->addChild('description', $this->resolveDescription($part));
+            $item->addChild('description',
+                htmlspecialchars($this->resolveDescription($part), ENT_QUOTES, "utf-8")
+            );
 
 //            // Pay options
 //            $payOptions = $item->addChild('payOptions');
@@ -96,38 +99,20 @@ class CreateXmlAction
             }
         }
 
-        return $xml->asXML($path);
+        return $xml->saveXML($path);
     }
 
     // Make this reusable instead of copy paste from doc service
-    private function resolveDescription(NewCarPart $carPart): string
+    private function resolveDescription(NewCarPart $part): string
     {
-        $kba = $carPart->my_kba->map(function ($kbaNumber) {
-            return [
-                'hsn' => $kbaNumber->hsn,
-                'tsn' => $kbaNumber->tsn,
-            ];
-        })->toArray();
+        $data = (new GetTemplateInfoAction())->execute($part);
 
-        $kbaString = $this->kbaArrayToString($kba);
+        $html = view('hood', compact('part', 'data'))->toHtml();
 
-        $engineType = $carPart->engine_type ?? '';
+        // Wrap HTML content within a CDATA section
+        $cdataHtml = "<![CDATA[$html]]>";
 
-        $description = "
-            Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten. Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen. \n
-            Lagernummer: $carPart->article_nr \n
-            Originale Ersatzteilnummer: $carPart->original_number \n
-            Motor Kennung: $carPart->full_engine_code \n
-            Motortype: $engineType \n
-            Brandstofftype: $carPart->fuel \n
-            Getriebe: {$this->partInformationService->getGearbox($carPart)} \n
-            Laufleistung: $carPart->mileage_km(km) \n
-            Fahrgestellnummer: $carPart->vin \n
-            Baujahr: $carPart->model_year \n
-            Kbas: $kbaString \n
-        ";
-
-        return $description;
+        return $cdataHtml;
     }
 
     private function kbaArrayToString(array $kbaArray): string
