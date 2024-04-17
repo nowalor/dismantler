@@ -31,6 +31,6 @@ class NewCarPartImage extends Model
 
     public function logoGerman(): string
     {
-        return "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$this->new_car_part_id}/old-logo/{$this->new_logo_german}";
+        return "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$this->new_car_part_id}/german-logo/{$this->new_logo_german}";
     }
 }
