@@ -28,4 +28,9 @@ class NewCarPartImage extends Model
     {
         return $this->belongsTo(NewCarPart::class, 'new_car_part_id');
     }
+
+    public function logoGerman(): string
+    {
+        return "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$this->new_car_part_id}/old-logo/{$this->new_logo_german}";
+    }
 }
