@@ -70,15 +70,16 @@ class CreateXmlAction
             $shipMethod->addAttribute('name', 'seeDesc_nat'); // TODO
             $shipMethod->addChild('value', 0);
 
-            $item->addChild('startDate'); //TODO
-            $item->addChild('startDate'); //TODO
-            $item->addChild('durationInDays'); //TODO
+            $item->addChild('startDate', now()->format('d.m.Y'));
+            $item->addChild('startDate', now()->format('H:i'));
+            $item->addChild('durationInDays', '30');
+            $item->addChild('autoRenew', 'yes');
 
             $price = $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute();
 
-            $item->addChild('priceStart', $price); //TODO
-            $item->addChild('price', $price); //TODO
-            $item->addChild('salesTax', '19'); //TODO
+            $item->addChild('priceStart', $price);
+            $item->addChild('price', $price);
+            $item->addChild('salesTax', '19');
             $item->addChild('warrantyShortenedFlag', '1'); //TODO
             $item->addChild('prodCatID', '1'); //TODO
             $item->addChild('ifIsSoldOut', 'hide'); //TODO
@@ -91,12 +92,14 @@ class CreateXmlAction
                     continue;
                 }
 
-                $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/$part->id/logo-blank/{$image->image_name_blank_logo}";
+                $url = $image->logoGerman();
 
                 $imageXml = $images->addChild('image');
 
                 $imageXml->addChild('imageURL' , $url);
             }
+
+            $part->update(['is_live_on_hood' => true]);
         }
 
         return $xml->saveXML($path);
