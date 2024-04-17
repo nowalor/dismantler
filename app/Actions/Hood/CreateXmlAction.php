@@ -68,7 +68,7 @@ class CreateXmlAction
 
             $shipMethod = $shipMethods->addChild('shipMethod');
             $shipMethod->addAttribute('name', 'seeDesc_nat'); // TODO
-            $shipMethod->addChild('value', 5);
+            $shipMethod->addChild('value', 0);
 
             $item->addChild('startDate'); //TODO
             $item->addChild('startDate'); //TODO
