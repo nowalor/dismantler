@@ -28,7 +28,7 @@ class ExportPartsCommand extends Command
 //            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
             ->where('car_part_type_id', 1) // manual 6 gear gearbox, 1 // engine
             // Very important conditions so we don't upload products with data issues
-            ->where('is_live_on_ebay', false)
+//            ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
             ->where('model_year', '>', 2009)
