@@ -50,7 +50,7 @@ class CreateXmlAction
 
             $item->addChild('itemMode', 'shopProduct');
             $item->addChild('categoryID', '1006');
-            $item->addChild('itemName', $part->name);
+            $item->addChild('itemName', $part->new_name);
             $item->addChild('quantity', '1');
             $item->addChild('condition', 'usedGood');
             $item->addChild('description',
