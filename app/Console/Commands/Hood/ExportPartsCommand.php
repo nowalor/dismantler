@@ -3,7 +3,7 @@
 namespace App\Console\Commands\Hood;
 
 use App\Models\NewCarPart;
-use http\Client;
+use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 use App\Actions\Hood\CreateXmlAction as HoodCreateXmlAction;
