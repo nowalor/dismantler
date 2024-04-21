@@ -54,9 +54,9 @@ class ExportPartsCommand extends Command
 
         $hasMoreParts = $this->partsCount();
 
-        if($hasMoreParts) {
-            return \Artisan::call('hood:export');
-        }
+//        if($hasMoreParts) {
+//            return \Artisan::call('hood:export');
+//        }
 
         return Command::SUCCESS;
     }
