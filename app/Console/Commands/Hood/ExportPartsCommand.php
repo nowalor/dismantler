@@ -44,7 +44,7 @@ class ExportPartsCommand extends Command
             ]
         );
 
-        logger($response);
+        logger($response->getBody());
 
         foreach($parts as $part) {
             $part->update(['is_live_on_hood' => true]);
