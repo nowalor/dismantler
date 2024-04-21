@@ -37,7 +37,7 @@ class ExportPartsCommand extends Command
 
         $partsXml = (new HoodCreateXmlAction())->execute('itemValidate', $parts);
 
-        logger($partsXml);
+        logger("test: $partsXml");
 
         $response = $this->client->post(
             $this->apiUrl,
