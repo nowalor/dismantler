@@ -37,16 +37,16 @@ class ExportPartsCommand extends Command
 
         $partsXml = (new HoodCreateXmlAction())->execute('itemValidate', $parts);
 //
-//        logger("test: $partsXml");
-//
-//        $response = $this->client->post(
-//            $this->apiUrl,
-//            [
-//                'body' => $partsXml,
-//            ]
-//        );
-//
-//        logger($response->getBody());
+        logger("test: $partsXml");
+
+        $response = $this->client->post(
+            $this->apiUrl,
+            [
+                'body' => $partsXml,
+            ]
+        );
+
+        logger($response->getBody());
 
 //        foreach($parts as $part) {
 //            $part->update(['is_live_on_hood' => true]);
