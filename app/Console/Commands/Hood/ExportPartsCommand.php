@@ -36,8 +36,6 @@ class ExportPartsCommand extends Command
         $parts = $this->parts();
 
         $partsXml = (new HoodCreateXmlAction())->execute('itemInsert', $parts);
-//
-        logger("test: $partsXml");
 
         $response = $this->client->post(
             $this->apiUrl,
@@ -46,17 +44,15 @@ class ExportPartsCommand extends Command
             ]
         );
 
-        logger($response->getBody());
-
         foreach($parts as $part) {
             $part->update(['is_live_on_hood' => true]);
         }
 
         $hasMoreParts = $this->partsCount();
 
-//        if($hasMoreParts) {
-//            return \Artisan::call('hood:export');
-//        }
+        if($hasMoreParts) {
+            return \Artisan::call('hood:export');
+        }
 
         return Command::SUCCESS;
     }
