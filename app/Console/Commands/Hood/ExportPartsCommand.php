@@ -31,12 +31,6 @@ class ExportPartsCommand extends Command
 
     public function handle(): int
     {
-        $hasMoreParts = $this->partsCount();
-
-        if($hasMoreParts) {
-            return \Artisan::call('hood:export');
-        }
-
         logger('fetching parts again');
 
         $parts = $this->parts();
@@ -54,6 +48,12 @@ class ExportPartsCommand extends Command
 
         foreach($parts as $part) {
             $part->update(['is_live_on_hood' => true]);
+        }
+
+        $hasMoreParts = $this->partsCount();
+
+        if($hasMoreParts) {
+            return \Artisan::call('hood:export');
         }
 
         return Command::SUCCESS;
