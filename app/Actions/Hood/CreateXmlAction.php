@@ -39,7 +39,7 @@ class CreateXmlAction
             ></api>"
         );
 
-        $xml->addChild('function', 'itemValidate');
+        $xml->addChild('function', $functionType);
         $xml->addChild('accountName', $this->username);
         $xml->addChild('accountPass', $this->apiPassword);
 
@@ -98,8 +98,6 @@ class CreateXmlAction
 
                 $imageXml->addChild('imageURL' , $url);
             }
-
-            $part->update(['is_live_on_hood' => true]);
         }
 
         return $xml->saveXML();
