@@ -17,6 +17,8 @@ class ExportPartsCommand extends Command
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->client = new Client([
             'headers' => [
                 'Content-Type' => 'text/xml; charset=UTF-8',
