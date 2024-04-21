@@ -102,8 +102,7 @@ class CreateXmlAction
             $part->update(['is_live_on_hood' => true]);
         }
 
-//        return $xml;
-        return $xml->saveXML($path);
+        return $xml->saveXML();
     }
 
     // Make this reusable instead of copy paste from doc service
