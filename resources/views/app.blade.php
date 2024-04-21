@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
 <body>
@@ -16,6 +17,7 @@
 @if(auth()->user() && auth()->user()->is_admin)
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
+
         <a class="navbar-brand" href="#">Admin</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
