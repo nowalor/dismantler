@@ -31,30 +31,38 @@ class ExportPartsCommand extends Command
 
     public function handle(): int
     {
-        logger('fetching parts again');
-
         $parts = $this->parts();
 
         $partsXml = (new HoodCreateXmlAction())->execute('itemInsert', $parts);
 
-        $response = $this->client->post(
-            $this->apiUrl,
-            [
-                'body' => $partsXml,
-            ]
-        );
+        try {
+            $response = $this->client->post(
+                $this->apiUrl,
+                [
+                    'body' => $partsXml,
+                ]
+            );
 
-        foreach($parts as $part) {
-            $part->update(['is_live_on_hood' => true]);
+            if($response->getStatusCode() !== 200) {
+                logger($response->getStatusCode());
+                logger($response->getBody());
+                return Command::FAILURE;
+            }
+
+            foreach($parts as $part) {
+                $part->update(['is_live_on_hood' => true]);
+            }
+
+            $hasMoreParts = $this->partsCount();
+
+            if($hasMoreParts) {
+                return \Artisan::call('hood:export');
+            }
+
+            return Command::SUCCESS;
+        } catch(\Exception $ex) {
+            logger($ex->getMessage());
         }
-
-        $hasMoreParts = $this->partsCount();
-
-        if($hasMoreParts) {
-            return \Artisan::call('hood:export');
-        }
-
-        return Command::SUCCESS;
     }
 
     private function parts(): Collection
