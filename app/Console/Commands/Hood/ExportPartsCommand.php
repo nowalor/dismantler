@@ -119,18 +119,12 @@ class ExportPartsCommand extends Command
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
-            ->whereNot('brand_name', 'like', '%mer%')
-            ->whereNot('brand_name', 'like', '%bmw%')
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel');
                 $q->orWhere('fuel', 'Bensin');
             })
             ->whereHas("carPartImages", function ($q) {
                 $q->whereNotNull("image_name_blank_logo");
-            })
-            ->whereHas("germanDismantlers.kTypes")
-            ->with("germanDismantlers", function ($q) {
-                $q->whereHas("kTypes")->with("kTypes");
             })
             ->where(function ($query) {
                 $query
