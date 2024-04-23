@@ -131,6 +131,7 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
     {
         foreach ($parts as $part) {
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
+            logger('removing some sold parts..');
 
             // Return if part sold_at is not null
             if ($dbPart->sold_at) {
@@ -144,11 +145,11 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 //                )
 //            );
 
-            $part->is_live = false;
-            $part->sold_at = now();
-            $part->sold_on_platform = SellerPlatform::AUTOTEILE_MARKT;
+            $dbPart->is_live = false;
+            $dbPart->sold_at = now();
+            $dbPart->sold_on_platform = SellerPlatform::AUTOTEILE_MARKT;
 
-            $part->save();
+            $dbPart->save();
 
             $this->notificationService->notifyOrderSuccess(
                 partData: $part,
