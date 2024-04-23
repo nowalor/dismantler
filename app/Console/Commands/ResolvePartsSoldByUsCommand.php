@@ -129,9 +129,10 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
 
     public function handleSoldParts(array $parts)
     {
+        logger('removing some sold parts..');
+        
         foreach ($parts as $part) {
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
-            logger('removing some sold parts..');
 
             // Return if part sold_at is not null
             if ($dbPart->sold_at) {
