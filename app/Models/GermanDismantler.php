@@ -20,10 +20,10 @@ class GermanDismantler extends Model
         'manufacturer_plaintext',
         'make',
         'commercial_name',
-        'date_of_allotment_of_type_code_number',
+//        'date_of_allotment_of_type_code_number',
         'vehicle_category',
         'code_for_bodywork',
-        'code_for_the_fuel_or_power_source',
+//        'code_for_the_fuel_or_power_source',
         'max_net_power_in_kw',
         'engine_capacity_in_cm',
         'max_number_of_axles',
@@ -48,12 +48,12 @@ class GermanDismantler extends Model
         return $this->belongsToMany(MotorType::class);
     }
 
-  public function dateOfAllotmentOfTypeCodeNumber (): Attribute
-  {
-    return Attribute::make(
-        set: fn ($value) => Carbon::parse($value),
-    );
-  }
+//  public function dateOfAllotmentOfTypeCodeNumber (): Attribute
+//  {
+//    return Attribute::make(
+//        set: fn ($value) => Carbon::parse($value),
+//    );
+//  }
 
   public function getCodeAttribute(): Attribute
   {
