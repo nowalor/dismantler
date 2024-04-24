@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('fenix:add-new-parts')->dailyAt('00:00');
         $schedule->command('fenix:resolve-images')->everyThirtyMinutes();
         $schedule->command('fenix:fetch')->dailyAt('00:00');
-        $schedule->command('hood:export')->dailyAt('13:22');
+        $schedule->command('hood:export')->dailyAt('13:34');
     }
 
     /**
