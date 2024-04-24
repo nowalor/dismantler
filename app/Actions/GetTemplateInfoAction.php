@@ -73,7 +73,13 @@ class GetTemplateInfoAction
         $dito = $carPart->sbrCode?->ditoNumbers()->first();
 
         if(!$dito) {
-            return $carPart->sbr_car_name;
+            $sbr = $carPart->sbr_car_name;
+
+            if(!$sbr) {
+                return '';
+            }
+
+            return $sbr;
         }
 
         return $dito->producer;
