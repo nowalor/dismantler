@@ -212,7 +212,7 @@ class NewCarPart extends Model
         /*
          * Longer delivery
          */
-        if (in_array($dismantleCompanyName, ['F', 'A', 'AL',' D', 'LI'])) {
+        if (in_array($dismantleCompanyName, ['F', 'A', 'AL',' D', 'LI', 'W'])) {
             if (in_array(
                 $partType,
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,

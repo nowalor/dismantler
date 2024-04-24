@@ -9,6 +9,12 @@ class FormatPartsForXmlAction
 {
     private PartInformationService $partInformationService;
 
+    const CATEGORY_MAPPER = [
+        1 => '33615',
+        3 =>  '171115',
+        4 => '171117',
+    ];
+
     public function __construct()
     {
         $this->partInformationService = new PartInformationService();
@@ -63,7 +69,7 @@ class FormatPartsForXmlAction
                         'channelID' => 'EBAY_DE',
 //                        'category' => '33615', // Engines
 //                        'category' => '171115', // Automatic gearbox
-                    'category' => '171117', // Manual 6 gear gearbox
+                        'category' => self::CATEGORY_MAPPER[$part->car_part_type_id],
                         'paymentPolicyName' => 'eBay Managed Payments (341130335023)',
                         'returnPolicyName' => '30 Tage Rückgabe. Käufer zahlt Rückversand',
                         'shippingPolicyName' => 'Kostenloser Versand',
