@@ -54,7 +54,7 @@ Route::get('sbr-codes', function() {
 });
 
 Route::get('sbr-codes-dito', function() {
-   \Illuminate\Support\Facades\DB::table('dito_number_sbr_code')->get();
+   return \Illuminate\Support\Facades\DB::table('dito_number_sbr_code')->get();
 });
 
 Route::get('car-brands', function () {
