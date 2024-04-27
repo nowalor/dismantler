@@ -88,7 +88,7 @@ class CreateXmlAction
 
             $images = $item->addChild('images');
             foreach($part->carPartImages as $image) {
-                if(!$image->image_name_blank_logo) {
+                if(!$image->new_logo_german) {
                     continue;
                 }
 
