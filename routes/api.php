@@ -49,6 +49,13 @@ Route::get('for-marcus', function () {
     return response()->json($parts);
 });
 
+Route::get('sbr-codes', function() {
+    return SbrCode::all();
+});
+
+Route::get('sbr-codes-dito', function() {
+   \Illuminate\Support\Facades\DB::table('dito_number_sbr_code')->all();
+});
 
 Route::get('car-brands', function () {
     $brands = DitoNumber::distinct('producer')->pluck('producer');
