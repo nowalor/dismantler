@@ -49,6 +49,8 @@ class ExportPartsCommand extends Command
                 return Command::FAILURE;
             }
 
+            logger($response->getBody());
+
             foreach($parts as $part) {
                 $part->update(['is_live_on_hood' => true]);
             }
@@ -69,25 +71,25 @@ class ExportPartsCommand extends Command
     {
         return NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
-//            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7]) // manual 6 gear gearbox
+//            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
             // Very important conditions so we don't upload products with data issues
             ->where('is_live_on_hood', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
-            ->where('model_year', '>', 2000)
+//            ->where('model_year', '>', 2000)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
 //            ->whereNot('brand_name', 'like', '%mer%')
 //            ->whereNot('brand_name', 'like', '%bmw%')
-            ->where(function ($q) {
-                $q->where('fuel', 'Diesel');
-                $q->orWhere('fuel', 'Bensin');
-            })
-            ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
-            })
+//            ->where(function ($q) {
+//                $q->where('fuel', 'Diesel');
+//                $q->orWhere('fuel', 'Bensin');
+//            })
+            ->whereHas('carPartImages')
+//            ->whereHas("carPartImages", function ($q) {
+//                $q->whereNotNull("image_name_blank_logo");
+//            })
 //            ->whereHas("germanDismantlers.kTypes")
 //            ->with("germanDismantlers", function ($q) {
 //                $q->whereHas("kTypes")->with("kTypes");
@@ -110,28 +112,23 @@ class ExportPartsCommand extends Command
         return NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
 //            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7]) // manual 6 gear gearbox
+//            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7]) // manual 6 gear gearbox
             // Very important conditions so we don't upload products with data issues
             ->where('is_live_on_hood', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
-            ->where('model_year', '>', 2009)
+//            ->where('model_year', '>', 2009)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
-            ->whereNot('brand_name', 'like', '%mer%')
-            ->whereNot('brand_name', 'like', '%bmw%')
-            ->where(function ($q) {
-                $q->where('fuel', 'Diesel');
-                $q->orWhere('fuel', 'Bensin');
-            })
-            ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
-            })
-            ->whereHas("germanDismantlers.kTypes")
-            ->with("germanDismantlers", function ($q) {
-                $q->whereHas("kTypes")->with("kTypes");
-            })
+//            ->where(function ($q) {
+//                $q->where('fuel', 'Diesel');
+//                $q->orWhere('fuel', 'Bensin');
+//            })
+                ->whereHas('carPartImages')
+//            ->whereHas("carPartImages", function ($q) {
+//                $q->whereNotNull("image_name_blank_logo");
+//            })
             ->where(function ($query) {
                 $query
                     ->where('dismantle_company_name', '!=', 'F')

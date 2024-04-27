@@ -49,6 +49,13 @@ Route::get('for-marcus', function () {
     return response()->json($parts);
 });
 
+Route::get('sbr-codes', function() {
+    return SbrCode::all();
+});
+
+Route::get('sbr-codes-dito', function() {
+   return \Illuminate\Support\Facades\DB::table('dito_number_sbr_code')->get();
+});
 
 Route::get('car-brands', function () {
     $brands = DitoNumber::distinct('producer')->pluck('producer');
@@ -146,10 +153,23 @@ Route::post('do-upload', function (Request $request) {
     return Storage::disk('do')->url($path);
 });
 
-//Route::get('to-seed', function() {
-//    return \Illuminate\Support\Facades\DB::table('german_dismantler_dito_number')->get();
-//    return \App\Models\NewCarPartImage::all();
-//});
+Route::get('to-seed', function() {
+    $kba = GermanDismantler::all();
+
+    $kba->makeHidden(['created_at', 'updated_at', 'date_of_allotment_of_type_code_number', 'date_of_allotment']);
+
+    return response()->json($kba);
+
+});
+
+Route::get('to-seed-ktype', function() {
+    $kba = \App\Models\KType::take(100)->get();
+
+    $kba->makeHidden(['created_at', 'updated_at', 'date_of_allotment_of_type_code_number', 'date_of_allotment']);
+
+    return response()->json($kba);
+
+});
 
 Route::get('testcount', function() {
     $parts = NewCarPart::with("carPartImages")
@@ -189,6 +209,10 @@ Route::get('testcount', function() {
         ->count();
 
     return "count is $parts";
+});
+
+Route::get('engine-type-german-dismantler', function() {
+   return \Illuminate\Support\Facades\DB::table('engine_type_german_dismantler')->get();
 });
 
 
