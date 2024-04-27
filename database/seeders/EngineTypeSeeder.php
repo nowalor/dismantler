@@ -20,10 +20,6 @@ class EngineTypeSeeder extends Seeder
 
         $data = json_decode($file, true);
 
-        foreach($data as $engineType) {
-            EngineType::firstOrcreate([
-                'name' => $engineType['name'],
-            ]);
-        }
+        EngineType::insert($data);
     }
 }

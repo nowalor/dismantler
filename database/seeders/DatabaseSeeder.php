@@ -34,6 +34,9 @@ class DatabaseSeeder extends Seeder
             EngineTypeSeeder::class,
             EngineTypeGermanDismantlerSeeder::class,
 
+            SbrCodeSeeder::class,
+            DitoNumberSbrCodeSeeder::class
+
 
 //            EngineTypeSeeder::class,
 //            EngineTypeGermanDismantlerSeeder::class,
