@@ -13,7 +13,7 @@ class ExportPartsCommand extends Command
     protected $signature = 'hood:export';
 
     private Client $client;
-    private string $apiUrl;
+    private string | null $apiUrl;
 
     public function __construct()
     {
