@@ -48,7 +48,9 @@ abstract class FenixApiBaseCommand extends Command
             'password' => $this->password,
         ];
 
-        $response = $this->httpClient->post($this->apiUrl . '/account', [
+        // Currently live URL is hard coded
+        // Authenticate with test URL was not working for some reason...
+        $response = $this->httpClient->post('https://fenixapi-integration.bosab.se/api' . '/account', [
             'body' => json_encode($payload),
         ]);
 
