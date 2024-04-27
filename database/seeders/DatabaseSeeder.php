@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CommericalNameSeeder::class,
             DataProviderSeeder::class,
             PaymentPlatformSeeder::class,
+            CarPartTypeSeeder::class,
 
             CarBrandSeeder::class, // Needs to be before DitoNumberSeeder
 
@@ -29,7 +30,9 @@ class DatabaseSeeder extends Seeder
             KTypeSeeder::class,
             DitoNumberSeeder::class,
             DitoNumberKbaSeeder::class,
-            CarPartTypeSeeder::class,
+
+            EngineTypeSeeder::class,
+            EngineTypeGermanDismantlerSeeder::class,
 
 
 //            EngineTypeSeeder::class,
@@ -37,7 +40,7 @@ class DatabaseSeeder extends Seeder
 //            DismantleCompanySeeder::class,
 ////            CarPartSeeder::class,
         ]);
-        \Artisan::call('k-type:find-kba'); // Find k-type -> kba connections
+//        \Artisan::call('k-type:find-kba'); // Find k-type -> kba connections
 
         // \App\Models\User::factory(10)->create();
 

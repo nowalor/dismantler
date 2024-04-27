@@ -25,7 +25,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
         $this->authenticate();
 
         $dismantleCompanies = [
-            'p',
+            'w',
         ];
 
 
