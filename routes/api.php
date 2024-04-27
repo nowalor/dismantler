@@ -211,4 +211,8 @@ Route::get('testcount', function() {
     return "count is $parts";
 });
 
+Route::get('engine-type-german-dismantler', function() {
+   return \Illuminate\Support\Facades\DB::table('engine_type_german_dismantler')->get();
+});
+
 
