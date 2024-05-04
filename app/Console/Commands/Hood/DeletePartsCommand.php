@@ -11,8 +11,8 @@ class DeletePartsCommand extends Command
 {
     protected $signature = 'hood:delete';
 
-    private string $username;
-    private string $apiPassword;
+    private string | null $username;
+    private string | null $apiPassword;
 
     public function __construct()
     {
