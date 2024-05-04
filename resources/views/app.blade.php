@@ -13,6 +13,7 @@
     @livewireStyles
 </head>
 <body>
+    <h1 class="text-3xl">Testing tailwind</h1>
 <!-- As a heading -->
 @if(auth()->user() && auth()->user()->is_admin)
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
