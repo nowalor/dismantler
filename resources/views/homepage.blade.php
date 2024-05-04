@@ -57,7 +57,7 @@
         </div>
 
     </div>
-    <div class="container pt-3">
+    {{-- <div class="container pt-3">
         <h1 class="text-center pt-3">
             Benefits of buying from us
         </h1>
@@ -131,5 +131,5 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </div> --}}
 @endsection('content')
