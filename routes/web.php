@@ -49,9 +49,9 @@ Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
-//Route::get('', HomepageController::class)->name('home');
-Route::get('', [LandingPageController::class, 'returnLandingPage'] );
-Route::get('browse', browseCarParts::class)->name('landingPage');
+Route::get('', HomepageController::class)->name('home');
+//Route::get('', [LandingPageController::class, 'returnLandingPage'] );
+//Route::get('browse', browseCarParts::class)->name('landingPage');
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');
