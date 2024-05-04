@@ -56,6 +56,7 @@
                             <p><span class="fw-bold">Article number: </span> {{ $carPart->article_nr }}</p>
                             <p><span class="fw-bold">Original number: </span> {{ $carPart->original_number }}</p>
                             <p><span class="fw-bold">Price(SEK): </span> {{ $carPart->price_sek }}</p>
+                            <p><span class="fw-bold">Price(DKK): </span> {{ $carPart->price_dkk}}</p>
 {{--                            <p><span class="fw-bold">[OLD]Price(EUR): </span> €{{ $carPart->calculated_price }}</p>--}}
                             <p><span class="fw-bold">Total(EUR): </span> €{{ $carPart->new_price + $carPart->shipment }}</p>
                             <p><span class="fw-bold">[NEW]Price(EUR): </span> €{{ $carPart->new_price }}</p>
@@ -74,7 +75,7 @@
                             <a href="{{ route('admin.export-parts.show', $carPart) }}" class="btn btn-primary w-100">View
                                 part</a>
                             <img class="card-img-bottom mt-2"
-                                 src="{{ $carPart->carPartImages[0]->original_url }}" />
+                                 src="{{ isset( $carPart->carPartImages[0])  ? $carPart->carPartImages[0]->original_url: '' }}" />
                         </div>
                     </div>
                 </div>

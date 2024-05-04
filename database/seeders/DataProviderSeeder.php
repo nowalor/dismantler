@@ -23,7 +23,13 @@ class DataProviderSeeder extends Seeder
                 'name' => 'Nemdele',
                 'api_url' => 'TODO',
                 'country' => 'Denmark',
-            ]
+            ],
+            [
+            'id' => DataProviderEnum::EGLUIT->value,
+            'name' => 'Egluit',
+            'api_url' => 'TODO',
+            'country' => 'Denmark',
+        ]
         ]);
     }
 }
