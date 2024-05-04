@@ -4,6 +4,10 @@ namespace App\Console\Commands;
 
 use App\Models\CarPart;
 use App\Models\CarPartImage;
+use App\Models\DanishCarPartType;
+use App\Models\DitoNumber;
+use App\Models\NewCarPart;
+use App\Models\NewCarPartImage;
 use App\Scopes\CarPartScope;
 use Exception;
 use Illuminate\Console\Command;
@@ -27,36 +31,61 @@ class SeedGermanCarPartsCommand extends Command
      */
     protected $description = 'Seed parts from German dismantlers on a schedule';
 
+    /*
+     *  [3575, 3744, 3746, 3749, 3616, 3617, 3812]
+     */
+
     static private function transformSingle($item)
     {
         $newItem = [];
 
-        $newItem['id'] = intval($item['id']);
+        $ditoNumber = DanishCarPartType::where('egluit_id', $item['itemTypeId'])
+            ->first()?->code;
+
+        if($item['companyId'] === '44') {
+            $newItem['dismantle_company_name'] = 'AA';
+        }
+
+        if($item['companyId'] === '50') {
+            $newItem['dismantle_company_name'] = 'BB';
+        }
+
+        if($item['companyId'] === '70') {
+            $newItem['dismantle_company_name'] = 'CC';
+        }
+
+        $newItem['country'] = 'DK';
+        $newItem['original_id'] = (int)$item['id'];
+        $newItem['external_dismantle_company_id'] = $item['companyId'];
         $newItem['name'] = $item['name'];
-        $newItem['comments'] = $item['comments'];
-        $newItem['notes'] = $item['notes'];
+//        $newItem['comments'] = $item['comments'];
+//        $newItem['notes'] = $item['notes'];
         $newItem['quantity'] = $item['quantity'];
-        $newItem['price1'] = $item['price1'];
-        $newItem['price2'] = $item['price2'];
-        $newItem['price3'] = $item['price3'];
-        $newItem['condition'] = $item['condition'];
-        $newItem['oem_number'] = $item['oemNumber'];
-        $newItem['shelf_number'] = $item['shelfNumber'];
-        $newItem['year'] = $item['year'];
-        $newItem['car_part_type_id'] = (int)$item['itemTypeId'];
-        $newItem['dismantle_company_id'] = 50;
-        $newItem['kilo_watt'] = $item['kiloWatt'];
-        $newItem['transmission_type'] = $item['transmissionType'];
-        $newItem['item_number'] = $item['itemNumber'];
-        $newItem['car_item_number'] = $item['carItemNumber'];
-        $newItem['item_code'] = $item['itemCode'];
-        $newItem['car_vin_code'] = $item['carVinCode'];
+        $newItem['price_dkk'] = $item['price2']; // TODO
+//        $newItem['price2'] = $item['price2'];
+//        $newItem['price3'] = $item['price3'];
+        $newItem['quality'] = $item['condition'];
+        $newItem['article_nr_at_dismantler'] = $item['id'];
+        $newItem['original_number'] = $item['oemNumber'];
+//        $newItem['shelf_number'] = $item['shelfNumber'];
+        $newItem['model_year'] = $item['year'];
+        $newItem['data_provider_id'] = 3;
+        $newItem['dito_number'] = $ditoNumber;
+        $newItem['external_part_type_id'] = $item['itemTypeId'];
+        $newItem['images'] = $item['images'];
+//        $newItem['dismantle_company_id'] = 50; // TODO
+//        $newItem['kilo_watt'] = $item['kiloWatt'];
+//        $newItem['transmission_type'] = $item['transmissionType'];
+//        $newItem['item_number'] = $item['itemNumber'];
+//        $newItem['car_item_number'] = $item['carItemNumber'];
+//        $newItem['item_code'] = $item['itemCode'];
+        $newItem['vin'] = $item['carVinCode'];
         $newItem['engine_code'] = $item['engineCode'];
         $newItem['engine_type'] = $item['engineType'];
-        $newItem['kilo_range'] = $item['kilometrage'];
-        $newItem['alternative_numbers'] = $item['alternativeNumbers'];
-        $newItem['color'] = $item['bodyColor'];
-        $newItem['car_first_registration_date'] = $item['carFirstRegistrationDate'];
+        $newItem['mileage_km'] = $item['kilometrage'];
+//        $newItem['alternative_numbers'] = $item['alternativeNumbers'];
+//        $newItem['color'] = $item['bodyColor'];
+//        $newItem['car_first_registration_date'] = $item['carFirstRegistrationDate'];
 
         return $newItem;
     }
@@ -71,38 +100,53 @@ class SeedGermanCarPartsCommand extends Command
         ini_set('max_execution_time', 50000000);
         ini_set('max_input_time', 50000000);
 
-        $dismantleCompanyIds = ['44', '50', '70'];
+        $dismantleCompanyIds = [
+//            '44',
+//            '50',
+            '70'
+        ];
 
         foreach ($dismantleCompanyIds as $companyId) {
             try {
                 for ($i = 0; $i < 199999; $i++) {
                     $response = $this->fetchPage($i, $companyId);
 
+//                    logger("seeding page $i");
+
                     if (empty($response)) {
                         Log::info("Broke on page $i");
                         break;
                     }
-                    $collectedResponse = collect($response);
-                    $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
+//                    $collectedResponse = collect($response);
+//                    $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
 
-                    $transformedData = $this->transformData($filteredResponse);
+
+
+                    $transformedData = $this->transformData($response);
                     if(!empty($transformedData)) {
-                        Log::info('------------------- TRANSFORMED DATA -------------------');
-                        Log::info(json_encode($transformedData));
+//                        Log::info('------------------- TRANSFORMED DATA2 -------------------');
+//                        Log::info(json_encode($transformedData));
                     }
-                    CarPart::insertOrIgnore($transformedData);
+//                    NewCarPart::insert($transformedData);
 
-                    $transformedImages = $this->transformImages($filteredResponse);
+                    foreach($transformedData as $item) {
+//                        logger('--- item ---');
+//                        logger($item);
+                        $newCarPart = NewCarPart::firstOrCreate(['original_id' => $item['original_id']], $item);
 
-                    CarPartImage::insertOrIgnore($transformedImages);
-                    foreach ($transformedImages as $image) {
-                        CarPartImage::firstOrCreate($image);
+                        $this->transformImages($newCarPart, $item['images']);
                     }
+//                    CarPart::insert($transformedData);
+
+//                    $transformedImages = $this->transformImages(collect($response)->toArray());
+
+//                    NewCarPartImage::insert($transformedImages);
 
                 }
                 return 'loops finished';
 
             } catch (Exception $ex) {
+                logger('failed..');
                 Log::info($ex->getMessage());
 
                 return 'in catch';
@@ -151,22 +195,15 @@ class SeedGermanCarPartsCommand extends Command
         return $carParts;
     }
 
-    private function transformImages(array $data)
+    private function transformImages(NewCarPart $carPart, array $images)
     {
-        $newArr = [];
-
-        foreach ($data as $item) {
-            $collectedImages = collect($item['images']);
-            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
-            foreach ($filteredImages as $image) {
-                array_push($newArr, [
-                    'car_part_id' => $item['id'],
-                    'origin_url' => $image['originUrl'],
-                    'thumbnail_url' => $image['thumbnail120Url'],
+//            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
+            foreach ($images as $image) {
+                logger($image);
+                logger('why not work');
+                $carPart->carPartImages()->create([
+                    'original_url' => $image['originUrl'],
                 ]);
             }
-        }
-
-        return $newArr;
     }
 }
