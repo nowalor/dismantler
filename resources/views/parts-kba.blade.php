@@ -63,6 +63,7 @@
             </div>
         </div>
         <h3 class="pt-4">Results</h3>
+        {{-- INSERT SEARCHBAR HERE --}}
         <x-part-list :parts="$parts"/>
 
         {{ $parts->links() }}

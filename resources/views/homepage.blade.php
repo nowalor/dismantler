@@ -57,6 +57,8 @@
         </div>
 
     </div>
+
+    {{-- Information // design for website // images --}}
     {{-- <div class="container pt-3">
         <h1 class="text-center pt-3">
             Benefits of buying from us
