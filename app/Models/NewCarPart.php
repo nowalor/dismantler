@@ -52,6 +52,9 @@ class NewCarPart extends Model
         'new_name',
         'description_name',
         'is_live_on_hood',
+        'external_part_type_id',
+        'country',
+        'dito_number',
     ];
 
     public function carPartType(): BelongsTo
@@ -165,9 +168,13 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
-    public function getShipmentAttribute(): int
+    public function getShipmentAttribute(): int | null
     {
-        $partType = $this->carPartType->germanCarPartTypes->first()->name;
+        $partType = $this->carPartType?->germanCarPartTypes?->first()?->name;
+
+        if($partType) {
+            return null;
+        }
         $dismantleCompanyName = $this->dismantle_company_name;
 
         $shipment = null;

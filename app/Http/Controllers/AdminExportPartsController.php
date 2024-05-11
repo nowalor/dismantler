@@ -21,10 +21,13 @@ class AdminExportPartsController extends Controller
     public function index(Request $request) // : View
     {
         $carPartsQuery = NewCarPart::with('carPartImages')
-            ->whereNotNull('price_sek')
-            ->where('price_sek', '>', 0)
-            ->has('carPartImages')
-            ->whereNotNull('car_part_type_id') // TEMP
+//            ->where(function($q) {
+//                $q->whereNotNull('price_sek')
+//                    ->orWhere('price_dkk', '!=', null);
+//            })
+//            ->where('price_sek', '>', 0)
+//            ->has('carPartImages')
+//            ->whereNotNull('car_part_type_id') // TEMP
 //            ->where(function ($query) {
 //                return $query->where('sbr_part_code', '7143')
 //                    ->orWhere('sbr_part_code', '7302');
@@ -34,9 +37,10 @@ class AdminExportPartsController extends Controller
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages')
-            ->whereIn('dismantle_company_name', ['P', 'AS']);
+//            ->whereIn('dismantle_company_name', ['P', 'AS']);
 //            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
-//        ;
+        ;
+
 
 //            ->where('dismantle_company_name', 'GB');
 //            ->where('car_part_type_id', 1); // Engines
