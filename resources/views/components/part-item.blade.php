@@ -82,6 +82,16 @@
 
 <tr>
     <td>
+        @if ($part->carPartImages->count())
+            @php
+                $image = $part->carPartImages()->first();
+            @endphp
+            <img class="card-img-bottom mt-2" src="{{ $image->original_url }}" alt="Car part image">
+        @else
+            <img class="card-img-bottom mt-2" src="http://46.101.206.99/storage/img/car-part/placeholder.jpg" alt="Placeholder image">
+        @endif
+    </td>
+    <td>
         <p><span class="fw-bold">Type: </span>{{ $part->carPartType->name }}</p>
         <p><span class="fw-bold">Article number: </span>{{ $part->article_nr }}</p>
         <p><span class="fw-bold">Original number: </span>{{ $part->original_number }}</p>
@@ -110,7 +120,6 @@
     </td>
     <td>
         <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">View part</a>
-        <img class="card-img-bottom mt-2" src="{{ (count($part->carPartImages) && !$part->carPartImages[0]->is_placeholder) ? asset("storage/img/car-part/{$part->id}/{$part->carPartImages[0]->image_name_blank_logo}") : 'http://46.101.206.99/storage/img/car-part/placeholder.jpg' }}" alt="">
     </td>
 </tr>
 
