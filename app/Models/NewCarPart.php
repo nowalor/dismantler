@@ -55,6 +55,7 @@ class NewCarPart extends Model
         'external_part_type_id',
         'country',
         'dito_number',
+        'danish_item_code',
     ];
 
     public function carPartType(): BelongsTo

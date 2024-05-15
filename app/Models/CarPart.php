@@ -20,7 +20,15 @@ class CarPart extends Model
         static::addGlobalScope(new CarPartScope());
     }
 
-    public const CAR_PART_TYPE_IDS_TO_INCLUDE = [3574, 3744, 3746, 3749, 3616, 3617, 3812];
+    public const CAR_PART_TYPE_IDS_TO_INCLUDE = [
+        3574, 3744, 3746, 3749, 3616, 3617, 3812,
+        // New ones I am experimenting with
+        3969,
+        3971,
+        4233,
+        3157,
+        3137,
+    ];
 
     protected $fillable =
         [

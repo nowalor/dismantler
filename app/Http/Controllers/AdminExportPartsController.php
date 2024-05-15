@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\NewCarPart;
 use Exception;
@@ -37,6 +38,8 @@ class AdminExportPartsController extends Controller
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages')
+            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+            ->orderBy('model_year', 'desc')
 //            ->whereIn('dismantle_company_name', ['P', 'AS']);
 //            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
         ;

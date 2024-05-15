@@ -78,7 +78,7 @@ class SeedGermanCarPartsCommand extends Command
 //        $newItem['transmission_type'] = $item['transmissionType'];
 //        $newItem['item_number'] = $item['itemNumber'];
 //        $newItem['car_item_number'] = $item['carItemNumber'];
-//        $newItem['item_code'] = $item['itemCode'];
+        $newItem['danish_item_code'] = $item['itemCode'];
         $newItem['vin'] = $item['carVinCode'];
         $newItem['engine_code'] = $item['engineCode'];
         $newItem['engine_type'] = $item['engineType'];
@@ -197,10 +197,8 @@ class SeedGermanCarPartsCommand extends Command
 
     private function transformImages(NewCarPart $carPart, array $images)
     {
-//            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
+            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
             foreach ($images as $image) {
-                logger($image);
-                logger('why not work');
                 $carPart->carPartImages()->create([
                     'original_url' => $image['originUrl'],
                 ]);
