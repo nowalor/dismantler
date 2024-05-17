@@ -1,97 +1,18 @@
-{{-- <div class="col-6 p-4">
-    <div class="card">
-        <div class="card-header">
-            {{ $part->name }}
-        </div>
-        <div class="card-body">
-            <p><span class="fw-bold">#: </span> {{ $part->id}}</p>
-            <p><span class="fw-bold">Type: </span> {{ $part->carPartType->name }}</p>
-            <p><span class="fw-bold">Article number: </span> {{ $part->article_nr }}</p>
-            <p><span class="fw-bold">Original number: </span> {{ $part->original_number }}</p>
-            <p><span class="fw-bold">Price(SEK): </span> {{ $part->price_sek }}</p>
-            <p><span class="fw-bold">Total(EUR): </span> €{{ $part->new_price + $part->shipment }}</p>
-            <p><span class="fw-bold">[NEW]Price(EUR): </span> €{{ $part->new_price }}</p>
-            <p><span class="fw-bold">[B2B]Price(EUR): </span> €{{ $part->business_price }}</p>
-            <p><span class="fw-bold">Shipment(EUR): </span> €{{ $part->shipment }}</p>
-            <p><span class="fw-bold">Engine code: </span> {{ $part->engine_code }}</p>
-            <p><span class="fw-bold">Engine type: </span> {{ $part->engine_type }}</p>
-            <p><span class="fw-bold">Fuel: </span> {{ $part->fuel }}</p>
-            <p><span class="fw-bold">Gearbox: </span> {{ $part->subgroup ?? $part->gearbox }}</p>
-            <p><span class="fw-bold">Mileage(KM): </span> {{ $part->mileage_km }}</p>
-            <p><span class="fw-bold">Vin: </span> {{ $part->vin }}</p>
-            <p><span class="fw-bold">Model year: </span> {{ $part->model_year }}</p>
-            <p><span class="fw-bold">SBR PART CODE: </span> {{ $part->sbr_part_code }}</p>
-            <p><span class="fw-bold">SBR CAR CODE: </span> {{ $part->sbr_car_code }}</p>
-            <p><span class="fw-bold">Kbas: </span> @foreach($part->my_kba as $kba) <a href="">{{ $kba->hsn }}
-                    {{ $kba->tsn }}</a>,@endforeach</p>
-            <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">View
-                part</a>
-            <img class="card-img-bottom mt-2"
-                 src="{{ (count($part->carPartImages) && !$part->carPartImages[0]->is_placeholder) ? asset("storage/img/car-part/{$part->id}/{$part->carPartImages[0]->image_name_blank_logo}") : 'http://46.101.206.99/storage/img/car-part/placeholder.jpg' }}"
-                 alt="">
-        </div>
-    </div>
-</div> --}}
-
-{{-- <div class="card">
-    <div class="card-header d-flex fw-bold me-4 pe-5">
-        <p class="me-5 pe-5">Part Information</p>
-        <p class="me-5 pe-5">Article number</p>
-        <span class="me-4 pe-5">Odometer (KM)</span>
-        <span class="me-5 pe-4">Model Year</span>
-        <span class="me-5 pe-4">Quality</span>
-        <span class="me-5 pe-4">Price</span>        
-    </div>
-    <div class="card-body d-flex">
-        <div class="card-part-information me-4">
-        <p><span class="fw-bold">Type: </span> {{ $part->carPartType->name }}</p>
-        <p><span class="fw-bold">Article number: </span> {{ $part->article_nr }}</p>
-        <p><span class="fw-bold">Original number: </span> {{ $part->original_number }}</p>
-        <p><span class="fw-bold">Fuel: </span> {{ $part->fuel }}</p>
-        <p><span class="fw-bold">Engine type: </span> {{ $part->engine_type }}</p>
-        <p><span class="fw-bold">Gearbox: </span> {{ $part->subgroup ?? $part->gearbox }}</p>
-        </div>
-        <div class="card-article-number me-3">
-            <p><span class="fw-bold">Article number: </span> {{ $part->article_nr }} </p>
-            <p><span class="fw-bold">Original number:</span> notYet</p>
-            <p><span class="fw-bold">Vin: </span> {{ $part->vin }}</p>
-            <p><span class="fw-bold">Engine code: </span> {{ $part->engine_code }}</p>
-            <p><span class="fw-bold">Gearkasse kode: </span> notYet </p>
-        </div>
-        <div class="card-odometer-km">
-            <p class="me-4"><span class="fw-bold">Mileage(KM): </span> {{ $part->mileage_km }}</p>
-        </div>
-        <div class="card-model-year me-5">
-            <p><span class="fw-bold">Model year: </span> {{ $part->model_year }}</p>
-        </div>
-        <div class="card-quality me-5">
-            <p><span class="fw-bold">Quality: </span> {{ $part->quality }}</p>
-        </div>
-        <div class="card-price ">
-            <p><span class="fw-bold"> Price: </span> {{ $part->price_sek }} SEK</p>
-        </div>
-    </div>
-    <div class="view-part">
-        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">View
-            part</a>
-        <img class="card-img-bottom mt-2"
-             src="{{ (count($part->carPartImages) && !$part->carPartImages[0]->is_placeholder) ? asset("storage/img/car-part/{$part->id}/{$part->carPartImages[0]->image_name_blank_logo}") : 'http://46.101.206.99/storage/img/car-part/placeholder.jpg' }}"
-             alt="">
-    </div>
-</div> --}}
-
 <tr>
     <td>
         @if ($part->carPartImages->count())
             @php
                 $image = $part->carPartImages()->first();
             @endphp
-            <img class="card-img-bottom mt-2" src="{{ $image->original_url }}" alt="Car part image">
+            <img class="card-img-bottom mt-2" src="{{ $image->original_url }}" alt="Car part image"
+            style="width: 200px; height: 200px;">
         @else
-            <img class="card-img-bottom mt-2" src="http://46.101.206.99/storage/img/car-part/placeholder.jpg" alt="Placeholder image">
+            <img class="card-img-bottom mt-2" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
+            style="width: 200px; height: 200px;">
         @endif
     </td>
     <td>
+        <p><span class="fw-bold">Name: </span>{{ $part->new_name }}</p>
         <p><span class="fw-bold">Type: </span>{{ $part->carPartType->name }}</p>
         <p><span class="fw-bold">Article number: </span>{{ $part->article_nr }}</p>
         <p><span class="fw-bold">Original number: </span>{{ $part->original_number }}</p>
