@@ -609,6 +609,15 @@ video {
 .me-2 {
   margin-inline-end: 0.5rem;
 }
+.me-3 {
+  margin-inline-end: 0.75rem;
+}
+.me-4 {
+  margin-inline-end: 1rem;
+}
+.me-5 {
+  margin-inline-end: 1.25rem;
+}
 .me-auto {
   margin-inline-end: auto;
 }
@@ -854,6 +863,12 @@ video {
 }
 .pb-6 {
   padding-bottom: 1.5rem;
+}
+.pe-4 {
+  padding-inline-end: 1rem;
+}
+.pe-5 {
+  padding-inline-end: 1.25rem;
 }
 .pt-12 {
   padding-top: 3rem;

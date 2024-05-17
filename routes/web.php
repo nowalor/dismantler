@@ -47,15 +47,17 @@ Route::get('payments/success', [App\Http\Controllers\PaymentController::class, '
 Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
     ->name('checkout');
 
-
 // testing remove later
 Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
 Route::get('', HomepageController::class)->name('home');
-//Route::get('', [LandingPageController::class, 'returnLandingPage'] );
-//Route::get('browse', browseCarParts::class)->name('landingPage');
+
+//Route::get('', LandingPageController::class)->name('returnLandingPage');
+//Route::get('browse', [BrowseCarParts::class, 'browseCarParts'] );
+
+
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');
@@ -73,6 +75,7 @@ Route::resource('car-parts', CarPartController::class);
 Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
 Route::get('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
 Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
+
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
