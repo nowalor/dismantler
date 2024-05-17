@@ -149,36 +149,40 @@ class CarPartController extends Controller
     }
 
     public function searchByModel(Request $request): mixed
-    {
-        $dito = DitoNumber::find($request->get('dito_number_id'));
+{
+    $dito = DitoNumber::find($request->get('dito_number_id'));
 
-        if(!$dito) {
-            abort('fail');
-        }
-
-        $type = null;
-
-        if($request->filled('type_id')) {
-            $type = CarPartType::find($request->get('type_id'));
-        }
-
-        $results = (new SearchByModelAction())->execute(
-            model: $dito,
-            type: $type,
-            paginate: 10,
-        );
-
-        $parts = $results['data']['parts'];
-
-        $types = CarPartType::all();
-
-        return view('parts-model', compact(
-            'parts',
-            'dito',
-            'type', // Prev selected type, used to autofill search
-            'types'
-        ));
+    if(!$dito) {
+        abort('fail');
     }
+
+    $type = null;
+
+    if($request->filled('type_id')) {
+        $type = CarPartType::find($request->get('type_id'));
+    }
+
+    $sort = $request->query('sort'); // Get the sort parameter from the request
+
+    $results = (new SearchByModelAction())->execute(
+        model: $dito,
+        type: $type,
+        sort: $sort, // Pass the sort parameter to the action
+        paginate: 10,
+    );
+
+    $parts = $results['data']['parts'];
+
+    $types = CarPartType::all();
+
+    return view('parts-model', compact(
+        'parts',
+        'dito',
+        'type', // Prev selected type, used to autofill search
+        'types'
+    ));
+}
+
 
     public function searchByOEM(Request $request): mixed
     {

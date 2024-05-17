@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <title>Currus - Car Parts</title>
-
-    <!-- {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('logo/currus.jpg') }}"> --}} -->
+   {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('logo/currus.jpg') }}"> --}}
 </head>
-<!-- {{-------------- comment out the the second jpgg for it to work ----------}} -->
 <body class="bg-cover bg-center" style="background-image: url('/img/engine.jpg')"> 
-
-<!--   {{------------------------------------------- CURRUS/CAR PARTS HEADER ---------------------------------------------------}} -->
 
     <!-- {{-- first div Currus - Car Parts --}} -->
     <div class="text-center pt-12 w-fit mx-auto">
@@ -20,17 +16,16 @@
         <h2 class="text-4xl font-bold">CAR PARTS</h2>
     </div>
 
-    <!-- {{------------------------------- BROWSE ALL BUTTON - redirects to /browseCarParts? ----------------------------------------------}} -->
+    <!-- {{------------------------------- BROWSE ALL BUTTON - redirects to /browse ----------------------------------------------}} -->
 
     <div class="flex justify-center items-center w-fit mx-auto">
         <div class="text-center mt-32">
             <!-- {{-----------------------------// remove block if you want it less bulkier -------------------------------}} -->
-            <a href="" class="font-semibold block py-2 px-4 rounded-md bg-green-900 text-white mb-4">BROWSE ALL</a>
+            <a href="/browse" class="font-semibold block py-2 px-4 rounded-md bg-green-900 text-white mb-4">BROWSE ALL</a>
         </div>
     </div>
 
 <!-- {{------------------------------- BUTTONS FOR HSN + TSN & CAR & OEM ----------------------------------------------}} -->
-
     <div class="flex justify-center items-center w-fit mx-auto">
         <div class="text-center mt-16">
             <a href="/" class="font-semibold inline-block py-2 px-4 rounded-md bg-green-900 text-white mb-12 mr-12">SEARCH BY HSN + TSN</a>
@@ -41,7 +36,6 @@
 
 
     <!-- {{-------------------------------  LICENSE PLATE SEARCH BAR + MODEL & CAR BRAND DROPDOWN  ----------------------------------------------}} -->
-    
     <div class="flex justify-center items-center">
         <div class="text-center justify-center">
             <div class="">
@@ -54,23 +48,33 @@
                 </form>
             </div>
     
+            {{-- doesnt work atm, change both dropdown menus to livewire instead of this --}}
             <div class="flex justify-center">
                 <div class="p-4">
-                    <select name="carModel" id="carModel" class="block py-2 px-4 rounded-md bg-white w-64">
-                        <!-- {{-- Placeholder Car Model // LATER ON WILL DYNAMICALLY GENERATE DROPDOWN VALUES FROM DatabaseContent--}} -->
-                        <option value="" disabled selected hidden>Model</option>
+                    <select name="model" id="model" class="block py-2 px-4 rounded-md bg-white w-64">
+                        <!-- Placeholder Car Brand -->
+                        <option value="" disabled selected hidden>Car Model</option>
+            
+                        @foreach($models as $model)
+                            <option value="{{ $model->name }}">{{ $model->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
     
             <div class="flex justify-center">
                 <div class="p-4">
-                    <select name="carBrand" id="carBrand" class="block py-2 px-4 rounded-md bg-white w-64">
-                        <!-- {{-- Placeholder Car Brand // LATER ON WILL DYNAMICALLY GENERATE DROPDOWN VALUES FROM DatabaseContent--}} -->
+                    <select name="brand" id="brand" class="block py-2 px-4 rounded-md bg-white w-64">
+                        <!-- Placeholder Car Brand -->
                         <option value="" disabled selected hidden>Car Brand</option>
+            
+                        @foreach($brands as $brand)
+                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
+            
         </div>
     </div>
 
