@@ -11,6 +11,7 @@ use App\Models\NewCarPartImage;
 use App\Scopes\CarPartScope;
 use Exception;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -197,8 +198,11 @@ class SeedGermanCarPartsCommand extends Command
 
     private function transformImages(NewCarPart $carPart, array $images)
     {
-            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
-            foreach ($images as $image) {
+        $filteredImages = collect($images)->filter(function ($image) {
+            return str_contains($image['originUrl'], '/P/');
+        });
+
+            foreach ($filteredImages as $image) {
                 $carPart->carPartImages()->create([
                     'original_url' => $image['originUrl'],
                 ]);
