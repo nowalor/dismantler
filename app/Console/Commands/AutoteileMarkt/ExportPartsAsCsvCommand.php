@@ -22,7 +22,7 @@ class ExportPartsAsCsvCommand extends Command
     public function handle(): int
     {
         $parts = NewCarPart::with('carPartImages')
-            ->where('country', '!=','dk')
+            //->where('country', '!=','dk') WHY THIS NOT WORK?
             ->where('price_sek', '>', 0)
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
