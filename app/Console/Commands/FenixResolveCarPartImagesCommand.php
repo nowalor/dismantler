@@ -63,7 +63,7 @@ class FenixResolveCarPartImagesCommand extends Command
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
-            ->where('country', '!=', 'DK')
+            ->whereNull('country')
             ->take(520)
             ->get();
 
