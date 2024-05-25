@@ -173,7 +173,7 @@ class NewCarPart extends Model
     {
         $partType = $this->carPartType?->germanCarPartTypes?->first()?->name;
 
-        if($partType) {
+        if(!$partType) {
             return null;
         }
         $dismantleCompanyName = $this->dismantle_company_name;
