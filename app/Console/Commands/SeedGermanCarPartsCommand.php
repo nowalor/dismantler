@@ -27,6 +27,7 @@ class SeedGermanCarPartsCommand extends Command
             '70' => 'CC'
         ];
 
+        $newItem['id'] =  1567 . (int)$item['id'];
         $newItem['dismantle_company_name'] = $companyMap[$item['companyId']] ?? null;
         $newItem['country'] = 'DK';
         $newItem['original_id'] = (int)$item['id'];
@@ -56,7 +57,11 @@ class SeedGermanCarPartsCommand extends Command
         ini_set('max_execution_time', 0);
         ini_set('max_input_time', 0);
 
-        $dismantleCompanyIds = ['70'];
+        $dismantleCompanyIds = [
+//            '70',
+            '50',
+//            '44'
+        ];
 
         foreach ($dismantleCompanyIds as $companyId) {
             try {
@@ -112,6 +117,7 @@ class SeedGermanCarPartsCommand extends Command
         return $response['data']['marcusPartsSearch']['items'];
     }
 
+
     private function transformData(array $data): array
     {
         return array_map([$this, 'transformSingle'], $data);
@@ -128,16 +134,34 @@ class SeedGermanCarPartsCommand extends Command
 
     private function batchInsert(array $data)
     {
-        $chunkedData = array_chunk($data, 1000);
-        foreach ($chunkedData as $chunk) {
-            DB::transaction(function () use ($chunk) {
-                foreach ($chunk as $item) {
-                    $images = $item['carPartImages'];
-                    unset($item['carPartImages']);
-                    $newCarPart = NewCarPart::updateOrCreate(['original_id' => $item['original_id']], $item);
-                    $newCarPart->carPartImages()->createMany($images);
-                }
-            });
+        $newCarParts = [];
+        $carPartImages = [];
+
+        foreach ($data as $item) {
+            $images = $item['carPartImages'];
+            unset($item['carPartImages']);
+            $newCarParts[] = $item;
+
+            foreach ($images as $image) {
+                $carPartImages[] = array_merge($image, ['new_car_part_id' => $item['id']]);
+            }
         }
+
+        // Perform bulk insert for car parts
+        $this->bulkInsert('new_car_parts', $newCarParts);
+
+        // Perform bulk insert for car part images
+        $this->bulkInsert('new_car_part_images', $carPartImages);
     }
+
+
+    private function bulkInsert($table, $data)
+    {
+        if (empty($data)) {
+            return;
+        }
+
+        DB::table($table)->upsert($data, ['original_id'], array_keys(reset($data)));
+    }
+
 }
