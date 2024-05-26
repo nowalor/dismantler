@@ -58,9 +58,9 @@ class SeedGermanCarPartsCommand extends Command
         ini_set('max_input_time', 0);
 
         $dismantleCompanyIds = [
-//            '70',
+            '70',
             '50',
-//            '44'
+            '44'
         ];
 
         foreach ($dismantleCompanyIds as $companyId) {
