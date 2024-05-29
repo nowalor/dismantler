@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Actions\Images\ReplaceDismantlerLogoAction;
+use App\Models\CarPart;
 use App\Models\NewCarPart;
 use Exception;
 use File;
@@ -58,12 +59,14 @@ class FenixResolveCarPartImagesCommand extends Command
             }])
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
+            ->whereIn('external_dismantle_company_id', [44, 50, 70])
+            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
 //            ->has('germanDismantlers')
-            ->where('price_sek', '>', 0)
-            ->whereNotNull('price_sek')
-            ->where('price_sek', '!=', '')
+//            ->where('price_sek', '>', 0)
+//            ->whereNotNull('price_sek')
+//            ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
-            ->whereNull('country')
+//            ->whereNull('country')
             ->take(520)
             ->get();
 
