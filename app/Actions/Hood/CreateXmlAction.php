@@ -70,6 +70,10 @@ class CreateXmlAction
             $shipMethod->addAttribute('name', 'seeDesc_nat'); // TODO
             $shipMethod->addChild('value', 0);
 
+            $shipMethod2 = $shipMethods->addChild('shipMethod');
+            $shipMethod2->addAttribute('name', 'seeDesc_at'); // TODO
+            $shipMethod2->addChild('value', 0);
+
             $item->addChild('startDate', now()->format('d.m.Y'));
             $item->addChild('startDate', now()->format('H:i'));
             $item->addChild('durationInDays', '30');
