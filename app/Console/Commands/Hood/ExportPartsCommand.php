@@ -64,6 +64,9 @@ class ExportPartsCommand extends Command
             return Command::SUCCESS;
         } catch(\Exception $ex) {
             logger($ex->getMessage());
+
+            $this->info('in catch..');
+            return Command::FAILURE;
         }
     }
 
