@@ -57,9 +57,9 @@ class ExportPartsCommand extends Command
 
             $hasMoreParts = $this->partsCount();
 
-            if($hasMoreParts) {
-                return \Artisan::call('hood:export');
-            }
+//            if($hasMoreParts) {
+//                return \Artisan::call('hood:export');
+//            }
 
             return Command::SUCCESS;
         } catch(\Exception $ex) {
@@ -106,7 +106,7 @@ class ExportPartsCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(40)
+            ->take(1)
             ->get();
     }
 
