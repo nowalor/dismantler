@@ -89,10 +89,10 @@ class ExportPartsCommand extends Command
 //                $q->where('fuel', 'Diesel');
 //                $q->orWhere('fuel', 'Bensin');
 //            })
-            ->whereHas('carPartImages')
-//            ->whereHas("carPartImages", function ($q) {
-//                $q->whereNotNull("image_name_blank_logo");
-//            })
+//            ->whereHas('carPartImages')
+            ->whereHas("carPartImages", function ($q) {
+                $q->whereNotNull("image_name_blank_logo");
+            })
 //            ->whereHas("germanDismantlers.kTypes")
 //            ->with("germanDismantlers", function ($q) {
 //                $q->whereHas("kTypes")->with("kTypes");
