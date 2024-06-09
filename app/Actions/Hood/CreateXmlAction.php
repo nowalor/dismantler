@@ -104,7 +104,7 @@ class CreateXmlAction
             }
         }
 
-        return $xml->saveXML();
+        return $xml->asXML($path);
     }
 
     // Make this reusable instead of copy paste from doc service
