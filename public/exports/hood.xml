@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<api user="currusconnect" type="public" version="2.0" password="dee8c70b8775fd87d784cd9d00283b38"><function>itemValidate</function><accountName>currusconnect</accountName><accountPass>dee8c70b8775fd87d784cd9d00283b38</accountPass><items><item><itemMode>shopProduct</itemMode><categoryID>1006</categoryID><itemName>Partikelfilter / OPEL MOVANO B 10- / M9T-698 / 93197523</itemName><quantity>1</quantity><condition>usedGood</condition><description>&lt;!DOCTYPE html&gt;
+<api user="1" type="public" version="2.0" password="1"><function>itemInsert</function><accountName>1</accountName><accountPass>1</accountPass><items><item><itemMode>shopProduct</itemMode><categoryID>1006</categoryID><itemName>Schaltgetriebe 6-Gang RENAULT KANGOO 2010 77020km 7711497122 TL4-000</itemName><quantity>1</quantity><condition>usedGood</condition><description>&lt;!DOCTYPE html&gt;
 &lt;html lang="de"&gt;
 &lt;head&gt;
     &lt;meta name="copyright" content="WEBMARX" /&gt;
@@ -1419,10 +1419,82 @@
                     /&gt;
 
                     &lt;ul&gt;
+                                                &lt;li class="pic1 img slide"&gt;
+                            &lt;img
+                                src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image1.jpg"
+                                class="product-img"
+                            /&gt;
+                        &lt;/li&gt;
+                                                &lt;li class="pic2 img slide"&gt;
+                            &lt;img
+                                src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image2.jpg"
+                                class="product-img"
+                            /&gt;
+                        &lt;/li&gt;
+                                                &lt;li class="pic3 img slide"&gt;
+                            &lt;img
+                                src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image3.jpg"
+                                class="product-img"
+                            /&gt;
+                        &lt;/li&gt;
+                                                &lt;li class="pic4 img slide"&gt;
+                            &lt;img
+                                src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image4.jpg"
+                                class="product-img"
+                            /&gt;
+                        &lt;/li&gt;
+                                                &lt;li class="pic5 img slide"&gt;
+                            &lt;img
+                                src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image5.jpg"
+                                class="product-img"
+                            /&gt;
+                        &lt;/li&gt;
+                                                &lt;li class="pic6 img slide"&gt;
+                            &lt;img
+                                src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image6.jpg"
+                                class="product-img"
+                            /&gt;
+                        &lt;/li&gt;
                                             &lt;/ul&gt;
 
                     &lt;!-- Thumbnails --&gt;
                     &lt;div class="thumb"&gt;
+                                                    &lt;label class="pic1 col-xs-3" for="slide1"
+                            &gt;&lt;span class="anker"&gt;&lt;/span&gt;
+                                &lt;img
+                                    src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image1.jpg"
+                                    class="${PRODUCT.CustomFields.Image1class}"
+                                /&gt;&lt;/label&gt;
+                                                    &lt;label class="pic2 col-xs-3" for="slide2"
+                            &gt;&lt;span class="anker"&gt;&lt;/span&gt;
+                                &lt;img
+                                    src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image2.jpg"
+                                    class="${PRODUCT.CustomFields.Image1class}"
+                                /&gt;&lt;/label&gt;
+                                                    &lt;label class="pic3 col-xs-3" for="slide3"
+                            &gt;&lt;span class="anker"&gt;&lt;/span&gt;
+                                &lt;img
+                                    src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image3.jpg"
+                                    class="${PRODUCT.CustomFields.Image1class}"
+                                /&gt;&lt;/label&gt;
+                                                    &lt;label class="pic4 col-xs-3" for="slide4"
+                            &gt;&lt;span class="anker"&gt;&lt;/span&gt;
+                                &lt;img
+                                    src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image4.jpg"
+                                    class="${PRODUCT.CustomFields.Image1class}"
+                                /&gt;&lt;/label&gt;
+                                                    &lt;label class="pic5 col-xs-3" for="slide5"
+                            &gt;&lt;span class="anker"&gt;&lt;/span&gt;
+                                &lt;img
+                                    src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image5.jpg"
+                                    class="${PRODUCT.CustomFields.Image1class}"
+                                /&gt;&lt;/label&gt;
+                                                    &lt;label class="pic6 col-xs-3" for="slide6"
+                            &gt;&lt;span class="anker"&gt;&lt;/span&gt;
+                                &lt;img
+                                    src="https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image6.jpg"
+                                    class="${PRODUCT.CustomFields.Image1class}"
+                                /&gt;&lt;/label&gt;
                                             &lt;/div&gt;
 
                     &lt;!-- Artikelbilder --&gt;
@@ -1431,14 +1503,14 @@
 
             &lt;!-- Artikeldetails --&gt;
             &lt;div class="col-md-6 artdsc"&gt;
-                &lt;h1&gt;Partikelfilter OPEL MOVANO 2010 135210km 93197523 PF6020&lt;/h1&gt;
+                &lt;h1&gt;Schaltgetriebe 6-Gang RENAULT KANGOO 2010 77020km 7711497122 TL4-000&lt;/h1&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Hersteller: &lt;/span
-              &gt;OPEL
+              &gt;RENAULT
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Modell: &lt;/span
-              &gt;MOVANO
+              &gt;KANGOO
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Bauahr: &lt;/span
@@ -1446,11 +1518,11 @@
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Originale Ersatzteilnummer: &lt;/span
-              &gt;93197523
+              &gt;7711497122
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Motortype: &lt;/span
-              &gt;2,3CDTI M9T680
+              &gt;1.5dCi
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Treibstoffart: &lt;/span
@@ -1462,23 +1534,23 @@
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Laufleistung(km): &lt;/span
-              &gt;135210
+              &gt;77020
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Getriebe: &lt;/span
-              &gt;
+              &gt;TL4-000
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Fahrgestellnummer: &lt;/span
-              &gt;W0LMRFCFCAB016178
+              &gt;VF1KW0FB642525413
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Lagernummer: &lt;/span
-              &gt;BO494736
+              &gt;A1039341
                     &lt;/p&gt;
                                     &lt;p&gt;
               &lt;span class="bold"&gt;Kba: &lt;/span
-              &gt;
+              &gt;3333AQS,3333ASZ
                     &lt;/p&gt;
                 
 
@@ -1499,4 +1571,4 @@
 &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</description><shipMethods><shipMethod name="seeDesc_nat"><value>0</value></shipMethod></shipMethods><startDate>17.04.2024</startDate><startDate>11:48</startDate><durationInDays>30</durationInDays><autoRenew>yes</autoRenew><priceStart>807</priceStart><price>807</price><salesTax>19</salesTax><warrantyShortenedFlag>1</warrantyShortenedFlag><prodCatID>1</prodCatID><ifIsSoldOut>hide</ifIsSoldOut><isApproved>1</isApproved><images/></item></items></api>
+</description><shipMethods><shipMethod name="seeDesc_nat"><value>0</value></shipMethod></shipMethods><startDate>09.06.2024</startDate><startDate>17:19</startDate><durationInDays>30</durationInDays><autoRenew>yes</autoRenew><priceStart>729</priceStart><price>729</price><salesTax>19</salesTax><warrantyShortenedFlag>1</warrantyShortenedFlag><prodCatID>1</prodCatID><ifIsSoldOut>hide</ifIsSoldOut><isApproved>1</isApproved><images><image><imageURL>https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image1.jpg</imageURL></image><image><imageURL>https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image2.jpg</imageURL></image><image><imageURL>https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image3.jpg</imageURL></image><image><imageURL>https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image4.jpg</imageURL></image><image><imageURL>https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image5.jpg</imageURL></image><image><imageURL>https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/2863/german-logo/image6.jpg</imageURL></image></images></item></items></api>
