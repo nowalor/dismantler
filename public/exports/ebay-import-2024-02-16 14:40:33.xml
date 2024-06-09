@@ -1,0 +1,3546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productRequest>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Partikelfilter / KIA CEE´D 12- / D4FB / 289902A690</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO535832
+
+                    Originale Ersatzteilnummer: 289902A690
+
+                    Motor Kennung: 1.6 D4FB
+
+                    Motortype: 1,6CRDI D4FB
+
+                    Brandstofftype: Diesel
+
+                    Getriebe:
+
+                    Laufleistung: 64950(km)
+
+                    Fahrgestellnummer: U5YHN816ADL043386
+
+                    Baujahr: 2013
+
+                    Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR,1260ACX,1260ACY,1260ADP
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">55077</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56863</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">57477</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">59292</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56858</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">59295</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116507</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116491</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116503</value>
+            </compatibility>
+            <attribute name="Hersteller">KIA</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">289902A690</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO535832</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>619</listPrice>
+                    <strikeThroughPrice>619</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO535832</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR,1260ACX,1260ACY,1260ADP</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>289902A690</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>D4FB</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,6CRDI D4FB</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2013</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>U5YHN816ADL043386</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Partikelfilter / KIA CEE´D 12- / D4FC / 289902A820</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO536560
+
+                    Originale Ersatzteilnummer: 289902A820
+
+                    Motor Kennung: 1.4 D4FC
+
+                    Motortype: 1,4CRDI D4FC
+
+                    Brandstofftype: Diesel
+
+                    Getriebe:
+
+                    Laufleistung: 55630(km)
+
+                    Fahrgestellnummer: U5YHM815AEL061682
+
+                    Baujahr: 2014
+
+                    Kbas: 1260ACW,1260ADB,1260ACW
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">55076</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56862</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56856</value>
+            </compatibility>
+            <attribute name="Hersteller">KIA</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">289902A820</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO536560</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>619</listPrice>
+                    <strikeThroughPrice>619</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO536560</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1260ACW,1260ADB,1260ACW</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>289902A820</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>D4FC</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,4CRDI D4FC</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2014</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>U5YHM815AEL061682</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / AUDI A4/S4 05-07 / BUL / 8E0254200HX</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO555886
+
+                    Originale Ersatzteilnummer: 8E0254200HX
+
+                    Motor Kennung: 2 BUL
+
+                    Motortype: 2,0T BUL
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: GMV
+
+                    Laufleistung: 163740(km)
+
+                    Fahrgestellnummer: WUAZZZ8E66A801619
+
+                    Baujahr: 2006
+
+                    Kbas: 0588AEZ,0588AFA,0588AFD,0588AFE,7967323,7967325,7967AAB,7967AAC,7967AAF,7967AAG
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">19825</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">19826</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18938</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18939</value>
+            </compatibility>
+            <attribute name="Hersteller">Audi</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">8E0254200HX</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO555886</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>457</listPrice>
+                    <strikeThroughPrice>457</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO555886</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>0588AEZ,0588AFA,0588AFD,0588AFE,7967323,7967325,7967AAB,7967AAC,7967AAF,7967AAG</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>8E0254200HX</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BUL</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,0T BUL</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2006</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WUAZZZ8E66A801619</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / AUDI A4/S4 05-07 / BFB / 8E0254200AX</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556290
+
+                    Originale Ersatzteilnummer: 8E0254200AX
+
+                    Motor Kennung: 1.8 BFB
+
+                    Motortype: 1.8T BFB
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: GJW
+
+                    Laufleistung: 210180(km)
+
+                    Fahrgestellnummer: WAUZZZ8E67A174562
+
+                    Baujahr: 2007
+
+                    Kbas: 0588808,0588809,0588810,0588811,0588ACP,0588ACQ,0588ADF,0588ADG
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">16880</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18396</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18405</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16883</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16881</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18397</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16884</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18406</value>
+            </compatibility>
+            <attribute name="Hersteller">Audi</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">8E0254200AX</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556290</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>457</listPrice>
+                    <strikeThroughPrice>457</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556290</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>0588808,0588809,0588810,0588811,0588ACP,0588ACQ,0588ADF,0588ADG</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>8E0254200AX</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BFB</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1.8T BFB</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2007</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WAUZZZ8E67A174562</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / FORD MONDEO 15- / T7CE / 1873387</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556436
+
+                    Originale Ersatzteilnummer: 1873387
+
+                    Motor Kennung: 2 T7CE
+
+                    Motortype: 2,0TDCI T7CE
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: Automat
+
+                    Laufleistung: 35060(km)
+
+                    Fahrgestellnummer: WF0FXXWPCFFC65644
+
+                    Baujahr: 2015
+
+                    Kbas: 8566BIZ,8566BJA,8566BJB,8566BLQ,8566BLR,8566BLS
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">124784</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">140505</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107753</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">135369</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107761</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">135373</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">124786</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">111097</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">111110</value>
+            </compatibility>
+            <attribute name="Hersteller">Ford</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">1873387</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556436</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>593</listPrice>
+                    <strikeThroughPrice>593</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556436</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>8566BIZ,8566BJA,8566BJB,8566BLQ,8566BLR,8566BLS</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>1873387</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>T7CE</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,0TDCI T7CE</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WF0FXXWPCFFC65644</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Motor / AUDI A4/S4 05-07 / BFB / 06B100098LX</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556487
+
+                    Originale Ersatzteilnummer: 06B100098LX
+
+                    Motor Kennung: 1.8 BFB
+
+                    Motortype: 1.8T BFB
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: GJW
+
+                    Laufleistung: 210180(km)
+
+                    Fahrgestellnummer: WAUZZZ8E67A174562
+
+                    Baujahr: 2007
+
+                    Kbas: 0588808,0588809,0588810,0588811,0588ACP,0588ACQ,0588ADF,0588ADG
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">16880</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18396</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18405</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16883</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16881</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18397</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16884</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18406</value>
+            </compatibility>
+            <attribute name="Hersteller">Audi</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">06B100098LX</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556487</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1250</listPrice>
+                    <strikeThroughPrice>1250</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556487</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>0588808,0588809,0588810,0588811,0588ACP,0588ACQ,0588ADF,0588ADG</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>06B100098LX</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BFB</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1.8T BFB</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2007</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WAUZZZ8E67A174562</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Schaltgetriebe 6-Gang / AUDI A4/S4 05-07 / BFB / 02X300044HX</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556488
+
+                    Originale Ersatzteilnummer: 02X300044HX
+
+                    Motor Kennung: 1.8 BFB
+
+                    Motortype: 1.8T BFB
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: GJW
+
+                    Laufleistung: 210180(km)
+
+                    Fahrgestellnummer: WAUZZZ8E67A174562
+
+                    Baujahr: 2007
+
+                    Kbas: 0588808,0588809,0588810,0588811,0588ACP,0588ACQ,0588ADF,0588ADG
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">16880</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18396</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18405</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16883</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16881</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18397</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16884</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18406</value>
+            </compatibility>
+            <attribute name="Hersteller">Audi</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">02X300044HX</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556488</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>893</listPrice>
+                    <strikeThroughPrice>893</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556488</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>0588808,0588809,0588810,0588811,0588ACP,0588ACQ,0588ADF,0588ADG</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>02X300044HX</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BFB</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1.8T BFB</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2007</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WAUZZZ8E67A174562</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Schaltgetriebe 6-Gang / KIA CEE´D 12- / G4FD /</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556495
+
+                    Originale Ersatzteilnummer:
+
+                    Motor Kennung: 1.6 G4FD
+
+                    Motortype: 1,6 G4FD
+
+                    Brandstofftype: Bensin
+
+                    Getriebe:
+
+                    Laufleistung: 3500(km)
+
+                    Fahrgestellnummer: U5YHN813AGL148230
+
+                    Baujahr: 2016
+
+                    Kbas: 1260ACV,1260ADA,1260ACV
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">55074</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56860</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56855</value>
+            </compatibility>
+            <attribute name="Hersteller">KIA</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)"/>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556495</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1547</listPrice>
+                    <strikeThroughPrice>1547</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556495</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1260ACV,1260ADA,1260ACV</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>G4FD</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,6 G4FD</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2016</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>U5YHN813AGL148230</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Motor / VW CADDY 04-10 / BJB / 03G100098X</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556498
+
+                    Originale Ersatzteilnummer: 03G100098X
+
+                    Motor Kennung: 1.9 BJB
+
+                    Motortype: 1.9TDI BJB
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: GQR
+
+                    Laufleistung: 234680(km)
+
+                    Fahrgestellnummer: WV1ZZZ2KZ5X079475
+
+                    Baujahr: 2005
+
+                    Kbas: 060387,0603AGG,0603AGK,0603AJU,0603AJV
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">17810</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">19693</value>
+            </compatibility>
+            <attribute name="Hersteller">VW</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">03G100098X</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556498</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1131</listPrice>
+                    <strikeThroughPrice>1131</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556498</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>060387,0603AGG,0603AGK,0603AJU,0603AJV</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>03G100098X</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BJB</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1.9TDI BJB</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2005</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WV1ZZZ2KZ5X079475</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Schaltgetriebe 6-Gang / AUDI A4/S4 05-07 / BUL / 02X300044JX</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556504
+
+                    Originale Ersatzteilnummer: 02X300044JX
+
+                    Motor Kennung: 2 BUL
+
+                    Motortype: 2,0T BUL
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: GMV
+
+                    Laufleistung: 163740(km)
+
+                    Fahrgestellnummer: WUAZZZ8E66A801619
+
+                    Baujahr: 2006
+
+                    Kbas: 0588AEZ,0588AFA,0588AFD,0588AFE,7967323,7967325,7967AAB,7967AAC,7967AAF,7967AAG
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">19825</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">19826</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18938</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18939</value>
+            </compatibility>
+            <attribute name="Hersteller">Audi</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">02X300044JX</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556504</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1071</listPrice>
+                    <strikeThroughPrice>1071</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556504</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>0588AEZ,0588AFA,0588AFD,0588AFE,7967323,7967325,7967AAB,7967AAC,7967AAF,7967AAG</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>02X300044JX</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BUL</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,0T BUL</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2006</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WUAZZZ8E66A801619</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Motor / AUDI A6/S6 05-11 / BPP / 059100098NX</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556518
+
+                    Originale Ersatzteilnummer: 059100098NX
+
+                    Motor Kennung: 2.7 BPP
+
+                    Motortype: 2.7TDI BPP
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: Automat HYN
+
+                    Laufleistung: 231740(km)
+
+                    Fahrgestellnummer: WAUZZZ4F46N128444
+
+                    Baujahr: 2006
+
+                    Kbas: 0588876,0588889,0588903,0588904,0588ABN,0588ABO,0588ACE,0588ACF
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">18415</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18675</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18677</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18676</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">19475</value>
+            </compatibility>
+            <attribute name="Hersteller">Audi</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">059100098NX</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556518</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1825</listPrice>
+                    <strikeThroughPrice>1825</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556518</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>0588876,0588889,0588903,0588904,0588ABN,0588ABO,0588ACE,0588ACF</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>059100098NX</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BPP</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2.7TDI BPP</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2006</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WAUZZZ4F46N128444</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Automatikgetriebe / AUDI A6/S6 05-11 / BPP / 09L300038SX</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556520
+
+                    Originale Ersatzteilnummer: 09L300038SX
+
+                    Motor Kennung: 2.7 BPP
+
+                    Motortype: 2.7TDI BPP
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: Automat HYN
+
+                    Laufleistung: 231740(km)
+
+                    Fahrgestellnummer: WAUZZZ4F46N128444
+
+                    Baujahr: 2006
+
+                    Kbas: 0588876,0588889,0588903,0588904,0588ABN,0588ABO,0588ACE,0588ACF
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">18415</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18675</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18677</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">18676</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">19475</value>
+            </compatibility>
+            <attribute name="Hersteller">Audi</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">09L300038SX</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556520</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1458</listPrice>
+                    <strikeThroughPrice>1458</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556520</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>0588876,0588889,0588903,0588904,0588ABN,0588ABO,0588ACE,0588ACF</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>09L300038SX</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>BPP</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2.7TDI BPP</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2006</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WAUZZZ4F46N128444</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Motor / FORD MONDEO 15- / T7CE / 1863970</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556528
+
+                    Originale Ersatzteilnummer: 1863970
+
+                    Motor Kennung: 2 T7CE
+
+                    Motortype: 2,0TDCI T7CE
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: Automat
+
+                    Laufleistung: 35060(km)
+
+                    Fahrgestellnummer: WF0FXXWPCFFC65644
+
+                    Baujahr: 2015
+
+                    Kbas: 8566BIZ,8566BJA,8566BJB,8566BLQ,8566BLR,8566BLS
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">124784</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">140505</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107753</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">135369</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107761</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">135373</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">124786</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">111097</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">111110</value>
+            </compatibility>
+            <attribute name="Hersteller">Ford</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">1863970</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556528</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>3015</listPrice>
+                    <strikeThroughPrice>3015</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556528</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>8566BIZ,8566BJA,8566BJB,8566BLQ,8566BLR,8566BLS</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>1863970</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>T7CE</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,0TDCI T7CE</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WF0FXXWPCFFC65644</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Automatikgetriebe / FORD MONDEO 15- / T7CE / 2103402</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556530
+
+                    Originale Ersatzteilnummer: 2103402
+
+                    Motor Kennung: 2 T7CE
+
+                    Motortype: 2,0TDCI T7CE
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: Automat
+
+                    Laufleistung: 35060(km)
+
+                    Fahrgestellnummer: WF0FXXWPCFFC65644
+
+                    Baujahr: 2015
+
+                    Kbas: 8566BIZ,8566BJA,8566BJB,8566BLQ,8566BLR,8566BLS
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">124784</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">140505</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107753</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">135369</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107761</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">135373</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">124786</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">111097</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">111110</value>
+            </compatibility>
+            <attribute name="Hersteller">Ford</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">2103402</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556530</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1904</listPrice>
+                    <strikeThroughPrice>1904</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556530</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>8566BIZ,8566BJA,8566BJB,8566BLQ,8566BLR,8566BLS</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>2103402</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>T7CE</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,0TDCI T7CE</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>WF0FXXWPCFFC65644</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Motor / KIA CARENS III 13- / D4FD / 1A0212AH00</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556533
+
+                    Originale Ersatzteilnummer: 1A0212AH00
+
+                    Motor Kennung: 1.7 D4FD
+
+                    Motortype: 1,7CRDI D4FD
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: Automat
+
+                    Laufleistung: 49130(km)
+
+                    Fahrgestellnummer: KNAHU815BE7060532
+
+                    Baujahr: 2014
+
+                    Kbas: 8253AER,8253AES,8253AFR
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">58621</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">58622</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">118700</value>
+            </compatibility>
+            <attribute name="Hersteller">KIA</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">1A0212AH00</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556533</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>3411</listPrice>
+                    <strikeThroughPrice>3411</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556533</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>8253AER,8253AES,8253AFR</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>1A0212AH00</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>D4FD</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,7CRDI D4FD</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2014</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>KNAHU815BE7060532</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Automatikgetriebe / KIA CARENS III 13- / D4FD / 450003BKL2</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556534
+
+                    Originale Ersatzteilnummer: 450003BKL2
+
+                    Motor Kennung: 1.7 D4FD
+
+                    Motortype: 1,7CRDI D4FD
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: Automat
+
+                    Laufleistung: 49130(km)
+
+                    Fahrgestellnummer: KNAHU815BE7060532
+
+                    Baujahr: 2014
+
+                    Kbas: 8253AER,8253AES,8253AFR
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">58621</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">58622</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">118700</value>
+            </compatibility>
+            <attribute name="Hersteller">KIA</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">450003BKL2</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556534</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>2235</listPrice>
+                    <strikeThroughPrice>2235</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556534</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>8253AER,8253AES,8253AFR</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>450003BKL2</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>D4FD</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,7CRDI D4FD</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2014</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>KNAHU815BE7060532</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Motor / KIA CEE´D 12- / D4FB /</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556535
+
+                    Originale Ersatzteilnummer:
+
+                    Motor Kennung: 1.6 D4FB
+
+                    Motortype: 1,6CRDI D4FB
+
+                    Brandstofftype: Diesel
+
+                    Getriebe:
+
+                    Laufleistung: 13040(km)
+
+                    Fahrgestellnummer: U5YHN816AFL139559
+
+                    Baujahr: 2015
+
+                    Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR,1260ACX,1260ACY,1260ADP
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">55077</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56863</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">57477</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">59292</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56858</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">59295</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116507</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116491</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116503</value>
+            </compatibility>
+            <attribute name="Hersteller">KIA</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)"/>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556535</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>2089</listPrice>
+                    <strikeThroughPrice>2089</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556535</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR,1260ACX,1260ACY,1260ADP</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>D4FB</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,6CRDI D4FB</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>U5YHN816AFL139559</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Schaltgetriebe 6-Gang / KIA CEE´D 12- / D4FB /</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO556536
+
+                    Originale Ersatzteilnummer:
+
+                    Motor Kennung: 1.6 D4FB
+
+                    Motortype: 1,6CRDI D4FB
+
+                    Brandstofftype: Diesel
+
+                    Getriebe:
+
+                    Laufleistung: 13040(km)
+
+                    Fahrgestellnummer: U5YHN816AFL139559
+
+                    Baujahr: 2015
+
+                    Kbas: 1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR,1260ACX,1260ACY,1260ADP
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">55077</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56863</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">57477</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">59292</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">56858</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">59295</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116507</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116491</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116503</value>
+            </compatibility>
+            <attribute name="Hersteller">KIA</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)"/>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO556536</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>1547</listPrice>
+                    <strikeThroughPrice>1547</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO556536</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1260ACX,1260ACY,1260ADC,1260ADD,1260ADP,1260ADR,1260ACX,1260ACY,1260ADP</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>D4FB</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,6CRDI D4FB</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>U5YHN816AFL139559</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / SUBARU OUTBACK 15- / FB25 /</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO557324
+
+                    Originale Ersatzteilnummer:
+
+                    Motor Kennung: 2.5 FB25
+
+                    Motortype: 2,5 FB25
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: Automat
+
+                    Laufleistung: 50990(km)
+
+                    Fahrgestellnummer: JF1BS9LC2FG021954
+
+                    Baujahr: 2015
+
+                    Kbas: 1842AAA,1842AAW,7106ADI
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">111683</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">144737</value>
+            </compatibility>
+            <attribute name="Hersteller">Subaru</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)"/>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO557324</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>551</listPrice>
+                    <strikeThroughPrice>551</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO557324</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1842AAA,1842AAW,7106ADI</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>FB25</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,5 FB25</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>JF1BS9LC2FG021954</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / SUBARU OUTBACK 15- / FB25 /</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO557325
+
+                    Originale Ersatzteilnummer:
+
+                    Motor Kennung: 2.5 FB25
+
+                    Motortype: 2,5 FB25
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: Automat
+
+                    Laufleistung: 50990(km)
+
+                    Fahrgestellnummer: JF1BS9LC2FG021954
+
+                    Baujahr: 2015
+
+                    Kbas: 1842AAA,1842AAW,7106ADI
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">111683</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">144737</value>
+            </compatibility>
+            <attribute name="Hersteller">Subaru</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)"/>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO557325</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>457</listPrice>
+                    <strikeThroughPrice>457</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO557325</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1842AAA,1842AAW,7106ADI</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>FB25</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,5 FB25</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>JF1BS9LC2FG021954</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Differential / SUBARU OUTBACK 15- / FB25 /</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO557405
+
+                    Originale Ersatzteilnummer:
+
+                    Motor Kennung: 2.5 FB25
+
+                    Motortype: 2,5 FB25
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: Automat
+
+                    Laufleistung: 50990(km)
+
+                    Fahrgestellnummer: JF1BS9LC2FG021954
+
+                    Baujahr: 2015
+
+                    Kbas: 1842AAA,1842AAW,7106ADI
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">111683</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">144737</value>
+            </compatibility>
+            <attribute name="Hersteller">Subaru</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)"/>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO557405</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>827</listPrice>
+                    <strikeThroughPrice>827</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO557405</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1842AAA,1842AAW,7106ADI</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>FB25</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,5 FB25</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2015</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>JF1BS9LC2FG021954</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / VOLVO V70 00-04 / B5254T2 / 8603089</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO557673
+
+                    Originale Ersatzteilnummer: 8603089
+
+                    Motor Kennung: 2.5 B5254T2
+
+                    Motortype: 2,5T B5254T2
+
+                    Brandstofftype: Bensin
+
+                    Getriebe:
+
+                    Laufleistung: 259230(km)
+
+                    Fahrgestellnummer: YV1SW59G242388889
+
+                    Baujahr: 2004
+
+                    Kbas: 9101864,9101873,9101AAD,9101AAE
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">18221</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">16995</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">17139</value>
+            </compatibility>
+            <attribute name="Hersteller">Volvo</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">8603089</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO557673</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>355</listPrice>
+                    <strikeThroughPrice>355</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO557673</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>9101864,9101873,9101AAD,9101AAE</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>8603089</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>B5254T2</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,5T B5254T2</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2004</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>YV1SW59G242388889</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / NISSAN QASHQAI 10-14 / HR16DE / 20010BB00A</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO558225
+
+                    Originale Ersatzteilnummer: 20010BB00A
+
+                    Motor Kennung: 1.6 HR16DE
+
+                    Motortype: 1,6 HR16DE
+
+                    Brandstofftype: Bensin
+
+                    Getriebe:
+
+                    Laufleistung: 32050(km)
+
+                    Fahrgestellnummer: SJNFAAJ10U2702765
+
+                    Baujahr: 2013
+
+                    Kbas: 1329ABB,1329AFG,3144ADS,1329ABB,1329AFG
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">19883</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">11137</value>
+            </compatibility>
+            <attribute name="Hersteller">Nissan</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">20010BB00A</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO558225</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>423</listPrice>
+                    <strikeThroughPrice>423</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO558225</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1329ABB,1329AFG,3144ADS,1329ABB,1329AFG</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>20010BB00A</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>HR16DE</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>1,6 HR16DE</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2013</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>SJNFAAJ10U2702765</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Motor / NISSAN NV400 / M9T /</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO558736
+
+                    Originale Ersatzteilnummer:
+
+                    Motor Kennung: 2.3 M9T
+
+                    Motortype: 2,3DCI M9T680
+
+                    Brandstofftype: Diesel
+
+                    Getriebe: PF6020
+
+                    Laufleistung: 102780(km)
+
+                    Fahrgestellnummer: VNVM1F4FE48011464
+
+                    Baujahr: 2013
+
+                    Kbas: 1329AGE,1329AGF,1329AGG,1329AHA,1329AIK,1329AIL,1329AIM,1329AJN,1329AMF
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">12512</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">12514</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">12518</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">108455</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107557</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107559</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">107561</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">116209</value>
+            </compatibility>
+            <compatibility>
+                <value name="KType">141684</value>
+            </compatibility>
+            <attribute name="Hersteller">Nissan</attribute>
+            <attribute name="Kraftstoffart">Diesel</attribute>
+            <attribute name="OE/OEM Referenznummer(n)"/>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO558736</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>2882</listPrice>
+                    <strikeThroughPrice>2882</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO558736</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>1329AGE,1329AGF,1329AGG,1329AHA,1329AIK,1329AIL,1329AIM,1329AJN,1329AMF</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>M9T</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,3DCI M9T680</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Diesel</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2013</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>VNVM1F4FE48011464</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+    <product>
+        <productInformation localizedFor="de_DE">
+            <title>Katalysator / VOLVO S60 01-04 / B5234T3 / 8603098</title>
+            <subtitle/>
+            <description>
+                <productDescription>&lt;![CDATA[
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten.
+                    Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen.
+
+                    Lagernummer: BO558949
+
+                    Originale Ersatzteilnummer: 8603098
+
+                    Motor Kennung: 2.3 B5234T3
+
+                    Motortype: 2,3T B5234T3
+
+                    Brandstofftype: Bensin
+
+                    Getriebe: Automat
+
+                    Laufleistung: 126250(km)
+
+                    Fahrgestellnummer: YV1RS53K942367063
+
+                    Baujahr: 2004
+
+                    Kbas: 9101848
+
+                    ]]&gt;
+                </productDescription>
+            </description>
+            <compatibility>
+                <value name="KType">15151</value>
+            </compatibility>
+            <attribute name="Hersteller">Volvo</attribute>
+            <attribute name="Kraftstoffart">Benzin</attribute>
+            <attribute name="OE/OEM Referenznummer(n)">8603098</attribute>
+            <EAN>Nicht zutreffend</EAN>
+            <conditionInfo>
+                <condition>USED_EXCELLENT</condition>
+            </conditionInfo>
+        </productInformation>
+        <SKU>BO558949</SKU>
+        <distribution localizedFor="de_DE">
+            <channelDetails>
+                <VATPercent>19</VATPercent>
+                <templateName>default.html</templateName>
+                <channelID>EBAY_DE</channelID>
+                <category>33615</category>
+                <paymentPolicyName>eBay Managed Payments (341130335023)</paymentPolicyName>
+                <returnPolicyName>30 Tage Rückgabe. Käufer zahlt Rückversand</returnPolicyName>
+                <shippingPolicyName>Kostenloser Versand</shippingPolicyName>
+                <pricingDetails>
+                    <listPrice>355</listPrice>
+                    <strikeThroughPrice>355</strikeThroughPrice>
+                </pricingDetails>
+                <customFields>
+                    <customField>
+                        <name>Image1</name>
+                        <value>https://via.placeholder.com/500/eeeeee/999?text=Grafik-4</value>
+                    </customField>
+                    <customField>
+                        <name>Image2</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image3</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image4</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image5</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Image6</name>
+                        <value>image-missing</value>
+                    </customField>
+                    <customField>
+                        <name>Lagernummer</name>
+                        <value>BO558949</value>
+                    </customField>
+                    <customField>
+                        <name>Kba</name>
+                        <value>9101848</value>
+                    </customField>
+                    <customField>
+                        <name>Originale Ersatzteilnummer</name>
+                        <value>8603098</value>
+                    </customField>
+                    <customField>
+                        <name>Motor Kennung</name>
+                        <value>B5234T3</value>
+                    </customField>
+                    <customField>
+                        <name>Motortype</name>
+                        <value>2,3T B5234T3</value>
+                    </customField>
+                    <customField>
+                        <name>Brandstofftype</name>
+                        <value>Benzin</value>
+                    </customField>
+                    <customField>
+                        <name>Laufleistung(KM)</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Model Jahr</name>
+                        <value>2004</value>
+                    </customField>
+                    <customField>
+                        <name>Getriebe</name>
+                        <value/>
+                    </customField>
+                    <customField>
+                        <name>Fahrgestellnummer</name>
+                        <value>YV1RS53K942367063</value>
+                    </customField>
+                </customFields>
+            </channelDetails>
+        </distribution>
+        <inventory>
+            <totalShipToHomeQuantity>0</totalShipToHomeQuantity>
+        </inventory>
+    </product>
+</productRequest>
