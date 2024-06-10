@@ -28,7 +28,16 @@ class CreateXmlCommand extends Command
             return 0;
         }
 
-        $this->service->handlePartUpload($parts);
+        try {
+            $this->service->handlePartUpload($parts);
+        } catch(\Exception $ex) {
+            logger($ex->getMessage());
+
+            $this->info('in catch...');
+
+            return 1;
+        }
+
 
         return Command::SUCCESS;
     }
