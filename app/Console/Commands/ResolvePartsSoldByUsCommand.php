@@ -132,6 +132,12 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
         foreach ($parts as $part) {
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
 
+            if(!$dbPart) {
+                logger("Couldn't find {$part['article_nr']}");
+                
+                continue;
+            }
+
             // Return if part sold_at is not null
             if ($dbPart->sold_at) {
                 continue;
