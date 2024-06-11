@@ -85,7 +85,7 @@ class GetTemplateInfoAction
         return $dito->producer;
     }
 
-    private function getBrand(NewCarPart $carPart): string
+    private function getBrand(NewCarPart $carPart): string | null
     {
         $dito = $carPart->sbrCode?->ditoNumbers()->first();
 
