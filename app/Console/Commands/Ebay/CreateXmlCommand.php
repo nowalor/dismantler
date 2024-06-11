@@ -29,7 +29,11 @@ class CreateXmlCommand extends Command
         }
 
         try {
-            $this->service->handlePartUpload($parts);
+            $response = $this->service->handlePartUpload($parts);
+
+            if(!$response) {
+                $this->info('Response failed');
+            }
         } catch(\Exception $ex) {
             logger($ex->getMessage());
 
@@ -39,6 +43,7 @@ class CreateXmlCommand extends Command
         }
 
 
+        $this->info('Everything went okay...');
         return Command::SUCCESS;
     }
 
