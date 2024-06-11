@@ -82,7 +82,7 @@ class ExportPartsCommand extends Command
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
             ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
+                $q->whereNotNull("new_logo_german");
             })
             ->where(function ($query) {
                 $query
@@ -108,7 +108,7 @@ class ExportPartsCommand extends Command
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
             ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
+                $q->whereNotNull("new_logo_german");
             })
             ->where(function ($query) {
                 $query
