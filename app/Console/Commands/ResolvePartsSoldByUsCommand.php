@@ -133,8 +133,6 @@ class ResolvePartsSoldByUsCommand extends FenixApiBaseCommand
             $dbPart = NewCarPart::where('article_nr', $part['article_nr'])->first();
 
             if(!$dbPart) {
-                logger("Couldn't find {$part['article_nr']}");
-                
                 continue;
             }
 
