@@ -35,7 +35,7 @@ class ReplaceDismantlerLogoAction
 //        $yOffset = 0;
 
         // Resize the logo to fit the desired dimensions
-        $replacementImage->resize($logoWidth, $logoHeight);
+        $replacementImage->resize(null, $logoHeight);
 
         // Replace the region in the image with the logo
         $processedImage->insert($replacementImage, 'top-left', $xOffset, $yOffset);
