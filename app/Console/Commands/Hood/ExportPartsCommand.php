@@ -48,9 +48,7 @@ class ExportPartsCommand extends Command
                 logger($response->getBody());
                 return Command::FAILURE;
             }
-
-            logger($response->getBody());
-
+            
             foreach($parts as $part) {
                 $part->update(['is_live_on_hood' => true]);
             }
