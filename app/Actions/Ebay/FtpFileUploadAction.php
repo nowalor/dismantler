@@ -17,18 +17,16 @@ class FtpFileUploadAction
         string $to,
         string $location,
         string $fileName,
-    ): mixed
+    ): bool
     {
         try {
             $response = $this->disk->put("$to/$fileName",  file_get_contents($location));
 
-            if(!$response) {
-                return 'no response';
-            }
         } catch(\Exception $e) {
+            logger('in catch FtpFileUploadAction LINE 26');
             logger($e->getMessage());
 
-            return "catch {$e->getMessage()}";
+            return false;
         }
 
         return $response;
