@@ -26,6 +26,8 @@ class FtpFileUploadAction
                 return 'no response';
             }
         } catch(\Exception $e) {
+            logger($e->getMessage());
+
             return "catch {$e->getMessage()}";
         }
 
