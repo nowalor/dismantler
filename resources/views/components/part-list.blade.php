@@ -1,10 +1,3 @@
-<style>
-    /* Define a CSS style for underlined anchor tags */
-    .table a {
-        text-decoration: underline;
-    }
-</style>
-
 <div class="table">
     <table class="table table-hover">
         <thead>
@@ -54,3 +47,9 @@
         </tbody>
     </table>
 </div>
+
+<style>
+    .table a {
+        text-decoration: underline;
+    }
+</style>

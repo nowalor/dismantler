@@ -20,6 +20,7 @@ use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\TemporaryLandingPageController;
 
 
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
@@ -52,7 +53,10 @@ Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
-Route::get('', HomepageController::class)->name('home');
+// this is the correct HomePageController with search
+// Route::get('', HomepageController::class)->name('home');
+// currently using this for now until currusConnect production ready
+Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
 
 //Route::get('', LandingPageController::class)->name('returnLandingPage');
 //Route::get('browse', [BrowseCarParts::class, 'browseCarParts'] );
