@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Actions\Images\ReplaceDismantlerLogoAction;
-use App\Models\CarPart;
 use App\Models\NewCarPart;
 use Exception;
 use File;
@@ -16,62 +15,36 @@ class FenixResolveCarPartImagesCommand extends Command
 {
     protected $signature = 'fenix:resolve-images';
 
-    protected $description = 'Take the image url we get from the Fenix API. Run it through a script to replace the dismantle company logo with our own logo';
+    protected $description = 'Take the image url we get from the Fenix API. Run it through a python script to replace the dismantle company logo with our own logo';
 
     public function handle(): int
     {
-        $logos = [
-            [
-                'folder' => 'german-logo',
-                'image_name' => 'new-logo-german.jpg',
-                'db_field' => 'new_logo_german',
-            ],
-            [
-                'folder' => 'english-logo',
-                'image_name' => 'new-logo-english.jpg',
-                'db_field' => 'new_logo_english',
-            ],
-            [
-                'folder' => 'danish-logo',
-                'image_name' => 'new-logo-danish.jpg',
-                'db_field' => 'new_logo_danish',
-            ],
-            [
-                'folder' => 'old_logo',
-                'image_name' => 'logo.png',
-                'db_field' => 'image_name',
-            ],
-        ];
-
-//        foreach($logos as $logo) {
-//            // TODO
-//        }
-
-        $replacementImagePath = public_path('img/new-logo-german.jpg');
+        $replacementImagePath = public_path('img/logo.png');
         $replacementImage = Image::make($replacementImagePath);
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
             ->whereHas('carPartImages', function ($query) {
-                $query->whereNull('new_logo_german');
+                $query->whereNull('image_name');
             })
             ->with(['carPartImages' => function ($query) {
-                $query->whereNull('new_logo_german');
+                $query->whereNull('image_name');
             }])
-//            ->whereNotNull('engine_code')
-//            ->where('engine_code', '!=', '')
-            ->whereIn('external_dismantle_company_id', [44, 50, 70])
-            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
-//            ->has('germanDismantlers')
-//            ->where('price_sek', '>', 0)
-//            ->whereNotNull('price_sek')
-//            ->where('price_sek', '!=', '')
+            ->whereNotNull('engine_code')
+            ->where('engine_code', '!=', '')
+            ->has('germanDismantlers')
+            ->where('price_sek', '>', 0)
+            ->whereNotNull('price_sek')
+            ->where('price_sek', '!=', '')
             ->whereNull('sold_at')
-//            ->whereNull('country')
-            ->take(520)
+            ->take(300)
             ->get();
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $image) {
+//                if($image->image_name !== null) {
+//                    continue;
+//                }
+
                 $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
 
                 $response = (new ReplaceDismantlerLogoAction())
@@ -82,7 +55,7 @@ class FenixResolveCarPartImagesCommand extends Command
                         position: $position,
                     );
 
-                if (!$response) {
+                if(!$response) {
                     continue;
                 }
 
@@ -91,6 +64,8 @@ class FenixResolveCarPartImagesCommand extends Command
 
                 // Define the output path and name
                 try {
+//                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
+
                     $extension = pathinfo($image->original_url, PATHINFO_EXTENSION);
 
                     $carImageNumber = $index + 1;
@@ -101,9 +76,9 @@ class FenixResolveCarPartImagesCommand extends Command
                     $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
                     file_put_contents($tempFilePath, $stream);
 
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/old-logo", $tempFilePath, $outputName, 'public');
 
-                    $image->new_logo_german = $outputName;
+                    $image->image_name = $outputName;
                     $image->priority = $carImageNumber;
                     $image->save();
                 } catch (Exception $e) {
@@ -127,11 +102,10 @@ class FenixResolveCarPartImagesCommand extends Command
     {
         $height = 0.29;
 
-        if ($dismantleCompany === 'F') {
+        if($dismantleCompany === 'F') {
             $height = 0.38;
         }
 
         return $height;
     }
 }
-
