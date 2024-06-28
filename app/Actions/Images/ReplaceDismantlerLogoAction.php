@@ -27,15 +27,18 @@ class ReplaceDismantlerLogoAction
         $processedImage = Image::make($tempImagePath);
 
         // Determine the position to place the logo (top right corner)
-        $logoWidth = (int)(0.27 * $processedImage->width());
+//        $logoWidth = (int)(0.27 * $processedImage->width());
         $logoHeight = (int)($scalingHeight * $processedImage->height());
+
+        $replacementImage->resize(null, $logoHeight);
+
+        $logoWidth = $replacementImage->width();
 
         [$xOffset, $yOffset] = $this->calculateOffset($processedImage, $logoHeight, $logoWidth, $position);
 //        $xOffset = $processedImage->width() - $logoWidth;
 //        $yOffset = 0;
 
         // Resize the logo to fit the desired dimensions
-        $replacementImage->resize(null, $logoHeight);
 
         // Replace the region in the image with the logo
         $processedImage->insert($replacementImage, 'top-left', $xOffset, $yOffset);
@@ -55,7 +58,7 @@ class ReplaceDismantlerLogoAction
     {
         switch ($position) {
             case 'top-right':
-                $xOffset = $processedImage->width();
+                $xOffset = $processedImage->width() - $logoWidth;
                 $yOffset = 0;
                 break;
             /*
