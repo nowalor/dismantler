@@ -184,18 +184,23 @@ class CarPartController extends Controller
 }
 
 
-    public function searchByOEM(Request $request): mixed
-    {
-        $oem = $request->get('oem');
+public function searchByOEM(Request $request)
+{
+    $oem = $request->get('oem');
+    $engine_code = $request->get('engine_code');
+    $gearbox = $request->get('gearbox');
 
-        $results = (new SearchByOeAction())->execute(
-            oe: $oem,
-            paginate: 10,
-        );
+    $results = (new SearchByOeAction())->execute(
+        oem: $oem,
+        engine_code: $engine_code,
+        gearbox: $gearbox,
+        paginate: 10,
+    );
 
-        $parts = $results['data']['parts'];
+    $parts = $results['data']['parts'];
 
-        return view('parts-oem', compact('parts', 'oem'));
-    }
+    return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
+}
+
 
 }
