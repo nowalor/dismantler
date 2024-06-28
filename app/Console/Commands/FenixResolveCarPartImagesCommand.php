@@ -22,26 +22,26 @@ class FenixResolveCarPartImagesCommand extends Command
         $replacementImagePath = public_path('img/new-logo-german.png');
         $replacementImage = Image::make($replacementImagePath);
 
-        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
-            ->whereHas('carPartImages', function ($query) {
-                $query->whereNull('new_logo_german');
-            })
-//            ->with(['carPartImages' => function ($query) {
-//                $query->whereNull('image_name');
-//            }])
-            ->with('carPartImages')
-            ->where('dismantle_company_name', 'S')
-            ->whereNotNull('engine_code')
-            ->where('engine_code', '!=', '')
-            ->has('germanDismantlers')
-            ->where('price_sek', '>', 0)
-            ->whereNotNull('price_sek')
-            ->where('price_sek', '!=', '')
-            ->whereNull('sold_at')
-            ->take(300)
-            ->get();
+//        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
+//            ->whereHas('carPartImages', function ($query) {
+//                $query->whereNull('new_logo_german');
+//            })
+////            ->with(['carPartImages' => function ($query) {
+////                $query->whereNull('image_name');
+////            }])
+//            ->with('carPartImages')
+//            ->where('dismantle_company_name', 'S')
+//            ->whereNotNull('engine_code')
+//            ->where('engine_code', '!=', '')
+//            ->has('germanDismantlers')
+//            ->where('price_sek', '>', 0)
+//            ->whereNotNull('price_sek')
+//            ->where('price_sek', '!=', '')
+//            ->whereNull('sold_at')
+//            ->take(300)
+//            ->get();
 
-//        $carParts = NewCarPart::where('id', 31178)->get();
+        $carParts = NewCarPart::where('id', 31178)->get();
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $image) {
