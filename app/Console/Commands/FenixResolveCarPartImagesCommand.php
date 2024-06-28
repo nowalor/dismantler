@@ -83,7 +83,7 @@ class FenixResolveCarPartImagesCommand extends Command
                     Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
 
 
-                    $image->image_name = $outputName;
+                    $image->new_logo_german = $outputName;
                     $image->priority = $carImageNumber;
                     $image->save();
                 } catch (Exception $e) {
