@@ -22,22 +22,24 @@ class FenixResolveCarPartImagesCommand extends Command
         $replacementImagePath = public_path('img/logo.png');
         $replacementImage = Image::make($replacementImagePath);
 
-        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
-            ->whereHas('carPartImages', function ($query) {
-                $query->whereNull('image_name');
-            })
-            ->with(['carPartImages' => function ($query) {
-                $query->whereNull('image_name');
-            }])
-            ->whereNotNull('engine_code')
-            ->where('engine_code', '!=', '')
-            ->has('germanDismantlers')
-            ->where('price_sek', '>', 0)
-            ->whereNotNull('price_sek')
-            ->where('price_sek', '!=', '')
-            ->whereNull('sold_at')
-            ->take(300)
-            ->get();
+//        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
+//            ->whereHas('carPartImages', function ($query) {
+//                $query->whereNull('image_name');
+//            })
+//            ->with(['carPartImages' => function ($query) {
+//                $query->whereNull('image_name');
+//            }])
+//            ->whereNotNull('engine_code')
+//            ->where('engine_code', '!=', '')
+//            ->has('germanDismantlers')
+//            ->where('price_sek', '>', 0)
+//            ->whereNotNull('price_sek')
+//            ->where('price_sek', '!=', '')
+//            ->whereNull('sold_at')
+//            ->take(300)
+//            ->get();
+
+        $carParts = NewCarPart::where('id', 31178)->get();
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $image) {
@@ -76,7 +78,7 @@ class FenixResolveCarPartImagesCommand extends Command
                     $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
                     file_put_contents($tempFilePath, $stream);
 
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/old-logo", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/old-logo2", $tempFilePath, $outputName, 'public');
 
                     $image->image_name = $outputName;
                     $image->priority = $carImageNumber;
