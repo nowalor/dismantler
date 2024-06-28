@@ -30,7 +30,9 @@ class ReplaceDismantlerLogoAction
 //        $logoWidth = (int)(0.27 * $processedImage->width());
         $logoHeight = (int)($scalingHeight * $processedImage->height());
 
-        $replacementImage->resize(null, $logoHeight);
+        $replacementImage->resize(null, $logoHeight, function ($constraint) {
+            $constraint->aspectRatio();
+        });
 
         $logoWidth = $replacementImage->width();
 
