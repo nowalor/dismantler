@@ -26,18 +26,16 @@ class ReplaceDismantlerLogoAction
         // Load and process the image
         $processedImage = Image::make($tempImagePath);
 
-        // Calculate the height for the logo and scale proportionally
+        // Determine the position to place the logo (top right corner)
+        $logoWidth = (int)(0.27 * $processedImage->width());
         $logoHeight = (int)($scalingHeight * $processedImage->height());
 
-        // Use the fit method to resize while maintaining aspect ratio
-        $replacementImage->fit(null, $logoHeight, function ($constraint) {
-            $constraint->aspectRatio();
-        });
-
-        // Calculate the new width of the logo
-        $logoWidth = $replacementImage->width();
-
         [$xOffset, $yOffset] = $this->calculateOffset($processedImage, $logoHeight, $logoWidth, $position);
+//        $xOffset = $processedImage->width() - $logoWidth;
+//        $yOffset = 0;
+
+        // Resize the logo to fit the desired dimensions
+        $replacementImage->resize(null, $logoHeight);
 
         // Replace the region in the image with the logo
         $processedImage->insert($replacementImage, 'top-left', $xOffset, $yOffset);
@@ -60,6 +58,10 @@ class ReplaceDismantlerLogoAction
                 $xOffset = $processedImage->width() - $logoWidth;
                 $yOffset = 0;
                 break;
+            /*
+            * Calculation does not work 100%
+            * But it's good enough to replace ethe small logo for GB
+            */
             case 'bottom-left':
                 $xOffset = 0;
                 $yOffset = $processedImage->height() - $logoHeight;
@@ -76,5 +78,4 @@ class ReplaceDismantlerLogoAction
 
         return [$xOffset, $yOffset];
     }
-
 }
