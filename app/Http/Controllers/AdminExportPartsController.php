@@ -28,9 +28,9 @@ class AdminExportPartsController extends Controller
 //            })
 //            ->where('price_sek', '>', 0)
 //            ->whereNotNull('price_sek')
-//            ->whereHas('carPartImages', function($q) {
-//                $q->whereNotNull('new_logo_german');
-//            })
+            ->whereHas('carPartImages', function($q) {
+                $q->whereNotNull('new_logo_german');
+            })
 //            ->whereNotNull('car_part_type_id') // TEMP
 //            ->where(function ($query) {
 //                return $query->where('sbr_part_code', '7143')
@@ -41,8 +41,8 @@ class AdminExportPartsController extends Controller
 //            ->whereHas('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages')
-            ->whereIn('external_dismantle_company_id', [70])
-            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+//            ->whereIn('external_dismantle_company_id', [70])
+//            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
             ->orderBy('model_year', 'desc')
 //            ->whereIn('dismantle_company_name', ['P', 'AS']);
 //            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])

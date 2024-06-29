@@ -75,7 +75,7 @@
                             <a href="{{ route('admin.export-parts.show', $carPart) }}" class="btn btn-primary w-100">View
                                 part</a>
                             <img class="card-img-bottom mt-2"
-                                 src="{{ isset( $carPart->carPartImages[0])  ? $carPart->carPartImages[0]->original_url: '' }}" />
+                                 src="{{ isset( $carPart->carPartImages[0])  ? $carPart->carPartImages[0]->logoGerman() }}" />
                         </div>
                     </div>
                 </div>
