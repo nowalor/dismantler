@@ -41,7 +41,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->take(300)
 //            ->get();
 
-        $carParts = NewCarPart::where('id', 14440)->get();
+        $carParts = NewCarPart::where('id', 2835)->get();
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $image) {
