@@ -82,7 +82,7 @@ class FenixResolveCarPartImagesCommand extends Command
 
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/testing-new-logo", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/testing-new-logo2", $tempFilePath, $outputName, 'public');
 
 
 //                    $image->new_logo_german = $outputName;
