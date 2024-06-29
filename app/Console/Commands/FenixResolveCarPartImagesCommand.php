@@ -70,7 +70,8 @@ class FenixResolveCarPartImagesCommand extends Command
                 try {
 //                    Storage::disk('public')->makeDirectory('img/car-part/' . $image->new_car_part_id);
 
-                    $extension = pathinfo($image->original_url, PATHINFO_EXTENSION);
+//                    $extension = pathinfo($image->original_url, PATHINFO_EXTENSION);
+                    $extension = 'jpg';
 
                     $carImageNumber = $index + 1;
 
@@ -82,7 +83,7 @@ class FenixResolveCarPartImagesCommand extends Command
 
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/testing-new-logo2", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/testing-new-logo3", $tempFilePath, $outputName, 'public');
 
 
                     $image->new_logo_german = $outputName;
