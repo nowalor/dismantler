@@ -85,9 +85,9 @@ class FenixResolveCarPartImagesCommand extends Command
                     Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/testing-new-logo2", $tempFilePath, $outputName, 'public');
 
 
-//                    $image->new_logo_german = $outputName;
-//                    $image->priority = $carImageNumber;
-//                    $image->save();
+                    $image->new_logo_german = $outputName;
+                    $image->priority = $carImageNumber;
+                    $image->save();
                 } catch (Exception $e) {
                     $this->error('Directory creation failed: ' . $e->getMessage());
                     return Command::FAILURE;
