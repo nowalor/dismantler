@@ -19,7 +19,7 @@ class FenixResolveCarPartImagesCommand extends Command
 
     public function handle(): int
     {
-        $replacementImagePath = public_path('img/new-logo-german.png');
+        $replacementImagePath = public_path('img/new-logo-german.jpg');
         $replacementImage = Image::make($replacementImagePath);
 //
 //        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
@@ -80,7 +80,7 @@ class FenixResolveCarPartImagesCommand extends Command
                     $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
                     file_put_contents($tempFilePath, $stream);
 
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo-test", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo-test2", $tempFilePath, $outputName, 'public');
 
 
 //                    $image->new_logo_german = $outputName;
