@@ -48,7 +48,7 @@
                     <div class="col-6">
                         <img class="card-img-bottom"
 {{--                             src="{{ asset("storage/img/car-part/{$carPart->id}/{$carPartImage->image_name}") }}"--}}
-                            src="{{$carPartImage->original_url}}"
+                            src="{{$carPartImage->logoGerman() }}"
                              alt="">
 
                     </div>
