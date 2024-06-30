@@ -74,7 +74,7 @@ class AutoteileMarkDocService
             'quantity' => '1',
             'vat' => '0',
 //            'price' => $carPart->autoteile_markt_price,
-            'price' => $carPart->autoteile_markt_price,
+//            'price' => $carPart->autoteile_markt_price,
 //            'price_b2b' => $carPart->autoteile_markt_business_price,
             'price' => $carPart->translated_price,
             'price_b2b' => $carPart->translated_price,
