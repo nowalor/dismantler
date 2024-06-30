@@ -35,7 +35,7 @@ class RemoveImagesFromStorageCommand extends Command
                 $query->whereNotNull('new_logo_german');
             })
             ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
-            ->whereNull('sold_at')
+//            ->whereNull('sold_at')
             ->take(1000)
             ->get();
     }
