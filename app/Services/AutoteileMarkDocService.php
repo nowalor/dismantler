@@ -73,8 +73,11 @@ class AutoteileMarkDocService
             'part_state' => '2',
             'quantity' => '1',
             'vat' => '0',
+//            'price' => $carPart->autoteile_markt_price,
             'price' => $carPart->autoteile_markt_price,
-            'price_b2b' => $carPart->autoteile_markt_business_price,
+//            'price_b2b' => $carPart->autoteile_markt_business_price,
+            'price' => $carPart->translated_price,
+            'price_b2b' => $carPart->translated_price,
             'bulky' => 1, // Customers can order in bulk and save on delivery costs
             'delivery' => $carPart->shipment,
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
@@ -155,7 +158,8 @@ class AutoteileMarkDocService
 //        }
 
         foreach ($images as $index => $image) {
-            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
+//            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
+            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->original_url}";
 
             $formattedImages["img_$index"] = $url;
         }
