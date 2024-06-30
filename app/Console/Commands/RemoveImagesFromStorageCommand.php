@@ -34,7 +34,7 @@ class RemoveImagesFromStorageCommand extends Command
             })
             ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
             ->whereNull('sold_at')
-            ->take(400)
+            ->take(1000)
             ->get();
     }
 }
