@@ -61,6 +61,7 @@
                             <p><span class="fw-bold">Total(EUR): </span> €{{ $carPart->new_price + $carPart->shipment }}</p>
                             <p><span class="fw-bold">[NEW]Price(EUR): </span> €{{ $carPart->new_price }}</p>
                             <p><span class="fw-bold">[B2B]Price(EUR): </span> €{{ $carPart->business_price }}</p>
+                            <p><span class="fw-bold">TEST PRICE: </span> €{{ $carPart->translated_price }}</p>
                             <p><span class="fw-bold">Shipment(EUR): </span> €{{ $carPart->shipment }}</p>
                             <p><span class="fw-bold">Engine code: </span> {{ $carPart->engine_code }}</p>
                             <p><span class="fw-bold">Engine type: </span> {{ $carPart->engine_type }}</p>
