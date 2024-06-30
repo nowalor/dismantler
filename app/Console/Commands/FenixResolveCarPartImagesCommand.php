@@ -25,10 +25,10 @@ class FenixResolveCarPartImagesCommand extends Command
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
             ->whereHas('carPartImages', function ($query) {
-                $query->whereNotNull('new_logo_german');
+                $query->whereNull('new_logo_german');
             })
             ->with(['carPartImages' => function ($query) {
-                $query->whereNotNull('new_logo_german');
+                $query->whereNull('new_logo_german');
             }])
             ->with('carPartImages')
 //            ->where('dismantle_company_name', 'A')
