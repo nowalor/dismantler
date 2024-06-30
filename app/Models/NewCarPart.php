@@ -123,6 +123,13 @@ class NewCarPart extends Model
         return round($this->my_kba->first()->engine_capacity_in_cm / 1000, 1) . ' ' . $this->engine_code;
     }
 
+    public function translatedPriceAttribute()
+    {
+        $priceDkk = $this->price_dkk;
+
+        return $priceDkk / 4;
+    }
+
     public function getNewPriceAttribute()
     {
         $priceSek = $this->price_sek;
