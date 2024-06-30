@@ -16,6 +16,8 @@ class RemoveImagesFromStorageCommand extends Command
     {
         $parts = $this->parts();
 
+        $this->info($parts->count());
+
         foreach($parts as $part) {
             Storage::disk('do')->deleteDirectory("img/car-part/{$part->id}/german-logo");
             Storage::disk('do')->deleteDirectory("img/car-part/{$part->id}/new-logo");
