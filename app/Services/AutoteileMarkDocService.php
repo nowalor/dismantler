@@ -66,7 +66,8 @@ class AutoteileMarkDocService
             'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
             'oe' => $carPart->original_number, // 'oe_nr' is the same as 'original_number
-            'title' => $carPart->new_name,
+//            'title' => $carPart->new_name,
+            'title' => $carPart->name,
             'description' => $this->resolveDescription($carPart),
             'brand' => $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '',
             'kba' => $this->kbaArrayToString($kba),
