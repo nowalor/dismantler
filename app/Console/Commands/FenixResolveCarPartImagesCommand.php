@@ -23,33 +23,35 @@ class FenixResolveCarPartImagesCommand extends Command
         $replacementImagePath = public_path('img/dismantler/a/logo.png');
         $replacementImage = Image::make($replacementImagePath);
 
-//        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
-//            ->whereHas('carPartImages', function ($query) {
-//                $query->whereNull('new_logo_german');
-//            })
-//            ->with(['carPartImages' => function ($query) {
-//                $query->whereNull('new_logo_german');
-//            }])
-//            ->with('carPartImages')
-////            ->where('dismantle_company_name', 'A')
-////            ->whereNotNull('engine_code')
-//            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
-////            ->where('engine_code', '!=', '')
-////            ->has('germanDismantlers')
-////            ->where('price_sek', '>', 0)
-////            ->whereNotNull('price_sek')
-////            ->where('price_sek', '!=', '')
-////            ->whereNull('sold_at')
-//            ->take(5)
-//            ->get();
+        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
+            ->whereHas('carPartImages', function ($query) {
+                $query->whereNull('new_logo_german');
+            })
+            ->with(['carPartImages' => function ($query) {
+                $query->whereNull('new_logo_german');
+            }])
+            ->with('carPartImages')
+//            ->where('dismantle_company_name', 'A')
+//            ->whereNotNull('engine_code')
+            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+//            ->where('engine_code', '!=', '')
+//            ->has('germanDismantlers')
+//            ->where('price_sek', '>', 0)
+//            ->whereNotNull('price_sek')
+//            ->where('price_sek', '!=', '')
+//            ->whereNull('sold_at')
+            ->take(255)
+            ->get();
 
-        $carParts = NewCarPart::where('id', 15674913851)->get();
+//        $carParts = NewCarPart::where('id', 15674913851)->get();
 
         foreach ($carParts as $carPart) {
             foreach ($carPart->carPartImages as $index => $image) {
 //                if($image->image_name !== null) {
 //                    continue;
 //                }
+
+                $replacementImage = Image::make($replacementImagePath); // Move this inside the loop
 
                 $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
 
