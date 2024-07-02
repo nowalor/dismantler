@@ -47,7 +47,7 @@ class ExportPartsAsCsvCommand extends Command
                     });
             })
             ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
-            ->take(5000)
+            ->take(1)
             ->get();
 
 //        $parts = NewCarPart::where('article_nr', 'BO611843')->get();

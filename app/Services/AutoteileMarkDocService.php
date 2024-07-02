@@ -68,7 +68,8 @@ class AutoteileMarkDocService
             'oe' => $carPart->original_number, // 'oe_nr' is the same as 'original_number
 //            'title' => $carPart->new_name,
             'title' => $carPart->name,
-            'description' => $this->resolveDescription($carPart),
+//            'description' => $this->resolveDescription($carPart),
+            'description' => 'placeholder',
             'brand' => $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '',
             'kba' => $this->kbaArrayToString($kba),
             'part_state' => '2',
