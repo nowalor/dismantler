@@ -160,6 +160,9 @@ class AutoteileMarkDocService
 //        }
 
         foreach ($images as $index => $image) {
+            if($index === 5) {
+                break;
+            }
 //            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
             $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->original_url}";
 
