@@ -40,7 +40,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->whereNotNull('price_sek')
 //            ->where('price_sek', '!=', '')
 //            ->whereNull('sold_at')
-            ->take(350)
+            ->take(255)
             ->get();
 
 //        $carParts = NewCarPart::where('id', 15674913851)->get();
