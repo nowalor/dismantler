@@ -22,17 +22,21 @@ class ExportPartsAsCsvCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::with('carPartImages')
+        $parts = NewCarPart::
             //->where('country', '!=','dk') WHY THIS NOT WORK?
 //            ->where('price_sek', '>', 0)
 //            ->whereNotNull('price_sek')
 //            ->where('price_sek', '!=', '')
-            ->whereNotNull('engine_code')
+            whereNotNull('engine_code')
             ->whereNotNull('article_nr')
-            ->whereHas("carPartImages", function ($query) {
-//                $query->where("is_placeholder", false);
-                $query->whereNotNull('new_logo_german');
-            })
+//            ->whereHas("carPartImages", function ($query) {
+////                $query->where("is_placeholder", false);
+//                $query->whereNotNull('new_logo_german');
+//            })
+//            ->with('carPartImages', function($q) {
+//                $q->whereNotNull('new_logo_german');
+//            })
+                ->with('carPartImages')
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
