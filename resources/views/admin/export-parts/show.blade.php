@@ -16,6 +16,9 @@
                         <p><span class="fw-bold">Article number: </span> {{ $carPart->article_nr }}</p>
                         <p><span class="fw-bold">Original number: </span> {{ $carPart->original_number }}</p>
                         <p><span class="fw-bold">Price(EUR): </span> €{{ $carPart->price }}</p>
+                        <p><span class="fw-bold">Price(DKK): </span> €{{ $carPart->price_dkk }}</p>
+                        <p><span class="fw-bold">Price for autoteile markt: </span> €{{ $carPart->translated_price }}</p>
+                        <p><span class="fw-bold">Shipment: </span> €{{ $carPart->shipment }}</p>
                         <p><span class="fw-bold">Engine code: </span> {{ $carPart->engine_code }}</p>
                         <p><span class="fw-bold">Engine type: </span> {{ $carPart->engine_type }}</p>
                         <p><span class="fw-bold">Full engine code: </span> {{ $carPart->full_engine_code }}</p>
@@ -47,8 +50,8 @@
                 @foreach($carPart->carPartImages as $carPartImage)
                     <div class="col-6">
                         <img class="card-img-bottom"
-{{--                             src="{{ asset("storage/img/car-part/{$carPart->id}/{$carPartImage->image_name}") }}"--}}
-                            src="{{$carPartImage->logoGerman() }}"
+                             src="{{ asset("storage/img/car-part/{$carPart->id}/{$carPartImage->original_url}") }}"
+{{--                            src="{{$carPartImage->logoGerman() }}"--}}
                              alt="">
 
                     </div>
