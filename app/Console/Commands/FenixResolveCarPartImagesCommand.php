@@ -103,9 +103,7 @@ class FenixResolveCarPartImagesCommand extends Command
                     return Command::FAILURE;
                 }
 
-
-                // Clean up temporary image file
-                unlink($tempImagePath);
+                
             }
         }
 
