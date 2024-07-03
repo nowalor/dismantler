@@ -103,7 +103,7 @@ class FenixResolveCarPartImagesCommand extends Command
                     return Command::FAILURE;
                 }
 
-                
+
             }
         }
 

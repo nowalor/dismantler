@@ -30,7 +30,8 @@ class ExportPartsAsCsvCommand extends Command
             ->whereNotNull('engine_code')
             ->whereNotNull('article_nr')
             ->whereHas("carPartImages", function ($query) {
-                return $query->where("is_placeholder", false);
+                $query->where("is_placeholder", false);
+                $query->whereNotNull('new_logo_german');
             })
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
@@ -47,7 +48,7 @@ class ExportPartsAsCsvCommand extends Command
                     });
             })
             ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
-            ->take(1)
+            ->take(5000)
             ->get();
 
 //        $parts = NewCarPart::where('article_nr', 'BO611843')->get();
