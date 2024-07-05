@@ -66,8 +66,9 @@ class AutoteileMarkDocService
             'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
             'oe' => $carPart->original_number, // 'oe_nr' is the same as 'original_number
-            'title' => $carPart->new_name ?? $carPart->name,
+            'title' => $carPart->new_name,
             'description' => $this->resolveDescription($carPart),
+//            'description' => $this->resolveDescription($carPart),
             'brand' => $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '',
             'kba' => $this->kbaArrayToString($kba),
             'part_state' => '2',
@@ -162,8 +163,8 @@ class AutoteileMarkDocService
                 break;
             }
 //            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
-//            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->new_logo_german}";
-            $url = $image->original_url;
+            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->new_logo_german}";
+//            $url = $image->original_url;
 
 //            $formattedImages["img_$index"] = $url;
         }

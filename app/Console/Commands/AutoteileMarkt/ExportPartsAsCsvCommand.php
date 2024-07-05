@@ -28,14 +28,14 @@ class ExportPartsAsCsvCommand extends Command
 //            ->whereNotNull('price_sek')
 //            ->where('price_sek', '!=', '')
             whereNotNull('engine_code')
+            ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
-//            ->whereHas("carPartImages", function ($query) {
-////                $query->where("is_placeholder", false);
-//                $query->whereNotNull('new_logo_german');
-//            })
-//            ->with('carPartImages', function($q) {
-//                $q->whereNotNull('new_logo_german');
-//            })
+            ->whereHas("carPartImages", function ($query) {
+                $query->whereNotNull('new_logo_german');
+            })
+            ->with('carPartImages', function($q) {
+                $q->whereNotNull('new_logo_german');
+            })
                 ->with('carPartImages')
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
