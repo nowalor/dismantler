@@ -28,9 +28,9 @@ class AdminExportPartsController extends Controller
 //            })
 //            ->where('price_sek', '>', 0)
 //            ->whereNotNull('price_sek')
-//            ->whereHas('carPartImages', function($q) {
-//                $q->whereNotNull('new_logo_german');
-//            })
+            ->whereHas('carPartImages', function($q) {
+                $q->whereNotNull('new_logo_german');
+            })
 //            ->whereNotNull('car_part_type_id') // TEMP
 //            ->where(function ($query) {
 //                return $query->where('sbr_part_code', '7143')
