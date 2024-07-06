@@ -45,10 +45,6 @@ class ReplaceDismantlerLogoAction
         // Replace the region in the image with the logo
         $processedImage->insert($replacementImage, 'top-left', $xOffset, $yOffset);
 
-        if (file_exists($tempImagePath)) {
-            unlink($tempImagePath);
-        }
-
         return [
             'image' => $processedImage,
             'temp_image_path' => $tempImagePath,
