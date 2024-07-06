@@ -77,7 +77,7 @@
                                 part</a>
                             <img class="card-img-bottom mt-2"
 {{--                                 src="{{ isset( $carPart->carPartImages[0])  ? $carPart->carPartImages[0]->logoGerman() : '' }}" />--}}
-                            src="{{ isset( $carPart->carPartImages[0]) ? $carPart->carPartImage[0]->original_url : ''}}" >
+                            src="{{ isset( $carPart->carPartImages) ? $carPart->carPartImage[0]->original_url : ''}}" >
                         </div>
                     </div>
                 </div>
