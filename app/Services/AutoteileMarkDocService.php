@@ -163,7 +163,7 @@ class AutoteileMarkDocService
                 break;
             }
 //            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
-            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->new_logo_german}";
+            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/german-logo/{$image->new_logo_german}";
 //            $url = $image->original_url;
 
 //            $formattedImages["img_$index"] = $url;
