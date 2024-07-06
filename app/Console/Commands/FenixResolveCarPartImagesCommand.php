@@ -87,7 +87,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-test2", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-test3", $tempFilePath, $outputName, 'public');
 
 
 
@@ -116,7 +116,7 @@ class FenixResolveCarPartImagesCommand extends Command
     private function getScalingHeight(string $dismantleCompany): float
     {
 //        $height = 0.29;
-        $height = 0.24;
+        $height = 0.20;
 
 //        $height = 0.27;
 //        $height = 0.31;
