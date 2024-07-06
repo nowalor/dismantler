@@ -96,6 +96,8 @@ class FenixResolveCarPartImagesCommand extends Command
                     $image->priority = $carImageNumber;
                     $image->save();
 
+                    $this->info("test1: $tempImagePath");
+                    $this->info("test2: {$response['temp_image_path']}");
                     if (file_exists($tempImagePath)) {
                         unlink($tempImagePath);
                     }
