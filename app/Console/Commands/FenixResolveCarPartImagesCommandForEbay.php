@@ -18,17 +18,23 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
     {
 
         $dismantlers = [
-            'W' => [
+            'A' => [
                 'name' => 'w',
-                'logoPath' => 'TODO',
-                'scalingHeight' => '0.29',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.20',
             ],
             'S' => [
                 'name' => 's',
-                'logoPath' => 'TODO',
+                'logoPath' => public_path('img/dismantler/s/logo.png'),
+                'scalingHeight' => '0.29',
+            ],
+            'bo' => [
+                'name' => 's',
+                'logoPath' => public_path('img/dismantler/s/logo.png'),
                 'scalingHeight' => '0.29',
             ],
         ];
+
 
         // Load the white blank image to replace the logo with
         $replacementImagePath = public_path('img/blank.png');
@@ -52,6 +58,17 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
             ->get();
 
         foreach ($parts as $part) {
+            $dismantleCompany = $part->dismantle_company_name;
+            $dismantlerInfo = $dismantlers[$dismantleCompany];
+
+            if(empty($dismantlerInfo)) {
+                continue;
+            }
+
+            $replacementImagePath = public_path("img/dismantler/{$dismantlerInfo['logoPath']}/logo.png");
+            $scalingHeight = $dismantlerInfo['scalingHeight'];
+
+
             $dismantleCompany = $part->dismantle_company_name;
 
             foreach ($part->carPartImages as $index => $image) {
