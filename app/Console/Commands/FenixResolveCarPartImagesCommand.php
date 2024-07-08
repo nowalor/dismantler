@@ -97,15 +97,12 @@ class FenixResolveCarPartImagesCommand extends Command
 //                    $image->priority = $carImageNumber;
 //                    $image->save();
 
-                    $this->info("test1: $tempImagePath");
-                    $this->info("test2: {$response['temp_image_path']}");
+                    $this->info("test1: $tempFilePath");
 //                    if (file_exists($tempImagePath)) {
 //                        unlink($tempImagePath);
 //                    }
 //
-//                    if(file_exists($response['temp_image_path'])) {
-//                        unlink($response['temp_image_path']);
-//                    }
+//
 
                 } catch (Exception $e) {
                     $this->error('Directory creation failed: ' . $e->getMessage());
