@@ -99,13 +99,13 @@ class FenixResolveCarPartImagesCommand extends Command
 
                     $this->info("test1: $tempImagePath");
                     $this->info("test2: {$response['temp_image_path']}");
-                    if (file_exists($tempImagePath)) {
-                        unlink($tempImagePath);
-                    }
-
-                    if(file_exists($response['temp_image_path'])) {
-                        unlink($response['temp_image_path']);
-                    }
+//                    if (file_exists($tempImagePath)) {
+//                        unlink($tempImagePath);
+//                    }
+//
+//                    if(file_exists($response['temp_image_path'])) {
+//                        unlink($response['temp_image_path']);
+//                    }
 
                 } catch (Exception $e) {
                     $this->error('Directory creation failed: ' . $e->getMessage());
@@ -124,8 +124,8 @@ class FenixResolveCarPartImagesCommand extends Command
 
     private function getScalingHeight(string $dismantleCompany): float
     {
-//        $height = 0.29;
-        $height = 0.20;
+        $height = 0.29;
+//        $height = 0.20;
 
 //        $height = 0.27;
 //        $height = 0.31;
