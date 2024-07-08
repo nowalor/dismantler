@@ -16,6 +16,20 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
     public function handle(): int
     {
+
+        $dismantlers = [
+            'W' => [
+                'name' => 'w',
+                'logoPath' => 'TODO',
+                'scalingHeight' => '0.29',
+            ],
+            'S' => [
+                'name' => 's',
+                'logoPath' => 'TODO',
+                'scalingHeight' => '0.29',
+            ],
+        ];
+
         // Load the white blank image to replace the logo with
         $replacementImagePath = public_path('img/blank.png');
         $replacementImage = Image::make($replacementImagePath);
