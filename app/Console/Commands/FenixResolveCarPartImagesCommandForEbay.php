@@ -29,9 +29,14 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
                 'scalingHeight' => '0.29',
             ],
             'bo' => [
-                'name' => 's',
+                'name' => 'bo',
                 'logoPath' => public_path('img/dismantler/s/logo.png'),
                 'scalingHeight' => '0.29',
+            ],
+            'n' => [
+                'name' => 'n',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.17',
             ],
         ];
 
