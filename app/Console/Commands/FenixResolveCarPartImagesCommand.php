@@ -34,7 +34,7 @@ class FenixResolveCarPartImagesCommand extends Command
             'bo' => [
                 'name' => 'bo',
                 'logoPath' => public_path('img/dismantler/s/logo.png'),
-                'scalingHeight' => '0.29',
+                'scalingHeight' => '0.24',
             ],
             'n' => [
                 'name' => 'n',
@@ -69,7 +69,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->take(350)
 //            ->get();
 
-        $carParts = NewCarPart::where('id', 39978)->get();
+        $carParts = NewCarPart::where('id', 33949)->get();
 
         foreach ($carParts as $carPart) {
             $dismantlerCompany =  $dismantlers[$carPart->dismantle_company_name];
