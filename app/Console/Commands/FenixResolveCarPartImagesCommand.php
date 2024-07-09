@@ -33,8 +33,8 @@ class FenixResolveCarPartImagesCommand extends Command
             ],
             'BO' => [
                 'name' => 'bo',
-                'logoPath' => public_path('img/dismantler/s/logo.png'),
-                'scalingHeight' => '0.30',
+                'logoPath' => public_path('img/dismantler/bo/logo.png'),
+                'scalingHeight' => '0.32',
             ],
             'n' => [
                 'name' => 'n',
@@ -115,7 +115,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-testing4", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-testing5", $tempFilePath, $outputName, 'public');
 
 
 
