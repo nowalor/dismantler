@@ -35,7 +35,7 @@ class FenixResolveCarPartImagesCommand extends Command
             'BO' => [
                 'name' => 'bo',
                 'logoPath' => public_path('img/dismantler/bo/logo.png'),
-                'scalingHeight' => '0.28',
+                'scalingHeight' => '0.30',
             ],
             'N' => [
                 'name' => 'n',
