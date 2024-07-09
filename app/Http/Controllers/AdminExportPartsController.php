@@ -45,8 +45,8 @@ class AdminExportPartsController extends Controller
 //            ->whereNotIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
               ->whereNull('external_part_type_id')
             ->orderBy('model_year', 'desc')
-            ->where('article_nr', 'like', 'al%')
-//            ->whereIn('dismantle_company_name', ['P', 'AS']);
+//            ->where('article_nr', 'like', 'al%')
+            ->whereIn('dismantle_company_name', ['BO', 'N', 'P', 'AL'])
 //            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
         ;
 
