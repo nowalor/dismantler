@@ -19,7 +19,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
         $dismantlers = [
             'A' => [
-                'name' => 'w',
+                'name' => 'a',
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.20',
             ],
