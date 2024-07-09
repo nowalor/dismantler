@@ -33,9 +33,9 @@ class ExportPartsAsCsvCommand extends Command
             ->whereHas("carPartImages", function ($query) {
                 $query->whereNotNull('new_logo_german');
             })
-            ->with('carPartImages', function($q) {
-                $q->whereNotNull('new_logo_german');
-            })
+//            ->with('carPartImages', function($q) {
+//                $q->whereNotNull('new_logo_german');
+//            })
             ->where('engine_code', '!=', '')
 //            ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
