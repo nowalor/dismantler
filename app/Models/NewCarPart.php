@@ -97,6 +97,11 @@ class NewCarPart extends Model
         );
     }
 
+    public function ditoNumber(): BelongsTo
+    {
+        return $this->belongsTo(DitoNumber::class);
+    }
+
     public function getMyKbaAttribute()
     {
         $engineCode = $this->engine_code;

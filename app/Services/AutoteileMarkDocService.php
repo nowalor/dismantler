@@ -53,6 +53,13 @@ class AutoteileMarkDocService
         fputcsv($file, $partInformation, '|');
     }
 
+    private function resolveBrand(NewCarPart $carPart): string
+    {
+        if($carPart->country !== 'DK') {
+            return $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '';
+        }
+    }
+
     private function resolvePartInformation(NewCarPart $carPart): array
     {
         $kba = $carPart->my_kba->map(function ($kbaNumber) {
