@@ -95,6 +95,19 @@ class AutoteileMarkDocService
         return $carPart->carPartType->germanCarPartTypes->first()->autoteile_markt_category_id;
     }
 
+    private function resolveMileage(NewCarPart $carPart): string | int
+    {
+        if($carPart->country !== 'DK') {
+            return $carPart->mileage_km;
+        }
+
+        if($carPart->mileage_km == 999) {
+            return 'unknown';
+        }
+
+        return $carPart->mileage_km * 1000;
+    }
+
     /*
      * Resolve the properties of the car part with a coma separated string
      */
@@ -121,7 +134,7 @@ class AutoteileMarkDocService
             Motortype: $engineType \n
             Brandstofftype: $carPart->fuel \n
             Getriebe: {$this->partInformationService->getGearbox($carPart)} \n
-            Laufleistung: $carPart->mileage_km(km) \n
+            Laufleistung: {$this->resolveMileage($carPart)} \n
             Fahrgestellnummer: $carPart->vin \n
             Baujahr: $carPart->model_year \n
             Kbas: $kbaString \n
@@ -144,7 +157,7 @@ class AutoteileMarkDocService
         $engineCode = str_replace(',', '.', $carPart->engine_code);
         $engineType = str_replace(',', '.', $carPart->engine_type);
         $gearbox = $this->partInformationService->getGearbox($carPart);
-        $mileage = str_replace(',', '.', $carPart->mileage_km);
+        $mileage = str_replace(',', '.', $this->resolveMileage($carPart));
         $quality = str_replace(',', '.', $carPart->quality);
 
         return "MOTORCODE,{$engineCode},MOTORTYPE,{$engineType},GEARBOXCODE,{$gearbox},MILEAGE,{$mileage},QUALITY,{$quality}";
