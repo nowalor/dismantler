@@ -21,7 +21,9 @@ class PartInformationService
             $germanCarPartName = 'ORIGINAL Motor';
         }
 
-        $name .= $germanCarPartName . ' ' . $this->getCarName($carPart) . ' ' . $carPart->model_year .' ' . $carPart->mileage_km . 'km';
+        $mileage = $carPart->country === 'DK' ? $carPart->mileage_km * 1000 : $carPart->mileage_km;
+
+        $name .= $germanCarPartName . ' ' . $this->getCarName($carPart) . ' ' . $carPart->model_year .' ' . $mileage . 'km';
 
         if (in_array(
             $carPart->car_part_type_id,
