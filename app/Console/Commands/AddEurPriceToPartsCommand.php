@@ -14,7 +14,7 @@ class AddEurPriceToPartsCommand extends Command
     public function handle(): int
     {
         $parts = NewCarPart::whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
-            ->orWhereNull('country')->count();
+            ->orWhereNull('country')->get();
 
         foreach($parts as $part) {
             $divider = $part->country === 'DK' ? 7.47 : 11.49;
