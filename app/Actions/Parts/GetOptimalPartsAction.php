@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Actions\Parts;
+
 use App\Models\NewCarPart;
 use Illuminate\Database\Eloquent\Collection;
 
