@@ -21,7 +21,7 @@ class AddEurPriceToPartsCommand extends Command
 //            $price = $part->country === 'DK' ? $part->price_dkk : $part->price_sek;
 //
 //            $part->price_eur = $price / $divider;
-        $part->mileage = $part->mileage_km;
+            $part->mileage = $part->country === 'DK' ? $part->mileage_km : $part->mileage_km / 10;
             $part->save();
         }
 
