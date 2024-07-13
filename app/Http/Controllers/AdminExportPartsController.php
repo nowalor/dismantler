@@ -42,11 +42,11 @@ class AdminExportPartsController extends Controller
             ->with('sbrCode.ditoNumbers.germanDismantlers.engineTypes')
             ->with('carPartImages')
 //            ->whereIn('external_dismantle_company_id', [70])
-//            ->whereNotIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+            ->whereNotIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
               ->whereNull('external_part_type_id')
             ->orderBy('model_year', 'desc')
 //            ->where('article_nr', 'like', 'al%')
-            ->whereIn('dismantle_company_name', ['D', 'LI', 'F', 'GB'])
+//            ->whereIn('dismantle_company_name', ['D', 'LI', 'F', 'GB'])
 //            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
         ;
 
