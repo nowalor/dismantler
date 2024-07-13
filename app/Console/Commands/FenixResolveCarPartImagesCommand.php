@@ -69,6 +69,11 @@ class FenixResolveCarPartImagesCommand extends Command
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.18',
             ],
+            'GB' => [
+                'name' => 'gb',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.18',
+            ],
         ];
 
 //        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
