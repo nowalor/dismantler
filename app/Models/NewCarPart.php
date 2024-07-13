@@ -102,6 +102,23 @@ class NewCarPart extends Model
         return $this->belongsTo(DitoNumber::class);
     }
 
+    public function getMyKbaThroughDitoAttribute()
+    {
+        $engineCode = $this->engine_code;
+        $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
+
+        $this->load(['ditoNumber.germanDismantlers' => function ($query) use ($engineCode, $escapedEngineCode) {
+            $query->whereHas('engineTypes', function ($query) use ($engineCode, $escapedEngineCode) {
+                $query->where('name', 'like', "%$engineCode%")
+                    ->orWhere('escaped_name', 'like', "%$engineCode%")
+                    ->orWhere('name', 'like', "%$escapedEngineCode%")
+                    ->orWhere('escaped_name', 'like', "%$escapedEngineCode%");
+            });
+        }]);
+
+        return $this->sbrCode?->ditoNumbers?->pluck('germanDismantlers')->unique()->flatten() ?? collect([]);
+    }
+
     public function getMyKbaAttribute()
     {
         $engineCode = $this->engine_code;
