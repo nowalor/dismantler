@@ -7,6 +7,13 @@ class GetOptimalPartsAction
 {
     public function execute(string $oem): Collection
     {
-        $cheapestPart = NewCarPart::where('oem', $oem)->sortBy('');
+        $cheapestPart = NewCarPart::where('oem', $oem)->sortBy('price_eur')->first();
+
+        $partWithBestMileage = NewCarPart::where('oem', $oem)->sortBy('mileage_km')->first();
+
+        return Collection::make([
+            $cheapestPart,
+            $partWithBestMileage,
+        ]);
     }
 }

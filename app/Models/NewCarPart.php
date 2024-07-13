@@ -56,6 +56,7 @@ class NewCarPart extends Model
         'country',
         'dito_number',
         'danish_item_code',
+        'mileage',
     ];
 
     public function carPartType(): BelongsTo

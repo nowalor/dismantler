@@ -17,10 +17,11 @@ class AddEurPriceToPartsCommand extends Command
             ->orWhereNull('country')->get();
 
         foreach($parts as $part) {
-            $divider = $part->country === 'DK' ? 7.47 : 11.49;
-            $price = $part->country === 'DK' ? $part->price_dkk : $part->price_sek;
-
-            $part->price_eur = $price / $divider;
+//            $divider = $part->country === 'DK' ? 7.47 : 11.49;
+//            $price = $part->country === 'DK' ? $part->price_dkk : $part->price_sek;
+//
+//            $part->price_eur = $price / $divider;
+        $part->mileage = $part->mileage_km;
             $part->save();
         }
 
