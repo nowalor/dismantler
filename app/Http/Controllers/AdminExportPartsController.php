@@ -46,7 +46,7 @@ class AdminExportPartsController extends Controller
               ->whereNull('external_part_type_id')
             ->orderBy('model_year', 'desc')
 //            ->where('article_nr', 'like', 'al%')
-            ->whereIn('dismantle_company_name', ['BO', 'N', 'P', 'AL'])
+            ->whereIn('dismantle_company_name', ['li'])
 //            ->whereIn('sbr_part_code', ['7475', '7645', '3220', '7468', '7082'])
         ;
 

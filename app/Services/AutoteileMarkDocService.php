@@ -58,6 +58,9 @@ class AutoteileMarkDocService
         if($carPart->country !== 'DK') {
             return $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '';
         }
+
+        return $carPart->ditoNumber?->brand ?? '';
+
     }
 
     private function resolvePartInformation(NewCarPart $carPart): array
@@ -76,7 +79,7 @@ class AutoteileMarkDocService
             'title' => $carPart->new_name,
             'description' => $this->resolveDescription($carPart),
 //            'description' => $this->resolveDescription($carPart),
-            'brand' => $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '',
+            'brand' => $this->resolveBrand($carPart),
             'kba' => $this->kbaArrayToString($kba),
             'part_state' => '2',
             'quantity' => '1',
