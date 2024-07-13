@@ -32,6 +32,11 @@ class FenixResolveCarPartImagesCommand extends Command
                 'scalingHeight' => '0.29',
             ],
             // WORKS
+            'W' => [
+                'name' => 'w',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.28',
+            ],
             'BO' => [
                 'name' => 'bo',
                 'logoPath' => public_path('img/dismantler/bo/logo.png'),
@@ -54,16 +59,16 @@ class FenixResolveCarPartImagesCommand extends Command
                 'scalingHeight' => '0.18',
             ],
         // TODO
+            'D' => [
+                'name' => 'd',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.18',
+            ],
             'LI' => [
                 'name' => 'li',
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.18',
             ],
-            'W' => [
-                'name' => 'w',
-                'logoPath' => public_path('img/dismantler/a/logo.png'),
-                'scalingHeight' => '0.28',
-            ]
         ];
 
 //        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
