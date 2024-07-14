@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Ebay;
 
+use App\Actions\Parts\GetOptimalPartsAction;
 use App\Models\NewCarPart;
 use App\Services\EbayApiService;
 use Illuminate\Console\Command;
@@ -53,19 +54,20 @@ class CreateXmlCommand extends Command
         // Example query we can make to try to get a higher quality of parts
 //        NewCarPart::where('car_part_type_id', 1)->where('model_year', '>', 2000)->whereHas('carPartImages')->whereHas('germanDismantlers')->count();
 
-        $parts = NewCarPart::with("carPartImages")
-            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-            ->whereIn('car_part_type_id', [1,3, 4]) // manual 6
+        $optimalParts = [];
+
+        $originalNumbers = NewCarPart::select(['id', 'original_number'])
+//            with("carPartImages")
+            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
             ->where('is_live_on_ebay', false)
-//            ->where('dismantle_company_name', 'W')
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
             ->where('model_year', '>', 2007)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_eur')
-            ->whereNot('brand_name', 'like', '%mer%')
-            ->whereNot('brand_name', 'like', '%bmw%')
+//            ->whereNot('brand_name', 'like', '%mer%')
+//            ->whereNot('brand_name', 'like', '%bmw%')
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel');
                 $q->orWhere('fuel', 'Bensin');
@@ -87,8 +89,15 @@ class CreateXmlCommand extends Command
                     });
             })
             ->take(600)
+            ->unique('original_number')
             ->get();
 
-        return $parts;
+        foreach($originalNumbers as $originalNumber) {
+            $parts = (new GetOptimalPartsAction())->execute($originalNumber->original_number);
+
+            array_push($optimalParts, ...$parts);
+        }
+
+        return Collection::make($optimalParts);
     }
 }
