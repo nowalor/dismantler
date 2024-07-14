@@ -50,7 +50,7 @@ class ExportPartsAsCsvCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+//            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
             ->take(5000)
             ->get();
 
