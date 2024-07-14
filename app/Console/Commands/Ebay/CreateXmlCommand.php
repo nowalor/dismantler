@@ -95,7 +95,7 @@ class CreateXmlCommand extends Command
         foreach($originalNumbers as $originalNumber) {
             $parts = (new GetOptimalPartsAction())->execute(
                 $originalNumber->original_number,
-                $originalNumbers->pluck('id')
+                $originalNumbers->pluck('id')->toArray(),
             );
 
             array_push($optimalParts, ...$parts);
