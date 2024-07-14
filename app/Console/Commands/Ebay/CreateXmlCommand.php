@@ -59,7 +59,7 @@ class CreateXmlCommand extends Command
         $originalNumbers = NewCarPart::select(['id', 'original_number'])
 //            with("carPartImages")
             ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
-            ->where('is_live_on_ebay', false)
+//            ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
             ->where('model_year', '>', 2007)
@@ -93,7 +93,10 @@ class CreateXmlCommand extends Command
             ->get();
 
         foreach($originalNumbers as $originalNumber) {
-            $parts = (new GetOptimalPartsAction())->execute($originalNumber->original_number);
+            $parts = (new GetOptimalPartsAction())->execute(
+                $originalNumber->original_number,
+                $originalNumbers->pluck('id')
+            );
 
             array_push($optimalParts, ...$parts);
         }

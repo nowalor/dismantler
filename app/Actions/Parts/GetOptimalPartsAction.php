@@ -7,18 +7,24 @@ use Illuminate\Database\Eloquent\Collection;
 
 class GetOptimalPartsAction
 {
-    public function execute(string $oem): Collection
+    public function execute(string $oem, array $includedIn = []): Collection
     {
-        $cheapestPart = NewCarPart::where('original_number', $oem)
+        $cheapestPartQuery = NewCarPart::where('original_number', $oem)
             ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
-            ->orderBy('price_eur')
-            ->first();
+            ->orderBy('price_eur');
 
-        $partWithBestMileage = NewCarPart::where('original_number', $oem)->orderBy('mileage_km')->first();
+        $partWithBestMileageQuery = NewCarPart::where('original_number', $oem)
+            ->where('mileage_km', '!=', 0)
+            ->orderBy('mileage_km');
+
+        if(!empty($includedIn)) {
+            $cheapestPartQuery = $cheapestPartQuery->whereIn('id', $includedIn);
+            $partWithBestMileageQuery = $partWithBestMileageQuery->whereIn('id', $includedIn);
+        }
 
         return Collection::make([
-            $cheapestPart,
-            $partWithBestMileage,
+            $cheapestPartQuery->first(),
+            $partWithBestMileageQuery->first(),
         ]);
     }
 }
