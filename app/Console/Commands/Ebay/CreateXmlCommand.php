@@ -65,6 +65,7 @@ class CreateXmlCommand extends Command
             ->where('model_year', '>', 2007)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
+            ->whereNotNull('original_number')
             ->whereNotNull('price_eur')
 //            ->whereNot('brand_name', 'like', '%mer%')
 //            ->whereNot('brand_name', 'like', '%bmw%')
