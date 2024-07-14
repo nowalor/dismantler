@@ -54,10 +54,8 @@ class CreateXmlCommand extends Command
 //        NewCarPart::where('car_part_type_id', 1)->where('model_year', '>', 2000)->whereHas('carPartImages')->whereHas('germanDismantlers')->count();
 
         $parts = NewCarPart::with("carPartImages")
-//            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
             ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-//            ->whereIn('car_part_type_id', [1,3, 4]) // manual 6
-            // Very important conditions so we don't upload products with data issues
+            ->whereIn('car_part_type_id', [1,3, 4]) // manual 6
             ->where('is_live_on_ebay', false)
 //            ->where('dismantle_company_name', 'W')
             ->where('engine_code', '!=', '')
@@ -65,7 +63,7 @@ class CreateXmlCommand extends Command
             ->where('model_year', '>', 2007)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
-            ->whereNotNull('price_sek')
+            ->whereNotNull('price_eur')
             ->whereNot('brand_name', 'like', '%mer%')
             ->whereNot('brand_name', 'like', '%bmw%')
             ->where(function ($q) {

@@ -87,8 +87,8 @@ class AutoteileMarkDocService
 //            'price' => $carPart->autoteile_markt_price,
 //            'price' => $carPart->autoteile_markt_price,
 //            'price_b2b' => $carPart->autoteile_markt_business_price,
-            'price' => $carPart->translated_price,
-            'price_b2b' => $carPart->translated_price,
+            'price' => $carPart->country === 'DK' ? $carPart->translated_price : $carPart->autoteile_markt_price,
+            'price_b2b' =>  $carPart->country === 'DK' ? $carPart->translated_price : $carPart->autoteile_markt_business_price,
             'bulky' => 1, // Customers can order in bulk and save on delivery costs
             'delivery' => $carPart->shipment,
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
