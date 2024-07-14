@@ -22,9 +22,21 @@ class GetOptimalPartsAction
             $partWithBestMileageQuery = $partWithBestMileageQuery->whereIn('id', $includedIn);
         }
 
+        $cheapestPart = $cheapestPartQuery->first();
+        $partWithBestMileage = $partWithBestMileageQuery->first();
+
+        $parts = [];
+
+        if($cheapestPart) {
+            $parts[] = $cheapestPart;
+        }
+
+        if($partWithBestMileage) {
+            $parts[] = $partWithBestMileage;
+        }
+
         return Collection::make([
-            $cheapestPartQuery->first(),
-            $partWithBestMileageQuery->first(),
+            $parts,
         ]);
     }
 }
