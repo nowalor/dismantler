@@ -154,7 +154,7 @@ class AutoteileMarkDocService
         $engineCode = str_replace(',', '.', $carPart->engine_code);
         $engineType = str_replace(',', '.', $carPart->engine_type);
         $gearbox = $this->partInformationService->getGearbox($carPart);
-        $mileage = str_replace(',', '.', $this->resolveMileage($carPart));
+        $mileage = str_replace(',', '.', $carPart->mileage_km);
         $quality = str_replace(',', '.', $carPart->quality);
 
         return "MOTORCODE,{$engineCode},MOTORTYPE,{$engineType},GEARBOXCODE,{$gearbox},MILEAGE,{$mileage},QUALITY,{$quality}";
