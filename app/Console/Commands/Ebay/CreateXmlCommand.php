@@ -89,7 +89,7 @@ class CreateXmlCommand extends Command
                     });
             })
             ->take(600)
-            ->unique('original_number')
+            ->distinct('original_number')
             ->get();
 
         foreach($originalNumbers as $originalNumber) {
