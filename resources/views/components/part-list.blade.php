@@ -20,13 +20,6 @@
                     @endif
                 </th>
                 <th scope="col">
-                    @if(request()->query('sort') == 'quality_desc')
-                        <a href="{{ route('car-parts.search-by-model', ['sort' => 'quality_asc'] + request()->query()) }}">Quality ▲</a>
-                    @else
-                        <a href="{{ route('car-parts.search-by-model', ['sort' => 'quality_desc'] + request()->query()) }}">Quality ▼</a>
-                    @endif
-                </th>
-                <th scope="col">
                     @if(request()->query('sort') == 'price_desc')
                         <a href="{{ route('car-parts.search-by-model', ['sort' => 'price_asc'] + request()->query()) }}">Price ▲</a>
                     @else

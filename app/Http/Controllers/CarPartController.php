@@ -164,10 +164,18 @@ class CarPartController extends Controller
 
     $sort = $request->query('sort'); // Get the sort parameter from the request
 
+    $filters = [];
+    foreach ($request->input('filter', []) as $key => $value) {
+        if (!empty($value)) {
+            $filters[$key] = $value;
+        }
+    }
+
     $results = (new SearchByModelAction())->execute(
         model: $dito,
         type: $type,
         sort: $sort, // Pass the sort parameter to the action
+        filters: $filters, 
         paginate: 10,
     );
 
