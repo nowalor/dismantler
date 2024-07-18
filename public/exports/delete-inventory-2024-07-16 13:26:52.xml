@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deleteRequest><delete><SKU>N1609429</SKU><action>DeleteInventory</action></delete><delete><SKU>BO751911</SKU><action>DeleteInventory</action></delete><delete><SKU>P2511948</SKU><action>DeleteInventory</action></delete><delete><SKU>BO426791</SKU><action>DeleteInventory</action></delete></deleteRequest>
