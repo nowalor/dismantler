@@ -3,6 +3,7 @@
 namespace App\Console\Commands\Hood;
 
 use App\Models\NewCarPart;
+use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 use SimpleXMLElement;
@@ -20,18 +21,28 @@ class DeletePartsCommand extends Command
 
         $this->username = config('services.hood.username');
         $this->apiPassword = config('services.hood.api_password');
+
+        $this->client = new Client([
+            'headers' => [
+                'Content-Type' => 'text/xml; charset=UTF-8',
+                'Accept' => 'text/xml; charset=UTF-8',
+            ],
+        ]);
+
+        $this->apiUrl = config('services.hood.api_url');
     }
 
     public function handle(): int
     {
-        $parts = NewCarPart::where('is_live_on_hood', true)->get();
+        $itemListXml = $this->itemListXml();
+
 
 
 
         return Command::SUCCESS;
     }
 
-    private function xml(Collection $parts): string
+    private function baseXml(): SimpleXMLElement
     {
         $xml = new SimpleXMLElement(
             "<?xml version='1.0' encoding='UTF-8'?>
@@ -42,10 +53,34 @@ class DeletePartsCommand extends Command
                 password='$this->apiPassword'
             ></api>"
         );
-        $items = $xml->addChild('items');
+        $xml->addChild('accountName', $this->username);
+        $xml->addChild('accountPass', $this->apiPassword);
 
-        foreach($parts as $part) {
+        return $xml;
 
-        }
+//        $existingItems = $this->getItems();
+//
+////        $items = $xml->addChild('items');
+//
+//        foreach($parts as $part) {
+//
+//        }
+    }
+
+    private function itemListXml()
+    {
+        $xml = $this->baseXml();
+        $xml->addChild('function', 'itemDelete');
+        $xml->addChild('itemStatus', 'shopInventory');
+        $xml->addChild('listMode', 'simple');
+        $xml->addChild('startAt', '1');
+        $xml->addChild('groupSize', '500');
+
+
+    }
+
+    private function getItems(): array
+    {
+
     }
 }
