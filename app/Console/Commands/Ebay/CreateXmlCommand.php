@@ -24,7 +24,6 @@ class CreateXmlCommand extends Command
     public function handle(): string
     {
         $parts = $this->parts();
-        logger($parts); exit;
 
         if (count($parts) === 0) {
             return 0;
