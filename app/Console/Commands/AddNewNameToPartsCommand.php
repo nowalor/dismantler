@@ -34,11 +34,13 @@ class AddNewNameToPartsCommand extends Command
 
     private function parts(): Collection
     {
-        return NewCarPart::whereNotNull('car_part_type_id')
-//            ->whereNotNull('dito_number')
-//            ->whereNotNull('sbr_car_name') // Only relavant for fenix and not egluit?
-            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
-            ->get();
+//        return NewCarPart::whereNotNull('car_part_type_id')
+////            ->whereNotNull('dito_number')
+////            ->whereNotNull('sbr_car_name') // Only relavant for fenix and not egluit?
+//            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+//            ->get();
+
+        return NewCarPart::where('id', 15674962491)->get();
 
 //        return NewCarPart::where('car_part_type_id', 1)
 //            ->
