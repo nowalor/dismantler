@@ -96,6 +96,12 @@ class NewCarPart extends Model
         );
     }
 
+    // New method to get raw gearbox value
+    public function getRawGearboxAttribute(): string
+    {
+        return $this->attributes['gearbox'];
+    }
+
     public function getMyKbaAttribute()
     {
         $engineCode = $this->engine_code;

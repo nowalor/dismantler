@@ -49,11 +49,11 @@
                 </a>
             </p>
         @endif
-        @if($part->subgroup || $part->gearbox)
+        @if($part->gearbox)
             <p>
                 <span class="fw-bold">Gearbox: </span>
-                <a href="{{ request()->fullUrlWithQuery(['filter[gearbox]' => $part->subgroup ?? $part->gearbox]) }}">
-                    {{ $part->subgroup ?? $part->gearbox }}
+                <a href="{{ request()->fullUrlWithQuery(['filter[gearbox]' => $part->raw_gearbox]) }}">
+                    {{ $part->gearbox }}
                 </a>
             </p>
         @endif
