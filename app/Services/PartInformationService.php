@@ -70,7 +70,7 @@ class PartInformationService
         if($country === 'DK') {
 //            $dito = DitoNumber::where('dito_number', $carPart->dito_number)->first();
 
-            $dito = $carPart->ditoNumber();
+            $dito = $carPart->ditoNumber;
             if(!$dito) {
                 return $carPart->name;
             }
