@@ -60,7 +60,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
             ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
-            ->has('germanDismantlers')
+//            ->has('germanDismantlers')
             ->where('price_sek', '>', 0)
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
