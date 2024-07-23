@@ -15,7 +15,9 @@ class GermanDismantlerNewCarPartSeeder extends Seeder
      */
     public function run()
     {
-        NewCarPart::with('sbrCode.ditoNumbers.germanDismantlers')
+        NewCarPart::doesntHave('germanDismantlers')
+            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
+            ->with('sbrCode.ditoNumbers.germanDismantlers')
             ->chunk(100, function ($newCarParts) {
                 $newCarParts->each(function (NewCarPart $part) {
                     foreach ($part->_my_kba as $kba) {
