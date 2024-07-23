@@ -138,7 +138,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
     private function getScalingHeight(string $dismantleCompany): float
     {
-        $height = 0.29;
+        $height = 0.32;
 
         if ($dismantleCompany === 'F') {
             $height = 0.38;
