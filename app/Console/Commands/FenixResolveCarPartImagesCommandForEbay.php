@@ -71,14 +71,14 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
         foreach ($parts as $part) {
             $dismantleCompany = $part->dismantle_company_name;
-            $dismantlerInfo = $dismantlers[$dismantleCompany];
+//            $dismantlerInfo = $dismantlers[$dismantleCompany];
 
-            if(empty($dismantlerInfo)) {
-                continue;
-            }
+//            if(empty($dismantlerInfo)) {
+//                continue;
+//            }
 
-            $replacementImagePath = public_path("img/dismantler/{$dismantlerInfo['logoPath']}/logo.png");
-            $scalingHeight = $dismantlerInfo['scalingHeight'];
+//            $replacementImagePath = public_path("img/dismantler/{$dismantlerInfo['logoPath']}/logo.png");
+            $scalingHeight = $this->getScalingHeight($part->dismantle_company_name);
 
 
             $dismantleCompany = $part->dismantle_company_name;
