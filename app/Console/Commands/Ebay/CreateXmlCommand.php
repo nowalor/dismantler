@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Ebay;
 
+use App\Actions\Parts\GetOptimalPartsAction;
 use App\Models\NewCarPart;
 use App\Services\EbayApiService;
 use Illuminate\Console\Command;
@@ -28,8 +29,22 @@ class CreateXmlCommand extends Command
             return 0;
         }
 
-        $this->service->handlePartUpload($parts);
+        try {
+            $response = $this->service->handlePartUpload($parts);
 
+            if(!$response) {
+                $this->info('Response failed');
+            }
+        } catch(\Exception $ex) {
+            logger($ex->getMessage());
+
+            $this->info('in catch...');
+
+            return 1;
+        }
+
+
+        $this->info('Everything went okay...');
         return Command::SUCCESS;
     }
 
@@ -39,20 +54,21 @@ class CreateXmlCommand extends Command
         // Example query we can make to try to get a higher quality of parts
 //        NewCarPart::where('car_part_type_id', 1)->where('model_year', '>', 2000)->whereHas('carPartImages')->whereHas('germanDismantlers')->count();
 
-        $parts = NewCarPart::with("carPartImages")
-//            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
-//            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-            ->where('car_part_type_id', 4) // manual 6 gear gearbox
-            // Very important conditions so we don't upload products with data issues
-            ->where('is_live_on_ebay', false)
+        $optimalParts = [];
+
+        $originalNumbers = NewCarPart::select(['id', 'original_number'])
+//            with("carPartImages")
+            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
+//            ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
-            ->where('model_year', '>', 2009)
+            ->where('model_year', '>', 2007)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
-            ->whereNotNull('price_sek')
-            ->whereNot('brand_name', 'like', '%mer%')
-            ->whereNot('brand_name', 'like', '%bmw%')
+            ->whereNotNull('original_number')
+            ->whereNotNull('price_eur')
+//            ->whereNot('brand_name', 'like', '%mer%')
+//            ->whereNot('brand_name', 'like', '%bmw%')
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel');
                 $q->orWhere('fuel', 'Bensin');
@@ -73,9 +89,20 @@ class CreateXmlCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(50)
+            ->take(600)
+            ->distinct('original_number')
             ->get();
 
-        return $parts;
+        foreach($originalNumbers as $originalNumber) {
+            $parts = (new GetOptimalPartsAction())->execute(
+                $originalNumber->original_number,
+                $originalNumbers->pluck('id')->toArray(),
+            );
+
+            $this->info($parts[0][0]['original_number']);
+            array_push($optimalParts, ...$parts);
+        }
+
+        return Collection::make(...$optimalParts);
     }
 }

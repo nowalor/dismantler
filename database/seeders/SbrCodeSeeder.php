@@ -18,8 +18,6 @@ class SbrCodeSeeder extends Seeder
         $file = File::get("database/data/sbr-codes.json");
         $data = json_decode($file, true);
 
-        foreach ($data as $obj) {
-            \App\Models\SbrCode::create($obj);
-        }
+        \App\Models\SbrCode::insert($data);
     }
 }

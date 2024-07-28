@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\CarPart;
-use App\Models\CarPartImage;
-use App\Scopes\CarPartScope;
+use App\Models\DanishCarPartType;
+use App\Models\NewCarPart;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -13,104 +12,82 @@ use Illuminate\Support\Facades\Log;
 
 class SeedGermanCarPartsCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'german:parts:seed';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Seed parts from German dismantlers on a schedule';
 
-    static private function transformSingle($item)
+    private function transformSingle($item)
     {
         $newItem = [];
 
-        $newItem['id'] = intval($item['id']);
+        $ditoNumber = DanishCarPartType::where('egluit_id', $item['itemTypeId'])->first()?->code;
+
+        $companyMap = [
+            '44' => 'AA',
+            '50' => 'BB',
+            '70' => 'CC'
+        ];
+
+        $newItem['id'] =  1567 . (int)$item['id'];
+        $newItem['dismantle_company_name'] = $companyMap[$item['companyId']] ?? null;
+        $newItem['country'] = 'DK';
+        $newItem['original_id'] = (int)$item['id'];
+        $newItem['external_dismantle_company_id'] = $item['companyId'];
         $newItem['name'] = $item['name'];
-        $newItem['comments'] = $item['comments'];
-        $newItem['notes'] = $item['notes'];
         $newItem['quantity'] = $item['quantity'];
-        $newItem['price1'] = $item['price1'];
-        $newItem['price2'] = $item['price2'];
-        $newItem['price3'] = $item['price3'];
-        $newItem['condition'] = $item['condition'];
-        $newItem['oem_number'] = $item['oemNumber'];
-        $newItem['shelf_number'] = $item['shelfNumber'];
-        $newItem['year'] = $item['year'];
-        $newItem['car_part_type_id'] = (int)$item['itemTypeId'];
-        $newItem['dismantle_company_id'] = 50;
-        $newItem['kilo_watt'] = $item['kiloWatt'];
-        $newItem['transmission_type'] = $item['transmissionType'];
-        $newItem['item_number'] = $item['itemNumber'];
-        $newItem['car_item_number'] = $item['carItemNumber'];
-        $newItem['item_code'] = $item['itemCode'];
-        $newItem['car_vin_code'] = $item['carVinCode'];
+        $newItem['price_dkk'] = $item['price2'];
+        $newItem['quality'] = $item['condition'];
+        $newItem['article_nr_at_dismantler'] = $item['id'];
+        $newItem['original_number'] = $item['oemNumber'];
+        $newItem['model_year'] = $item['year'];
+        $newItem['data_provider_id'] = 3;
+        $newItem['dito_number'] = $ditoNumber;
+        $newItem['external_part_type_id'] = $item['itemTypeId'];
+        $newItem['danish_item_code'] = $item['itemCode'];
+        $newItem['vin'] = $item['carVinCode'];
         $newItem['engine_code'] = $item['engineCode'];
         $newItem['engine_type'] = $item['engineType'];
-        $newItem['kilo_range'] = $item['kilometrage'];
-        $newItem['alternative_numbers'] = $item['alternativeNumbers'];
-        $newItem['color'] = $item['bodyColor'];
-        $newItem['car_first_registration_date'] = $item['carFirstRegistrationDate'];
+        $newItem['mileage_km'] = $item['kilometrage'];
+        $newItem['carPartImages'] = $this->transformImages($item['images']);
 
         return $newItem;
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
     public function handle()
     {
-        ini_set('max_execution_time', 50000000);
-        ini_set('max_input_time', 50000000);
+        ini_set('max_execution_time', 0);
+        ini_set('max_input_time', 0);
 
-        $dismantleCompanyIds = ['44', '50', '70'];
+        $dismantleCompanyIds = [
+            '70',
+            '50',
+            '44'
+        ];
 
         foreach ($dismantleCompanyIds as $companyId) {
             try {
-                for ($i = 0; $i < 199999; $i++) {
-                    $response = $this->fetchPage($i, $companyId);
+                $page = 0;
+                while (true) {
+                    $response = $this->fetchPage($page, $companyId);
 
                     if (empty($response)) {
-                        Log::info("Broke on page $i");
+                        Log::info("Broke on page $page");
                         break;
                     }
-                    $collectedResponse = collect($response);
-                    $filteredResponse = $collectedResponse->whereIn('itemTypeId', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)->all();
 
-                    $transformedData = $this->transformData($filteredResponse);
-                    if(!empty($transformedData)) {
-                        Log::info('------------------- TRANSFORMED DATA -------------------');
-                        Log::info(json_encode($transformedData));
-                    }
-                    CarPart::insertOrIgnore($transformedData);
+                    $transformedData = $this->transformData($response);
 
-                    $transformedImages = $this->transformImages($filteredResponse);
+                    $this->batchInsert($transformedData);
 
-                    CarPartImage::insertOrIgnore($transformedImages);
-                    foreach ($transformedImages as $image) {
-                        CarPartImage::firstOrCreate($image);
-                    }
-
+                    $page++;
                 }
-                return 'loops finished';
-
             } catch (Exception $ex) {
+                logger('failed..');
                 Log::info($ex->getMessage());
-
                 return 'in catch';
             }
         }
-
-        return 'finished';
     }
+
     private function fetchPage(int $page, string $companyId)
     {
         $apiKey = config()->get('app.egluit_api_key');
@@ -140,33 +117,51 @@ class SeedGermanCarPartsCommand extends Command
         return $response['data']['marcusPartsSearch']['items'];
     }
 
-    private function transformData(array $data)
+
+    private function transformData(array $data): array
     {
-        $carParts = array_map('self::transformSingle', $data);
-        $imageArr = [];
-
-        // $test = array_map('self::transformImages', $data);
-        // $images = array_push($imageArr, array_map('self::transformImages', $data));
-
-        return $carParts;
+        return array_map([$this, 'transformSingle'], $data);
     }
 
-    private function transformImages(array $data)
+    private function transformImages(array $images): array
     {
-        $newArr = [];
+        return collect($images)->filter(function ($image) {
+            return str_contains($image['originUrl'], '/P/');
+        })->map(function ($image) {
+            return ['original_url' => $image['originUrl']];
+        })->toArray();
+    }
+
+    private function batchInsert(array $data)
+    {
+        $newCarParts = [];
+        $carPartImages = [];
 
         foreach ($data as $item) {
-            $collectedImages = collect($item['images']);
-            $filteredImages = $collectedImages->where('originUrl', 'like', '%/P/%')->all();
-            foreach ($filteredImages as $image) {
-                array_push($newArr, [
-                    'car_part_id' => $item['id'],
-                    'origin_url' => $image['originUrl'],
-                    'thumbnail_url' => $image['thumbnail120Url'],
-                ]);
+            $images = $item['carPartImages'];
+            unset($item['carPartImages']);
+            $newCarParts[] = $item;
+
+            foreach ($images as $image) {
+                $carPartImages[] = array_merge($image, ['new_car_part_id' => $item['id']]);
             }
         }
 
-        return $newArr;
+        // Perform bulk insert for car parts
+        $this->bulkInsert('new_car_parts', $newCarParts);
+
+        // Perform bulk insert for car part images
+        $this->bulkInsert('new_car_part_images', $carPartImages);
     }
+
+
+    private function bulkInsert($table, $data)
+    {
+        if (empty($data)) {
+            return;
+        }
+
+        DB::table($table)->upsert($data, ['original_id'], array_keys(reset($data)));
+    }
+
 }

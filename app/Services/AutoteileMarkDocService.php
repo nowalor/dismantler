@@ -53,6 +53,16 @@ class AutoteileMarkDocService
         fputcsv($file, $partInformation, '|');
     }
 
+    private function resolveBrand(NewCarPart $carPart): string
+    {
+        if($carPart->country !== 'DK') {
+            return $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '';
+        }
+
+        return $carPart->ditoNumber?->brand ?? '';
+
+    }
+
     private function resolvePartInformation(NewCarPart $carPart): array
     {
         $kba = $carPart->my_kba->map(function ($kbaNumber) {
@@ -68,13 +78,17 @@ class AutoteileMarkDocService
             'oe' => $carPart->original_number, // 'oe_nr' is the same as 'original_number
             'title' => $carPart->new_name,
             'description' => $this->resolveDescription($carPart),
-            'brand' => $carPart->sbrCode?->ditoNumbers?->first()->brand ?? '',
+//            'description' => $this->resolveDescription($carPart),
+            'brand' => $this->resolveBrand($carPart),
             'kba' => $this->kbaArrayToString($kba),
             'part_state' => '2',
             'quantity' => '1',
             'vat' => '0',
-            'price' => $carPart->autoteile_markt_price,
-            'price_b2b' => $carPart->autoteile_markt_business_price,
+//            'price' => $carPart->autoteile_markt_price,
+//            'price' => $carPart->autoteile_markt_price,
+//            'price_b2b' => $carPart->autoteile_markt_business_price,
+            'price' => $carPart->country === 'DK' ? $carPart->translated_price : $carPart->autoteile_markt_price,
+            'price_b2b' =>  $carPart->country === 'DK' ? $carPart->translated_price : $carPart->autoteile_markt_business_price,
             'bulky' => 1, // Customers can order in bulk and save on delivery costs
             'delivery' => $carPart->shipment,
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
@@ -89,6 +103,15 @@ class AutoteileMarkDocService
     private function resolveCategoryId(NewCarPart $carPart)
     {
         return $carPart->carPartType->germanCarPartTypes->first()->autoteile_markt_category_id;
+    }
+
+    private function resolveMileage(NewCarPart $carPart): string | int
+    {
+        if($carPart->mileage_km === 999000 || $carPart->mileage_km === '999000') {
+            return 'Unbekannt';
+        }
+
+        return $carPart->mileage_km;
     }
 
     /*
@@ -117,7 +140,7 @@ class AutoteileMarkDocService
             Motortype: $engineType \n
             Brandstofftype: $carPart->fuel \n
             Getriebe: {$this->partInformationService->getGearbox($carPart)} \n
-            Laufleistung: $carPart->mileage_km(km) \n
+            Laufleistung: {$this->resolveMileage($carPart)} \n
             Fahrgestellnummer: $carPart->vin \n
             Baujahr: $carPart->model_year \n
             Kbas: $kbaString \n
@@ -140,7 +163,7 @@ class AutoteileMarkDocService
         $engineCode = str_replace(',', '.', $carPart->engine_code);
         $engineType = str_replace(',', '.', $carPart->engine_type);
         $gearbox = $this->partInformationService->getGearbox($carPart);
-        $mileage = str_replace(',', '.', $carPart->mileage_km);
+        $mileage = str_replace(',', '.', $this->resolveMileage($carPart));
         $quality = str_replace(',', '.', $carPart->quality);
 
         return "MOTORCODE,{$engineCode},MOTORTYPE,{$engineType},GEARBOXCODE,{$gearbox},MILEAGE,{$mileage},QUALITY,{$quality}";
@@ -155,7 +178,12 @@ class AutoteileMarkDocService
 //        }
 
         foreach ($images as $index => $image) {
-            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
+            if($index === 5) {
+                break;
+            }
+//            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/old-logo/{$image->image_name}";
+            $url = "https://currus-connect.fra1.digitaloceanspaces.com/img/car-part/{$image->new_car_part_id}/german-logo/{$image->new_logo_german}";
+//            $url = $image->original_url;
 
             $formattedImages["img_$index"] = $url;
         }

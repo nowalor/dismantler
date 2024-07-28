@@ -13,7 +13,7 @@ class ExportPartsCommand extends Command
     protected $signature = 'hood:export';
 
     private Client $client;
-    private string $apiUrl;
+    private string | null $apiUrl;
 
     public function __construct()
     {
@@ -62,6 +62,9 @@ class ExportPartsCommand extends Command
             return Command::SUCCESS;
         } catch(\Exception $ex) {
             logger($ex->getMessage());
+
+            $this->info('in catch..');
+            return Command::FAILURE;
         }
     }
 
@@ -69,29 +72,16 @@ class ExportPartsCommand extends Command
     {
         return NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
-//            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7]) // manual 6 gear gearbox
-            // Very important conditions so we don't upload products with data issues
+            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
             ->where('is_live_on_hood', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
-            ->where('model_year', '>', 2000)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
-//            ->whereNot('brand_name', 'like', '%mer%')
-//            ->whereNot('brand_name', 'like', '%bmw%')
-            ->where(function ($q) {
-                $q->where('fuel', 'Diesel');
-                $q->orWhere('fuel', 'Bensin');
-            })
             ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
+                $q->whereNotNull("new_logo_german");
             })
-//            ->whereHas("germanDismantlers.kTypes")
-//            ->with("germanDismantlers", function ($q) {
-//                $q->whereHas("kTypes")->with("kTypes");
-//            })
             ->where(function ($query) {
                 $query
                     ->where('dismantle_company_name', '!=', 'F')
@@ -108,29 +98,15 @@ class ExportPartsCommand extends Command
     private function partsCount(): int
     {
         return NewCarPart::with("carPartImages")
-//            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
-//            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7]) // manual 6 gear gearbox
-            // Very important conditions so we don't upload products with data issues
             ->where('is_live_on_hood', false)
+            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
-            ->where('model_year', '>', 2009)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('price_sek')
-            ->whereNot('brand_name', 'like', '%mer%')
-            ->whereNot('brand_name', 'like', '%bmw%')
-            ->where(function ($q) {
-                $q->where('fuel', 'Diesel');
-                $q->orWhere('fuel', 'Bensin');
-            })
             ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
-            })
-            ->whereHas("germanDismantlers.kTypes")
-            ->with("germanDismantlers", function ($q) {
-                $q->whereHas("kTypes")->with("kTypes");
+                $q->whereNotNull("new_logo_german");
             })
             ->where(function ($query) {
                 $query

@@ -18,16 +18,22 @@ use App\Http\Controllers\ConnectDitoToDismantlerController;
 use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
+use App\Http\Controllers\browseCarParts;
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\TemporaryLandingPageController;
 
 
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
+
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
 
 Route::get('test-parts', [TestController::class, 'testingParts']);
 
+
 Route::get('engine-type-engine-alias', \App\Http\Controllers\EngineTypeEngineAliasController::class);
+
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
     ->name('pay');
@@ -42,13 +48,20 @@ Route::get('payments/success', [App\Http\Controllers\PaymentController::class, '
 Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
     ->name('checkout');
 
-
 // testing remove later
 Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
-Route::get('', HomepageController::class)->name('home');
+// this is the correct HomePageController with search
+// Route::get('', HomepageController::class)->name('home');
+// currently using this for now until currusConnect production ready
+Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
+
+//Route::get('', LandingPageController::class)->name('returnLandingPage');
+//Route::get('browse', [BrowseCarParts::class, 'browseCarParts'] );
+
+
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');
@@ -66,6 +79,7 @@ Route::resource('car-parts', CarPartController::class);
 Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
 Route::get('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
 Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
+
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {

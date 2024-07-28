@@ -52,6 +52,11 @@ class NewCarPart extends Model
         'new_name',
         'description_name',
         'is_live_on_hood',
+        'external_part_type_id',
+        'country',
+        'dito_number',
+        'danish_item_code',
+        'mileage',
     ];
 
     public function carPartType(): BelongsTo
@@ -93,6 +98,28 @@ class NewCarPart extends Model
         );
     }
 
+    public function ditoNumber(): BelongsTo
+    {
+        return $this->belongsTo(DitoNumber::class);
+    }
+
+    public function getMyKbaThroughDitoAttribute()
+    {
+        $engineCode = $this->engine_code;
+        $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
+
+        $this->load(['ditoNumber.germanDismantlers' => function ($query) use ($engineCode, $escapedEngineCode) {
+            $query->whereHas('engineTypes', function ($query) use ($engineCode, $escapedEngineCode) {
+                $query->where('name', 'like', "%$engineCode%")
+                    ->orWhere('escaped_name', 'like', "%$engineCode%")
+                    ->orWhere('name', 'like', "%$escapedEngineCode%")
+                    ->orWhere('escaped_name', 'like', "%$escapedEngineCode%");
+            });
+        }]);
+
+        return $this->sbrCode?->ditoNumbers?->pluck('germanDismantlers')->unique()->flatten() ?? collect([]);
+    }
+
     public function getMyKbaAttribute()
     {
         $engineCode = $this->engine_code;
@@ -117,6 +144,13 @@ class NewCarPart extends Model
         }
 
         return round($this->my_kba->first()->engine_capacity_in_cm / 1000, 1) . ' ' . $this->engine_code;
+    }
+
+    public function getTranslatedPriceAttribute()
+    {
+        $priceDkk = $this->price_dkk;
+
+        return $priceDkk / 4;
     }
 
     public function getNewPriceAttribute()
@@ -165,9 +199,13 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
-    public function getShipmentAttribute(): int
+    public function getShipmentAttribute(): int | null
     {
-        $partType = $this->carPartType->germanCarPartTypes->first()->name;
+        $partType = $this->carPartType?->germanCarPartTypes?->first()?->name;
+
+        if(!$partType) {
+            return null;
+        }
         $dismantleCompanyName = $this->dismantle_company_name;
 
         $shipment = null;
@@ -212,7 +250,7 @@ class NewCarPart extends Model
         /*
          * Longer delivery
          */
-        if (in_array($dismantleCompanyName, ['F', 'A', 'AL',' D', 'LI'])) {
+        if (in_array($dismantleCompanyName, ['F', 'A', 'AL',' D', 'LI', 'W'])) {
             if (in_array(
                 $partType,
                 GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,

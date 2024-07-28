@@ -59,22 +59,34 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 7,
                 'name' => 'Differential',
             ],
+
+            // TODO ASK MARCUS TO BE SURE
+            // DITO 3950 = EGLUIT 3969
+
             [
                 'id' => 8,
                 'name' => 'Break Unit ABS',
             ],
+            // 3952 DITO
+            // 3971 EGLUIT
             [
                 'id' => 9,
                 'name' => 'ABS Hydraulic unit',
             ],
-            [
+            // 6012 DITO
+            // 4233 EGLUIT
+             [
                 'id' => 10,
                 'name' => 'Instrument comb',
             ],
-            [
+            //  2157 Ignoring this one for now
+            // DITO 2156 = EGLUIT 3757
+           [
                 'id' => 11,
                 'name' => 'Steering unit gearbox',
             ],
+            // DITO 3137
+            // EGLUIT 3851
             [
                 'id' => 12,
                 'name' => 'Power steering pump electric',
@@ -84,14 +96,20 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::insert($carPartTypes);
 
         $danishPartTypes = [
-            ["id" => 1, "name" => "MOTOR", "code" => "0010"],
-            ["id" => 2, "name" => "FORDELERGEARKASSE", "code" => "2020"],
-            ["id" => 3, "name" => "GEARKASSE  AUTOMATIC", "code" => "2022"],
-            ["id" => 4, "name" => "GEARKASSE 6 GEAR", "code" => "2026"],
-            ["id" => 5, "name" => "PARTIKELFILTER", "code" => "1284"],
-            ["id" => 6, "name" => "KATALYSATOR", "code" => "1285"],
-            ["id" => 7, "name" => "BAGTØJSKLUMP", "code" => "2601"],
+            ["id" => 1, "name" => "MOTOR", "code" => "0010", 'egluit_id' => '3574'],
+            ["id" => 2, "name" => "FORDELERGEARKASSE", "code" => "2020", 'egluit_id' => '3744'],
+            ["id" => 3, "name" => "GEARKASSE  AUTOMATIC", "code" => "2022", 'egluit_id' => '3746'],
+            ["id" => 4, "name" => "GEARKASSE 6 GEAR", "code" => "2026", 'egluit_id' => '3749'],
+            ["id" => 5, "name" => "PARTIKELFILTER", "code" => "1284", 'egluit_id' => '3616'],
+            ["id" => 6, "name" => "KATALYSATOR", "code" => "1285", 'egluit_id' => '3617'],
+            ["id" => 7, "name" => "BAGTØJSKLUMP", "code" => "2601", 'egluit_id' => '3812'],
             // TODO get dito numbers for the new parts
+            ["id" => 8, "name" => 'ABS BREMSESÆT', "code" => "3950", "egluit_id" => "3969"],
+            ["id" => 9, "name" => 'ABS PUMPE', "code" => "3952", "egluit_id" => "3971"],
+            ["id" => 10, "name" => 'INSTRUMENT MED OMDR', "code" => "6012", "egluit_id" => "4233"],
+            ["id" => 11, "name" => 'AUTOMATGEAR ELBOKS', "code" => "2156", "egluit_id" => "3757"],
+            ["id" => 12, "name" => 'SERVOELBOKS', "code" => "3137", "egluit_id" => "3851"],
+
         ];
 
         DB::table('danish_car_part_types')->insert($danishPartTypes);
