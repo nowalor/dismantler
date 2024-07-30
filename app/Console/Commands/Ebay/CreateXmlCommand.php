@@ -104,6 +104,6 @@ class CreateXmlCommand extends Command
 
         logger($optimalParts);
 
-        return Collection::make($optimalParts);
+        return Collection::make($optimalParts[0]);
     }
 }
