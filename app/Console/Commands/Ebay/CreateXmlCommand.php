@@ -99,8 +99,7 @@ class CreateXmlCommand extends Command
                 $originalNumbers->pluck('id')->toArray(),
             );
 
-            $this->info($parts[0][0]['original_number']);
-            array_push($optimalParts, ...$parts);
+            $optimalParts[] = $parts[0];
         }
 
         logger($optimalParts);
