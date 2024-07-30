@@ -21,26 +21,25 @@ class CreateXmlCommand extends Command
         parent::__construct();
     }
 
-    public function handle(): string
+    public function handle(): int
     {
         $parts = $this->parts();
 
         if ($parts->isEmpty()) {
-            return 0;
+            return Command::FAILURE;
         }
 
         try {
             $response = $this->service->handlePartUpload($parts);
 
-            if(!$response) {
+            if (!$response) {
                 $this->info('Response failed');
             }
-        } catch(\Exception $ex) {
+        } catch (\Exception $ex) {
             logger($ex->getMessage());
-
             $this->info('in catch...');
 
-            return 1;
+            return Command::FAILURE;
         }
 
         $this->info('Everything went okay...');
@@ -62,22 +61,18 @@ class CreateXmlCommand extends Command
             ->whereNotNull('original_number')
             ->whereNotNull('price_eur')
             ->where(function ($q) {
-                $q->where('fuel', 'Diesel');
-                $q->orWhere('fuel', 'Bensin');
+                $q->where('fuel', 'Diesel')
+                    ->orWhere('fuel', 'Bensin');
             })
-            ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
+            ->whereHas('carPartImages', function ($q) {
+                $q->whereNotNull('image_name_blank_logo');
             })
-            ->whereHas("germanDismantlers.kTypes")
-            ->with("germanDismantlers", function ($q) {
-                $q->whereHas("kTypes")->with("kTypes");
-            })
+            ->whereHas('germanDismantlers.kTypes')
+            ->with('germanDismantlers.kTypes')
             ->where(function ($query) {
-                $query
-                    ->where('dismantle_company_name', '!=', 'F')
+                $query->where('dismantle_company_name', '!=', 'F')
                     ->orWhere(function ($subQuery) {
-                        $subQuery
-                            ->where('dismantle_company_name', 'F')
+                        $subQuery->where('dismantle_company_name', 'F')
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
@@ -85,10 +80,10 @@ class CreateXmlCommand extends Command
             ->distinct('original_number')
             ->get();
 
-        foreach($originalNumbers as $originalNumber) {
+        foreach ($originalNumbers as $originalNumber) {
             $parts = (new GetOptimalPartsAction())->execute(
                 $originalNumber->original_number,
-                $originalNumbers->pluck('id')->toArray(),
+                $originalNumbers->pluck('id')->toArray()
             );
 
             $optimalParts = $optimalParts->merge($parts);
