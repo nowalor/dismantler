@@ -53,10 +53,10 @@ class EbayApiService
 
         $xmlName = (new AddProductToXmlFileAction())->execute($formattedParts);
 
-//        return (new FtpFileUploadAction())->execute(
-//            '/store/product',
-//            base_path("public/exports/$xmlName"),
-//            $xmlName,
-//        );
+        return (new FtpFileUploadAction())->execute(
+            '/store/product',
+            base_path("public/exports/$xmlName"),
+            $xmlName,
+        );
     }
 }
