@@ -25,18 +25,16 @@ class GetOptimalPartsAction
         $cheapestPart = $cheapestPartQuery->first();
         $partWithBestMileage = $partWithBestMileageQuery->first();
 
-        $parts = [];
+        $parts = new Collection();
 
         if($cheapestPart) {
-            $parts[] = $cheapestPart;
+            $parts->push($cheapestPart);
         }
 
-        if($partWithBestMileage) {
-            $parts[] = $partWithBestMileage;
+        if($partWithBestMileage && $partWithBestMileage->id !== $cheapestPart->id) {
+            $parts->push($partWithBestMileage);
         }
 
-        return Collection::make([
-            $parts,
-        ]);
+        return $parts;
     }
 }

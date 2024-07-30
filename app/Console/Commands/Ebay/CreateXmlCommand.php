@@ -25,7 +25,7 @@ class CreateXmlCommand extends Command
     {
         $parts = $this->parts();
 
-        if (count($parts) === 0) {
+        if ($parts->isEmpty()) {
             return 0;
         }
 
@@ -43,21 +43,15 @@ class CreateXmlCommand extends Command
             return 1;
         }
 
-
         $this->info('Everything went okay...');
         return Command::SUCCESS;
     }
 
     private function parts(): Collection
     {
-
-        // Example query we can make to try to get a higher quality of parts
-//        NewCarPart::where('car_part_type_id', 1)->where('model_year', '>', 2000)->whereHas('carPartImages')->whereHas('germanDismantlers')->count();
-
-        $optimalParts = [];
+        $optimalParts = new Collection();
 
         $originalNumbers = NewCarPart::select(['id', 'original_number'])
-//            with("carPartImages")
             ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
             ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
@@ -67,8 +61,6 @@ class CreateXmlCommand extends Command
             ->whereNotNull('article_nr')
             ->whereNotNull('original_number')
             ->whereNotNull('price_eur')
-//            ->whereNot('brand_name', 'like', '%mer%')
-//            ->whereNot('brand_name', 'like', '%bmw%')
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel');
                 $q->orWhere('fuel', 'Bensin');
@@ -99,11 +91,9 @@ class CreateXmlCommand extends Command
                 $originalNumbers->pluck('id')->toArray(),
             );
 
-            $optimalParts[] = $parts[0];
+            $optimalParts = $optimalParts->merge($parts);
         }
 
-        logger($optimalParts);
-
-        return Collection::make($optimalParts[0]);
+        return $optimalParts;
     }
 }
