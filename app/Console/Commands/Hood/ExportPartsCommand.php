@@ -73,12 +73,15 @@ class ExportPartsCommand extends Command
         return NewCarPart::with("carPartImages")
 //            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
             ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
+            ->where('price_eur', '!=', '')
+            ->where('price_eur', '!=', 0)
+            ->whereNotNull('price_eur')
             ->where('is_live_on_hood', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
-            ->whereNotNull('price_sek')
+//            ->whereNotNull('price_sek')
             ->whereHas("carPartImages", function ($q) {
                 $q->whereNotNull("new_logo_german");
             })
@@ -98,13 +101,16 @@ class ExportPartsCommand extends Command
     private function partsCount(): int
     {
         return NewCarPart::with("carPartImages")
+            ->where('price_eur', '!=', '')
+            ->where('price_eur', '!=', 0)
+            ->whereNotNull('price_eur')
             ->where('is_live_on_hood', false)
             ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
-            ->whereNotNull('price_sek')
+//            ->whereNotNull('price_sek')
             ->whereHas("carPartImages", function ($q) {
                 $q->whereNotNull("new_logo_german");
             })

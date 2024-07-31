@@ -76,7 +76,7 @@ class CreateXmlAction
             $item->addChild('durationInDays', '30');
             $item->addChild('autoRenew', 'yes');
 
-            $price = $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute();
+            $price = $this->price();
 
             $item->addChild('priceStart', $price);
             $item->addChild('price', $price);
@@ -102,6 +102,15 @@ class CreateXmlAction
         }
 
         return $xml->saveXML();
+    }
+
+    private function price(NewCarPart $part): int
+    {
+        if($part->country === 'DK') {
+            return $part->translated_price + $part->shipment;
+        }
+
+        return $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute();
     }
 
     // Make this reusable instead of copy paste from doc service
