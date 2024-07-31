@@ -110,7 +110,6 @@ class ExportPartsCommand extends Command
             ->whereNotNull('engine_code')
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
-//            ->whereNotNull('price_sek')
             ->whereHas("carPartImages", function ($q) {
                 $q->whereNotNull("new_logo_german");
             })
