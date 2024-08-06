@@ -76,7 +76,7 @@ class CreateXmlAction
             $item->addChild('durationInDays', '30');
             $item->addChild('autoRenew', 'yes');
 
-            $price = $this->price();
+            $price = $this->price($part);
 
             $item->addChild('priceStart', $price);
             $item->addChild('price', $price);
