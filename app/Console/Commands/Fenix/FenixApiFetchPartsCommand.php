@@ -81,6 +81,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             'gearbox' => $part['Car']['Gearbox'],
             'warranty' => $part['Warranty'],
             'mileage_km' => (int)$part['Car']['Mileage'] * 10,
+            'mileage' => (int)$part['Car']['Mileage'],
             'model_year' => $part['Car']['ModelYear'],
             'vin' => $part['Car']['VIN'],
         ];
