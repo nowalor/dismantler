@@ -115,7 +115,6 @@ class ExportPartsCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(5000)
             ->count();
     }
 }
