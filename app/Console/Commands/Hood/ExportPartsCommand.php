@@ -70,22 +70,17 @@ class ExportPartsCommand extends Command
 
     private function parts(): Collection
     {
-        return NewCarPart::with("carPartImages")
-//            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
-            ->whereNotNull('car_part_type_id')
-            //->whereIn('car_part_type_id', [1,2,3,4,5,6,7, 8, 9, 10, 11, 12])
-            ->where('price_eur', '!=', '')
-            ->where('price_eur', '!=', 0)
-            ->whereNotNull('price_eur')
-            ->where('is_live_on_hood', false)
-            ->where('engine_code', '!=', '')
-            ->whereNotNull('engine_code')
-            ->whereNull('sold_at')
+        return NewCarPart::
+        whereNotNull('engine_code')
+            ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
-//            ->whereNotNull('price_sek')
-            ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("new_logo_german");
+            ->whereHas("carPartImages", function ($query) {
+                $query->whereNotNull('new_logo_german');
             })
+            ->where('engine_code', '!=', '')
+            ->whereNull('sold_at')
+            ->whereNotNull('car_part_type_id')
+            ->where('is_live', false)
             ->where(function ($query) {
                 $query
                     ->where('dismantle_company_name', '!=', 'F')
@@ -101,20 +96,16 @@ class ExportPartsCommand extends Command
 
     private function partsCount(): int
     {
-        return NewCarPart::with("carPartImages")
-            ->where('price_eur', '!=', '')
-            ->where('price_eur', '!=', 0)
-            ->whereNotNull('price_eur')
-            ->where('is_live_on_hood', false)
-            ->whereNotNull('car_part_type_id')
-            // ->whereIn('car_part_type_id', [1,2,3,4,5,6, 7, 8, 9, 10, 11, 12])
-            ->where('engine_code', '!=', '')
-            ->whereNotNull('engine_code')
-            ->whereNull('sold_at')
+        return NewCarPart::whereNotNull('engine_code')
+            ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
-            ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("new_logo_german");
+            ->whereHas("carPartImages", function ($query) {
+                $query->whereNotNull('new_logo_german');
             })
+            ->where('engine_code', '!=', '')
+            ->whereNull('sold_at')
+            ->whereNotNull('car_part_type_id')
+            ->where('is_live', false)
             ->where(function ($query) {
                 $query
                     ->where('dismantle_company_name', '!=', 'F')
@@ -124,6 +115,7 @@ class ExportPartsCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
+            ->take(5000)
             ->count();
     }
 }
