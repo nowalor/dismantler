@@ -47,8 +47,8 @@ class FenixResolveFieldsCommand extends Command
 
 //        $carParts = NewCarPart::whereNull('article_nr')->whereNull('sold_at')->where('dismantle_company_name', '!=', 'bo')->whereNull('country')->get();
     $carParts = NewCarPart::whereNull('article_nr')
-        ->whereIn('external_dismantle_company_id', [44, 50, 70])
-        ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+        //->whereIn('external_dismantle_company_id', [44, 50, 70])
+        //->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
         ->get();
 
         foreach($carParts as $carPart) {

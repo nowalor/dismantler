@@ -11,6 +11,6 @@ class OrderObserver
 {
     public function created(Order $order): void
     {
-        Notification::route('mail',[])->notify(new PaymentSuccessfulNotification($order));
+        //Notification::route('mail',[])->notify(new PaymentSuccessfulNotification($order)); // TODO
     }
 }
