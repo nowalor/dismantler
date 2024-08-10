@@ -34,7 +34,7 @@ class ExportPartsCommand extends Command
         $parts = $this->parts();
 
         $partsXml = (new HoodCreateXmlAction())->execute('itemInsert', $parts);
-        $this->info($partsXml);
+        //$this->info($partsXml);
 
         try {
             $response = $this->client->post(
@@ -80,7 +80,7 @@ class ExportPartsCommand extends Command
             })
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
-            //->whereNotNull('car_part_type_id')
+            ->whereNotNull('car_part_type_id')
             ->where('is_live_on_hood', false)
             ->where(function ($query) {
                 $query
@@ -105,7 +105,7 @@ class ExportPartsCommand extends Command
             })
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
-            //->whereNotNull('car_part_type_id')
+            ->whereNotNull('car_part_type_id')
             ->where('is_live_on_hood', false)
             ->where(function ($query) {
                 $query
