@@ -34,6 +34,7 @@ class ExportPartsCommand extends Command
         $parts = $this->parts();
 
         $partsXml = (new HoodCreateXmlAction())->execute('itemInsert', $parts);
+        $this->info($partsXml);
 
         try {
             $response = $this->client->post(
