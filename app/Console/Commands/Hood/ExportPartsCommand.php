@@ -81,7 +81,7 @@ class ExportPartsCommand extends Command
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
-            ->where('is_live', false)
+            ->where('is_live_on_hood', false)
             ->where(function ($query) {
                 $query
                     ->where('dismantle_company_name', '!=', 'F')
@@ -106,7 +106,7 @@ class ExportPartsCommand extends Command
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
-            ->where('is_live', false)
+            ->where('is_live_on_hood', false)
             ->where(function ($query) {
                 $query
                     ->where('dismantle_company_name', '!=', 'F')
