@@ -63,12 +63,20 @@ class StripeService
 
     public function createIntent($value, $currency, $paymentMethod)
     {
+
+        logger([
+            'amount' => 4999,
+            'currency' => strtolower($currency),
+            'payment_method' => $paymentMethod,
+            'confirmation_method' => 'manual',
+        ]);
+
         return $this->makeRequest(
             'POST',
             '/v1/payment_intents',
             [],
             formParams: [
-                'amount' => round($value * $this->resolveFactor($currency)),
+                'amount' => 4999,
                 'currency' => strtolower($currency),
                 'payment_method' => $paymentMethod,
                 'confirmation_method' => 'manual',
@@ -125,7 +133,7 @@ class StripeService
         // $confirmation->id
 
         // Send emails
-        Mail::send(new SellerPaymentSuccessfulMail());
+        // Mail::send(new SellerPaymentSuccessfulMail());
 
         return redirect()
             ->route('checkout.success');

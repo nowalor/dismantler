@@ -51,8 +51,6 @@ class PaymentController extends Controller
 
          $order = Order::create($validated);
 
-         return $request->get('payment_platform');
-
          $paymentPlatform = $this->paymentPlatformResolver
              ->resolveService($request->get('payment_platform'));
 

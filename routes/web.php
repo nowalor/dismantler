@@ -54,9 +54,9 @@ Route::get('test3', [TestController::class, 'carPartIds']);
 // Payment routes end
 
 // this is the correct HomePageController with search
-// Route::get('', HomepageController::class)->name('home');
+Route::get('', HomepageController::class)->name('home');
 // currently using this for now until currusConnect production ready
-Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
+//Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
 
 //Route::get('', LandingPageController::class)->name('returnLandingPage');
 //Route::get('browse', [BrowseCarParts::class, 'browseCarParts'] );

@@ -15,7 +15,7 @@ class DismantleCompanySeeder extends Seeder
      */
     public function run()
     {
-        DismantleCompany::insert([
+        /*DismantleCompany::insert([
             ["id" => 43, "name" => "AABEN", "full_name" => "DKAUTO.DK"],
             ["id" => 44, "name" => "AADUM", "full_name" => "Aadum Autoophug A/S"],
             ["id" => 45, "name" => "AUHOB", "full_name" => "HOBRO AUTOGENBRUG APS"],
@@ -48,9 +48,86 @@ class DismantleCompanySeeder extends Seeder
                 "name" => "SCHOBER",
                 "full_name" => "Brdr. Schøber Autoimport ApS",
             ],
-            ["id" => 95, "name" => "GEDHAN", "full_name" => "Gedsted Autohandel A/S"],
+            ["id" => 95, "name" => "GEDHAN", "full_name" => "Gedsted Autohandel A/S¯"],
             ["id" => 96, "name" => "HOBGT", "full_name" => "Hobro Gearteknik"],
             ["id" => 97, "name" => "SJAEL", "full_name" => "Sjællands Autoophug"],
-        ]);
+        ]); */
+
+        $dismantleCompanies = [
+            [
+                'full_name' => 'Ådalens Bildemontering AB',
+                'email' => 'jorgen@adalens.se',
+                'code' => 'A',
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => 'Borås Bildemontering AB',
+                'code' => 'BO',
+                'email' => 'info@borasbildemontering.se',
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => 'Norrbottens Bildemontering AB',
+                'code' => 'F',
+                'email' => 'info@nbd.se',
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => 'Jönköpings bildemontering',
+                'code' => 'N',
+                'email' => 'info@jb-bildemo.se',
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => 'Allbildelar',
+                'code' => 'AL',
+                'email' => 'nicolas.ronnegard@allbildelar.se',
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => 'Kungsåra',
+                'code' => 'S',
+                'email' => 'info@kungsarabildemo.se',
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => 'Gåresta',
+                'code' => 'GB',
+                'email' => 'info.lkp@bildelslager.se',
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => '',
+                'code' => 'LI',
+                'email' => null,
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+            [
+                'full_name' => 'TODO',
+                'code' => 'D',
+                'email' => null,
+                'country' => 'DK',
+                'platform' => 'fenix',
+                'name' => 'TODO',
+            ],
+        ];
+
+        DismantleCompany::insert($dismantleCompanies);
     }
 }

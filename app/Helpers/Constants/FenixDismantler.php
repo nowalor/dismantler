@@ -10,9 +10,6 @@ class FenixDismantler
 {
     const DISMANTLERS =
         [
-            'NIK' => [
-              'email' => 'nikulasoskarsson@gmail.com',
-            ],
             'A' => [
                 'full_name' => 'Ådalens Bildemontering AB',
                 'email' => 'jorgen@adalens.se',
@@ -48,14 +45,16 @@ class FenixDismantler
               'code' => 'GB',
               'email' => 'info.lkp@bildelslager.se',
             ],
-//            'LI' => [
-//              'full_name' => ''  ,
-//              'code' => ''  ,
-//              'email' => ''  ,
-//            ],
-//            'D' => [
-//                'full_name' => '',
-//            ],
+            'LI' => [
+              'full_name' => ''  ,
+              'code' => 'LI'  ,
+              'email' => null  ,
+            ],
+            'D' => [
+               'full_name' => 'TODO',
+                'code' => 'D',
+                'email' => null,
+            ],
         ];
 
 }
