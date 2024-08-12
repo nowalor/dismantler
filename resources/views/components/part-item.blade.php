@@ -35,7 +35,7 @@
         @endif
         @if($part->article_nr)
             <p>
-                <span class="fw-bold">Article number: </span>
+                <span class="fw-bold">Currus Connect ID: </span>
                 <a href="{{ request()->fullUrlWithQuery(['filter[article_nr]' => $part->article_nr]) }}">
                     {{ $part->article_nr }}
                 </a>

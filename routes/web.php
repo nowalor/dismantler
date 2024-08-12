@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsPageController;
 use App\Http\Controllers\AdminConnectMultipleKbaToEngineTypeController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminEngineTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
@@ -90,6 +91,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
         ->only(['index','show', 'store', 'destroy']);
+
+        // dashboard where admin can see how many car-parts we are uploading to ebay, autoteile-markt and hood.de
+    Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
 
