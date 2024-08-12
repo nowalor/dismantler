@@ -20,6 +20,7 @@ use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 use App\Http\Controllers\browseCarParts;
+use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\TemporaryLandingPageController;
 
@@ -58,7 +59,6 @@ Route::get('', HomepageController::class)->name('home');
 //Route::get('', LandingPageController::class)->name('returnLandingPage');
 //Route::get('browse', [BrowseCarParts::class, 'browseCarParts'] );
 
-
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');
@@ -77,6 +77,8 @@ Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode
 Route::get('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
 Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
 
+// full view of individual car part
+Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -92,7 +94,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
         ->only(['index','show', 'store', 'destroy']);
 
-        // dashboard where admin can see how many car-parts we are uploading to ebay, autoteile-markt and hood.de
+        // dashboard where admin can see how many car-parts we are uploading to ebay, autoteile-markt and hood.de - work in progress
     Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);

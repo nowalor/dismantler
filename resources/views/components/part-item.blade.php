@@ -68,8 +68,9 @@
         <p><span class="fw-bold">Price: </span>{{ $part->price_sek }} SEK</p>
     </td>
     <td>
-        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">View part</a>
-        <div style="margin-top: 10px; font-size: 20px; text-align: center;">
+        <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">View Part</a>
+        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">Checkout</a>
+        <div style="margin-top: 20px; font-size: 20px; text-align: center;">
             <a href="/contact"><i class="fas fa-info-circle"></i></a>
         </div>
     </td>
