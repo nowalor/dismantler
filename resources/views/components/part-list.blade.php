@@ -4,7 +4,7 @@
         <form action="{{ route('car-parts.search') }}" method="GET" style="display: flex;">
             <input type="text" name="search" class="form-control" placeholder="Search..." value="{{ request()->query('search') }}" style="width: 300px;">
             <button type="submit" class="btn btn-primary" style="margin-left: 5px;">Search</button>
-        </form>        
+        </form>
     </div>
 </div>
 

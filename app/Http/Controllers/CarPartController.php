@@ -83,7 +83,19 @@ class CarPartController extends Controller {
         ));
     }
 
-    public function searchParts(NewCarPart $part) {
+    public function searchParts(Request $request) {
+        // Retrieve the search query and filters
+        $search = $request->input('search');
+        $sort = $request->query('sort');
+        $filters = [];
+        
+        foreach ($request->input('filter', []) as $key => $value) {
+            if (!empty($value)) {
+                $filters[$key] = $value;
+            }
+        }
+    
+        // Start the query
         $parts = NewCarPart::select([
             'name',
             'quality',
@@ -93,12 +105,11 @@ class CarPartController extends Controller {
             'model_year',
             'engine_type',
             'fuel',
-        ])->with('ditoNumber', 'carPartType');
+        ])->with('carPartType');
     
         // If a search query is present, filter the results
-        if ($part->filled('search')) {
-            $search = $part->input('search');
-            $parts = $parts->where(function ($query) use ($search) {
+        if (!empty($search)) {
+            $parts->where(function ($query) use ($search) {
                 $query->where('name', 'like', "%$search%")
                       ->orWhere('quality', 'like', "%$search%")
                       ->orWhere('original_number', 'like', "%$search%")
@@ -110,8 +121,12 @@ class CarPartController extends Controller {
             });
         }
     
-        // Handle sorting if applicable
-        $sort = $part->query('sort');
+        // Apply additional filters
+        foreach ($filters as $key => $value) {
+            $parts->where($key, $value);
+        }
+    
+        // Apply sorting if provided
         if ($sort) {
             switch ($sort) {
                 case 'mileage_asc':
@@ -136,19 +151,20 @@ class CarPartController extends Controller {
         }
     
         // Paginate the results
-        $parts = $parts->paginate(9, pageName: 'parts');
+        $parts = $parts->paginate(9, ['*'], 'parts');
     
-        // Fetch other related data if needed
+        // Fetch related data for dropdowns or filters
         $brands = CarBrand::all();
         $partTypes = CarPartType::all();
         $dismantleCompanies = DismantleCompany::all();
     
+        // Return the view with the data
         return view('car-parts.search-results', compact(
             'parts',
             'partTypes',
             'dismantleCompanies',
             'brands'
-        )); 
+        ));
     }
 
     public function show(CarPart $carPart) {

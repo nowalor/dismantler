@@ -42,7 +42,7 @@
                         <p class="text-danger"><strong>M - </strong> Moderate quality with visible wear.</p>
                     @endif
                     <p><span class="fw-bold">Original number: </span>{{ $part->original_number}}</p>
-                    <p><span class="fw-bold">Chassi number: </span> work in progress </p>
+                    <p><span class="fw-bold">Chassi number: </span> {{ $part->vin }} </p>
                     <p><span class="fw-bold">Model Year: </span>{{ $part->model_year }}</p>
                     <p><span class="fw-bold">Mileage:</span>
                     @if($part->mileage_km == 999) 
