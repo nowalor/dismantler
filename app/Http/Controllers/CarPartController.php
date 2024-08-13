@@ -17,10 +17,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-class CarPartController extends Controller
-{
-    public function index(Request $request)// : View | RedirectResponse
-    {
+class CarPartController extends Controller {
+
+    // : View | RedirectResponse
+    public function index(Request $request) {
         $parts = NewCarPart::select([
             'id',
             'name',
@@ -83,23 +83,87 @@ class CarPartController extends Controller
         ));
     }
 
-    public function show(CarPart $carPart)
-    {
+    public function searchParts(NewCarPart $part) {
+        $parts = NewCarPart::select([
+            'name',
+            'quality',
+            'original_number',
+            'article_nr',
+            'mileage_km',
+            'model_year',
+            'engine_type',
+            'fuel',
+        ])->with('ditoNumber', 'carPartType');
+    
+        // If a search query is present, filter the results
+        if ($part->filled('search')) {
+            $search = $part->input('search');
+            $parts = $parts->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%")
+                      ->orWhere('quality', 'like', "%$search%")
+                      ->orWhere('original_number', 'like', "%$search%")
+                      ->orWhere('article_nr', 'like', "%$search%")
+                      ->orWhere('mileage_km', 'like', "%$search%")
+                      ->orWhere('model_year', 'like', "%$search%")
+                      ->orWhere('engine_type', 'like', "%$search%")
+                      ->orWhere('fuel', 'like', "%$search%");
+            });
+        }
+    
+        // Handle sorting if applicable
+        $sort = $part->query('sort');
+        if ($sort) {
+            switch ($sort) {
+                case 'mileage_asc':
+                    $parts->orderBy('mileage_km', 'asc');
+                    break;
+                case 'mileage_desc':
+                    $parts->orderBy('mileage_km', 'desc');
+                    break;
+                case 'model_year_asc':
+                    $parts->orderBy('model_year', 'asc');
+                    break;
+                case 'model_year_desc':
+                    $parts->orderBy('model_year', 'desc');
+                    break;
+                case 'price_asc':
+                    $parts->orderBy('price3', 'asc');
+                    break;
+                case 'price_desc':
+                    $parts->orderBy('price3', 'desc');
+                    break;
+            }
+        }
+    
+        // Paginate the results
+        $parts = $parts->paginate(9, pageName: 'parts');
+    
+        // Fetch other related data if needed
+        $brands = CarBrand::all();
+        $partTypes = CarPartType::all();
+        $dismantleCompanies = DismantleCompany::all();
+    
+        return view('car-parts.search-results', compact(
+            'parts',
+            'partTypes',
+            'dismantleCompanies',
+            'brands'
+        )); 
+    }
+
+    public function show(CarPart $carPart) {
 
         return view('car-parts.show', compact(
             'carPart'
         ));
     }
 
-    public function update(Request $request, CarPart $carPart)
-    {
+    public function update(Request $request, CarPart $carPart) {
         //
     }
 
-
     // Non-Resourceful Methods
-    public function searchByCode(Request $request): mixed
-    {
+    public function searchByCode(Request $request): mixed {
         if (
             ($request->filled('hsn') && !$request->filled('tsn')) ||
             ($request->filled('tsn') && !$request->filled('hsn'))
@@ -141,15 +205,13 @@ class CarPartController extends Controller
         return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
     }
 
-    private function redirectBack(array $errors): RedirectResponse
-    {
+    private function redirectBack(array $errors): RedirectResponse {
         request()?->flash();
 
         return redirect()->back()->withErrors($errors);
     }
 
-    public function searchByModel(Request $request): mixed
-{
+    public function searchByModel(Request $request): mixed {
     $dito = DitoNumber::find($request->get('dito_number_id'));
 
     if(!$dito) {
@@ -189,11 +251,9 @@ class CarPartController extends Controller
         'type', // Prev selected type, used to autofill search
         'types'
     ));
-}
+    }
 
-
-public function searchByOEM(Request $request)
-{
+    public function searchByOEM(Request $request) {
     $oem = $request->get('oem');
     $engine_code = $request->get('engine_code');
     $gearbox = $request->get('gearbox');
@@ -208,7 +268,6 @@ public function searchByOEM(Request $request)
     $parts = $results['data']['parts'];
 
     return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
-}
-
+    }
 
 }
