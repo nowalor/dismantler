@@ -97,6 +97,7 @@ class CarPartController extends Controller {
     
         // Start the query
         $parts = NewCarPart::select([
+            'id',
             'name',
             'quality',
             'original_number',
@@ -110,7 +111,8 @@ class CarPartController extends Controller {
         // If a search query is present, filter the results
         if (!empty($search)) {
             $parts->where(function ($query) use ($search) {
-                $query->where('name', 'like', "%$search%")
+                $query->where('id', 'like', "%$search%")
+                      ->orwhere('name', 'like', "%$search%")
                       ->orWhere('quality', 'like', "%$search%")
                       ->orWhere('original_number', 'like', "%$search%")
                       ->orWhere('article_nr', 'like', "%$search%")
@@ -159,7 +161,7 @@ class CarPartController extends Controller {
         $dismantleCompanies = DismantleCompany::all();
     
         // Return the view with the data
-        return view('car-parts.search-results', compact(
+        return view('parts-name', compact(
             'parts',
             'partTypes',
             'dismantleCompanies',

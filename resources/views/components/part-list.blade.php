@@ -1,7 +1,7 @@
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 10px; margin-top: 10px; padding: 5px;">
     <p></p>
     <div>
-        <form action="{{ route('car-parts.search') }}" method="GET" style="display: flex;">
+        <form action="{{ route('car-parts.search-by-name') }}" method="GET" style="display: flex;">
             <input type="text" name="search" class="form-control" placeholder="Search..." value="{{ request()->query('search') }}" style="width: 300px;">
             <button type="submit" class="btn btn-primary" style="margin-left: 5px;">Search</button>
         </form>

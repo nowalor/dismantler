@@ -76,7 +76,7 @@ Route::resource('car-parts', CarPartController::class);
 Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
 Route::get('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
 Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
-Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search');
+Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
 // full view of individual car part
 Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
