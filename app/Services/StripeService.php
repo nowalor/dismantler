@@ -133,7 +133,7 @@ class StripeService
         // $confirmation->id
 
         // Send emails
-        // Mail::send(new SellerPaymentSuccessfulMail());
+        Mail::send(new SellerPaymentSuccessfulMail());
 
         return redirect()
             ->route('checkout.success');

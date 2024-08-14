@@ -53,7 +53,7 @@ class Order extends Model
 
     public function carPart(): BelongsTo
     {
-        return $this->belongsTo(NewCarPart::class);
+        return $this->belongsTo(NewCarPart::class,'new_car_part_id');
     }
 
     public function dismantleCompany(): BelongsTo

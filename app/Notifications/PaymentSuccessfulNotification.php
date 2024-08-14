@@ -40,8 +40,8 @@ class PaymentSuccessfulNotification extends Notification
     public function toMail()
     {
         return [
-            /*Mail::send(new SellerPaymentSuccessfulMail($this->order)),
-            Mail::send(new BuyerPaymentSuccessfulMail($this->order)), */ TODO
+            Mail::send(new SellerPaymentSuccessfulMail($this->order)),
+            Mail::send(new BuyerPaymentSuccessfulMail($this->order)),
         ];
     }
 
