@@ -75,6 +75,7 @@ class ExportPartsCommand extends Command
     {
         return NewCarPart::
         whereNotNull('engine_code')
+
             ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
             ->whereHas("carPartImages", function ($query) {
@@ -82,6 +83,7 @@ class ExportPartsCommand extends Command
             })
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
+            ->whereNull('sold_on_platform')
             ->whereNotNull('car_part_type_id')
             ->where('is_live_on_hood', false)
             ->where(function ($query) {
@@ -107,6 +109,7 @@ class ExportPartsCommand extends Command
             })
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
+            ->whereNull('sold_on_platform')
             ->whereNotNull('car_part_type_id')
             ->where('is_live_on_hood', false)
             ->where(function ($query) {
