@@ -87,11 +87,9 @@
     @yield('js')
 </body>
 <style>
-
     .cta {
         background-image: url(' {{asset('img/engine.jpg') }}');
         background-size: cover;
-
         height: calc(100vh - 56px);
         width: 100%;
         position: relative;
@@ -104,8 +102,14 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 3;
+    }
+
+    .cta > * {
+        position: relative;
         z-index: 4;
     }
+    
 </style>
 @stack('js')
 
