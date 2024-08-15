@@ -6,7 +6,6 @@
             <h3>OEM search</h3>
             <div class="col-6 pt-2">
                 <div class="card">
-                    <div class="card-header">Your search</div>
                     <div class="card-body">
                         <form action=" {{ route('car-parts.search-by-oem') }}">
                             <div class="mb-3">

@@ -1,6 +1,4 @@
 @extends('app')
-
-
 @section('content')
     <div class="cta d-flex justify-content-center gap-3">
         <div class="card col-3 mb-3" style="z-index:5; top:20vh; height: 34rem;">

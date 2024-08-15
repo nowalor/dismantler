@@ -3,7 +3,7 @@
     <div class="container pt-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Faq</li>
             </ol>
         </nav>
@@ -29,7 +29,7 @@
                              data-bs-parent="#questionCategory-{{ $questionCategory }}">
                             <div class="accordion-body">
                                 <div class="accordion">
-                                    @foreach($questions[$questionCategory] as $question)
+                                    {{-- @foreach($questions[$questionCategory] as $question)
                                         <div class="accordion-item mb-3">
                                             <h2 class="accordion-header" id="question-{{$question->id}}">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -45,7 +45,7 @@
                                             </div>
                                         </div>
 
-                                    @endforeach
+                                    @endforeach --}}
                                 </div>
                             </div>
                         </div>

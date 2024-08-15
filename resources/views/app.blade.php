@@ -13,7 +13,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
-<body>
 <!-- As a heading -->
 @if(auth()->user() && auth()->user()->is_admin)
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -60,13 +59,13 @@
 
 <header class="sticky-top bg-dark">
     <nav class="container d-flex justify-content-between py-2">
-        <a href="{{ route('home') }}" class="d-flex gap-2 align-items-center text-decoration-none">
+        <a href="{{ route('landingpage') }}" class="d-flex gap-2 align-items-center text-decoration-none">
             <i style="font-size: 1.6rem;" class="fa fa-solid fa-car"></i>
             <h3 class="text-white">Autoteile</h3>
         </a>
         <ul class="nav">
             <li class="nav-item d-flex">
-                <a href="/car-parts" class="nav-link text-white">Parts</a>
+                <a href="/car-parts/search/by-name?search=" class="nav-link text-white">Parts</a>
                 <a href="{{ route('about-us') }}" class="nav-link text-white">About us</a>
                 <a href="{{ route('faq') }}" class="nav-link text-white">Faq</a>
                 <a href="{{ route('contact') }}" class="nav-link text-white">Contact</a>
@@ -90,7 +89,7 @@
 <style>
 
     .cta {
-        background-image: url(' {{asset('img/homepage-banner.jpg') }}');
+        background-image: url(' {{asset('img/engine.jpg') }}');
         background-size: cover;
 
         height: calc(100vh - 56px);

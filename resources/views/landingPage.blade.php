@@ -1,82 +1,83 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <title>Currus - Car Parts</title>
-   {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('logo/currus.jpg') }}"> --}}
-</head>
-<body class="bg-cover bg-center" style="background-image: url('/img/engine.jpg')"> 
+@extends('app')
+@section('content')
 
-    <!-- {{-- first div Currus - Car Parts --}} -->
-    <div class="text-center pt-12 w-fit mx-auto">
-        <!-- {{-- <img src="logo/currus.png" alt="" srcset=""> --}} -->
-        <h1 class="text-7xl font-bold border-b-4 border-green-900">CURRUS</h1>
-        <h2 class="text-4xl font-bold">CAR PARTS</h2>
+    <div class="text-center pt-2 mx-auto">
+        <img src="logo/currus.png" alt="" srcset="">
+        <h1 class="display-1 fw-bold d-inline-block position-relative underline-text">
+            <span class="text-success">CURR</span><span class="text-white">US</span>
+        </h1>
+        <h2 class="display-4 fw-bold text-white">CAR PARTS</h2>
     </div>
 
-    <!-- {{------------------------------- BROWSE ALL BUTTON - redirects to /browse ----------------------------------------------}} -->
-
-    <div class="flex justify-center items-center w-fit mx-auto">
-        <div class="text-center mt-32">
-            <!-- {{-----------------------------// remove block if you want it less bulkier -------------------------------}} -->
-            <a href="/browse" class="font-semibold block py-2 px-4 rounded-md bg-green-900 text-white mb-4">BROWSE ALL</a>
+    <div class="d-flex justify-content-center align-items-center mt-4">
+        <div class="text-center">
+            <a href="/" class="fw-semibold btn btn-success">BROWSE ALL</a>
         </div>
     </div>
 
-<!-- {{------------------------------- BUTTONS FOR HSN + TSN & CAR & OEM ----------------------------------------------}} -->
-    <div class="flex justify-center items-center w-fit mx-auto">
-        <div class="text-center mt-16">
-            <a href="/" class="font-semibold inline-block py-2 px-4 rounded-md bg-green-900 text-white mb-12 mr-12">SEARCH BY HSN + TSN</a>
-            <a href="/" class="font-semibold inline-block py-2 px-4 rounded-md bg-green-900 text-white mb-12 mr-12">SEARCH BY CAR</a>
-            <a href="/" class="font-semibold inline-block py-2 px-4 rounded-md bg-green-900 text-white mb-12 mr-12">SEARCH BY OEM</a>
+    <!-- Search Functionality Section -->
+    <div class="d-flex justify-content-center align-items-center mt-4">
+        <div class="text-center">
+            <a href="#" class="fw-semibold btn btn-success me-3">SEARCH BY HSN + TSN</a>
+            <a href="#" class="fw-semibold btn btn-success me-3">SEARCH BY CAR MODEL</a>
+            <a href="#" class="fw-semibold btn btn-success me-3">SEARCH BY OEM</a>
         </div>
     </div>
 
-
-    <!-- {{-------------------------------  LICENSE PLATE SEARCH BAR + MODEL & CAR BRAND DROPDOWN  ----------------------------------------------}} -->
-    <div class="flex justify-center items-center">
-        <div class="text-center justify-center">
-            <div class="">
-                <!-- {{-- Searches for license plate using an API --}} -->
-                <form action="/searchForLicenseplate" method="GET">
-                    <input type="text" name="query" placeholder="License plate..." class="bg-gray-200 rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300">
-                    <br>
-                    <!-- {{-- Button can be removed => if to be removed, remember to add JS so that the enter button registers a submit --}} -->
-                    <button type="submit" class="mt-4 bg-green-700 hover:bg-green-900 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-blue-300">Submit</button>
-                </form>
+    <div class="cta d-flex justify-content-center gap-3 mt-3">
+        <div class="card col-3 mb-3" style="z-index:5; height: 34rem;">
+            <div class="card-header">
+                <h3>Search by HSN + TSN</h3>
             </div>
-    
-            {{-- doesnt work atm, change both dropdown menus to livewire instead of this --}}
-            <div class="flex justify-center">
-                <div class="p-4">
-                    <select name="model" id="model" class="block py-2 px-4 rounded-md bg-white w-64">
-                        <!-- Placeholder Car Brand -->
-                        <option value="" disabled selected hidden>Car Model</option>
-            
-                        @foreach($models as $model)
-                            <option value="{{ $model->name }}">{{ $model->name }}</option>
-                        @endforeach
-                    </select>
+            <div class="card-body">
+                <p>
+                    Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to
+                    find car parts for your car.
+                </p>
+                <livewire:kba-search :partTypes="$partTypes"/>
+            </div>
+        </div>
+
+        <div class="card col-3 mb-3" style="z-index:5; height: 34rem;">
+            <div class="card-header">
+                <h3>Search by car model</h3>
+            </div>
+            <div class="card-body">
+                @error('error')
+                <div class="alert alert-danger">
+                    {{ $message }}
                 </div>
-            </div>
-    
-            <div class="flex justify-center">
-                <div class="p-4">
-                    <select name="brand" id="brand" class="block py-2 px-4 rounded-md bg-white w-64">
-                        <!-- Placeholder Car Brand -->
-                        <option value="" disabled selected hidden>Car Brand</option>
-            
-                        @foreach($brands as $brand)
-                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
-                        @endforeach
-                    </select>
+                @enderror
+                @error('error2')
+                <div class="alert alert-danger">
+                    If you think this is a mistake please
+                    <a target="_blank" href="{{ route('contact') }}">contact us.</a>
                 </div>
+                @enderror
+
+                @error('error3')
+                <div class="alert alert-danger">
+                    If you are sure the HSN + TSN is correct please
+                    <a target="_blank" href="{{ route('contact') }}">contact us.</a>
+                </div>
+                @enderror
+                <p>
+                    If you don't know the HSN and TSN or you want a more open search you can search by car model.
+                </p>
+                <livewire:model-search/>
             </div>
-            
+        </div>
+
+        <div class="card col-3 mb-3" style="z-index:5; height: 34rem;">
+            <div class="card-header">Search by OEM</div>
+            <div class="card-body">
+                <p>
+                    Very detailed search that you can use if you have the original spare part number(OEM), gearbox code or engine code.
+                </p>
+
+                <livewire:oem-search></livewire:oem-search>
+            </div>
         </div>
     </div>
 
-</body>
-</html>
+@endsection
