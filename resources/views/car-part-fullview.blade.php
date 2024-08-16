@@ -32,15 +32,15 @@
                     <p><span class="fw-bold">Engine code: </span>{{ $part->engine_type }}</p>
                     <p><span class="fw-bold">Gearbox: </span>{{ $part->gearbox }}</p>
                     <p><span class="fw-bold">Quality: </span>{{ $part->quality }}</p>
-                    @if($part->quality == '+A')
-                        <p class="text-success"><strong>+A - </strong> Top quality with minimal wear.</p>
-                    @elseif($part->quality == 'A')
-                        <p class="text-success"><strong>A - </strong> High quality with minor wear.</p>
-                    @elseif($part->quality == 'A*')
-                        <p class="text-warning"><strong>A* - </strong> Above average quality.</p>
-                    @elseif($part->quality == 'M')
-                        <p class="text-danger"><strong>M - </strong> Moderate quality with visible wear.</p>
-                    @endif
+                        @if($part->quality == '+A')
+                            <p><strong>+A - </strong> Used - in very good condition.</p>
+                        @elseif($part->quality == 'A')
+                            <p><strong>A - </strong> Used - in good condition.</p>
+                        @elseif($part->quality == 'A*')
+                            <p><strong>A* - </strong> Used - with small mistakes.</p>
+                        @elseif($part->quality == 'M')
+                            <p><strong>M - </strong> Used - with many km or mistakes.</p>
+                        @endif
                     <p><span class="fw-bold">Original number: </span>{{ $part->original_number}}</p>
                     <p><span class="fw-bold">Chassi number: </span> {{ $part->vin }} </p>
                     <p><span class="fw-bold">Model Year: </span>{{ $part->model_year }}</p>

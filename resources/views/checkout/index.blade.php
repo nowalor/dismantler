@@ -4,7 +4,7 @@
     <div class="container pb-4 pt-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
                 <li class="breadcrumb-item">
                     <a href="{{ route('car-parts.index') }}">Car parts</a>
                 </li>

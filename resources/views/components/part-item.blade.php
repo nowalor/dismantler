@@ -13,16 +13,16 @@
     </td>
     <td>
         <p><span class="fw-bold">Name: </span>{{ $part->sbr_car_name }}</p>
-        <p><span class="fw-bold">Quality: </span>({{  $part->quality }})</p>
-        @if($part->quality == '+A')
-            <p><span class="fw-bold">+A: </span>Top quality with minimal wear.</p>
-        @elseif($part->quality == 'A')
-            <p><span class="fw-bold">A: </span>High quality with minor wear.</p>
-        @elseif($part->quality == 'A*')
-            <p><span class="fw-bold">A*: </span>Above average quality.</p>
-        @elseif($part->quality == 'M')
-            <p><span class="fw-bold">M: </span>Moderate quality with visible wear.</p>
-        @endif
+        <p><span class="fw-bold">Quality: </span>{{ $part->quality }}</p>
+            @if($part->quality == '+A')
+                <p><strong>+A - </strong> Used - in very good condition.</p>
+            @elseif($part->quality == 'A')
+                <p><strong>A - </strong> Used - in good condition.</p>
+            @elseif($part->quality == 'A*')
+                <p><strong>A* - </strong> Used - with small mistakes.</p>
+            @elseif($part->quality == 'M')
+                <p><strong>M - </strong> Used - with many km or mistakes.</p>
+            @endif
     </td>
     <td>
         @if($part->original_number)

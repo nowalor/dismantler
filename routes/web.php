@@ -51,13 +51,13 @@ Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
-// this is the correct HomePageController with search
+// this is the correct HomePageController with search, old design
 //Route::get('', HomepageController::class)->name('home');
 // currently using this for now until currusConnect production ready
 //Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
 
-Route::get('', LandingPageController::class)->name("landingpage");
-//Route::get('browse', [BrowseCarParts::class, 'browseCarParts'] );
+Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
+Route::get('browse', [BrowseCarParts::class, 'browseCarParts'])->name("browse");
 
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');

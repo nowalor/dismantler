@@ -1,47 +1,57 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> commented out for now since no tailwindcss --}}
-    <title>Currus - Car Parts</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('logo/currus.jpg') }}"> --}}
-</head>
-{{-------------- comment out the the second jpgg for it to work ----------}}
-<body class="bg-cover bg-center" style="background-image: url('/img/engine.jpg')"> 
-    <div class="flex h-full">
+@extends('app')
 
-        {{-- LEFT SIDE MENU BAR // PARTS NAVIGATION BAR  1/4 --}}
-        @include('components.navbar')
-
-            {{-- Social div --}}
-            <div class="flex justify-start ml-4 mt-36">
-                <ul class="flex text-white text-3xl">
-                    <a class="mx-6 fab fa-instagram" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/"></a>
-                    <a class="mx-6 fab fa-facebook" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/"></a>
-                    <a class="mx-6 fab fa-twitter" rel="noopener noreferrer" target="_blank" href="https://twitter.com/?lang=da"></a>
-                </ul>    
+@section('content')
+<div class="d-flex flex-column" style="height: 93.9vh; background-image: url('/img/engine.jpg'); background-position: center; background-size: cover;">
+    <div class="d-flex h-100">
+        {{-- LEFT SIDE MENU BAR // PARTS NAVIGATION BAR 1/4 --}}
+        <div class="d-flex flex-column w-25 bg-dark text-white" style="opacity: 0.85;">
+            <div class="px-5 flex-grow-1">
+                <!-- Navigation links -->
+                <h1 class="display-4 font-weight-bold mt-3 ml-2 pt-4">PARTS</h1>
+                <nav class="mt-4">
+                    <ul class="list-unstyled">
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">All</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Motors</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Gearboxes</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Underbody</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Car Interior</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Car Exterior</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Contact Us</a></li>
+                        <hr>
+                    </ul>
+                </nav>
+                <div class="d-flex justify-content-start pt-6">
+                        <ul class="list-unstyled d-flex">
+                            <li class="mx-3"><a class="fab fa-facebook text-white" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/" style="font-size: 2.5rem;"></a></li>
+                            <li class="mx-3"><a class="fab fa-linkedin text-white" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/" style="font-size: 2.5rem;"></a></li>
+                            <li class="mx-3"><a class="fab fa-instagram text-white" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/" style="font-size: 2.5rem;"></a></li>
+                            <li class="mx-3"><a class="fab fa-twitter text-white" rel="noopener noreferrer" target="_blank" href="https://twitter.com/?lang=da" style="font-size: 2.5rem;"></a></li>
+                        </ul>    
+                    </div>
+                </div>
             </div>
-        </div>
 
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
-        <div class="flex-1 bg-[#0c0c14] opacity-85">
-            {{-- PARTS TITLE --}}
-            <div class="w-full text-center mt-96 text-5xl">
-                <h1 class="text-white font-bold mx-4 mb-2">
+        <div class="flex-fill bg-dark d-flex align-items-center justify-content-center" style="opacity: 0.85;">
+            <div class="text-center">
+                <h1 class="text-white font-weight-bold mb-2" style="font-size: 3rem;">
                     ECO-FRIENDLY
                 </h1>
-                <h1 class="text-white font-bold mb-2">
+                <h1 class="text-white font-weight-bold mb-2" style="font-size: 3rem;">
                     JOURNEYS START WITH
                 </h1>
-                <h1 class="text-white font-bold mb-2">
+                <h1 class="text-white font-weight-bold mb-2" style="font-size: 3rem;">
                     CURRUS CONNECT
                 </h1>
             </div>
         </div>
-
     </div>
-</body>
-
-</html>
+</div>
+@endsection
