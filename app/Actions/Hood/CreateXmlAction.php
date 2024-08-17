@@ -12,14 +12,11 @@ class CreateXmlAction
 {
     private string $username;
     private string $apiPassword;
-    private PartInformationService $partInformationService;
-
 
     public function __construct()
     {
         $this->username = config('services.hood.username');
         $this->apiPassword = config('services.hood.api_password');
-        $this->partInformationService = new PartInformationService();
     }
 
     public function execute(
@@ -70,12 +67,16 @@ class CreateXmlAction
             $shipMethod->addAttribute('name', 'seeDesc_nat'); // TODO
             $shipMethod->addChild('value', 0);
 
+            $shipMethod2 = $shipMethods->addChild('shipMethod');
+            $shipMethod2->addAttribute('name', 'seeDesc_at'); // TODO
+            $shipMethod2->addChild('value', 0);
+
             $item->addChild('startDate', now()->format('d.m.Y'));
             $item->addChild('startDate', now()->format('H:i'));
             $item->addChild('durationInDays', '30');
             $item->addChild('autoRenew', 'yes');
 
-            $price = $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute();
+            $price = $this->price($part);
 
             $item->addChild('priceStart', $price);
             $item->addChild('price', $price);
@@ -101,6 +102,15 @@ class CreateXmlAction
         }
 
         return $xml->saveXML();
+    }
+
+    private function price(NewCarPart $part): int
+    {
+        if($part->country === 'DK') {
+            return $part->translated_price + $part->shipment;
+        }
+
+        return $part->getAutoteileMarktPriceAttribute() + $part->getShipmentAttribute();
     }
 
     // Make this reusable instead of copy paste from doc service

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\DitoNumber;
 use App\Models\NewCarPart;
 
 class PartInformationService
@@ -64,10 +65,21 @@ class PartInformationService
 
     private function getCarName(NewCarPart $carPart): string
     {
-        $dito = $carPart->sbrCode?->ditoNumbers()->first();
+        $country = $carPart->country;
 
-        if(!$dito) {
-            return $carPart->sbr_car_name;
+        if($country === 'DK') {
+//            $dito = DitoNumber::where('dito_number', $carPart->dito_number)->first();
+
+            $dito = $carPart->ditoNumber;
+            if(!$dito) {
+                return $carPart->name;
+            }
+        } else {
+            $dito = $carPart->sbrCode?->ditoNumbers()->first();
+
+            if(!$dito) {
+                return $carPart->sbr_car_name;
+            }
         }
 
         return $dito->producer . ' ' . $dito->brand;

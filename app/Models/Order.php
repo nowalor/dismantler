@@ -12,7 +12,7 @@ class Order extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'car_part_id',
+        'new_car_part_id',
         'dismantle_company_id',
         'payment_platform_id',
         'currency_id',
@@ -53,7 +53,7 @@ class Order extends Model
 
     public function carPart(): BelongsTo
     {
-        return $this->belongsTo(CarPart::class);
+        return $this->belongsTo(NewCarPart::class);
     }
 
     public function dismantleCompany(): BelongsTo
