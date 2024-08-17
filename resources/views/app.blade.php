@@ -65,6 +65,7 @@
         </a>
         <ul class="nav">
             <li class="nav-item d-flex">
+                <a href="/" class="nav-link text-white">Home</a>
                 <a href="/car-parts/search/by-name?search=" class="nav-link text-white">Parts</a>
                 <a href="{{ route('about-us') }}" class="nav-link text-white">About us</a>
                 <a href="{{ route('faq') }}" class="nav-link text-white">Faq</a>

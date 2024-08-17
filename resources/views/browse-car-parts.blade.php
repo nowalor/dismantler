@@ -7,32 +7,32 @@
         <div class="d-flex flex-column w-25 bg-dark text-white" style="opacity: 0.85;">
             <div class="px-5 flex-grow-1">
                 <!-- Navigation links -->
-                <h1 class="display-4 font-weight-bold mt-3 ml-2 pt-4">PARTS</h1>
+                <h1 class="display-5 font-weight-bold mt-3 ml-2 pt-4">PARTS</h1>
                 <nav class="mt-4">
                     <ul class="list-unstyled">
                         <hr>
-                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">All</a></li>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">All</a></li>
                         <hr>
-                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Motors</a></li>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Motors</a></li>
                         <hr>
-                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Gearboxes</a></li>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Gearboxes</a></li>
                         <hr>
-                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Underbody</a></li>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Underbody</a></li>
                         <hr>
-                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Car Interior</a></li>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Car Interior</a></li>
                         <hr>
-                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Car Exterior</a></li>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Car Exterior</a></li>
                         <hr>
-                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.8rem;">Contact Us</a></li>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Contact Us</a></li>
                         <hr>
                     </ul>
                 </nav>
                 <div class="d-flex justify-content-start pt-6">
                         <ul class="list-unstyled d-flex">
-                            <li class="mx-3"><a class="fab fa-facebook text-white" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/" style="font-size: 2.5rem;"></a></li>
-                            <li class="mx-3"><a class="fab fa-linkedin text-white" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/" style="font-size: 2.5rem;"></a></li>
-                            <li class="mx-3"><a class="fab fa-instagram text-white" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/" style="font-size: 2.5rem;"></a></li>
-                            <li class="mx-3"><a class="fab fa-twitter text-white" rel="noopener noreferrer" target="_blank" href="https://twitter.com/?lang=da" style="font-size: 2.5rem;"></a></li>
+                            <li class="mx-3"><a class="fab fa-facebook text-white" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/" style="font-size: 2.3rem;"></a></li>
+                            <li class="mx-3"><a class="fab fa-linkedin text-white" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/" style="font-size: 2.3rem;"></a></li>
+                            <li class="mx-3"><a class="fab fa-instagram text-white" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/" style="font-size: 2.3rem;"></a></li>
+                            <li class="mx-3"><a class="fab fa-twitter text-white" rel="noopener noreferrer" target="_blank" href="https://twitter.com/?lang=da" style="font-size: 2.3rem;"></a></li>
                         </ul>    
                     </div>
                 </div>

@@ -98,7 +98,7 @@ class CarPartController extends Controller {
         // Start the query
         $parts = NewCarPart::select([
             'id',
-            'name',
+            'new_name',
             'quality',
             'original_number',
             'article_nr',
@@ -112,7 +112,7 @@ class CarPartController extends Controller {
         if (!empty($search)) {
             $parts->where(function ($query) use ($search) {
                 $query->where('id', 'like', "%$search%")
-                      ->orwhere('name', 'like', "%$search%")
+                      ->orwhere('new_name', 'like', "%$search%")
                       ->orWhere('quality', 'like', "%$search%")
                       ->orWhere('original_number', 'like', "%$search%")
                       ->orWhere('article_nr', 'like', "%$search%")

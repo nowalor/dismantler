@@ -12,7 +12,7 @@
         @endif
     </td>
     <td>
-        <p><span class="fw-bold">Name: </span>{{ $part->sbr_car_name }}</p>
+        <p><span class="fw-bold">Name: </span>{{ $part->new_name }}</p>
         <p><span class="fw-bold">Quality: </span>{{ $part->quality }}</p>
             @if($part->quality == '+A')
                 <p><strong>+A - </strong> Used - in very good condition.</p>
