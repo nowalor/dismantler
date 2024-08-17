@@ -1,4 +1,5 @@
 <form action="{{ route('car-parts.search-by-code') }}">
+    <div style="text-align: left;">
     <div class="mb-3">
         <label for="hsn" class="form-label">HSN*</label>
         <input type="text" class="form-control" name="hsn" value="{{ old('hsn') }}" wire:model="hsn">
@@ -28,4 +29,5 @@
             <button class="btn btn-primary w-100 uppercase" disabled>Fill in search</button>
         </div>
     @endif
+</div>
 </form>
