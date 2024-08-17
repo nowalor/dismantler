@@ -16,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
+use App\Actions\Parts\SortPartsAction;
 
 class CarPartController extends Controller {
 
@@ -84,89 +85,68 @@ class CarPartController extends Controller {
     }
 
     public function searchParts(Request $request) {
-        // Retrieve the search query and filters
-        $search = $request->input('search');
-        $sort = $request->query('sort');
-        $filters = [];
-        
-        foreach ($request->input('filter', []) as $key => $value) {
-            if (!empty($value)) {
-                $filters[$key] = $value;
-            }
+    // Retrieve the search query and filters
+    $search = $request->input('search');
+    $sort = $request->query('sort');
+    $filters = [];
+
+    foreach ($request->input('filter', []) as $key => $value) {
+        if (!empty($value)) {
+            $filters[$key] = $value;
         }
-    
-        // Start the query
-        $parts = NewCarPart::select([
-            'id',
-            'new_name',
-            'quality',
-            'original_number',
-            'article_nr',
-            'mileage_km',
-            'model_year',
-            'engine_type',
-            'fuel',
-        ])->with('carPartType');
-    
-        // If a search query is present, filter the results
-        if (!empty($search)) {
-            $parts->where(function ($query) use ($search) {
-                $query->where('id', 'like', "%$search%")
-                      ->orwhere('new_name', 'like', "%$search%")
-                      ->orWhere('quality', 'like', "%$search%")
-                      ->orWhere('original_number', 'like', "%$search%")
-                      ->orWhere('article_nr', 'like', "%$search%")
-                      ->orWhere('mileage_km', 'like', "%$search%")
-                      ->orWhere('model_year', 'like', "%$search%")
-                      ->orWhere('engine_type', 'like', "%$search%")
-                      ->orWhere('fuel', 'like', "%$search%");
-            });
-        }
-    
-        // Apply additional filters
-        foreach ($filters as $key => $value) {
-            $parts->where($key, $value);
-        }
-    
-        // Apply sorting if provided
-        if ($sort) {
-            switch ($sort) {
-                case 'mileage_asc':
-                    $parts->orderBy('mileage_km', 'asc');
-                    break;
-                case 'mileage_desc':
-                    $parts->orderBy('mileage_km', 'desc');
-                    break;
-                case 'model_year_asc':
-                    $parts->orderBy('model_year', 'asc');
-                    break;
-                case 'model_year_desc':
-                    $parts->orderBy('model_year', 'desc');
-                    break;
-                case 'price_asc':
-                    $parts->orderBy('price3', 'asc');
-                    break;
-                case 'price_desc':
-                    $parts->orderBy('price3', 'desc');
-                    break;
-            }
-        }
-    
-        // Paginate the results
-        $parts = $parts->paginate(9, ['*'], 'parts');
-    
-        // Fetch related data for dropdowns or filters
-        $brands = CarBrand::all();
-        $partTypes = CarPartType::all();
-        $dismantleCompanies = DismantleCompany::all();
-    
-        // Return the view with the data
-        return view('parts-name', compact(
-            'parts',
-            'partTypes',
-            'dismantleCompanies',
-            'brands'
-        ));
+    }
+
+    // Start the query
+    $parts = NewCarPart::select([
+        'id',
+        'new_name',
+        'quality',
+        'original_number',
+        'article_nr',
+        'mileage_km',
+        'model_year',
+        'engine_type',
+        'fuel',
+    ])->with('carPartType');
+
+    // If a search query is present, filter the results
+    if (!empty($search)) {
+        $parts->where(function ($query) use ($search) {
+            $query->where('id', 'like', "%$search%")
+                  ->orWhere('new_name', 'like', "%$search%")
+                  ->orWhere('quality', 'like', "%$search%")
+                  ->orWhere('original_number', 'like', "%$search%")
+                  ->orWhere('article_nr', 'like', "%$search%")
+                  ->orWhere('mileage_km', 'like', "%$search%")
+                  ->orWhere('model_year', 'like', "%$search%")
+                  ->orWhere('engine_type', 'like', "%$search%")
+                  ->orWhere('fuel', 'like', "%$search%");
+        });
+    }
+
+    // Apply additional filters
+    foreach ($filters as $key => $value) {
+        $parts->where($key, $value);
+    }
+
+    // Apply sorting using the SortPartsAction
+    $parts = (new SortPartsAction())->execute($parts, $sort);
+
+    // Paginate the results
+    $parts = $parts->paginate(9, ['*'], 'parts');
+
+    // Fetch related data for dropdowns or filters
+    $brands = CarBrand::all();
+    $partTypes = CarPartType::all();
+    $dismantleCompanies = DismantleCompany::all();
+
+    // Return the view with the data
+    return view('parts-name', compact(
+        'parts',
+        'partTypes',
+        'dismantleCompanies',
+        'brands'
+    ));
     }
 
     public function show(CarPart $carPart) {
@@ -182,55 +162,54 @@ class CarPartController extends Controller {
 
     // Non-Resourceful Methods
     public function searchByCode(Request $request): mixed {
-        if (
-            ($request->filled('hsn') && !$request->filled('tsn')) ||
-            ($request->filled('tsn') && !$request->filled('hsn'))
-        ) {
-            $errors = ['hsn' => 'Please fill in both HSN and TSN'];
+    // Your existing logic to validate HSN and TSN inputs
 
-            return $this->redirectBack($errors);
-        }
+    $type = null;
 
-        $type = null;
-
-        if ($request->filled('part-type')) {
-            $type = CarPartType::find($request->get('part-type'));
-        }
-
-
-        $response = (new SearchByKbaAction())->execute(
-            hsn: $request->get('hsn'),
-            tsn: $request->get('tsn'),
-            type: $type,
-            paginate: 2,
-        );
-
-        if (!$response['success']) {
-            dd('Unhandeled error, let nikulas know');
-        }
-
-        $parts = $response['data']['parts'];
-        $kba = $response['data']['kba'];
-
-        $search = [
-            'tsn' => $request->get('tsn'),
-            'hsn' => $request->get('hsn'),
-            'part-type' => $request->get('part-type'),
-        ];
-
-        $partTypes = CarPartType::all();
-
-        return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
+    if ($request->filled('part-type')) {
+        $type = CarPartType::find($request->get('part-type'));
     }
+
+    $sort = $request->query('sort'); // Get the sort parameter
+
+    $response = (new SearchByKbaAction())->execute(
+        hsn: $request->get('hsn'),
+        tsn: $request->get('tsn'),
+        type: $type,
+        sort: $sort, // Pass the sort parameter to the action
+        paginate: 10,
+    );
+
+    if (!$response['success']) {
+        dd('Unhandled error, let the developer know');
+    }
+
+    $parts = $response['data']['parts'];
+    $kba = $response['data']['kba'];
+
+    $search = [
+        'tsn' => $request->get('tsn'),
+        'hsn' => $request->get('hsn'),
+        'part-type' => $request->get('part-type'),
+    ];
+
+    $partTypes = CarPartType::all();
+
+    return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
+    }
+
 
     private function redirectBack(array $errors): RedirectResponse {
+
         request()?->flash();
 
-        return redirect()->back()->withErrors($errors);
+        return redirect()->back()->withErrors($errors); 
     }
+    
 
     public function searchByModel(Request $request): mixed {
-    $dito = DitoNumber::find($request->get('dito_number_id'));
+    
+        $dito = DitoNumber::find($request->get('dito_number_id'));
 
     if(!$dito) {
         abort('fail');
@@ -275,17 +254,19 @@ class CarPartController extends Controller {
     $oem = $request->get('oem');
     $engine_code = $request->get('engine_code');
     $gearbox = $request->get('gearbox');
+    $sort = $request->query('sort');
 
     $results = (new SearchByOeAction())->execute(
         oem: $oem,
         engine_code: $engine_code,
         gearbox: $gearbox,
+        sort: $sort, // Pass the sort parameter
         paginate: 10,
     );
 
     $parts = $results['data']['parts'];
 
     return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
-    }
+}
 
 }

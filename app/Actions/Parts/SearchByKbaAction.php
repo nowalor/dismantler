@@ -2,57 +2,42 @@
 
 namespace App\Actions\Parts;
 
-use App\Models\CarPartType;
-use App\Models\GermanDismantler;
+use App\Models\NewCarPart;
+use Illuminate\Database\Eloquent\Collection;
+use App\Actions\Parts\SortPartsAction;
 
-class SearchByKbaAction
+class SearchByOeAction
 {
-    /*
-     * Search for a part by KBA
-     * Can also parse a "type" to make the search more concise
-     */
     public function execute(
-        string      $hsn,
-        string      $tsn,
-        CarPartType $type = null,
-        int $paginate = null,
+        ?string $oem,
+        ?string $engine_code,
+        ?string $gearbox,
+        ?string $sort = null,
+        ?int $paginate = null
     ): array
     {
-        $germanDismantler = GermanDismantler::where('hsn', $hsn)
-            ->where('tsn', $tsn)
-            ->first();
+        $partsQuery = NewCarPart::query();
 
-        if (!$germanDismantler) {
-            return [
-                'success' => false,
-                'message' => "Kba not found, if you are sure it's typed correctly please contact us to let us know we are missing the kba",
-            ];
+        if (!empty($oem)) {
+            $partsQuery->where('original_number', $oem); 
         }
 
-        $partsQuery = $germanDismantler->newCarParts()
-            ->whereHas('carPartType', function ($query) use ($type) {
-                if ($type) {
-                    $query->where('id', $type->id);
-                }
-            })
-            ->with('carPartImages');
-
-        $parts = is_null($paginate)
-            ? $partsQuery->get()
-            : $partsQuery->paginate($paginate)->withQueryString();
-
-        if (!$parts) {
-            return [
-                'success' => false,
-                'message' => "No parts found matching the kba",
-            ];
+        if (!empty($engine_code)) {
+            $partsQuery->where('engine_code', $engine_code);
         }
+
+        if (!empty($gearbox)) {
+            $partsQuery->where('gearbox', $gearbox);
+        }
+
+        // Apply sorting
+        $partsQuery = (new SortPartsAction())->execute($partsQuery, $sort);
+
+        $parts = is_null($paginate) ? $partsQuery->get() : $partsQuery->paginate($paginate)();
 
         return [
-            'success' => true,
             'data' => [
                 'parts' => $parts,
-                'kba' => $germanDismantler,
             ],
         ];
     }

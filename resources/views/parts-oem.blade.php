@@ -23,8 +23,7 @@
             </div>
         </div>
         <h3 class="pt-4">Results</h3>
-        <x-part-list :parts="$parts"/>
-
+        <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-oem')"/>
         {{ $parts->links() }}
     </div>
 @endsection
