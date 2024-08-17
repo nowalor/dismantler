@@ -134,6 +134,7 @@ class AutoteileMarkDocService
 
         $description = "
             Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht mit im Lieferumfang enthalten. Mitglieferte Anbauteile sind von der Gewährleistung ausgeschlossen. \n
+            Currus connect ID: $carPart->article_nr \n
             Lagernummer: $carPart->article_nr \n
             Originale Ersatzteilnummer: $carPart->original_number \n
             Motor Kennung: $carPart->full_engine_code \n
