@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('question_category');
             $table->string('question');
             $table->string('answer');
+            $table->string('question_key'); // how_long_for_delivery
+            $table->string('answer_key'); // 3-4 Days
         });
     }
 

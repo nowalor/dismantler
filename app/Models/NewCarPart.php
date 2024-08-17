@@ -102,6 +102,7 @@ class NewCarPart extends Model
     public function getRawGearboxAttribute(): string
     {
         return $this->attributes['gearbox'];
+    }
     public function ditoNumber(): BelongsTo
     {
         return $this->belongsTo(DitoNumber::class);
