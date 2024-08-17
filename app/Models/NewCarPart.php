@@ -98,6 +98,10 @@ class NewCarPart extends Model
         );
     }
 
+    // New method to get raw gearbox value
+    public function getRawGearboxAttribute(): string
+    {
+        return $this->attributes['gearbox'];
     public function ditoNumber(): BelongsTo
     {
         return $this->belongsTo(DitoNumber::class);
@@ -118,6 +122,7 @@ class NewCarPart extends Model
         }]);
 
         return $this->sbrCode?->ditoNumbers?->pluck('germanDismantlers')->unique()->flatten() ?? collect([]);
+
     }
 
     public function getMyKbaAttribute()

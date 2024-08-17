@@ -5,43 +5,73 @@
                 $image = $part->carPartImages()->first();
             @endphp
             <img class="card-img-bottom mt-2" src="{{ $image->original_url }}" alt="Car part image"
-            style="width: 200px; height: 200px;">
+            style="width: 200px; height: 200px; border-radius: 12px;">
         @else
             <img class="card-img-bottom mt-2" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
-            style="width: 200px; height: 200px;">
+            style="width: 200px; height: 200px; border-radius: 12px;">
         @endif
     </td>
     <td>
         <p><span class="fw-bold">Name: </span>{{ $part->new_name }}</p>
-        <p><span class="fw-bold">Type: </span>{{ $part->carPartType->name }}</p>
-        <p><span class="fw-bold">Article number: </span>{{ $part->article_nr }}</p>
-        <p><span class="fw-bold">Original number: </span>{{ $part->original_number }}</p>
-        <p><span class="fw-bold">Fuel: </span>{{ $part->fuel }}</p>
-        <p><span class="fw-bold">Engine type: </span>{{ $part->engine_type }}</p>
-        <p><span class="fw-bold">Gearbox: </span>{{ $part->subgroup ?? $part->gearbox }}</p>
+        <p><span class="fw-bold">Quality: </span>{{ $part->quality }}</p>
+            @if($part->quality == '+A')
+                <p><strong>+A - </strong> Used - in very good condition.</p>
+            @elseif($part->quality == 'A')
+                <p><strong>A - </strong> Used - in good condition.</p>
+            @elseif($part->quality == 'A*')
+                <p><strong>A* - </strong> Used - with small mistakes.</p>
+            @elseif($part->quality == 'M')
+                <p><strong>M - </strong> Used - with many km or mistakes.</p>
+            @endif
     </td>
     <td>
-        <p><span class="fw-bold">Article number: </span>{{ $part->article_nr }}</p>
-        <p><span class="fw-bold">Original number: </span>notYet</p>
-        <p><span class="fw-bold">Vin: </span>{{ $part->vin }}</p>
-        <p><span class="fw-bold">Engine code: </span>{{ $part->engine_code }}</p>
-        <p><span class="fw-bold">Gearbox code: </span>notYet</p>
+        @if($part->original_number)
+            <p>
+                <span class="fw-bold">Original number: </span>
+                <a href="{{ request()->fullUrlWithQuery(['filter[original_number]' => $part->original_number]) }}">
+                    {{ $part->original_number }}
+                </a>
+            </p>
+        @endif
+        @if($part->article_nr)
+            <p>
+                <span class="fw-bold">Currus Connect ID: </span>
+                <a href="{{ request()->fullUrlWithQuery(['filter[article_nr]' => $part->article_nr]) }}">
+                    {{ $part->article_nr }}
+                </a>
+            </p>
+        @endif
+        @if($part->engine_type)
+            <p>
+                <span class="fw-bold">Engine type: </span>
+                <a href="{{ request()->fullUrlWithQuery(['filter[engine_type]' => $part->engine_type]) }}">
+                    {{ $part->engine_type }}
+                </a>
+            </p>
+        @endif
+        @if($part->gearbox)
+            <p>
+                <span class="fw-bold">Gearbox: </span>
+                <a href="{{ request()->fullUrlWithQuery(['filter[gearbox]' => $part->raw_gearbox]) }}">
+                    {{ $part->gearbox }}
+                </a>
+            </p>
+        @endif
     </td>
     <td>
-        <p><span class="fw-bold"></span>{{ $part->mileage_km }}</p>
+        <p><span class="fw-bold">Mileage: </span>{{ $part->mileage_km }}</p>
     </td>
     <td>
-        <p><span class="fw-bold"></span>{{ $part->model_year }}</p>
+        <p><span class="fw-bold">Model year: </span>{{ $part->model_year }}</p>
     </td>
     <td>
-        <p><span class="fw-bold"></span>({{  $part->quality }})</p>
+        <p><span class="fw-bold">Price: </span>{{ $part->price_sek }} SEK</p>
     </td>
     <td>
-        <p><span class="fw-bold"></span>{{ $part->price_sek }} SEK</p>
-    </td>
-    <td>
-        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">View part</a>
+        <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">View Part</a>
+        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">Checkout</a>
+        <div style="margin-top: 20px; font-size: 20px; text-align: center;">
+            <a href="/contact"><i class="fas fa-info-circle"></i></a>
+        </div>
     </td>
 </tr>
-
-

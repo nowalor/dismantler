@@ -1,6 +1,6 @@
-<form action="{{ route('car-parts.search-by-model') }}">
-    <div>
-        <div class="mb-3">
+<form action="{{ route('car-parts.search-by-model') }}" >
+    <div style="text-align: left;">
+        <div class="mb-3 mt-2">
             <label for="car_model" class="form-label">Brand*</label>
             <select class="form-select" name="brand" id="car_model" wire:model="selectedBrand"
                     wire:change="changeBrand">

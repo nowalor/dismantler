@@ -1,4 +1,5 @@
 <form action="{{ route('car-parts.search-by-oem') }}" method="GET">
+    <div style="text-align: left;">
     <div class="mb-3">
         <label for="oem" class="form-label">OEM</label>
         <input id="oem" type="text" class="form-control" name="oem" value="">
@@ -16,4 +17,5 @@
             Search
         </button>
     </div>
+</div>
 </form>

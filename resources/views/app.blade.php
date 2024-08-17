@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>@yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
-<body>
 <!-- As a heading -->
 @if(auth()->user() && auth()->user()->is_admin)
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -60,13 +60,14 @@
 
 <header class="sticky-top bg-dark">
     <nav class="container d-flex justify-content-between py-2">
-        <a href="{{ route('home') }}" class="d-flex gap-2 align-items-center text-decoration-none">
+        <a href="{{ route('landingpage') }}" class="d-flex gap-2 align-items-center text-decoration-none">
             <i style="font-size: 1.6rem;" class="fa fa-solid fa-car"></i>
             <h3 class="text-white">Autoteile</h3>
         </a>
         <ul class="nav">
             <li class="nav-item d-flex">
-                <a href="/car-parts" class="nav-link text-white">Parts</a>
+                <a href="/" class="nav-link text-white">Home</a>
+                <a href="/car-parts/search/by-name?search=" class="nav-link text-white">Parts</a>
                 <a href="{{ route('about-us') }}" class="nav-link text-white">About us</a>
                 <a href="{{ route('faq') }}" class="nav-link text-white">Faq</a>
                 <a href="{{ route('contact') }}" class="nav-link text-white">Contact</a>
@@ -88,11 +89,9 @@
     @yield('js')
 </body>
 <style>
-
     .cta {
-        background-image: url(' {{asset('img/homepage-banner.jpg') }}');
+        background-image: url(' {{asset('img/engine.jpg') }}');
         background-size: cover;
-
         height: calc(100vh - 56px);
         width: 100%;
         position: relative;
@@ -105,8 +104,14 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 3;
+    }
+
+    .cta > * {
+        position: relative;
         z-index: 4;
     }
+    
 </style>
 @stack('js')
 

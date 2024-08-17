@@ -1,3 +1,13 @@
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 10px; margin-top: 10px; padding: 5px;">
+    <p></p>
+    <div>
+        <form action="{{ route('car-parts.search-by-name') }}" method="GET" style="display: flex;">
+            <input type="text" name="search" class="form-control" placeholder="Search..." value="{{ request()->query('search') }}" style="width: 300px;">
+            <button type="submit" class="btn btn-primary" style="margin-left: 5px;">Search</button>
+        </form>
+    </div>
+</div>
+
 <div class="table">
     <table class="table table-hover">
         <thead>
@@ -17,13 +27,6 @@
                         <a href="{{ route('car-parts.search-by-model', ['sort' => 'model_year_asc'] + request()->query()) }}">Model Year ▲</a>
                     @else
                         <a href="{{ route('car-parts.search-by-model', ['sort' => 'model_year_desc'] + request()->query()) }}">Model Year ▼</a>
-                    @endif
-                </th>
-                <th scope="col">
-                    @if(request()->query('sort') == 'quality_desc')
-                        <a href="{{ route('car-parts.search-by-model', ['sort' => 'quality_asc'] + request()->query()) }}">Quality ▲</a>
-                    @else
-                        <a href="{{ route('car-parts.search-by-model', ['sort' => 'quality_desc'] + request()->query()) }}">Quality ▼</a>
                     @endif
                 </th>
                 <th scope="col">

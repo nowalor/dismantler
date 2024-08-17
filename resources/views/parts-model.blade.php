@@ -4,9 +4,8 @@
     <div class="container">
         <div class="row pt-4">
             <h3>OEM search</h3>
-            <div class="col-6">
+            <div class="col-6 pt-2">
                 <div class="card">
-                    <div class="card-header">Your search</div>
                     <div class="card-body">
                         <form action=" {{ route('car-parts.search-by-oem') }}">
                             <div class="mb-3">
@@ -38,7 +37,6 @@
                 </div>
             </div>
         </div>
-        <h3 class="pt-4">Results</h3>
         <x-part-list :parts="$parts"/>
         {{ $parts->links() }}
     </div>

@@ -13,14 +13,33 @@ class SearchByModelAction
         CarPartType $type = null,
         string $sort = null,
         int $paginate = null,
-    ): array
-    {
+        array $filters = [] // New parameter for filters
+    ): array {
         $sbr = $model->sbrCodes()->first();
-
         $partQuery = $sbr->carParts();
 
-        if($type) {
+        if ($type) {
             $partQuery->where('car_part_type_id', $type->id);
+        }
+
+        foreach ($filters as $key => $value) {
+            switch ($key) {
+                case 'original_number':
+                    $partQuery->where('original_number', 'LIKE', "%{$value}%");
+                    break;
+                case 'article_nr':
+                    $partQuery->where('article_nr', 'LIKE', "%{$value}%");
+                    break;
+                case 'engine_type':
+                    $partQuery->where('engine_type', 'LIKE', "%{$value}%");
+                    break;
+                case 'gearbox':
+                    $partQuery->where(function ($query) use ($value) {
+                        $query->where('subgroup', 'LIKE', "%{$value}%")
+                              ->orWhere('gearbox', 'LIKE', "%{$value}%");
+                    });
+                    break;
+            }
         }
 
         // Sort based on query parameter

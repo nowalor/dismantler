@@ -8,11 +8,14 @@
             </div>
         @endif
         <div class="col-6">
+            <div class="col-6">
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-primary mt-4">Admin Dashboard </a>
+            </div>
             <h1 class="pt-4">
                 Admin - Dito Numbers
             </h1>
             <p>Here you are able to view statistical information on the dito numbers and do some operations on them. You
-                can:</p>
+                can:</p> 
             <ol class="list-group list-group-numbered">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">

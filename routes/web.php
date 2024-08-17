@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsPageController;
 use App\Http\Controllers\AdminConnectMultipleKbaToEngineTypeController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminEngineTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\GermanDismantlerController;
 use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 use App\Http\Controllers\browseCarParts;
+use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\TemporaryLandingPageController;
 
@@ -53,14 +55,13 @@ Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
-// this is the correct HomePageController with search
-// Route::get('', HomepageController::class)->name('home');
+// this is the correct HomePageController with search, old design
+//Route::get('', HomepageController::class)->name('home');
 // currently using this for now until currusConnect production ready
-Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
+//Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
 
-//Route::get('', LandingPageController::class)->name('returnLandingPage');
-//Route::get('browse', [BrowseCarParts::class, 'browseCarParts'] );
-
+Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
+Route::get('browse', [BrowseCarParts::class, 'browseCarParts'])->name("browse");
 
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
@@ -79,7 +80,10 @@ Route::resource('car-parts', CarPartController::class);
 Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
 Route::get('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
 Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
+Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
+// full view of individual car part
+Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -94,6 +98,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
         ->only(['index','show', 'store', 'destroy']);
+
+        // dashboard where admin can see how many car-parts we are uploading to ebay, autoteile-markt and hood.de - work in progress
+    Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
 
