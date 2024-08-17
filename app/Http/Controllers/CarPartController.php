@@ -196,7 +196,7 @@ class CarPartController extends Controller {
     $partTypes = CarPartType::all();
 
     return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
-    }
+}
 
 
     private function redirectBack(array $errors): RedirectResponse {
