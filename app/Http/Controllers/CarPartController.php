@@ -107,6 +107,7 @@ class CarPartController extends Controller {
         'model_year',
         'engine_type',
         'fuel',
+        'price_sek'
     ])->with('carPartType');
 
     // If a search query is present, filter the results
@@ -120,7 +121,8 @@ class CarPartController extends Controller {
                   ->orWhere('mileage_km', 'like', "%$search%")
                   ->orWhere('model_year', 'like', "%$search%")
                   ->orWhere('engine_type', 'like', "%$search%")
-                  ->orWhere('fuel', 'like', "%$search%");
+                  ->orWhere('fuel', 'like', "%$search%")
+                  ->orWhere('price_sek', 'like', "%$search%");
         });
     }
 

@@ -29,10 +29,10 @@ class SortPartsAction
                     $query->orderBy('quality', 'desc');
                     break;
                 case 'price_asc':
-                    $query->orderBy('price3', 'asc');
+                    $query->orderBy('price_sek', 'asc');
                     break;
                 case 'price_desc':
-                    $query->orderBy('price3', 'desc');
+                    $query->orderBy('price_sek', 'desc');
                     break;
                 default:
                     // Default sort (optional)
