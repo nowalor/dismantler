@@ -2,7 +2,7 @@
 @section('title', 'Currus Connect - Car Parts')
 @section('content')
 <div class="container mt-3">
-    <h1 class="large-text font-bold">Product Details</h1>
+    <h1 class="large-text font-bold">{{__('product-details')}}</h1>
     <div class="row">
         <!-- Product Image -->
         <div class="col-md-6 text-center pt-2">
@@ -24,33 +24,33 @@
         <div class="col-md-6 pt-2">
             <div class="card shadow-sm mb-2">
                 <div class="card-body">
-                    <h3 class="fw-bold large-text">{{ $part->sbr_car_name }}</h3> 
+                    <h3 class="fw-bold large-text">{{ $part->new_name }}</h3> 
                     <h4 class="text-primary large-text">{{ number_format($part->price_sek, 2) }} SEK <span class="text-muted">Incl. VAT</span> <a href="/contact"><i class="fas fa-info-circle ml-2"></i></a></h4>
                     <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100 mt-4 mb-4">Checkout</a>
                     <p><span class="fw-bold">Currus Connect ID: </span>{{ $part->article_nr }}</p>
-                    <p><span class="fw-bold">Type of spare part: </span>Used</p>
-                    <p><span class="fw-bold">Engine code: </span>{{ $part->engine_type }}</p>
-                    <p><span class="fw-bold">Gearbox: </span>{{ $part->gearbox }}</p>
-                    <p><span class="fw-bold">Quality: </span>{{ $part->quality }}</p>
-                        @if($part->quality == '+A')
-                            <p><strong>+A - </strong> Used - in very good condition.</p>
-                        @elseif($part->quality == 'A')
-                            <p><strong>A - </strong> Used - in good condition.</p>
-                        @elseif($part->quality == 'A*')
-                            <p><strong>A* - </strong> Used - with small mistakes.</p>
-                        @elseif($part->quality == 'M')
-                            <p><strong>M - </strong> Used - with many km or mistakes.</p>
-                        @endif
-                    <p><span class="fw-bold">Original number: </span>{{ $part->original_number}}</p>
-                    <p><span class="fw-bold">Chassi number: </span> {{ $part->vin }} </p>
-                    <p><span class="fw-bold">Model Year: </span>{{ $part->model_year }}</p>
-                    <p><span class="fw-bold">Mileage:</span>
+                    <p><span class="fw-bold">{{__('type-of-spare')}}: </span>{{__('used-part')}}</p>
+                    <p><span class="fw-bold">{{__('car-part-engine-type')}}: </span>{{ $part->engine_type }}</p>
+                    <p><span class="fw-bold">{{__('car-info-gearbox')}}: </span>{{ $part->gearbox }}</p>
+                    <p><span class="fw-bold">{{__('car-info-quality')}}: </span>{{ $part->quality }}</p>
+                    @if($part->quality == 'A+')
+                    <p><strong>A+ </strong>{{__('car-quality-A+')}}</p>
+                @elseif($part->quality == 'A')
+                    <p><strong>A </strong>{{__('car-quality-A')}}</p>
+                @elseif($part->quality == 'A*')
+                    <p><strong>A* </strong>{{__('car-quality-A*')}}</p>
+                @elseif($part->quality == 'M')
+                    <p><strong>M </strong>{{__('car-quality-M')}}</p>
+                @endif
+                    <p><span class="fw-bold">{{__('car-part-original')}}: </span>{{ $part->original_number}}</p>
+                    <p><span class="fw-bold">{{__('chassi-nr')}}: </span> {{ $part->vin }} </p>
+                    <p><span class="fw-bold">{{__('car-part-modelyear')}}: </span>{{ $part->model_year }}</p>
+                    <p><span class="fw-bold">{{__('car-part-mileage')}}:</span>
                     @if($part->mileage_km == 999) 
-                        <strong>Unknown</strong>
+                        <strong>{{__('unknown-message')}}</strong>
                     @else
                         {{ $part->mileage_km }} KM
                     @endif
-                    <p><span class="fw-bold">Fuel Type: </span>{{ $part->fuel }}</p>
+                    <p><span class="fw-bold">{{__('fuel-type')}}: </span>{{ $part->fuel }}</p>
                 </div>
             </div>
         </div>

@@ -12,22 +12,22 @@
         @endif
     </td>
     <td>
-        <p><span class="fw-bold">Name: </span>{{ $part->new_name }}</p>
-        <p><span class="fw-bold">Quality: </span>{{ $part->quality }}</p>
-            @if($part->quality == '+A')
-                <p><strong>+A - </strong> Used - in very good condition.</p>
+        <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->new_name }}</p>
+        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>{{ $part->quality }}</p>
+            @if($part->quality == 'A+')
+                <p><strong>A+ </strong>{{__('car-quality-A+')}}</p>
             @elseif($part->quality == 'A')
-                <p><strong>A - </strong> Used - in good condition.</p>
+                <p><strong>A </strong>{{__('car-quality-A')}}</p>
             @elseif($part->quality == 'A*')
-                <p><strong>A* - </strong> Used - with small mistakes.</p>
+                <p><strong>A* </strong>{{__('car-quality-A*')}}</p>
             @elseif($part->quality == 'M')
-                <p><strong>M - </strong> Used - with many km or mistakes.</p>
+                <p><strong>M </strong>{{__('car-quality-M')}}</p>
             @endif
     </td>
     <td>
         @if($part->original_number)
             <p>
-                <span class="fw-bold">Original number: </span>
+                <span class="fw-bold">{{__('car-part-original')}}: </span>
                 <a href="{{ request()->fullUrlWithQuery(['filter[original_number]' => $part->original_number]) }}">
                     {{ $part->original_number }}
                 </a>
@@ -43,7 +43,7 @@
         @endif
         @if($part->engine_type)
             <p>
-                <span class="fw-bold">Engine type: </span>
+                <span class="fw-bold">{{__('car-part-engine-type')}}: </span>
                 <a href="{{ request()->fullUrlWithQuery(['filter[engine_type]' => $part->engine_type]) }}">
                     {{ $part->engine_type }}
                 </a>
@@ -51,7 +51,7 @@
         @endif
         @if($part->gearbox)
             <p>
-                <span class="fw-bold">Gearbox: </span>
+                <span class="fw-bold">{{__('car-info-gearbox')}}: </span>
                 <a href="{{ request()->fullUrlWithQuery(['filter[gearbox]' => $part->raw_gearbox]) }}">
                     {{ $part->gearbox }}
                 </a>
@@ -59,17 +59,17 @@
         @endif
     </td>
     <td>
-        <p><span class="fw-bold">Mileage: </span>{{ $part->mileage_km }}</p>
+        <p><span class="fw-bold">{{__('car-part-mileage')}}: </span>{{ $part->mileage_km }}</p>
     </td>
     <td>
-        <p><span class="fw-bold">Model year: </span>{{ $part->model_year }}</p>
+        <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td>
-        <p><span class="fw-bold">Price: </span>{{ $part->price_sek }} SEK</p>
+        <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->price_sek }} SEK</p>
     </td>
     <td>
-        <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">View Part</a>
-        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">Checkout</a>
+        <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>
+        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">{{__('car-checkout')}}</a>
         <div style="margin-top: 20px; font-size: 20px; text-align: center;">
             <a href="/contact"><i class="fas fa-info-circle"></i></a>
         </div>
