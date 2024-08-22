@@ -60,7 +60,7 @@ Route::get('', LandingPageController::class)->name("landingpage"); // homepage w
 Route::get('browse', [BrowseCarParts::class, 'browseCarParts'])->name("browse");
 
 Route::get('lang/{locale}', function ($locale) {
-    if (in_array($locale, ['en', 'dk'])) {
+    if (in_array($locale, ['en', 'ge', 'dk', 'se'])) {
         session(['locale' => $locale]);
     }
     return redirect()->back();

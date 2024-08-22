@@ -3,11 +3,11 @@
 
 <div class="container my-5">
     <div class="text-center">
-        <h1 class="display-4 text-success">About Us</h1>
-        <p class="lead text-muted">Learn more about Currus Connect, your trusted partner in automotive parts and accessories.</p>
+        <h1 class="display-4 text-success">{{__('about-header')}}</h1>
+        <p class="lead text-muted">{{__('about-intro')}}</p>
     </div>
         <p class="mt-4 font-italic text-center">
-            Thank you for choosing <strong>Currus Connect</strong> – your trusted source for motor vehicle parts and accessories.
+            {{__('about-text-one')}} <strong>{{__('currus-connect')}}</strong> {{__('about-text-two')}}
         </p>
     </div>
 </div>

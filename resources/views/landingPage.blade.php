@@ -3,12 +3,17 @@
 
 <div class="cta">
     <div class="text-center mx-auto">
-        <img src="logo/currus.png" alt="" srcset="">
+        <img src="" alt="" srcset="">
         <h1 class="display-1 fw-bold d-inline-block position-relative underline-text">
             <span class="text-success">CURR</span><span class="text-white">US</span>
         </h1>
         <h2 class="display-4 fw-bold text-white">{{ __('car-parts') }}</h2>
     </div>
+
+    {{-- logo placement is correct, just need the proper logo.png file --}}
+    {{-- <div class="d-flex justify-content-center text-center mx-auto">
+        <img src="img/logo.uk.png" style="max-width: 30rem; max-height: 50rem;" alt="logo img" srcset="">
+    </div> --}}
 
     <div class="d-flex justify-content-center align-items-center mt-3">
         <div class="text-center">

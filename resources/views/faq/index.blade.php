@@ -3,16 +3,15 @@
     <div class="container pt-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Faq</li>
+                <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">{{__('home')}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{__('faq')}}</li>
             </ol>
         </nav>
         <h3 class="text-center pt-2">
-            FAQ
+            {{__('faq')}}
         </h3>
         <p class="text-center lead">
-            This is the FAQ page. Here you can find a list of frequently asked questions. Not finding what your looking
-            for?<a class="link-primary" href="{{ route('contact') }}"> Send us an email.</a>
+            {{__('faq-intro')}}<a class="link-primary" href="{{ route('contact') }}"> <br> {{__('faq-email-msg')}}</a>
         </p>
 
         <div class="col-10 mx-auto pt-5">
