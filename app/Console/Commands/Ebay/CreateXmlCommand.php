@@ -51,8 +51,9 @@ class CreateXmlCommand extends Command
     {
         $optimalParts = new Collection();
 
-        $originalNumbers = NewCarPart::whereIn('car_part_type_id', [1])
-//        whereIn('car_part_type_id', [1,2,3,4,5,6,7])
+        $originalNumbers = NewCarPart::
+        //whereIn('car_part_type_id', [1])
+        whereIn('car_part_type_id', [1,2,3,4,5,6,7])
             ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
@@ -81,7 +82,7 @@ class CreateXmlCommand extends Command
             //->distinct('original_number')
             ->get();
 
-        return $originalNumbers;
+        //return $originalNumbers;
 
         foreach ($originalNumbers as $originalNumber) {
             $parts = (new GetOptimalPartsAction())->execute(
