@@ -76,11 +76,11 @@ class CreateXmlCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(50)
-//            ->distinct('original_number')
+            ->take(10)
+            //->distinct('original_number')
             ->get();
 
-        return $originalNumbers;
+        return $optimalParts;
 
         foreach ($originalNumbers as $originalNumber) {
             $parts = (new GetOptimalPartsAction())->execute(
