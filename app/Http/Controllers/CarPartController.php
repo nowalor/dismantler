@@ -143,7 +143,7 @@ class CarPartController extends Controller {
     $dismantleCompanies = DismantleCompany::all();
 
     // Return the view with the data
-    return view('parts-name', compact(
+    return view('browse-car-parts', compact(
         'parts',
         'partTypes',
         'dismantleCompanies',

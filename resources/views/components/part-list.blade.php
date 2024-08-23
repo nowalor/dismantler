@@ -11,7 +11,7 @@
 <div class="table">
     <table class="table table-hover">
         <thead>
-            <tr style="background-color:#b3b2b2; color: #000000;">
+            <tr style="background-color:#6d6d6d; color: #dddddd;">
                 <th scope="col"></th>
                 <th scope="col">{{__("car-part-information")}}</th>
                 <th scope="col">{{__("car-part-article")}}</th>
