@@ -47,11 +47,11 @@
                     <div class="card bg-dark text-white">
                         <div class="card-body">
                             <p>
-                                <strong>Brand:</strong> {{ $dito->producer }} |
-                                <strong>Model:</strong> {{ $dito->new_name }}
+                                <strong>{{__('model-brand')}}:</strong> {{ $dito->producer }} |
+                                <strong>{{__('model-model')}}:</strong> {{ $dito->new_name }}
                                 
                                 @if($type && !empty($type->name))
-                                    | <strong>Part Type:</strong> {{ $type->name }}
+                                    | <strong>{{__('model-part-type')}}:</strong> {{ $type->name }}
                                 @endif
                             </p>
                         </div>

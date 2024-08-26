@@ -48,17 +48,17 @@
                         <div class="card-body">
                             <p>
                                 @if(!empty($oem))
-                                    <strong>OEM:</strong> {{ $oem }}
+                                    <strong>{{__('oem-oem')}}:</strong> {{ $oem }}
                                 @endif
                             
                                 @if(!empty($engine_code))
                                     @if(!empty($oem)) | @endif
-                                    <strong>Engine Code:</strong> {{ $engine_code }}
+                                    <strong>{{__('oem-engine-code')}}:</strong> {{ $engine_code }}
                                 @endif
                             
                                 @if(!empty($gearbox))
                                     @if(!empty($oem) || !empty($engine_code)) | @endif
-                                    <strong>Gearbox Code:</strong> {{ $gearbox }}
+                                    <strong>{{__('oem-gearbox-code')}}:</strong> {{ $gearbox }}
                                 @endif
                             </p>
                         </div>
