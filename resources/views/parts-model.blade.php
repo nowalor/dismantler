@@ -1,44 +1,66 @@
 @extends('app')
+
 @section('title', 'Parts - Model / brand / type search')
+
 @section('content')
-    <div class="container">
-        <div class="row pt-4">
-            <h3>OEM search</h3>
-            <div class="col-6 pt-2">
-                <div class="card">
-                    <div class="card-body">
-                        <form action=" {{ route('car-parts.search-by-model') }}">
-                            <div class="mb-3">
-                                <label class="label" for="oem">Brand</label>
-                                <input class="form-control" type="text" id="oem" name="oem" value="{{ $dito->producer }}">
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="label" for="oem">Brand</label>
-                                <input class="form-control" type="text" id="oem" name="oem" value="{{ $dito->new_name }}">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="type" class="form-label">Part of type</label>
-                                <select name="type_id" id="type" class="form-select">
-                                    <option value="-1" selected disabled>Select a type</option>
-                                    @foreach($types as $typeItem)
-                                        <option @if($typeItem->id === $type?->id) selected
-                                                @endif value="{{ $typeItem->id }}">{{ $typeItem->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <button class="btn btn-primary w-100">Search</button>
-                            </div>
-                        </form>
-                    </div>
+<div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/engine.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+    <div class="d-flex flex-grow-1">
+        {{-- LEFT SIDE MENU BAR // PARTS NAVIGATION BAR 1/4 --}}
+        <div class="d-flex flex-column w-25 bg-dark text-white" style="opacity: 0.85;">
+            <div class="px-5 flex-grow-1">
+                <!-- Navigation links -->
+                <h1 class="display-5 font-weight-bold mt-3 ml-2 pt-4">PARTS</h1>
+                <nav class="mt-4">
+                    <ul class="list-unstyled">
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">All</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Motors</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Gearboxes</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Underbody</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Car Interior</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Car Exterior</a></li>
+                        <hr>
+                        <li class="py-3 px-4"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.5rem;">Contact Us</a></li>
+                        <hr>
+                    </ul>
+                </nav>
+                <div class="d-flex justify-content-start pt-6">
+                    <ul class="list-unstyled d-flex">
+                        <li class="mx-3"><a class="fab fa-facebook text-white" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/" style="font-size: 2.3rem;"></a></li>
+                        <li class="mx-3"><a class="fab fa-linkedin text-white" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/" style="font-size: 2.3rem;"></a></li>
+                        <li class="mx-3"><a class="fab fa-instagram text-white" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/" style="font-size: 2.3rem;"></a></li>
+                        <li class="mx-3"><a class="fab fa-twitter text-white" rel="noopener noreferrer" target="_blank" href="https://twitter.com/?lang=da" style="font-size: 2.3rem;"></a></li>
+                    </ul>    
                 </div>
             </div>
         </div>
-        <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-model')"/>
-        {{ $parts->links() }}
-    </div>
-@endsection
 
+        {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
+        <div class="container bg-dark text-white flex-grow-1" style="opacity: 0.95;">
+            <div class="row pt-2">
+                <div class="col-12">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <p>
+                                <strong>Brand:</strong> {{ $dito->producer }} |
+                                <strong>Model:</strong> {{ $dito->new_name }}
+                                
+                                @if($type && !empty($type->name))
+                                    | <strong>Part Type:</strong> {{ $type->name }}
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-model')"/>
+            {{ $parts->links() }}
+        </div>
+    </div>
+</div>
+@endsection
