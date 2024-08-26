@@ -82,6 +82,7 @@ class CreateXmlCommand extends Command
             //->distinct('original_number')
             ->get();
 
+        logger($originalNumbers->count());
         return $originalNumbers;
 
         foreach ($originalNumbers as $originalNumber) {
