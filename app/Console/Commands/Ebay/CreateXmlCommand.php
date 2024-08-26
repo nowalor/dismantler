@@ -61,6 +61,8 @@ class CreateXmlCommand extends Command
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
             ->whereNotNull('original_number')
+            ->whereNot('brand_name', 'like', '%mer%')
+            ->whereNot('brand_name', 'like', '%bmw%')
             ->whereNotNull('price_eur')
             ->where(function ($q) {
                 $q->where('fuel', 'Diesel')
@@ -70,7 +72,9 @@ class CreateXmlCommand extends Command
                 $q->whereNotNull('image_name_blank_logo');
             })
             ->whereHas('germanDismantlers.kTypes')
-            ->with('germanDismantlers.kTypes')
+            ->with("germanDismantlers", function ($q) {
+                $q->whereHas("kTypes")->with("kTypes");
+            })
             ->where(function ($query) {
                 $query->where('dismantle_company_name', '!=', 'F')
                     ->orWhere(function ($subQuery) {

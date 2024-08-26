@@ -75,7 +75,6 @@ class ExportPartsCommand extends Command
     {
         return NewCarPart::
         whereNotNull('engine_code')
-
             ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
             ->whereHas("carPartImages", function ($query) {

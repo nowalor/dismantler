@@ -53,6 +53,8 @@ class EbayApiService
 
         $xmlName = (new AddProductToXmlFileAction())->execute($formattedParts);
 
+        logger("here: $xmlName");
+
         return (new FtpFileUploadAction())->execute(
             '/store/product',
             base_path("public/exports/$xmlName"),
