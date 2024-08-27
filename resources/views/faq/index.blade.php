@@ -29,13 +29,13 @@
             <!-- Tab content for each category -->
             <div class="tab-content pt-3" id="faqTabContent">
                 @foreach($questionCategories as $index => $questionCategory)
-                    @if(isset($questions[$questionCategory]))
+                    @if(isset($faqs[$questionCategory]))
                         <div class="tab-pane fade @if($index == 0) show active @endif" id="content-{{ $questionCategory }}" role="tabpanel" aria-labelledby="tab-{{ $questionCategory }}">
                             <div class="list-group">
-                                @foreach($questions[$questionCategory] as $question)
+                                @foreach($faqs[$questionCategory] as $faq)
                                     <div class="list-group-item">
-                                        <h5 class="faq-question">{{ $question->question }}</h5>
-                                        <p>{{ $question->answer }}</p>
+                                        <h5 class="faq-question">{{ $faq['question'] }}</h5>
+                                        <p>{{ $faq['answer'] }}</p>
                                     </div>
                                 @endforeach
                             </div>

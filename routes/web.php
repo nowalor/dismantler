@@ -24,6 +24,7 @@ use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\TemporaryLandingPageController;
 
+
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
@@ -65,6 +66,7 @@ Route::get('lang/{locale}', function ($locale) {
     }
     return redirect()->back();
 })->name('change.language');
+
 
 
 Route::get('faq', FaqPageController::class)->name('faq');
