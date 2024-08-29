@@ -1,0 +1,104 @@
+{
+    "currus-connect": "Currus Connect",
+
+    "//": "navbar",
+    "home": "Home",
+    "parts": "Parts",
+    "about-us": "About Us",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "language": "Language",
+    
+
+    "//": "For LandingPage",
+    "car-parts": "CAR PARTS",
+    "browse": "BROWSE ALL",
+    "kba-search": "SEARCH BY HSN + TSN",
+    "kba-search-info": "Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to find car parts for your car.",
+    "kba-part-type": "Part of type",
+    "kba-search-placeholder": "Select a type",
+    "kba-search-button": "Search",
+
+    "model-search": "SEARCH BY CAR MODEL",
+    "model-search-info": "If you don't know the HSN and TSN or you want a more open search you can search by car model.",
+    "model-brand": "Brand",
+    "model-model": "Model",
+    "model-part-type": "Part of type",
+    "model-brand-placeholder": "Select car brand",
+    "model-model-placeholder": "Select car model",
+    "model-search-placeholder": "Select a type",
+    "model-search-button": "Search",
+
+    "oem-search": "SEARCH BY OEM",
+    "oem-search-info": "Very detailed search that you can use if you have the original spare part number (OEM), gearbox code, or engine code.",
+    "oem-oem": "OEM",
+    "oem-engine-code": "Engine code",
+    "oem-gearbox-code": "Gearbox code",
+    "oem-search-button": "Search",
+
+
+    "//": "For car-parts",
+    "car-parts-header": "Results",
+    "car-search-placeholder": "AUDI A4 ...",
+    "car-search-button": "Search",
+    "car-search-errormessage": "No parts were found matching this query",
+
+    "car-part-information": "Part information",
+    "car-info-name": "Name",
+    "car-info-quality": "Quality",
+    "car-info-gearbox": "Gearbox",
+
+    "car-part-article": "Article number",
+    "car-part-original": "Original number",
+    "car-part-engine-type": "Engine type",
+
+    "car-part-odometer": "Odometer (KM)",
+    "car-part-mileage": "Mileage", 
+
+    "car-part-modelyear": "Model Year",
+    "car-part-price": "Price", 
+    "car-part-actions": "Action",
+
+    "car-quality-A+": "Used - in very good condition",
+    "car-quality-A": "Used - in good condition",
+    "car-quality-A*": "Used - with small mistakes",
+    "car-quality-M": "Used - with many KM or mistakes",
+
+    "car-view-part": "View Part",
+    "car-checkout": "Checkout",
+
+    "//": "For car part fullview",
+    "product-details": "Product Details",
+    "type-of-spare": "Type of spare part",
+    "used-part": "Used",
+    "chassi-nr": "Chassi number",
+    "uknown-message": "Unknown",
+    "fuel-type": "Fuel type",
+
+
+    "//": "About-Us",
+    "about-header": "About Us",
+    "about-intro": "Learn more about Currus Connect, your trusted partner in automotive parts and accessories.",
+    "about-text-one": "Thank you for choosing",
+    "about-text-two": "- your trusted source for motor vehicle parts and accessories.",
+
+    "//": "FAQ",
+    "faq-intro": "This is the FAQ page. Here you can find a list of frequently asked questions. Not finding what your looking for?",
+    "faq-email-msg": "Send us an email.",
+    "faq-question": "question",
+    "faq-answer": "answer",
+    "faq-translation_key": "",
+
+
+    "//": "Contact",
+    "contact-us": "Contact us",
+    "contact-asap": "And we will get back to you as soon as possible",
+    "contact-before": "Before you contact us please check if there is already an answer to your question in our",
+    "contact-form-name": "Name",
+    "contact-form-subject": "Subject",
+    "contact-form-email": "Email address",
+    "contact-form-message": "Message",
+    "contact-form-submit": "Submit"    
+    
+
+}

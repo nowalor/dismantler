@@ -1,0 +1,99 @@
+{
+    "currus-connect": "Currus Connect",
+
+    "//": "navbar",
+    "home": "Startseite",
+    "parts": "Teile",
+    "about-us": "Über uns",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "language": "Sprache",
+    
+    "//": "For LandingPage",
+    "car-parts": "AUTOTEILE",
+    "browse": "ALLE DURCHSUCHEN",
+    "kba-search": "SUCHE NACH HSN + TSN",
+    "kba-search-info": "Suchen Sie nach einem bestimmten Auto, wenn Sie die HSN und TSN kennen. Dies ist die genaueste und schnellste Möglichkeit, Autoteile für Ihr Fahrzeug zu finden.",
+    "kba-part-type": "Teiletyp",
+    "kba-search-placeholder": "Wählen Sie einen Typ",
+    "kba-search-button": "Suchen",
+
+    "model-search": "SUCHE NACH AUTOMODELL",
+    "model-search-info": "Wenn Sie die HSN und TSN nicht kennen oder eine umfassendere Suche wünschen, können Sie nach Automodell suchen.",
+    "model-brand": "Marke",
+    "model-model": "Modell",
+    "model-part-type": "Teiletyp",
+    "model-brand-placeholder": "Wählen Sie eine Marke",
+    "model-model-placeholder": "Wählen Sie ein Modell",
+    "model-search-placeholder": "Wählen Sie einen Typ",
+    "model-search-button": "Suchen",
+
+    "oem-search": "SUCHE NACH OEM",
+    "oem-search-info": "Sehr detaillierte Suche, die Sie verwenden können, wenn Sie die Original-Ersatzteilnummer (OEM), Getriebecode oder Motorkennzeichen haben.",
+    "oem-oem": "OEM",
+    "oem-engine-code": "Motorkennzeichen",
+    "oem-gearbox-code": "Getriebecode",
+    "oem-search-button": "Suchen",
+
+    "//": "For car-parts",
+    "car-parts-header": "Ergebnisse",
+    "car-search-placeholder": "AUDI A4 ...",
+    "car-search-button": "Suchen",
+    "car-search-errormessage": "Keine Teile wurden gefunden, die dieser Abfrage entsprechen",
+
+    "car-part-information": "Teileinformationen",
+    "car-info-name": "Name",
+    "car-info-quality": "Qualität",
+    "car-info-gearbox": "Getriebe",
+
+    "car-part-article": "Artikelnummer",
+    "car-part-original": "Originalnummer",
+    "car-part-engine-type": "Motortyp",
+
+    "car-part-odometer": "Kilometerzähler (KM)",
+    "car-part-mileage": "Kilometerstand", 
+
+    "car-part-modelyear": "Modelljahr",
+    "car-part-price": "Preis", 
+    "car-part-actions": "Aktion",
+
+    "car-quality-A+": "Gebraucht - in sehr guten Zustand",
+    "car-quality-A": "Gebraucht - guter Zustand",
+    "car-quality-A*": "Gebraucht - mit kleinen Fehlern",
+    "car-quality-M": "Gebraucht - mit hoher Laufleistung oder Fehlern",
+
+    "car-view-part": "Teil anzeigen",
+    "car-checkout": "Zur Kasse",
+
+    "//": "For car part fullview",
+    "product-details": "Produktdetails",
+    "type-of-spare": "Art des Ersatzteils",
+    "used-part": "Gebraucht",
+    "chassi-nr": "Fahrgestellnummer",
+    "uknown-message": "Unbekannt",
+    "fuel-type": "Kraftstoffart",
+
+
+    "//": "About-Us",
+    "about-header": "Über uns",
+    "about-intro": "Erfahren Sie mehr über Currus Connect, Ihren vertrauenswürdigen Partner für Autoersatzteile und Zubehör.",
+    "about-text-one": "Vielen Dank, dass Sie sich für",
+    "about-text-two": "- Ihre vertrauenswürdige Quelle für Autoteile und Zubehör entschieden haben.",
+
+    "//": "FAQ",
+    "faq-intro": "Dies ist die FAQ-Seite. Hier finden Sie eine Liste der häufig gestellten Fragen. Finden Sie nicht, wonach Sie suchen?",
+    "faq-email-msg": "Senden Sie uns eine E-Mail.",
+    "faq-question": "Frage",
+    "faq-answer": "Antwort",
+
+
+    "//": "Contact",
+    "contact-us": "Kontaktieren Sie uns",
+    "contact-asap": "Und wir werden uns so schnell wie möglich bei Ihnen melden",
+    "contact-before": "Bevor Sie uns kontaktieren, überprüfen Sie bitte, ob die Antwort auf Ihre Frage bereits in unserem",
+    "contact-form-name": "Name",
+    "contact-form-subject": "Betreff",
+    "contact-form-email": "E-Mail-Adresse",
+    "contact-form-message": "Nachricht",
+    "contact-form-submit": "Absenden"
+}

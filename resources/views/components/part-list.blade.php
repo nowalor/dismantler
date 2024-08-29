@@ -1,4 +1,5 @@
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 10px; margin-top: 10px; padding: 5px;">
+<div style="display: flex; justify-content: space-between; align-items: center; 
+    border: 1px solid #ccc; border-radius: 10px; margin: 0.5rem 0; padding: 5px; opacity: 0.95;">
     <p></p>
     <div>
         <form action="{{ $sortRoute }}" method="GET" style="display: flex;">
@@ -13,7 +14,7 @@
         <thead>
             <tr style="background-color:#6d6d6d; color: #dddddd;">
                 <th scope="col"></th>
-                <th scope="col">{{__("car-part-information")}}</th>
+                <th scope="col" style="width: 20rem;">{{__("car-part-information")}}</th>
                 <th scope="col">{{__("car-part-article")}}</th>
                 <th scope="col">
                     @if(request()->query('sort') == 'mileage_desc')
@@ -30,11 +31,12 @@
                     @endif
                 </th>
                 <th scope="col">
-                    @if(request()->query('sort') == 'price_desc')
+                    <p>{{__('car-part-price')}}</p> {{-- only for now solution under this comment works. --}}
+                    {{-- @if(request()->query('sort') == 'price_desc')
                         <a href="{{ $sortRoute }}?sort=price_asc&{{ http_build_query(request()->except('sort')) }}">{{__("car-part-price")}} ▲</a>
                     @else
                         <a href="{{ $sortRoute }}?sort=price_desc&{{ http_build_query(request()->except('sort')) }}">{{__("car-part-price")}} ▼</a>
-                    @endif
+                    @endif --}}
                 </th>
                 <th scope="col">{{__("car-part-actions")}}</th>
             </tr>

@@ -65,7 +65,9 @@
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td class="text-white">
-        <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->price_sek }} SEK</p>
+        {{-- commented out for now, until all prices are correctly calculated for each currency/language --}}
+        {{-- <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->price_sek }} SEK</p> --}}
+        <p><span class="fw-bold">{{__('car-part-price')}}: </span><a href="{{ route('contact') }}">{{ __('contact-us') }}</a></p>
     </td>
     <td>
         <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>
