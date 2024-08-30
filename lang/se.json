@@ -89,11 +89,15 @@
 
     "//": "Contact",
     "contact-us": "Kontakta oss",
-    "contact-asap": "Och vi kommer att återkomma till dig så snart som möjligt",
-    "contact-before": "Innan du kontaktar oss, kontrollera om det redan finns ett svar på din fråga i vår",
+    "contact-asap": "Vi kommer att återkomma till dig så snart som möjligt",
+    "contact-before": "Innan du kontaktar oss, vänligen kontrollera om det redan finns ett svar på din fråga i vår",
     "contact-form-name": "Namn",
+    "contact-placeholder-name": "Ange ditt namn...",
     "contact-form-subject": "Ämne",
+    "contact-placeholder-subject": "Ange ditt ämne...",
     "contact-form-email": "E-postadress",
+    "contact-placeholder-email": "Ange din e-postadress...",
     "contact-form-message": "Meddelande",
+    "contact-placeholder-message": "Ange din fråga...",
     "contact-form-submit": "Skicka"
 }

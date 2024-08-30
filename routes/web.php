@@ -68,7 +68,6 @@ Route::get('lang/{locale}', function ($locale) {
 })->name('change.language');
 
 
-
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');

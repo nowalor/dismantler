@@ -88,12 +88,18 @@
 
 
     "//": "Contact",
+    "//": "Kontakt",
     "contact-us": "Kontakt os",
-    "contact-asap": "Og vi vil vende tilbage til dig så hurtigt som muligt",
+    "contact-asap": "Og vi vender tilbage til dig så hurtigt som muligt",
     "contact-before": "Inden du kontakter os, bedes du kontrollere, om der allerede er svar på dit spørgsmål i vores",
     "contact-form-name": "Navn",
+    "contact-placeholder-name": "Indtast dit navn...",
     "contact-form-subject": "Emne",
-    "contact-form-email": "Emailadresse",
+    "contact-placeholder-subject": "Indtast dit emne...",
+    "contact-form-email": "E-mail adresse",
+    "contact-placeholder-email": "Indtast din e-mail adresse...",
     "contact-form-message": "Besked",
-    "contact-form-submit": "Indsend"
+    "contact-placeholder-message": "Indtast dit spørgsmål...",
+    "contact-form-submit": "Send"
+
 }

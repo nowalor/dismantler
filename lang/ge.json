@@ -90,10 +90,14 @@
     "//": "Contact",
     "contact-us": "Kontaktieren Sie uns",
     "contact-asap": "Und wir werden uns so schnell wie möglich bei Ihnen melden",
-    "contact-before": "Bevor Sie uns kontaktieren, überprüfen Sie bitte, ob die Antwort auf Ihre Frage bereits in unserem",
+    "contact-before": "Bevor Sie uns kontaktieren, überprüfen Sie bitte, ob Ihre Frage bereits in unserem",
     "contact-form-name": "Name",
+    "contact-placeholder-name": "Geben Sie Ihren Namen ein...",
     "contact-form-subject": "Betreff",
+    "contact-placeholder-subject": "Geben Sie Ihren Betreff ein...",
     "contact-form-email": "E-Mail-Adresse",
+    "contact-placeholder-email": "Geben Sie Ihre E-Mail-Adresse ein...",
     "contact-form-message": "Nachricht",
+    "contact-placeholder-message": "Geben Sie Ihre Frage ein...",
     "contact-form-submit": "Absenden"
 }

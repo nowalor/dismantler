@@ -1,7 +1,6 @@
 <div class="d-flex flex-column custom-sidemenu-width bg-dark text-white">
 
     <div class="px-5 flex-grow-1">
-        <!-- Navigation links -->
         <h1 class="display-5 font-weight-bold mt-3 ml-2 pt-4">PARTS</h1>
         <nav class="mt-4">
             <ul class="list-unstyled">

@@ -38,6 +38,7 @@
 
 
     "//": "For car-parts",
+    "your-search": "Your search",
     "car-parts-header": "Results",
     "car-search-placeholder": "AUDI A4 ...",
     "car-search-button": "Search",
@@ -95,10 +96,13 @@
     "contact-asap": "And we will get back to you as soon as possible",
     "contact-before": "Before you contact us please check if there is already an answer to your question in our",
     "contact-form-name": "Name",
+    "contact-placeholder-name": "Enter your name...",
     "contact-form-subject": "Subject",
+    "contact-placeholder-subject": "Enter your subject...",
     "contact-form-email": "Email address",
+    "contact-placeholder-email": "Enter your email...",
     "contact-form-message": "Message",
+    "contact-placeholder-message": "Enter your question...",
     "contact-form-submit": "Submit"    
     
-
 }

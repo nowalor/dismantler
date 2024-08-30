@@ -4,10 +4,11 @@
             @php
                 $image = $part->carPartImages()->first();
             @endphp
-            <img class="card-img-bottom mt-2" src="{{ $image->original_url }}" alt="Car part image"
-            style="width: 200px; height: 200px; border-radius: 12px;">
+            <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->original_url }}" alt="Car part image"
+            style="width: 200px; height: auto; max-width: 100%; border-radius: 12px;">
+        
         @else
-            <img class="card-img-bottom mt-2" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
+            <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
             style="width: 200px; height: 200px; border-radius: 12px;">
         @endif
     </td>
@@ -67,13 +68,17 @@
     <td class="text-white">
         {{-- commented out for now, until all prices are correctly calculated for each currency/language --}}
         {{-- <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->price_sek }} SEK</p> --}}
-        <p><span class="fw-bold">{{__('car-part-price')}}: </span><a href="{{ route('contact') }}">{{ __('contact-us') }}</a></p>
+        <p><span class="fw-bold">{{__('car-part-price')}}: </span>
+            <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}">
+                {{ __('contact-us') }}
+            </a>
+        </p>
     </td>
     <td>
         <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>
         <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">{{__('car-checkout')}}</a>
-        <div style="margin-top: 20px; font-size: 20px; text-align: center;">
+        {{-- <div style="margin-top: 20px; font-size: 20px; text-align: center;">
             <a href="/contact"><i class="fas fa-info-circle"></i></a>
-        </div>
+        </div> --}}
     </td>
 </tr>

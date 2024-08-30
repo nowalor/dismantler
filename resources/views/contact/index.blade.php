@@ -24,20 +24,20 @@
                 <div class="mb-2 mt-3">
                     <label for="name">{{__('contact-form-name')}}*</label>
                     <input required type="text" class="form-control" name="name" id="name"
-                           placeholder="Enter your name">
+                           placeholder="{{__('contact-placeholder-name')}}">
                 </div>
                 <div class="mb-2">
                     <label for="email">{{__('contact-form-subject')}}*</label>
-                    <input required type="text" class="form-control" name="email" id="email" placeholder="Enter email">
+                    <input required type="text" class="form-control" name="email" id="email" placeholder="{{__('contact-placeholder-subject')}}">
                 </div>
                 <div class="mb-2">
                     <label for="email">{{__('contact-form-email')}}*</label>
-                    <input required type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                    <input required type="email" class="form-control" name="email" id="email" placeholder="{{__('contact-placeholder-email')}}">
                 </div>
                 <div class="mb-4">
                     <label for="message">{{__('contact-form-message')}}*</label>
-                    <textarea required class="form-control" name="message" id="message"
-                              style="height: 12rem;"></textarea>
+                    <textarea required class="form-control" name="message" id="message" placeholder="{{__('contact-placeholder-message')}}"
+                              style="height: 12rem;">{{ request('part_name') ? 'Regarding ' . request('part_name') . ', Currus Connect ID: ' . request('article_nr') : '' }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-large w-100">{{__('contact-form-submit')}}</button>
             </form>
