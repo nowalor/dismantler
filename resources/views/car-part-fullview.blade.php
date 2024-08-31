@@ -4,17 +4,28 @@
 <div class="container mt-3">
     <h1 class="large-text font-bold">{{__('product-details')}}</h1>
     <div class="row">
-        <!-- Product Image -->
+        <!-- Product Image Gallery -->
         <div class="col-md-6 text-center pt-2">
             <div class="card shadow-sm">
                 <div class="card-body">
                     @if ($part->carPartImages->count())
                         @php
-                            $image = $part->carPartImages()->first();
+                            $images = $part->carPartImages;
+                            $firstImage = $images->first();
+                            $otherImages = $images->skip(1); // Skip the first image and take the rest
                         @endphp
-                        <img class="img-fluid rounded mb-4" src="{{ $image->original_url }}" alt="Car part image" style="max-width: 100%; border-radius: 12px;">
+                        <!-- Large Image Display -->
+                        <img id="mainImage" class="img-fluid rounded mb-2" src="{{ $firstImage->original_url }}" alt="Car part image" style="max-width: 100%; border-radius: 1rem;">
+                        
+                        <!-- Thumbnail Images -->
+                        <div class="d-flex justify-content-around">
+                            <img class="img-thumbnail m-1 thumb" src="{{ $firstImage->original_url }}" alt="Thumbnail 1" style="width: 10rem; cursor: pointer;" onclick="changeImage('{{ $firstImage->original_url }}')">
+                            @foreach ($otherImages as $image)
+                                <img class="img-thumbnail m-1 thumb" src="{{ $image->original_url }}" alt="Thumbnail {{ $loop->iteration + 1 }}" style="width: 10rem; cursor: pointer;" onclick="changeImage('{{ $image->original_url }}')">
+                            @endforeach
+                        </div>
                     @else
-                        <img class="img-fluid rounded mb-4" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" style="max-width: 100%; border-radius: 12px;">
+                        <img class="img-fluid rounded mb-4" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" style="max-width: 100%; border-radius: 1rem;">
                     @endif
                 </div>
             </div>
@@ -79,4 +90,17 @@
     font-size: 1.3;
 }
 
+.thumb {
+    border-radius: 0.5rem;
+}
+
+.thumb:hover {
+    opacity: 0.7;
+}
 </style>
+
+<script>
+function changeImage(src) {
+    document.getElementById('mainImage').src = src;
+}
+</script>
