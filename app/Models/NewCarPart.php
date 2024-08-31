@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Akaunting\Money\Money;
+use Akaunting\Money\Currency;
 
 class NewCarPart extends Model
 {
@@ -149,8 +151,7 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
-    public function getAutoteileMarktPriceAttribute()
-    {
+    public function getAutoteileMarktPriceAttribute() {
         $priceSek = $this->price_sek;
 
         if (!$priceSek) {
@@ -171,7 +172,13 @@ class NewCarPart extends Model
             $divider = 11;
         }
 
-        return round(((($priceSek / $divider)) * 1.19));
+        $priceEuro = round(((($priceSek / $divider)) * 1.19));
+
+        $exchangeRate = 7.45;
+
+        $priceDKK = $priceEuro * $exchangeRate;
+
+        return round($priceDKK);
     }
 
     public function getShipmentAttribute(): int | null

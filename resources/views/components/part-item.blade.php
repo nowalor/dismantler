@@ -66,17 +66,15 @@
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td class="text-white">
-        {{-- commented out for now, until all prices are correctly calculated for each currency/language --}}
-        {{-- <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->price_sek }} SEK</p> --}}
-        <p><span class="fw-bold">{{__('car-part-price')}}: </span>
-            <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}">
-                {{ __('contact-us') }}
-            </a>
+        <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->autoteile_markt_price }} DKK</p>
         </p>
     </td>
     <td>
         <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>
-        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">{{__('car-checkout')}}</a>
+        <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary w-100 mb-2">
+            {{__('contact-us')}}
+        </a>
+        {{-- <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">{{__('car-checkout')}}</a> --}}
         {{-- <div style="margin-top: 20px; font-size: 20px; text-align: center;">
             <a href="/contact"><i class="fas fa-info-circle"></i></a>
         </div> --}}
