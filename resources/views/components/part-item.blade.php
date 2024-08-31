@@ -4,7 +4,7 @@
             @php
                 $image = $part->carPartImages()->first();
             @endphp
-            <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->logoGerman }}" alt="Car part image"
+            <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->logoGerman() }}" alt="Car part image"
             style="width: 200px; height: auto; max-width: 100%; border-radius: 12px;">
 
         @else
