@@ -22,7 +22,7 @@ class SendContactUsEmailController extends Controller
         } catch(\Exception $e) {
             logger($e->getMessage());
 
-            return 'fail';
+            return redirect()->back()->withError('Something went wrong, you can just write to us at service@currus-connect.com');
         }
     }
 }
