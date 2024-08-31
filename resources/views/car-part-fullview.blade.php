@@ -16,13 +16,16 @@
                         @endphp
                         <!-- Large Image Display -->
                         <img id="mainImage" class="img-fluid rounded mb-2" src="{{ $firstImage->original_url }}" alt="Car part image" style="max-width: 100%; border-radius: 1rem;">
-                        
+        
                         <!-- Thumbnail Images -->
-                        <div class="d-flex justify-content-around">
-                            <img class="img-thumbnail m-1 thumb" src="{{ $firstImage->original_url }}" alt="Thumbnail 1" style="width: 10rem; cursor: pointer;" onclick="changeImage('{{ $firstImage->original_url }}')">
-                            @foreach ($otherImages as $image)
-                                <img class="img-thumbnail m-1 thumb" src="{{ $image->original_url }}" alt="Thumbnail {{ $loop->iteration + 1 }}" style="width: 10rem; cursor: pointer;" onclick="changeImage('{{ $image->original_url }}')">
-                            @endforeach
+                        <div class="row justify-content-center">
+                            <div class="d-flex flex-wrap justify-content-center">
+                                @foreach ($images as $image)
+                                    <div class="p-1 thumb-container">
+                                        <img class="img-thumbnail thumb" src="{{ $image->original_url }}" alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;" onclick="changeImage('{{ $image->original_url }}')">
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     @else
                         <img class="img-fluid rounded mb-4" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" style="max-width: 100%; border-radius: 1rem;">
@@ -30,7 +33,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Product Information -->
         <div class="col-md-6 pt-2">
             <div class="card shadow-sm mb-2">
@@ -87,7 +90,19 @@
 }
 
 .large-text-title {
-    font-size: 1.3;
+    font-size: 1.3rem;
+}
+
+.thumb-container {
+    flex: 1 0 21%;
+    max-width: 10rem;
+}
+
+@media (max-width: 576px) {
+    .thumb-container {
+        flex: 1 0 46%;
+        max-width: 100%;
+    }
 }
 
 .thumb {

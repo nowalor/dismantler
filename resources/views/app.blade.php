@@ -107,13 +107,16 @@
     .cta {
         background-image: url(' {{asset('img/engine.jpg') }}');
         background-size: cover;
-        height: calc(100vh - 56px);
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
         width: 100%;
         position: relative;
+        overflow: hidden;
     }
     .cta::after {
         content: "";
-        height: 100%;
+        height: 100vh;
         width: 100%;
         background-color: rgba(0,0,0,0.7);
         position: absolute;
