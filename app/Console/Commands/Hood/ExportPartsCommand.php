@@ -34,7 +34,7 @@ class ExportPartsCommand extends Command
         $parts = $this->parts();
 
         $partsXml = (new HoodCreateXmlAction())->execute('itemInsert', $parts);
-        $this->info($partsXml);
+        //$this->info($partsXml);
 
         try {
             $response = $this->client->post(
@@ -51,6 +51,7 @@ class ExportPartsCommand extends Command
             }
 
             logger($response->getBody());
+            $this->info($response->getBody());
 
             foreach($parts as $part) {
                 $part->update(['is_live_on_hood' => true]);
