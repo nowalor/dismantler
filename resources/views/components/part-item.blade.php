@@ -4,11 +4,11 @@
             @php
                 $image = $part->carPartImages()->first();
             @endphp
-            <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->original_url }}" alt="Car part image"
+            <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->logoGerman() }}" alt="Car part image"
             style="width: 200px; height: auto; max-width: 100%; border-radius: 12px;">
-        
+
         @else
-            <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
+            <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image"
             style="width: 200px; height: 200px; border-radius: 12px;">
         @endif
     </td>

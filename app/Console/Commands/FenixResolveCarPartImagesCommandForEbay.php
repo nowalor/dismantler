@@ -16,6 +16,36 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
     public function handle(): int
     {
+
+        $dismantlers = [
+            'A' => [
+                'name' => 'a',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.20',
+            ],
+            'S' => [
+                'name' => 's',
+                'logoPath' => public_path('img/dismantler/s/logo.png'),
+                'scalingHeight' => '0.29',
+            ],
+            'bo' => [
+                'name' => 'bo',
+                'logoPath' => public_path('img/dismantler/s/logo.png'),
+                'scalingHeight' => '0.29',
+            ],
+            'n' => [
+                'name' => 'n',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.17',
+            ],
+            'p' => [
+                'name' => 'p',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.24',
+            ]
+        ];
+
+
         // Load the white blank image to replace the logo with
         $replacementImagePath = public_path('img/blank.png');
         $replacementImage = Image::make($replacementImagePath);
@@ -29,7 +59,8 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
                         }])
             ->whereNotNull('engine_code')
             ->where('engine_code', '!=', '')
-            ->has('germanDismantlers')
+            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
+//            ->has('germanDismantlers')
             ->where('price_sek', '>', 0)
             ->whereNotNull('price_sek')
             ->where('price_sek', '!=', '')
@@ -37,7 +68,20 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
             ->take(520)
             ->get();
 
+//        $parts = NewCarPart::where('id', 239)->get();
+
         foreach ($parts as $part) {
+            $dismantleCompany = $part->dismantle_company_name;
+//            $dismantlerInfo = $dismantlers[$dismantleCompany];
+
+//            if(empty($dismantlerInfo)) {
+//                continue;
+//            }
+
+//            $replacementImagePath = public_path("img/dismantler/{$dismantlerInfo['logoPath']}/logo.png");
+            $scalingHeight = $this->getScalingHeight($part->dismantle_company_name);
+
+
             $dismantleCompany = $part->dismantle_company_name;
 
             foreach ($part->carPartImages as $index => $image) {
@@ -95,7 +139,7 @@ class FenixResolveCarPartImagesCommandForEbay extends Command
 
     private function getScalingHeight(string $dismantleCompany): float
     {
-        $height = 0.29;
+        $height = 0.32;
 
         if ($dismantleCompany === 'F') {
             $height = 0.38;

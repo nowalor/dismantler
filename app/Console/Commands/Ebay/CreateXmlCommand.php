@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Ebay;
 
+use App\Actions\Parts\GetOptimalPartsAction;
 use App\Models\NewCarPart;
 use App\Services\EbayApiService;
 use Illuminate\Console\Command;
@@ -20,63 +21,83 @@ class CreateXmlCommand extends Command
         parent::__construct();
     }
 
-    public function handle(): string
+    public function handle(): int
     {
         $parts = $this->parts();
 
-        if (count($parts) === 0) {
-            return 0;
+        if ($parts->isEmpty()) {
+            $this->info('empty xml');
+            return Command::FAILURE;
         }
 
-        $this->service->handlePartUpload($parts);
+        try {
+            $response = $this->service->handlePartUpload($parts);
 
+            if (!$response) {
+                $this->info('Response failed');
+            }
+        } catch (\Exception $ex) {
+            logger($ex->getMessage());
+            $this->info('in catch...');
+
+            return Command::FAILURE;
+        }
+
+        $this->info('Everything went okay...');
         return Command::SUCCESS;
     }
 
     private function parts(): Collection
     {
+        $optimalParts = new Collection();
 
-        // Example query we can make to try to get a higher quality of parts
-//        NewCarPart::where('car_part_type_id', 1)->where('model_year', '>', 2000)->whereHas('carPartImages')->whereHas('germanDismantlers')->count();
-
-        $parts = NewCarPart::with("carPartImages")
-//            ->where("sbr_car_name", "like", "%audi%") // no audis matching query at the moment??
-//            ->where('car_part_type_id', 1) // Currently only getting engines, gearboxes,
-            ->whereIn('car_part_type_id', [1,3, 4]) // manual 6
-            // Very important conditions so we don't upload products with data issues
+        $originalNumbers = NewCarPart::
+        //whereIn('car_part_type_id', [1])
+        whereIn('car_part_type_id', [4])
             ->where('is_live_on_ebay', false)
-            ->where('dismantle_company_name', 'W')
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')
             ->where('model_year', '>', 2007)
             ->whereNull('sold_at')
             ->whereNotNull('article_nr')
-            ->whereNotNull('price_sek')
+            ->whereNotNull('original_number')
             ->whereNot('brand_name', 'like', '%mer%')
             ->whereNot('brand_name', 'like', '%bmw%')
+            ->whereNotNull('price_eur')
             ->where(function ($q) {
-                $q->where('fuel', 'Diesel');
-                $q->orWhere('fuel', 'Bensin');
+                $q->where('fuel', 'Diesel')
+                    ->orWhere('fuel', 'Bensin');
             })
-            ->whereHas("carPartImages", function ($q) {
-                $q->whereNotNull("image_name_blank_logo");
+            ->whereHas('carPartImages', function ($q) {
+                $q->whereNotNull('image_name_blank_logo');
             })
-            ->whereHas("germanDismantlers.kTypes")
+            ->whereHas('germanDismantlers.kTypes')
             ->with("germanDismantlers", function ($q) {
                 $q->whereHas("kTypes")->with("kTypes");
             })
             ->where(function ($query) {
-                $query
-                    ->where('dismantle_company_name', '!=', 'F')
+                $query->where('dismantle_company_name', '!=', 'F')
                     ->orWhere(function ($subQuery) {
-                        $subQuery
-                            ->where('dismantle_company_name', 'F')
+                        $subQuery->where('dismantle_company_name', 'F')
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(600)
+            ->take(500)
+            //->distinct('original_number')
             ->get();
 
-        return $parts;
+        logger("the count {$originalNumbers->count()}");
+        return $originalNumbers;
+
+        foreach ($originalNumbers as $originalNumber) {
+            $parts = (new GetOptimalPartsAction())->execute(
+                $originalNumber->original_number,
+                $originalNumbers->pluck('id')->toArray()
+            );
+
+            $optimalParts = $optimalParts->merge($parts);
+        }
+
+        return $optimalParts;
     }
 }

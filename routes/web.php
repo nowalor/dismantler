@@ -27,12 +27,15 @@ use App\Http\Controllers\TemporaryLandingPageController;
 
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
 
+
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
 
 Route::get('test-parts', [TestController::class, 'testingParts']);
 
+
 Route::get('engine-type-engine-alias', \App\Http\Controllers\EngineTypeEngineAliasController::class);
+
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
     ->name('pay');
@@ -94,7 +97,7 @@ Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'inde
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
     Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
-    Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
+    //Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
     Route::post('kba/storeConnection/{kba}', [KbaController::class, 'storeConnectionToEngineType'])
         ->name('admin.kba.store-connection');
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])

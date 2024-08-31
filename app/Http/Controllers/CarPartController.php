@@ -205,12 +205,12 @@ class CarPartController extends Controller {
 
         request()?->flash();
 
-        return redirect()->back()->withErrors($errors); 
+        return redirect()->back()->withErrors($errors);
     }
-    
+
 
     public function searchByModel(Request $request): mixed {
-    
+
         $dito = DitoNumber::find($request->get('dito_number_id'));
 
     if(!$dito) {
@@ -219,7 +219,7 @@ class CarPartController extends Controller {
 
     $type = null;
 
-    if($request->filled('type_id')) {
+    if($request->filled('type_id') && $request->get('type_id') !== 'all') {
         $type = CarPartType::find($request->get('type_id'));
     }
 
@@ -236,7 +236,7 @@ class CarPartController extends Controller {
         model: $dito,
         type: $type,
         sort: $sort, // Pass the sort parameter to the action
-        filters: $filters, 
+        filters: $filters,
         paginate: 10,
     );
 

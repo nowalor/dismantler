@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\CarPart;
 use App\Models\NewCarPart;
 use App\Services\PartInformationService;
 use Illuminate\Console\Command;
@@ -38,6 +39,9 @@ class AddNewNameToPartsCommand extends Command
             //->whereNotNull('dito_number')
      //    ->// Only relavant for fenix and not egluit?
            // ->all();
+
+
+//        return NewCarPart::where('id', 15674962491)->get();
 
 //        return NewCarPart::where('car_part_type_id', 1)
 //            ->

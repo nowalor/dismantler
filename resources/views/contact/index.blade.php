@@ -21,14 +21,20 @@
                         {{ session()->get('message') }}
                     </div>
                 @endif
+
+                @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
                 <div class="mb-2 mt-3">
                     <label for="name">{{__('contact-form-name')}}*</label>
                     <input required type="text" class="form-control" name="name" id="name"
                            placeholder="{{__('contact-placeholder-name')}}">
                 </div>
                 <div class="mb-2">
-                    <label for="email">{{__('contact-form-subject')}}*</label>
-                    <input required type="text" class="form-control" name="email" id="email" placeholder="{{__('contact-placeholder-subject')}}">
+                    <label for="subject">{{__('contact-form-subject')}}*</label>
+                    <input required type="text" class="form-control" name="subject" id="subject" placeholder="{{__('contact-placeholder-subject')}}">
                 </div>
                 <div class="mb-2">
                     <label for="email">{{__('contact-form-email')}}*</label>
