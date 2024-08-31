@@ -107,6 +107,7 @@ class CarPartController extends Controller {
         'model_year',
         'engine_type',
         'fuel',
+        'price_sek'
     ])->with('carPartType');
 
     // If a search query is present, filter the results
@@ -120,7 +121,8 @@ class CarPartController extends Controller {
                   ->orWhere('mileage_km', 'like', "%$search%")
                   ->orWhere('model_year', 'like', "%$search%")
                   ->orWhere('engine_type', 'like', "%$search%")
-                  ->orWhere('fuel', 'like', "%$search%");
+                  ->orWhere('fuel', 'like', "%$search%")
+                  ->orWhere('price_sek', 'like', "%$search%");
         });
     }
 
@@ -141,7 +143,7 @@ class CarPartController extends Controller {
     $dismantleCompanies = DismantleCompany::all();
 
     // Return the view with the data
-    return view('parts-name', compact(
+    return view('browse-car-parts', compact(
         'parts',
         'partTypes',
         'dismantleCompanies',
@@ -196,7 +198,7 @@ class CarPartController extends Controller {
     $partTypes = CarPartType::all();
 
     return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
-    }
+}
 
 
     private function redirectBack(array $errors): RedirectResponse {

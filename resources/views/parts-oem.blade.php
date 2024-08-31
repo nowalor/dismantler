@@ -1,30 +1,42 @@
 @extends('app')
-@section('title', 'Parts - Oem')
-@section('content')
-    <div class="container">
-        <div class="row pt-4">
-            <h3>OEM search</h3>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">Your search</div>
-                    <div class="card-body">
-                        <form action=" {{ route('car-parts.search-by-oem') }}">
-                            <div class="mb-3">
-                                <label class="label" for="oem">OEM</label>
-                                <input class="form-control" type="text" id="oem" name="oem" value="{{ $oem }}">
-                            </div>
 
-                            <div class="mb-3">
-                                <button class="btn btn-primary w-100">Search</button>
-                            </div>
-                        </form>
+@section('title', 'Parts - OEM Search')
+
+@section('content')
+<div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/engine.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+    <div class="d-flex flex-grow-1">
+        <x-side-menu-bar />
+
+        {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
+        <div class="container-fuid bg-dark text-white flex-grow-1" style="opacity: 0.85;">
+            <div class="row pt-2">
+                <div class="col-12">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            
+                            <p>
+                                <p>{{__('your-search')}} </p>
+                                @if(!empty($oem))
+                                    <strong>{{__('oem-oem')}}:</strong> {{ $oem }}
+                                @endif
+                            
+                                @if(!empty($engine_code))
+                                    @if(!empty($oem)) | @endif
+                                    <strong>{{__('oem-engine-code')}}:</strong> {{ $engine_code }}
+                                @endif
+                            
+                                @if(!empty($gearbox))
+                                    @if(!empty($oem) || !empty($engine_code)) | @endif
+                                    <strong>{{__('oem-gearbox-code')}}:</strong> {{ $gearbox }}
+                                @endif
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-oem')"/>
+            {{ $parts->links() }}
         </div>
-        <h3 class="pt-4">Results</h3>
-        <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-oem')"/>
-        {{ $parts->links() }}
     </div>
+</div>
 @endsection
-

@@ -3,55 +3,55 @@
     <div class="container pt-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Faq</li>
+                <li class="breadcrumb-item"><a href="{{ route('landingpage') }}">{{ __('home') }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ __('faq') }}</li>
             </ol>
         </nav>
         <h3 class="text-center pt-2">
-            FAQ
+            {{ __('faq') }}
         </h3>
         <p class="text-center lead">
-            This is the FAQ page. Here you can find a list of frequently asked questions. Not finding what your looking
-            for?<a class="link-primary" href="{{ route('contact') }}"> Send us an email.</a>
+            {{ __('faq-intro') }}<a class="link-primary" href="{{ route('contact') }}"> <br> {{ __('faq-email-msg') }}</a>
         </p>
 
         <div class="col-10 mx-auto pt-5">
-            <div class="accordion">
-                @foreach($questionCategories as $questionCategory)
-                    <div class="accordion-item mb-3">
-                        <h2 class="accordion-header" id="questionCategory-{{ $questionCategory }}">
-                            <button class="accordion-button text-success bg-success bg-opacity-50 collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#questionCategory-collapse-{{ $questionCategory }}" aria-controls="questionCategory-collapse-{{ $questionCategory }}">
-                                {{ ucfirst($questionCategory) }}
-                            </button>
-                        </h2>
-                        <div id="questionCategory-collapse-{{ $questionCategory }}" class="accordion-collapse collapse"
-                             data-bs-parent="#questionCategory-{{ $questionCategory }}">
-                            <div class="accordion-body">
-                                <div class="accordion">
-                                    {{-- @foreach($questions[$questionCategory] as $question)
-                                        <div class="accordion-item mb-3">
-                                            <h2 class="accordion-header" id="question-{{$question->id}}">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#question-collapse-{{ $question->id }}">
-                                                    {{ $question->question }}
-                                                </button>
-                                            </h2>
-                                            <div id="question-collapse-{{ $question->id }}" class="accordion-collapse collapse"
-                                                 data-bs-parent="#question-{{$question->id}}">
-                                                <div class="accordion-body">
-                                                    {{ $question->answer }}
-                                                </div>
-                                            </div>
-                                        </div>
+            <!-- Tab navigation for categories -->
+            <ul class="nav nav-tabs" id="faqTab" role="tablist">
+                @foreach($questionCategories as $index => $questionCategory)
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link @if($index == 0) active @endif" id="tab-{{ $questionCategory }}" data-bs-toggle="tab" href="#content-{{ $questionCategory }}" role="tab" aria-controls="content-{{ $questionCategory }}" aria-selected="{{ $index == 0 ? 'true' : 'false' }}">
+                            {{ ucfirst($questionCategory) }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
 
-                                    @endforeach --}}
-                                </div>
+            <!-- Tab content for each category -->
+            <div class="tab-content pt-3" id="faqTabContent">
+                @foreach($questionCategories as $index => $questionCategory)
+                    @if(isset($faqs[$questionCategory]))
+                        <div class="tab-pane fade @if($index == 0) show active @endif" id="content-{{ $questionCategory }}" role="tabpanel" aria-labelledby="tab-{{ $questionCategory }}">
+                            <div class="list-group">
+                                @foreach($faqs[$questionCategory] as $faq)
+                                    <div class="list-group-item">
+                                        <h5 class="faq-question">{{ $faq['question'] }}</h5>
+                                        <p>{{ $faq['answer'] }}</p>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
             </div>
         </div>
     </div>
+
+    <style>
+        .faq-question {
+            font-style: italic; 
+            font-weight: bold; 
+            font-size: 1.1rem;
+            margin-bottom: 10px; 
+        }
+    </style>
 @endsection

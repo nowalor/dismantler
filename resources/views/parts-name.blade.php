@@ -6,7 +6,7 @@
             <div class="col-6 pt-2">
             </div>
         </div>
-        <h3 class="pt-4 fw-bold">Results</h3>
+        <h3 class="fw-bold">{{__("car-parts-header")}}</h3>
         <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-name')"/>
         {{ $parts->links() }}
     </div>

@@ -2,17 +2,17 @@
 @section('content')
 
 <div class="cta">
-    <div class="text-center mx-auto">
-        <img src="logo/currus.png" alt="" srcset="">
-        <h1 class="display-1 fw-bold d-inline-block position-relative underline-text">
-            <span class="text-success">CURR</span><span class="text-white">US</span>
-        </h1>
-        <h2 class="display-4 fw-bold text-white">CAR PARTS</h2>
+    <div class="d-flex justify-content-center text-center mx-auto">
+        @php
+            $locale = App::getLocale();
+            $logoPath = config("logos.{$locale}");
+        @endphp
+        <img src="{{ asset($logoPath) }}" style="max-width: 30rem; max-height: 50rem;" class="pt-4" alt="logo img" srcset="">
     </div>
 
     <div class="d-flex justify-content-center align-items-center mt-3">
         <div class="text-center">
-            <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-success">BROWSE ALL</a>
+            <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-success">{{ __('browse')}}</a>
         </div>
     </div>
 
@@ -20,3 +20,4 @@
 </div>
 
 @endsection
+

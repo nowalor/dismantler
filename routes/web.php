@@ -61,7 +61,15 @@ Route::get('test3', [TestController::class, 'carPartIds']);
 //Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
 
 Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
-Route::get('browse', [BrowseCarParts::class, 'browseCarParts'])->name("browse");
+Route::get('browse', [CarPartController::class, 'searchParts'])->name("browse");
+
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'ge', 'dk', 'se'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('change.language');
+
 
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');

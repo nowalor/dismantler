@@ -10,9 +10,9 @@
     </div>
 
     <div class="mb-3">
-        <label for="part-type" class="form-label">Part type</label>
+        <label for="part-type" class="form-label">{{__('kba-part-type')}}</label>
         <select name="part-type" class="form-select" id="part-type" wire:model="partType">
-            <option value="-1" disabled selected>Select a type</option>
+            <option value="-1" disabled selected>{{__('kba-search-placeholder')}}</option>
             @foreach($partTypes as $type)
                 <option value="{{ $type->id }}">{{ $type->name }}</option>
             @endforeach
@@ -26,7 +26,7 @@
         </div>
     @else
         <div style="margin-top: 3rem;">
-            <button class="btn btn-primary w-100 uppercase" disabled>Fill in search</button>
+            <button class="btn btn-primary w-100 uppercase" disabled>{{__('kba-search-button')}}</button>
         </div>
     @endif
 </div>
