@@ -15,14 +15,14 @@
                             $otherImages = $images->skip(1); // Skip the first image and take the rest
                         @endphp
                         <!-- Large Image Display -->
-                        <img id="mainImage" class="img-fluid rounded mb-2" src="{{ $firstImage->original_url }}" alt="Car part image" style="max-width: 100%; border-radius: 1rem;">
-        
+                        <img id="mainImage" class="img-fluid rounded mb-2" src="{{ $firstImage->logoGerman() }}" alt="Car part image" style="max-width: 100%; border-radius: 1rem;">
+
                         <!-- Thumbnail Images -->
                         <div class="row justify-content-center">
                             <div class="d-flex flex-wrap justify-content-center">
                                 @foreach ($images as $image)
                                     <div class="p-1 thumb-container">
-                                        <img class="img-thumbnail thumb" src="{{ $image->original_url }}" alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;" onclick="changeImage('{{ $image->original_url }}')">
+                                        <img class="img-thumbnail thumb" src="{{ $image->logoGerman() }}" alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;" onclick="changeImage('{{ $image->original_url }}')">
                                     </div>
                                 @endforeach
                             </div>
@@ -33,12 +33,12 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Product Information -->
         <div class="col-md-6 pt-2">
             <div class="card shadow-sm mb-2">
                 <div class="card-body">
-                    <h3 class="fw-bold large-text">{{ $part->new_name }}</h3> 
+                    <h3 class="fw-bold large-text">{{ $part->new_name }}</h3>
                     <h4 class="text-primary large-text">{{ number_format($part->price_sek, 2) }} SEK <span class="text-muted">Incl. VAT</span> <a href="/contact"><i class="fas fa-info-circle ml-2"></i></a></h4>
                     <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary w-100 mt-4 mb-4">
                         {{ __('contact-us') }}
@@ -62,7 +62,7 @@
                     <p><span class="fw-bold">{{__('chassi-nr')}}: </span> {{ $part->vin }} </p>
                     <p><span class="fw-bold">{{__('car-part-modelyear')}}: </span>{{ $part->model_year }}</p>
                     <p><span class="fw-bold">{{__('car-part-mileage')}}:</span>
-                    @if($part->mileage_km == 999) 
+                    @if($part->mileage_km == 999)
                         <strong>{{__('unknown-message')}}</strong>
                     @else
                         {{ $part->mileage_km }} KM
