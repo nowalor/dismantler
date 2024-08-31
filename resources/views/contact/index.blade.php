@@ -27,8 +27,8 @@
                            placeholder="{{__('contact-placeholder-name')}}">
                 </div>
                 <div class="mb-2">
-                    <label for="email">{{__('contact-form-subject')}}*</label>
-                    <input required type="text" class="form-control" name="email" id="email" placeholder="{{__('contact-placeholder-subject')}}">
+                    <label for="subject">{{__('contact-form-subject')}}*</label>
+                    <input required type="text" class="form-control" name="subject" id="subject" placeholder="{{__('contact-placeholder-subject')}}">
                 </div>
                 <div class="mb-2">
                     <label for="email">{{__('contact-form-email')}}*</label>
