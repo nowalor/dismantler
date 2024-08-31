@@ -32,11 +32,11 @@
                 </th>
                 <th scope="col">
                     <p>{{__('car-part-price')}}</p> {{-- only for now solution under this comment works. --}}
-                    {{-- @if(request()->query('sort') == 'price_desc')
+                    @if(request()->query('sort') == 'price_desc')
                         <a href="{{ $sortRoute }}?sort=price_asc&{{ http_build_query(request()->except('sort')) }}">{{__("car-part-price")}} ▲</a>
                     @else
                         <a href="{{ $sortRoute }}?sort=price_desc&{{ http_build_query(request()->except('sort')) }}">{{__("car-part-price")}} ▼</a>
-                    @endif --}}
+                    @endif
                 </th>
                 <th scope="col">{{__("car-part-actions")}}</th>
             </tr>
