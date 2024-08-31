@@ -149,15 +149,14 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
-    public function getAutoteileMarktPriceAttribute() {
+    public function getAutoteileMarktPriceAttribute()
+    {
         $priceSek = $this->price_sek;
 
         if (!$priceSek) {
             return $priceSek;
         }
-        /*
-         * Calc divider
-         */
+
         if ($priceSek <= 2000) {
             $divider = 7;
         } else if($priceSek <= 3000) {
@@ -170,7 +169,15 @@ class NewCarPart extends Model
             $divider = 11;
         }
 
-        $priceEuro = round(((($priceSek / $divider)) * 1.19));
+        return round(((($priceSek / $divider)) * 1.19));    
+    }
+
+    public function getEuroPriceInDKKAttribute() {
+        $priceEuro = $this->getAutoteileMarktPriceAttribute();
+
+        if (!$priceEuro) {
+            return $priceEuro;
+        }
 
         $exchangeRate = 7.45;
 
@@ -178,6 +185,7 @@ class NewCarPart extends Model
 
         return round($priceDKK);
     }
+
 
     public function getShipmentAttribute(): int | null
     {

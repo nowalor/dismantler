@@ -66,7 +66,7 @@
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td class="text-white">
-        <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->autoteile_markt_price }} DKK</p>
+        <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->euro_price_in_dkk }} DKK</p>
         </p>
     </td>
     <td>
