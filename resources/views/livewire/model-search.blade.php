@@ -43,13 +43,13 @@
         </div>
 
         @if($partCount !== -1)
-            <div style="margin-top: 3rem;">
+            <div style="margin-top: 1rem;">
                 <button class="btn btn-primary w-100 uppercase" @if($partCount === 0 ) disabled @endif>
                     Search {{ $partCount }} results
                 </button>
             </div>
         @else
-            <div style="margin-top: 3rem;">
+            <div style="margin-top: 1rem;">
                 <button class="btn btn-primary w-100 uppercase" disabled>{{__('model-search-button')}}</button>
             </div>
         @endif

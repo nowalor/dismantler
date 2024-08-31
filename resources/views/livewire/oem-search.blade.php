@@ -12,7 +12,7 @@
         <label for="gearbox" class="form-label">{{__('oem-gearbox-code')}}</label>
         <input id="gearbox" type="text" class="form-control" name="gearbox">
     </div>
-    <div style="margin-top: 3rem;">
+    <div style="margin-top: 1rem;">
         <button type="submit" class="btn btn-primary w-100 uppercase">
             {{__('oem-search-button')}}
         </button>
