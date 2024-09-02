@@ -181,6 +181,8 @@ class NewCarPart extends Model
 
         $exchangeRate = 7.45;
 
+        
+
         $priceDKK = $priceEuro * $exchangeRate;
 
         return round($priceDKK);

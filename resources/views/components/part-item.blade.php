@@ -14,16 +14,18 @@
     </td>
     <td class="text-white"> <!-- Apply the text-white class here -->
         <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->sbr_car_name }}</p>
-        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>{{ $part->quality }}</p>
-        @if($part->quality == 'A+')
-            <p><strong>A+ </strong>{{__('car-quality-A+')}}</p>
-        @elseif($part->quality == 'A')
-            <p><strong>A </strong>{{__('car-quality-A')}}</p>
-        @elseif($part->quality == 'A*')
-            <p><strong>A* </strong>{{__('car-quality-A*')}}</p>
-        @elseif($part->quality == 'M')
-            <p><strong>M </strong>{{__('car-quality-M')}}</p>
-        @endif
+        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>
+            @if($part->quality == 'A+')
+                {{__('car-quality-A+')}}
+            @elseif($part->quality == 'A')
+                {{__('car-quality-A')}}
+            @elseif($part->quality == 'A*')
+                {{__('car-quality-A*')}}
+            @elseif($part->quality == 'M')
+                {{__('car-quality-M')}}
+            @endif
+        </p>
+        
     </td>
     <td class="text-white">
         @if($part->original_number)
