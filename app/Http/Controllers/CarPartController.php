@@ -135,7 +135,7 @@ class CarPartController extends Controller {
     $parts = (new SortPartsAction())->execute($parts, $sort);
 
     // Paginate the results
-    $parts = $parts->paginate(9, ['*'], 'parts');
+    $parts = $parts->paginate(9, ['*'], 'parts')->appends($request->query());
 
     // Fetch related data for dropdowns or filters
     $brands = CarBrand::all();
