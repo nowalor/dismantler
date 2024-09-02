@@ -13,7 +13,7 @@
         @endif
     </td>
     <td class="text-white"> <!-- Apply the text-white class here -->
-        <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->new_name }}</p>
+        <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->sbr_car_name }}</p>
         <p><span class="fw-bold">{{__('car-info-quality')}}: </span>{{ $part->quality }}</p>
         @if($part->quality == 'A+')
             <p><strong>A+ </strong>{{__('car-quality-A+')}}</p>

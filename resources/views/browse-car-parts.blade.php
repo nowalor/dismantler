@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Parts - Model / brand / type search')
+@section('title', 'Currus Connect - Browse all')
 
 @section('content')
 <div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/engine.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat; ">
