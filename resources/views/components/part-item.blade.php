@@ -68,8 +68,7 @@
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td class="text-white">
-        <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->euro_price_in_dkk }} DKK</p>
-        </p>
+        <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->getLocalizedPrice() }}</p>
     </td>
     <td>
         <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>

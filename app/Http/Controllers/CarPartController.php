@@ -101,20 +101,11 @@ class CarPartController extends Controller {
         $request->merge(['parts' => 1]);
     }
 
-    // Start the query
-    $parts = NewCarPart::select([
-        'id',
-        'new_name',
-        'quality',
-        'original_number',
-        'article_nr',
-        'mileage_km',
-        'model_year',
-        'engine_type',
-        'fuel',
-        'price_sek',
-        'sbr_car_name'
-    ])->with('carPartType');
+    $parts = NewCarPart::with([
+        'carPartType',
+        'dismantleCompany', // Ensure this relationship is loaded if needed for shipment calculations
+        'sbrCode', // If needed for calculations
+    ]);
 
     // If a search query is present, filter the results
     if (!empty($search)) {
@@ -155,7 +146,7 @@ class CarPartController extends Controller {
         'partTypes',
         'dismantleCompanies',
         'brands'
-    ));
+        ));
     }
 
     public function show(CarPart $carPart) {
@@ -286,7 +277,7 @@ class CarPartController extends Controller {
 
     $parts = $results['data']['parts'];
 
-    return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
-}
+        return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
+    }
 
 }
