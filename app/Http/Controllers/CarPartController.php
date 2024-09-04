@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 use App\Actions\Parts\SortPartsAction;
+use Illuminate\Support\Facades\Cache; 
+
 
 class CarPartController extends Controller {
 
@@ -72,8 +74,7 @@ class CarPartController extends Controller {
         $partTypes = CarPartType::all();
         $dismantleCompanies = DismantleCompany::all();
 
-        return view('car-parts.index', compact
-        (
+        return view('car-parts.index', compact (
             'parts',
             'partTypes',
             'dismantleCompanies',
@@ -85,69 +86,79 @@ class CarPartController extends Controller {
     }
 
     public function searchParts(Request $request) {
-    // Retrieve the search query and filters
+    // Retrieve the search query, part type, sorting, and filters
     $search = $request->input('search');
     $sort = $request->query('sort');
-    $filters = [];
-
-    foreach ($request->input('filter', []) as $key => $value) {
-        if (!empty($value)) {
-            $filters[$key] = $value;
-        }
-    }
-
+    $filters = $request->input('filter', []);
+    $partType = $request->query('type_id'); // Retrieve the part type filter
+    
     // Reset to the first page if filters are applied
-    if ($request->has('filter')) {
+    if (!empty($filters) || $partType) {
         $request->merge(['parts' => 1]);
     }
 
+    // Begin building the query
     $parts = NewCarPart::with([
         'carPartType',
-        'dismantleCompany', // Ensure this relationship is loaded if needed for shipment calculations
-        'sbrCode', // If needed for calculations
+        'dismantleCompany',
+        'sbrCode',
     ]);
 
-    // If a search query is present, filter the results
+    // Apply search query if provided
+    $searchableColumns = [
+        'id', 'new_name', 'quality', 'original_number',
+        'article_nr', 'mileage_km', 'model_year',
+        'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
+    ];
+
     if (!empty($search)) {
-        $parts->where(function ($query) use ($search) {
-            $query->where('id', 'like', "%$search%")
-                  ->orWhere('new_name', 'like', "%$search%")
-                  ->orWhere('quality', 'like', "%$search%")
-                  ->orWhere('original_number', 'like', "%$search%")
-                  ->orWhere('article_nr', 'like', "%$search%")
-                  ->orWhere('mileage_km', 'like', "%$search%")
-                  ->orWhere('model_year', 'like', "%$search%")
-                  ->orWhere('engine_type', 'like', "%$search%")
-                  ->orWhere('fuel', 'like', "%$search%")
-                  ->orWhere('price_sek', 'like', "%$search%")
-                  ->orWhere('sbr_car_name', 'like', "%$search");
+        $parts->where(function ($query) use ($search, $searchableColumns) {
+            foreach ($searchableColumns as $column) {
+                $query->orWhere($column, 'like', "%$search%");
+            }
         });
     }
 
-    // Apply additional filters
-    foreach ($filters as $key => $value) {
-        $parts->where($key, $value);
+    // Apply part type filter if provided
+    if (!empty($partType)) {
+        $parts->where('car_part_type_id', $partType);
     }
 
-    // Apply sorting using the SortPartsAction
+    // Apply additional filters dynamically
+    foreach ($filters as $key => $value) {
+        $parts->when(!empty($value), function ($query) use ($key, $value) {
+            return $query->where($key, $value);
+        });
+    }
+
+    // Apply sorting if available
     $parts = (new SortPartsAction())->execute($parts, $sort);
 
     // Paginate the results
     $parts = $parts->paginate(9, ['*'], 'parts')->appends($request->query());
 
-    // Fetch related data for dropdowns or filters
-    $brands = CarBrand::all();
-    $partTypes = CarPartType::all();
-    $dismantleCompanies = DismantleCompany::all();
+    // Fetch related data for dropdowns or filters, with caching
+    $brands = Cache::remember('car_brands', 60, function () {
+        return CarBrand::all();
+    });
 
-    // Return the view with the data
-    return view('browse-car-parts', compact(
-        'parts',
-        'partTypes',
-        'dismantleCompanies',
-        'brands'
+    $partTypes = Cache::remember('car_part_types', 60, function () {
+        return CarPartType::all();
+    });
+
+    $dismantleCompanies = Cache::remember('dismantle_companies', 60, function () {
+        return DismantleCompany::all();
+    });
+
+        // Return the view with the filtered data
+        return view('browse-car-parts', compact(
+            'parts',
+            'partTypes',
+            'dismantleCompanies',
+            'brands'
         ));
     }
+
 
     public function show(CarPart $carPart) {
 
@@ -195,9 +206,8 @@ class CarPartController extends Controller {
 
     $partTypes = CarPartType::all();
 
-    return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
-}
-
+        return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
+    }
 
     private function redirectBack(array $errors): RedirectResponse {
 

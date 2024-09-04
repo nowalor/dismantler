@@ -1,13 +1,21 @@
-<div style="display: flex; justify-content: space-between; align-items: center; 
-    border: 1px solid #ccc; border-radius: 10px; margin: 0.5rem 0; padding: 5px; opacity: 0.95;">
-    <p></p>
-    <div>
+<div style="display: flex; justify-content: flex-end; align-items: center; 
+    border: 0.1rem solid #ccc; border-radius: 0.5rem; margin: 0.5rem 0; padding: 0.5rem; opacity: 0.95;">
+    
+    <!-- Wrap both the reset button and the search form in the same flex container -->
+    <a href="/car-parts/search/by-name" class="btn btn-primary" style="padding: 0.36rem 0.8rem; font-size: 1rem; margin-right: 0.5rem;">
+        Reset Search
+    </a>
+
+    <div style="display: flex;">
         <form action="{{ $sortRoute }}" method="GET" style="display: flex;">
-            <input type="text" name="search" class="form-control" placeholder="{{__("car-search-placeholder")}}" value="{{ request()->query('search') }}" style="width: 300px;">
-            <button type="submit" class="btn btn-primary" style="margin-left: 5px;">{{__("car-search-button")}}</button>
+            <input type="text" name="search" class="form-control" placeholder="{{__("car-search-placeholder")}}" 
+                   value="{{ request()->query('search') }}" style="width: 20rem;">
+            <button type="submit" class="btn btn-primary" style="margin-left: 0.5rem;">{{__("car-search-button")}}</button>
         </form>
     </div>
 </div>
+
+
 
 <div class="table">
     <table class="table table-hover">
@@ -31,14 +39,13 @@
                     @endif
                 </th>
                 <th scope="col">
-                    <p>{{__('car-part-price')}}</p> {{-- only for now solution under this comment works. --}}
                     @if(request()->query('sort') == 'price_desc')
                         <a href="{{ $sortRoute }}?sort=price_asc&{{ http_build_query(request()->except('sort')) }}">{{__("car-part-price")}} ▲</a>
                     @else
                         <a href="{{ $sortRoute }}?sort=price_desc&{{ http_build_query(request()->except('sort')) }}">{{__("car-part-price")}} ▼</a>
                     @endif
                 </th>
-                <th scope="col">{{__("car-part-actions")}}</th>
+                <th scope="col"> </th>
             </tr>
         </thead>
         <tbody>
