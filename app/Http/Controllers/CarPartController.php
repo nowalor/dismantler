@@ -96,19 +96,16 @@ class CarPartController extends Controller {
         }
     }
 
-    // Start the query
-    $parts = NewCarPart::select([
-        'id',
-        'new_name',
-        'quality',
-        'original_number',
-        'article_nr',
-        'mileage_km',
-        'model_year',
-        'engine_type',
-        'fuel',
-        'price_sek'
-    ])->with('carPartType');
+    // Reset to the first page if filters are applied
+    if ($request->has('filter')) {
+        $request->merge(['parts' => 1]);
+    }
+
+    $parts = NewCarPart::with([
+        'carPartType',
+        'dismantleCompany', // Ensure this relationship is loaded if needed for shipment calculations
+        'sbrCode', // If needed for calculations
+    ]);
 
     // If a search query is present, filter the results
     if (!empty($search)) {
@@ -122,7 +119,8 @@ class CarPartController extends Controller {
                   ->orWhere('model_year', 'like', "%$search%")
                   ->orWhere('engine_type', 'like', "%$search%")
                   ->orWhere('fuel', 'like', "%$search%")
-                  ->orWhere('price_sek', 'like', "%$search%");
+                  ->orWhere('price_sek', 'like', "%$search%")
+                  ->orWhere('sbr_car_name', 'like', "%$search");
         });
     }
 
@@ -135,7 +133,7 @@ class CarPartController extends Controller {
     $parts = (new SortPartsAction())->execute($parts, $sort);
 
     // Paginate the results
-    $parts = $parts->paginate(9, ['*'], 'parts');
+    $parts = $parts->paginate(9, ['*'], 'parts')->appends($request->query());
 
     // Fetch related data for dropdowns or filters
     $brands = CarBrand::all();
@@ -148,7 +146,7 @@ class CarPartController extends Controller {
         'partTypes',
         'dismantleCompanies',
         'brands'
-    ));
+        ));
     }
 
     public function show(CarPart $carPart) {
@@ -232,6 +230,12 @@ class CarPartController extends Controller {
         }
     }
 
+    // Reset to the first page if filters are applied
+    if ($request->has('filter')) {
+        $request->merge(['parts' => 1]);
+    }
+
+    
     $results = (new SearchByModelAction())->execute(
         model: $dito,
         type: $type,
@@ -258,6 +262,11 @@ class CarPartController extends Controller {
     $gearbox = $request->get('gearbox');
     $sort = $request->query('sort');
 
+    // Reset to the first page if filters are applied
+    if ($request->has('filter')) {
+        $request->merge(['parts' => 1]);
+    }
+
     $results = (new SearchByOeAction())->execute(
         oem: $oem,
         engine_code: $engine_code,
@@ -268,7 +277,7 @@ class CarPartController extends Controller {
 
     $parts = $results['data']['parts'];
 
-    return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
-}
+        return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
+    }
 
 }

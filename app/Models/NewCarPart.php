@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\App;
+
 
 class NewCarPart extends Model
 {
@@ -59,33 +61,27 @@ class NewCarPart extends Model
         'mileage',
     ];
 
-    public function carPartType(): BelongsTo
-    {
+    public function carPartType(): BelongsTo {
         return $this->belongsTo(CarPartType::class);
     }
 
-    public function dismantleCompany(): BelongsTo
-    {
+    public function dismantleCompany(): BelongsTo {
         return $this->belongsTo(DismantleCompany::class);
     }
 
-    public function engineType(): BelongsTo
-    {
+    public function engineType(): BelongsTo {
         return $this->belongsTo(EngineType::class);
     }
 
-    public function carPartImages(): HasMany
-    {
+    public function carPartImages(): HasMany {
         return $this->hasMany(NewCarPartImage::class);
     }
 
-    public function sbrCode(): BelongsTo
-    {
+    public function sbrCode(): BelongsTo {
         return $this->belongsTo(SbrCode::class);
     }
 
-    public function gearbox(): Attribute
-    {
+    public function gearbox(): Attribute {
         return Attribute::make(
             get: static function ($value) {
                 $gearbox = str_replace(['5VXL', '6VXL'], '', $value);
@@ -98,9 +94,8 @@ class NewCarPart extends Model
         );
     }
 
-    // New method to get raw gearbox value
-    public function getRawGearboxAttribute(): string
-    {
+    // New method to get raw gearbox value 
+    public function getRawGearboxAttribute(): string {
         return $this->attributes['gearbox'];
     }
     public function ditoNumber(): BelongsTo
@@ -126,8 +121,7 @@ class NewCarPart extends Model
 
     }
 
-    public function getMyKbaAttribute()
-    {
+    public function getMyKbaAttribute() {
         $engineCode = $this->engine_code;
         $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
 
@@ -143,8 +137,7 @@ class NewCarPart extends Model
         return $this->sbrCode?->ditoNumbers?->pluck('germanDismantlers')->unique()->flatten() ?? collect([]);
     }
 
-    public function getFullEngineCodeAttribute()
-    {
+    public function getFullEngineCodeAttribute() {
         if ($this->my_kba->count() === 0) {
             return $this->engine_code;
         }
@@ -154,34 +147,34 @@ class NewCarPart extends Model
 
     public function getTranslatedPriceAttribute()
     {
-        $priceDkk = $this->price_dkk;
+      $priceDkk = $this->price_dkk;
 
-        return $priceDkk / 4;
+      return $priceDkk / 4;
     }
 
     public function getNewPriceAttribute()
     {
-        $priceSek = $this->price_sek;
+      $priceSek = $this->price_sek;
 
-        if (!$priceSek) {
-            return $priceSek;
-        }
-        /*
-         * Calc divider
-         */
-        if ($priceSek <= 3000) {
-            $divider = 7;
-        } else if ($priceSek <= 10000) {
-            $divider = 8;
-        } else {
-            $divider = 9;
-        }
+      if (!$priceSek) {
+          return $priceSek;
+      }
+      /*
+      * Calc divider
+      */
+      if ($priceSek <= 3000) {
+          $divider = 7;
+      } else if ($priceSek <= 10000) {
+          $divider = 8;
+      } else {
+          $divider = 9;
+      }
 
-        return round(((($priceSek / $divider)) * 1.19));
+      return round(((($priceSek / $divider)) * 1.19));
     }
 
-    public function getAutoteileMarktPriceAttribute()
-    {
+    // price in EUR
+    public function getAutoteileMarktPriceAttribute() {
         $priceSek = $this->price_sek;
 
         if (!$priceSek) {
@@ -203,96 +196,96 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));    
     }
 
-    public function getEuroPriceInDKKAttribute() {
-        $priceEuro = $this->getAutoteileMarktPriceAttribute();
+    // price in EUR
+    public function getAutoteileMarktPriceWithShipping() {
 
+        $priceEuro = $this->getAutoteileMarktBusinessPriceAttribute();
+    
         if (!$priceEuro) {
-            return $priceEuro;
-        }
-
-        $exchangeRate = 7.45;
-
-        $priceDKK = $priceEuro * $exchangeRate;
-
-        return round($priceDKK);
-    }
-
-
-    public function getShipmentAttribute(): int | null
-    {
-        $partType = $this->carPartType?->germanCarPartTypes?->first()?->name;
-
-        if(!$partType) {
             return null;
         }
-        $dismantleCompanyName = $this->dismantle_company_name;
-
-        $shipment = null;
-
-        // Motor
-        if (in_array(
-            $partType,
-            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
-            1,
-        )) {
-            $shipment = 200;
-
+    
+        $shipmentCost = $this->shipment;
+    
+        if ($shipmentCost) {
+            $priceEuro += $shipmentCost;
         }
-
-        // Verteilergetriebes, Automatikgetriebe, Schaltgetriebe
-        if (in_array(
-            $partType,
-            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO,
-            1,
-        )) {
-            $shipment = 150;
-
-        }
-
-        // Partikelfilter, Katalysator, Differential
-        if (in_array(
-            $partType,
-            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE,
-            1,
-        )) {
-            $shipment = 100;
-        }
-
-        if (in_array(
-            $partType,
-            GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
-            1,
-        )) {
-            $shipment = 50;
-        }
-
-        /*
-         * Longer delivery
-         */
-        if (in_array($dismantleCompanyName, ['F', 'A', 'AL',' D', 'LI', 'W'])) {
-            if (in_array(
-                $partType,
-                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE,
-                1,
-            )) {
-                $shipment += 150;
-            } else if (in_array(
-                $partType,
-                GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR,
-                1,
-            )) {
-                $shipment += 100;
-            }
-            else {
-                $shipment += 100;
-            }
-        }
-
-        return $shipment * 1.19;
+    
+        return round($priceEuro, 2);
     }
 
-    public function getBusinessPriceAttribute()
-    {
+    // Calculate shipment cost
+    public function getShipmentAttribute(): int | null {
+
+      $partType = $this->carPartType?->germanCarPartTypes?->first()?->name;
+    
+      if (!$partType) {
+          return null;
+      }
+    
+        $dismantleCompanyName = $this->dismantle_company_name;
+        $shipment = match(true) {
+            in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE, true) => 200,
+            in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO, true) => 150,
+            in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE, true) => 100,
+            in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR, true) => 50,
+            default => 0,
+        };
+    
+        // Add additional cost for certain dismantle companies
+        if (in_array($dismantleCompanyName, ['F', 'A', 'AL', 'D', 'LI', 'W'])) {
+            $additionalShipment = match(true) {
+                in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_ONE, true) => 150,
+                in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR, true) => 100,
+                default => 100,
+            };
+            $shipment += $additionalShipment;
+        }
+    
+            return floor($shipment * 1.19);
+    }
+
+    public function getShipmentCost(): int | null {
+        return $this->getShipmentAttribute();
+    }
+
+    // including VAT + Shipping
+    public function getTotalPriceDKK() {
+        $shipmentPrice = $this->getShipmentAttribute();
+
+        $autoteileMarktPrice = $this->getAutoteileMarktPriceAttribute();
+
+        $finalPrice = $autoteileMarktPrice + $shipmentPrice;
+
+        $exchangeRate = 7.46;
+
+        return $finalPrice * $exchangeRate;
+    }
+    
+    // including VAT + Shipping
+    public function getTotalPriceEUR() {
+        $shipmentPrice = $this->getShipmentAttribute();
+
+        $autoteileMarktPrice = $this->getAutoteileMarktPriceAttribute();
+
+        $finalPrice = $autoteileMarktPrice + $shipmentPrice;
+
+        return $finalPrice;
+    }
+
+    public function getLocalizedPrice() {
+        $locale = App::getLocale();
+    
+        // For Danish ('dk') and Swedish ('se') locales, return the DKK price
+        if (in_array($locale, ['dk', 'se'])) {
+            return number_format($this->getTotalPriceDKK(), 2) . ' DKK';
+        }
+    
+        // For English ('en') and German ('ge') locales, return the EUR price
+        return number_format($this->getTotalPriceEUR(), 2) . ' EUR';
+    }
+
+    public function getBusinessPriceAttribute() {
         $b2cPrice = $this->new_price;
 
         $b2bPrice = $b2cPrice * 0.95;
@@ -300,8 +293,7 @@ class NewCarPart extends Model
         return round($b2bPrice);
     }
 
-    public function getAutoteileMarktBusinessPriceAttribute()
-    {
+    public function getAutoteileMarktBusinessPriceAttribute() {
         $b2cPrice = $this->autoteile_markt_price;
 
         $b2bPrice = $b2cPrice * 0.95;
@@ -309,9 +301,7 @@ class NewCarPart extends Model
         return round($b2bPrice);
     }
 
-
-    public function getUniqueKbaAttribute()
-    {
+    public function getUniqueKbaAttribute() {
         $this->load('sbrCode.ditoNumbers.germanDismantlers.engineTypes');
 
         return $this->sbrCode->ditoNumbers->pluck('germanDismantlers')->unique()->flatten();
@@ -321,13 +311,11 @@ class NewCarPart extends Model
     /*
      * Experimental direct relation between a car part and KBA
      */
-    public function germanDismantlers(): BelongsToMany
-    {
+    public function germanDismantlers(): BelongsToMany {
         return $this->belongsToMany(GermanDismantler::class);
     }
 
-    public function scopeWithKba($query)
-    {
+    public function scopeWithKba($query) {
         return $query->with(['sbrCode.ditoNumbers.germanDismantlers' => function ($query) {
             $engineCode = $this->engine_code;
             $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
@@ -340,4 +328,5 @@ class NewCarPart extends Model
             });
         }]);
     }
+
 }
