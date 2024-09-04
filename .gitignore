@@ -14,3 +14,4 @@ yarn-error.log
 /.idea
 /.vscode
 /public/exports
+udo netstat -tuln  grep 80
