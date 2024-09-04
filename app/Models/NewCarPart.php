@@ -227,7 +227,7 @@ class NewCarPart extends Model
 
         $exchangeRate = 7.46;
 
-        return $finalPrice * $exchangeRate;
+        return round($finalPrice * $exchangeRate);
     }
     
     // including VAT + Shipping
