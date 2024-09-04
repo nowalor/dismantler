@@ -24,6 +24,7 @@ class ExportPartsAsCsvCommand extends Command
     {
         $parts = NewCarPart::
             whereNotNull('engine_code')
+            ->where('quality', '!=', 'M')
             ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
             ->whereHas("carPartImages", function ($query) {
