@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\AutoteileMarkt;
 
+use App\Models\CarPart;
 use App\Models\NewCarPart;
 use App\Services\AutoteileMarkDocService;
 use Illuminate\Console\Command;
@@ -21,19 +22,17 @@ class ExportPartsAsCsvCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::with('carPartImages')
-            ->where('price_sek', '>', 0)
-            ->whereNotNull('price_sek')
-            ->where('price_sek', '!=', '')
-            ->whereNotNull('engine_code')
+        $parts = NewCarPart::
+            whereNotNull('engine_code')
+            ->where('quality', '!=', 'M')
+            ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
             ->whereHas("carPartImages", function ($query) {
-                return $query->where("is_placeholder", false);
+                $query->whereNotNull('new_logo_german');
             })
             ->where('engine_code', '!=', '')
             ->whereNull('sold_at')
             ->whereNotNull('car_part_type_id')
-//            ->whereIn('sbr_part_code', ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"])
             ->where('is_live', false)
             ->where(function ($query) {
                 $query
@@ -46,6 +45,8 @@ class ExportPartsAsCsvCommand extends Command
             })
             ->take(5000)
             ->get();
+
+//        $parts = NewCarPart::where('article_nr', 'BO611843')->get();
 
         foreach ($parts as $index => $part) {
 //            if($part->my_kba->count() === 0) {

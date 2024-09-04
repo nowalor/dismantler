@@ -2,7 +2,9 @@
     <div class="d-flex justify-content-center gap-3 mt-3">
         <!-- HSN + TSN Section -->
         <div class="col-3 mb-3 text-center">
-            <button wire:click="openForm('hsnTsn')" class="fw-semibold btn btn-success mb-3">{{__('kba-search')}}</button>
+              <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-success">{{ __('browse')}}</a>
+
+           {{-- <button wire:click="openForm('hsnTsn')" class="fw-semibold btn btn-success mb-3">{{__('kba-search')}}</button>--}}
             @if($openForm === 'hsnTsn')
                 <div class="card" style="z-index:5; height: 26.5rem;">
                     <div class="card-body">

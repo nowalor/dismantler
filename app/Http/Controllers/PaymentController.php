@@ -35,22 +35,23 @@ class PaymentController extends Controller
 
          $validated = $request->validated();
 
-         return $validated;
 
          $validated = array_merge($validated, [
              'value' => $carPart->price1,
-             'car_part_id' => $carPart->id,
-             'dismantle_company_id' => $carPart->dismantle_company_id,
+             'new_car_part_id' => $carPart->id,
+             'dismantle_company_id' => 1,
              'payment_platform_id' => $request->get('payment_platform'),
              'buyer_name' => $request->get('name'),
              'buyer_email' => $request->get('email'),
              'quantity' => 1,
-             'part_price' => $carPart->price,
+             'part_price' =>123,
              'city' => $request->get('town'),
          ]);
 
 
          $order = Order::create($validated);
+
+         return $request->get('payment_platform');
 
          $paymentPlatform = $this->paymentPlatformResolver
              ->resolveService($request->get('payment_platform'));

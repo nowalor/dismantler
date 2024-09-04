@@ -5,9 +5,9 @@
         <nav class="mt-4">
             <ul class="list-unstyled">
                 <hr>
-                <li class="py-3 px-2"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.4rem;">All</a></li>
+                <li class="py-3 px-2"><a onclick="updateQueryParam('all')" href="#" class="text-white text-decoration-none d-block" style="font-size: 1.4rem;">All</a></li>
                 <hr>
-                <li class="py-3 px-2"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.4rem;">Motors</a></li>
+                <li class="py-3 px-2"><a onclick="updateQueryParam(1)" href="#" class="text-white text-decoration-none d-block" style="font-size: 1.4rem;">Motors</a></li>
                 <hr>
                 <li class="py-3 px-2"><a href="#" class="text-white text-decoration-none d-block" style="font-size: 1.4rem;">Gearboxes</a></li>
                 <hr>
@@ -27,7 +27,7 @@
                 <li style="margin-left: 1rem;"><a class="fab fa-linkedin text-white" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/" style="font-size: 2.1rem;"></a></li>
                 <li style="margin-left: 1rem;"><a class="fab fa-instagram text-white" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/" style="font-size: 2.1rem;"></a></li>
                 <li style="margin-left: 1rem;"><a class="fab fa-twitter text-white" rel="noopener noreferrer" target="_blank" href="https://twitter.com/?lang=da" style="font-size: 2.1rem;"></a></li>
-            </ul>    
+            </ul>
         </div>
     </div>
 </div>
@@ -40,3 +40,17 @@
     }
 
 </style>
+
+<script>
+    function updateQueryParam(value) {
+        // Get the current URL
+        let currentUrl = new URL(window.location.href);
+
+        // Update or add the query parameter
+        currentUrl.searchParams.set('type_id', value);
+
+        // Redirect to the new URL
+        window.location.href = currentUrl.toString();
+    }
+
+</script>

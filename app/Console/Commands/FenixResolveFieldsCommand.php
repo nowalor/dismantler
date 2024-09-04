@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DanishCarPartType;
 use App\Models\DitoNumber;
@@ -44,7 +45,11 @@ class FenixResolveFieldsCommand extends Command
 //            ->whereNull('car_part_type_id')
 //            ->get();
 
-        $carParts = NewCarPart::all();
+//        $carParts = NewCarPart::whereNull('article_nr')->whereNull('sold_at')->where('dismantle_company_name', '!=', 'bo')->whereNull('country')->get();
+    $carParts = NewCarPart::whereNull('article_nr')
+        //->whereIn('external_dismantle_company_id', [44, 50, 70])
+        //->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+        ->get();
 
         foreach($carParts as $carPart) {
             if($carPart->country === 'DK') {
@@ -66,7 +71,8 @@ class FenixResolveFieldsCommand extends Command
 
             $sbrCode = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first();
 
-            $ditoNumber = DitoNumber::where('dito_number', $carPart->dito_number)->first();
+            $ditoNumberCarCode = substr($carPart->danish_item_code, 0, 4);
+            $ditoNumber = DitoNumber::where('dito_number', $ditoNumberCarCode)->first();
 
             if($sbrCode){
                 $carPart->sbr_code_id  = $sbrCode->id;

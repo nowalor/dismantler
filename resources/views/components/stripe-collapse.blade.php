@@ -72,7 +72,6 @@
             e.preventDefault()
 
             if (1 === {{ $paymentPlatform->id }}) {
-                alert('yes')
                 const buyerName = document.getElementById('checkout_name').value
                 const buyerEmail = document.getElementById('checkout_email').value
                 const address = document.getElementById('checkout_address').value
@@ -96,7 +95,6 @@
                     }
                 )
 
-                console.log(paymentMethod)
 
                 if (error) {
                     const displayError = document.getElementById('cardErrors')

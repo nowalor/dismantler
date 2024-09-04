@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/engine.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="d-flex flex-grow-1">
-        <x-side-menu-bar />
+{{--        <x-side-menu-bar />--}}
 
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
         <div class="container-fluid bg-dark text-white flex-grow-1" style="opacity: .85">
@@ -17,7 +17,7 @@
                                 <p>{{__('your-search')}} </p>
                                 <strong>{{__('model-brand')}}:</strong> {{ $dito->producer }} |
                                 <strong>{{__('model-model')}}:</strong> {{ $dito->new_name }}
-                                
+
                                 @if($type && !empty($type->name))
                                     | <strong>{{__('model-part-type')}}:</strong> {{ $type->name }}
                                 @endif

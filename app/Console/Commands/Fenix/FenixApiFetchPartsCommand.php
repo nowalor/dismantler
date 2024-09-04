@@ -26,6 +26,16 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
 
         $dismantleCompanies = [
             'w',
+            'p',
+            'a',
+            'bo',
+            'f',
+            'n',
+            'al',
+            's',
+            'gb',
+            'li',
+            'd',
         ];
 
 
@@ -71,6 +81,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             'gearbox' => $part['Car']['Gearbox'],
             'warranty' => $part['Warranty'],
             'mileage_km' => (int)$part['Car']['Mileage'] * 10,
+            'mileage' => (int)$part['Car']['Mileage'],
             'model_year' => $part['Car']['ModelYear'],
             'vin' => $part['Car']['VIN'],
         ];

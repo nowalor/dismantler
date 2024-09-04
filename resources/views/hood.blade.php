@@ -1344,6 +1344,22 @@
                 padding: 0 20px 20px 20px;
             }
         }
+
+        .contact-us-text {
+            float: left;
+        }
+        .whatsapp-logo{
+            height: 22px;
+            margin-top: -2px;
+        }
+
+        .larger {
+            font-size: 17px !important;
+        }
+
+        .larger span {
+            font-size: 17px !important;
+        }
     </style>
 </head>
 <body>
@@ -1447,6 +1463,14 @@
             <!-- Artikeldetails -->
             <div class="col-md-6 artdsc">
                 <h1>{{ $part->new_name }}</h1>
+                <p>
+                    Einzelne auf den Fotos abgebildeten Anbauteile sind eventuel nicht
+                    mit im Lieferumfang enthalten. Mitglieferte Anbauteile sind von
+                    der Gewährleistung ausgeschlossen.
+                </p>
+                <p class="larger">
+                    <span class="bold">Currus Connect ID: </span>{{ $part->article_nr }}
+                </p>
                 @foreach($data as $item)
                     <p>
               <span class="bold">{{$item['label']}}: </span
@@ -1455,10 +1479,13 @@
                 @endforeach
 
 
-                <p>
-                    Unser deutschsprachiger Kundenservice hilft Ihnen gerne das
-                    richtige Ersatzteil zu finden
-                </p>
+                <p class="larger"><span class="bold">Kontakt: </span>+45 28 18 08 48</p>
+                <p>Unser deutschsprachiger Kundenservice hilft Ihnen gerne das richtige Ersatzteil zu finden</p>
+                <div>
+                    <p class="contact-us-text">Anrufen, SMS schreiben oder auf WhatsApp schreiben ist möglich</p><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png"
+                        class="whatsapp-logo" />
+                </div>
 
                 <!-- Artikeldetails -->
             </div>

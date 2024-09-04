@@ -7,6 +7,7 @@
     <div class="d-flex flex-grow-1">
         <x-side-menu-bar />
 
+
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
         <div class="container-fluid bg-dark text-white flex-grow-1" style="opacity: .85;">
             <div class="row pt-2">
@@ -14,7 +15,7 @@
             <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-name')"/>
             {{ $parts->appends(request()->query())->links() }}
         </div>
-        
+
     </div>
 </div>
 @endsection
