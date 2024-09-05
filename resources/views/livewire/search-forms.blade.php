@@ -1,8 +1,12 @@
 <div>
     <div class="d-flex justify-content-center gap-3 mt-3">
         <!-- HSN + TSN Section -->
-        <div class="col-3 mb-3 text-center">
+        <div class="col-3 mb-3 text-center position-relative">
             <button wire:click="openForm('hsnTsn')" class="fw-semibold btn btn-success mb-3">{{__('kba-search')}}</button>
+            
+            <!-- Hover Image -->
+            <img id="hsnTsnImage" src="{{ asset('hsn-tsn.jpg') }}" alt="HSN TSN Image">
+
             @if($openForm === 'hsnTsn')
                 <div class="card" style="z-index:5; height: 26.5rem;">
                     <div class="card-body">
@@ -20,7 +24,7 @@
                 <div class="card" style="z-index:5; height: 26.5rem;">
                     <div class="card-body">
                         @include('partials.errors')
-                            <p>{{__('model-search-info')}}</p>
+                        <p>{{__('model-search-info')}}</p>
                         <livewire:model-search/>
                     </div>
                 </div>
@@ -33,7 +37,7 @@
             @if($openForm === 'oem')
                 <div class="card" style="z-index:5; height: 26.5rem;">
                     <div class="card-body">
-                            <p>{{__('oem-search-info')}}</p>
+                        <p>{{__('oem-search-info')}}</p>
                         <livewire:oem-search/>
                     </div>
                 </div>
@@ -41,3 +45,21 @@
         </div>
     </div>
 </div>
+
+<style>
+    #hsnTsnImage {
+        display: none;
+        position: absolute;
+        top: 3rem; 
+        left: 50%;
+        transform: translateX(-60%);
+        z-index: 100;
+        max-width: 30rem; 
+        height: auto;
+    }
+
+    /* Show image on button hover */
+    button:hover + #hsnTsnImage {
+        display: block;
+    }
+</style>

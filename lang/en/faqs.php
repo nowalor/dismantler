@@ -5,11 +5,11 @@ return [
         'delivery' => [
             [
                 'question' => 'How long does the delivery take?',
-                'answer' => 'The delivery time is 1-3 working days. If you order before 12:00, we will ship the same day. If you order after 12:00, we will ship the next day. If you order on a weekend or a holiday, we will ship the next working day.',
+                'answer' => 'The delivery time is 3-6 working days. If you order before 12:00, we will ship the same day. If you order after 12:00, we will ship the next day. If you order on a weekend or a holiday, we will ship the next working day.',
             ],
             [
                 'question' => 'I don\'t see my country in the list of countries. Can I still get a delivery?',
-                'answer' => 'Yes! Please contact us at service@autoteile.dk and we will find a solution.',
+                'answer' => 'Yes! Please contact us at service@currus-connect.com and we will find a solution.',
             ],
         ],
         'payment' => [
@@ -19,13 +19,13 @@ return [
             ],
             [
                 'question' => 'Can I pay with invoice?',
-                'answer' => 'Yes, you can pay with invoice. Please contact us at service@autoteile.dk.',
+                'answer' => 'Yes, you can pay with invoice. Please contact us at service@currus-connect.com',
             ],
         ],
         'return' => [
             [
                 'question' => 'Can I return my order?',
-                'answer' => 'Yes, you can return your order. Please contact us at service@autoteile.dk.',
+                'answer' => 'Yes, you can return your order. Please contact us at service@currus-connect.com.',
             ],
             [
                 'question' => 'How long do I have to return my order?',

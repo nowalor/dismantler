@@ -86,7 +86,11 @@
     "faq-email-msg": "Send os en email.",
     "faq-question": "Spørgsmål",
     "faq-answer": "Svar",
-
+    "faq-files-intro": "Her kan du læse yderligere om vores politikker ift. Anvendelse af cookies, fortrydelsesret, GDPR-DK samt salgs og leveringsbetingelser i form af PDF filer.", 
+    "faq-cookies": "Currus Connect anvender cookies på alle selskabets websites",
+    "faq-right-of-withdrawal": "Fortrydelsesret",
+    "faq-gdpr": "GDPR Politik for behandling og beskyttelse af personoplysninger",
+    "faq-terms-of-sale": "Salgs- og leveringsbetingelser Currus-Connect",
 
     "//": "Contact",
     "//": "Kontakt",
