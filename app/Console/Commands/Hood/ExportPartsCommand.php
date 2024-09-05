@@ -35,7 +35,7 @@ class ExportPartsCommand extends Command
 
         $this->info("count: {$parts->count()}");
         $partsXml = (new HoodCreateXmlAction())->execute('itemInsert', $parts);
-        //$this->info($partsXml);
+        $this->info($partsXml);
 
         try {
             $response = $this->client->post(
@@ -46,6 +46,7 @@ class ExportPartsCommand extends Command
             );
 
             if($response->getStatusCode() !== 200) {
+                $this->info('something wrong');
                 logger($response->getStatusCode());
                 logger($response->getBody());
                 return Command::FAILURE;
