@@ -33,6 +33,7 @@ class ExportPartsCommand extends Command
     {
         $parts = $this->parts();
 
+        $this->info("count: {$parts->count()}");
         $partsXml = (new HoodCreateXmlAction())->execute('itemInsert', $parts);
         //$this->info($partsXml);
 
