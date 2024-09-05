@@ -62,7 +62,17 @@
         @endif
     </td>
     <td class="text-white">
-        <p><span class="fw-bold">{{__('car-part-mileage')}}: </span>{{ $part->mileage_km }}</p>
+        @php
+        use Illuminate\Support\Str;
+            $swedishDismantlerCodes = ['F', 'A', 'AL', 'D', 'LI', 'W'];
+            $danishDismantlerCodes = []; // soon to come as we only have swedish dismantlers atm
+        @endphp
+
+        @if ($part->mileage_km === "0" || $part->mileage_km === "999" && Str::contains($part->article_nr, $swedishDismantlerCodes))
+            <p><span class="fw-bold">{{__('car-part-mileage')}}: </span> Unknown</p>
+        @else
+            <p><span class="fw-bold">{{__('car-part-mileage')}}: </span>{{ $part->mileage_km }}</p>
+        @endif
     </td>
     <td class="text-white">
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
