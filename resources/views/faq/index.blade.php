@@ -48,12 +48,17 @@
             <div class="pt-5">
                 <h3 class="text-center pb-4" style="font-size: 1.7rem;">{{ __('faq-files-intro') }}</h3>
                 <div class="row">
+                    @php
+                        $locale = app()->getLocale();
+                        $folder = $locale === 'ge' ? 'GE' : 'DK'; // Set folder based on locale
+                    @endphp
+
                     <div class="col-md-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{{__('faq-cookies')}}</h5>
-                                <a href="{{ asset('cookies.pdf') }}" target="_blank" class="btn btn-primary">View</a>
-                                <a href="{{ asset('cookies.pdf') }}" download class="btn btn-secondary">Download</a>
+                                <h5 class="card-title">{{ __('faq-cookies') }}</h5>
+                                <a href="{{ asset($folder.'/cookies.'.$locale.'.pdf') }}" target="_blank" class="btn btn-primary">View</a>
+                                <a href="{{ asset($folder.'/cookies.'.$locale.'.pdf') }}" download class="btn btn-secondary">Download</a>
                             </div>
                         </div>
                     </div>
@@ -61,9 +66,9 @@
                     <div class="col-md-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{{__('faq-right-of-withdrawal')}}</h5>
-                                <a href="{{ asset('fortrydelsesret.pdf') }}" target="_blank" class="btn btn-primary">View</a>
-                                <a href="{{ asset('fortrydelsesret.pdf') }}" download class="btn btn-secondary">Download</a>
+                                <h5 class="card-title">{{ __('faq-right-of-withdrawal') }}</h5>
+                                <a href="{{ asset($folder.'/fortrydelsesret.'.$locale.'.pdf') }}" target="_blank" class="btn btn-primary">View</a>
+                                <a href="{{ asset($folder.'/fortrydelsesret.'.$locale.'.pdf') }}" download class="btn btn-secondary">Download</a>
                             </div>
                         </div>
                     </div>
@@ -71,9 +76,9 @@
                     <div class="col-md-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{{__('faq-gdpr')}}</h5>
-                                <a href="{{ asset('gdpr.pdf') }}" target="_blank" class="btn btn-primary">View</a>
-                                <a href="{{ asset('gdpr.pdf') }}" download class="btn btn-secondary">Download</a>
+                                <h5 class="card-title">{{ __('faq-gdpr') }}</h5>
+                                <a href="{{ asset($folder.'/gdpr.'.$locale.'.pdf') }}" target="_blank" class="btn btn-primary">View</a>
+                                <a href="{{ asset($folder.'/gdpr.'.$locale.'.pdf') }}" download class="btn btn-secondary">Download</a>
                             </div>
                         </div>
                     </div>
@@ -81,9 +86,9 @@
                     <div class="col-md-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{{__('faq-terms-of-sale')}}</h5>
-                                <a href="{{ asset('leveringsbetingelser.pdf') }}" target="_blank" class="btn btn-primary">View</a>
-                                <a href="{{ asset('leveringsbetingelser.pdf') }}" download class="btn btn-secondary">Download</a>
+                                <h5 class="card-title">{{ __('faq-terms-of-sale') }}</h5>
+                                <a href="{{ asset($folder.'/leveringsbetingelser.'.$locale.'.pdf') }}" target="_blank" class="btn btn-primary">View</a>
+                                <a href="{{ asset($folder.'/leveringsbetingelser.'.$locale.'.pdf') }}" download class="btn btn-secondary">Download</a>
                             </div>
                         </div>
                     </div>

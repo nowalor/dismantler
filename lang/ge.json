@@ -88,7 +88,11 @@
     "faq-email-msg": "Senden Sie uns eine E-Mail.",
     "faq-question": "Frage",
     "faq-answer": "Antwort",
-
+    "faq-files-intro": "Hier können Sie weitere Informationen zu unseren Richtlinien bezüglich der Verwendung von Cookies, Widerrufsrecht, GDPR sowie Verkaufs- und Lieferbedingungen in Form von PDF-Dateien einsehen.",
+    "faq-cookies": "Currus Connect verwendet Cookies auf allen Webseiten des Unternehmens.",
+    "faq-right-of-withdrawal": "Widerrufsrecht",
+    "faq-gdpr": "GDPR-Richtlinie zur Verarbeitung und zum Schutz personenbezogener Daten",
+    "faq-terms-of-sale": "Verkaufs- und Lieferbedingungen von Currus-Connect",
 
     "//": "Contact",
     "contact-us": "Kontaktieren Sie uns",
