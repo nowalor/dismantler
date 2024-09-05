@@ -54,6 +54,10 @@ class ExportPartsAsCsvCommand extends Command
 //                continue;
 //            }
 
+            if($part->quality == 'M') {
+                continue;
+            }
+
             $this->csvService->generateExportCSV($part);
 
             $part->is_live = true;
