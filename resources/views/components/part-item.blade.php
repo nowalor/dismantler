@@ -13,17 +13,19 @@
         @endif
     </td>
     <td class="text-white"> <!-- Apply the text-white class here -->
-        <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->new_name }}</p>
-        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>{{ $part->quality }}</p>
-        @if($part->quality == 'A+')
-            <p><strong>A+ </strong>{{__('car-quality-A+')}}</p>
-        @elseif($part->quality == 'A')
-            <p><strong>A </strong>{{__('car-quality-A')}}</p>
-        @elseif($part->quality == 'A*')
-            <p><strong>A* </strong>{{__('car-quality-A*')}}</p>
-        @elseif($part->quality == 'M')
-            <p><strong>M </strong>{{__('car-quality-M')}}</p>
-        @endif
+        <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->sbr_car_name }}</p>
+        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>
+            @if($part->quality == 'A+')
+                {{__('car-quality-A+')}}
+            @elseif($part->quality == 'A')
+                {{__('car-quality-A')}}
+            @elseif($part->quality == 'A*')
+                {{__('car-quality-A*')}}
+            @elseif($part->quality == 'M')
+                {{__('car-quality-M')}}
+            @endif
+        </p>
+        
     </td>
     <td class="text-white">
         @if($part->original_number)
@@ -66,8 +68,7 @@
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td class="text-white">
-        <p><span class="fw-bold">{{__('car-part-price')}}: </span>{{ $part->euro_price_in_dkk }} DKK</p>
-        </p>
+        <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->getLocalizedPrice() }}</p>
     </td>
     <td>
         <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>

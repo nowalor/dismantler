@@ -2,7 +2,7 @@
 
 return [
     'categories' => [
-        'delivery' => [
+        'leverans' => [
             [
                 'question' => 'Hur lång tid tar leveransen?',
                 'answer' => 'Leveranstiden är 1-3 arbetsdagar. Om du beställer före kl. 12:00 skickar vi samma dag. Om du beställer efter kl. 12:00 skickar vi nästa dag. Om du beställer på en helg eller en helgdag skickar vi nästa arbetsdag.',
@@ -12,7 +12,7 @@ return [
                 'answer' => 'Ja! Kontakta oss på service@autoteile.dk så hittar vi en lösning.',
             ],
         ],
-        'payment' => [
+        'betalning' => [
             [
                 'question' => 'Hur betalar jag?',
                 'answer' => 'Du kan betala med Dankort, Visa, Mastercard, MobilePay, PayPal eller banköverföring.',
@@ -22,7 +22,7 @@ return [
                 'answer' => 'Ja, du kan betala med faktura. Kontakta oss på service@autoteile.dk.',
             ],
         ],
-        'return' => [
+        'retur' => [
             [
                 'question' => 'Kan jag returnera min beställning?',
                 'answer' => 'Ja, du kan returnera din beställning. Kontakta oss på service@autoteile.dk.',

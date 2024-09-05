@@ -38,10 +38,12 @@
         <div class="col-md-6 pt-2">
             <div class="card shadow-sm mb-2">
                 <div class="card-body">
-
-                    <h3 class="fw-bold large-text">{{ $part->new_name }}</h3> 
-                    <h4 class="text-primary large-text">{{ number_format($part->euro_price_in_dkk, 2) }} DKK <span class="text-muted">Incl. VAT</span> <a href="/contact"><i class="fas fa-info-circle ml-2"></i></a></h4>
-
+                    <h3 class="fw-bold large-text">{{ $part->sbr_car_name }}</h3>
+                    <h4 class="text-primary large-text">
+                        {{ $part->getLocalizedPrice() }} 
+                        <span>{{ __('vat-shipping') }}</span> 
+                        <a href="/contact"><i class="fas fa-info-circle ml-2"></i></a>
+                    </h4>                    
                     <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary w-100 mt-4 mb-4">
                         {{ __('contact-us') }}
                     </a>

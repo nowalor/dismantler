@@ -17,6 +17,6 @@ class Faq extends Model
     const CATEGORIES = [
         self::CATEGORY_DELIVERY,
         self::CATEGORY_PAYMENT,
-        /* self::CATEGORY_RETURN, */
+        self::CATEGORY_RETURN,
     ];
 }
