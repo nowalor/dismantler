@@ -38,7 +38,7 @@ class RemoveSoldPartsCommand extends Command
                     ->all()*/
                     ->pluck('id');
 
-                    foreach($$partIdsFromAPI as $partId) {
+                    foreach($partIdsFromAPI as $partId) {
                         $part = NewCarPart::where('original_id', $partId)->first();
 
                         if(!$part) {
