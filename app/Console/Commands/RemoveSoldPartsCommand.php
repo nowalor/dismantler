@@ -45,7 +45,10 @@ class RemoveSoldPartsCommand extends Command
                             continue;
                         }
 
-                        $this->info($part);
+                        $part->update([
+                            'sold_at' => 1,
+                            'sold_on_platform' => 'egluit',
+                        ]);
                     }
             }
         }
@@ -63,7 +66,7 @@ class RemoveSoldPartsCommand extends Command
 
         $variables = [
             'input' => [
-                'companyId' => '44',
+                'companyId' => $companyId,
                 'dateHourBack' => null,
                 'maxRows' => 1000000000,
                 'pageNumber' => $page,
