@@ -81,8 +81,8 @@ class RemoveSoldPartsCommand extends Command
             'query' => $query,
         ]);
 
-        
-        return $response['data']['marcusPartsSearch']['items'];
+
+        return $response['data']['marcusDeletePartsSearch']['items'];
     }
 
 }
