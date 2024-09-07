@@ -82,6 +82,10 @@ class RemoveSoldPartsCommand extends Command
             'query' => $query,
         ]);
 
+
+        logger($response->body());
+
+        die();
         return $response['data']['marcusPartsSearch']['items'];
     }
 
