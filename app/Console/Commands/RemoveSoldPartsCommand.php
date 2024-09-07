@@ -39,6 +39,7 @@ class RemoveSoldPartsCommand extends Command
                     ->pluck('id');
 
                     foreach($partIdsFromAPI as $partId) {
+                        logger('still running');
                         $part = NewCarPart::where('original_id', $partId)->first();
 
                         if(!$part) {
@@ -67,7 +68,7 @@ class RemoveSoldPartsCommand extends Command
         $variables = [
             'input' => [
                 'companyId' => $companyId,
-                'dateHourBack' => null,
+                'dateHourBack' => 5000,
                 'maxRows' => 1000000000,
                 'pageNumber' => $page,
                 'pageSize' => 1000,
