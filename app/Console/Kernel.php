@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
 //        $schedule->command('fenix:fetch')->dailyAt('00:00');
 //        $schedule->command('german:parts:seed')->dailyAt('20:05');
        // $schedule->command('hood:export')->dailyAt('13:06');
-         //$schedule->command('remove:sold:parts')->dailyAt('21:51');
+         $schedule->command('remove:sold:parts')->dailyAt('16:52');
     }
 
     /**
