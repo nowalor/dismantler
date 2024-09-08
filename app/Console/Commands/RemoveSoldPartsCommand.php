@@ -49,7 +49,7 @@ class RemoveSoldPartsCommand extends Command
 
                         $this->info('found part');
 
-                        $part->sold_at = true;
+                        $part->sold_at = now();
                         $part->sold_on_platform = 'egluit';
                         $part->save();
                     }
