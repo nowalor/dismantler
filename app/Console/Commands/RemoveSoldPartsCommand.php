@@ -39,17 +39,16 @@ class RemoveSoldPartsCommand extends Command
                     ->pluck('id');
 
                     foreach($partIdsFromAPI as $partId) {
-                        logger('still running');
                         $part = NewCarPart::where('original_id', $partId)->first();
 
                         if(!$part) {
                             continue;
                         }
 
-                        $part->update([
-                            'sold_at' => 1,
-                            'sold_on_platform' => 'egluit',
-                        ]);
+                        $this->info('found part');
+
+                        $part->sold_at = true;
+                        $part->sold_on_platform = 'egluit';
                     }
             }
         }
