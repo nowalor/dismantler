@@ -58,6 +58,7 @@ class RemoveSoldPartsCommand extends Command
 
 
         $this->info('Finished removing sold parts');
+        logger('command finished');
         return Command::SUCCESS;
     }
 
