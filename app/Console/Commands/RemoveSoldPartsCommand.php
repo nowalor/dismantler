@@ -39,7 +39,9 @@ class RemoveSoldPartsCommand extends Command
                     ->pluck('id');
 
                     foreach($partIdsFromAPI as $partId) {
-                        $part = NewCarPart::where('original_id', $partId)->first();
+                        $part = NewCarPart::whereNull('sold_at')
+                            ->where('original_id', $partId)
+                            ->first();
 
                         if(!$part) {
                             continue;
@@ -49,6 +51,7 @@ class RemoveSoldPartsCommand extends Command
 
                         $part->sold_at = true;
                         $part->sold_on_platform = 'egluit';
+                        $part->save();
                     }
             }
         }
