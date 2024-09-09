@@ -39,6 +39,7 @@ class WipeEgluitPartsCommand extends Command
         NewCarPart::where('country', 'DK')->chunk(25000,  function($parts){
             foreach($parts as $part){
                 $part->germanDismantlers()->detach();
+                $part->carPartImages()->delete();
 
                 $part->delete();
             }
