@@ -29,14 +29,14 @@ class WipeEgluitPartsCommand extends Command
      */
     public function handle()
     {
-         NewCarpartImage::where('original_url', 'like', '%egluit%')
+         /*NewCarpartImage::where('original_url', 'like', '%egluit%')
             ->chunk(20000, function($images) {
                 foreach ($images as $image) {
                     $image->delete();
                 }
-            });
+            }); */
 
-        NewCarPart::where('country', 'DK')->chunk(5000,  function($parts){
+        NewCarPart::where('country', 'DK')->chunk(25000,  function($parts){
             foreach($parts as $part){
                 $part->germanDismantlers()->detach();
 
