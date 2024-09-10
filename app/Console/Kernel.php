@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('german:parts:seed')->dailyAt('18:59');
        // $schedule->command('hood:export')->dailyAt('13:06');
          $schedule->command('remove:sold:parts')->everyFiveMinutes();
+         $schedule->command('fenix:resolve-images')->everyFiveMinutes();
          //$schedule->command('egluit:purge-parts')->dailyAt('16:08');
     }
 
