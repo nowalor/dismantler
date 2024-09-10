@@ -46,7 +46,8 @@ class SeedGermanCarPartsCommand extends Command
         $newItem['vin'] = $item['carVinCode'];
         $newItem['engine_code'] = $item['engineCode'];
         $newItem['engine_type'] = $item['engineType'];
-        $newItem['mileage_km'] = $item['kilometrage'];
+        $newItem['mileage_km'] = $item['kilometrage'] * 1000;
+        $newItem['mileage'] = $item['kilometrage'];
         $newItem['carPartImages'] = $this->transformImages($item['images']);
 
         return $newItem;
