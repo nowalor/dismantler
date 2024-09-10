@@ -57,7 +57,7 @@
 </nav>
 @endif
 
-<header class="sticky-top bg-dark">
+{{-- <header class="sticky-top bg-dark">
     <nav class="container d-flex justify-content-between py-2">
         <a href="{{ route('landingpage') }}" class="d-flex gap-2 align-items-center text-decoration-none">
             <i style="font-size: 1.6rem;" class="fa fa-solid fa-car"></i>
@@ -87,8 +87,37 @@
             </li>
         </ul>
     </nav>
-</header>
+</header> --}}
 
+<header class="navbar navbar-dark bg-dark sticky-top px-0">
+    <nav class="container d-flex justify-content-between">
+        <a href="/" class="text-white mb-0" style="font-size: 1.4rem;">
+            <img class="d-inline-block"
+            src="currus-logo.png" width="40rem" height="50rem" />
+            Currus Connect
+        </a>
+
+        <ul class="nav">
+        <li class="nav-item d-flex">
+            <a href="/" class="nav-link text-white">{{ __('home') }}</a>
+            <a href="/car-parts/search/by-name?search=" class="nav-link text-white">{{ __('parts') }}</a>
+            <a href="{{ route('about-us') }}" class="nav-link text-white">{{ __('about-us') }}</a>
+            <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
+            <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>
+    
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                 {{ strtoupper(App::getLocale()) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                <li><a class="dropdown-item" href="{{ route('change.language', 'en') }}">English</a></li>
+                <li><a class="dropdown-item" href="{{ route('change.language', 'ge') }}">German</a></li>
+                <li><a class="dropdown-item" href="{{ route('change.language', 'dk') }}">Danish</a></li>
+                <li><a class="dropdown-item" href="{{ route('change.language', 'se') }}">Swedish</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
 
 @yield('content')
