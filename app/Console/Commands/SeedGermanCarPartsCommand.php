@@ -22,8 +22,8 @@ class SeedGermanCarPartsCommand extends Command
         $ditoNumber = DanishCarPartType::where('egluit_id', $item['itemTypeId'])->first()?->code;
 
         $companyMap = [
-            '44' => 'AA',
-            '50' => 'BB',
+         /*   '44' => 'AA',
+            '50' => 'BB',*/
             '70' => 'CC'
         ];
 
