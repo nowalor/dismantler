@@ -98,7 +98,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->whereNotNull('price_sek')
 //            ->where('price_sek', '!=', '')
 //            ->whereNull('sold_at')
-            ->whereIn('dismantle_company_name', ['D', 'LI', 'F', 'GB'])
+            ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC', 'GB'])
             ->take(300)
             ->get();
 
