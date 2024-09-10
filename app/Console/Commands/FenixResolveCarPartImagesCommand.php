@@ -58,7 +58,7 @@ class FenixResolveCarPartImagesCommand extends Command
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.18',
             ],
-        // TODO
+            // TODO
             'D' => [
                 'name' => 'd',
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
@@ -79,6 +79,24 @@ class FenixResolveCarPartImagesCommand extends Command
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.18',
             ],
+            'AA' => [
+                'name' => 'aa',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.18',
+
+            ],
+            'BB' => [
+                'name' => 'bb',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.18',
+
+            ],
+            'CC' => [
+                'name' => 'CC',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.18',
+            ]
+
         ];
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
@@ -98,14 +116,14 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->whereNotNull('price_sek')
 //            ->where('price_sek', '!=', '')
 //            ->whereNull('sold_at')
-            ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC', 'GB'])
+            ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])
             ->take(300)
             ->get();
 
 //        $carParts = NewCarPart::where('id', 32960)->get();
 
         foreach ($carParts as $carPart) {
-            $dismantlerCompany =  $dismantlers[$carPart->dismantle_company_name];
+            $dismantlerCompany = $dismantlers[$carPart->dismantle_company_name];
             $replacementImagePath = $dismantlerCompany['logoPath'];
             $scalingHeight = $dismantlerCompany['scalingHeight'];
 
@@ -126,7 +144,7 @@ class FenixResolveCarPartImagesCommand extends Command
                         position: $position,
                     );
 
-                if(!$response) {
+                if (!$response) {
                     continue;
                 }
 
@@ -146,10 +164,10 @@ class FenixResolveCarPartImagesCommand extends Command
                     $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
                     file_put_contents($tempFilePath, $stream);
 
+                    $this->info($image->new_car_part_id);
                     Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
+                  //  Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-testing9", $tempFilePath, $outputName, 'public');
-
 
 
                     $image->new_logo_german = $outputName;
@@ -188,7 +206,7 @@ class FenixResolveCarPartImagesCommand extends Command
 
 //        $height = 0.27;
 //        $height = 0.31;
-        if($dismantleCompany === 'F') {
+        if ($dismantleCompany === 'F') {
             $height = 0.38;
         }
 
