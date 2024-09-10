@@ -71,6 +71,9 @@ class SeedGermanCarPartsCommand extends Command
 
                     if (empty($response)) {
                         Log::info("Broke on page $page");
+
+                        $this->info("Broke on page $page");
+
                         break;
                     }
 
@@ -81,8 +84,11 @@ class SeedGermanCarPartsCommand extends Command
                     $page++;
                 }
             } catch (Exception $ex) {
-                logger('failed..');
                 Log::info($ex->getMessage());
+
+                $this->info('IN CATCH:');
+                $this->info($ex->getMessage());
+
                 return 'in catch';
             }
         }
