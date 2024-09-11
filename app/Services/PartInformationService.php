@@ -14,14 +14,14 @@ class PartInformationService
         $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
 
         if($germanCarPartName === 'Automatikgetriebe') {
-            $germanCarPartName = 'ORIGINAL Getriebe Automatik';
+            $germanCarPartName = 'ORIGINAL GETRIBE AUTOMATIK';
         }
 
         if($germanCarPartName === 'Motor') {
-            $germanCarPartName = 'ORIGINAL Motor';
+            $germanCarPartName = 'ORIGINAL MOTOR';
         }
 
-        $name .= $germanCarPartName . ' ' . $this->getCarName($carPart) . ' ' . $carPart->model_year .' ' . $carPart->mileage_km . 'km';
+        $name .= $this->getCarName($carPart) . ' ' . $carPart->model_year;
 
         if (in_array(
             $carPart->car_part_type_id,
@@ -39,7 +39,9 @@ class PartInformationService
             $additionalInformation = $carPart->engine_code;
         }
 
-        $name .= ' ' . $carPart->original_number  . ' ' . $additionalInformation;
+        $name .=  ' '  . $additionalInformation . ' ' . $germanCarPartName;
+
+        $name .= ' ' . $carPart->original_number  . ' ' .  $carPart->mileage_km . 'KM';
 
         return preg_replace('/\s+/', ' ', $name);
     }
