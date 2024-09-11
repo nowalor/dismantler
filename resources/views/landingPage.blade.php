@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="cta">
-    <div class="d-flex justify-content-center text-center mx-auto">
+    <div class="d-flex justify-content-center text-center mx-auto pt-4">
         @php
             $locale = App::getLocale();
             $logoPath = config("logos.{$locale}");

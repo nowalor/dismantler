@@ -1,6 +1,6 @@
 <div class="d-flex flex-column custom-sidemenu-width bg-dark text-white">
     <div class="px-4 flex-grow-1">
-        <h1 class="display-6 font-weight-bold mt-2.5 ml-2 pt-2">PARTS</h1>
+        <h1 class="display-6 font-weight-bold mt-2.5 ml-2 pt-3">PARTS</h1>
         <nav class="mt-4">
             <ul class="list-unstyled">
                 <hr>
@@ -14,7 +14,7 @@
                 
                 {{-- Dynamically generate part type list --}}
                 @foreach($partTypes as $partType)
-                    <li class="py-2 px-1">
+                    <li class="py-0 px-1">
                         <a href="
                             @if (Route::currentRouteName() === 'car-parts.search-by-name')
                                 {{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => $partType->id])) }}
