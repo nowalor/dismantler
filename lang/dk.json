@@ -21,7 +21,7 @@
     "kba-search-button": "Søg",
 
     "model-search": "SØG EFTER BILMODEL",
-    "model-search-info": "Hvis du ikke kender HSN og TSN, eller hvis du ønsker en mere åben søgning, kan du søge efter bilmodel.",
+    "model-search-info": " ",
     "model-brand": "Mærke",
     "model-model": "Model",
     "model-part-type": "Bildel type",
@@ -31,7 +31,7 @@
     "model-search-button": "Søg",
 
     "oem-search": "SØG EFTER OEM",
-    "oem-search-info": "Meget detaljeret søgning, som du kan bruge, hvis du har det originale reservedelsnummer (OEM), gearkassekode eller motorkode.",
+    "oem-search-info": " ",
     "oem-oem": "OEM",
     "oem-engine-code": "Motorkode",
     "oem-gearbox-code": "Gearkassekode",

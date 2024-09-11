@@ -21,7 +21,7 @@
     "kba-search-button": "Sök",
 
     "model-search": "SÖK EFTER BILMODELL",
-    "model-search-info": "Om du inte känner till HSN och TSN eller om du vill göra en bredare sökning kan du söka efter bilmodell.",
+    "model-search-info": " ",
     "model-brand": "Märke",
     "model-model": "Modell",
     "model-part-type": "Deltyp",
@@ -31,7 +31,7 @@
     "model-search-button": "Sök",
 
     "oem-search": "SÖK EFTER OEM",
-    "oem-search-info": "Mycket detaljerad sökning som du kan använda om du har det ursprungliga reservdelsnumret (OEM), växellåda eller motorkod.",
+    "oem-search-info": " ",
     "oem-oem": "OEM",
     "oem-engine-code": "Motorkod",
     "oem-gearbox-code": "Växellåda kod",
