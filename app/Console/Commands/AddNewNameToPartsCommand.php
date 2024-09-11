@@ -37,7 +37,7 @@ class AddNewNameToPartsCommand extends Command
     {
         return NewCarPart::
      /*   whereNotNull('sbr_car_name')*/
-            where('article_nr', '')
+            where('article_nr', 'AL1053908')
             ->get();
        // whereNotNull('car_part_type_id')
             //->whereNotNull('dito_number')
