@@ -2,7 +2,7 @@
     <div class="row justify-content-center gap-3">
         <!-- Conditional Rendering of Buttons -->
 
-        <!-- HSN/TSN Search Button -->
+        @if(App::getLocale() === 'ge')
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center position-relative">
             <button wire:click="openForm('hsnTsn')" class="fw-semibold btn btn-success mb-3 w-100">{{__('kba-search')}}</button>
             @if($openForm === 'hsnTsn' && !$isSmallScreen)
@@ -17,21 +17,25 @@
             @endif
         </div>
 
-        <!-- Model Search Button -->
+        @else
+        <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
+            <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-primary mb-3 w-100">{{__('browse')}}</a>
+        </div>
+        @endif
+
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
             <button wire:click="openForm('model')" class="fw-semibold btn btn-success mb-3 w-100">{{__('model-search')}}</button>
             @if($openForm === 'model' && !$isSmallScreen)
             <div class="card mt-3" style="z-index:5; height: auto;">
                 <div class="card-body">
                     @include('partials.errors')
-                    <p>{{__('model-search-info')}}</p>
+                    <p class="font-bold">{{__('model-search-info')}}</p>
                     <livewire:model-search/>
                 </div>
             </div>
             @endif
         </div>
 
-        <!-- OEM Search Button -->
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
             <button wire:click="openForm('oem')" class="fw-semibold btn btn-success mb-3 w-100">{{__('oem-search')}}</button>
             @if($openForm === 'oem' && !$isSmallScreen)
