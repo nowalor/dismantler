@@ -82,7 +82,7 @@ class CreateXmlCommand extends Command
                             ->whereIn('car_part_type_id', [6, 7]);
                     });
             })
-            ->take(500)
+            ->take(50)
             //->distinct('original_number')
             ->get();
 
