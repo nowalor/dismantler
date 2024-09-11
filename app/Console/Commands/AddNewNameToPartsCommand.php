@@ -24,6 +24,7 @@ class AddNewNameToPartsCommand extends Command
 
         foreach($parts as $part) {
             $name = $this->partInformationService->getNameForEbay($part);
+            $this->info("name: $name");
 
             $part->new_name = $name;
             $part->save();
