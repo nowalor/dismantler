@@ -126,7 +126,7 @@ class FenixResolveCarPartImagesCommand extends Command
         foreach ($carParts as $carPart) {
             $dismantlerCompany = $dismantlers[$carPart->dismantle_company_name];
             $replacementImagePath = $dismantlerCompany['logoPath'];
-            $replacementImagePath = 'img/dismantler/blank.png';
+            $replacementImagePath = public_path('img/dismantler/blank.png');
             $scalingHeight = $dismantlerCompany['scalingHeight'];
 
             foreach ($carPart->carPartImages as $index => $image) {
