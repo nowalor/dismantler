@@ -121,7 +121,7 @@ class FenixResolveCarPartImagesCommand extends Command
             ->take(300)
             ->get();
 
-        $carParts = NewCarPart::('car_part_type_id', 1)->where('engine_code', '!=', '')->whereNotNull('engine_code')->where('model_year', '>', 2002)->whereNull('sold_at')->whereNotNull('article_nr')->where(function ($q) {$q->where('fuel', 'Diesel')->orWhere('fuel', 'Bensin');})->whereHas('germanDismantlers.kTypes')->whereNotNull('price_eur') ->whereHas('carPartImages', function ($q) {$q->whereNull('image_name_blank_logo');})->count();
+        $carParts = NewCarPart::where('car_part_type_id', 1)->where('engine_code', '!=', '')->whereNotNull('engine_code')->where('model_year', '>', 2002)->whereNull('sold_at')->whereNotNull('article_nr')->where(function ($q) {$q->where('fuel', 'Diesel')->orWhere('fuel', 'Bensin');})->whereHas('germanDismantlers.kTypes')->whereNotNull('price_eur') ->whereHas('carPartImages', function ($q) {$q->whereNull('image_name_blank_logo');})->count();
 
 //        $carParts = NewCarPart::where('id', 32960)->get();
 
