@@ -53,7 +53,7 @@ class CreateXmlCommand extends Command
 
         $originalNumbers = NewCarPart::
         //whereIn('car_part_type_id', [1])
-        whereIn('car_part_type_id', [4]) // can be 4
+        whereIn('car_part_type_id', [1]) // can be 4
             ->where('is_live_on_ebay', false)
             ->where('engine_code', '!=', '')
             ->whereNotNull('engine_code')

@@ -109,14 +109,15 @@ class FenixResolveCarPartImagesCommand extends Command
             ->with('carPartImages')
 //            ->where('dismantle_company_name', 'A')
 //            ->whereNotNull('engine_code')
-            ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)
+         /*   ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)*/
 //            ->where('engine_code', '!=', '')
 //            ->has('germanDismantlers')
 //            ->where('price_sek', '>', 0)
 //            ->whereNotNull('price_sek')
 //            ->where('price_sek', '!=', '')
 //            ->whereNull('sold_at')
-            ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])
+        /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
+                ->where('car_part_type_id', 1)
             ->take(300)
             ->get();
 
