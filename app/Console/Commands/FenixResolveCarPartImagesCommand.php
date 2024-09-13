@@ -126,6 +126,7 @@ class FenixResolveCarPartImagesCommand extends Command
         foreach ($carParts as $carPart) {
             $dismantlerCompany = $dismantlers[$carPart->dismantle_company_name];
             $replacementImagePath = $dismantlerCompany['logoPath'];
+            $replacementImagePath = 'img/dismantler/blank.png';
             $scalingHeight = $dismantlerCompany['scalingHeight'];
 
             foreach ($carPart->carPartImages as $index => $image) {
@@ -166,12 +167,13 @@ class FenixResolveCarPartImagesCommand extends Command
                     file_put_contents($tempFilePath, $stream);
 
                     $this->info($image->new_car_part_id);
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/logo-blank", $tempFilePath, $outputName, 'public');
                   //  Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-testing9", $tempFilePath, $outputName, 'public');
 
 
-                    $image->new_logo_german = $outputName;
+                    //$image->new_logo_german = $outputName;
+                    $image->image_name_blank_logo = $outputName;
                     $image->priority = $carImageNumber;
                     $image->save();
 
