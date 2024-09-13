@@ -101,10 +101,10 @@ class FenixResolveCarPartImagesCommand extends Command
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
             ->whereHas('carPartImages', function ($query) {
-                $query->whereNull('image_name_blank_logo');
+                $query->whereNull('new_logo_german');
             })
             ->with(['carPartImages' => function ($query) {
-                $query->whereNull('image_name_blank_logo');
+                $query->whereNull('new_logo_german');
             }])
             ->with('carPartImages')
 //            ->where('dismantle_company_name', 'A')
@@ -117,18 +117,15 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->where('price_sek', '!=', '')
 //            ->whereNull('sold_at')
         /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
-                ->where('car_part_type_id', 1)
+                ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])
             ->take(300)
             ->get();
-
-        $carParts = NewCarPart::where('car_part_type_id', 3)->where('engine_code', '!=', '')->whereNotNull('engine_code')->where('model_year', '>', 2002)->whereNull('sold_at')->whereNotNull('article_nr')->where(function ($q) {$q->where('fuel', 'Diesel')->orWhere('fuel', 'Bensin');})->whereHas('germanDismantlers.kTypes')->whereNotNull('price_eur') ->whereHas('carPartImages', function ($q) {$q->whereNull('image_name_blank_logo');})->get();
 
 //        $carParts = NewCarPart::where('id', 32960)->get();
 
         foreach ($carParts as $carPart) {
             $dismantlerCompany = $dismantlers[$carPart->dismantle_company_name];
             $replacementImagePath = $dismantlerCompany['logoPath'];
-            $replacementImagePath = public_path('img/blank.png');
             $scalingHeight = $dismantlerCompany['scalingHeight'];
 
             foreach ($carPart->carPartImages as $index => $image) {
@@ -169,13 +166,12 @@ class FenixResolveCarPartImagesCommand extends Command
                     file_put_contents($tempFilePath, $stream);
 
                     $this->info($image->new_car_part_id);
-                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/logo-blank", $tempFilePath, $outputName, 'public');
+                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
                   //  Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-testing9", $tempFilePath, $outputName, 'public');
 
 
-                    //$image->new_logo_german = $outputName;
-                    $image->image_name_blank_logo = $outputName;
+                    $image->new_logo_german = $outputName;
                     $image->priority = $carImageNumber;
                     $image->save();
 
