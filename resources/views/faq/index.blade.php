@@ -48,11 +48,6 @@
             <div class="pt-5">
                 <h3 class="text-center pb-4" style="font-size: 1.7rem;">{{ __('faq-files-intro') }}</h3>
                 <div class="row">
-                    @php
-                        $locale = app()->getLocale();
-                        $folder = $locale === 'ge' ? 'GE' : 'DK'; // Set folder based on locale
-                    @endphp
-
                     <div class="col-md-6 mb-3">
                         <div class="card">
                             <div class="card-body">

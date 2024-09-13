@@ -59,7 +59,7 @@
 
 <header class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <nav class="container d-flex justify-content-between">
-        <a href="{{ route('landingpage') }}" class="d-flex gap-2 align-items-center text-decoration-none">
+        <a href="{{ route('landingpage') }}" class="d-flex align-items-center text-decoration-none">
             <img class="d-inline-block" src="currus-logo.png" width="50rem" height="50rem" style="padding: 10px;" />
             <h4 class="text-white mb-0">Currus Connect</h4>
         </a>
@@ -70,7 +70,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto gap-3">
                 <li class="nav-item">
                     <a href="/" class="nav-link text-white">{{ __('home') }}</a>
                 </li>
@@ -102,8 +102,6 @@
         </div>
     </nav>
 </header>
-
-
 
 
 @yield('content')

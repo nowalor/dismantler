@@ -1,16 +1,17 @@
 <div class="container mt-2">
     <div class="row justify-content-center gap-3">
-        <!-- Conditional Rendering of Buttons -->
 
         @if(App::getLocale() === 'ge')
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center position-relative">
             <button wire:click="openForm('hsnTsn')" class="fw-semibold btn btn-success mb-3 w-100">{{__('kba-search')}}</button>
+            <img id="hsnTsnImage" src="{{ asset('hsn-tsn.jpg') }}" alt="HSN/TSN Information">
+            
             @if($openForm === 'hsnTsn' && !$isSmallScreen)
             <div class="card mt-3" style="z-index:5; height: auto;">
-                <div class="card-body">
+                <div class="card-body pt-0">
                     <p>{{__('kba-search-info')}}</p>
-                    <p>{{__('kba-search-info-hsn')}}</p>
-                    <p>{{__('kba-search-info-tsn')}}</p>
+                    <p>{{__('kba-search-info-hsn') }}</p>
+                    <p>{{__('kba-search-info-tsn') }}</p>
                     <livewire:kba-search :partTypes="$partTypes"/>
                 </div>
             </div>
@@ -27,9 +28,9 @@
             <button wire:click="openForm('model')" class="fw-semibold btn btn-success mb-3 w-100">{{__('model-search')}}</button>
             @if($openForm === 'model' && !$isSmallScreen)
             <div class="card mt-3" style="z-index:5; height: auto;">
-                <div class="card-body">
+                <div class="card-body pt-0">
                     @include('partials.errors')
-                    <p class="font-bold">{{__('model-search-info')}}</p>
+                    <p class="pt-2"><strong>{{__('model-search-info')}}</strong></p>
                     <livewire:model-search/>
                 </div>
             </div>
@@ -40,8 +41,8 @@
             <button wire:click="openForm('oem')" class="fw-semibold btn btn-success mb-3 w-100">{{__('oem-search')}}</button>
             @if($openForm === 'oem' && !$isSmallScreen)
             <div class="card mt-3" style="z-index:5; height: auto;">
-                <div class="card-body">
-                    <p>{{__('oem-search-info')}}</p>
+                <div class="card-body pt-0">
+                    <p class="pt-2"><strong>{{__('oem-search-info')}}</strong></p>
                     <livewire:oem-search/>
                 </div>
             </div>

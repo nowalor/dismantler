@@ -35,6 +35,9 @@ class SearchByKbaAction
             })
             ->with('carPartImages');
 
+        // Convert BelongsToMany to Builder
+        $partsQuery = $partsQuery->getQuery();
+
         // Apply sorting
         $partsQuery = (new SortPartsAction())->execute($partsQuery, $sort);
 

@@ -173,41 +173,45 @@ class CarPartController extends Controller {
 
     // Non-Resourceful Methods
     public function searchByCode(Request $request): mixed {
-    // Your existing logic to validate HSN and TSN inputs
-
-    $type = null;
-
-    if ($request->filled('part-type')) {
-        $type = CarPartType::find($request->get('part-type'));
+        // Your existing logic to validate HSN and TSN inputs
+    
+        $type = null;
+    
+        if ($request->filled('part-type')) {
+            $type = CarPartType::find($request->get('part-type'));
+        }
+    
+        $sort = $request->query('sort'); // Get the sort parameter
+    
+        $response = (new SearchByKbaAction())->execute(
+            hsn: $request->get('hsn'),
+            tsn: $request->get('tsn'),
+            type: $type,
+            sort: $sort, // Pass the sort parameter to the action
+            paginate: 10
+        );
+    
+        if (!$response['success']) {
+            return response()->json([
+                'message' => 'KBA not found or parts are unavailable',
+            ]);
+        }
+    
+        $parts = $response['data']['parts'];
+        $kba = $response['data']['kba'];
+        $partCount = count($parts); // Add this line to calculate the part count
+    
+        $search = [
+            'hsn' => $request->get('hsn'),
+            'tsn' => $request->get('tsn'),
+            'part-type' => $request->get('part-type'),
+        ];
+    
+        $partTypes = CarPartType::all();
+    
+        return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba', 'partCount'));
     }
-
-    $sort = $request->query('sort'); // Get the sort parameter
-
-    $response = (new SearchByKbaAction())->execute(
-        hsn: $request->get('hsn'),
-        tsn: $request->get('tsn'),
-        type: $type,
-        sort: $sort, // Pass the sort parameter to the action
-        paginate: 10,
-    );
-
-    if (!$response['success']) {
-        dd('Unhandled error, let the developer know');
-    }
-
-    $parts = $response['data']['parts'];
-    $kba = $response['data']['kba'];
-
-    $search = [
-        'tsn' => $request->get('tsn'),
-        'hsn' => $request->get('hsn'),
-        'part-type' => $request->get('part-type'),
-    ];
-
-    $partTypes = CarPartType::all();
-
-        return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba'));
-    }
+    
 
     private function redirectBack(array $errors): RedirectResponse {
 
@@ -218,8 +222,8 @@ class CarPartController extends Controller {
     
 
     public function searchByModel(Request $request): mixed {
-    
-        $dito = DitoNumber::find($request->get('dito_number_id'));
+
+    $dito = DitoNumber::find($request->get('dito_number_id'));
 
     if(!$dito) {
         abort('fail');
@@ -245,24 +249,25 @@ class CarPartController extends Controller {
         $request->merge(['parts' => 1]);
     }
 
+    $partType = $request->query('type_id'); // Retrieve the part type filter
     
     $results = (new SearchByModelAction())->execute(
         model: $dito,
         type: $type,
-        sort: $sort, // Pass the sort parameter to the action
+        sort: $sort, 
         filters: $filters, 
         paginate: 10,
     );
 
     $parts = $results['data']['parts'];
 
-    $types = CarPartType::all();
+    $partTypes = CarPartType::all();
 
     return view('parts-model', compact(
         'parts',
         'dito',
         'type', // Prev selected type, used to autofill search
-        'types'
+        'partTypes'
     ));
     }
 
@@ -287,7 +292,16 @@ class CarPartController extends Controller {
 
     $parts = $results['data']['parts'];
 
-        return view('parts-oem', compact('parts', 'oem', 'engine_code', 'gearbox'));
+    $partTypes = CarPartType::all();
+
+        return view
+        ('parts-oem', compact(
+            'parts', 
+            'oem', 
+            'engine_code', 
+            'gearbox',
+            'partTypes'
+        ));
     }
 
 }
