@@ -5,7 +5,7 @@
                 $image = $part->carPartImages()->first();
             @endphp
             <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->original_url }}" alt="Car part image"
-            style="width: 200px; height: auto; max-width: 100%; border-radius: 12px;">
+            style="width: 18rem; height: auto; max-width: 100%; border-radius: 12px;">
         
         @else
             <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
@@ -13,19 +13,7 @@
         @endif
     </td>
     <td class="text-white"> <!-- Apply the text-white class here -->
-        <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->sbr_car_name }}</p>
-        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>
-            @if($part->quality == 'A+')
-                {{__('car-quality-A+')}}
-            @elseif($part->quality == 'A')
-                {{__('car-quality-A')}}
-            @elseif($part->quality == 'A*')
-                {{__('car-quality-A*')}}
-            @elseif($part->quality == 'M')
-                {{__('car-quality-M')}}
-            @endif
-        </p>
-        
+        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType->name}}</p>     
     </td>
     <td class="text-white">
         @if($part->original_number)
@@ -60,6 +48,17 @@
                 </a>
             </p>
         @endif
+        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>
+            @if($part->quality == 'A+')
+                {{__('car-quality-A+')}}
+            @elseif($part->quality == 'A')
+                {{__('car-quality-A')}}
+            @elseif($part->quality == 'A*')
+                {{__('car-quality-A*')}}
+            @elseif($part->quality == 'M')
+                {{__('car-quality-M')}}
+            @endif
+        </p>
     </td>
     <td class="text-white">
         @php

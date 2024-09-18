@@ -109,10 +109,11 @@
     }
 
     @media (max-width: 768px) {
-    .row .mb-3 {
-        margin-bottom: 0.1rem !important; 
+        .row .mb-3 {
+            margin-bottom: 0.1rem !important; 
+        }
     }
-}
+
 </style>
 
 <script>

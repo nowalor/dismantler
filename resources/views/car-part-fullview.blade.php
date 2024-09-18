@@ -1,7 +1,7 @@
 @extends('app')
 @section('title', 'Currus Connect - Car Parts')
 @section('content')
-<div class="container mt-3">
+<div id="fullview-container" class="container pt-2 pb-3 pl-4 pr-4">
     <h1 class="large-text font-bold">{{__('product-details')}}</h1>
     <div class="row">
         <!-- Product Image Gallery -->
@@ -92,6 +92,13 @@
 @endsection
 
 <style>
+
+    #fullview-container {
+        background-color: white;
+        border-radius: 0.2rem; 
+    }
+        
+
 .large-text {
     font-size: 1.5rem;
 }

@@ -12,6 +12,7 @@
     <title>@yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
+    @stack('css')
 </head>
 <!-- As a heading -->
 {{-- @if(auth()->user() && auth()->user()->is_admin)
@@ -57,7 +58,7 @@
 </nav>
 @endif --}}
 
-<header class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+<header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <nav class="container d-flex justify-content-between">
         <a href="{{ route('landingpage') }}" class="d-flex align-items-center text-decoration-none">
             <img class="d-inline-block" src="currus-logo.png" width="50rem" height="50rem" style="padding: 10px;" />
@@ -103,7 +104,6 @@
     </nav>
 </header>
 
-
 @yield('content')
     @livewireScripts
     <script
@@ -118,10 +118,11 @@
 <style>
 
     body {
-        padding-top: 3.5rem;
+        background-image: url(' {{asset('img/enginedark.jpg') }}');
+        background-size: cover;
     }
 
-    .cta {
+    /* .cta {
         background-image: url(' {{asset('img/engine.jpg') }}');
         background-size: cover;
         background-position: center;
@@ -131,6 +132,7 @@
         position: relative;
         overflow: hidden;
     }
+    
     .cta::after {
         content: "";
         height: 100vh;
@@ -145,7 +147,7 @@
     .cta > * {
         position: relative;
         z-index: 4;
-    }
+    } */
     
 </style>
 @stack('js')

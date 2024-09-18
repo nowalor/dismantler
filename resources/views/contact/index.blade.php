@@ -44,3 +44,12 @@
         </div>
     </div>
 @endsection
+
+@push('css')
+<style>
+    body {
+        background-color: white !important; /* Force background to white on this page */
+        background-image: none !important; /* Disable any background images */
+    }
+</style>
+@endpush
