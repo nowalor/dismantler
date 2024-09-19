@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <x-part-list :parts="$parts" :sortRoute="route('car-parts.search-by-oem')"/>
+            <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-oem')"/>
             {{ $parts->links() }}
         </div>
     </div>
