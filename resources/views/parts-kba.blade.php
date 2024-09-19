@@ -4,7 +4,7 @@
 @section('content')
 <div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/engine.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="d-flex flex-grow-1">
-        <x-side-menu-bar :partTypes="$partTypes" />
+        {{-- <x-side-menu-bar :partTypes="$partTypes" /> --}}
 
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
         <div class="container-fluid bg-dark text-white flex-grow-1" style="opacity: .85">

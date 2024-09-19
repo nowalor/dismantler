@@ -1,17 +1,44 @@
 <tr>
-    <td>
+    <td style="width: 22rem; max-width: 22rem; padding: 0;">
         @if ($part->carPartImages->count())
             @php
-                $image = $part->carPartImages()->first();
+                $carouselId = "partImagesCarousel_" . $part->id;  // Generate a unique ID for each carousel
             @endphp
-            <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->original_url }}" alt="Car part image"
-            style="width: 18rem; height: auto; max-width: 100%; border-radius: 12px;">
-        
+            <div id="{{ $carouselId }}" class="carousel slide mt-2" data-bs-ride="false" style="width: 20rem; border-radius: 0.7rem;">
+                
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    @foreach($part->carPartImages as $key => $image)
+                        <button type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide-to="{{ $key }}" 
+                                class="{{ $key === 0 ? 'active' : '' }}" aria-current="{{ $key === 0 ? 'true' : 'false' }}" aria-label="Slide {{ $key + 1 }}"></button>
+                    @endforeach
+                </div>
+    
+                <!-- Carousel Images -->
+                <div class="carousel-inner">
+                    @foreach($part->carPartImages as $key => $image)
+                        <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                            <img src="{{ $image->original_url }}" class="d-block w-100 img-fluid" alt="Car part image" style="height: auto; border-radius: 0.7rem;">
+                        </div>
+                    @endforeach
+                </div>
+    
+                <!-- Carousel Controls -->
+                <a class="carousel-control-prev" href="#{{ $carouselId }}" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#{{ $carouselId }}" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
         @else
             <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
-            style="width: 200px; height: 200px; border-radius: 12px;">
+                 style="width: 25rem; height: auto; border-radius: 0.7rem;">
         @endif
     </td>
+    
     <td class="text-white"> <!-- Apply the text-white class here -->
         <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType->name}}</p>     
     </td>
@@ -48,7 +75,7 @@
                 </a>
             </p>
         @endif
-        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>
+        <p class="pb-0"><span class="fw-bold">{{__('car-info-quality')}}: </span>
             @if($part->quality == 'A+')
                 {{__('car-quality-A+')}}
             @elseif($part->quality == 'A')

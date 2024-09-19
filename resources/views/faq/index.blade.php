@@ -106,8 +106,8 @@
 @push('css')
 <style>
     body {
-        background-color: white !important; /* Force background to white on this page */
-        background-image: none !important; /* Disable any background images */
+        background-color: white !important; 
+        background-image: none !important;
     }
 </style>
 @endpush
