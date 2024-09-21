@@ -13,13 +13,15 @@
     "car-parts": "BILDELAR",
     "browse": "BLÄDDRA I ALLA",
     "kba-search": "SÖK EFTER HSN + TSN",
-    "kba-search-info": "Sök efter en specifik bil om du känner till HSN och TSN. Detta är det mest exakta och snabbaste sättet att hitta bildelar till din bil.",
+    "kba-search-info": " ",
+    "kba-search-info-hsn": " ",
+    "kba-search-info-tsn": " ",
     "kba-part-type": "Deltyp",
     "kba-search-placeholder": "Välj en typ",
     "kba-search-button": "Sök",
 
     "model-search": "SÖK EFTER BILMODELL",
-    "model-search-info": "Om du inte känner till HSN och TSN eller om du vill göra en bredare sökning kan du söka efter bilmodell.",
+    "model-search-info": " ",
     "model-brand": "Märke",
     "model-model": "Modell",
     "model-part-type": "Deltyp",
@@ -29,7 +31,7 @@
     "model-search-button": "Sök",
 
     "oem-search": "SÖK EFTER OEM",
-    "oem-search-info": "Mycket detaljerad sökning som du kan använda om du har det ursprungliga reservdelsnumret (OEM), växellåda eller motorkod.",
+    "oem-search-info": " ",
     "oem-oem": "OEM",
     "oem-engine-code": "Motorkod",
     "oem-gearbox-code": "Växellåda kod",
@@ -46,7 +48,7 @@
     "car-info-quality": "Kvalitet",
     "car-info-gearbox": "Växellåda",
 
-    "car-part-article": "Artikelnummer",
+    "car-part-article": "Artikel information",
     "car-part-original": "Originalnummer",
     "car-part-engine-type": "Motortyp",
 

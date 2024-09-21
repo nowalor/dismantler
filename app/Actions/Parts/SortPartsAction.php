@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class SortPartsAction
 {
-    public function execute(Builder $query, ?string $sort): Builder
+    public function execute(Builder $query, ?string $sort) //:Builder
     {
         if ($sort) {
             switch ($sort) {

@@ -14,13 +14,15 @@
     "car-parts": "CAR PARTS",
     "browse": "BROWSE ALL",
     "kba-search": "SEARCH BY HSN + TSN",
-    "kba-search-info": "Search for a specific car if you know the HSN and TSN. This is the most accurate and fastest way to find car parts for your car.",
+    "kba-search-info": " ",
+    "kba-search-info-hsn": " ",
+    "kba-search-info-tsn": " ",
     "kba-part-type": "Part of type",
     "kba-search-placeholder": "Select a type",
     "kba-search-button": "Search",
 
     "model-search": "SEARCH BY CAR MODEL",
-    "model-search-info": "If you don't know the HSN and TSN or you want a more open search you can search by car model.",
+    "model-search-info": "Search by Model ",
     "model-brand": "Brand",
     "model-model": "Model",
     "model-part-type": "Part of type",
@@ -30,7 +32,7 @@
     "model-search-button": "Search",
 
     "oem-search": "SEARCH BY OEM",
-    "oem-search-info": "Very detailed search that you can use if you have the original spare part number (OEM), gearbox code, or engine code.",
+    "oem-search-info": "Search by OEM",
     "oem-oem": "OEM",
     "oem-engine-code": "Engine code",
     "oem-gearbox-code": "Gearbox code",
@@ -49,7 +51,7 @@
     "car-info-quality": "Quality",
     "car-info-gearbox": "Gearbox",
 
-    "car-part-article": "Article number",
+    "car-part-article": "Article information",
     "car-part-original": "Original number",
     "car-part-engine-type": "Engine type",
 

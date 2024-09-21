@@ -13,13 +13,15 @@
     "car-parts": "BILDELE",
     "browse": "GÅ PÅ OPDAGELSE",
     "kba-search": "SØG EFTER HSN + TSN",
-    "kba-search-info": "Søg efter en specifik bil, hvis du kender HSN og TSN. Dette er den mest præcise og hurtigste måde at finde bildele til din bil på.",
+    "kba-search-info": " ",
+    "kba-search-info-hsn": " ",
+    "kba-search-info-tsn": " ",
     "kba-part-type": "Bildel type",
     "kba-search-placeholder": "Vælg type af del",
     "kba-search-button": "Søg",
 
     "model-search": "SØG EFTER BILMODEL",
-    "model-search-info": "Hvis du ikke kender HSN og TSN, eller hvis du ønsker en mere åben søgning, kan du søge efter bilmodel.",
+    "model-search-info": " ",
     "model-brand": "Mærke",
     "model-model": "Model",
     "model-part-type": "Bildel type",
@@ -29,7 +31,7 @@
     "model-search-button": "Søg",
 
     "oem-search": "SØG EFTER OEM",
-    "oem-search-info": "Meget detaljeret søgning, som du kan bruge, hvis du har det originale reservedelsnummer (OEM), gearkassekode eller motorkode.",
+    "oem-search-info": " ",
     "oem-oem": "OEM",
     "oem-engine-code": "Motorkode",
     "oem-gearbox-code": "Gearkassekode",
@@ -46,7 +48,7 @@
     "car-info-quality": "Kvalitet",
     "car-info-gearbox": "Gearkasse",
 
-    "car-part-article": "Artikelnummer",
+    "car-part-article": "Artikel information",
     "car-part-original": "Originalnummer",
     "car-part-engine-type": "Motortype",
 
@@ -86,7 +88,11 @@
     "faq-email-msg": "Send os en email.",
     "faq-question": "Spørgsmål",
     "faq-answer": "Svar",
-
+    "faq-files-intro": "Her kan du læse yderligere om vores politikker ift. Anvendelse af cookies, fortrydelsesret, GDPR-DK samt salgs og leveringsbetingelser i form af PDF filer.", 
+    "faq-cookies": "Currus Connect anvender cookies på alle selskabets websites",
+    "faq-right-of-withdrawal": "Fortrydelsesret",
+    "faq-gdpr": "GDPR Politik for behandling og beskyttelse af personoplysninger",
+    "faq-terms-of-sale": "Salgs- og leveringsbetingelser Currus-Connect",
 
     "//": "Contact",
     "//": "Kontakt",

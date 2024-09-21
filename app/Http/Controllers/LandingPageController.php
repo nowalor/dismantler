@@ -7,6 +7,7 @@ use App\Models\CarPartType;
 use App\Models\ManufacturerText;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\App;
 
 class LandingPageController extends Controller
 {
@@ -21,7 +22,10 @@ class LandingPageController extends Controller
 
         $partTypes = CarPartType::all();
 
-        return view('landingPage', compact('brands', 'plainTexts', 'partTypes'));
+        $locale = App::getLocale();
+        $logoPath = config("logos.{$locale}");
+
+        return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath'));
     }
 
 }
