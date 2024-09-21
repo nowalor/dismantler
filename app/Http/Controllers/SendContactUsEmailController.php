@@ -9,11 +9,20 @@ use Illuminate\Support\Facades\Mail;
 
 class SendContactUsEmailController extends Controller
 {
-    public function __invoke(SendContactUsEmailRequest $request): RedirectResponse
+    public function __invoke(SendContactUsEmailRequest $request)//: RedirectResponse
     {
-        Mail::to('nikulasoskarsson@gmail.com')
-            ->send(new ContactUsMail($request->validated()));
 
-        return redirect()->back()->withMessage('Email has been sent successfully');
+        $validated = $request->validated();
+
+        try {
+            Mail::to('service@currus-connect.com')
+                ->send(new ContactUsMail($validated));
+
+            return redirect()->back()->withMessage('Email has been sent successfully');
+        } catch(\Exception $e) {
+            logger($e->getMessage());
+
+            return redirect()->back()->withError('Something went wrong, you can just write to us at service@currus-connect.com');
+        }
     }
 }

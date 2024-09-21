@@ -1,12 +1,15 @@
-<x-mail::message>
-# Introduction
+@component('mail::message')
+    # New Contact Us Message
 
-The body of your message.
+    You have received a new message from your website's contact form.
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+    **Name:** {{ $senderName }}
 
-Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+    **Email:** {{ $senderEmail }}
+
+    **Subject:** {{ $senderSubject }}
+
+    **Message:**
+    {{ $message }}
+
+@endcomponent

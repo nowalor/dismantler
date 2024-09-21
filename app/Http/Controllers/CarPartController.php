@@ -217,9 +217,9 @@ class CarPartController extends Controller {
 
         request()?->flash();
 
-        return redirect()->back()->withErrors($errors); 
+        return redirect()->back()->withErrors($errors);
     }
-    
+
 
     public function searchByModel(Request $request): mixed {
 
@@ -231,7 +231,7 @@ class CarPartController extends Controller {
 
     $type = null;
 
-    if($request->filled('type_id')) {
+    if($request->filled('type_id') && $request->get('type_id') !== 'all') {
         $type = CarPartType::find($request->get('type_id'));
     }
 

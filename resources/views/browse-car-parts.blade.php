@@ -8,6 +8,7 @@
         {{-- <x-side-menu-bar :partTypes="$partTypes" /> --}}
 
 
+
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
         <div class="container bg-dark text-white flex-grow-1" style="opacity: 0.85">
             <div class="row pt-2">
@@ -15,7 +16,7 @@
             <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-name')"/>
             {{ $parts->appends(request()->query())->links() }}
         </div>
-        
+
     </div>
 </div>
 @endsection

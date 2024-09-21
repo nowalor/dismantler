@@ -57,6 +57,8 @@ class NewCarPart extends Model
         'external_part_type_id',
         'country',
         'dito_number',
+        'danish_item_code',
+        'mileage',
     ];
 
     public function carPartType(): BelongsTo {
@@ -96,6 +98,28 @@ class NewCarPart extends Model
     public function getRawGearboxAttribute(): string {
         return $this->attributes['gearbox'];
     }
+    public function ditoNumber(): BelongsTo
+    {
+        return $this->belongsTo(DitoNumber::class);
+    }
+
+    public function getMyKbaThroughDitoAttribute()
+    {
+        $engineCode = $this->engine_code;
+        $escapedEngineCode = str_replace([' ', '-'], '', $engineCode);
+
+        $this->load(['ditoNumber.germanDismantlers' => function ($query) use ($engineCode, $escapedEngineCode) {
+            $query->whereHas('engineTypes', function ($query) use ($engineCode, $escapedEngineCode) {
+                $query->where('name', 'like', "%$engineCode%")
+                    ->orWhere('escaped_name', 'like', "%$engineCode%")
+                    ->orWhere('name', 'like', "%$escapedEngineCode%")
+                    ->orWhere('escaped_name', 'like', "%$escapedEngineCode%");
+            });
+        }]);
+
+        return $this->sbrCode?->ditoNumbers?->pluck('germanDismantlers')->unique()->flatten() ?? collect([]);
+
+    }
 
     public function getMyKbaAttribute() {
         $engineCode = $this->engine_code;
@@ -121,24 +145,32 @@ class NewCarPart extends Model
         return round($this->my_kba->first()->engine_capacity_in_cm / 1000, 1) . ' ' . $this->engine_code;
     }
 
-    public function getNewPriceAttribute() {
-        $priceSek = $this->price_sek;
+    public function getTranslatedPriceAttribute()
+    {
+      $priceDkk = $this->price_dkk;
 
-        if (!$priceSek) {
-            return $priceSek;
-        }
-        /*
-         * Calc divider
-         */
-        if ($priceSek <= 3000) {
-            $divider = 7;
-        } else if ($priceSek <= 10000) {
-            $divider = 8;
-        } else {
-            $divider = 9;
-        }
+      return $priceDkk / 4;
+    }
 
-        return round(((($priceSek / $divider)) * 1.19));
+    public function getNewPriceAttribute()
+    {
+      $priceSek = $this->price_sek;
+
+      if (!$priceSek) {
+          return $priceSek;
+      }
+      /*
+      * Calc divider
+      */
+      if ($priceSek <= 3000) {
+          $divider = 7;
+      } else if ($priceSek <= 10000) {
+          $divider = 8;
+      } else {
+          $divider = 9;
+      }
+
+      return round(((($priceSek / $divider)) * 1.19));
     }
 
     // price in EUR
@@ -185,11 +217,11 @@ class NewCarPart extends Model
     // Calculate shipment cost
     public function getShipmentAttribute(): int | null {
 
-        $partType = $this->carPartType?->germanCarPartTypes?->first()?->name;
+      $partType = $this->carPartType?->germanCarPartTypes?->first()?->name;
     
-        if (!$partType) {
-            return null;
-        }
+      if (!$partType) {
+          return null;
+      }
     
         $dismantleCompanyName = $this->dismantle_company_name;
         $shipment = match(true) {

@@ -11,8 +11,12 @@ class FormatPartsForXmlAction
 
     const CATEGORY_MAPPER = [
         1 => '33615',
+        2 => '262256',
         3 =>  '171115',
         4 => '171117',
+        5 => '174028',
+        6 => '33629',
+        7 => '262244',
     ];
 
     public function __construct()
@@ -228,6 +232,15 @@ class FormatPartsForXmlAction
             ['name' => 'Hersteller', 'value' => $brand], // Manufacturer
             ['name' => 'Kraftstoffart', 'value' => $fuel], // Fuel type
             ['name' => 'OE/OEM Referenznummer(n)', 'value' => $part->original_number], //  OEM
+            ['name' => 'Kba', 'value' => $this->getKba($part)],
+            ['name' => 'MotorKennung', 'value' => $part->engine_code],
+            ['name' => 'Motortype', 'value' => $part->engine_type ?? ''],
+            ['name' => 'LaufleistungKM', 'value' => $part->mileage_km],
+            ['name' => 'ModelJahr', 'value' => $part->model_year],
+            ['name' => 'Getriebe', 'value' => $part->gearbox_nr],
+            ['name' => 'Fahrgestellnummer', 'value' => $part->vin],
+            ['name' => 'name', 'value' => $part->description_name],
+
         ];
     }
 

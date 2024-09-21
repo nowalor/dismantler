@@ -23,10 +23,17 @@ class AddNewPartsCommand extends Command
         }
 
         $dismantleCompanies = [
-            "bo",
-            'F',
-            'A',
-            'N',
+            'w',
+            'p',
+            'a',
+            'bo',
+            'f',
+            'n',
+            'al',
+            's',
+            'gb',
+            'li',
+            'd',
         ];
 
         $filters = [
