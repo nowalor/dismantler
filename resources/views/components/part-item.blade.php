@@ -1,31 +1,40 @@
 <tr>
     <td>
         @if ($part->carPartImages->count())
-            @php
-                $image = $part->carPartImages()->first();
-            @endphp
-            <img class="card-img-bottom mt-2 img-fluid" src="{{ $image->logoGerman() }}" alt="Car part image"
-            style="width: 200px; height: auto; max-width: 100%; border-radius: 12px;">
+        <div id="partImagesCarousel-{{ $part->id }}" class="carousel slide mt-2" data-bs-ride="carousel" style="width: 100%; max-width: 20rem; border-radius: 0.7rem;">
 
-        @else
-            <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image"
-            style="width: 200px; height: 200px; border-radius: 12px;">
-        @endif
+            <!-- Indicators -->
+        <div class="carousel-indicators">
+            @foreach($part->carPartImages as $key => $image)
+                <button type="button" data-bs-target="#partImagesCarousel-{{ $part->id }}" data-bs-slide-to="{{ $key }}" 
+                        class="{{ $key === 0 ? 'active' : '' }}" aria-current="{{ $key === 0 ? 'true' : 'false' }}" aria-label="Slide {{ $key + 1 }}"></button>
+            @endforeach
+        </div>
+
+            <div class="carousel-inner">
+                @foreach($part->carPartImages as $key => $image)
+                    <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                        <!-- Make the image responsive using img-fluid -->
+                        <img src="{{ $image->original_url }}" class="d-block w-100 img-fluid" alt="Car part image" style="border-radius: 0.7rem; object-fit: cover;">
+                    </div>
+                @endforeach
+            </div>
+            <a class="carousel-control-prev" href="#partImagesCarousel-{{ $part->id }}" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#partImagesCarousel-{{ $part->id }}" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+    @else
+        <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
+            style="width: 100%; max-width: 25rem; border-radius: 0.7rem; object-fit: cover;">
+    @endif
     </td>
-    <td class="text-white"> <!-- Apply the text-white class here -->
-        <p><span class="fw-bold">{{__('car-info-name')}}: </span>{{ $part->sbr_car_name }}</p>
-        <p><span class="fw-bold">{{__('car-info-quality')}}: </span>
-            @if($part->quality == 'A+')
-                {{__('car-quality-A+')}}
-            @elseif($part->quality == 'A')
-                {{__('car-quality-A')}}
-            @elseif($part->quality == 'A*')
-                {{__('car-quality-A*')}}
-            @elseif($part->quality == 'M')
-                {{__('car-quality-M')}}
-            @endif
-        </p>
-        
+    <td class="text-white">
+        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType->name }}</p>     
     </td>
     <td class="text-white">
         @if($part->original_number)
@@ -60,9 +69,30 @@
                 </a>
             </p>
         @endif
+        <p class="pb-0"><span class="fw-bold">{{__('car-info-quality')}}: </span>
+            @if($part->quality == 'A+')
+                {{__('car-quality-A+')}}
+            @elseif($part->quality == 'A')
+                {{__('car-quality-A')}}
+            @elseif($part->quality == 'A*')
+                {{__('car-quality-A*')}}
+            @elseif($part->quality == 'M')
+                {{__('car-quality-M')}}
+            @endif
+        </p>
     </td>
     <td class="text-white">
-        <p><span class="fw-bold">{{__('car-part-mileage')}}: </span>{{ $part->mileage_km }}</p>
+        @php
+        use Illuminate\Support\Str;
+            $swedishDismantlerCodes = ['F', 'A', 'AL', 'D', 'LI', 'W'];
+            $danishDismantlerCodes = []; // soon to come as we only have swedish dismantlers atm
+        @endphp
+
+        @if ($part->mileage_km === "0" || $part->mileage_km === "999" && Str::contains($part->article_nr, $swedishDismantlerCodes))
+            <p><span class="fw-bold">{{__('car-part-mileage')}}: </span> Unknown</p>
+        @else
+            <p><span class="fw-bold">{{__('car-part-mileage')}}: </span>{{ $part->mileage_km }}</p>
+        @endif
     </td>
     <td class="text-white">
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
@@ -75,9 +105,5 @@
         <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary w-100 mb-2">
             {{__('contact-us')}}
         </a>
-        {{-- <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100">{{__('car-checkout')}}</a> --}}
-        {{-- <div style="margin-top: 20px; font-size: 20px; text-align: center;">
-            <a href="/contact"><i class="fas fa-info-circle"></i></a>
-        </div> --}}
     </td>
 </tr>

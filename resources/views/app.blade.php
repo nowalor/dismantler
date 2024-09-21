@@ -13,9 +13,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
     @livewireStyles
+    @stack('css')
 </head>
 <!-- As a heading -->
-@if(auth()->user() && auth()->user()->is_admin)
+{{-- @if(auth()->user() && auth()->user()->is_admin)
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
 
@@ -29,9 +30,9 @@
                 <li class="nav-item">
                     <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}" href="{{ route('admin.export-parts.index') }}">EGLUIT parts</a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>--}}
-{{--                </li>--}}
+               <li class="nav-item">
+                   <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>
+               </li>
                 <li class="nav-item">
                     <a class="text-danger nav-link {{ activeMenu('admin/dito-numbers') }}" href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
                 </li>
@@ -41,15 +42,15 @@
                 <!-- °<li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.car-parts.index') }}">Parts</a>
                 </li> -->
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('admin.new-parts') }}">Parts</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('admin.information') }}">Information</a>--}}
-{{--                </li>--}}
+               <li class="nav-item">
+                   <a class="nav-link" href="{{ route('admin.new-parts') }}">Parts</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="{{ route('admin.information') }}">Information</a>
+               </li>
                 <li class="nav-item">
                     <a class="text-danger nav-link {{ activeMenu('admin/sbr-codes') }}" href="{{ route('admin.sbr-codes.index') }}">SBR</a>
                 </li>
@@ -57,41 +58,53 @@
         </div>
     </div>
 </nav>
-@endif
+@endif --}}
 
-<header class="sticky-top bg-dark">
-    <nav class="container d-flex justify-content-between py-2">
-        <a href="{{ route('landingpage') }}" class="d-flex gap-2 align-items-center text-decoration-none">
-            <i style="font-size: 1.6rem;" class="fa fa-solid fa-car"></i>
-            <h3 class="text-white">Currus Connect</h3>
+<header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+    <nav class="container d-flex justify-content-between">
+        <a href="{{ route('landingpage') }}" class="d-flex align-items-center text-decoration-none">
+            <img class="d-inline-block" src="currus-logo.png" width="50rem" height="50rem" style="padding: 10px;" />
+            <h4 class="text-white mb-0">Currus Connect</h4>
         </a>
-        <ul class="nav">
-            <li class="nav-item d-flex">
-                <a href="/" class="nav-link text-white">{{ __('home') }}</a>
-                <a href="/car-parts/search/by-name?search=" class="nav-link text-white">{{ __('parts') }}</a>
-                <a href="{{ route('about-us') }}" class="nav-link text-white">{{ __('about-us') }}</a>
-                <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
-                <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>
 
-                <!-- Language Dropdown -->
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ strtoupper(App::getLocale()) }}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                        <li><a class="dropdown-item" href="{{ route('change.language', 'en') }}">English</a></li>
-                        <li><a class="dropdown-item" href="{{ route('change.language', 'ge') }}">German</a></li>
-                        <li><a class="dropdown-item" href="{{ route('change.language', 'dk') }}">Danish</a></li>
-                        <li><a class="dropdown-item" href="{{ route('change.language', 'se') }}">Swedish</a></li>
-                    </ul>
-                </div>
-                <!-- End Language Dropdown -->
-            </li>
-        </ul>
+        <!-- Toggle button for mobile view -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-3">
+                <li class="nav-item">
+                    <a href="/" class="nav-link text-white">{{ __('home') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/car-parts/search/by-name?search=" class="nav-link text-white">{{ __('parts') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('about-us') }}" class="nav-link text-white">{{ __('about-us') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>
+                </li>
+            </ul>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ strtoupper(App::getLocale()) }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                    <li><a class="dropdown-item" href="{{ route('change.language', 'en') }}">English</a></li>
+                    <li><a class="dropdown-item" href="{{ route('change.language', 'ge') }}">German</a></li>
+                    <li><a class="dropdown-item" href="{{ route('change.language', 'dk') }}">Danish</a></li>
+                    <li><a class="dropdown-item" href="{{ route('change.language', 'se') }}">Swedish</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
-
-
 
 @yield('content')
     @livewireScripts
@@ -105,7 +118,13 @@
     @yield('js')
 </body>
 <style>
-    .cta {
+
+    body {
+        background-image: url(' {{asset('img/enginedark.jpg') }}');
+        background-size: cover;
+    }
+
+    /* .cta {
         background-image: url(' {{asset('img/engine.jpg') }}');
         background-size: cover;
         background-position: center;
@@ -115,6 +134,7 @@
         position: relative;
         overflow: hidden;
     }
+    
     .cta::after {
         content: "";
         height: 100vh;
@@ -129,8 +149,10 @@
     .cta > * {
         position: relative;
         z-index: 4;
-    }
+    } */
+    
 
+   
 </style>
 @stack('js')
 

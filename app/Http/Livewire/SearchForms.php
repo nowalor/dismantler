@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class SearchForms extends Component {
 
+    public $isSmallScreen = false;
     public $openForm = 'model'; // Default open form
     public $partTypes;
 
