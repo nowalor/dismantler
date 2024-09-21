@@ -26,7 +26,7 @@
         </button>
         <div class="" id="navbarNav">
 {{--        <div class="collapse navbar-collapse" id="navbarNav">--}}
-            <ul class="navbar-nav">
+{{--            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}" href="{{ route('admin.export-parts.index') }}">EGLUIT parts</a>
                 </li>
@@ -57,8 +57,7 @@
             </ul>
         </div>
     </div>
-</nav>
-@endif --}}
+</nav>--}}
 
 <header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <nav class="container d-flex justify-content-between">
@@ -134,7 +133,7 @@
         position: relative;
         overflow: hidden;
     }
-    
+
     .cta::after {
         content: "";
         height: 100vh;
@@ -150,9 +149,9 @@
         position: relative;
         z-index: 4;
     } */
-    
 
-   
+
+
 </style>
 @stack('js')
 
