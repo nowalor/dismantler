@@ -61,7 +61,7 @@
 <header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <nav class="container d-flex justify-content-between">
         <a href="{{ route('landingpage') }}" class="d-flex align-items-center text-decoration-none">
-            <img class="d-inline-block" src="currus-logo.png" width="50rem" height="50rem" style="padding: 10px;" />
+            <img class="d-inline-block" src="{{ asset('currus-logo.png') }}" width="50rem" height="50rem" style="padding: 0.1rem;" />
             <h4 class="text-white mb-0">Currus Connect</h4>
         </a>
 
