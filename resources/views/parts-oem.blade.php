@@ -3,12 +3,12 @@
 @section('title', 'Parts - OEM Search')
 
 @section('content')
-<div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/engine.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+<div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/enginedark.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="d-flex flex-grow-1">
         {{-- <x-side-menu-bar :partTypes="$partTypes" /> --}}
 
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
-        <div class="container-fuid bg-dark text-white flex-grow-1" style="opacity: 0.85;">
+        <div class="container bg-dark text-white flex-grow-1" style="opacity: 0.85;">
             <div class="row pt-2">
                 <div class="col-12">
                     <div class="card bg-dark text-white">
