@@ -95,9 +95,10 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="languageDropdown">
                     <li><a class="dropdown-item" href="{{ route('change.language', 'en') }}">English</a></li>
-                    <li><a class="dropdown-item" href="{{ route('change.language', 'ge') }}">German</a></li>
                     <li><a class="dropdown-item" href="{{ route('change.language', 'dk') }}">Danish</a></li>
                     <li><a class="dropdown-item" href="{{ route('change.language', 'se') }}">Swedish</a></li>
+                    <li><a class="dropdown-item" href="{{ route('change.language', 'ge') }}">German</a></li>
+                    <li><a class="dropdown-item" href="{{ route('change.language', 'fr') }}">French</a></li>
                 </ul>
             </div>
         </div>
