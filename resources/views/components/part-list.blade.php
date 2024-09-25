@@ -10,31 +10,32 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li>
-                        <a href="{{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => null])) }}" class="dropdown-item">
+                        <a href="{{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => null])) }}" class="dropdown-item py-1 px-2">
                             All
                         </a>
                     </li>
-                    <hr>
+                    <li><hr class="dropdown-divider"></li>
                     @foreach($partTypes as $partType)
-                        <li>
-                            <a href="
-                                @if (Route::currentRouteName() === 'car-parts.search-by-name')
-                                    {{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                                @elseif (Route::currentRouteName() === 'car-parts.search-by-oem')
-                                    {{ route('car-parts.search-by-oem', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                                @elseif (Route::currentRouteName() === 'car-parts.search-by-model')
-                                    {{ route('car-parts.search-by-model', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                                @else
-                                    #
-                                @endif
-                                " class="dropdown-item">
-                                {{ $partType->name }}
-                            </a>
-                        </li>
-                        <hr>
+                    <li>
+                        <a href="
+                            @if (Route::currentRouteName() === 'car-parts.search-by-name')
+                                {{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @elseif (Route::currentRouteName() === 'car-parts.search-by-oem')
+                                {{ route('car-parts.search-by-oem', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @elseif (Route::currentRouteName() === 'car-parts.search-by-model')
+                                {{ route('car-parts.search-by-model', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @else
+                                #
+                            @endif
+                            " class="dropdown-item py-1 px-2">
+                            {{ __('part-types.' . $partType->name) ?? $partType->name }}
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
                     @endforeach
                 </ul>
             </div>
+            
 
             <!-- Sorting Dropdown (visible on small/medium views) -->
             <div class="dropdown d-block d-md-none me-2">
