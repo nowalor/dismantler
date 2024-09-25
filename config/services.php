@@ -68,4 +68,9 @@ return [
         'username' => env('HOOD_DE_USERNAME'),
         'api_password' => env('HOOD_DE_API_PASSWORD'),
     ],
+
+    'nummerplade' => [
+        'api_url' => env('NUMMERPLADE_API_URL') ?? 'hey',
+        'token' => env('NUMMERPLADE_API_TOKEN'),
+    ]
 ];

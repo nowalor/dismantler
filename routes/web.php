@@ -29,6 +29,7 @@ use App\Http\Controllers\TemporaryLandingPageController;
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
 
 Route::get('search-by-plate', SearchByPlateController::class);
+Route::post('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
 
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
