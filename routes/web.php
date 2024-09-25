@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -26,6 +27,8 @@ use App\Http\Controllers\TemporaryLandingPageController;
 
 
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
+
+Route::get('search-by-plate', SearchByPlateController::class);
 
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
