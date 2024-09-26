@@ -70,6 +70,7 @@ class ExportPartsCommand extends Command
             logger($ex->getMessage());
 
             $this->info('in catch..');
+            logger('in catch..');
             return Command::FAILURE;
         }
     }

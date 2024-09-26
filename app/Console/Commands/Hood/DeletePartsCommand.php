@@ -30,6 +30,7 @@ class DeletePartsCommand extends Command
             ],
         ]);
 
+        logger('hood delete command still running??');
         logger("url $this->apiUrl");
     }
 
@@ -94,15 +95,15 @@ class DeletePartsCommand extends Command
     {
         $xml = $this->baseXml();
         $xml->addChild('function', 'itemDelete');
-        
+
         $itemsNode = $xml->addChild('items');
-    
+
         foreach ($items->item as $item) {
             $itemNode = $itemsNode->addChild('item');
             $itemNode->addChild('recordSet', $item->recordSet);
             $itemNode->addChild('itemID', $item->itemID);
         }
-    
+
         return $xml->asXML();
     }
 
@@ -114,7 +115,7 @@ class DeletePartsCommand extends Command
         $xml->addChild('listMode', 'simple');
         $xml->addChild('startAt', '1');
         $xml->addChild('groupSize', '500');
-        
+
         // Optional Parameters
         $dateRange = $xml->addChild('dateRange');
         $dateRange->addChild('startDate', ''); // Optional, leave blank if not needed
