@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace App\Console\Commands\Hood;
 
 use GuzzleHttp\Client;
@@ -138,4 +138,4 @@ class DeletePartsCommand extends Command
 
         return $xml->items;
     }
-}
+}*/
