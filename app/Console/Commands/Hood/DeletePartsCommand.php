@@ -69,7 +69,7 @@ class DeletePartsCommand extends Command
             // Optional: Log response from delete request
             logger($response->getBody()->getContents());
 
-        } while (true);
+        } while (false);
 
         return Command::SUCCESS;
     }
