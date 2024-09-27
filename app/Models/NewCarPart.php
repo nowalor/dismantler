@@ -196,8 +196,9 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
-    public function getEbayPriceAttribute() {
-        return 1.1 * $this->getEbayMarktPriceAttribute();
+    public function getEbayPriceAttribute(): float
+    {
+        return 1.1 * $this->getAutoteileMarktPriceAttribute();
     }
 
     // price in EUR
