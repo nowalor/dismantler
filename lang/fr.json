@@ -1,0 +1,110 @@
+{
+    "currus-connect": "Currus Connect",
+
+    "//": "navbar",
+    "home": "Accueil",
+    "parts": "Pièces",
+    "about-us": "À propos de nous",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "language": "Langue",
+    
+
+    "//": "For LandingPage",
+    "car-parts": "PIÈCES AUTOMOBILES",
+    "browse": "TOUT PARCOURIR",
+    "kba-search": "RECHERCHE PAR HSN + TSN",
+    "kba-search-info": " ",
+    "kba-search-info-hsn": " ",
+    "kba-search-info-tsn": " ",
+    "kba-part-type": "Type de pièce",
+    "kba-search-placeholder": "Sélectionnez un type",
+    "kba-search-button": "Rechercher",
+
+    "model-search": "RECHERCHE PAR MODÈLE DE VOITURE",
+    "model-search-info": "Recherche par Modèle",
+    "model-brand": "Marque",
+    "model-model": "Modèle",
+    "model-part-type": "Type de pièce",
+    "model-brand-placeholder": "Sélectionnez une marque",
+    "model-model-placeholder": "Sélectionnez un modèle",
+    "model-search-placeholder": "Sélectionnez un type",
+    "model-search-button": "Rechercher",
+
+    "oem-search": "RECHERCHE PAR OEM",
+    "oem-search-info": "Recherche par OEM",
+    "oem-oem": "OEM",
+    "oem-engine-code": "Code moteur",
+    "oem-gearbox-code": "Code boîte de vitesses",
+    "oem-search-button": "Rechercher",
+
+
+    "//": "For car-parts",
+    "your-search": "Votre recherche",
+    "car-parts-header": "Résultats",
+    "car-search-placeholder": "AUDI A4 ...",
+    "car-search-button": "Rechercher",
+    "car-search-errormessage": "Aucune pièce ne correspond à cette recherche",
+
+    "car-part-information": "Informations sur la pièce",
+    "car-info-name": "Nom",
+    "car-info-quality": "Qualité",
+    "car-info-gearbox": "Boîte de vitesses",
+
+    "car-part-article": "Informations sur l'article",
+    "car-part-original": "Numéro original",
+    "car-part-engine-type": "Type de moteur",
+
+    "car-part-odometer": "Odomètre (KM)",
+    "car-part-mileage": "Kilométrage",
+
+    "car-part-modelyear": "Année du modèle",
+    "car-part-price": "Prix",
+    "car-part-actions": "Action",
+
+    "car-quality-A+": "Occasion - en très bon état",
+    "car-quality-A": "Occasion - en bon état",
+    "car-quality-A*": "Occasion - avec de petits défauts",
+    "car-quality-M": "Occasion - avec beaucoup de KM ou des défauts",
+
+    "car-view-part": "Voir la pièce",
+    "car-checkout": "Paiement",
+
+    "//": "For car part fullview",
+    "product-details": "Détails du produit",
+    "type-of-spare": "Type de pièce détachée",
+    "used-part": "Occasion",
+    "chassi-nr": "Numéro de châssis",
+    "uknown-message": "Inconnu",
+    "fuel-type": "Type de carburant",
+    "vat-shipping": "Incl. TVA et livraison",
+
+
+    "//": "About-Us",
+    "about-header": "À propos de nous",
+    "about-intro": "En savoir plus sur Currus Connect, votre partenaire de confiance pour les pièces et accessoires automobiles.",
+    "about-text-one": "Merci d'avoir choisi",
+    "about-text-two": "- votre source fiable pour les pièces et accessoires de véhicules motorisés.",
+
+    "//": "FAQ",
+    "faq-intro": "Voici la page FAQ. Vous y trouverez une liste de questions fréquemment posées. Vous ne trouvez pas ce que vous cherchez ?",
+    "faq-email-msg": "Envoyez-nous un email.",
+    "faq-question": "question",
+    "faq-answer": "réponse",
+    "faq-translation_key": "",
+
+
+    "//": "Contact",
+    "contact-us": "Nous contacter",
+    "contact-asap": "Et nous vous répondrons dès que possible",
+    "contact-before": "Avant de nous contacter, veuillez vérifier si la réponse à votre question ne figure pas déjà dans notre",
+    "contact-form-name": "Nom",
+    "contact-placeholder-name": "Entrez votre nom...",
+    "contact-form-subject": "Sujet",
+    "contact-placeholder-subject": "Entrez votre sujet...",
+    "contact-form-email": "Adresse email",
+    "contact-placeholder-email": "Entrez votre email...",
+    "contact-form-message": "Message",
+    "contact-placeholder-message": "Entrez votre question...",
+    "contact-form-submit": "Envoyer"
+}
