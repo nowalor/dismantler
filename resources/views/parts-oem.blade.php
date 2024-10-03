@@ -28,6 +28,10 @@
                                     @if(!empty($oem) || !empty($engine_code)) | @endif
                                     <strong>{{__('oem-gearbox-code')}}:</strong> {{ $gearbox }}
                                 @endif
+
+                                @if($type && !empty($type->name))
+                                    | <strong>{{__('model-part-type')}}:</strong> {{ $type->name }}
+                                @endif
                             </p>
                         </div>
                     </div>

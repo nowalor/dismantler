@@ -209,7 +209,13 @@ class CarPartController extends Controller {
     
         $partTypes = CarPartType::all();
     
-        return view('parts-kba', compact('parts', 'search', 'partTypes', 'kba', 'partCount'));
+        return view('parts-kba', compact(
+            'parts',
+            'search', 
+            'partTypes', 
+            'type',
+            'kba', 
+            'partCount'));
     }
     
 
@@ -290,13 +296,20 @@ class CarPartController extends Controller {
         paginate: 10,
     );
 
+    $type = null;
+
+    if($request->filled('type_id')) {
+        $type = CarPartType::find($request->get('type_id'));
+    }
+
     $parts = $results['data']['parts'];
 
     $partTypes = CarPartType::all();
 
         return view
         ('parts-oem', compact(
-            'parts', 
+            'parts',
+            'type', 
             'oem', 
             'engine_code', 
             'gearbox',

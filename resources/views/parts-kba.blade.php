@@ -13,9 +13,7 @@
                     <div class="card bg-dark text-white">
                         <div class="card-body">
                             <p class="mb-0 mt-0">
-                                <strong>{{__('model-brand')}}:</strong> {{ $dito->producer }} |
-                                <strong>{{__('model-model')}}:</strong> {{ $dito->new_name }}
-                                
+                                {{-- show hsn + tsn also, soon --}}
                                 @if($type && !empty($type->name))
                                     | <strong>{{__('model-part-type')}}:</strong> {{ $type->name }}
                                 @endif
