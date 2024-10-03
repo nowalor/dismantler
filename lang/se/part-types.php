@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'Engine' => '',
-    'Distribution gear box' => '',
-    'Gearbox Automatic' => '',
-    'Gearbox 6 gear' => '',
-    'Particle Filter' => '',
-    'CATALYST' => '',
-    'Differential' => '',
-    'Break Unit ABS' => '',
-    'ABS Hydraulic unit' => '',
-    'Instrument comb' => '',
-    'Steering unit gearbox' => '',
-    'Power steering pump electric' => '',
+    'Engine' => 'Motor',
+    'Distribution gear box' => 'Växel Fördelningslåda',
+    'Gearbox Automatic' => 'Växellåda Automatlåda',
+    'Gearbox 6 gear' => '6-Gang Växellåda manuell 6vxl',
+    'Particle Filter' => 'Avgas Partikelfilter',
+    'CATALYST' => 'Katalysator',
+    'Differential' => 'Diffrential',
+    'Break Unit ABS' => 'ABS Styrenhet',
+    'ABS Hydraulic unit' => 'ABS Hydraulpump',
+    'Instrument comb' => 'Kombinerat Instrument',
+    'Steering unit gearbox' => 'Växellåda Styrenhet',
+    'Power steering pump electric' => 'Styrservopump Elektrisk',
 ];
