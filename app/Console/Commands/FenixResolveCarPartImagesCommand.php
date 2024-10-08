@@ -95,6 +95,11 @@ class FenixResolveCarPartImagesCommand extends Command
                 'name' => 'CC',
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.18',
+            ],
+            'VI' => [
+                'name' => 'VI',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.18',
             ]
 
         ];
@@ -117,8 +122,8 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->where('price_sek', '!=', '')
 //            ->whereNull('sold_at')
         /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
-                ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])
-            ->where('dismantle_company_name', '!=', 'AS')
+               /* ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])*/
+            ->where('dismantle_company_name',  'vi')
             ->take(300)
             ->get();
 
