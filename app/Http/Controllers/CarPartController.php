@@ -97,6 +97,12 @@ class CarPartController extends Controller {
         $request->merge(['parts' => 1]);
     }
 
+    $type = null;
+
+    if($request->filled('type_id')) {
+        $type = CarPartType::find($request->get('type_id'));
+    }
+
     // Begin building the query
     $parts = NewCarPart::with([
         'carPartType',
@@ -154,6 +160,7 @@ class CarPartController extends Controller {
         return view('browse-car-parts', compact(
             'parts',
             'partTypes',
+            'type',
             'dismantleCompanies',
             'brands'
         ));
@@ -278,43 +285,44 @@ class CarPartController extends Controller {
     }
 
     public function searchByOEM(Request $request) {
-    $oem = $request->get('oem');
-    $engine_code = $request->get('engine_code');
-    $gearbox = $request->get('gearbox');
-    $sort = $request->query('sort');
-
-    // Reset to the first page if filters are applied
-    if ($request->has('filter')) {
-        $request->merge(['parts' => 1]);
-    }
-
-    $results = (new SearchByOeAction())->execute(
-        oem: $oem,
-        engine_code: $engine_code,
-        gearbox: $gearbox,
-        sort: $sort, // Pass the sort parameter
-        paginate: 10,
-    );
-
-    $type = null;
-
-    if($request->filled('type_id')) {
-        $type = CarPartType::find($request->get('type_id'));
-    }
-
-    $parts = $results['data']['parts'];
-
-    $partTypes = CarPartType::all();
-
-        return view
-        ('parts-oem', compact(
+        $oem = $request->get('oem');
+        $engine_code = $request->get('engine_code');
+        $gearbox = $request->get('gearbox');
+        $search = $request->query('search'); // Capture the search term
+        $sort = $request->query('sort');
+        $type_id = $request->query('type_id'); // Capture the type_id from the request
+        
+        // Prepare the query based on filters and the search term
+        $results = (new SearchByOeAction())->execute(
+            oem: $oem,
+            engine_code: $engine_code,
+            gearbox: $gearbox,
+            search: $search, // Pass the search term
+            sort: $sort, // Pass the sort parameter
+            type_id: $type_id, // Pass the type_id
+            paginate: 10,
+        );
+    
+        $type = null;
+    
+        if ($request->filled('type_id')) {
+            $type = CarPartType::find($request->get('type_id'));
+        }
+    
+        $parts = $results['data']['parts'];
+        $partTypes = CarPartType::all();
+    
+        return view('parts-oem', compact(
             'parts',
-            'type', 
-            'oem', 
-            'engine_code', 
+            'type',
+            'oem',
+            'engine_code',
             'gearbox',
             'partTypes'
         ));
     }
+    
+
+    
 
 }

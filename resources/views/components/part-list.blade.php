@@ -82,18 +82,27 @@
             </a>
         </div>
 
-        <!-- Search Form on the second row on smaller screens -->
+        {{-- search form --}}
         <div class="col-12 col-md d-flex justify-content-md-end">
             <form action="{{ $sortRoute }}" method="GET" class="w-100 w-md-auto d-flex">
-                <input type="text" name="search" class="form-control" placeholder="{{__("car-search-placeholder")}}" 
+                {{-- Search input --}}
+                <input type="text" name="search" class="form-control" placeholder="{{__("car-search-placeholder")}}"
                        value="{{ request()->query('search') }}" style="width: 100%; max-width: 20rem;">
+                
+                {{-- Hidden fields to retain existing filters --}}
+                <input type="hidden" name="oem" value="{{ request()->query('oem') }}">
+                <input type="hidden" name="engine_code" value="{{ request()->query('engine_code') }}">
+                <input type="hidden" name="gearbox" value="{{ request()->query('gearbox') }}">
+                <input type="hidden" name="type_id" value="{{ request()->query('type_id') }}"> <!-- Add this line to retain type_id -->
+        
+                {{-- Submit button --}}
                 <button type="submit" class="btn btn-primary" style="margin-left: 0.5rem;">{{__("car-search-button")}}</button>
             </form>
-        </div>
+        </div>        
     </div>
 </div>
 
-<!-- table for larger screens -->
+<!-- parts show as table for larger screens -->
 <div class="table-responsive d-none d-md-block">
     <table class="table table-hover">
         <thead>
@@ -137,7 +146,7 @@
     </table>
 </div>
 
-<!-- cards for small screens -->
+<!-- table turns into cards on small views -->
 <div class="d-md-none">
     @forelse($parts as $part)
     <div class="card mb-3 bg-light text-dark" style="width: 100%;">

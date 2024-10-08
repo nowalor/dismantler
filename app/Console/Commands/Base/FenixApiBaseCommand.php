@@ -80,7 +80,7 @@ abstract class FenixApiBaseCommand extends Command
         }
 
         $filters = [
-            "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302"],
+            "SbrPartCode" => [/* "7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145", "7143", "7302", */ "4626"],
           //  "SbrPartCode" => ["7475", "7645", "3220", "7468", "7082"], // New part types
             "CarBreaker" => [$carBreaker],
         ];
