@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>@yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
     @livewireStyles
     @stack('css')
 </head>
@@ -23,10 +24,11 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="" id="navbarNav">
+{{--        <div class="collapse navbar-collapse" id="navbarNav">--}}
+{{--            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}" href="{{ route('admin.export-parts.index') }}">Fenix parts</a>
+                    <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}" href="{{ route('admin.export-parts.index') }}">EGLUIT parts</a>
                 </li>
                <li class="nav-item">
                    <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>
@@ -55,8 +57,7 @@
             </ul>
         </div>
     </div>
-</nav>
-@endif --}}
+</nav>--}}
 
 <header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <nav class="container d-flex justify-content-between">
@@ -133,7 +134,7 @@
         position: relative;
         overflow: hidden;
     }
-    
+
     .cta::after {
         content: "";
         height: 100vh;
@@ -149,7 +150,9 @@
         position: relative;
         z-index: 4;
     } */
-    
+
+
+
 </style>
 @stack('js')
 

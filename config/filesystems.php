@@ -77,6 +77,14 @@ return [
             //'port' => 21,
         ],
 
+        'ftp_new' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST_NEW'),
+            'username' => env('FTP_USERNAME_NEW'),
+            'password' => env('FTP_PASSWORD_NEW'),
+            //'port' => 21,
+        ],
+
         'ebay_sftp' => [
             'driver' => 'sftp',
             'host' => env('EBAY_FTP_HOST'),

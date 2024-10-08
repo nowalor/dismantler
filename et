@@ -1,0 +1,1401 @@
+-- Logs begin at Wed 2023-10-25 02:09:14 UTC, end at Fri 2024-03-01 09:47:54 UTC. --
+Mar 01 09:01:42 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=205.210.31.79 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=53488 DPT=5672 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:01:46 currus-connect sshd[460205]: Invalid user zubioja from 162.62.121.54 port 55724
+Mar 01 09:01:46 currus-connect sshd[460205]: Received disconnect from 162.62.121.54 port 55724:11: Bye Bye [preauth]
+Mar 01 09:01:46 currus-connect sshd[460205]: Disconnected from invalid user zubioja 162.62.121.54 port 55724 [preauth]
+Mar 01 09:01:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=210.245.120.108 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=242 ID=16959 PROTO=TCP SPT=59237 DPT=3389 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:01:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.191.209.26 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=24840 PROTO=TCP SPT=41269 DPT=3150 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:01:59 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=20711 PROTO=TCP SPT=42047 DPT=3429 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:01:59 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.211.79 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=65033 PROTO=TCP SPT=55400 DPT=63325 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:02:01 currus-connect CRON[460207]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:02:01 currus-connect CRON[460208]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:02:03 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.213 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=65466 PROTO=TCP SPT=50943 DPT=43565 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:02:04 currus-connect CRON[460207]: pam_unix(cron:session): session closed for user root
+Mar 01 09:02:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.94.146.25 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=43 ID=37913 PROTO=TCP SPT=23899 DPT=20256 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:02:10 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.79.109.193 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=59872 DPT=9527 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:02:11 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=38.132.109.107 DST=46.101.206.99 LEN=42 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=UDP SPT=41719 DPT=1194 LEN=22 [0m
+Mar 01 09:02:15 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=118.194.230.202 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=45 ID=0 DF PROTO=TCP SPT=42677 DPT=8480 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:02:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=30437 PROTO=TCP SPT=52781 DPT=18795 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:02:46 currus-connect sshd[460216]: Received disconnect from 84.73.67.17 port 33976:11: Bye Bye [preauth]
+Mar 01 09:02:46 currus-connect sshd[460216]: Disconnected from authenticating user root 84.73.67.17 port 33976 [preauth]
+Mar 01 09:02:58 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=37.44.238.126 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=TCP SPT=41953 DPT=8728 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:03:01 currus-connect CRON[460218]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:03:01 currus-connect CRON[460219]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:03:04 currus-connect CRON[460218]: pam_unix(cron:session): session closed for user root
+Mar 01 09:03:05 currus-connect sshd[460227]: Unable to negotiate with 218.92.0.52 port 49666: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
+Mar 01 09:03:09 currus-connect sshd[460229]: Invalid user ftptest from 43.163.214.218 port 51666
+Mar 01 09:03:09 currus-connect sshd[460229]: Received disconnect from 43.163.214.218 port 51666:11: Bye Bye [preauth]
+Mar 01 09:03:09 currus-connect sshd[460229]: Disconnected from invalid user ftptest 43.163.214.218 port 51666 [preauth]
+Mar 01 09:03:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=65394 PROTO=TCP SPT=52781 DPT=2737 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:03:29 currus-connect sshd[460231]: Received disconnect from 162.62.121.54 port 57326:11: Bye Bye [preauth]
+Mar 01 09:03:29 currus-connect sshd[460231]: Disconnected from authenticating user root 162.62.121.54 port 57326 [preauth]
+Mar 01 09:03:37 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=135.148.136.107 DST=46.101.206.99 LEN=37 TOS=0x00 PREC=0x00 TTL=116 ID=36900 PROTO=UDP SPT=64097 DPT=46456 LEN=17 [0m
+Mar 01 09:03:55 currus-connect sshd[460233]: Invalid user ubnt from 85.209.11.254 port 44696
+Mar 01 09:03:55 currus-connect sshd[460233]: Connection closed by invalid user ubnt 85.209.11.254 port 44696 [preauth]
+Mar 01 09:04:01 currus-connect CRON[460235]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:04:01 currus-connect CRON[460236]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:04:04 currus-connect CRON[460235]: pam_unix(cron:session): session closed for user root
+Mar 01 09:04:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=97.107.133.213 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=245 ID=54321 PROTO=TCP SPT=54203 DPT=65002 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:04:27 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=39.101.172.116 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=47 ID=58426 DF PROTO=TCP SPT=44792 DPT=6379 WINDOW=64240 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:04:36 currus-connect sshd[460244]: Invalid user paolo from 84.73.67.17 port 35902
+Mar 01 09:04:36 currus-connect sshd[460244]: Received disconnect from 84.73.67.17 port 35902:11: Bye Bye [preauth]
+Mar 01 09:04:36 currus-connect sshd[460244]: Disconnected from invalid user paolo 84.73.67.17 port 35902 [preauth]
+Mar 01 09:04:38 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.142.125.254 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=39 ID=3923 PROTO=TCP SPT=61120 DPT=22949 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:04:44 currus-connect sshd[460248]: Invalid user reception from 206.189.137.254 port 52664
+Mar 01 09:04:44 currus-connect sshd[460248]: Connection closed by invalid user reception 206.189.137.254 port 52664 [preauth]
+Mar 01 09:04:45 currus-connect sshd[460246]: Invalid user gaobq from 43.163.214.218 port 54402
+Mar 01 09:04:45 currus-connect sshd[460246]: Received disconnect from 43.163.214.218 port 54402:11: Bye Bye [preauth]
+Mar 01 09:04:45 currus-connect sshd[460246]: Disconnected from invalid user gaobq 43.163.214.218 port 54402 [preauth]
+Mar 01 09:04:59 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.94.145.21 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=43 ID=57125 PROTO=TCP SPT=16932 DPT=4444 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:01 currus-connect CRON[460256]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:05:01 currus-connect CRON[460257]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:05:02 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=107.170.255.12 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=49730 DPT=2323 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:04 currus-connect CRON[460256]: pam_unix(cron:session): session closed for user root
+Mar 01 09:05:14 currus-connect sshd[460267]: Invalid user lutj from 162.62.121.54 port 58926
+Mar 01 09:05:14 currus-connect sshd[460267]: Received disconnect from 162.62.121.54 port 58926:11: Bye Bye [preauth]
+Mar 01 09:05:14 currus-connect sshd[460267]: Disconnected from invalid user lutj 162.62.121.54 port 58926 [preauth]
+Mar 01 09:05:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=8939 PROTO=TCP SPT=52781 DPT=18010 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:23 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=146.88.241.60 DST=46.101.206.99 LEN=53 TOS=0x00 PREC=0x00 TTL=248 ID=54321 PROTO=UDP SPT=51305 DPT=21025 LEN=33 [0m
+Mar 01 09:05:25 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=62227 PROTO=TCP SPT=52781 DPT=43291 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:27 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=50282 PROTO=TCP SPT=52781 DPT=54031 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:28 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=141.98.7.245 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=54321 PROTO=TCP SPT=55711 DPT=8728 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=1360 PROTO=TCP SPT=52781 DPT=43196 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:43 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=63792 PROTO=TCP SPT=52781 DPT=13955 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:45 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=12325 PROTO=TCP SPT=52781 DPT=50965 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:05:47 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.148.190.134 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=27070 PROTO=TCP SPT=43709 DPT=2151 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:06:00 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.94.146.24 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=43 ID=36328 PROTO=TCP SPT=10304 DPT=554 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:06:00 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=42134 PROTO=TCP SPT=52781 DPT=21157 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:06:01 currus-connect CRON[460269]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:06:01 currus-connect CRON[460270]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:06:04 currus-connect CRON[460269]: pam_unix(cron:session): session closed for user root
+Mar 01 09:06:23 currus-connect sshd[460278]: Invalid user mahmah from 43.163.214.218 port 57148
+Mar 01 09:06:29 currus-connect sshd[460285]: Invalid user Test from 84.73.67.17 port 41744
+Mar 01 09:06:29 currus-connect sshd[460285]: Received disconnect from 84.73.67.17 port 41744:11: Bye Bye [preauth]
+Mar 01 09:06:29 currus-connect sshd[460285]: Disconnected from invalid user Test 84.73.67.17 port 41744 [preauth]
+Mar 01 09:06:36 currus-connect sshd[460287]: Invalid user zhanglm from 185.227.136.16 port 34432
+Mar 01 09:06:36 currus-connect sshd[460287]: Received disconnect from 185.227.136.16 port 34432:11: Bye Bye [preauth]
+Mar 01 09:06:36 currus-connect sshd[460287]: Disconnected from invalid user zhanglm 185.227.136.16 port 34432 [preauth]
+Mar 01 09:06:40 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=23806 PROTO=TCP SPT=52781 DPT=23340 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:00 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=176.111.174.30 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=53618 PROTO=TCP SPT=41483 DPT=3122 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:01 currus-connect CRON[460289]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:07:01 currus-connect CRON[460290]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:07:01 currus-connect sshd[460292]: Invalid user ubuntu from 162.62.121.54 port 60522
+Mar 01 09:07:01 currus-connect sshd[460292]: Received disconnect from 162.62.121.54 port 60522:11: Bye Bye [preauth]
+Mar 01 09:07:01 currus-connect sshd[460292]: Disconnected from invalid user ubuntu 162.62.121.54 port 60522 [preauth]
+Mar 01 09:07:03 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=12248 PROTO=TCP SPT=52781 DPT=6014 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:04 currus-connect CRON[460289]: pam_unix(cron:session): session closed for user root
+Mar 01 09:07:07 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=1.12.42.117 DST=46.101.206.99 LEN=40 TOS=0x08 PREC=0x60 TTL=239 ID=37818 PROTO=TCP SPT=43799 DPT=8088 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=37288 PROTO=TCP SPT=52781 DPT=32059 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:16 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=54611 PROTO=TCP SPT=52781 DPT=42488 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:25 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=9892 PROTO=TCP SPT=52781 DPT=5744 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:26 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=161.35.199.152 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=251 ID=54321 PROTO=TCP SPT=56535 DPT=50090 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:30 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=146.19.24.28 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=247 ID=54321 PROTO=TCP SPT=38201 DPT=8080 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:31 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=52441 PROTO=TCP SPT=52781 DPT=43194 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.211.122 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=52921 DPT=47830 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:44 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.94.138.100 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=44 ID=29188 PROTO=TCP SPT=31686 DPT=48541 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:07:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=23577 PROTO=TCP SPT=52781 DPT=53778 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:08:01 currus-connect CRON[460300]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:08:01 currus-connect CRON[460301]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:08:02 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=38668 PROTO=TCP SPT=52781 DPT=31901 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:08:04 currus-connect CRON[460300]: pam_unix(cron:session): session closed for user root
+Mar 01 09:08:11 currus-connect CRON[459892]: pam_unix(cron:session): session closed for user root
+Mar 01 09:08:16 currus-connect sshd[460313]: Invalid user palash from 185.227.136.16 port 46624
+Mar 01 09:08:16 currus-connect sshd[460313]: Received disconnect from 185.227.136.16 port 46624:11: Bye Bye [preauth]
+Mar 01 09:08:16 currus-connect sshd[460313]: Disconnected from invalid user palash 185.227.136.16 port 46624 [preauth]
+Mar 01 09:08:20 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=220.181.1.163 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=36943 PROTO=TCP SPT=43866 DPT=2376 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:08:25 currus-connect sshd[460315]: Invalid user ansible from 84.73.67.17 port 40052
+Mar 01 09:08:25 currus-connect sshd[460315]: Received disconnect from 84.73.67.17 port 40052:11: Bye Bye [preauth]
+Mar 01 09:08:25 currus-connect sshd[460315]: Disconnected from invalid user ansible 84.73.67.17 port 40052 [preauth]
+Mar 01 09:08:49 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.49.86 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=13406 PROTO=TCP SPT=43640 DPT=8091 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:08:49 currus-connect sshd[460317]: Invalid user ufpqa from 162.62.121.54 port 33896
+Mar 01 09:08:49 currus-connect sshd[460317]: Received disconnect from 162.62.121.54 port 33896:11: Bye Bye [preauth]
+Mar 01 09:08:49 currus-connect sshd[460317]: Disconnected from invalid user ufpqa 162.62.121.54 port 33896 [preauth]
+Mar 01 09:08:57 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=27449 PROTO=TCP SPT=52781 DPT=45014 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:01 currus-connect CRON[460325]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:09:01 currus-connect CRON[460324]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:09:01 currus-connect CRON[460326]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:09:01 currus-connect CRON[460327]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Mar 01 09:09:01 currus-connect CRON[460324]: pam_unix(cron:session): session closed for user root
+Mar 01 09:09:02 currus-connect systemd[1]: Starting Clean php session files...
+-- Subject: A start job for unit phpsessionclean.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit phpsessionclean.service has begun execution.
+-- 
+-- The job identifier is 78484.
+Mar 01 09:09:02 currus-connect systemd[1]: phpsessionclean.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit phpsessionclean.service has successfully entered the 'dead' state.
+Mar 01 09:09:02 currus-connect systemd[1]: Finished Clean php session files.
+-- Subject: A start job for unit phpsessionclean.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit phpsessionclean.service has finished successfully.
+-- 
+-- The job identifier is 78484.
+Mar 01 09:09:04 currus-connect CRON[460325]: pam_unix(cron:session): session closed for user root
+Mar 01 09:09:13 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=192.241.224.15 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=34257 DPT=541 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:25 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=36293 PROTO=TCP SPT=52781 DPT=46427 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:25 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=23227 PROTO=TCP SPT=52781 DPT=1794 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:28 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=8901 PROTO=TCP SPT=52781 DPT=8386 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:30 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=89.248.163.26 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=29716 PROTO=TCP SPT=55249 DPT=3077 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.11 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=11996 PROTO=TCP SPT=49602 DPT=48141 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.56.111.60 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=36778 DPT=49165 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.84 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=51105 DPT=51122 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:09:56 currus-connect sshd[460455]: Invalid user ocean from 185.227.136.16 port 57996
+Mar 01 09:09:56 currus-connect sshd[460455]: Received disconnect from 185.227.136.16 port 57996:11: Bye Bye [preauth]
+Mar 01 09:09:56 currus-connect sshd[460455]: Disconnected from invalid user ocean 185.227.136.16 port 57996 [preauth]
+Mar 01 09:10:02 currus-connect CRON[460457]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:10:02 currus-connect CRON[460458]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:10:03 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=11396 PROTO=TCP SPT=52781 DPT=3629 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:05 currus-connect CRON[460457]: pam_unix(cron:session): session closed for user root
+Mar 01 09:10:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.242.226.54 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=49302 DPT=8575 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:22 currus-connect sshd[460472]: Invalid user valentina from 84.73.67.17 port 39780
+Mar 01 09:10:22 currus-connect sshd[460472]: Received disconnect from 84.73.67.17 port 39780:11: Bye Bye [preauth]
+Mar 01 09:10:22 currus-connect sshd[460472]: Disconnected from invalid user valentina 84.73.67.17 port 39780 [preauth]
+Mar 01 09:10:22 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.92.241.176 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=15084 PROTO=TCP SPT=44124 DPT=27018 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:33 currus-connect sshd[460474]: Invalid user techmahi from 182.18.161.165 port 47792
+Mar 01 09:10:33 currus-connect sshd[460474]: Received disconnect from 182.18.161.165 port 47792:11: Bye Bye [preauth]
+Mar 01 09:10:33 currus-connect sshd[460474]: Disconnected from invalid user techmahi 182.18.161.165 port 47792 [preauth]
+Mar 01 09:10:49 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=16763 PROTO=TCP SPT=42031 DPT=3438 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=2786 PROTO=TCP SPT=52781 DPT=41356 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=4059 DF PROTO=TCP SPT=54916 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=4060 DF PROTO=TCP SPT=54916 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=64275 PROTO=TCP SPT=52781 DPT=41511 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:55 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.60.246 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=52506 PROTO=TCP SPT=44082 DPT=9393 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:55 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=4061 DF PROTO=TCP SPT=54916 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:56 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=42733 PROTO=TCP SPT=52781 DPT=34109 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:10:59 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=4062 DF PROTO=TCP SPT=54916 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:01 currus-connect CRON[460477]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:11:01 currus-connect CRON[460478]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:11:05 currus-connect CRON[460477]: pam_unix(cron:session): session closed for user root
+Mar 01 09:11:07 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=4063 DF PROTO=TCP SPT=54916 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:17 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=47626 PROTO=TCP SPT=52781 DPT=22574 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:19 currus-connect sshd[460491]: Invalid user xuht from 185.163.119.179 port 33868
+Mar 01 09:11:19 currus-connect sshd[460491]: Received disconnect from 185.163.119.179 port 33868:11: Bye Bye [preauth]
+Mar 01 09:11:19 currus-connect sshd[460491]: Disconnected from invalid user xuht 185.163.119.179 port 33868 [preauth]
+Mar 01 09:11:22 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=44010 PROTO=TCP SPT=52781 DPT=59031 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:37 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=27305 PROTO=TCP SPT=52781 DPT=60365 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:37 currus-connect sshd[460493]: Invalid user kafka from 185.227.136.16 port 58374
+Mar 01 09:11:37 currus-connect sshd[460493]: Received disconnect from 185.227.136.16 port 58374:11: Bye Bye [preauth]
+Mar 01 09:11:37 currus-connect sshd[460493]: Disconnected from invalid user kafka 185.227.136.16 port 58374 [preauth]
+Mar 01 09:11:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=94.232.47.87 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=250 ID=30919 PROTO=TCP SPT=47453 DPT=1178 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:40 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=94.156.8.231 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=247 ID=23243 PROTO=TCP SPT=51678 DPT=81 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:47 currus-connect sshd[460495]: Connection closed by authenticating user sync 206.189.137.254 port 35496 [preauth]
+Mar 01 09:11:49 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.92.241.176 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=38538 PROTO=TCP SPT=44246 DPT=27027 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.142.125.247 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=39 ID=41832 PROTO=TCP SPT=57473 DPT=56460 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:11:57 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=47068 PROTO=TCP SPT=52781 DPT=35739 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:12:00 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=42958 PROTO=TCP SPT=52781 DPT=2216 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:12:00 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=61227 PROTO=TCP SPT=52781 DPT=20160 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:12:01 currus-connect CRON[460497]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:12:01 currus-connect CRON[460498]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:12:04 currus-connect CRON[460497]: pam_unix(cron:session): session closed for user root
+Mar 01 09:12:16 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=9493 DF PROTO=TCP SPT=46267 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:12:17 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=9494 DF PROTO=TCP SPT=46267 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:12:18 currus-connect sshd[460506]: Invalid user jialin from 182.18.161.165 port 33470
+Mar 01 09:12:18 currus-connect sshd[460506]: Received disconnect from 182.18.161.165 port 33470:11: Bye Bye [preauth]
+Mar 01 09:12:18 currus-connect sshd[460506]: Disconnected from invalid user jialin 182.18.161.165 port 33470 [preauth]
+Mar 01 09:12:18 currus-connect sshd[460508]: Received disconnect from 84.73.67.17 port 53480:11: Bye Bye [preauth]
+Mar 01 09:12:18 currus-connect sshd[460508]: Disconnected from authenticating user root 84.73.67.17 port 53480 [preauth]
+Mar 01 09:12:19 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=9495 DF PROTO=TCP SPT=46267 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:12:21 currus-connect sshd[460510]: Invalid user richmond from 81.192.46.49 port 44474
+Mar 01 09:12:21 currus-connect sshd[460510]: Received disconnect from 81.192.46.49 port 44474:11: Bye Bye [preauth]
+Mar 01 09:12:21 currus-connect sshd[460510]: Disconnected from invalid user richmond 81.192.46.49 port 44474 [preauth]
+Mar 01 09:12:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.58.158 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=30456 PROTO=TCP SPT=43095 DPT=862 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:13:01 currus-connect CRON[460512]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:13:01 currus-connect CRON[460513]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:13:04 currus-connect CRON[460512]: pam_unix(cron:session): session closed for user root
+Mar 01 09:13:11 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=92.20.85.44 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=33439 PROTO=TCP SPT=60602 DPT=2323 WINDOW=49554 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:13:16 currus-connect sshd[460521]: Invalid user gjcenter from 185.163.119.179 port 36264
+Mar 01 09:13:16 currus-connect sshd[460521]: Received disconnect from 185.163.119.179 port 36264:11: Bye Bye [preauth]
+Mar 01 09:13:16 currus-connect sshd[460521]: Disconnected from invalid user gjcenter 185.163.119.179 port 36264 [preauth]
+Mar 01 09:13:20 currus-connect sshd[460523]: Invalid user beshdadi from 185.227.136.16 port 34236
+Mar 01 09:13:20 currus-connect sshd[460523]: Received disconnect from 185.227.136.16 port 34236:11: Bye Bye [preauth]
+Mar 01 09:13:20 currus-connect sshd[460523]: Disconnected from invalid user beshdadi 185.227.136.16 port 34236 [preauth]
+Mar 01 09:13:26 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=94.232.41.124 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=250 ID=39437 PROTO=TCP SPT=43504 DPT=155 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:13:44 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.92.241.176 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=56873 PROTO=TCP SPT=44365 DPT=28018 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:13:47 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=23689 DF PROTO=TCP SPT=60550 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:13:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=23690 DF PROTO=TCP SPT=60550 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:13:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=23691 DF PROTO=TCP SPT=60550 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:13:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=146.88.241.160 DST=46.101.206.99 LEN=53 TOS=0x00 PREC=0x00 TTL=248 ID=54321 PROTO=UDP SPT=56756 DPT=27015 LEN=33 [0m
+Mar 01 09:13:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=23692 DF PROTO=TCP SPT=60550 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:14:01 currus-connect CRON[460530]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:14:01 currus-connect CRON[460531]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:14:02 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.218.38.15 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=23693 DF PROTO=TCP SPT=60550 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:14:03 currus-connect sshd[460539]: Invalid user makehome from 182.18.161.165 port 59722
+Mar 01 09:14:03 currus-connect sshd[460539]: Received disconnect from 182.18.161.165 port 59722:11: Bye Bye [preauth]
+Mar 01 09:14:03 currus-connect sshd[460539]: Disconnected from invalid user makehome 182.18.161.165 port 59722 [preauth]
+Mar 01 09:14:03 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=27641 PROTO=TCP SPT=42031 DPT=8989 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:14:05 currus-connect CRON[460530]: pam_unix(cron:session): session closed for user root
+Mar 01 09:14:09 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=94.156.8.240 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=247 ID=25808 PROTO=TCP SPT=51966 DPT=6500 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:14:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=141.98.7.240 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=54321 PROTO=TCP SPT=42117 DPT=8728 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:14:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.91 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=267 PROTO=TCP SPT=53382 DPT=5985 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:14:15 currus-connect sshd[460541]: Invalid user jren from 81.192.46.49 port 46042
+Mar 01 09:14:15 currus-connect sshd[460541]: Received disconnect from 81.192.46.49 port 46042:11: Bye Bye [preauth]
+Mar 01 09:14:15 currus-connect sshd[460541]: Disconnected from invalid user jren 81.192.46.49 port 46042 [preauth]
+Mar 01 09:14:15 currus-connect sshd[460543]: Received disconnect from 84.73.67.17 port 44750:11: Bye Bye [preauth]
+Mar 01 09:14:15 currus-connect sshd[460543]: Disconnected from authenticating user root 84.73.67.17 port 44750 [preauth]
+Mar 01 09:14:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.74.50.114 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=57425 DPT=6241 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:14:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.40.70 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=29909 PROTO=TCP SPT=43548 DPT=49200 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:15:01 currus-connect CRON[460545]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:15:01 currus-connect CRON[460546]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:15:11 currus-connect sshd[460556]: Invalid user moosavi from 185.163.119.179 port 50344
+Mar 01 09:15:11 currus-connect sshd[460556]: Received disconnect from 185.163.119.179 port 50344:11: Bye Bye [preauth]
+Mar 01 09:15:11 currus-connect sshd[460556]: Disconnected from invalid user moosavi 185.163.119.179 port 50344 [preauth]
+Mar 01 09:15:11 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=54985 PROTO=TCP SPT=52781 DPT=53106 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:15:29 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=35015 PROTO=TCP SPT=52781 DPT=25161 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:15:45 currus-connect sshd[460561]: Invalid user huangx from 182.18.161.165 port 47944
+Mar 01 09:15:45 currus-connect sshd[460561]: Received disconnect from 182.18.161.165 port 47944:11: Bye Bye [preauth]
+Mar 01 09:15:45 currus-connect sshd[460561]: Disconnected from invalid user huangx 182.18.161.165 port 47944 [preauth]
+Mar 01 09:15:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=25435 PROTO=TCP SPT=52781 DPT=6246 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:01 currus-connect CRON[460563]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:16:01 currus-connect CRON[460564]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:16:04 currus-connect CRON[460563]: pam_unix(cron:session): session closed for user root
+Mar 01 09:16:05 currus-connect sshd[460572]: Invalid user user from 81.192.46.49 port 47592
+Mar 01 09:16:05 currus-connect sshd[460572]: Received disconnect from 81.192.46.49 port 47592:11: Bye Bye [preauth]
+Mar 01 09:16:05 currus-connect sshd[460572]: Disconnected from invalid user user 81.192.46.49 port 47592 [preauth]
+Mar 01 09:16:07 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.191.209.166 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=50806 PROTO=TCP SPT=55433 DPT=3385 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:09 currus-connect sshd[460574]: Invalid user robot from 84.73.67.17 port 41730
+Mar 01 09:16:09 currus-connect sshd[460574]: Received disconnect from 84.73.67.17 port 41730:11: Bye Bye [preauth]
+Mar 01 09:16:09 currus-connect sshd[460574]: Disconnected from invalid user robot 84.73.67.17 port 41730 [preauth]
+Mar 01 09:16:29 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=192.241.230.50 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=42666 DPT=981 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=8634 PROTO=TCP SPT=52781 DPT=54104 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=68.126.206.196 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=55 ID=2315 DF PROTO=TCP SPT=34744 DPT=23 WINDOW=29200 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:34 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=68.126.206.196 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=55 ID=2316 DF PROTO=TCP SPT=34744 DPT=23 WINDOW=29200 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=78.128.114.70 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=26837 PROTO=TCP SPT=42422 DPT=503 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:35 currus-connect sshd[460581]: Unable to negotiate with 218.92.0.51 port 51594: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
+Mar 01 09:16:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.122 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=54603 DPT=9841 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:43 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=40928 PROTO=TCP SPT=52781 DPT=6904 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=107.170.240.15 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=44514 DPT=555 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=173.212.201.36 DST=46.101.206.99 LEN=433 TOS=0x00 PREC=0x00 TTL=57 ID=0 DF PROTO=UDP SPT=26219 DPT=5060 LEN=413 [0m
+Mar 01 09:16:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=48190 PROTO=TCP SPT=52781 DPT=26567 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:16:55 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.79.191.178 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=245 ID=54321 PROTO=TCP SPT=45021 DPT=49166 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:17:01 currus-connect CRON[460583]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:17:01 currus-connect CRON[460584]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:17:01 currus-connect CRON[460585]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:17:01 currus-connect CRON[460586]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+Mar 01 09:17:04 currus-connect CRON[460584]: pam_unix(cron:session): session closed for user root
+Mar 01 09:17:05 currus-connect sshd[460598]: Invalid user foolad from 185.163.119.179 port 52732
+Mar 01 09:17:05 currus-connect sshd[460598]: Received disconnect from 185.163.119.179 port 52732:11: Bye Bye [preauth]
+Mar 01 09:17:05 currus-connect sshd[460598]: Disconnected from invalid user foolad 185.163.119.179 port 52732 [preauth]
+Mar 01 09:17:10 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=58395 PROTO=TCP SPT=52781 DPT=34227 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:17:28 currus-connect sshd[460600]: Invalid user sunyasong from 182.18.161.165 port 40460
+Mar 01 09:17:28 currus-connect sshd[460600]: Received disconnect from 182.18.161.165 port 40460:11: Bye Bye [preauth]
+Mar 01 09:17:28 currus-connect sshd[460600]: Disconnected from invalid user sunyasong 182.18.161.165 port 40460 [preauth]
+Mar 01 09:17:31 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=16886 PROTO=TCP SPT=52781 DPT=28897 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:17:36 currus-connect sshd[460607]: Received disconnect from 43.163.214.218 port 48088:11: Bye Bye [preauth]
+Mar 01 09:17:36 currus-connect sshd[460607]: Disconnected from authenticating user root 43.163.214.218 port 48088 [preauth]
+Mar 01 09:17:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=78.128.113.34 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=55957 PROTO=TCP SPT=41459 DPT=3566 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:18:00 currus-connect sshd[460609]: Invalid user indon from 81.192.46.49 port 49158
+Mar 01 09:18:00 currus-connect sshd[460609]: Received disconnect from 81.192.46.49 port 49158:11: Bye Bye [preauth]
+Mar 01 09:18:00 currus-connect sshd[460609]: Disconnected from invalid user indon 81.192.46.49 port 49158 [preauth]
+Mar 01 09:18:01 currus-connect CRON[460611]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:18:01 currus-connect CRON[460612]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:18:02 currus-connect sshd[460620]: Invalid user sander from 84.73.67.17 port 37474
+Mar 01 09:18:02 currus-connect sshd[460620]: Received disconnect from 84.73.67.17 port 37474:11: Bye Bye [preauth]
+Mar 01 09:18:02 currus-connect sshd[460620]: Disconnected from invalid user sander 84.73.67.17 port 37474 [preauth]
+Mar 01 09:18:04 currus-connect CRON[460611]: pam_unix(cron:session): session closed for user root
+Mar 01 09:18:21 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.94.111.1 DST=46.101.206.99 LEN=43 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=UDP SPT=59878 DPT=11211 LEN=23 [0m
+Mar 01 09:18:23 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.92.241.176 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=17244 PROTO=TCP SPT=44607 DPT=27107 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:18:29 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=51850 PROTO=TCP SPT=52781 DPT=26806 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:18:42 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.212.157.80 DST=46.101.206.99 LEN=114 TOS=0x00 PREC=0x00 TTL=51 ID=9651 DF PROTO=UDP SPT=47593 DPT=1434 LEN=94 [0m
+Mar 01 09:18:45 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=10274 PROTO=TCP SPT=52781 DPT=28292 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:18:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=48592 PROTO=TCP SPT=52781 DPT=60039 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:18:52 currus-connect sshd[460627]: Invalid user chris from 206.189.137.254 port 38568
+Mar 01 09:18:52 currus-connect sshd[460627]: Connection closed by invalid user chris 206.189.137.254 port 38568 [preauth]
+Mar 01 09:19:01 currus-connect CRON[460629]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:19:01 currus-connect CRON[460630]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:19:03 currus-connect sshd[460638]: Invalid user ah from 185.163.119.179 port 46946
+Mar 01 09:19:03 currus-connect sshd[460638]: Received disconnect from 185.163.119.179 port 46946:11: Bye Bye [preauth]
+Mar 01 09:19:03 currus-connect sshd[460638]: Disconnected from invalid user ah 185.163.119.179 port 46946 [preauth]
+Mar 01 09:19:05 currus-connect CRON[460629]: pam_unix(cron:session): session closed for user root
+Mar 01 09:19:11 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=176.9.235.219 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=33090 PROTO=TCP SPT=44222 DPT=5980 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:19:12 currus-connect sshd[460645]: Invalid user ejara from 43.163.214.218 port 50788
+Mar 01 09:19:12 currus-connect sshd[460645]: Received disconnect from 43.163.214.218 port 50788:11: Bye Bye [preauth]
+Mar 01 09:19:12 currus-connect sshd[460645]: Disconnected from invalid user ejara 43.163.214.218 port 50788 [preauth]
+Mar 01 09:19:19 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=10989 PROTO=TCP SPT=52781 DPT=12127 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:19:26 currus-connect sshd[460647]: Invalid user ashooee from 162.62.121.54 port 43440
+Mar 01 09:19:26 currus-connect sshd[460647]: Received disconnect from 162.62.121.54 port 43440:11: Bye Bye [preauth]
+Mar 01 09:19:26 currus-connect sshd[460647]: Disconnected from invalid user ashooee 162.62.121.54 port 43440 [preauth]
+Mar 01 09:19:32 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=61552 PROTO=TCP SPT=52781 DPT=42533 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:19:47 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=94.232.42.233 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=250 ID=41146 PROTO=TCP SPT=41276 DPT=970 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:19:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.128 DST=46.101.206.99 LEN=45 TOS=0x00 PREC=0x60 TTL=251 ID=54321 PROTO=UDP SPT=50175 DPT=47808 LEN=25 [0m
+Mar 01 09:19:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.150.224 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=57285 DPT=45371 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:19:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.110.62.71 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=54778 DPT=8080 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:19:53 currus-connect sshd[460649]: Received disconnect from 81.192.46.49 port 50728:11: Bye Bye [preauth]
+Mar 01 09:19:53 currus-connect sshd[460649]: Disconnected from authenticating user root 81.192.46.49 port 50728 [preauth]
+Mar 01 09:19:58 currus-connect sshd[460651]: Received disconnect from 84.73.67.17 port 40268:11: Bye Bye [preauth]
+Mar 01 09:19:58 currus-connect sshd[460651]: Disconnected from authenticating user root 84.73.67.17 port 40268 [preauth]
+Mar 01 09:20:01 currus-connect CRON[460653]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:20:01 currus-connect CRON[460654]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:20:05 currus-connect CRON[460653]: pam_unix(cron:session): session closed for user root
+Mar 01 09:20:27 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=51976 PROTO=TCP SPT=52781 DPT=37522 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:20:30 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.135.133 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=247 ID=11935 PROTO=TCP SPT=58992 DPT=6699 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:20:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=57319 PROTO=TCP SPT=52781 DPT=20906 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:20:44 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.213 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=55582 DPT=20661 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:20:49 currus-connect sshd[460665]: Invalid user rezat from 43.163.214.218 port 53580
+Mar 01 09:20:50 currus-connect sshd[460665]: Received disconnect from 43.163.214.218 port 53580:11: Bye Bye [preauth]
+Mar 01 09:20:50 currus-connect sshd[460665]: Disconnected from invalid user rezat 43.163.214.218 port 53580 [preauth]
+Mar 01 09:20:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=43.130.1.138 DST=46.101.206.99 LEN=52 TOS=0x00 PREC=0x00 TTL=51 ID=41739 DF PROTO=TCP SPT=42763 DPT=9113 WINDOW=61690 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:20:55 currus-connect sshd[460663]: Connection closed by 198.199.104.80 port 35406 [preauth]
+Mar 01 09:20:56 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.20 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=53912 DPT=6000 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:21:01 currus-connect CRON[460667]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:21:01 currus-connect CRON[460668]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:21:04 currus-connect CRON[460667]: pam_unix(cron:session): session closed for user root
+Mar 01 09:21:04 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.33.52.85 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=40540 DPT=1515 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:21:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=43422 PROTO=TCP SPT=52781 DPT=392 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:21:14 currus-connect sshd[460676]: Invalid user user1 from 162.62.121.54 port 45050
+Mar 01 09:21:14 currus-connect sshd[460676]: Received disconnect from 162.62.121.54 port 45050:11: Bye Bye [preauth]
+Mar 01 09:21:14 currus-connect sshd[460676]: Disconnected from invalid user user1 162.62.121.54 port 45050 [preauth]
+Mar 01 09:21:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.33.94.76 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=245 ID=54321 PROTO=TCP SPT=58409 DPT=6606 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:21:33 currus-connect sshd[460678]: Connection closed by authenticating user root 85.209.11.27 port 54566 [preauth]
+Mar 01 09:21:36 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.210.112 DST=46.101.206.99 LEN=45 TOS=0x00 PREC=0x60 TTL=251 ID=54321 PROTO=UDP SPT=51368 DPT=47810 LEN=25 [0m
+Mar 01 09:21:48 currus-connect sshd[460680]: Invalid user yolanda from 81.192.46.49 port 52296
+Mar 01 09:21:48 currus-connect sshd[460680]: Received disconnect from 81.192.46.49 port 52296:11: Bye Bye [preauth]
+Mar 01 09:21:48 currus-connect sshd[460680]: Disconnected from invalid user yolanda 81.192.46.49 port 52296 [preauth]
+Mar 01 09:21:49 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=192.241.199.29 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=40174 DPT=5222 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:21:52 currus-connect sshd[460687]: Received disconnect from 84.73.67.17 port 33158:11: Bye Bye [preauth]
+Mar 01 09:21:52 currus-connect sshd[460687]: Disconnected from authenticating user root 84.73.67.17 port 33158 [preauth]
+Mar 01 09:22:01 currus-connect CRON[460689]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:22:01 currus-connect CRON[460690]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:22:04 currus-connect CRON[460689]: pam_unix(cron:session): session closed for user root
+Mar 01 09:22:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=103.183.121.104 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=35351 DPT=5555 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:10 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.163 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=54321 PROTO=TCP SPT=49751 DPT=8081 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:18 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=125.163.22.55 DST=46.101.206.99 LEN=52 TOS=0x00 PREC=0x00 TTL=119 ID=31115 DF PROTO=TCP SPT=61027 DPT=21 WINDOW=8192 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:20 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=53499 PROTO=TCP SPT=42031 DPT=33974 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:21 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=125.163.22.55 DST=46.101.206.99 LEN=52 TOS=0x00 PREC=0x00 TTL=119 ID=31489 DF PROTO=TCP SPT=61027 DPT=21 WINDOW=8192 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:23 currus-connect sshd[460698]: Invalid user mvrz from 43.163.214.218 port 56438
+Mar 01 09:22:23 currus-connect sshd[460698]: Received disconnect from 43.163.214.218 port 56438:11: Bye Bye [preauth]
+Mar 01 09:22:23 currus-connect sshd[460698]: Disconnected from invalid user mvrz 43.163.214.218 port 56438 [preauth]
+Mar 01 09:22:27 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=125.163.22.55 DST=46.101.206.99 LEN=48 TOS=0x00 PREC=0x00 TTL=119 ID=31950 DF PROTO=TCP SPT=61027 DPT=21 WINDOW=8192 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:34 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.135.132 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=247 ID=52464 PROTO=TCP SPT=58985 DPT=3555 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:42 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=74.82.47.29 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=TCP SPT=55234 DPT=30005 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=121.238.132.234 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=54910 DF PROTO=TCP SPT=35997 DPT=23 WINDOW=29040 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=121.238.132.234 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=54911 DF PROTO=TCP SPT=35997 DPT=23 WINDOW=29040 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:57 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.224.128.17 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=250 ID=54321 PROTO=TCP SPT=48498 DPT=9055 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:57 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=35849 PROTO=TCP SPT=52781 DPT=20448 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:22:59 currus-connect sshd[460700]: Invalid user view from 162.62.121.54 port 46654
+Mar 01 09:22:59 currus-connect sshd[460700]: Received disconnect from 162.62.121.54 port 46654:11: Bye Bye [preauth]
+Mar 01 09:22:59 currus-connect sshd[460700]: Disconnected from invalid user view 162.62.121.54 port 46654 [preauth]
+Mar 01 09:23:01 currus-connect CRON[460702]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:23:01 currus-connect CRON[460703]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:23:04 currus-connect CRON[460702]: pam_unix(cron:session): session closed for user root
+Mar 01 09:23:11 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=25311 PROTO=TCP SPT=52781 DPT=34684 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:26 currus-connect sshd[460716]: Invalid user deploy from 185.227.136.16 port 40924
+Mar 01 09:23:26 currus-connect sshd[460716]: Received disconnect from 185.227.136.16 port 40924:11: Bye Bye [preauth]
+Mar 01 09:23:26 currus-connect sshd[460716]: Disconnected from invalid user deploy 185.227.136.16 port 40924 [preauth]
+Mar 01 09:23:30 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=37675 PROTO=TCP SPT=52781 DPT=4996 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:31 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.242.226.39 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=35736 DPT=6446 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:31 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.242.226.39 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=43771 DPT=6600 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=205.210.31.43 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=37861 PROTO=TCP SPT=56792 DPT=27017 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=2487 PROTO=TCP SPT=52781 DPT=45195 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=173.255.210.89 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=245 ID=54321 PROTO=TCP SPT=38102 DPT=21845 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:43 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=118.194.251.37 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=49 ID=7706 DF PROTO=TCP SPT=47900 DPT=7703 WINDOW=29200 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:23:46 currus-connect sshd[460726]: Invalid user wangjie from 84.73.67.17 port 59840
+Mar 01 09:23:46 currus-connect sshd[460726]: Received disconnect from 84.73.67.17 port 59840:11: Bye Bye [preauth]
+Mar 01 09:23:46 currus-connect sshd[460726]: Disconnected from invalid user wangjie 84.73.67.17 port 59840 [preauth]
+Mar 01 09:23:56 currus-connect sshd[460728]: Invalid user mana from 43.163.214.218 port 59200
+Mar 01 09:23:57 currus-connect sshd[460728]: Received disconnect from 43.163.214.218 port 59200:11: Bye Bye [preauth]
+Mar 01 09:23:57 currus-connect sshd[460728]: Disconnected from invalid user mana 43.163.214.218 port 59200 [preauth]
+Mar 01 09:23:57 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=52801 PROTO=TCP SPT=52781 DPT=23730 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:24:01 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=143.42.164.97 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=40086 DPT=989 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:24:01 currus-connect CRON[460730]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:24:01 currus-connect CRON[460731]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:24:01 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=21429 PROTO=TCP SPT=52781 DPT=10321 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:24:03 currus-connect CRON[460164]: pam_unix(cron:session): session closed for user root
+Mar 01 09:24:04 currus-connect CRON[460730]: pam_unix(cron:session): session closed for user root
+Mar 01 09:24:06 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=55230 PROTO=TCP SPT=52781 DPT=58835 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:24:13 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=34910 PROTO=TCP SPT=42031 DPT=3507 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:24:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.242.226.39 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=35748 DPT=6088 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:24:46 currus-connect sshd[460741]: Invalid user wanghaol from 162.62.121.54 port 48248
+Mar 01 09:24:46 currus-connect sshd[460741]: Received disconnect from 162.62.121.54 port 48248:11: Bye Bye [preauth]
+Mar 01 09:24:46 currus-connect sshd[460741]: Disconnected from invalid user wanghaol 162.62.121.54 port 48248 [preauth]
+Mar 01 09:24:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.79.177.245 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=41962 DPT=853 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:01 currus-connect CRON[460744]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:25:01 currus-connect CRON[460745]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:25:05 currus-connect CRON[460744]: pam_unix(cron:session): session closed for user root
+Mar 01 09:25:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=24291 PROTO=TCP SPT=52781 DPT=1059 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:15 currus-connect sshd[460753]: Invalid user andromeda from 185.227.136.16 port 35024
+Mar 01 09:25:15 currus-connect sshd[460753]: Received disconnect from 185.227.136.16 port 35024:11: Bye Bye [preauth]
+Mar 01 09:25:15 currus-connect sshd[460753]: Disconnected from invalid user andromeda 185.227.136.16 port 35024 [preauth]
+Mar 01 09:25:34 currus-connect sshd[460756]: Invalid user heliaaa from 43.163.214.218 port 33880
+Mar 01 09:25:42 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=146.88.241.30 DST=46.101.206.99 LEN=45 TOS=0x00 PREC=0x00 TTL=248 ID=54321 PROTO=UDP SPT=59973 DPT=47808 LEN=25 [0m
+Mar 01 09:25:43 currus-connect sshd[460763]: Received disconnect from 84.73.67.17 port 49480:11: Bye Bye [preauth]
+Mar 01 09:25:43 currus-connect sshd[460763]: Disconnected from authenticating user root 84.73.67.17 port 49480 [preauth]
+Mar 01 09:25:44 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.60.142 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=11669 PROTO=TCP SPT=43673 DPT=28931 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=128.201.217.51 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=241 ID=44741 DF PROTO=TCP SPT=39371 DPT=23 WINDOW=29040 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:49 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=128.201.217.51 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=241 ID=44742 DF PROTO=TCP SPT=39371 DPT=23 WINDOW=29040 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=13554 PROTO=TCP SPT=52781 DPT=13082 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=55551 PROTO=TCP SPT=52781 DPT=14730 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:55 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=122.191.115.237 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=48 ID=41335 DF PROTO=TCP SPT=24622 DPT=6379 WINDOW=28200 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:55 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=10137 PROTO=TCP SPT=52781 DPT=32938 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:56 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=26425 PROTO=TCP SPT=52781 DPT=49647 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:56 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=21984 PROTO=TCP SPT=52781 DPT=64449 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:25:56 currus-connect sshd[460766]: Invalid user new from 206.189.137.254 port 50824
+Mar 01 09:25:57 currus-connect sshd[460766]: Connection closed by invalid user new 206.189.137.254 port 50824 [preauth]
+Mar 01 09:26:01 currus-connect CRON[460768]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:26:01 currus-connect CRON[460769]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:26:03 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=173.255.226.226 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=242 ID=30507 PROTO=TCP SPT=61000 DPT=110 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:26:03 currus-connect CRON[460768]: pam_unix(cron:session): session closed for user root
+Mar 01 09:26:23 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.150.16 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=64212 PROTO=TCP SPT=54733 DPT=5501 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:26:35 currus-connect sshd[460777]: Invalid user sammy from 162.62.121.54 port 49860
+Mar 01 09:26:35 currus-connect sshd[460777]: Received disconnect from 162.62.121.54 port 49860:11: Bye Bye [preauth]
+Mar 01 09:26:35 currus-connect sshd[460777]: Disconnected from invalid user sammy 162.62.121.54 port 49860 [preauth]
+Mar 01 09:26:38 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.79.98.252 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=245 ID=54321 PROTO=TCP SPT=53222 DPT=49168 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:26:40 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.148.190.130 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=12608 PROTO=TCP SPT=43797 DPT=750 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:26:47 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.94.146.27 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=43 ID=47995 PROTO=TCP SPT=45610 DPT=4242 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:26:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=24841 PROTO=TCP SPT=52781 DPT=22007 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:26:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=31938 PROTO=TCP SPT=52781 DPT=3544 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:26:59 currus-connect sshd[460784]: Invalid user test from 185.227.136.16 port 57346
+Mar 01 09:26:59 currus-connect sshd[460784]: Received disconnect from 185.227.136.16 port 57346:11: Bye Bye [preauth]
+Mar 01 09:26:59 currus-connect sshd[460784]: Disconnected from invalid user test 185.227.136.16 port 57346 [preauth]
+Mar 01 09:27:01 currus-connect CRON[460786]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:27:01 currus-connect CRON[460787]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:27:03 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=16721 PROTO=TCP SPT=52781 DPT=43030 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:27:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.210.59 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=54321 PROTO=TCP SPT=56968 DPT=9918 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:27:05 currus-connect CRON[460786]: pam_unix(cron:session): session closed for user root
+Mar 01 09:27:09 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.111 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=53157 DPT=47770 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:27:17 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=222.186.13.132 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=238 ID=57683 PROTO=TCP SPT=50362 DPT=1337 WINDOW=63540 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:27:24 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=46170 PROTO=TCP SPT=52781 DPT=60102 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:27:31 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=21936 PROTO=TCP SPT=52781 DPT=59896 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:27:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=52 PROTO=TCP SPT=52781 DPT=12918 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:27:38 currus-connect sshd[460800]: Invalid user ansadmin from 84.73.67.17 port 56422
+Mar 01 09:27:38 currus-connect sshd[460800]: Received disconnect from 84.73.67.17 port 56422:11: Bye Bye [preauth]
+Mar 01 09:27:38 currus-connect sshd[460800]: Disconnected from invalid user ansadmin 84.73.67.17 port 56422 [preauth]
+Mar 01 09:27:59 currus-connect sshd[460802]: Invalid user ataipad from 182.18.161.165 port 54258
+Mar 01 09:27:59 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=51521 PROTO=TCP SPT=52781 DPT=64518 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:00 currus-connect sshd[460802]: Received disconnect from 182.18.161.165 port 54258:11: Bye Bye [preauth]
+Mar 01 09:28:00 currus-connect sshd[460802]: Disconnected from invalid user ataipad 182.18.161.165 port 54258 [preauth]
+Mar 01 09:28:01 currus-connect CRON[460804]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:28:01 currus-connect CRON[460805]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:28:04 currus-connect CRON[460804]: pam_unix(cron:session): session closed for user root
+Mar 01 09:28:04 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=14678 PROTO=TCP SPT=42031 DPT=33921 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=188.121.123.71 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=242 ID=33816 PROTO=TCP SPT=54373 DPT=1983 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:06 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=47052 PROTO=TCP SPT=52781 DPT=59479 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:09 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=195.230.103.248 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=59462 DPT=3389 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=43849 PROTO=TCP SPT=52781 DPT=2275 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:15 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=40640 PROTO=TCP SPT=52781 DPT=63606 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:26 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=159.223.105.130 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=26678 PROTO=TCP SPT=56399 DPT=54678 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:30 currus-connect CRON[460583]: pam_unix(cron:session): session closed for user root
+Mar 01 09:28:30 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=41936 PROTO=TCP SPT=52781 DPT=15588 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:38 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=51395 PROTO=TCP SPT=52781 DPT=31308 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:40 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=161.35.23.158 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=251 ID=62045 PROTO=TCP SPT=60000 DPT=8422 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:28:46 currus-connect sshd[460861]: Invalid user rbl from 185.227.136.16 port 56682
+Mar 01 09:28:46 currus-connect sshd[460861]: Received disconnect from 185.227.136.16 port 56682:11: Bye Bye [preauth]
+Mar 01 09:28:46 currus-connect sshd[460861]: Disconnected from invalid user rbl 185.227.136.16 port 56682 [preauth]
+Mar 01 09:28:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=80.82.64.107 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54306 PROTO=TCP SPT=56232 DPT=3381 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:29:01 currus-connect CRON[460863]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:29:01 currus-connect CRON[460864]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:29:04 currus-connect CRON[460863]: pam_unix(cron:session): session closed for user root
+Mar 01 09:29:04 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.60.194 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=61809 PROTO=TCP SPT=44008 DPT=1533 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:29:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=28195 PROTO=TCP SPT=52781 DPT=33092 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:29:32 currus-connect sshd[460877]: Received disconnect from 84.73.67.17 port 39070:11: Bye Bye [preauth]
+Mar 01 09:29:32 currus-connect sshd[460877]: Disconnected from authenticating user root 84.73.67.17 port 39070 [preauth]
+Mar 01 09:29:43 currus-connect sshd[460879]: Invalid user ryx from 182.18.161.165 port 50312
+Mar 01 09:29:43 currus-connect sshd[460879]: Received disconnect from 182.18.161.165 port 50312:11: Bye Bye [preauth]
+Mar 01 09:29:43 currus-connect sshd[460879]: Disconnected from invalid user ryx 182.18.161.165 port 50312 [preauth]
+Mar 01 09:29:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=2980 PROTO=TCP SPT=52781 DPT=3649 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:01 currus-connect CRON[460883]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:30:01 currus-connect CRON[460884]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:30:02 currus-connect sshd[460881]: Unable to negotiate with 218.92.0.26 port 36546: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
+Mar 01 09:30:09 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.196 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=50806 DPT=22096 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:16 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=24710 PROTO=TCP SPT=52781 DPT=29040 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:19 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=187.20.29.36 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=242 ID=61211 PROTO=TCP SPT=5616 DPT=5985 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:21 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.18.20 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=242 ID=47125 PROTO=TCP SPT=61000 DPT=2323 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:26 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=43.157.103.65 DST=46.101.206.99 LEN=52 TOS=0x08 PREC=0x60 TTL=56 ID=48880 DF PROTO=TCP SPT=49904 DPT=17000 WINDOW=61690 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:31 currus-connect sshd[460893]: Invalid user steam1 from 185.227.136.16 port 34296
+Mar 01 09:30:31 currus-connect sshd[460893]: Received disconnect from 185.227.136.16 port 34296:11: Bye Bye [preauth]
+Mar 01 09:30:31 currus-connect sshd[460893]: Disconnected from invalid user steam1 185.227.136.16 port 34296 [preauth]
+Mar 01 09:30:38 currus-connect sshd[460901]: Invalid user mriganka from 185.163.119.179 port 45896
+Mar 01 09:30:38 currus-connect sshd[460901]: Received disconnect from 185.163.119.179 port 45896:11: Bye Bye [preauth]
+Mar 01 09:30:38 currus-connect sshd[460901]: Disconnected from invalid user mriganka 185.163.119.179 port 45896 [preauth]
+Mar 01 09:30:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=176.111.174.29 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=45295 PROTO=TCP SPT=43743 DPT=22222 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:52 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=48946 PROTO=TCP SPT=52781 DPT=28392 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:30:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=143.42.1.213 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=60588 DPT=8292 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:00 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=66.240.236.119 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=109 ID=59179 PROTO=TCP SPT=26459 DPT=4911 WINDOW=42445 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:01 currus-connect CRON[460903]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:31:01 currus-connect CRON[460904]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:31:05 currus-connect CRON[460903]: pam_unix(cron:session): session closed for user root
+Mar 01 09:31:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.100 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=63621 PROTO=TCP SPT=52894 DPT=1555 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=39951 PROTO=TCP SPT=52781 DPT=27819 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:26 currus-connect sshd[460912]: Invalid user yanghui from 84.73.67.17 port 55730
+Mar 01 09:31:26 currus-connect sshd[460912]: Received disconnect from 84.73.67.17 port 55730:11: Bye Bye [preauth]
+Mar 01 09:31:26 currus-connect sshd[460912]: Disconnected from invalid user yanghui 84.73.67.17 port 55730 [preauth]
+Mar 01 09:31:29 currus-connect sshd[460914]: Invalid user shecw from 182.18.161.165 port 46524
+Mar 01 09:31:29 currus-connect sshd[460914]: Received disconnect from 182.18.161.165 port 46524:11: Bye Bye [preauth]
+Mar 01 09:31:29 currus-connect sshd[460914]: Disconnected from invalid user shecw 182.18.161.165 port 46524 [preauth]
+Mar 01 09:31:31 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.108 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=17197 PROTO=TCP SPT=56050 DPT=8080 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=54968 PROTO=TCP SPT=52781 DPT=62556 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=78.128.113.250 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=59175 PROTO=TCP SPT=51526 DPT=90 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=69.164.214.243 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=245 ID=54321 PROTO=TCP SPT=49223 DPT=30033 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31606 DF PROTO=TCP SPT=59321 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:40 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31607 DF PROTO=TCP SPT=59321 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=39672 PROTO=TCP SPT=52781 DPT=3279 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:31:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31610 DF PROTO=TCP SPT=59321 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:01 currus-connect CRON[460921]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:32:01 currus-connect CRON[460922]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:32:03 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=205.210.31.24 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=53257 DPT=20257 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:04 currus-connect CRON[460921]: pam_unix(cron:session): session closed for user root
+Mar 01 09:32:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=31286 PROTO=TCP SPT=52781 DPT=29154 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.242.226.27 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=54321 PROTO=TCP SPT=38010 DPT=5888 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:10 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=390 PROTO=TCP SPT=52781 DPT=30856 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:13 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=89.248.163.200 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=61816 PROTO=TCP SPT=41716 DPT=8181 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:15 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.94.146.67 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=43 ID=19011 PROTO=TCP SPT=20574 DPT=17312 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:16 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=44612 PROTO=TCP SPT=52781 DPT=40906 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:17 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.142.125.135 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=39 ID=40471 PROTO=TCP SPT=24725 DPT=35205 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:20 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=159.65.193.236 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=250 ID=54321 PROTO=TCP SPT=51747 DPT=55355 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=118.193.56.229 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=49 ID=5123 DF PROTO=TCP SPT=45654 DPT=8899 WINDOW=29200 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:32:36 currus-connect sshd[460930]: Invalid user nos from 185.163.119.179 port 46532
+Mar 01 09:32:36 currus-connect sshd[460930]: Received disconnect from 185.163.119.179 port 46532:11: Bye Bye [preauth]
+Mar 01 09:32:36 currus-connect sshd[460930]: Disconnected from invalid user nos 185.163.119.179 port 46532 [preauth]
+Mar 01 09:32:58 currus-connect sshd[460932]: Invalid user admin from 81.192.46.49 port 33450
+Mar 01 09:32:58 currus-connect sshd[460932]: Received disconnect from 81.192.46.49 port 33450:11: Bye Bye [preauth]
+Mar 01 09:32:58 currus-connect sshd[460932]: Disconnected from invalid user admin 81.192.46.49 port 33450 [preauth]
+Mar 01 09:33:01 currus-connect CRON[460934]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:33:01 currus-connect CRON[460935]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:33:02 currus-connect sshd[460943]: Invalid user postmaster from 206.189.137.254 port 46158
+Mar 01 09:33:02 currus-connect sshd[460943]: Connection closed by invalid user postmaster 206.189.137.254 port 46158 [preauth]
+Mar 01 09:33:04 currus-connect CRON[460934]: pam_unix(cron:session): session closed for user root
+Mar 01 09:33:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=191.103.81.162 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=238 ID=8380 DF PROTO=TCP SPT=14910 DPT=23 WINDOW=14600 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:33:14 currus-connect sshd[460945]: Invalid user rezadaylight from 182.18.161.165 port 52350
+Mar 01 09:33:14 currus-connect sshd[460945]: Received disconnect from 182.18.161.165 port 52350:11: Bye Bye [preauth]
+Mar 01 09:33:14 currus-connect sshd[460945]: Disconnected from invalid user rezadaylight 182.18.161.165 port 52350 [preauth]
+Mar 01 09:33:21 currus-connect sshd[460947]: Invalid user rd from 84.73.67.17 port 49144
+Mar 01 09:33:21 currus-connect sshd[460947]: Received disconnect from 84.73.67.17 port 49144:11: Bye Bye [preauth]
+Mar 01 09:33:21 currus-connect sshd[460947]: Disconnected from invalid user rd 84.73.67.17 port 49144 [preauth]
+Mar 01 09:33:28 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=50394 PROTO=TCP SPT=52781 DPT=50716 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:33:42 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.134.26.45 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=5948 PROTO=TCP SPT=40079 DPT=330 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:34:01 currus-connect CRON[460949]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:34:01 currus-connect CRON[460950]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:34:04 currus-connect CRON[460949]: pam_unix(cron:session): session closed for user root
+Mar 01 09:34:15 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.33.87.154 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=54 ID=0 PROTO=TCP SPT=39975 DPT=49285 WINDOW=0 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:34:15 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.33.87.154 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=51 ID=0 PROTO=TCP SPT=39975 DPT=33298 WINDOW=0 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:34:32 currus-connect sshd[460958]: Received disconnect from 185.163.119.179 port 47518:11: Bye Bye [preauth]
+Mar 01 09:34:32 currus-connect sshd[460958]: Disconnected from authenticating user mysql 185.163.119.179 port 47518 [preauth]
+Mar 01 09:34:47 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.169.175.34 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=61665 PROTO=TCP SPT=40214 DPT=3389 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:34:52 currus-connect sshd[460960]: Invalid user cjtent from 81.192.46.49 port 35020
+Mar 01 09:34:52 currus-connect sshd[460960]: Received disconnect from 81.192.46.49 port 35020:11: Bye Bye [preauth]
+Mar 01 09:34:52 currus-connect sshd[460960]: Disconnected from invalid user cjtent 81.192.46.49 port 35020 [preauth]
+Mar 01 09:34:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=94.156.8.2 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=247 ID=36144 PROTO=TCP SPT=47950 DPT=32650 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:34:58 currus-connect sshd[460962]: Invalid user user_jenkins from 182.18.161.165 port 49638
+Mar 01 09:34:58 currus-connect sshd[460962]: Received disconnect from 182.18.161.165 port 49638:11: Bye Bye [preauth]
+Mar 01 09:34:58 currus-connect sshd[460962]: Disconnected from invalid user user_jenkins 182.18.161.165 port 49638 [preauth]
+Mar 01 09:35:01 currus-connect CRON[460970]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:35:01 currus-connect CRON[460971]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:35:01 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=17066 PROTO=TCP SPT=52781 DPT=64240 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:04 currus-connect CRON[460970]: pam_unix(cron:session): session closed for user root
+Mar 01 09:35:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=216.131.112.167 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=57 ID=440 DF PROTO=TCP SPT=59109 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:06 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=216.131.112.167 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=57 ID=441 DF PROTO=TCP SPT=59109 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:07 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=15004 PROTO=TCP SPT=52781 DPT=31748 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=216.131.112.167 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=57 ID=442 DF PROTO=TCP SPT=59109 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=216.131.112.167 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=57 ID=443 DF PROTO=TCP SPT=59109 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:12 currus-connect sshd[460979]: Invalid user sonar from 84.73.67.17 port 43696
+Mar 01 09:35:12 currus-connect sshd[460979]: Received disconnect from 84.73.67.17 port 43696:11: Bye Bye [preauth]
+Mar 01 09:35:12 currus-connect sshd[460979]: Disconnected from invalid user sonar 84.73.67.17 port 43696 [preauth]
+Mar 01 09:35:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.142.125.249 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=39 ID=30210 PROTO=TCP SPT=16331 DPT=49510 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:20 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=216.131.112.167 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=57 ID=444 DF PROTO=TCP SPT=59109 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:20 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=20909 PROTO=TCP SPT=52781 DPT=63804 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:21 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=193.163.125.32 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=4335 PROTO=TCP SPT=52881 DPT=100 WINDOW=14600 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:27 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.56.142 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=47096 PROTO=TCP SPT=45300 DPT=820 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:35 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=143.42.1.185 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=55992 DPT=10003 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=149.76.83.153 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=29811 PROTO=TCP SPT=45719 DPT=4200 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:35:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=25400 PROTO=TCP SPT=52781 DPT=43135 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:01 currus-connect CRON[460987]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:36:01 currus-connect CRON[460988]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:36:04 currus-connect CRON[460987]: pam_unix(cron:session): session closed for user root
+Mar 01 09:36:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31458 DF PROTO=TCP SPT=47551 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:06 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31459 DF PROTO=TCP SPT=47551 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31460 DF PROTO=TCP SPT=47551 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:09 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=47561 PROTO=TCP SPT=52781 DPT=53247 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31461 DF PROTO=TCP SPT=47551 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:18 currus-connect sshd[460996]: Connection closed by authenticating user root 194.169.175.35 port 55678 [preauth]
+Mar 01 09:36:20 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=85.5.238.33 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=31462 DF PROTO=TCP SPT=47551 DPT=50501 WINDOW=7300 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:22 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.33.105.76 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=245 ID=54321 PROTO=TCP SPT=35937 DPT=30303 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:22 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.211.111.194 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=52592 DF PROTO=TCP SPT=48611 DPT=303 WINDOW=64240 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:22 currus-connect DropletAgent[862]: INFO:2024/03/01 09:36:22 ssh_watcher.go:65: [SSH Watcher] Port knocking detected.
+Mar 01 09:36:22 currus-connect DropletAgent[862]: INFO:2024/03/01 09:36:22 do_managed_keys_actioner.go:43: [DO-Managed Keys Actioner] Metadata contains 1 ssh keys and 1 dotty keys
+Mar 01 09:36:22 currus-connect DropletAgent[862]: INFO:2024/03/01 09:36:22 do_managed_keys_actioner.go:49: [DO-Managed Keys Actioner] Attempting to update 1 dotty keys
+Mar 01 09:36:22 currus-connect DropletAgent[862]: INFO:2024/03/01 09:36:22 do_managed_keys_actioner.go:70: [DO-Managed Keys Actioner] Updating 2 keys
+Mar 01 09:36:22 currus-connect DropletAgent[862]: INFO:2024/03/01 09:36:22 do_managed_keys_actioner.go:75: [DO-Managed Keys Actioner] Keys updated
+Mar 01 09:36:23 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.211.111.194 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=52 ID=52593 DF PROTO=TCP SPT=48611 DPT=303 WINDOW=64240 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:24 currus-connect sshd[460998]: Accepted publickey for root from 198.211.111.194 port 43925 ssh2: ECDSA SHA256:1t6mYPV5VUWmXQeQm8CdKHKBStYyAos94Jq7ou50idE
+Mar 01 09:36:24 currus-connect sshd[460998]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mar 01 09:36:24 currus-connect systemd[1]: Created slice User Slice of UID 0.
+-- Subject: A start job for unit user-0.slice has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit user-0.slice has finished successfully.
+-- 
+-- The job identifier is 78575.
+Mar 01 09:36:24 currus-connect systemd[1]: Starting User Runtime Directory /run/user/0...
+-- Subject: A start job for unit user-runtime-dir@0.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit user-runtime-dir@0.service has begun execution.
+-- 
+-- The job identifier is 78574.
+Mar 01 09:36:24 currus-connect systemd-logind[770]: New session 19242 of user root.
+-- Subject: A new session 19242 has been created for user root
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- Documentation: https://www.freedesktop.org/wiki/Software/systemd/multiseat
+-- 
+-- A new session with the ID 19242 has been created for the user root.
+-- 
+-- The leading process of the session is 460998.
+Mar 01 09:36:24 currus-connect systemd[1]: Finished User Runtime Directory /run/user/0.
+-- Subject: A start job for unit user-runtime-dir@0.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit user-runtime-dir@0.service has finished successfully.
+-- 
+-- The job identifier is 78574.
+Mar 01 09:36:24 currus-connect systemd[1]: Starting User Manager for UID 0...
+-- Subject: A start job for unit user@0.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit user@0.service has begun execution.
+-- 
+-- The job identifier is 78573.
+Mar 01 09:36:24 currus-connect systemd[461011]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Mar 01 09:36:24 currus-connect systemd[461011]: Reached target Paths.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 3.
+Mar 01 09:36:24 currus-connect systemd[461011]: Reached target Timers.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 16.
+Mar 01 09:36:24 currus-connect systemd[461011]: Starting D-Bus User Message Bus Socket.
+-- Subject: A start job for unit UNIT has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has begun execution.
+-- 
+-- The job identifier is 9.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on GnuPG network certificate management daemon.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 14.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on GnuPG cryptographic agent and passphrase cache (access for web browsers).
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 13.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on GnuPG cryptographic agent and passphrase cache (restricted).
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 12.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on GnuPG cryptographic agent (ssh-agent emulation).
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 6.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on GnuPG cryptographic agent and passphrase cache.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 15.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on debconf communication socket.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 10.
+Mar 01 09:36:24 currus-connect systemd[461011]: Condition check resulted in Sound System being skipped.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 8.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on REST API socket for snapd user session agent.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 11.
+Mar 01 09:36:24 currus-connect systemd[461011]: Listening on D-Bus User Message Bus Socket.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 9.
+Mar 01 09:36:24 currus-connect systemd[461011]: Reached target Sockets.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 5.
+Mar 01 09:36:24 currus-connect systemd[461011]: Reached target Basic System.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 2.
+Mar 01 09:36:24 currus-connect systemd[1]: Started User Manager for UID 0.
+-- Subject: A start job for unit user@0.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit user@0.service has finished successfully.
+-- 
+-- The job identifier is 78573.
+Mar 01 09:36:24 currus-connect systemd[1]: Started Session 19242 of user root.
+-- Subject: A start job for unit session-19242.scope has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit session-19242.scope has finished successfully.
+-- 
+-- The job identifier is 78665.
+Mar 01 09:36:24 currus-connect systemd[461011]: Condition check resulted in Sound Service being skipped.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 17.
+Mar 01 09:36:24 currus-connect systemd[461011]: Reached target Main User Target.
+-- Subject: A start job for unit UNIT has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit UNIT has finished successfully.
+-- 
+-- The job identifier is 1.
+Mar 01 09:36:24 currus-connect systemd[461011]: Startup finished in 219ms.
+-- Subject: User manager start-up is now complete
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The user manager instance for user 0 has been started. All services queued
+-- for starting have been started. Note that other services might still be starting
+-- up or be started at any later time.
+-- 
+-- Startup of the manager took 219351 microseconds.
+Mar 01 09:36:25 currus-connect sshd[461038]: Invalid user tedtimbrell from 185.163.119.179 port 54688
+Mar 01 09:36:25 currus-connect sshd[461038]: Received disconnect from 185.163.119.179 port 54688:11: Bye Bye [preauth]
+Mar 01 09:36:25 currus-connect sshd[461038]: Disconnected from invalid user tedtimbrell 185.163.119.179 port 54688 [preauth]
+Mar 01 09:36:43 currus-connect sshd[461174]: Invalid user lanyuqing from 43.163.214.218 port 52954
+Mar 01 09:36:43 currus-connect sshd[461174]: Received disconnect from 43.163.214.218 port 52954:11: Bye Bye [preauth]
+Mar 01 09:36:43 currus-connect sshd[461174]: Disconnected from invalid user lanyuqing 43.163.214.218 port 52954 [preauth]
+Mar 01 09:36:44 currus-connect sshd[461176]: Invalid user jialin from 81.192.46.49 port 36586
+Mar 01 09:36:44 currus-connect sshd[461176]: Received disconnect from 81.192.46.49 port 36586:11: Bye Bye [preauth]
+Mar 01 09:36:44 currus-connect sshd[461176]: Disconnected from invalid user jialin 81.192.46.49 port 36586 [preauth]
+Mar 01 09:36:47 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=53197 PROTO=TCP SPT=52781 DPT=61238 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:48 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.149 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=12335 PROTO=TCP SPT=54346 DPT=58905 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=2786 PROTO=TCP SPT=52781 DPT=6950 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=89.248.163.26 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=31333 PROTO=TCP SPT=55249 DPT=559 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:36:55 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=18773 PROTO=TCP SPT=52781 DPT=10139 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:37:01 currus-connect CRON[461178]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:37:01 currus-connect CRON[461179]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:37:04 currus-connect CRON[461178]: pam_unix(cron:session): session closed for user root
+Mar 01 09:37:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.210.225 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=17553 PROTO=TCP SPT=51814 DPT=29785 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:37:10 currus-connect sshd[461187]: Received disconnect from 84.73.67.17 port 56404:11: Bye Bye [preauth]
+Mar 01 09:37:10 currus-connect sshd[461187]: Disconnected from authenticating user root 84.73.67.17 port 56404 [preauth]
+Mar 01 09:37:13 currus-connect sshd[461189]: Invalid user juak from 162.62.121.54 port 59474
+Mar 01 09:37:13 currus-connect sshd[461189]: Received disconnect from 162.62.121.54 port 59474:11: Bye Bye [preauth]
+Mar 01 09:37:13 currus-connect sshd[461189]: Disconnected from invalid user juak 162.62.121.54 port 59474 [preauth]
+Mar 01 09:37:22 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=80.66.83.47 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=14732 PROTO=TCP SPT=41869 DPT=19742 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:37:23 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=61239 PROTO=TCP SPT=52781 DPT=23739 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:37:24 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=94.156.67.128 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=38034 PROTO=TCP SPT=49186 DPT=554 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:37:26 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=20535 PROTO=TCP SPT=52781 DPT=64148 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:37:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=59715 PROTO=TCP SPT=52781 DPT=873 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:37:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.141 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=54321 PROTO=TCP SPT=54186 DPT=18080 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:38:01 currus-connect CRON[461191]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:38:01 currus-connect CRON[461192]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:38:04 currus-connect CRON[461191]: pam_unix(cron:session): session closed for user root
+Mar 01 09:38:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=165.232.78.22 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=251 ID=54321 PROTO=TCP SPT=39194 DPT=749 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:38:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.59.202 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=14246 PROTO=TCP SPT=43564 DPT=217 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:38:20 currus-connect sshd[461200]: Invalid user oracle from 43.163.214.218 port 55732
+Mar 01 09:38:20 currus-connect sshd[461200]: Received disconnect from 43.163.214.218 port 55732:11: Bye Bye [preauth]
+Mar 01 09:38:20 currus-connect sshd[461200]: Disconnected from invalid user oracle 43.163.214.218 port 55732 [preauth]
+Mar 01 09:38:20 currus-connect sshd[461202]: Invalid user bumyang from 185.163.119.179 port 58212
+Mar 01 09:38:20 currus-connect sshd[461202]: Received disconnect from 185.163.119.179 port 58212:11: Bye Bye [preauth]
+Mar 01 09:38:20 currus-connect sshd[461202]: Disconnected from invalid user bumyang 185.163.119.179 port 58212 [preauth]
+Mar 01 09:38:30 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=139.144.239.74 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=57957 DPT=16001 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:38:34 currus-connect CRON[460545]: pam_unix(cron:session): session closed for user root
+Mar 01 09:38:37 currus-connect sshd[461208]: Invalid user somayeh from 81.192.46.49 port 38152
+Mar 01 09:38:37 currus-connect sshd[461208]: Received disconnect from 81.192.46.49 port 38152:11: Bye Bye [preauth]
+Mar 01 09:38:37 currus-connect sshd[461208]: Disconnected from invalid user somayeh 81.192.46.49 port 38152 [preauth]
+Mar 01 09:38:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.142.125.251 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=39 ID=1612 PROTO=TCP SPT=33910 DPT=19114 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:39:01 currus-connect CRON[461210]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:39:01 currus-connect CRON[461211]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:39:01 currus-connect CRON[461212]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Mar 01 09:39:01 currus-connect CRON[461213]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:39:01 currus-connect CRON[461210]: pam_unix(cron:session): session closed for user root
+Mar 01 09:39:02 currus-connect systemd[1]: Starting Clean php session files...
+-- Subject: A start job for unit phpsessionclean.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit phpsessionclean.service has begun execution.
+-- 
+-- The job identifier is 78758.
+Mar 01 09:39:02 currus-connect sshd[461249]: Invalid user admin7 from 162.62.121.54 port 32848
+Mar 01 09:39:02 currus-connect sshd[461249]: Received disconnect from 162.62.121.54 port 32848:11: Bye Bye [preauth]
+Mar 01 09:39:02 currus-connect sshd[461249]: Disconnected from invalid user admin7 162.62.121.54 port 32848 [preauth]
+Mar 01 09:39:02 currus-connect systemd[1]: phpsessionclean.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit phpsessionclean.service has successfully entered the 'dead' state.
+Mar 01 09:39:02 currus-connect systemd[1]: Finished Clean php session files.
+-- Subject: A start job for unit phpsessionclean.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit phpsessionclean.service has finished successfully.
+-- 
+-- The job identifier is 78758.
+Mar 01 09:39:04 currus-connect CRON[461211]: pam_unix(cron:session): session closed for user root
+Mar 01 09:39:06 currus-connect sshd[461337]: Invalid user test from 84.73.67.17 port 49076
+Mar 01 09:39:06 currus-connect sshd[461337]: Received disconnect from 84.73.67.17 port 49076:11: Bye Bye [preauth]
+Mar 01 09:39:06 currus-connect sshd[461337]: Disconnected from invalid user test 84.73.67.17 port 49076 [preauth]
+Mar 01 09:39:08 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=30220 PROTO=TCP SPT=52781 DPT=64772 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:39:32 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=47584 PROTO=TCP SPT=52781 DPT=6013 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:39:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=9545 PROTO=TCP SPT=52781 DPT=5476 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:39:56 currus-connect sshd[461339]: Invalid user cyf from 43.163.214.218 port 58496
+Mar 01 09:39:56 currus-connect sshd[461339]: Received disconnect from 43.163.214.218 port 58496:11: Bye Bye [preauth]
+Mar 01 09:39:56 currus-connect sshd[461339]: Disconnected from invalid user cyf 43.163.214.218 port 58496 [preauth]
+Mar 01 09:40:01 currus-connect CRON[461341]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:40:01 currus-connect CRON[461342]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:40:04 currus-connect CRON[461341]: pam_unix(cron:session): session closed for user root
+Mar 01 09:40:10 currus-connect sshd[461350]: Invalid user renee from 206.189.137.254 port 44628
+Mar 01 09:40:10 currus-connect sshd[461350]: Connection closed by invalid user renee 206.189.137.254 port 44628 [preauth]
+Mar 01 09:40:11 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.243.188.66 DST=46.101.206.99 LEN=60 TOS=0x00 PREC=0x00 TTL=53 ID=9134 DF PROTO=TCP SPT=24115 DPT=303 WINDOW=64240 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:11 currus-connect DropletAgent[862]: INFO:2024/03/01 09:40:11 ssh_watcher.go:65: [SSH Watcher] Port knocking detected.
+Mar 01 09:40:11 currus-connect DropletAgent[862]: INFO:2024/03/01 09:40:11 do_managed_keys_actioner.go:43: [DO-Managed Keys Actioner] Metadata contains 1 ssh keys and 1 dotty keys
+Mar 01 09:40:11 currus-connect DropletAgent[862]: INFO:2024/03/01 09:40:11 do_managed_keys_actioner.go:49: [DO-Managed Keys Actioner] Attempting to update 1 dotty keys
+Mar 01 09:40:11 currus-connect DropletAgent[862]: INFO:2024/03/01 09:40:11 do_managed_keys_actioner.go:70: [DO-Managed Keys Actioner] Updating 2 keys
+Mar 01 09:40:11 currus-connect DropletAgent[862]: INFO:2024/03/01 09:40:11 do_managed_keys_actioner.go:75: [DO-Managed Keys Actioner] Keys updated
+Mar 01 09:40:12 currus-connect sshd[461352]: Connection closed by 162.243.190.66 port 42231 [preauth]
+Mar 01 09:40:16 currus-connect sshd[461354]: Invalid user largen from 185.163.119.179 port 57836
+Mar 01 09:40:16 currus-connect sshd[461354]: Received disconnect from 185.163.119.179 port 57836:11: Bye Bye [preauth]
+Mar 01 09:40:16 currus-connect sshd[461354]: Disconnected from invalid user largen 185.163.119.179 port 57836 [preauth]
+Mar 01 09:40:20 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=185.233.19.253 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=246 ID=22207 PROTO=TCP SPT=58914 DPT=5060 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:24 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=370 PROTO=TCP SPT=52781 DPT=40849 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:28 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=193.163.125.33 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=59367 PROTO=TCP SPT=38626 DPT=32754 WINDOW=14600 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:29 currus-connect sshd[461361]: Invalid user hpn from 81.192.46.49 port 39718
+Mar 01 09:40:29 currus-connect sshd[461361]: Received disconnect from 81.192.46.49 port 39718:11: Bye Bye [preauth]
+Mar 01 09:40:29 currus-connect sshd[461361]: Disconnected from invalid user hpn 81.192.46.49 port 39718 [preauth]
+Mar 01 09:40:29 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=16413 PROTO=TCP SPT=52781 DPT=11806 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:29 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=978 PROTO=TCP SPT=52781 DPT=9766 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:33 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=3053 PROTO=TCP SPT=52781 DPT=19632 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:42 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=26146 PROTO=TCP SPT=52781 DPT=36823 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:48 currus-connect sshd[461373]: Invalid user iraqr from 162.62.121.54 port 34454
+Mar 01 09:40:48 currus-connect sshd[461373]: Received disconnect from 162.62.121.54 port 34454:11: Bye Bye [preauth]
+Mar 01 09:40:48 currus-connect sshd[461373]: Disconnected from invalid user iraqr 162.62.121.54 port 34454 [preauth]
+Mar 01 09:40:55 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.215 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=54321 PROTO=TCP SPT=53136 DPT=50995 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:40:57 currus-connect sshd[461376]: Received disconnect from 185.227.136.16 port 50366:11: Bye Bye [preauth]
+Mar 01 09:40:57 currus-connect sshd[461376]: Disconnected from authenticating user root 185.227.136.16 port 50366 [preauth]
+Mar 01 09:40:59 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=40893 PROTO=TCP SPT=52781 DPT=26229 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:01 currus-connect CRON[461378]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:41:01 currus-connect CRON[461379]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:41:02 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=205.210.31.41 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=54887 DPT=4444 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:03 currus-connect sshd[461387]: Invalid user ubuntu from 84.73.67.17 port 38074
+Mar 01 09:41:03 currus-connect sshd[461387]: Received disconnect from 84.73.67.17 port 38074:11: Bye Bye [preauth]
+Mar 01 09:41:03 currus-connect sshd[461387]: Disconnected from invalid user ubuntu 84.73.67.17 port 38074 [preauth]
+Mar 01 09:41:03 currus-connect CRON[461378]: pam_unix(cron:session): session closed for user root
+Mar 01 09:41:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=143.42.1.52 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=57952 DPT=9998 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:13 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.111 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=50775 PROTO=TCP SPT=50961 DPT=8088 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:18 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=22055 PROTO=TCP SPT=52781 DPT=49138 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:24 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=162.216.149.74 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=57019 DPT=19 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:25 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.110.62.101 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=3594 PROTO=TCP SPT=42916 DPT=4433 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:32 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=64382 PROTO=TCP SPT=52781 DPT=13995 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:32 currus-connect sshd[461394]: Invalid user edmond from 43.163.214.218 port 33022
+Mar 01 09:41:33 currus-connect sshd[461394]: Received disconnect from 43.163.214.218 port 33022:11: Bye Bye [preauth]
+Mar 01 09:41:33 currus-connect sshd[461394]: Disconnected from invalid user edmond 43.163.214.218 port 33022 [preauth]
+Mar 01 09:41:43 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=59842 PROTO=TCP SPT=52781 DPT=40302 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=170.187.163.117 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=54351 DPT=60129 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:41:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.110.62.122 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=249 ID=57425 PROTO=TCP SPT=44276 DPT=3450 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:42:01 currus-connect CRON[461396]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:42:01 currus-connect CRON[461397]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:42:04 currus-connect CRON[461396]: pam_unix(cron:session): session closed for user root
+Mar 01 09:42:15 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.135.133 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=247 ID=43611 PROTO=TCP SPT=58992 DPT=2621 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:42:23 currus-connect sudo[461416]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/bin/systemctl restart apache2[0m
+Mar 01 09:42:23 currus-connect sudo[461416]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:42:23 currus-connect systemd[1]: Starting The Apache HTTP Server...
+-- Subject: A start job for unit apache2.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has begun execution.
+-- 
+-- The job identifier is 78847.
+Mar 01 09:42:23 currus-connect apachectl[461427]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.19.0.5. Set the 'ServerName' directive globally to suppress this message
+Mar 01 09:42:23 currus-connect apachectl[461427]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+Mar 01 09:42:23 currus-connect apachectl[461427]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+Mar 01 09:42:23 currus-connect apachectl[461427]: no listening sockets available, shutting down
+Mar 01 09:42:23 currus-connect apachectl[461427]: AH00015: Unable to open logs
+Mar 01 09:42:23 currus-connect apachectl[461419]: Action 'start' failed.
+Mar 01 09:42:23 currus-connect apachectl[461419]: The Apache error log may have more information.
+Mar 01 09:42:23 currus-connect systemd[1]: [0;1;39m[0;1;31m[0;1;39mapache2.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit apache2.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+Mar 01 09:42:23 currus-connect sudo[461416]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:42:23 currus-connect systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit apache2.service has entered the 'failed' state with result 'exit-code'.
+Mar 01 09:42:23 currus-connect systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start The Apache HTTP Server.[0m
+-- Subject: A start job for unit apache2.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has finished with a failure.
+-- 
+-- The job identifier is 78847 and the job result is failed.
+Mar 01 09:42:32 currus-connect sshd[461443]: Invalid user mvrz from 162.62.121.54 port 36054
+Mar 01 09:42:32 currus-connect sshd[461443]: Received disconnect from 162.62.121.54 port 36054:11: Bye Bye [preauth]
+Mar 01 09:42:32 currus-connect sshd[461443]: Disconnected from invalid user mvrz 162.62.121.54 port 36054 [preauth]
+Mar 01 09:42:34 currus-connect sudo[461445]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/bin/systemctl restart apache2[0m
+Mar 01 09:42:34 currus-connect sudo[461445]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:42:34 currus-connect systemd[1]: Starting The Apache HTTP Server...
+-- Subject: A start job for unit apache2.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has begun execution.
+-- 
+-- The job identifier is 78936.
+Mar 01 09:42:34 currus-connect apachectl[461458]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.19.0.5. Set the 'ServerName' directive globally to suppress this message
+Mar 01 09:42:34 currus-connect apachectl[461458]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+Mar 01 09:42:34 currus-connect apachectl[461458]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+Mar 01 09:42:34 currus-connect apachectl[461458]: no listening sockets available, shutting down
+Mar 01 09:42:34 currus-connect apachectl[461458]: AH00015: Unable to open logs
+Mar 01 09:42:34 currus-connect apachectl[461448]: Action 'start' failed.
+Mar 01 09:42:34 currus-connect apachectl[461448]: The Apache error log may have more information.
+Mar 01 09:42:34 currus-connect systemd[1]: [0;1;39m[0;1;31m[0;1;39mapache2.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit apache2.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+Mar 01 09:42:34 currus-connect sudo[461445]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:42:34 currus-connect systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit apache2.service has entered the 'failed' state with result 'exit-code'.
+Mar 01 09:42:34 currus-connect systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start The Apache HTTP Server.[0m
+-- Subject: A start job for unit apache2.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has finished with a failure.
+-- 
+-- The job identifier is 78936 and the job result is failed.
+Mar 01 09:42:44 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=68.183.126.200 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=248 ID=54321 PROTO=TCP SPT=35142 DPT=17326 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:42:45 currus-connect sshd[461469]: Invalid user reza from 185.227.136.16 port 48306
+Mar 01 09:42:45 currus-connect sshd[461469]: Received disconnect from 185.227.136.16 port 48306:11: Bye Bye [preauth]
+Mar 01 09:42:45 currus-connect sshd[461469]: Disconnected from invalid user reza 185.227.136.16 port 48306 [preauth]
+Mar 01 09:42:56 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=41769 PROTO=TCP SPT=52781 DPT=46130 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:42:56 currus-connect sshd[461473]: Invalid user training from 84.73.67.17 port 38678
+Mar 01 09:42:56 currus-connect sshd[461473]: Received disconnect from 84.73.67.17 port 38678:11: Bye Bye [preauth]
+Mar 01 09:42:56 currus-connect sshd[461473]: Disconnected from invalid user training 84.73.67.17 port 38678 [preauth]
+Mar 01 09:43:01 currus-connect CRON[461475]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:43:01 currus-connect CRON[461476]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:43:04 currus-connect CRON[461475]: pam_unix(cron:session): session closed for user root
+Mar 01 09:43:08 currus-connect sshd[461484]: Invalid user oracle from 43.163.214.218 port 35796
+Mar 01 09:43:08 currus-connect sshd[461484]: Received disconnect from 43.163.214.218 port 35796:11: Bye Bye [preauth]
+Mar 01 09:43:08 currus-connect sshd[461484]: Disconnected from invalid user oracle 43.163.214.218 port 35796 [preauth]
+Mar 01 09:43:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=61583 PROTO=TCP SPT=52781 DPT=10787 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:43:12 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=91.148.190.146 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=442 PROTO=TCP SPT=44792 DPT=6036 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:43:24 currus-connect sshd[461491]: Unable to negotiate with 218.92.0.51 port 38398: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
+Mar 01 09:43:27 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=48568 PROTO=TCP SPT=42031 DPT=3704 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:43:31 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=198.235.24.80 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=61346 PROTO=TCP SPT=52387 DPT=50070 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:43:40 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=143.42.0.20 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=47812 DPT=49171 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:43:41 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.248.133.137 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=38 ID=47801 PROTO=TCP SPT=7375 DPT=32237 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:01 currus-connect CRON[461499]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:44:01 currus-connect CRON[461500]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:44:04 currus-connect CRON[461499]: pam_unix(cron:session): session closed for user root
+Mar 01 09:44:04 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=5048 PROTO=TCP SPT=52781 DPT=59365 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:10 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.94.138.145 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=44 ID=53985 PROTO=TCP SPT=3374 DPT=51200 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:11 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.210.244 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=50368 DPT=8037 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:19 currus-connect sshd[461509]: Invalid user foundry from 162.62.121.54 port 37656
+Mar 01 09:44:19 currus-connect sshd[461509]: Received disconnect from 162.62.121.54 port 37656:11: Bye Bye [preauth]
+Mar 01 09:44:19 currus-connect sshd[461509]: Disconnected from invalid user foundry 162.62.121.54 port 37656 [preauth]
+Mar 01 09:44:19 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=46841 PROTO=TCP SPT=52781 DPT=32463 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:22 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=167.71.185.75 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=25744 PROTO=TCP SPT=46116 DPT=6638 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:24 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=15997 PROTO=TCP SPT=52781 DPT=55517 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:28 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=109.205.213.182 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=58367 PROTO=TCP SPT=42047 DPT=6889 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:32 currus-connect sshd[461516]: Invalid user admin from 185.227.136.16 port 34156
+Mar 01 09:44:32 currus-connect sshd[461516]: Received disconnect from 185.227.136.16 port 34156:11: Bye Bye [preauth]
+Mar 01 09:44:32 currus-connect sshd[461516]: Disconnected from invalid user admin 185.227.136.16 port 34156 [preauth]
+Mar 01 09:44:36 currus-connect sudo[461518]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/bin/systemctl status php-fpm8.1.service[0m
+Mar 01 09:44:36 currus-connect sudo[461518]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:44:36 currus-connect sudo[461518]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:44:37 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=64.62.197.126 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=TCP SPT=49753 DPT=631 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:37 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=101.36.114.124 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=45 ID=0 DF PROTO=TCP SPT=51764 DPT=2090 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:39 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.48.250.106 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=248 ID=23116 PROTO=TCP SPT=47871 DPT=1234 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:46 currus-connect sudo[461521]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/bin/apt-get install php-fpm8.1[0m
+Mar 01 09:44:46 currus-connect sudo[461521]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:44:47 currus-connect sudo[461521]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:44:53 currus-connect sshd[461525]: Invalid user deng from 84.73.67.17 port 39944
+Mar 01 09:44:53 currus-connect sshd[461525]: Received disconnect from 84.73.67.17 port 39944:11: Bye Bye [preauth]
+Mar 01 09:44:53 currus-connect sshd[461525]: Disconnected from invalid user deng 84.73.67.17 port 39944 [preauth]
+Mar 01 09:44:56 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=7619 PROTO=TCP SPT=52781 DPT=931 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:44:58 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=172.104.138.223 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=5206 PROTO=TCP SPT=2722 DPT=4254 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:45:01 currus-connect CRON[461534]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:45:01 currus-connect CRON[461535]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:45:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=5776 PROTO=TCP SPT=52781 DPT=57011 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:45:05 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.210.124 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=41922 PROTO=TCP SPT=54814 DPT=54849 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:45:05 currus-connect sudo[461544]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/sbin/a2enconf php8.1-fpm[0m
+Mar 01 09:45:05 currus-connect sudo[461544]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:45:05 currus-connect sudo[461544]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:45:24 currus-connect sudo[461549]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/bin/apt-get install php8.1-fpm[0m
+Mar 01 09:45:24 currus-connect sudo[461549]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:45:28 currus-connect php8.1-fpm[461741]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module mysqli for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[461782]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module sockets for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[461823]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module pdo_mysql for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[461864]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module ctype for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[461905]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module iconv for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[461946]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module opcache for fpm sapi[0m
+Mar 01 09:45:28 currus-connect sshd[461588]: Invalid user weather from 182.18.161.165 port 54206
+Mar 01 09:45:28 currus-connect php8.1-fpm[461987]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module simplexml for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462028]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module shmop for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462069]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module dom for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462110]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module mysqlnd for fpm sapi[0m
+Mar 01 09:45:28 currus-connect sshd[461588]: Received disconnect from 182.18.161.165 port 54206:11: Bye Bye [preauth]
+Mar 01 09:45:28 currus-connect sshd[461588]: Disconnected from invalid user weather 182.18.161.165 port 54206 [preauth]
+Mar 01 09:45:28 currus-connect php8.1-fpm[462151]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module exif for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462192]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module xmlwriter for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462233]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module xml for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462274]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module xmlreader for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462315]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module xsl for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462356]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module tokenizer for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462397]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module sysvmsg for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462438]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module sysvsem for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462479]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module sysvshm for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462520]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module readline for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462561]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module curl for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462602]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module zip for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462643]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module bcmath for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462684]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module gettext for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462725]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module gd for fpm sapi[0m
+Mar 01 09:45:28 currus-connect php8.1-fpm[462766]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module pdo for fpm sapi[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[462807]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module ftp for fpm sapi[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[462848]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module phar for fpm sapi[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[462889]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module calendar for fpm sapi[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[462930]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module fileinfo for fpm sapi[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[462971]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module posix for fpm sapi[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[463012]: [0;38;5;245m[0;1;31m[0;38;5;245mphp_invoke: Enabled module ffi for fpm sapi[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[463014]: [0;1;39m[0;1;31m[0;1;39mNOTICE: Not enabling PHP 8.1 FPM by default.[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[463015]: [0;1;39m[0;1;31m[0;1;39mNOTICE: To enable PHP 8.1 FPM in Apache2 do:[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[463016]: [0;1;39m[0;1;31m[0;1;39mNOTICE: a2enmod proxy_fcgi setenvif[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[463017]: [0;1;39m[0;1;31m[0;1;39mNOTICE: a2enconf php8.1-fpm[0m
+Mar 01 09:45:29 currus-connect php8.1-fpm[463018]: [0;1;39m[0;1;31m[0;1;39mNOTICE: You are seeing this message because you have apache2 package installed.[0m
+Mar 01 09:45:29 currus-connect systemd[1]: Reloading.
+Mar 01 09:45:30 currus-connect systemd[1]: Reloading.
+Mar 01 09:45:30 currus-connect systemd[1]: Reloading.
+Mar 01 09:45:31 currus-connect systemd[1]: Starting The PHP 8.1 FastCGI Process Manager...
+-- Subject: A start job for unit php8.1-fpm.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit php8.1-fpm.service has begun execution.
+-- 
+-- The job identifier is 79028.
+Mar 01 09:45:31 currus-connect systemd-udevd[681]: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Mar 01 09:45:31 currus-connect systemd[1]: Started The PHP 8.1 FastCGI Process Manager.
+-- Subject: A start job for unit php8.1-fpm.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit php8.1-fpm.service has finished successfully.
+-- 
+-- The job identifier is 79028.
+Mar 01 09:45:31 currus-connect systemd[1]: Reloading.
+Mar 01 09:45:32 currus-connect systemd[1]: Reloading.
+Mar 01 09:45:33 currus-connect systemd[1]: Stopping The PHP 8.1 FastCGI Process Manager...
+-- Subject: A stop job for unit php8.1-fpm.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit php8.1-fpm.service has begun execution.
+-- 
+-- The job identifier is 79119.
+Mar 01 09:45:33 currus-connect systemd[1]: php8.1-fpm.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit php8.1-fpm.service has successfully entered the 'dead' state.
+Mar 01 09:45:33 currus-connect systemd[1]: Stopped The PHP 8.1 FastCGI Process Manager.
+-- Subject: A stop job for unit php8.1-fpm.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit php8.1-fpm.service has finished.
+-- 
+-- The job identifier is 79119 and the job result is done.
+Mar 01 09:45:33 currus-connect systemd[1]: Starting The PHP 8.1 FastCGI Process Manager...
+-- Subject: A start job for unit php8.1-fpm.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit php8.1-fpm.service has begun execution.
+-- 
+-- The job identifier is 79119.
+Mar 01 09:45:33 currus-connect systemd-udevd[681]: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Mar 01 09:45:33 currus-connect systemd[1]: Started The PHP 8.1 FastCGI Process Manager.
+-- Subject: A start job for unit php8.1-fpm.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit php8.1-fpm.service has finished successfully.
+-- 
+-- The job identifier is 79119.
+Mar 01 09:45:33 currus-connect php8.1-fpm[463236]: [0;1;39m[0;1;31m[0;1;39mNOTICE: Not enabling PHP 8.1 FPM by default.[0m
+Mar 01 09:45:33 currus-connect php8.1-fpm[463237]: [0;1;39m[0;1;31m[0;1;39mNOTICE: To enable PHP 8.1 FPM in Apache2 do:[0m
+Mar 01 09:45:33 currus-connect php8.1-fpm[463238]: [0;1;39m[0;1;31m[0;1;39mNOTICE: a2enmod proxy_fcgi setenvif[0m
+Mar 01 09:45:33 currus-connect php8.1-fpm[463239]: [0;1;39m[0;1;31m[0;1;39mNOTICE: a2enconf php8.1-fpm[0m
+Mar 01 09:45:33 currus-connect php8.1-fpm[463240]: [0;1;39m[0;1;31m[0;1;39mNOTICE: You are seeing this message because you have apache2 package installed.[0m
+Mar 01 09:45:33 currus-connect dbus-daemon[756]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.289' (uid=0 pid=463251 comm="/usr/bin/gdbus call --system --dest org.freedeskto" label="unconfined")
+Mar 01 09:45:33 currus-connect systemd[1]: Starting PackageKit Daemon...
+-- Subject: A start job for unit packagekit.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit packagekit.service has begun execution.
+-- 
+-- The job identifier is 79208.
+Mar 01 09:45:33 currus-connect PackageKit[463254]: [0;38;5;245m[0;1;31m[0;38;5;245mdaemon start[0m
+Mar 01 09:45:33 currus-connect dbus-daemon[756]: [system] Successfully activated service 'org.freedesktop.PackageKit'
+Mar 01 09:45:33 currus-connect systemd[1]: Started PackageKit Daemon.
+-- Subject: A start job for unit packagekit.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit packagekit.service has finished successfully.
+-- 
+-- The job identifier is 79208.
+Mar 01 09:45:36 currus-connect sudo[461549]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:45:45 currus-connect sudo[463303]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/sbin/a2enconf php8.1-fpm[0m
+Mar 01 09:45:45 currus-connect sudo[463303]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:45:45 currus-connect sudo[463303]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:45:46 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=7699 PROTO=TCP SPT=52781 DPT=17861 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:45:54 currus-connect sudo[463312]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/usr/bin/systemctl reload apache2[0m
+Mar 01 09:45:54 currus-connect sudo[463312]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:45:54 currus-connect systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Unit cannot be reloaded because it is inactive.[0m
+Mar 01 09:45:54 currus-connect sudo[463312]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:46:00 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=205.210.31.206 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=250 ID=54321 PROTO=TCP SPT=54732 DPT=20257 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:01 currus-connect CRON[463316]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:46:01 currus-connect CRON[463317]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:46:02 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=33818 PROTO=TCP SPT=52781 DPT=58566 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:04 currus-connect systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Unit cannot be reloaded because it is inactive.[0m
+Mar 01 09:46:05 currus-connect CRON[463316]: pam_unix(cron:session): session closed for user root
+Mar 01 09:46:20 currus-connect sshd[463327]: Invalid user saudi from 185.227.136.16 port 48730
+Mar 01 09:46:20 currus-connect sshd[463327]: Received disconnect from 185.227.136.16 port 48730:11: Bye Bye [preauth]
+Mar 01 09:46:20 currus-connect sshd[463327]: Disconnected from invalid user saudi 185.227.136.16 port 48730 [preauth]
+Mar 01 09:46:21 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=27721 PROTO=TCP SPT=52781 DPT=26860 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:24 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=6834 PROTO=TCP SPT=52781 DPT=46034 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:27 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=64.62.197.5 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=TCP SPT=54184 DPT=9200 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:28 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=28324 PROTO=TCP SPT=52781 DPT=8219 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:28 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.49.86 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=40263 PROTO=TCP SPT=46274 DPT=157 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:29 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=78.128.113.250 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=27882 PROTO=TCP SPT=51526 DPT=10060 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:30 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=35.203.210.114 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x60 TTL=251 ID=54321 PROTO=TCP SPT=56863 DPT=8094 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:38 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=57.128.141.133 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=37574 PROTO=TCP SPT=40765 DPT=8000 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:46:44 currus-connect sudo[463333]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/etc/init.d/apache2 restart[0m
+Mar 01 09:46:44 currus-connect sudo[463333]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:46:44 currus-connect systemd[1]: Starting The Apache HTTP Server...
+-- Subject: A start job for unit apache2.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has begun execution.
+-- 
+-- The job identifier is 79299.
+Mar 01 09:46:44 currus-connect apachectl[463351]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.19.0.5. Set the 'ServerName' directive globally to suppress this message
+Mar 01 09:46:44 currus-connect apachectl[463351]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+Mar 01 09:46:44 currus-connect apachectl[463351]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+Mar 01 09:46:44 currus-connect apachectl[463351]: no listening sockets available, shutting down
+Mar 01 09:46:44 currus-connect apachectl[463351]: AH00015: Unable to open logs
+Mar 01 09:46:44 currus-connect apachectl[463343]: Action 'start' failed.
+Mar 01 09:46:44 currus-connect apachectl[463343]: The Apache error log may have more information.
+Mar 01 09:46:44 currus-connect systemd[1]: [0;1;39m[0;1;31m[0;1;39mapache2.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit apache2.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+Mar 01 09:46:44 currus-connect systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit apache2.service has entered the 'failed' state with result 'exit-code'.
+Mar 01 09:46:44 currus-connect systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start The Apache HTTP Server.[0m
+-- Subject: A start job for unit apache2.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has finished with a failure.
+-- 
+-- The job identifier is 79299 and the job result is failed.
+Mar 01 09:46:44 currus-connect sudo[463333]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:46:47 currus-connect sshd[463370]: Invalid user user1 from 84.73.67.17 port 46832
+Mar 01 09:46:47 currus-connect sshd[463370]: Received disconnect from 84.73.67.17 port 46832:11: Bye Bye [preauth]
+Mar 01 09:46:47 currus-connect sshd[463370]: Disconnected from invalid user user1 84.73.67.17 port 46832 [preauth]
+Mar 01 09:46:49 currus-connect sudo[463377]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/etc/init.d/apache2 start[0m
+Mar 01 09:46:49 currus-connect sudo[463377]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:46:49 currus-connect systemd[1]: Starting The Apache HTTP Server...
+-- Subject: A start job for unit apache2.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has begun execution.
+-- 
+-- The job identifier is 79388.
+Mar 01 09:46:49 currus-connect apachectl[463397]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.19.0.5. Set the 'ServerName' directive globally to suppress this message
+Mar 01 09:46:49 currus-connect apachectl[463397]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+Mar 01 09:46:49 currus-connect apachectl[463397]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+Mar 01 09:46:49 currus-connect apachectl[463397]: no listening sockets available, shutting down
+Mar 01 09:46:49 currus-connect apachectl[463397]: AH00015: Unable to open logs
+Mar 01 09:46:49 currus-connect apachectl[463387]: Action 'start' failed.
+Mar 01 09:46:49 currus-connect apachectl[463387]: The Apache error log may have more information.
+Mar 01 09:46:49 currus-connect systemd[1]: [0;1;39m[0;1;31m[0;1;39mapache2.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit apache2.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+Mar 01 09:46:49 currus-connect systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit apache2.service has entered the 'failed' state with result 'exit-code'.
+Mar 01 09:46:49 currus-connect systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start The Apache HTTP Server.[0m
+-- Subject: A start job for unit apache2.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has finished with a failure.
+-- 
+-- The job identifier is 79388 and the job result is failed.
+Mar 01 09:46:49 currus-connect sudo[463377]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:46:49 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=45.79.186.176 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=242 ID=54321 PROTO=TCP SPT=42231 DPT=5080 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:47:01 currus-connect CRON[463414]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 01 09:47:01 currus-connect CRON[463415]: (root) CMD (cd /var/www/laravel && php artisan schedule:run >> /dev/null 2>&1)
+Mar 01 09:47:04 currus-connect CRON[463414]: pam_unix(cron:session): session closed for user root
+Mar 01 09:47:11 currus-connect sudo[463423]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/etc/init.d/apache2 stop[0m
+Mar 01 09:47:11 currus-connect sudo[463423]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:47:11 currus-connect sudo[463423]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:47:13 currus-connect sshd[463440]: Invalid user jamil from 206.189.137.254 port 58408
+Mar 01 09:47:13 currus-connect sshd[463438]: Invalid user tjjun from 182.18.161.165 port 39006
+Mar 01 09:47:13 currus-connect sshd[463440]: Connection closed by invalid user jamil 206.189.137.254 port 58408 [preauth]
+Mar 01 09:47:13 currus-connect sshd[463438]: Received disconnect from 182.18.161.165 port 39006:11: Bye Bye [preauth]
+Mar 01 09:47:13 currus-connect sshd[463438]: Disconnected from invalid user tjjun 182.18.161.165 port 39006 [preauth]
+Mar 01 09:47:14 currus-connect sudo[463442]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/laravel ; USER=root ; COMMAND=/etc/init.d/apache2 start[0m
+Mar 01 09:47:14 currus-connect sudo[463442]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Mar 01 09:47:14 currus-connect systemd[1]: Starting The Apache HTTP Server...
+-- Subject: A start job for unit apache2.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has begun execution.
+-- 
+-- The job identifier is 79478.
+Mar 01 09:47:14 currus-connect apachectl[463464]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.19.0.5. Set the 'ServerName' directive globally to suppress this message
+Mar 01 09:47:14 currus-connect apachectl[463464]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+Mar 01 09:47:14 currus-connect apachectl[463464]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+Mar 01 09:47:14 currus-connect apachectl[463464]: no listening sockets available, shutting down
+Mar 01 09:47:14 currus-connect apachectl[463464]: AH00015: Unable to open logs
+Mar 01 09:47:14 currus-connect apachectl[463452]: Action 'start' failed.
+Mar 01 09:47:14 currus-connect apachectl[463452]: The Apache error log may have more information.
+Mar 01 09:47:14 currus-connect systemd[1]: [0;1;39m[0;1;31m[0;1;39mapache2.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit apache2.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+Mar 01 09:47:14 currus-connect systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit apache2.service has entered the 'failed' state with result 'exit-code'.
+Mar 01 09:47:14 currus-connect systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start The Apache HTTP Server.[0m
+-- Subject: A start job for unit apache2.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apache2.service has finished with a failure.
+-- 
+-- The job identifier is 79478 and the job result is failed.
+Mar 01 09:47:14 currus-connect sudo[463442]: pam_unix(sudo:session): session closed for user root
+Mar 01 09:47:14 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=89.248.163.26 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=59859 PROTO=TCP SPT=55233 DPT=1589 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:47:16 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=51.77.245.172 DST=46.101.206.99 LEN=91 TOS=0x00 PREC=0x00 TTL=52 ID=65445 DF PROTO=UDP SPT=54175 DPT=8083 LEN=71 [0m
+Mar 01 09:47:18 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=22755 PROTO=TCP SPT=52781 DPT=1435 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:47:45 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=245 ID=51856 PROTO=TCP SPT=52781 DPT=15979 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:47:50 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=41974 PROTO=TCP SPT=52781 DPT=19929 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:47:51 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=79.124.60.142 DST=46.101.206.99 LEN=44 TOS=0x00 PREC=0x00 TTL=249 ID=29611 PROTO=TCP SPT=46262 DPT=249 WINDOW=1025 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:47:53 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=65.49.1.77 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=TCP SPT=52535 DPT=9001 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+Mar 01 09:47:54 currus-connect kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m[UFW BLOCK] IN=eth0 OUT= MAC=3a:b5:e6:f8:85:5d:fe:00:00:00:01:01:08:00 SRC=194.26.29.92 DST=46.101.206.99 LEN=40 TOS=0x00 PREC=0x00 TTL=246 ID=15162 PROTO=TCP SPT=52781 DPT=14645 WINDOW=1024 RES=0x00 SYN URGP=0 [0m

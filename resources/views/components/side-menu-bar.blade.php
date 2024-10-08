@@ -44,7 +44,7 @@
                 <li style="margin-left: 1rem;"><a class="fab fa-linkedin text-white" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/" style="font-size: 2.1rem;"></a></li>
                 <li style="margin-left: 1rem;"><a class="fab fa-instagram text-white" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/" style="font-size: 2.1rem;"></a></li>
                 <li style="margin-left: 1rem;"><a class="fab fa-twitter text-white" rel="noopener noreferrer" target="_blank" href="https://twitter.com/?lang=da" style="font-size: 2.1rem;"></a></li>
-            </ul>    
+            </ul>
         </div>
     </div>
 </div>
@@ -57,3 +57,17 @@
     }
 
 </style>
+
+<script>
+    function updateQueryParam(value) {
+        // Get the current URL
+        let currentUrl = new URL(window.location.href);
+
+        // Update or add the query parameter
+        currentUrl.searchParams.set('type_id', value);
+
+        // Redirect to the new URL
+        window.location.href = currentUrl.toString();
+    }
+
+</script>

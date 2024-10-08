@@ -6,7 +6,6 @@
 <div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/enginedark.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="d-flex flex-grow-1">
         {{-- <x-side-menu-bar :partTypes="$partTypes" /> --}}
-
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
         <div class="container bg-dark text-white flex-grow-1" style="opacity: 0.85;">
             <div class="row pt-2">
@@ -18,12 +17,12 @@
                                 @if(!empty($oem))
                                     <strong>{{__('oem-oem')}}:</strong> {{ $oem }}
                                 @endif
-                            
+
                                 @if(!empty($engine_code))
                                     @if(!empty($oem)) | @endif
                                     <strong>{{__('oem-engine-code')}}:</strong> {{ $engine_code }}
                                 @endif
-                            
+
                                 @if(!empty($gearbox))
                                     @if(!empty($oem) || !empty($engine_code)) | @endif
                                     <strong>{{__('oem-gearbox-code')}}:</strong> {{ $gearbox }}
