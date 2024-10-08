@@ -31,13 +31,17 @@
                                 @if($type && !empty($type->name))
                                     | <strong>{{__('model-part-type')}}:</strong> {{ $type->name }}
                                 @endif
+
+                                @if(!empty(request('search')))
+                                    | <strong>{{__('Search')}}:</strong> {{ request('search') }}
+                                @endif
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-oem')"/>
-            {{ $parts->links() }}
+            <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-oem')" />
+            {{ $parts->appends(request()->query())->links() }} 
         </div>
     </div>
 </div>
