@@ -24,7 +24,7 @@
     @foreach($filteredCarParts as $carPart)
         <h3>{{ $carPart->new_name }}</h3>
         <h3>{{ $carPart->article_nr }}</h3>
-        <p>engine code: {{ $carParts->engine_code}}</p>
+        <p>engine code: {{ $carPart->engine_code}}</p>
         @if(count($carPart->carPartImages ))
             <img src="{{  $carPart->carPartImages[0]->original_url }}" alt="Image of car part" style="width: 400px;">
         @endif
