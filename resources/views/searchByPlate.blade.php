@@ -22,7 +22,11 @@
 @if(isset($carParts))
     <h1>Car part results</h1>
     @foreach($carParts as $carPart)
+        <h3>{{ $carPart->new_name }}</h3>
         <h3>{{ $carPart->article_nr }}</h3>
+        @if(count($carPart->carPartImages ))
+            <img src="{{  $carPart->carPartImages[0]->original_url }}" alt="Image of car part" style="width: 400px;">
+        @endif
     @endforeach
 @endif
 
