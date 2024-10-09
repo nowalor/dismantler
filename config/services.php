@@ -70,7 +70,7 @@ return [
     ],
 
     'nummerplade' => [
-        'api_url' => env('NUMMERPLADE_API_URL') ?? 'hey',
+        'api_url' => env('NUMMERPLADE_API_URL'),
         'token' => env('NUMMERPLADE_API_TOKEN'),
     ]
 ];
