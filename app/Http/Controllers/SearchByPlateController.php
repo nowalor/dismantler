@@ -37,11 +37,15 @@ class SearchByPlateController extends Controller
 
         $response = \Http::get("$apiURL/$search?api_token=$this->apiToken");
 
-        $ktpye =  $response->json()['data']['ktype'];
+        $data =  $response->json()['data'];
 
-        $ktype = Ktype::where('k_type', $ktpye)->first();
+        $ktype = Ktype::where('k_type', $data['ktype'])->first();
 
         $carParts = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
+
+        $carParts = $carParts->filter(function ($carPart) use($data){
+           return $carPart->engine_code === $data['engine_code'];
+        });
 
         return view('searchByPlate', compact('carParts'));
     }
