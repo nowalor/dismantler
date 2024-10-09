@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KType;
 use Illuminate\Http\Request;
 
 class SearchByPlateController extends Controller
@@ -26,14 +27,22 @@ class SearchByPlateController extends Controller
             return 'Missing search';
         }
 
+        $apiURL = $this->apiUrl;
+
+        if($request->input('search_by') === 'vin') {
+            $apiURL .= '/vin';
+        }
+
         $search = $request->input('search');
 
-        $response = \Http::get("$this->apiUrl/$search?api_token=$this->apiToken");
+        $response = \Http::get("$apiURL/$search?api_token=$this->apiToken");
 
-        $data =  $response->json()['data'];
+        $ktpye =  $response->json()['data']['ktype'];
 
-        return $data['ktype'];
+        $ktype = Ktype::where('k_type', $ktpye)->first();
 
-        return $request->input('search');
+        $carParts = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
+
+        return view('searchByPlate', compact('carParts'));
     }
 }
