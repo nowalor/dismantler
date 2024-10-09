@@ -24,6 +24,8 @@
                                 {{ route('car-parts.search-by-oem', array_merge(request()->query(), ['type_id' => $partType->id])) }}
                             @elseif (Route::currentRouteName() === 'car-parts.search-by-model')
                                 {{ route('car-parts.search-by-model', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @elseif (Route::currentRouteName() === 'car-parts.search-by-code')
+                                {{ route('car-parts.search-by-code', array_merge(request()->query(), ['type_id' => $partType->id])) }}
                             @else
                                 #
                             @endif
