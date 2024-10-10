@@ -79,6 +79,10 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 12,
                 'name' => 'Power steering pump electric',
             ],
+            [
+                'id' => 13,
+                'name' => 'Monitor',
+            ]
         ];
 
         CarPartType::insert($carPartTypes);
@@ -91,6 +95,7 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 5, "name" => "PARTIKELFILTER", "code" => "1284", 'egluit_id' => '3616'],
             ["id" => 6, "name" => "KATALYSATOR", "code" => "1285", 'egluit_id' => '3617'],
             ["id" => 7, "name" => "BAGTØJSKLUMP", "code" => "2601", 'egluit_id' => '3812'],
+            ["id" => 8, "name" => "BILSKÆRM", "code" => "TODO", 'egluit_id' => 'TODO'],
             // TODO get dito numbers for the new parts
         ];
 
@@ -168,6 +173,12 @@ class CarPartTypeSeeder extends Seeder
                 "code" => null,
                 "autoteile_markt_category_id" => 858,
             ],
+            [
+                "id" => 12,
+                "name" => "TODO",
+                "code" => null,
+                "autoteile_markt_category_id" => 999,
+            ],
         ];
 
         foreach($germanPartTypes as $germanPartType) {
@@ -195,6 +206,7 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(10)->germanCarPartTypes()->syncWithoutDetaching([9]);
         CarPartType::find(11)->germanCarPartTypes()->syncWithoutDetaching([10]);
         CarPartType::find(12)->germanCarPartTypes()->syncWithoutDetaching([11]);
+        CarPartType::find(13)->germanCarPartTypes()->syncWithoutDetaching([12]);
 
         foreach ($carPartTypes as $carPartType) {
             if(DanishCarPartType::find($carPartType->id)) {
@@ -222,6 +234,7 @@ class CarPartTypeSeeder extends Seeder
             ['id' => 15, 'name' => 'Instrument Komb', 'code' => '3220'],
             ['id' => 16, 'name' => 'STYRENHET VÄXELLÅDA ', 'code' => '7468'],
             ['id' => 17, 'name' => 'STYRSERVOPUMP ELEKTRISK', 'code' => '7082'],
+            ['id' => 18, 'name' => 'BILDSKÄRM', 'code' => '4626'],
         ];
 
         DB::table('swedish_car_part_types')->insert($swedishPartTypes);
@@ -240,5 +253,6 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(10)->swedishCarPartTypes()->syncWithoutDetaching([15]);
         CarPartType::find(11)->swedishCarPartTypes()->syncWithoutDetaching([16]);
         CarPartType::find(12)->swedishCarPartTypes()->syncWithoutDetaching([17]);
+        CarPartType::find(13)->swedishCarPartTypes()->syncWithoutDetaching([18]);
     }
 }
