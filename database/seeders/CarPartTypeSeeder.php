@@ -107,13 +107,13 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 5, "name" => "PARTIKELFILTER", "code" => "1284", 'egluit_id' => '3616'],
             ["id" => 6, "name" => "KATALYSATOR", "code" => "1285", 'egluit_id' => '3617'],
             ["id" => 7, "name" => "BAGTØJSKLUMP", "code" => "2601", 'egluit_id' => '3812'],
-            ["id" => 8, "name" => "BILSKÆRM", "code" => "TODO", 'egluit_id' => 'TODO'],
             // TODO get dito numbers for the new parts
             ["id" => 8, "name" => 'ABS BREMSESÆT', "code" => "3950", "egluit_id" => "3969"],
             ["id" => 9, "name" => 'ABS PUMPE', "code" => "3952", "egluit_id" => "3971"],
             ["id" => 10, "name" => 'INSTRUMENT MED OMDR', "code" => "6012", "egluit_id" => "4233"],
             ["id" => 11, "name" => 'AUTOMATGEAR ELBOKS', "code" => "2156", "egluit_id" => "3757"],
             ["id" => 12, "name" => 'SERVOELBOKS', "code" => "3137", "egluit_id" => "3851"],
+            ["id" => 13, "name" => "BILSKÆRM", "code" => "TODO", 'egluit_id' => 'TODO'],
 
         ];
 
@@ -193,7 +193,7 @@ class CarPartTypeSeeder extends Seeder
             ],
             [
                 "id" => 12,
-                "name" => "TODO",
+                "name" => "Bildschirm",
                 "code" => null,
                 "autoteile_markt_category_id" => 999,
             ],
