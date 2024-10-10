@@ -13,17 +13,21 @@
                     <div class="card bg-dark text-white">
                         <div class="card-body">
                             <p class="mb-0 mt-0">
-                                {{-- show hsn + tsn also, soon --}}
+                                @if($search['hsn'] && $search['tsn'])
+                                    <strong>HSN:</strong> {{ $search['hsn'] }} |
+                                    <strong>TSN:</strong> {{ $search['tsn'] }}
+                                @endif
+                                
                                 @if($type && !empty($type->name))
-                                    | <strong>{{__('model-part-type')}}:</strong> {{ $type->name }}
+                                    | <strong>{{ __('model-part-type') }}:</strong> {{ $type->name }}
                                 @endif
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-code')"/>
-            {{ $parts->links() }}
+            <x-part-list :parts="$parts" :search="$search" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-code')"/>
+            {{ $parts->appends(request()->query())->links() }}
         </div>
     </div>
 </div>
