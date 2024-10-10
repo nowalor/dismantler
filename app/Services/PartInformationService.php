@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\DitoNumber;
 use App\Models\NewCarPart;
 
 class PartInformationService
@@ -13,14 +14,14 @@ class PartInformationService
         $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
 
         if($germanCarPartName === 'Automatikgetriebe') {
-            $germanCarPartName = 'ORIGINAL Getriebe Automatik';
+            $germanCarPartName = 'ORIGINAL GETRIBE AUTOMATIK';
         }
 
         if($germanCarPartName === 'Motor') {
-            $germanCarPartName = 'ORIGINAL Motor';
+            $germanCarPartName = 'ORIGINAL MOTOR';
         }
 
-        $name .= $germanCarPartName . ' ' . $this->getCarName($carPart) . ' ' . $carPart->model_year .' ' . $carPart->mileage_km . 'km';
+        $name .= $this->getCarName($carPart) . ' ' . $carPart->model_year;
 
         if (in_array(
             $carPart->car_part_type_id,
@@ -38,7 +39,9 @@ class PartInformationService
             $additionalInformation = $carPart->engine_code;
         }
 
-        $name .= ' ' . $carPart->original_number  . ' ' . $additionalInformation;
+        $name .=  ' '  . $additionalInformation . ' ' . $germanCarPartName;
+
+        $name .= ' ' . $carPart->original_number  . ' ' .  $carPart->mileage_km . 'KM';
 
         return preg_replace('/\s+/', ' ', $name);
     }
@@ -64,10 +67,21 @@ class PartInformationService
 
     private function getCarName(NewCarPart $carPart): string
     {
-        $dito = $carPart->sbrCode?->ditoNumbers()->first();
+        $country = $carPart->country;
 
-        if(!$dito) {
-            return $carPart->sbr_car_name;
+        if($country === 'DK') {
+//            $dito = DitoNumber::where('dito_number', $carPart->dito_number)->first();
+
+            $dito = $carPart->ditoNumber;
+            if(!$dito) {
+                return $carPart->name;
+            }
+        } else {
+            $dito = $carPart->sbrCode?->ditoNumbers()->first();
+
+            if(!$dito) {
+                return $carPart->sbr_car_name;
+            }
         }
 
         return $dito->producer . ' ' . $dito->brand;

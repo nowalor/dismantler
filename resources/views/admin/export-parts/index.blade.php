@@ -61,6 +61,7 @@
                             <p><span class="fw-bold">Total(EUR): </span> €{{ $carPart->new_price + $carPart->shipment }}</p>
                             <p><span class="fw-bold">[NEW]Price(EUR): </span> €{{ $carPart->new_price }}</p>
                             <p><span class="fw-bold">[B2B]Price(EUR): </span> €{{ $carPart->business_price }}</p>
+                            <p><span class="fw-bold">TEST PRICE: </span> €{{ $carPart->translated_price }}</p>
                             <p><span class="fw-bold">Shipment(EUR): </span> €{{ $carPart->shipment }}</p>
                             <p><span class="fw-bold">Engine code: </span> {{ $carPart->engine_code }}</p>
                             <p><span class="fw-bold">Engine type: </span> {{ $carPart->engine_type }}</p>
@@ -75,7 +76,8 @@
                             <a href="{{ route('admin.export-parts.show', $carPart) }}" class="btn btn-primary w-100">View
                                 part</a>
                             <img class="card-img-bottom mt-2"
-                                 src="{{ isset( $carPart->carPartImages[0])  ? $carPart->carPartImages[0]->original_url: '' }}" />
+                                 src="{{ isset( $carPart->carPartImages[0])  ? $carPart->carPartImages[0]->logoGerman() : '' }}" />
+{{--                            src="{{ isset( $carPart->carPartImages[0]) ? $carPart->carPartImages[0]->original_url : ''}}" >--}}
                         </div>
                     </div>
                 </div>

@@ -24,6 +24,12 @@
                         {{ session()->get('message') }}
                     </div>
                 @endif
+
+                @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
                 <div class="mb-2 mt-3">
                     <label for="name">{{__('contact-form-name')}}</label>
                     <input required type="text" class="form-control" name="name" id="name"

@@ -12,7 +12,7 @@ class AutoteileMarktUploadPartsCommand extends Command
 
     public function handle(): int
     {
-        Storage::disk('ftp')->put(
+        Storage::disk('ftp_new')->put(
             'import.csv',
             file_get_contents(base_path('public/exports/import.csv'))
         );

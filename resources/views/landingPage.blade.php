@@ -7,6 +7,9 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center mt-3">
+        <div class="text-center">
+          {{--  <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-success">{{ __('browse')}}</a>--}}
+        </div>
     </div>
 
     <livewire:search-forms />

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DanishCarPartType;
 use App\Models\DitoNumber;
@@ -44,6 +45,7 @@ class FenixResolveFieldsCommand extends Command
 //            ->whereNull('car_part_type_id')
 //            ->get();
 
+
         $carParts = NewCarPart::where('sbr_part_code', '4626')->get();
 
         foreach($carParts as $carPart) {
@@ -66,7 +68,8 @@ class FenixResolveFieldsCommand extends Command
 
             $sbrCode = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first();
 
-            $ditoNumber = DitoNumber::where('dito_number', $carPart->dito_number)->first();
+            $ditoNumberCarCode = substr($carPart->danish_item_code, 0, 4);
+            $ditoNumber = DitoNumber::where('dito_number', $ditoNumberCarCode)->first();
 
             if($sbrCode){
                 $carPart->sbr_code_id  = $sbrCode->id;

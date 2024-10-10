@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\CarPart;
 use App\Models\NewCarPart;
 use App\Services\PartInformationService;
 use Illuminate\Console\Command;
@@ -23,6 +24,7 @@ class AddNewNameToPartsCommand extends Command
 
         foreach($parts as $part) {
             $name = $this->partInformationService->getNameForEbay($part);
+            $this->info("name: $name");
 
             $part->new_name = $name;
             $part->save();
@@ -33,11 +35,18 @@ class AddNewNameToPartsCommand extends Command
 
     private function parts(): Collection
     {
-        return NewCarPart::whereNotNull('sbr_car_name')->get();
+        return NewCarPart::
+     /*   whereNotNull('sbr_car_name')*/
+         /*   where('article_nr', 'AL1053908')*/
+            where('is_live', true)
+            ->get();
        // whereNotNull('car_part_type_id')
             //->whereNotNull('dito_number')
      //    ->// Only relavant for fenix and not egluit?
            // ->all();
+
+
+//        return NewCarPart::where('id', 15674962491)->get();
 
 //        return NewCarPart::where('car_part_type_id', 1)
 //            ->

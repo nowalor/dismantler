@@ -59,22 +59,34 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 7,
                 'name' => 'Differential',
             ],
+
+            // TODO ASK MARCUS TO BE SURE
+            // DITO 3950 = EGLUIT 3969
+
             [
                 'id' => 8,
                 'name' => 'Break Unit ABS',
             ],
+            // 3952 DITO
+            // 3971 EGLUIT
             [
                 'id' => 9,
                 'name' => 'ABS Hydraulic unit',
             ],
-            [
+            // 6012 DITO
+            // 4233 EGLUIT
+             [
                 'id' => 10,
                 'name' => 'Instrument comb',
             ],
-            [
+            //  2157 Ignoring this one for now
+            // DITO 2156 = EGLUIT 3757
+           [
                 'id' => 11,
                 'name' => 'Steering unit gearbox',
             ],
+            // DITO 3137
+            // EGLUIT 3851
             [
                 'id' => 12,
                 'name' => 'Power steering pump electric',
@@ -97,6 +109,12 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 7, "name" => "BAGTØJSKLUMP", "code" => "2601", 'egluit_id' => '3812'],
             ["id" => 8, "name" => "BILSKÆRM", "code" => "TODO", 'egluit_id' => 'TODO'],
             // TODO get dito numbers for the new parts
+            ["id" => 8, "name" => 'ABS BREMSESÆT', "code" => "3950", "egluit_id" => "3969"],
+            ["id" => 9, "name" => 'ABS PUMPE', "code" => "3952", "egluit_id" => "3971"],
+            ["id" => 10, "name" => 'INSTRUMENT MED OMDR', "code" => "6012", "egluit_id" => "4233"],
+            ["id" => 11, "name" => 'AUTOMATGEAR ELBOKS', "code" => "2156", "egluit_id" => "3757"],
+            ["id" => 12, "name" => 'SERVOELBOKS', "code" => "3137", "egluit_id" => "3851"],
+
         ];
 
         DB::table('danish_car_part_types')->insert($danishPartTypes);

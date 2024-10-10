@@ -5,7 +5,6 @@
     <p>You should reserve the part as soon as possible</p>
     <div>
         <h3>Information on the part</h3>
-        <p><span class="bold">Dismantle company: </span>{{ $order->carPart->dismantleCompany->name }}</p>
         <p><span class="bold">Name: </span>{{ $order->carPart->name }}</p>
         <p><span class="bold">Condition: </span>{{ $order->carPart->condition }}</p>
         <p><span class="bold">Engine type: </span>{{ $order->carPart->engine_type }}</p>
