@@ -92,15 +92,17 @@
                        value="{{ request()->query('search') }}" style="width: 100%; max-width: 20rem;">
                 
                 {{-- Hidden fields to retain existing filters --}}
+                <input type="hidden" name="hsn" value="{{ request()->query('hsn', $search['hsn'] ?? '') }}">
+                <input type="hidden" name="tsn" value="{{ request()->query('tsn', $search['tsn'] ?? '') }}">
+                <input type="hidden" name="type_id" value="{{ request()->query('type_id', $search['type_id'] ?? '') }}">
                 <input type="hidden" name="oem" value="{{ request()->query('oem') }}">
                 <input type="hidden" name="engine_code" value="{{ request()->query('engine_code') }}">
                 <input type="hidden" name="gearbox" value="{{ request()->query('gearbox') }}">
-                <input type="hidden" name="type_id" value="{{ request()->query('type_id') }}"> <!-- Add this line to retain type_id -->
-        
+                
                 {{-- Submit button --}}
                 <button type="submit" class="btn btn-primary" style="margin-left: 0.5rem;">{{__("car-search-button")}}</button>
             </form>
-        </div>        
+        </div>              
     </div>
 </div>
 

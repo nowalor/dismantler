@@ -180,36 +180,27 @@ class CarPartController extends Controller {
 
     // Non-Resourceful Methods
     public function searchByCode(Request $request): mixed {
-        // Capture HSN and TSN from the request
+        // Capture HSN, TSN, and Part Type from the request
         $hsn = $request->get('hsn');
         $tsn = $request->get('tsn');
-    
+        $type = $request->filled('type_id') ? CarPartType::find($request->get('type_id')) : null;
+        
+        // Validate presence of HSN and TSN
         if (!$hsn || !$tsn) {
             return redirect()->back()->with('error', 'HSN and TSN are required for the search.');
         }
     
-        // Capture part type (type_id) from the request
-        $type = null;
-        if ($request->filled('type_id')) {
-            $type = CarPartType::find($request->get('type_id'));
-        }
-    
-        // Get the sort parameter if present
-        $sort = $request->query('sort');
-    
-        // Perform the search using the captured parameters
+        // Perform the initial KBA search
         $response = (new SearchByKbaAction())->execute(
             hsn: $hsn,
             tsn: $tsn,
             type: $type,
-            sort: $sort,
-            paginate: 10
+            sort: $request->query('sort'),
+            paginate: 10 // Ensure we paginate results here
         );
     
         if (!$response['success']) {
-            return response()->json([
-                'message' => 'KBA not found or parts are unavailable',
-            ]);
+            return response()->json(['message' => 'KBA not found or parts are unavailable']);
         }
     
         // Extract parts and other data from the response
@@ -217,11 +208,34 @@ class CarPartController extends Controller {
         $kba = $response['data']['kba'];
         $partCount = count($parts);
     
-        // Store the search parameters for display and further actions
+        // Check if there is an additional search term provided
+        if ($request->filled('search')) {
+            $search = $request->get('search');
+            
+            // Filter the parts based on the search term
+            $searchableColumns = [
+                'id', 'new_name', 'quality', 'original_number',
+                'article_nr', 'mileage_km', 'model_year',
+                'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
+            ];
+            
+            $parts = $parts->filter(function ($part) use ($search, $searchableColumns) {
+                foreach ($searchableColumns as $column) {
+                    if (stripos($part->$column, $search) !== false) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+            $partCount = count($parts);
+        }
+    
+        // Prepare the search parameters for display and further actions
         $search = [
             'hsn' => $hsn,
             'tsn' => $tsn,
-            'type_id' => $request->get('type_id'),  // Pass the type_id for filtering
+            'type_id' => $request->get('type_id'),
+            'search' => $request->get('search'), // Include the new search term
         ];
     
         $partTypes = CarPartType::all();
@@ -236,7 +250,6 @@ class CarPartController extends Controller {
             'partCount'
         ));
     }
-    
     
 
     private function redirectBack(array $errors): RedirectResponse {

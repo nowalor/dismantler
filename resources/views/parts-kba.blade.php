@@ -21,13 +21,20 @@
                                 @if($type && !empty($type->name))
                                     | <strong>{{ __('model-part-type') }}:</strong> {{ $type->name }}
                                 @endif
+                            
+                                @if(!empty($search['search']))
+                                    | <strong>Search:</strong> {{ $search['search'] }}
+                                @endif
                             </p>
+                            
                         </div>
                     </div>
                 </div>
             </div>
             <x-part-list :parts="$parts" :search="$search" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-code')"/>
-            {{ $parts->appends(request()->query())->links() }}
+            @if($parts instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                {{ $parts->appends(request()->query())->links() }}
+            @endif
         </div>
     </div>
 </div>
