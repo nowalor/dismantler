@@ -201,7 +201,7 @@ class CarPartController extends Controller {
         $response = (new SearchByKbaAction())->execute(
             hsn: $hsn,
             tsn: $tsn,
-            type: $type,  // Pass the type to the search logic
+            type: $type,
             sort: $sort,
             paginate: 10
         );
@@ -309,7 +309,7 @@ class CarPartController extends Controller {
         $results = (new SearchByOeAction())->execute(
             oem: $oem,
             engine_code: $engine_code,
-            gearbox: $gearbox,
+            gearbox: $gearbox,  
             search: $search, // Pass the search term
             sort: $sort, // Pass the sort parameter
             type_id: $type_id, // Pass the type_id

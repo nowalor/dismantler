@@ -113,7 +113,7 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 10, "name" => 'INSTRUMENT MED OMDR', "code" => "6012", "egluit_id" => "4233"],
             ["id" => 11, "name" => 'AUTOMATGEAR ELBOKS', "code" => "2156", "egluit_id" => "3757"],
             ["id" => 12, "name" => 'SERVOELBOKS', "code" => "3137", "egluit_id" => "3851"],
-            ["id" => 13, "name" => "BILSKÆRM", "code" => "TODO", 'egluit_id' => 'TODO'],
+            ["id" => 13, "name" => "MULTISKÆRM", "code" => "6034", 'egluit_id' => '4252'], // just changed
 
         ];
 
@@ -195,7 +195,7 @@ class CarPartTypeSeeder extends Seeder
                 "id" => 12,
                 "name" => "Bildschirm",
                 "code" => null,
-                "autoteile_markt_category_id" => 999,
+                "autoteile_markt_category_id" => 239,
             ],
         ];
 
