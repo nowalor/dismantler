@@ -47,6 +47,6 @@ class SearchByPlateController extends Controller
            return str_contains($data['engine_code'], $carPart->engine_code);
         });
 
-        return view('searchByPlate', compact('carParts', 'filteredCarParts'));
+        return view('searchByPlate', compact('carParts', 'filteredCarParts', 'data'));
     }
 }
