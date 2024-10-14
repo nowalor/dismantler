@@ -95,6 +95,8 @@
                 <input type="hidden" name="hsn" value="{{ request()->query('hsn', $search['hsn'] ?? '') }}">
                 <input type="hidden" name="tsn" value="{{ request()->query('tsn', $search['tsn'] ?? '') }}">
                 <input type="hidden" name="type_id" value="{{ request()->query('type_id', $search['type_id'] ?? '') }}">
+                <input type="hidden" name="dito_number_id" value="{{ request()->query('dito_number_id', $search['dito_number_id'] ?? '') }}">
+                <input type="hidden" name="brand" value="{{ request()->query('brand', $search['brand'] ?? '') }}">
                 <input type="hidden" name="oem" value="{{ request()->query('oem') }}">
                 <input type="hidden" name="engine_code" value="{{ request()->query('engine_code') }}">
                 <input type="hidden" name="gearbox" value="{{ request()->query('gearbox') }}">
