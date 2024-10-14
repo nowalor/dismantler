@@ -22,6 +22,12 @@ use Illuminate\Support\Facades\Cache;
 
 class CarPartController extends Controller {
 
+    private const SEARCHABLE_COLUMNS = [
+        'id', 'new_name', 'quality', 'original_number',
+        'article_nr', 'mileage_km', 'model_year',
+        'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
+    ];
+
     // : View | RedirectResponse
     public function index(Request $request) {
         $parts = NewCarPart::select([
@@ -110,16 +116,10 @@ class CarPartController extends Controller {
         'sbrCode',
     ]);
 
-    // Apply search query if provided
-    $searchableColumns = [
-        'id', 'new_name', 'quality', 'original_number',
-        'article_nr', 'mileage_km', 'model_year',
-        'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
-    ];
 
     if (!empty($search)) {
-        $parts->where(function ($query) use ($search, $searchableColumns) {
-            foreach ($searchableColumns as $column) {
+        $parts->where(function ($query) use ($search) {
+            foreach (self::SEARCHABLE_COLUMNS as $column) {
                 $query->orWhere($column, 'like', "%$search%");
             }
         });
@@ -212,15 +212,9 @@ class CarPartController extends Controller {
         if ($request->filled('search')) {
             $search = $request->get('search');
             
-            // Filter the parts based on the search term
-            $searchableColumns = [
-                'id', 'new_name', 'quality', 'original_number',
-                'article_nr', 'mileage_km', 'model_year',
-                'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
-            ];
             
-            $parts = $parts->filter(function ($part) use ($search, $searchableColumns) {
-                foreach ($searchableColumns as $column) {
+            $parts = $parts->filter(function ($part) use ($search) {
+                foreach ($self::SEARCHABLE_COLUMNS as $column) {
                     if (stripos($part->$column, $search) !== false) {
                         return true;
                     }
@@ -299,14 +293,9 @@ class CarPartController extends Controller {
     if ($request->filled('search')) {
         $search = $request->get('search');
 
-        $searchableColumns = [
-            'id', 'new_name', 'quality', 'original_number',
-            'article_nr', 'mileage_km', 'model_year',
-            'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
-        ];
 
-        $parts = $parts->filter(function ($part) use ($search, $searchableColumns) {
-            foreach ($searchableColumns as $column) {
+        $parts = $parts->filter(function ($part) use ($search) {
+            foreach (self::SEARCHABLE_COLUMNS as $column) {
                 if (stripos($part->$column, $search) !== false) {
                     return true;
                 }
