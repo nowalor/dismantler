@@ -7,8 +7,6 @@
     <div class="d-flex flex-grow-1">
         {{-- <x-side-menu-bar :partTypes="$partTypes" /> --}}
 
-
-
         {{-- MIDDLE AND RIGHT SIDE 3/4 --}}
         <div class="container bg-dark text-white flex-grow-1" style="opacity: 0.85">
             <div class="row pt-2">
@@ -18,7 +16,11 @@
                             <div class="card-body">
                                 <p class="mb-0 mt-0">
                                     @if($type && !empty($type->name))
-                                        | <strong>{{__('model-part-type')}}:</strong> {{ $type->name }}
+                                        <strong class="ml-2">{{ ('Part Type') }}:</strong> {{ $type->name }}
+                                    @endif
+
+                                    @if(!empty(request('search'))) |
+                                        <strong>{{ ('Search') }}:</strong> {{ request('search') }}
                                     @endif
                                 </p>
                             </div>

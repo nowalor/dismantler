@@ -261,21 +261,21 @@ class CarPartController extends Controller {
 
 
     public function searchByModel(Request $request): mixed {
-
+    // Find the Dito number
     $dito = DitoNumber::find($request->get('dito_number_id'));
 
     if(!$dito) {
-        abort('fail');
+        abort(404, 'Dito number not found.');
     }
 
+    // Find the Car Part Type if specified
     $type = null;
-
     if($request->filled('type_id') && $request->get('type_id') !== 'all') {
         $type = CarPartType::find($request->get('type_id'));
     }
 
-    $sort = $request->query('sort'); // Get the sort parameter from the request
-
+    // Sorting and filtering logic
+    $sort = $request->query('sort');
     $filters = [];
     foreach ($request->input('filter', []) as $key => $value) {
         if (!empty($value)) {
@@ -283,32 +283,61 @@ class CarPartController extends Controller {
         }
     }
 
-    // Reset to the first page if filters are applied
-    if ($request->has('filter')) {
-        $request->merge(['parts' => 1]);
-    }
-
-    $partType = $request->query('type_id'); // Retrieve the part type filter
-    
+    // Execute the search
     $results = (new SearchByModelAction())->execute(
         model: $dito,
         type: $type,
         sort: $sort, 
         filters: $filters, 
-        paginate: 10,
+        paginate: 10
     );
 
     $parts = $results['data']['parts'];
+    $partCount = $parts->total(); // Get the total count from the paginator
 
+    // If there's a secondary search term, apply it
+    if ($request->filled('search')) {
+        $search = $request->get('search');
+
+        $searchableColumns = [
+            'id', 'new_name', 'quality', 'original_number',
+            'article_nr', 'mileage_km', 'model_year',
+            'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
+        ];
+
+        $parts = $parts->filter(function ($part) use ($search, $searchableColumns) {
+            foreach ($searchableColumns as $column) {
+                if (stripos($part->$column, $search) !== false) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        $partCount = $parts->count();
+    }
+
+    // Prepare the search parameters for display and further actions
+    $search = [
+        'dito_number_id' => $request->get('dito_number_id'),
+        'brand' => $request->get('brand'),
+        'type_id' => $request->get('type_id'),
+        'search' => $request->get('search'), // Secondary search term
+    ];
+
+    // Get all car part types
     $partTypes = CarPartType::all();
 
     return view('parts-model', compact(
         'parts',
+        'search',
         'dito',
-        'type', // Prev selected type, used to autofill search
-        'partTypes'
+        'type',
+        'partTypes',
+        'partCount'
     ));
-    }
+}
+
 
     public function searchByOEM(Request $request) {
         $oem = $request->get('oem');
