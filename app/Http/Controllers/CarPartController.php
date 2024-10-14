@@ -214,7 +214,7 @@ class CarPartController extends Controller {
             
             
             $parts = $parts->filter(function ($part) use ($search) {
-                foreach ($self::SEARCHABLE_COLUMNS as $column) {
+                foreach (self::SEARCHABLE_COLUMNS as $column) {
                     if (stripos($part->$column, $search) !== false) {
                         return true;
                     }
