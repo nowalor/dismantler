@@ -22,7 +22,7 @@
                             <div class="d-flex flex-wrap justify-content-center">
                                 @foreach ($images as $image)
                                     <div class="p-1 thumb-container">
-                                        <img class="img-thumbnail thumb" src="{{ $image->logoGerman() }}" alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;" onclick="changeImage('{{ $image->original_url }}')">
+                                        <img class="img-thumbnail thumb" src="{{ $image->logoGerman() }}" alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;" onclick="changeImage('{{ $image->logoGerman() }}')">
                                     </div>
                                 @endforeach
                             </div>
@@ -129,7 +129,7 @@
 </style>
 
 <script>
-function changeImage(src) {
-    document.getElementById('mainImage').src = src;
-}
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
+    }
 </script>
