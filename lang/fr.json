@@ -20,6 +20,7 @@
     "kba-part-type": "Type de pièce",
     "kba-search-placeholder": "Sélectionnez un type",
     "kba-search-button": "Rechercher",
+    "no-results-message": "Oups, aucune pièce ne correspond à votre recherche. Peut-être que nous pouvons quand même vous aider, cliquez ici pour nous contacter",
 
     "model-search": "RECHERCHE PAR MODÈLE DE VOITURE",
     "model-search-info": "Recherche par Modèle",
@@ -85,6 +86,11 @@
     "about-intro": "En savoir plus sur Currus Connect, votre partenaire de confiance pour les pièces et accessoires automobiles.",
     "about-text-one": "Merci d'avoir choisi",
     "about-text-two": "- votre source fiable pour les pièces et accessoires de véhicules motorisés.",
+    "about-text-three": "Avec plus de 30 ans d'expérience dans le domaine des pièces détachées d'occasion, Currus-Connect possède une expertise unique dans ce domaine.",
+    "about-text-four": "Basée à Copenhague, au Danemark, Currus-Connect dispose d'un vaste réseau de recycleurs de voitures scandinaves et a donc accès à des millions de pièces détachées d'occasion.",
+    "about-text-five": "Toutes les pièces de rechange sont décrites en détail, les informations sur le numéro de châssis, le numéro de pièce de rechange et bien plus encore permettent au client de trouver facilement la bonne pièce de rechange.",
+    "about-text-six": "En cas de doute, Currus-Connect se fera un plaisir de vous aider. Le service client parle allemand, danois, anglais, norvégien et suédois.",
+    "about-text-seven": "Toutes les pièces détachées sont vendues avec une garantie de fonctionnalité. Nous sommes impatients de pouvoir vous aider davantage.",
 
     "//": "FAQ",
     "faq-intro": "Voici la page FAQ. Vous y trouverez une liste de questions fréquemment posées. Vous ne trouvez pas ce que vous cherchez ?",
