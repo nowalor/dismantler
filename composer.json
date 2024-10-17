@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "ext-redis": "*",
         "akaunting/laravel-money": "^5.2",
         "doctrine/dbal": "^3.3",
         "florianv/laravel-swap": "^2.3",
@@ -24,8 +25,10 @@
         "league/flysystem-sftp-v3": "^3.0",
         "livewire/livewire": "^2.12",
         "maatwebsite/excel": "^3.1",
+        "predis/predis": "^2.2",
         "spatie/laravel-stripe-webhooks": "^3.2",
-        "symfony/browser-kit": "^6.4"
+        "symfony/browser-kit": "^6.4",
+        "torann/geoip": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

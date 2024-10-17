@@ -94,6 +94,10 @@ class CarPartTypeSeeder extends Seeder
             [
                 'id' => 13,
                 'name' => 'Monitor',
+            ],
+            [
+                'id' => 14,
+                'name' => 'Converter / inverter - electric'
             ]
         ];
 
@@ -113,8 +117,8 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 10, "name" => 'INSTRUMENT MED OMDR', "code" => "6012", "egluit_id" => "4233"],
             ["id" => 11, "name" => 'AUTOMATGEAR ELBOKS', "code" => "2156", "egluit_id" => "3757"],
             ["id" => 12, "name" => 'SERVOELBOKS', "code" => "3137", "egluit_id" => "3851"],
-            ["id" => 13, "name" => "MULTISKÆRM", "code" => "6034", 'egluit_id' => '4252'], // just changed
-
+            ["id" => 13, "name" => "MULTISKÆRM", "code" => "6034", 'egluit_id' => '4252'], 
+            ["id" => 14, "name" => "Converter / inverter - el", "code" => "7850", "egluit_id" => "TODO"] // ask Nikulas to fetch egluit id for this part
         ];
 
         DB::table('danish_car_part_types')->insert($danishPartTypes);
@@ -197,6 +201,12 @@ class CarPartTypeSeeder extends Seeder
                 "code" => null,
                 "autoteile_markt_category_id" => 239,
             ],
+            [
+                "id" => 13,
+                "name" => "Convert / Inverter - elektrisch",
+                "code" => null,
+                "autoteile_markt_category_id" => 822,
+            ]
         ];
 
         foreach($germanPartTypes as $germanPartType) {
@@ -225,6 +235,7 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(11)->germanCarPartTypes()->syncWithoutDetaching([10]);
         CarPartType::find(12)->germanCarPartTypes()->syncWithoutDetaching([11]);
         CarPartType::find(13)->germanCarPartTypes()->syncWithoutDetaching([12]);
+        CarPartType::find(14)->germanCarPartTypes()->syncWithoutDetaching([13]);
 
         foreach ($carPartTypes as $carPartType) {
             if(DanishCarPartType::find($carPartType->id)) {
@@ -253,6 +264,7 @@ class CarPartTypeSeeder extends Seeder
             ['id' => 16, 'name' => 'STYRENHET VÄXELLÅDA ', 'code' => '7468'],
             ['id' => 17, 'name' => 'STYRSERVOPUMP ELEKTRISK', 'code' => '7082'],
             ['id' => 18, 'name' => 'BILDSKÄRM', 'code' => '4626'],
+            ['id' => 19, 'name' => 'INVERTER HYBRID', 'code' => '7835'],
         ];
 
         DB::table('swedish_car_part_types')->insert($swedishPartTypes);
@@ -272,5 +284,6 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(11)->swedishCarPartTypes()->syncWithoutDetaching([16]);
         CarPartType::find(12)->swedishCarPartTypes()->syncWithoutDetaching([17]);
         CarPartType::find(13)->swedishCarPartTypes()->syncWithoutDetaching([18]);
+        CarPartType::find(14)->swedishCarPartTypes()->syncWithoutDetaching([19]);
     }
 }

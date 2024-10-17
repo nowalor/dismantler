@@ -51,7 +51,7 @@
                     <p><span class="fw-bold">Currus Connect ID: </span>{{ $part->article_nr }}</p>
                     <p><span class="fw-bold">{{__('type-of-spare')}}: </span>{{__('used-part')}}</p>
                     <p><span class="fw-bold">{{__('car-part-engine-type')}}: </span>{{ $part->engine_type }}</p>
-                    <p><span class="fw-bold">{{__('car-info-gearbox')}}: </span>{{ $part->gearbox }}</p>
+                    <p><span class="fw-bold">{{__('car-info-gearbox')}}: </span>{{ $part->gearbox_nr }}</p>
                     <p><span class="fw-bold">{{__('car-info-quality')}}: </span>{{ $part->quality }}</p>
                     @if($part->quality == 'A+')
                     <p><strong>A+ </strong>{{__('car-quality-A+')}}</p>
