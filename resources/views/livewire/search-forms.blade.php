@@ -94,8 +94,63 @@
     </div>
 </div>
 
+{{-- Modal for when no results for KBA --}}
+<div id="noResultsModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100">{{ __('no-results') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{{ __('no-results-message') }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">{{ __('close-message') }}</button>
+                <a href="/contact" class="btn btn-primary">{{ __('contact-us') }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
+    // Listen for the Livewire event to show the modal
+    document.addEventListener('livewire:load', function () {
+        Livewire.on('noResultsFound', () => {
+            showModal();
+        });
+    });
+
+    // Function to show the modal
+    function showModal() {
+        const modal = document.getElementById('noResultsModal');
+        modal.style.display = 'block';
+        modal.classList.add('show');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('role', 'dialog');
+        document.body.classList.add('modal-open');
+        const backdrop = document.createElement('div');
+        backdrop.className = 'modal-backdrop fade show';
+        document.body.appendChild(backdrop);
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById('noResultsModal');
+        modal.style.display = 'none';
+        modal.classList.remove('show');
+        modal.removeAttribute('aria-modal');
+        modal.removeAttribute('role');
+        document.body.classList.remove('modal-open');
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    }
+
     function showImage() {
     if(window.innerWidth >= 992){
         document.getElementById('hsnTsnImage').classList.remove('d-none');

@@ -19,6 +19,7 @@
     "kba-part-type": "Bildel type",
     "kba-search-placeholder": "Vælg type af del",
     "kba-search-button": "Søg",
+    "no-results-message": "Ups, der var ingen del som svarer til din søgning. Måske kan vi alligevel hjælpe dig, klik her for at kontakte os",
 
     "model-search": "SØG EFTER BILMODEL",
     "model-search-info": " ",
@@ -82,6 +83,11 @@
     "about-intro": "Lær mere om Currus Connect, din betroede partner inden for bildels- og tilbehørsmarkedet.",
     "about-text-one": "Tak fordi du valgte",
     "about-text-two": "- din betroede kilde til motor dele og tilbehør.",
+    "about-text-three": "With over 30 years of experience with used spare parts, Currus-Connect has a unique expertise in this area.",
+    "about-text-four": "With a base in Copenhagen, Denmark, Currus-Connect has an extensive network of Scandinavian car recyclers and therefore access to millions of used spare parts.",
+    "about-text-five": "All spare parts are described in detail, information about chassis number, spare part number and more makes it easy for the customer to find the right spare part.",
+    "about-text-six": "If in doubt, Currus-Connect will be happy to help. The customer service speaks German, Danish, English, Norwegian and Swedish. ",
+    "about-text-seven": "All spare parts are sold with a guarantee for functionality. We look forward to being able to help you further.",
 
     "//": "FAQ",
     "faq-intro": "Dette er FAQ-siden. Her kan du finde en liste over ofte stillede spørgsmål. Kan du ikke finde det, du leder efter?",
