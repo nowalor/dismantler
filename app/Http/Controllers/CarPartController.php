@@ -25,7 +25,8 @@ class CarPartController extends Controller {
     private const SEARCHABLE_COLUMNS = [
         'id', 'new_name', 'quality', 'original_number',
         'article_nr', 'mileage_km', 'model_year',
-        'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
+        'engine_type', 'fuel', 'price_sek', 'sbr_car_name', 
+        'gearbox_nr', 'vin'
     ];
 
     // : View | RedirectResponse
