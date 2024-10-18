@@ -76,6 +76,9 @@
     "uknown-message": "Ukendt",
     "fuel-type": "Brændstoftype",
     "vat-shipping": "Inkl. moms & fragt",
+    "vat-infoTitle": "Info",
+    "vat-infoDescription": "Pris er inklusive 25% dansk moms og forsendelse til Danmark",
+
 
 
     "//": "About-Us",

@@ -40,10 +40,17 @@
                 <div class="card-body">
                     <h3 class="fw-bold large-text">{{ $part->sbr_car_name }}</h3>
                     <h4 class="text-primary large-text">
-                        {{ $part->getLocalizedPrice() }} 
-                        <span>{{ __('vat-shipping') }}</span> 
-                        <a href="/contact"><i class="fas fa-info-circle ml-2"></i></a>
-                    </h4>                    
+        {{ $part->getLocalizedPrice() }} 
+        <span>{{ __('vat-shipping') }}</span> 
+        <a href="javascript:void(0);" onclick="showInfoPopup()">
+            <i class="fas fa-info-circle ml-2"></i>
+        </a>
+    </h4>             
+    @include('components.pop-up', [
+    'title' => __('vat-infoTitle'),
+    'message' => __('vat-infoDescription')
+])
+
                     <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary w-100 mt-4 mb-4">
                         {{ __('contact-us') }}
                     </a>
@@ -132,4 +139,11 @@
     function changeImage(src) {
         document.getElementById('mainImage').src = src;
     }
+
+    function showInfoPopup() {
+        var popup = new bootstrap.Modal(document.getElementById('infoPopup'));
+        popup.show();
+    }
+
+
 </script>
