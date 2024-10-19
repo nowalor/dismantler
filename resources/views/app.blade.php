@@ -16,7 +16,7 @@
     @stack('css')
 </head>
 <!-- As a heading -->
-{{-- @if(auth()->user() && auth()->user()->is_admin)
+ @if(auth()->user() && auth()->user()->is_admin)
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
 
@@ -25,8 +25,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="" id="navbarNav">
-{{--        <div class="collapse navbar-collapse" id="navbarNav">--}}
-{{--            <ul class="navbar-nav">
+       <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}" href="{{ route('admin.export-parts.index') }}">EGLUIT parts</a>
                 </li>
@@ -57,7 +57,10 @@
             </ul>
         </div>
     </div>
-</nav>--}}
+    </div>
+</nav>
+
+@endif
 
 <header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <nav class="container d-flex justify-content-between">
