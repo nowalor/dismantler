@@ -3,8 +3,13 @@
 
         @if(App::getLocale() === 'ge')
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center position-relative">
-            <button wire:click="openForm('hsnTsn')" class="fw-semibold btn btn-success mb-3 w-100">{{__('kba-search')}}</button>
-            <img id="hsnTsnImage" src="{{ asset('hsn-tsn.jpg') }}" alt="HSN/TSN Information">
+        <button wire:click="openForm('hsnTsn')" 
+            class="fw-semibold btn btn-success mb-3 w-100 hsnTsnButton" 
+            onmouseover="showImage()" 
+            onmouseout="hideImage()">
+        {{__('kba-search')}}
+    </button>
+    <img id="hsnTsnImage" src="{{ asset('hsn-tsn.jpg') }}" alt="HSN/TSN Information" class="d-none position-absolute" style="z-index: 1050; width: 92%;">
             
             @if($openForm === 'hsnTsn' && !$isSmallScreen)
             <div class="card mt-3" style="z-index:5; height: auto;">
@@ -89,34 +94,78 @@
     </div>
 </div>
 
-<style>
-    #hsnTsnImage {
-        display: none;
-        position: absolute;
-        top: 3rem;
-        left: 50%;
-        transform: translateX(-60%);
-        z-index: 100;
-        max-width: 30rem;
-        height: auto;
-    }
+{{-- Modal for when no results for KBA --}}
+<div id="noResultsModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100">{{ __('no-results') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{{ __('no-results-message') }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">{{ __('close-message') }}</button>
+                <a href="/contact" class="btn btn-primary">{{ __('contact-us') }}</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    // hover only on large screens
-    @media (min-width: 992px) {
-        button:hover + #hsnTsnImage {
-            display: block;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .row .mb-3 {
-            margin-bottom: 0.1rem !important; 
-        }
-    }
-
-</style>
 
 <script>
+    // Listen for the Livewire event to show the modal
+    document.addEventListener('livewire:load', function () {
+        Livewire.on('noResultsFound', () => {
+            showModal();
+        });
+    });
+
+    // Function to show the modal
+    function showModal() {
+        const modal = document.getElementById('noResultsModal');
+        modal.style.display = 'block';
+        modal.classList.add('show');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('role', 'dialog');
+        document.body.classList.add('modal-open');
+        const backdrop = document.createElement('div');
+        backdrop.className = 'modal-backdrop fade show';
+        document.body.appendChild(backdrop);
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById('noResultsModal');
+        modal.style.display = 'none';
+        modal.classList.remove('show');
+        modal.removeAttribute('aria-modal');
+        modal.removeAttribute('role');
+        document.body.classList.remove('modal-open');
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    }
+
+    function showImage() {
+    if(window.innerWidth >= 992){
+        document.getElementById('hsnTsnImage').classList.remove('d-none');
+        document.getElementById('hsnTsnImage').classList.add('d-block');
+    }
+
+    }
+
+    function hideImage() {
+    if(window.innerWidth >= 992){
+        document.getElementById('hsnTsnImage').classList.remove('d-block');
+        document.getElementById('hsnTsnImage').classList.add('d-none');
+    }
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         const isSmallScreen = window.innerWidth < 768;
         @this.set('isSmallScreen', isSmallScreen);
@@ -127,3 +176,4 @@
         @this.set('isSmallScreen', isSmallScreen);
     });
 </script>
+

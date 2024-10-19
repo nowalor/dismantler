@@ -15,7 +15,7 @@
                 @foreach($part->carPartImages as $key => $image)
                     <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
                         <!-- Make the image responsive using img-fluid -->
-                        <img src="{{ $image->original_url }}" class="d-block w-100 img-fluid" alt="Car part image" style="border-radius: 0.7rem; object-fit: cover;">
+                        <img src="{{ $image->logoGerman() }}" class="d-block w-100 img-fluid" alt="Car part image" style="border-radius: 0.7rem; object-fit: cover;">
                     </div>
                 @endforeach
             </div>

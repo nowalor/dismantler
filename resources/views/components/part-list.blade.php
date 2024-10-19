@@ -10,31 +10,34 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li>
-                        <a href="{{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => null])) }}" class="dropdown-item">
+                        <a href="{{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => null])) }}" class="dropdown-item py-1 px-2">
                             All
                         </a>
                     </li>
-                    <hr>
+                    <li><hr class="dropdown-divider"></li>
                     @foreach($partTypes as $partType)
-                        <li>
-                            <a href="
-                                @if (Route::currentRouteName() === 'car-parts.search-by-name')
-                                    {{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                                @elseif (Route::currentRouteName() === 'car-parts.search-by-oem')
-                                    {{ route('car-parts.search-by-oem', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                                @elseif (Route::currentRouteName() === 'car-parts.search-by-model')
-                                    {{ route('car-parts.search-by-model', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                                @else
-                                    #
-                                @endif
-                                " class="dropdown-item">
-                                {{ $partType->name }}
-                            </a>
-                        </li>
-                        <hr>
+                    <li>
+                        <a href="
+                            @if (Route::currentRouteName() === 'car-parts.search-by-name')
+                                {{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @elseif (Route::currentRouteName() === 'car-parts.search-by-oem')
+                                {{ route('car-parts.search-by-oem', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @elseif (Route::currentRouteName() === 'car-parts.search-by-model')
+                                {{ route('car-parts.search-by-model', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @elseif (Route::currentRouteName() === 'car-parts.search-by-code')
+                                {{ route('car-parts.search-by-code', array_merge(request()->query(), ['type_id' => $partType->id])) }}
+                            @else
+                                #
+                            @endif
+                            " class="dropdown-item py-1 px-2">
+                            {{ __('part-types.' . $partType->name) ?? $partType->name }}
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
                     @endforeach
                 </ul>
             </div>
+            
 
             <!-- Sorting Dropdown (visible on small/medium views) -->
             <div class="dropdown d-block d-md-none me-2">
@@ -81,18 +84,31 @@
             </a>
         </div>
 
-        <!-- Search Form on the second row on smaller screens -->
+        {{-- search form --}}
         <div class="col-12 col-md d-flex justify-content-md-end">
             <form action="{{ $sortRoute }}" method="GET" class="w-100 w-md-auto d-flex">
-                <input type="text" name="search" class="form-control" placeholder="{{__("car-search-placeholder")}}" 
+                {{-- Search input --}}
+                <input type="text" name="search" class="form-control" placeholder="{{__("car-search-placeholder")}}"
                        value="{{ request()->query('search') }}" style="width: 100%; max-width: 20rem;">
+                
+                {{-- Hidden fields to retain existing filters --}}
+                <input type="hidden" name="hsn" value="{{ request()->query('hsn', $search['hsn'] ?? '') }}">
+                <input type="hidden" name="tsn" value="{{ request()->query('tsn', $search['tsn'] ?? '') }}">
+                <input type="hidden" name="type_id" value="{{ request()->query('type_id', $search['type_id'] ?? '') }}">
+                <input type="hidden" name="dito_number_id" value="{{ request()->query('dito_number_id', $search['dito_number_id'] ?? '') }}">
+                <input type="hidden" name="brand" value="{{ request()->query('brand', $search['brand'] ?? '') }}">
+                <input type="hidden" name="oem" value="{{ request()->query('oem') }}">
+                <input type="hidden" name="engine_code" value="{{ request()->query('engine_code') }}">
+                <input type="hidden" name="gearbox" value="{{ request()->query('gearbox') }}">
+                
+                {{-- Submit button --}}
                 <button type="submit" class="btn btn-primary" style="margin-left: 0.5rem;">{{__("car-search-button")}}</button>
             </form>
-        </div>
+        </div>              
     </div>
 </div>
 
-<!-- table for larger screens -->
+<!-- parts show as table for larger screens -->
 <div class="table-responsive d-none d-md-block">
     <table class="table table-hover">
         <thead>
@@ -136,7 +152,7 @@
     </table>
 </div>
 
-<!-- cards for small screens -->
+<!-- table turns into cards on small views -->
 <div class="d-md-none">
     @forelse($parts as $part)
     <div class="card mb-3 bg-light text-dark" style="width: 100%;">
