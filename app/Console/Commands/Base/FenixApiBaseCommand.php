@@ -81,7 +81,7 @@ abstract class FenixApiBaseCommand extends Command
 
         $filters = [
             "SbrPartCode" => [
-                "7201",
+ /*               "7201",
                 "7280",
                 "7704",
                 "7705",
@@ -91,7 +91,7 @@ abstract class FenixApiBaseCommand extends Command
                 "7070",
                 "7145",
                 "7143",
-                "7302",
+                "7302",*/
                 // New ones
                 "7470",
                 "7487",

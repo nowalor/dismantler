@@ -91,6 +91,42 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 12,
                 'name' => 'Power steering pump electric',
             ],
+            [
+                'id' => 13,
+                'name' => 'Engine control unit (ECU)',
+            ],
+            [
+                'id' => 14,
+                'name' => 'Engine control unit Diesel (ECU)',
+            ],
+            [
+               'id' => 15,
+                'name' => 'Control Display',
+            ],
+            [
+                'id' => 16,
+                'name' => 'Turbo charger',
+            ],
+            [
+                'id' => 17,
+                'name' => 'Power Distribution controller',
+            ],
+            [
+                'id' => 18,
+                'name' => 'Display',
+            ],
+            [
+                'id' => 19,
+                'name' => 'Alternator',
+            ],
+            [
+                'id' => 20,
+                'name' => 'Automatic gearbox',
+            ],
+            [
+                'id' => 21,
+                'name' => 'Converter / inverter - electric',
+            ],
         ];
 
         CarPartType::insert($carPartTypes);
