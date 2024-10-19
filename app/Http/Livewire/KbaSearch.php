@@ -35,8 +35,9 @@ class KbaSearch extends Component
 
     public function handleCount(): void
     {
-        if(!$this->hsn || !$this->tsn) {
-            return;
+        // Check if tsn and hsn are fully provided (HSN: 4 digits, TSN: 3 digits)
+        if(strlen($this->tsn) !== 3 || strlen($this->hsn) !== 4) {
+            return; // Don't proceed if both HSN and TSN are not fully entered
         }
 
         $kba = GermanDismantler::where("hsn", $this->hsn)
@@ -44,7 +45,7 @@ class KbaSearch extends Component
             ->first();
 
         if(!$kba) {
-            // TODO: handle the empty kba
+            $this->emit('noResultsFound'); // Emit event to show modal if no KBA is found
             return;
         }
 
@@ -55,5 +56,9 @@ class KbaSearch extends Component
         }
 
         $this->partCount = $query->count();
+
+        if ($this->partCount === 0) {
+            $this->emit('noResultsFound'); // Emit event to show modal if no parts found
+        }
     }
 }

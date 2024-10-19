@@ -19,6 +19,9 @@
     "kba-part-type": "Teiletyp",
     "kba-search-placeholder": "Wählen Sie einen Typ",
     "kba-search-button": "Suchen",
+    "no-results-message": "Hoppla, es gab kein Teil, das zu Ihrer Suche passte. Vielleicht können wir Ihnen trotzdem helfen. Klicken Sie hier, um Kontakt mit uns aufzunehmen",
+    "no-results": "Keine Ergebnisse gefunden",
+    "close-message": "Schließen",
 
     "model-search": "SUCHE NACH FAHRZEUG",
     "model-search-info": " ",
@@ -82,6 +85,11 @@
     "about-intro": "Erfahren Sie mehr über Currus Connect, Ihren vertrauenswürdigen Partner für Autoersatzteile und Zubehör.",
     "about-text-one": "Vielen Dank, dass Sie sich für",
     "about-text-two": "- Ihre vertrauenswürdige Quelle für Autoteile und Zubehör entschieden haben.",
+    "about-text-three": "Currus-Connect hat mit über 30 Jahren Erfahrung mit gebrauchten Ersatzteilen eine unike ekspertise in diesem Bereich.",
+    "about-text-four": "Mit Base in Kopenhagen, Dänemark, hat Currus-Connect ein umfangreiches Netzt von Scandinavischen Autoverwertern und damit Zugriff auf Millionen von gebrauchten Ersatzteilen.",
+    "about-text-five": "Alle Ersatzteile sind im Detail beschrieben, Information um Fahrgestellnummer, Ersatzteilnummer und mehr macht es dem Kunden einfach das richtige Ersatzteil zu finden.",
+    "about-text-six": "Im Zweifelsfall hilft Currus-Connect aber gerne weiter. Der Kundenservice spricht deutsch, dänisch, englisch, norwegisch und schwedisch.",
+    "about-text-seven": "Alle Ersatzteile werden mit Gewährleistung für die funktion verkauft. Wir freuen uns Ihnen weiter helfen zu dürfen.",
 
     "//": "FAQ",
     "faq-intro": "Dies ist die FAQ-Seite. Hier finden Sie eine Liste der häufig gestellten Fragen. Finden Sie nicht, wonach Sie suchen?",

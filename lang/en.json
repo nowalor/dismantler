@@ -20,6 +20,7 @@
     "kba-part-type": "Part of type",
     "kba-search-placeholder": "Select a type",
     "kba-search-button": "Search",
+    "no-results-message": "Oops, there was no part matching your search. Maybe we can help you anyway, click here to contact us",
 
     "model-search": "SEARCH BY CAR MODEL",
     "model-search-info": "Search by Model ",
@@ -49,7 +50,7 @@
     "car-part-information": "Part information",
     "car-info-name": "Name",
     "car-info-quality": "Quality",
-    "car-info-gearbox": "Gearbox",
+    "car-info-gearbox": "Gearbox code",
 
     "car-part-article": "Article information",
     "car-part-original": "Original number",
@@ -85,6 +86,11 @@
     "about-intro": "Learn more about Currus Connect, your trusted partner in automotive parts and accessories.",
     "about-text-one": "Thank you for choosing",
     "about-text-two": "- your trusted source for motor vehicle parts and accessories.",
+    "about-text-three": "With over 30 years of experience with used spare parts, Currus-Connect has a unique expertise in this area.",
+    "about-text-four": "With a base in Copenhagen, Denmark, Currus-Connect has an extensive network of Scandinavian car recyclers and therefore access to millions of used spare parts.",
+    "about-text-five": "All spare parts are described in detail, information about chassis number, spare part number and more makes it easy for the customer to find the right spare part.",
+    "about-text-six": "If in doubt, Currus-Connect will be happy to help. The customer service speaks German, Danish, English, Norwegian and Swedish. ",
+    "about-text-seven": "All spare parts are sold with a guarantee for functionality. We look forward to being able to help you further.",
 
     "//": "FAQ",
     "faq-intro": "This is the FAQ page. Here you can find a list of frequently asked questions. Not finding what your looking for?",

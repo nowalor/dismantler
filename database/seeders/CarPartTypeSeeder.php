@@ -91,40 +91,45 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 12,
                 'name' => 'Power steering pump electric',
             ],
+            // New ones
             [
                 'id' => 13,
-                'name' => 'Engine control unit (ECU)',
+                'name' => 'Monitor',
             ],
             [
                 'id' => 14,
+                'name' => 'Engine control unit (ECU)',
+            ],
+            [
+                'id' => 15,
                 'name' => 'Engine control unit Diesel (ECU)',
             ],
             [
-               'id' => 15,
+               'id' => 16,
                 'name' => 'Control Display',
             ],
             [
-                'id' => 16,
+                'id' => 17,
                 'name' => 'Turbo charger',
             ],
             [
-                'id' => 17,
+                'id' => 18,
                 'name' => 'Power Distribution controller',
             ],
             [
-                'id' => 18,
+                'id' => 19,
                 'name' => 'Display',
             ],
             [
-                'id' => 19,
+                'id' => 20,
                 'name' => 'Alternator',
             ],
             [
-                'id' => 20,
+                'id' => 21,
                 'name' => 'Automatic gearbox',
             ],
             [
-                'id' => 21,
+                'id' => 22,
                 'name' => 'Converter / inverter - electric',
             ],
         ];
@@ -145,6 +150,7 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 10, "name" => 'INSTRUMENT MED OMDR', "code" => "6012", "egluit_id" => "4233"],
             ["id" => 11, "name" => 'AUTOMATGEAR ELBOKS', "code" => "2156", "egluit_id" => "3757"],
             ["id" => 12, "name" => 'SERVOELBOKS', "code" => "3137", "egluit_id" => "3851"],
+            ["id" => 13, "name" => "MULTISKÆRM", "code" => "6034", 'egluit_id' => '4252'], // just changed
 
         ];
 
@@ -222,6 +228,12 @@ class CarPartTypeSeeder extends Seeder
                 "code" => null,
                 "autoteile_markt_category_id" => 858,
             ],
+            [
+                "id" => 12,
+                "name" => "Bildschirm",
+                "code" => null,
+                "autoteile_markt_category_id" => 239,
+            ],
         ];
 
         foreach($germanPartTypes as $germanPartType) {
@@ -249,6 +261,7 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(10)->germanCarPartTypes()->syncWithoutDetaching([9]);
         CarPartType::find(11)->germanCarPartTypes()->syncWithoutDetaching([10]);
         CarPartType::find(12)->germanCarPartTypes()->syncWithoutDetaching([11]);
+        CarPartType::find(13)->germanCarPartTypes()->syncWithoutDetaching([12]);
 
         foreach ($carPartTypes as $carPartType) {
             if(DanishCarPartType::find($carPartType->id)) {
@@ -276,6 +289,7 @@ class CarPartTypeSeeder extends Seeder
             ['id' => 15, 'name' => 'Instrument Komb', 'code' => '3220'],
             ['id' => 16, 'name' => 'STYRENHET VÄXELLÅDA ', 'code' => '7468'],
             ['id' => 17, 'name' => 'STYRSERVOPUMP ELEKTRISK', 'code' => '7082'],
+            ['id' => 18, 'name' => 'BILDSKÄRM', 'code' => '4626'],
         ];
 
         DB::table('swedish_car_part_types')->insert($swedishPartTypes);
@@ -294,5 +308,6 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(10)->swedishCarPartTypes()->syncWithoutDetaching([15]);
         CarPartType::find(11)->swedishCarPartTypes()->syncWithoutDetaching([16]);
         CarPartType::find(12)->swedishCarPartTypes()->syncWithoutDetaching([17]);
+        CarPartType::find(13)->swedishCarPartTypes()->syncWithoutDetaching([18]);
     }
 }

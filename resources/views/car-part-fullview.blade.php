@@ -22,7 +22,7 @@
                             <div class="d-flex flex-wrap justify-content-center">
                                 @foreach ($images as $image)
                                     <div class="p-1 thumb-container">
-                                        <img class="img-thumbnail thumb" src="{{ $image->logoGerman() }}" alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;" onclick="changeImage('{{ $image->original_url }}')">
+                                        <img class="img-thumbnail thumb" src="{{ $image->logoGerman() }}" alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;" onclick="changeImage('{{ $image->logoGerman() }}')">
                                     </div>
                                 @endforeach
                             </div>
@@ -51,7 +51,7 @@
                     <p><span class="fw-bold">Currus Connect ID: </span>{{ $part->article_nr }}</p>
                     <p><span class="fw-bold">{{__('type-of-spare')}}: </span>{{__('used-part')}}</p>
                     <p><span class="fw-bold">{{__('car-part-engine-type')}}: </span>{{ $part->engine_type }}</p>
-                    <p><span class="fw-bold">{{__('car-info-gearbox')}}: </span>{{ $part->gearbox }}</p>
+                    <p><span class="fw-bold">{{__('car-info-gearbox')}}: </span>{{ $part->gearbox_nr }}</p>
                     <p><span class="fw-bold">{{__('car-info-quality')}}: </span>{{ $part->quality }}</p>
                     @if($part->quality == 'A+')
                     <p><strong>A+ </strong>{{__('car-quality-A+')}}</p>
@@ -129,7 +129,7 @@
 </style>
 
 <script>
-function changeImage(src) {
-    document.getElementById('mainImage').src = src;
-}
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
+    }
 </script>

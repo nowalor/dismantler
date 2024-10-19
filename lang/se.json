@@ -19,6 +19,7 @@
     "kba-part-type": "Deltyp",
     "kba-search-placeholder": "Välj en typ",
     "kba-search-button": "Sök",
+    "no-results-message": "Hoppsan, det fanns ingen del som matchade din sökning. Kanske kan vi hjälpa dig ändå, klicka här för att kontakta oss",
 
     "model-search": "SÖK EFTER BILMODELL",
     "model-search-info": " ",
@@ -82,6 +83,11 @@
     "about-intro": "Lär dig mer om Currus Connect, din pålitliga partner för bildelar och tillbehör.",
     "about-text-one": "Tack för att du valde",
     "about-text-two": "- din pålitliga källa för bildelar och tillbehör.",
+    "about-text-three": "Med över 30 års erfarenhet av begagnade reservdelar har Currus-Connect en unik expertis inom detta område.",
+    "about-text-four": "Med bas i Köpenhamn, Danmark, har Currus-Connect ett omfattande nätverk av skandinaviska bilåtervinnare och därför tillgång till miljontals begagnade reservdelar.",
+    "about-text-five": "Alla reservdelar beskrivs i detalj, information om chassinummer, reservdelsnummer med mera gör det enkelt för kunden att hitta rätt reservdel.",
+    "about-text-six": "Om du är osäker hjälper Currus-Connect gärna till. Kundtjänsten talar tyska, danska, engelska, norska och svenska.",
+    "about-text-seven": "Alla reservdelar säljs med garanti för funktionalitet. Vi ser fram emot att kunna hjälpa dig vidare.",
 
     "//": "FAQ",
     "faq-intro": "Detta är FAQ-sidan. Här hittar du en lista över vanliga frågor. Hittar du inte det du söker?",

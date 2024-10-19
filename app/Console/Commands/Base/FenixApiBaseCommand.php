@@ -93,6 +93,7 @@ abstract class FenixApiBaseCommand extends Command
                 "7143",
                 "7302",*/
                 // New ones
+                "4626", // screens
                 "7470",
                 "7487",
                 "7816",
