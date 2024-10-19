@@ -91,10 +91,47 @@ class CarPartTypeSeeder extends Seeder
                 'id' => 12,
                 'name' => 'Power steering pump electric',
             ],
+            // New ones
             [
                 'id' => 13,
                 'name' => 'Monitor',
-            ]
+            ],
+            [
+                'id' => 14,
+                'name' => 'Engine control unit (ECU)',
+            ],
+            [
+                'id' => 15,
+                'name' => 'Engine control unit Diesel (ECU)',
+            ],
+            [
+                'id' => 16,
+                'name' => 'Radio CD /Multimediapanel',
+            ],
+            [
+               'id' => 17,
+                'name' => 'Control Display',
+            ],
+            [
+                'id' => 18,
+                'name' => 'Turbo charger',
+            ],
+            [
+                'id' => 19,
+                'name' => 'Power Distribution controller',
+            ],
+            [
+                'id' => 20,
+                'name' => 'Alternator',
+            ],
+            [
+                'id' => 21,
+                'name' => 'Automatic gearbox',
+            ],
+            [
+                'id' => 22,
+                'name' => 'Converter / inverter - electric',
+            ],
         ];
 
         CarPartType::insert($carPartTypes);
@@ -113,7 +150,18 @@ class CarPartTypeSeeder extends Seeder
             ["id" => 10, "name" => 'INSTRUMENT MED OMDR', "code" => "6012", "egluit_id" => "4233"],
             ["id" => 11, "name" => 'AUTOMATGEAR ELBOKS', "code" => "2156", "egluit_id" => "3757"],
             ["id" => 12, "name" => 'SERVOELBOKS', "code" => "3137", "egluit_id" => "3851"],
+            // New ones
             ["id" => 13, "name" => "MULTISKÆRM", "code" => "6034", 'egluit_id' => '4252'], // just changed
+            ["id" => 14, "name" => "Motorstyringsenhed (ECU)", "code" => "1432", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 15, "name" => "Motorstyringsenhed Diesel (ECU)", "code" => "1432", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 16, "name" => "Radio CD /Multimediapanel", "code" => "7458", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 17, "name" => "KONTROLLDISPLAY", "code" => "6034", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 18, "name" => "Turbolader", "code" => "1300", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 19, "name" => "Spændningconverter/omformer", "code" => "7835", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 20, "name" => "Generator", "code" => "1720", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 21, "name" => "Gearkasse automatik", "code" => "2022", 'egluit_id' => '1111'], // TODO, egluit ID
+            ["id" => 22, "name" => "Converter / inverter - el", "code" => "7850", 'egluit_id' => '1111'], // TODO, egluit ID
+
 
         ];
 
@@ -197,6 +245,67 @@ class CarPartTypeSeeder extends Seeder
                 "code" => null,
                 "autoteile_markt_category_id" => 239,
             ],
+            [
+                "id" => 12,
+                "name" => "Bildschirm",
+                "code" => null,
+                "autoteile_markt_category_id" => 239,
+            ],
+            // New ones
+            [
+                "id" => 13,
+                "name" => "Motorsteuergerät (ECU)",
+                "code" => null,
+                "autoteile_markt_category_id" => 534,
+            ],
+            [
+                "id" => 14,
+                "name" => "STYRENHET INSPRUT DIESEL",
+                "code" => null,
+                "autoteile_markt_category_id" => 534,
+            ],
+            [
+                "id" => 15,
+                "name" => "Radio CD /Multimediapanel",
+                "code" => null,
+                "autoteile_markt_category_id" => 700,
+            ],
+            [
+                "id" => 16,
+                "name" => "KONTROLLDISPLAY",
+                "code" => null,
+                "autoteile_markt_category_id" => 167,
+            ],
+            [
+                "id" => 17,
+                "name" => "Turbolader",
+                "code" => null,
+                "autoteile_markt_category_id" => 841,
+            ],
+            [
+                "id" => 18,
+                "name" => "Hybrid Akku Steuerung",
+                "code" => null,
+                "autoteile_markt_category_id" => 1058,
+            ],
+            [
+                "id" => 19,
+                "name" => "Lichtmaschine",
+                "code" => null,
+                "autoteile_markt_category_id" => 85,
+            ],
+            [
+                "id" => 20,
+                "name" => "Getriebe Automatik",
+                "code" => null,
+                "autoteile_markt_category_id" => 261,
+            ],
+            [
+                "id" => 21,
+                "name" => "Convert / Inverter - elektrisch",
+                "code" => null,
+                "autoteile_markt_category_id" => 822,
+            ],
         ];
 
         foreach($germanPartTypes as $germanPartType) {
@@ -226,6 +335,17 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(12)->germanCarPartTypes()->syncWithoutDetaching([11]);
         CarPartType::find(13)->germanCarPartTypes()->syncWithoutDetaching([12]);
 
+        CarPartType::find(14)->germanCarPartTypes()->syncWithoutDetaching([13]);
+        CarPartType::find(15)->germanCarPartTypes()->syncWithoutDetaching([14]);
+        CarPartType::find(16)->germanCarPartTypes()->syncWithoutDetaching([15]);
+        CarPartType::find(17)->germanCarPartTypes()->syncWithoutDetaching([16]);
+        CarPartType::find(18)->germanCarPartTypes()->syncWithoutDetaching([17]);
+        CarPartType::find(19)->germanCarPartTypes()->syncWithoutDetaching([18]);
+        CarPartType::find(20)->germanCarPartTypes()->syncWithoutDetaching([19]);
+        CarPartType::find(21)->germanCarPartTypes()->syncWithoutDetaching([20]);
+        CarPartType::find(22)->germanCarPartTypes()->syncWithoutDetaching([21]);
+
+
         foreach ($carPartTypes as $carPartType) {
             if(DanishCarPartType::find($carPartType->id)) {
                 $carPartType->danishCarPartTypes()->attach($carPartType->id);
@@ -253,6 +373,17 @@ class CarPartTypeSeeder extends Seeder
             ['id' => 16, 'name' => 'STYRENHET VÄXELLÅDA ', 'code' => '7468'],
             ['id' => 17, 'name' => 'STYRSERVOPUMP ELEKTRISK', 'code' => '7082'],
             ['id' => 18, 'name' => 'BILDSKÄRM', 'code' => '4626'],
+
+            // Even newer
+            ['id' => 19, 'name' => 'STYRENHET INSPRUT BENSIN', 'code' => '7470'],
+            ['id' => 20, 'name' => 'STYRENHET INSPRUT DIESEL', 'code' => '7487'],
+            ['id' => 21, 'name' => 'RADIO CD/MULTIMEDIAPANEL', 'code' => '7816'],
+            ['id' => 22, 'name' => 'KONTROLLDISPLAY', 'code' => '3230'],
+            ['id' => 23, 'name' => 'TURBOAGGREGAT', 'code' => '1300'],
+            ['id' => 24, 'name' => 'HYBRIDCONVERTER', 'code' => '7295'],
+            ['id' => 25, 'name' => 'GENERATOR/STARTMOTOR HYBRID', 'code' => '7411'],
+            ['id' => 26, 'name' => 'VÄXELLÅDA TRONIC', 'code' => '7700'],
+            ['id' => 27, 'name' => 'INVERTER HYBRID', 'code' => '7835'],
         ];
 
         DB::table('swedish_car_part_types')->insert($swedishPartTypes);
@@ -272,5 +403,16 @@ class CarPartTypeSeeder extends Seeder
         CarPartType::find(11)->swedishCarPartTypes()->syncWithoutDetaching([16]);
         CarPartType::find(12)->swedishCarPartTypes()->syncWithoutDetaching([17]);
         CarPartType::find(13)->swedishCarPartTypes()->syncWithoutDetaching([18]);
+
+        // Newest
+        CarPartType::find(14)->swedishCarPartTypes()->syncWithoutDetaching([19]);
+        CarPartType::find(15)->swedishCarPartTypes()->syncWithoutDetaching([20]);
+        CarPartType::find(16)->swedishCarPartTypes()->syncWithoutDetaching([21]);
+        CarPartType::find(17)->swedishCarPartTypes()->syncWithoutDetaching([22]);
+        CarPartType::find(18)->swedishCarPartTypes()->syncWithoutDetaching([23]);
+        CarPartType::find(19)->swedishCarPartTypes()->syncWithoutDetaching([24]);
+        CarPartType::find(20)->swedishCarPartTypes()->syncWithoutDetaching([25]);
+        CarPartType::find(21)->swedishCarPartTypes()->syncWithoutDetaching([26]);
+        CarPartType::find(22)->swedishCarPartTypes()->syncWithoutDetaching([27]);
     }
 }

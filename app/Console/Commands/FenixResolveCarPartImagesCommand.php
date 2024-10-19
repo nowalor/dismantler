@@ -100,8 +100,12 @@ class FenixResolveCarPartImagesCommand extends Command
                 'name' => 'VI',
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.18',
-            ]
-
+            ],
+            'H' => [
+                'name' => 'h',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.20',
+            ],
         ];
 
         $carParts = NewCarPart::select(["id", "dismantle_company_name"])
@@ -123,8 +127,8 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->whereNull('sold_at')
         /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
                /* ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])*/
-            ->where('sbr_part_code',  '4626')
-            ->take(300)
+/*            ->where('sbr_part_code',  '4626')*/
+            ->take(500)
             ->get();
 
 //        $carParts = NewCarPart::where('id', 32960)->get();
