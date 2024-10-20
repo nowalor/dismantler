@@ -127,9 +127,21 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->whereNull('sold_at')
         /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
                /* ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])*/
-/*            ->where('sbr_part_code',  '4626')*/
-                ->where('dismantle_company_name', 'h')
-            ->take(500)
+             ->whereIn('sbr_part_code',  [
+                "4626", // screens
+                "7470",
+                "7487",
+                "7816",
+                "3230",
+                "7255",
+                "7295",
+                "7393",
+                "7411",
+                "7700",
+                "7835",
+            ])
+         /*       ->where('dismantle_company_name', 'h')*/
+            ->take(650)
             ->get();
 
 //        $carParts = NewCarPart::where('id', 32960)->get();
