@@ -128,6 +128,7 @@ class FenixResolveCarPartImagesCommand extends Command
         /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
                /* ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])*/
 /*            ->where('sbr_part_code',  '4626')*/
+                ->where('dismantle_company_name', 'h')
             ->take(500)
             ->get();
 
