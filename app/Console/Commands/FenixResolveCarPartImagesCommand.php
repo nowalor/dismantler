@@ -160,14 +160,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //                    continue;
 //                }
 
-                $mimeType = $response->header('Content-Type');
-
-                if (!in_array($mimeType, ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'])) {
-                    $this->error('Unsupported image type: ' . $mimeType);
-                    continue;
-                }
-
-
+                
                 $replacementImage = Image::make($replacementImagePath); // Move this inside the loop
 
                 $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
