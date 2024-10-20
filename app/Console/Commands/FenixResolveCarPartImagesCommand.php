@@ -148,6 +148,9 @@ class FenixResolveCarPartImagesCommand extends Command
 
         foreach ($carParts as $carPart) {
             $dismantlerCompany = $dismantlers[$carPart->dismantle_company_name];
+            $this->info($dismantlerCompany['name']);
+            $this->info($carPart->id);
+
             $replacementImagePath = $dismantlerCompany['logoPath'];
             $scalingHeight = $dismantlerCompany['scalingHeight'];
 
@@ -188,7 +191,6 @@ class FenixResolveCarPartImagesCommand extends Command
                     $tempFilePath = tempnam(sys_get_temp_dir(), 'processed_image');
                     file_put_contents($tempFilePath, $stream);
 
-                    $this->info($image->new_car_part_id);
                     Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/german-logo", $tempFilePath, $outputName, 'public');
                   //  Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/new-logo", $tempFilePath, $outputName, 'public');
 //                    Storage::disk('do')->putFileAs("img/car-part/{$image->new_car_part_id}/newsest-testing9", $tempFilePath, $outputName, 'public');
