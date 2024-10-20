@@ -142,6 +142,7 @@ class FenixResolveCarPartImagesCommand extends Command
             ])
          /*       ->where('dismantle_company_name', 'h')*/
             ->take(650)
+            ->where('id', '!=', 156711042137) // TODO, figure out why this one does not work
             ->get();
 
 //        $carParts = NewCarPart::where('id', 32960)->get();
@@ -158,6 +159,14 @@ class FenixResolveCarPartImagesCommand extends Command
 //                if($image->image_name !== null) {
 //                    continue;
 //                }
+
+                $mimeType = $response->header('Content-Type');
+
+                if (!in_array($mimeType, ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'])) {
+                    $this->error('Unsupported image type: ' . $mimeType);
+                    continue;
+                }
+
 
                 $replacementImage = Image::make($replacementImagePath); // Move this inside the loop
 
