@@ -80,7 +80,7 @@ class PartInformationService
             $dito = $carPart->sbrCode?->ditoNumbers()->first();
 
             if(!$dito) {
-                return $carPart->sbr_car_name;
+                return $carPart->sbr_car_name ?? 'Unknown';
             }
         }
 
