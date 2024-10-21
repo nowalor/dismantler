@@ -245,12 +245,6 @@ class CarPartTypeSeeder extends Seeder
                 "code" => null,
                 "autoteile_markt_category_id" => 239,
             ],
-            [
-                "id" => 12,
-                "name" => "Bildschirm",
-                "code" => null,
-                "autoteile_markt_category_id" => 239,
-            ],
             // New ones
             [
                 "id" => 13,

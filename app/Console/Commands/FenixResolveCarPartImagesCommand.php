@@ -160,7 +160,7 @@ class FenixResolveCarPartImagesCommand extends Command
 //                    continue;
 //                }
 
-                
+
                 $replacementImage = Image::make($replacementImagePath); // Move this inside the loop
 
                 $position = $carPart->dismantle_company_name === 'GB' ? 'bottom-right' : 'top-right';
