@@ -46,7 +46,21 @@ class FenixResolveFieldsCommand extends Command
 //            ->get();
 
 
-        $carParts = NewCarPart::where('sbr_part_code', '4626')->get();
+        $carParts = NewCarPart::whereIn('sbr_part_code', [
+            "4626", // screens
+            "7470",
+            "7487",
+            "7816",
+            "3230",
+            "7255",
+            "7295",
+            "7393",
+            "7411",
+            "7700",
+            "7835",
+        ])
+            ->orWhere('dismantle_company_name', 'h')
+            ->get();
 
         foreach($carParts as $carPart) {
             if($carPart->country === 'DK') {
