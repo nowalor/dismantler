@@ -75,9 +75,14 @@ class FenixResolveFieldsCommand extends Command
             } else {
                 $carPartTypeId = SwedishCarPartType::where('code', $carPart->sbr_part_code)
                     ->first()
-                    ->carPartTypes
-                    ->first()
-                    ->id;
+                    ?->carPartTypes
+                    ?->first()
+                    ?->id;
+
+                if(!$carPartTypeId) {
+                    $this->info("Failed, $carPart->sbr_part_code");
+                    exit;
+                }
             }
 
             $sbrCode = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first();
