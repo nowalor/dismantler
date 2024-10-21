@@ -373,7 +373,7 @@ class CarPartTypeSeeder extends Seeder
             ['id' => 20, 'name' => 'STYRENHET INSPRUT DIESEL', 'code' => '7487'],
             ['id' => 21, 'name' => 'RADIO CD/MULTIMEDIAPANEL', 'code' => '7816'],
             ['id' => 22, 'name' => 'KONTROLLDISPLAY', 'code' => '3230'],
-            ['id' => 23, 'name' => 'TURBOAGGREGAT', 'code' => '1300'],
+            ['id' => 23, 'name' => 'TURBOAGGREGAT', 'code' => '7255'],
             ['id' => 24, 'name' => 'HYBRIDCONVERTER', 'code' => '7295'],
             ['id' => 25, 'name' => 'GENERATOR/STARTMOTOR HYBRID', 'code' => '7411'],
             ['id' => 26, 'name' => 'VÄXELLÅDA TRONIC', 'code' => '7700'],

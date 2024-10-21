@@ -59,8 +59,8 @@ class FenixResolveFieldsCommand extends Command
             "7700",
             "7835",
         ])
-            ->orWhere('dismantle_company_name', 'h')
-            ->get();
+        ->orWhere('dismantle_company_name', 'h')
+        ->get();
 
         foreach($carParts as $carPart) {
             if($carPart->country === 'DK') {
