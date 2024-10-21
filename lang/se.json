@@ -78,7 +78,9 @@
     "vat-infoTitle": "Info",
     "vat-infoDescription": "Priset inkluderar 25% svensk moms och frakt till Sverige",
 
-
+    "//": "For pop up buttons",
+    "pop-up-close": "Stäng",
+    "pop-up-contact": "Kontakta oss",
 
     "//": "About-Us",
     "about-header": "Om oss",

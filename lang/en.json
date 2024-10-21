@@ -81,6 +81,9 @@
     "vat-infoTitle": "Info",
     "vat-infoDescription": "The price includes 19% German VAT and shipping to Germany. For other recipient country, please contact us for freight price",
 
+    "//": "For pop up buttons",
+    "pop-up-close": "Close",
+    "pop-up-contact": "Contact us",
 
     "//": "About-Us",
     "about-header": "About Us",

@@ -78,7 +78,9 @@
     "vat-infoTitle": "Info",
     "vat-infoDescription": "Pris er inklusive 25% dansk moms og forsendelse til Danmark",
 
-
+    "//": "For pop up buttons",
+    "pop-up-close": "Tilbage",
+    "pop-up-contact": "Kontakt os",
 
     "//": "About-Us",
     "about-header": "Om os",
