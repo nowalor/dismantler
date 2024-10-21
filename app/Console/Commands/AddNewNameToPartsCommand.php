@@ -23,6 +23,10 @@ class AddNewNameToPartsCommand extends Command
         $parts = $this->parts();
 
         foreach($parts as $part) {
+            if($part->sbr_part_code == "7393") {
+                continue; // TODO
+            }
+
             $name = $this->partInformationService->getNameForEbay($part);
             $this->info("name: $name");
 
@@ -38,7 +42,20 @@ class AddNewNameToPartsCommand extends Command
         return NewCarPart::
      /*   whereNotNull('sbr_car_name')*/
          /*   where('article_nr', 'AL1053908')*/
-            where('is_live', true)
+        whereIn('sbr_part_code', [
+            "4626", // screens
+            "7470",
+            "7487",
+            "7816",
+            "3230",
+            "7255",
+            "7295",
+            /*   "7393",*/
+            "7411",
+            "7700",
+            "7835",
+        ])
+            ->orWhere('dismantle_company_name', 'h')
             ->get();
        // whereNotNull('car_part_type_id')
             //->whereNotNull('dito_number')
