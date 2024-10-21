@@ -54,7 +54,7 @@ class FenixResolveFieldsCommand extends Command
             "3230",
             "7255",
             "7295",
-            "7393",
+         /*   "7393",*/
             "7411",
             "7700",
             "7835",
