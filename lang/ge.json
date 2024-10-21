@@ -78,7 +78,12 @@
     "uknown-message": "Unbekannt",
     "fuel-type": "Kraftstoffart",
     "vat-shipping": "Inkl. MwSt und Versand",
+    "vat-infoTitle": "Info",
+    "vat-infoDescription": "Im Preis sind 19 % deutsche Mehrwertsteuer und Versand nach Deutschland enthalten",
 
+    "//": "For pop up buttons",
+    "pop-up-close": "schließen",
+    "pop-up-contact": "Kontaktiere uns",
 
     "//": "About-Us",
     "about-header": "Über uns",
