@@ -21,11 +21,11 @@ class Kernel extends ConsoleKernel
         $schedule->command('fenix:add-new-parts')->dailyAt('00:00');
 //        $schedule->command('file-storage:purge')->everyFifteenMinutes();
 //        $schedule->command('fenix:resolve-images-ebay')->everyThirtyMinutes();
-            $schedule->command('fenix:fetch')->dailyAt('22:00');
+          /*  $schedule->command('fenix:fetch')->dailyAt('22:00');*/
         //$schedule->command('german:parts:seed')->dailyAt('18:59');
        // $schedule->command('hood:export')->dailyAt('13:06');
  /*        $schedule->command('remove:sold:parts')->everyFiveMinutes();*/
-         $schedule->command('fenix:resolve-images')->everyTenMinutes();
+ /*        $schedule->command('fenix:resolve-images')->everyTenMinutes();*/
          //$schedule->command('egluit:purge-parts')->dailyAt('16:08');
     }
 
