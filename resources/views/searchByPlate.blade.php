@@ -32,9 +32,9 @@
             @endforeach
         @endif
 
-        @if(isset($carParts))
+        @if(isset($matchingPartsWithDifferentEngine))
             <h1>Car part with different engine</h1>
-            @foreach($carParts as $carPart)
+            @foreach($matchingPartsWithDifferentEngine as $carPart)
                 <h3>{{ $carPart->new_name }}</h3>
                 <h3>{{ $carPart->article_nr }}</h3>
                 <p>engine code: {{ $carPart->engine_code}}</p>
