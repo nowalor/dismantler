@@ -41,6 +41,10 @@ class SearchByPlateController extends Controller
 
         $ktype = Ktype::where('k_type', $data['ktype'])->first();
 
+        if(!$ktype) {
+            return 'fail, no ktype';
+        }
+
         $carParts = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
 
         $filteredCarParts = $carParts->filter(function ($carPart) use($data){
