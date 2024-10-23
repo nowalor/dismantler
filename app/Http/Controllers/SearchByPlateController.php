@@ -44,7 +44,7 @@ class SearchByPlateController extends Controller
         $carParts = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
 
         $filteredCarParts = $carParts->filter(function ($carPart) use($data){
-           return str_contains($data['engine_code'], $carPart->engine_code);
+           return str_contains($data['extended']['engine_codes'], $carPart->engine_code);
         });
 
         return view('searchByPlate', compact('carParts', 'filteredCarParts', 'data'));
