@@ -79,7 +79,12 @@
     "uknown-message": "Inconnu",
     "fuel-type": "Type de carburant",
     "vat-shipping": "Incl. TVA et livraison",
+    "vat-infoTitle": "Info",
+    "vat-infoDescription": "Le prix comprend 20% de TVA française et les frais d'expédition vers la France",
 
+    "//": "For pop up buttons",
+    "pop-up-close": "Ferme",
+    "pop-up-contact": "Contactez-nous",
 
     "//": "About-Us",
     "about-header": "À propos de nous",
