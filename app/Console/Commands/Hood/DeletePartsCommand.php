@@ -1,5 +1,5 @@
 <?php
-/*
+
 namespace App\Console\Commands\Hood;
 
 use GuzzleHttp\Client;
@@ -29,9 +29,6 @@ class DeletePartsCommand extends Command
                 'Accept' => 'text/xml; charset=UTF-8',
             ],
         ]);
-
-        logger('hood delete command still running??');
-        logger("url $this->apiUrl");
     }
 
     public function handle(): int
@@ -57,7 +54,6 @@ class DeletePartsCommand extends Command
 
             $deleteAsXML = $this->itemDeleteXml($itemsXml);
 
-            logger($deleteAsXML);
 
             $response = $this->client->post(
                 $this->apiUrl,
@@ -65,9 +61,6 @@ class DeletePartsCommand extends Command
                     'body' => $deleteAsXML,
                 ]
             );
-
-            // Optional: Log response from delete request
-            logger($response->getBody()->getContents());
 
         } while (false);
 
@@ -138,4 +131,4 @@ class DeletePartsCommand extends Command
 
         return $xml->items;
     }
-}*/
+}

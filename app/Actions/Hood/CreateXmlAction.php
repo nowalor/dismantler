@@ -85,6 +85,8 @@ class CreateXmlAction
             $item->addChild('prodCatID', '1'); //TODO
             $item->addChild('ifIsSoldOut', 'hide'); //TODO
             $item->addChild('isApproved', '1'); //TODO
+            $item->addChild('itemNumber', $part->article_nr);
+            $item->addChild('itemNumberUniqueFlag', 1);
 
 
             $images = $item->addChild('images');

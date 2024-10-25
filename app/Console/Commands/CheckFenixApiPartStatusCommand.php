@@ -67,6 +67,8 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         foreach ($this->soldParts as $part) {
             NewCarPart::where('id', $part['id'])->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);
         }
+
+        // HOOD
     }
 
     private function generateCsv(array $parts): void
