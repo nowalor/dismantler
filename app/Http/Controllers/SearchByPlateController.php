@@ -58,6 +58,8 @@ class SearchByPlateController extends Controller
 
         $partTypes = CarPartType::all();
 
+        return $parts;
+
         return view('plate-parts', compact('parts', 'partTypes'));
         //return view('searchByPlate', compact('matchingPartsWithDifferentEngine', 'filteredCarParts', 'data'));
     }
