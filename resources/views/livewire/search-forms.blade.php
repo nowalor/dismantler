@@ -31,9 +31,8 @@
                     @if($openForm === 'number-plate' && !$isSmallScreen)
                         <div class="card mt-3" style="z-index:5; height: auto;">
                             <div class="card-body pt-0">
-                                @include('partials.errors')
-                                <p class="pt-2"><strong>{{__('model-search-info')}}</strong></p>
-                                <livewire:model-search/>
+                                <p class="pt-2"><strong>{{__('oem-search-info')}}</strong></p>
+                                <livewire:number-plate-search/>
                             </div>
                         </div>
                     @endif

@@ -366,8 +366,9 @@ class CarPartController extends Controller {
             'partTypes'
         ));
     }
-    
 
-    
-
+    public function searchByNumberPlate()
+    {
+        
+    }
 }
