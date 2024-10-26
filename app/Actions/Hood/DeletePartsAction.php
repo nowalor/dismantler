@@ -51,6 +51,8 @@ class DeletePartsAction
             if($response->getStatusCode() ==! 200) {
                 logger('Hood delete parts action failed, line 52');
             }
+
+            logger($response->getBody()->getContents());
         } catch(\Exception $e) {
             logger($e->getMessage());
         }
