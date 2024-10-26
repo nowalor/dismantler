@@ -85,7 +85,7 @@ class DeletePartsAction
 
         foreach ($parts as $part) {
             $itemNode = $itemsNode->addChild('item');
-            $itemNode->addChild('itemID', $part->article_nr);
+            $itemNode->addChild('itemNumber', $part->article_nr);
         }
 
         return $xml->asXML();
