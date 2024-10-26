@@ -8,7 +8,7 @@
     "faq": "FAQ",
     "contact": "Kontakt os",
     "language": "Sprog",
-    
+
     "//": "For LandingPage",
     "car-parts": "BILDELE",
     "browse": "GÅ PÅ OPDAGELSE",
@@ -38,6 +38,9 @@
     "oem-gearbox-code": "Gearkassekode",
     "oem-search-button": "Søg",
 
+    "number-plate-search": "SEARCH BY NUMBERPLATE",
+    "number-plate": "Number plate",
+
     "//": "For car-parts",
     "car-parts-header": "Resultater",
     "car-search-placeholder": "AUDI A4 ...",
@@ -54,10 +57,10 @@
     "car-part-engine-type": "Motortype",
 
     "car-part-odometer": "Odometer (KM)",
-    "car-part-mileage": "Kørelængde", 
+    "car-part-mileage": "Kørelængde",
 
     "car-part-modelyear": "Modelår",
-    "car-part-price": "Pris", 
+    "car-part-price": "Pris",
     "car-part-actions": "Handling",
 
     "car-quality-A+": "Brugt - i særligt god stand",
@@ -99,7 +102,7 @@
     "faq-email-msg": "Send os en email.",
     "faq-question": "Spørgsmål",
     "faq-answer": "Svar",
-    "faq-files-intro": "Her kan du læse yderligere om vores politikker ift. Anvendelse af cookies, fortrydelsesret, GDPR-DK samt salgs og leveringsbetingelser i form af PDF filer.", 
+    "faq-files-intro": "Her kan du læse yderligere om vores politikker ift. Anvendelse af cookies, fortrydelsesret, GDPR-DK samt salgs og leveringsbetingelser i form af PDF filer.",
     "faq-cookies": "Currus Connect anvender cookies på alle selskabets websites",
     "faq-right-of-withdrawal": "Fortrydelsesret",
     "faq-gdpr": "GDPR Politik for behandling og beskyttelse af personoplysninger",

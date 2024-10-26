@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 use App\Actions\Parts\SortPartsAction;
-use Illuminate\Support\Facades\Cache; 
+use Illuminate\Support\Facades\Cache;
 
 
 class CarPartController extends Controller {
@@ -25,7 +25,7 @@ class CarPartController extends Controller {
     private const SEARCHABLE_COLUMNS = [
         'id', 'new_name', 'quality', 'original_number',
         'article_nr', 'mileage_km', 'model_year',
-        'engine_type', 'fuel', 'price_sek', 'sbr_car_name', 
+        'engine_type', 'fuel', 'price_sek', 'sbr_car_name',
         'gearbox_nr', 'vin'
     ];
 
@@ -98,7 +98,7 @@ class CarPartController extends Controller {
     $sort = $request->query('sort');
     $filters = $request->input('filter', []);
     $partType = $request->query('type_id'); // Retrieve the part type filter
-    
+
     // Reset to the first page if filters are applied
     if (!empty($filters) || $partType) {
         $request->merge(['parts' => 1]);
@@ -185,12 +185,12 @@ class CarPartController extends Controller {
         $hsn = $request->get('hsn');
         $tsn = $request->get('tsn');
         $type = $request->filled('type_id') ? CarPartType::find($request->get('type_id')) : null;
-        
+
         // Validate presence of HSN and TSN
         if (!$hsn || !$tsn) {
             return redirect()->back()->with('error', 'HSN and TSN are required for the search.');
         }
-    
+
         // Perform the initial KBA search
         $response = (new SearchByKbaAction())->execute(
             hsn: $hsn,
@@ -199,21 +199,21 @@ class CarPartController extends Controller {
             sort: $request->query('sort'),
             paginate: 10 // Ensure we paginate results here
         );
-    
+
         if (!$response['success']) {
             return response()->json(['message' => 'KBA not found or parts are unavailable']);
         }
-    
+
         // Extract parts and other data from the response
         $parts = $response['data']['parts'];
         $kba = $response['data']['kba'];
         $partCount = count($parts);
-    
+
         // Check if there is an additional search term provided
         if ($request->filled('search')) {
             $search = $request->get('search');
-            
-            
+
+
             $parts = $parts->filter(function ($part) use ($search) {
                 foreach (self::SEARCHABLE_COLUMNS as $column) {
                     if (stripos($part->$column, $search) !== false) {
@@ -224,7 +224,7 @@ class CarPartController extends Controller {
             });
             $partCount = count($parts);
         }
-    
+
         // Prepare the search parameters for display and further actions
         $search = [
             'hsn' => $hsn,
@@ -232,20 +232,20 @@ class CarPartController extends Controller {
             'type_id' => $request->get('type_id'),
             'search' => $request->get('search'), // Include the new search term
         ];
-    
+
         $partTypes = CarPartType::all();
-    
+
         // Return the view with the updated parts and search parameters
         return view('parts-kba', compact(
             'parts',
-            'search', 
-            'partTypes', 
+            'search',
+            'partTypes',
             'type',
-            'kba', 
+            'kba',
             'partCount'
         ));
     }
-    
+
 
     private function redirectBack(array $errors): RedirectResponse {
 
@@ -282,8 +282,8 @@ class CarPartController extends Controller {
     $results = (new SearchByModelAction())->execute(
         model: $dito,
         type: $type,
-        sort: $sort, 
-        filters: $filters, 
+        sort: $sort,
+        filters: $filters,
         paginate: 10
     );
 
@@ -336,27 +336,27 @@ class CarPartController extends Controller {
         $search = $request->query('search'); // Capture the search term
         $sort = $request->query('sort');
         $type_id = $request->query('type_id'); // Capture the type_id from the request
-        
+
         // Prepare the query based on filters and the search term
         $results = (new SearchByOeAction())->execute(
             oem: $oem,
             engine_code: $engine_code,
-            gearbox: $gearbox,  
+            gearbox: $gearbox,
             search: $search, // Pass the search term
             sort: $sort, // Pass the sort parameter
             type_id: $type_id, // Pass the type_id
             paginate: 10,
         );
-    
+
         $type = null;
-    
+
         if ($request->filled('type_id')) {
             $type = CarPartType::find($request->get('type_id'));
         }
-    
+
         $parts = $results['data']['parts'];
         $partTypes = CarPartType::all();
-    
+
         return view('parts-oem', compact(
             'parts',
             'type',
@@ -366,8 +366,9 @@ class CarPartController extends Controller {
             'partTypes'
         ));
     }
-    
 
-    
+    public function searchByNumberPlate()
+    {
 
+    }
 }

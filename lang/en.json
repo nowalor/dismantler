@@ -8,7 +8,7 @@
     "faq": "FAQ",
     "contact": "Contact",
     "language": "Language",
-    
+
 
     "//": "For LandingPage",
     "car-parts": "CAR PARTS",
@@ -39,6 +39,9 @@
     "oem-gearbox-code": "Gearbox code",
     "oem-search-button": "Search",
 
+    "number-plate-search": "SEARCH BY NUMBERPLATE",
+    "number-plate": "Numberplate",
+
 
     "//": "For car-parts",
     "your-search": "Your search",
@@ -57,10 +60,10 @@
     "car-part-engine-type": "Engine type",
 
     "car-part-odometer": "Odometer (KM)",
-    "car-part-mileage": "Mileage", 
+    "car-part-mileage": "Mileage",
 
     "car-part-modelyear": "Model Year",
-    "car-part-price": "Price", 
+    "car-part-price": "Price",
     "car-part-actions": "Action",
 
     "car-quality-A+": "Used - in very good condition",
@@ -117,6 +120,6 @@
     "contact-placeholder-email": "Enter your email...",
     "contact-form-message": "Message",
     "contact-placeholder-message": "Enter your question...",
-    "contact-form-submit": "Submit"    
-    
+    "contact-form-submit": "Submit"
+
 }
