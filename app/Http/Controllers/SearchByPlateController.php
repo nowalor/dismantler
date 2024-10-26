@@ -54,14 +54,14 @@ class SearchByPlateController extends Controller
 
         // Paginate the results manually
         $parts = $filteredCarParts->slice($offset, $perPage)->values();
-        $paginator = new \Illuminate\Pagination\LengthAwarePaginator($parts, $filteredCarParts->count(), $perPage, $page, [
+        $parts = new \Illuminate\Pagination\LengthAwarePaginator($parts, $filteredCarParts->count(), $perPage, $page, [
             'path' => $request->url(),
             'query' => $request->query(),
         ]);
 
         $partTypes = CarPartType::all();
 
-        return view('plate-parts', compact('paginator', 'partTypes'));
+        return view('plate-parts', compact('parts', 'partTypes'));
     }
 
 }
