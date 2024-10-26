@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarPartType;
 use App\Models\KType;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,9 @@ class SearchByPlateController extends Controller
 
         $apiURL = $this->apiUrl;
 
-        if($request->input('search_by') === 'vin') {
+/*        if($request->input('search_by') === 'vin') {
             $apiURL .= '/vin';
-        }
+        }*/
 
         $search = $request->input('search');
 
@@ -47,7 +48,7 @@ class SearchByPlateController extends Controller
 
         $carParts = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
 
-        $filteredCarParts = $carParts->filter(function ($carPart) use($data){
+        $parts = $carParts->filter(function ($carPart) use($data){
            return $carPart->engine_code && str_contains($data['extended']['engine_codes'], $carPart->engine_code);
         });
 
@@ -55,6 +56,9 @@ class SearchByPlateController extends Controller
             return $carPart->engine_code && !str_contains($data['extended']['engine_codes'], $carPart->engine_code);
         });
 
+        $partTypes = CarPartType::all();
+
+        return view('plate-parts', compact('parts', 'partTypes'));
         return view('searchByPlate', compact('matchingPartsWithDifferentEngine', 'filteredCarParts', 'data'));
     }
 }
