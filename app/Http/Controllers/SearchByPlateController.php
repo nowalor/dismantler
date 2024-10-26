@@ -46,11 +46,13 @@ class SearchByPlateController extends Controller
             return 'fail, no ktype';
         }
 
-        $carParts = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
+        $carParts = $ktype->germanDismantlers()->with('newCarParts', function($query) {
+            $query->paginate(10);
+        })->get()->pluck('newCarParts')->flatten();
 
         $parts = $carParts->filter(function ($carPart) use($data){
            return $carPart->engine_code && str_contains($data['extended']['engine_codes'], $carPart->engine_code);
-        });
+        })->toArray();
 
         $matchingPartsWithDifferentEngine = $carParts->filter(function ($carPart) use($data){
             return $carPart->engine_code && !str_contains($data['extended']['engine_codes'], $carPart->engine_code);
