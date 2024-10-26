@@ -30,38 +30,38 @@ class SearchByPlateController extends Controller
 
         $apiURL = $this->apiUrl;
 
-/*        if($request->input('search_by') === 'vin') {
-            $apiURL .= '/vin';
-        }*/
-
         $search = $request->input('search');
-
         $response = \Http::get("$apiURL/$search?api_token=$this->apiToken");
 
         $data =  $response->json()['data'];
-
         $ktype = Ktype::where('k_type', $data['ktype'])->first();
 
         if(!$ktype) {
             return 'fail, no ktype';
         }
 
-        $carParts = $ktype->germanDismantlers()->with('newCarParts', function($query) {
-            $query->paginate(10);
-        })->get()->pluck('newCarParts')->flatten();
+        // Handle pagination
+        $perPage = 10; // Number of items per page
+        $page = $request->get('page', 1); // Get current page
+        $offset = ($page - 1) * $perPage;
 
-        $parts = $carParts->filter(function ($carPart) use($data){
-           return $carPart->engine_code && str_contains($data['extended']['engine_codes'], $carPart->engine_code);
+        // Retrieve car parts with pagination
+        $carPartsQuery = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
+
+        $filteredCarParts = $carPartsQuery->filter(function ($carPart) use ($data) {
+            return $carPart->engine_code && str_contains($data['extended']['engine_codes'], $carPart->engine_code);
         });
 
-        $matchingPartsWithDifferentEngine = $carParts->filter(function ($carPart) use($data){
-            return $carPart->engine_code && !str_contains($data['extended']['engine_codes'], $carPart->engine_code);
-        });
+        // Paginate the results manually
+        $parts = $filteredCarParts->slice($offset, $perPage)->values();
+        $paginator = new \Illuminate\Pagination\LengthAwarePaginator($parts, $filteredCarParts->count(), $perPage, $page, [
+            'path' => $request->url(),
+            'query' => $request->query(),
+        ]);
 
         $partTypes = CarPartType::all();
 
-
-        return view('plate-parts', compact('parts', 'partTypes'));
-        //return view('searchByPlate', compact('matchingPartsWithDifferentEngine', 'filteredCarParts', 'data'));
+        return view('plate-parts', compact('paginator', 'partTypes'));
     }
+
 }
