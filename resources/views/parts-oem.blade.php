@@ -41,7 +41,7 @@
                 </div>
             </div>
             <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-oem')" />
-            {{ $parts->appends(request()->query())->links() }} 
+            {{ $parts->appends(request()->query())->links() }}
         </div>
     </div>
 </div>
