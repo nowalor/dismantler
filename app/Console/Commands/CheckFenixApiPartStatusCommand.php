@@ -41,7 +41,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
             }
         }
 
-        $this->soldParts[] = NewCarPart::first();
+        //$this->soldParts[] = NewCarPart::first(); wtf is this??
 
         if (!empty($this->soldParts)) {
             $this->handleSoldParts();
@@ -69,6 +69,7 @@ class CheckFenixApiPartStatusCommand extends FenixApiBaseCommand
         }
 
         // HOOD
+        (new \App\Actions\Hood\DeletePartsAction())->execute(collect($this->soldParts));
     }
 
     private function generateCsv(array $parts): void
