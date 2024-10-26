@@ -50,7 +50,7 @@ class SearchByPlateController extends Controller
 
         $parts = $carParts->filter(function ($carPart) use($data){
            return $carPart->engine_code && str_contains($data['extended']['engine_codes'], $carPart->engine_code);
-        })->toArray();
+        });
 
         $matchingPartsWithDifferentEngine = $carParts->filter(function ($carPart) use($data){
             return $carPart->engine_code && !str_contains($data['extended']['engine_codes'], $carPart->engine_code);
@@ -58,7 +58,6 @@ class SearchByPlateController extends Controller
 
         $partTypes = CarPartType::all();
 
-        return $parts;
 
         return view('plate-parts', compact('parts', 'partTypes'));
         //return view('searchByPlate', compact('matchingPartsWithDifferentEngine', 'filteredCarParts', 'data'));
