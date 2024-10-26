@@ -3,14 +3,14 @@
 
         @if(App::getLocale() === 'ge')
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center position-relative">
-        <button wire:click="openForm('hsnTsn')" 
-            class="fw-semibold btn btn-success mb-3 w-100 hsnTsnButton" 
-            onmouseover="showImage()" 
+        <button wire:click="openForm('hsnTsn')"
+            class="fw-semibold btn btn-success mb-3 w-100 hsnTsnButton"
+            onmouseover="showImage()"
             onmouseout="hideImage()">
         {{__('kba-search')}}
     </button>
     <img id="hsnTsnImage" src="{{ asset('hsn-tsn.jpg') }}" alt="HSN/TSN Information" class="d-none position-absolute" style="z-index: 1050; width: 92%;">
-            
+
             @if($openForm === 'hsnTsn' && !$isSmallScreen)
             <div class="card mt-3" style="z-index:5; height: auto;">
                 <div class="card-body pt-0">
@@ -24,9 +24,25 @@
         </div>
 
         @else
-        <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
-            <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-primary mb-3 w-100">{{__('browse')}}</a>
-        </div>
+        @if(App::getLocale() === 'dk')
+                <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
+                    <button wire:click="openForm('number-plate')" class="fw-semibold btn btn-success mb-3 w-100">{{__('number-plate-search')}}</button>
+
+                    @if($openForm === 'number-plate' && !$isSmallScreen)
+                        <div class="card mt-3" style="z-index:5; height: auto;">
+                            <div class="card-body pt-0">
+                                @include('partials.errors')
+                                <p class="pt-2"><strong>{{__('model-search-info')}}</strong></p>
+                                <livewire:model-search/>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+        @else
+            <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
+                <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-primary mb-3 w-100">{{__('browse')}}</a>
+            </div>
+        @endif
         @endif
 
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
