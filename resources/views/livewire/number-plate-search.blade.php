@@ -1,4 +1,4 @@
-<form action="{{ route('car-parts.search-by-oem') }}" method="GET">
+<form action="{{ route('search-by-plate') }}" method="POST">
     <div style="text-align: left;">
         <div class="mb-3">
             <label for="oem" class="form-label">{{__('number-plate')}}</label>
