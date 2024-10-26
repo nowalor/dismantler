@@ -1,4 +1,5 @@
 <form action="{{ route('search-by-plate') }}" method="POST">
+    @csrf
     <div style="text-align: left;">
         <div class="mb-3">
             <label for="oem" class="form-label">{{__('number-plate')}}</label>
