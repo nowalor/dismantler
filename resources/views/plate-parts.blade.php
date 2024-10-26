@@ -7,7 +7,7 @@
         <div class="d-flex flex-grow-1">
             <div class="container bg-dark text-white flex-grow-1" style="opacity: 0.85;">
                 <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-oem')" />
-{{--                {{ $parts->appends(request()->query())->links() }}--}}
+                {{ $parts->appends(request()->query())->links() }}
             </div>
         </div>
     </div>
