@@ -180,7 +180,20 @@ abstract class FenixApiBaseCommand extends Command
             "CarBreaker" => "AT",
             "PartnerAccessLevel" => 2,
             "Filters" => [
-                "SbrPartCode" => ["7201", "7280", "7704", "7705", "7706", "7868", "7860", "7070", "7145"],
+                "SbrPartCode" => [
+                    "3135",
+                    "1020",
+                    "1021",
+                    "1022",
+                    "4638",
+                    "3235",
+                    "3245",
+                    "4573",
+                    "7050",
+                    "7051",
+                    "7052",
+                    "7070",
+                ],
                 "CarBreaker" => ["N"]
 
             ],
