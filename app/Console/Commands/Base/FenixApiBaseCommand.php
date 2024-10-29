@@ -93,7 +93,7 @@ abstract class FenixApiBaseCommand extends Command
                 "7143",
                 "7302",*/
                 // New ones
-                "4626", // screens
+       /*         "4626", // screens
                 "7470",
                 "7487",
                 "7816",
@@ -103,7 +103,19 @@ abstract class FenixApiBaseCommand extends Command
                 "7393",
                 "7411",
                 "7700",
-                "7835",
+                "7835",*/
+                "3135",
+                "1020",
+                "1021",
+                "1022",
+                "4638",
+                "3235",
+                "3245",
+                "4573",
+                "7050",
+                "7051",
+                "7052",
+                "7070",
             ],
           //  "SbrPartCode" => ["7475", "7645", "3220", "7468", "7082"], // New part types
 
