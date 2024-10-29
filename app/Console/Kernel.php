@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
 //        $schedule->command('file-storage:purge')->everyFifteenMinutes();
        $schedule->command('fenix:check')->everyFifteenMinutes();
 //        $schedule->command('fenix:resolve-images-ebay')->everyThirtyMinutes();
-            $schedule->command('fenix:fetch')->dailyAt('19:34'); // Get the parts from fenix
+    /*        $schedule->command('fenix:fetch')->dailyAt('19:34'); // Get the parts from fenix*/
         //$schedule->command('german:parts:seed')->dailyAt('18:59');
           $schedule->command('hood:export')->dailyAt('11:23');
  /*        $schedule->command('remove:sold:parts')->everyFiveMinutes();
