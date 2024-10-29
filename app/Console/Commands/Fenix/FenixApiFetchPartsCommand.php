@@ -37,7 +37,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             'li',
             'd',
             'vi',
-         /*   'h',*/
+            'h',
         ];
 
 
