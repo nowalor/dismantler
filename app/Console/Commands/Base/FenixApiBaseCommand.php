@@ -182,8 +182,8 @@ abstract class FenixApiBaseCommand extends Command
             "Filters" => [
                 "SbrPartCode" => [
                     "3135",
-                    "1020",
                     "1021",
+                    "1020",
                     "1022",
                     "4638",
                     "3235",
