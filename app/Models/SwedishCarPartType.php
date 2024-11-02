@@ -11,6 +11,7 @@ class SwedishCarPartType extends Model
     use HasFactory;
 
     protected $hidden = ['pivot'];
+    public $timestamps = false;
 
     public function carPartTypes(): BelongsToMany
     {

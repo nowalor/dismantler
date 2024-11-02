@@ -12,6 +12,8 @@ class DanishCarPartType extends Model
 
     protected $hidden = ['pivot'];
 
+    public $timestamps = false;
+
     public function carPartTypes(): BelongsToMany
     {
         return $this->belongsToMany(CarPartType::class);

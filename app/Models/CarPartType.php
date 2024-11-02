@@ -13,6 +13,8 @@ class CarPartType extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected static function booted()
     {
 //        static::addGlobalScope(new CarPartTypeScope());
