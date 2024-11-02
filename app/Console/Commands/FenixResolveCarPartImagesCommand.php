@@ -108,7 +108,7 @@ class FenixResolveCarPartImagesCommand extends Command
             ],
         ];
 
-        $carParts = NewCarPart::select(["id", "dismantle_company_name"])
+        $carPartsQuery = NewCarPart::select(["id", "dismantle_company_name"])
             ->whereHas('carPartImages', function ($query) {
                 $query->whereNull('new_logo_german');
             })
@@ -128,9 +128,17 @@ class FenixResolveCarPartImagesCommand extends Command
         /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
                /* ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])*/
              ->whereIn('sbr_part_code',  [
-                "4626", // screens
-                "7470",
-                "7487",
+                "7201",
+                "7280",
+                "7704",
+                "7705",
+                "7706",
+                "7868",
+                "7860",
+                "7070",
+                "7145",
+                "7143",
+                "7302",
                 "7816",
                 "3230",
                 "7255",
@@ -139,13 +147,35 @@ class FenixResolveCarPartImagesCommand extends Command
                 "7411",
                 "7700",
                 "7835",
+                "3135",
+                "1020",
+                "1021",
+                "1022",
+                "4638",
+                "3235",
+                "3245",
+                "4573",
+                "7050",
+                "7051",
+                "7052",
+                "7070",
+                "7475",
+                "7645",
+                "3220",
+                "7468",
+                "7082",
+                "4626",
+                "7470",
+                "7487"
             ])
          /*       ->where('dismantle_company_name', 'h')*/
-            ->take(650)
-            ->where('id', '!=', 156711042137) // TODO, figure out why this one does not work
-            ->get();
+            ->where('id', '!=', 156711042137); // TODO, figure out why this one does not work
 
 //        $carParts = NewCarPart::where('id', 32960)->get();
+
+
+        $this->info("Count left: {$carPartsQuery->count()}}");
+        $carParts = $carPartsQuery->take(650)->get();
 
         foreach ($carParts as $carPart) {
             $dismantlerCompany = $dismantlers[$carPart->dismantle_company_name];

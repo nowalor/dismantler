@@ -22,6 +22,8 @@ abstract class FenixApiBaseCommand extends Command
 
     private SlackNotificationService $notificationService;
 
+    private array $sbrFilters;
+
     public function __construct()
     {
         $this->apiUrl = config('services.fenix_api.base_uri');
@@ -35,6 +37,51 @@ abstract class FenixApiBaseCommand extends Command
                 'Content-Type' => 'application/json',
             ],
         ]);
+
+        $this->sbrFilters = [
+            /*               "7201",
+                           "7280",
+                           "7704",
+                           "7705",
+                           "7706",
+                           "7868",
+                           "7860",
+                           "7070",
+                           "7145",
+                           "7143",
+                           "7302",*/
+            /*
+                     "7816",
+                     "3230",
+                     "7255",
+                     "7295",
+                     "7393",
+                     "7411",
+                     "7700",
+                     "7835",*/
+    /*        "3135",
+            "1020",
+            "1021",
+            "1022",
+            "4638",
+            "3235",
+            "3245",
+            "4573",
+            "7050",
+            "7051",
+            "7052",
+            "7070",*/
+
+            // Next query
+               "7475",
+             "7645",
+             "3220",
+             "7468",
+            "7082",
+            "4626", // screens
+            "7470",
+            "7487",
+        ];
 
         $this->notificationService = new SlackNotificationService();
 
@@ -80,55 +127,31 @@ abstract class FenixApiBaseCommand extends Command
         }
 
         $filters = [
-            "SbrPartCode" => [
- /*               "7201",
-                "7280",
-                "7704",
-                "7705",
-                "7706",
-                "7868",
-                "7860",
-                "7070",
-                "7145",
-                "7143",
-                "7302",*/
-                // New ones
-       /*         "4626", // screens
-                "7470",
-                "7487",
-                "7816",
-                "3230",
-                "7255",
-                "7295",
-                "7393",
-                "7411",
-                "7700",
-                "7835",*/
-                "3135",
-                "1020",
-                "1021",
-                "1022",
-                "4638",
-                "3235",
-                "3245",
-                "4573",
-                "7050",
-                "7051",
-                "7052",
-                "7070",
-            ],
-          //  "SbrPartCode" => ["7475", "7645", "3220", "7468", "7082"], // New part types
-
-            "CarBreaker" => [$carBreaker], ];
+            "SbrPartCode" => $this->sbrFilters,
+            "CarBreaker" => [$carBreaker]];
 
         $parts = [];
 
-        $count = $this->getCount();
+        $stopTime = \Carbon\Carbon::createFromTime(7, 30);
+        if (\Carbon\Carbon::now()->greaterThanOrEqualTo($stopTime)) {
+            logger('The allowed time to run this command has passed.');
+            die();
+        }
+
+
+        $count = $this->getCount($carBreaker);
         $increment = 500;
         $page = 1;
 
         // Keep incrementing take by 500 until we have no parts left
         for ($skip = 0; $skip < $count + $increment; $skip += $increment) {
+            // Doing this check in the loop as well since we might be in here for a while...
+            $stopTime = \Carbon\Carbon::createFromTime(7, 30);
+            if (\Carbon\Carbon::now()->greaterThanOrEqualTo($stopTime)) {
+                logger('The allowed time to run this command has passed.');
+                die();
+            }
+
             $payload = [
                 "Take" => 500,
                 "Skip" => $skip,
@@ -169,7 +192,7 @@ abstract class FenixApiBaseCommand extends Command
         return $response;
     }
 
-    protected function getCount(): int
+    protected function getCount(string $carBreaker): int
     {
         $payload = [
             "Take" => 1,
@@ -180,20 +203,7 @@ abstract class FenixApiBaseCommand extends Command
             "CarBreaker" => "AT",
             "PartnerAccessLevel" => 2,
             "Filters" => [
-                "SbrPartCode" => [
-                    "3135",
-                    "1021",
-                    "1020",
-                    "1022",
-                    "4638",
-                    "3235",
-                    "3245",
-                    "4573",
-                    "7050",
-                    "7051",
-                    "7052",
-                    "7070",
-                ],
+                "SbrPartCode" => $this->sbrFilters,
                 "CarBreaker" => ["N"]
 
             ],
