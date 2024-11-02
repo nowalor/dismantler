@@ -106,6 +106,11 @@ class FenixResolveCarPartImagesCommand extends Command
                 'logoPath' => public_path('img/dismantler/a/logo.png'),
                 'scalingHeight' => '0.20',
             ],
+            'AS' => [
+                'name' => 'as',
+                'logoPath' => public_path('img/dismantler/a/logo.png'),
+                'scalingHeight' => '0.30',
+            ],
         ];
 
         $carPartsQuery = NewCarPart::select(["id", "dismantle_company_name"])
@@ -178,6 +183,14 @@ class FenixResolveCarPartImagesCommand extends Command
         $carParts = $carPartsQuery->take(650)->get();
 
         foreach ($carParts as $carPart) {
+            if(!isset($dismantlers[$carPart->dismantle_company_name])) {
+                $this->info("Could not find: {$carPart->dismantle_company_name}");
+
+                logger("Could not find: {$carPart->dismantle_company_name}");
+
+                continue;
+            }
+
             $dismantlerCompany = $dismantlers[$carPart->dismantle_company_name];
             $this->info($dismantlerCompany['name']);
             $this->info($carPart->id);
