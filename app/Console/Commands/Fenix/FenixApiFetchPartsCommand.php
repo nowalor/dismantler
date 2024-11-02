@@ -38,6 +38,7 @@ class FenixApiFetchPartsCommand extends FenixApiBaseCommand
             'd',
             'vi',
             'h',
+            'as',
         ];
 
         foreach ($dismantleCompanies as $dismantleCompany) {

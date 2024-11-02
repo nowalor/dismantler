@@ -36,6 +36,8 @@ class AddNewPartsCommand extends Command
             'd',
             'vi',
             'h',
+            'as',
+
         ];
 
         // Probably gonna need to batch this soon...
