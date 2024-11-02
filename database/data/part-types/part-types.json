@@ -1,0 +1,675 @@
+[
+    {
+        "id": 1,
+        "name": "Engine",
+        "german_car_part_types": [
+            {
+                "id": 1,
+                "name": "Motor",
+                "code": null,
+                "autoteile_markt_category_id": 193
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 1,
+                "name": "MOTOR",
+                "code": "0010",
+                "egluit_id": "3574"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 1,
+                "name": "MOTOR BENSIN",
+                "code": "7201"
+            },
+            {
+                "id": 2,
+                "name": "MOTOR DIESEL",
+                "code": "7280"
+            },
+            {
+                "id": 11,
+                "name": "MOTOR ELEKTRISK BAK",
+                "code": "7143"
+            },
+            {
+                "id": 12,
+                "name": "MOTOR ELEKTRISK FRAM",
+                "code": "7302"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Distribution gear box",
+        "german_car_part_types": [
+            {
+                "id": 2,
+                "name": "Verteilergetriebe",
+                "code": null,
+                "autoteile_markt_category_id": 940
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 2,
+                "name": "FORDELERGEARKASSE",
+                "code": "2020",
+                "egluit_id": "3744"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 3,
+                "name": "VÄXEL FÖRDELNINGSLÅDA",
+                "code": "7704"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Gearbox Automatic",
+        "german_car_part_types": [
+            {
+                "id": 3,
+                "name": "Automatikgetriebe",
+                "code": null,
+                "autoteile_markt_category_id": 851
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 3,
+                "name": "GEARKASSE  AUTOMATIC",
+                "code": "2022",
+                "egluit_id": "3746"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 4,
+                "name": "VÄXELLÅDA TRONIC",
+                "code": "7700"
+            },
+            {
+                "id": 5,
+                "name": "VÄXELLÅDA AUTOMAT",
+                "code": "7705"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Gearbox 6 gear",
+        "german_car_part_types": [
+            {
+                "id": 4,
+                "name": "Schaltgetriebe 6-Gang",
+                "code": null,
+                "autoteile_markt_category_id": 852
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 4,
+                "name": "GEARKASSE 6 GEAR",
+                "code": "2026",
+                "egluit_id": "3749"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 6,
+                "name": "VÄXELLÅDA MAN. 6 VXL",
+                "code": "7706"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Particle Filter",
+        "german_car_part_types": [
+            {
+                "id": 5,
+                "name": "Partikelfilter",
+                "code": null,
+                "autoteile_markt_category_id": 840
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 5,
+                "name": "PARTIKELFILTER",
+                "code": "1284",
+                "egluit_id": "3616"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 7,
+                "name": "AVGAS PARTIKELFILTER",
+                "code": "7868"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "CATALYST",
+        "german_car_part_types": [
+            {
+                "id": 6,
+                "name": "Katalysator",
+                "code": null,
+                "autoteile_markt_category_id": 838
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 6,
+                "name": "KATALYSATOR",
+                "code": "1285",
+                "egluit_id": "3617"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 8,
+                "name": "KATALYSATOR",
+                "code": "7860"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Differential",
+        "german_car_part_types": [
+            {
+                "id": 7,
+                "name": "Differential",
+                "code": null,
+                "autoteile_markt_category_id": 939
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 7,
+                "name": "BAGTØJSKLUMP",
+                "code": "2601",
+                "egluit_id": "3812"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 9,
+                "name": "FRAMVAGN DIFFRENTIAL",
+                "code": "7070"
+            },
+            {
+                "id": 10,
+                "name": "BAKVÄXEL/DIFF.",
+                "code": "7145"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Break Unit ABS",
+        "german_car_part_types": [
+            {
+                "id": 8,
+                "name": "ABS Bremsaggregat",
+                "code": null,
+                "autoteile_markt_category_id": 38
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 8,
+                "name": "ABS BREMSESÆT",
+                "code": "3950",
+                "egluit_id": "3969"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 13,
+                "name": "Styrenhet ABS",
+                "code": "7475"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "ABS Hydraulic unit",
+        "german_car_part_types": [
+            {
+                "id": 8,
+                "name": "ABS Bremsaggregat",
+                "code": null,
+                "autoteile_markt_category_id": 38
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 9,
+                "name": "ABS PUMPE",
+                "code": "3952",
+                "egluit_id": "3971"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 14,
+                "name": "ABS hydraulaggerat",
+                "code": "7645"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Instrument comb",
+        "german_car_part_types": [
+            {
+                "id": 9,
+                "name": "Instrumente Tachometer",
+                "code": null,
+                "autoteile_markt_category_id": 160
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 10,
+                "name": "INSTRUMENT MED OMDR",
+                "code": "6012",
+                "egluit_id": "4233"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 15,
+                "name": "Instrument Komb",
+                "code": "3220"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Steering unit gearbox",
+        "german_car_part_types": [
+            {
+                "id": 10,
+                "name": "Elektrik Steuergerät Automatikgetr",
+                "code": null,
+                "autoteile_markt_category_id": 535
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 11,
+                "name": "AUTOMATGEAR ELBOKS",
+                "code": "2156",
+                "egluit_id": "3757"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 16,
+                "name": "STYRENHET VÄXELLÅDA ",
+                "code": "7468"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Power steering pump electric",
+        "german_car_part_types": [
+            {
+                "id": 11,
+                "name": "Lenkung Servolenkung Lenkgetrie",
+                "code": null,
+                "autoteile_markt_category_id": 858
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 12,
+                "name": "SERVOELBOKS",
+                "code": "3137",
+                "egluit_id": "3851"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 17,
+                "name": "STYRSERVOPUMP ELEKTRISK",
+                "code": "7082"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Monitor",
+        "german_car_part_types": [
+            {
+                "id": 12,
+                "name": "Bildschirm",
+                "code": null,
+                "autoteile_markt_category_id": 239
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 13,
+                "name": "MULTISKÆRM",
+                "code": "6034",
+                "egluit_id": "4252"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 18,
+                "name": "BILDSKÄRM",
+                "code": "4626"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Engine control unit (ECU)",
+        "german_car_part_types": [
+            {
+                "id": 13,
+                "name": "Motorsteuergerät (ECU)",
+                "code": null,
+                "autoteile_markt_category_id": 534
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 14,
+                "name": "Motorstyringsenhed (ECU)",
+                "code": "1432",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 19,
+                "name": "STYRENHET INSPRUT BENSIN",
+                "code": "7470"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Engine control unit Diesel (ECU)",
+        "german_car_part_types": [
+            {
+                "id": 14,
+                "name": "STYRENHET INSPRUT DIESEL",
+                "code": null,
+                "autoteile_markt_category_id": 534
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 15,
+                "name": "Motorstyringsenhed Diesel (ECU)",
+                "code": "1432",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 20,
+                "name": "STYRENHET INSPRUT DIESEL",
+                "code": "7487"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Radio CD /Multimediapanel",
+        "german_car_part_types": [
+            {
+                "id": 15,
+                "name": "Radio CD /Multimediapanel",
+                "code": null,
+                "autoteile_markt_category_id": 700
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 16,
+                "name": "Radio CD /Multimediapanel",
+                "code": "7458",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 21,
+                "name": "RADIO CD/MULTIMEDIAPANEL",
+                "code": "7816"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Control Display",
+        "german_car_part_types": [
+            {
+                "id": 16,
+                "name": "KONTROLLDISPLAY",
+                "code": null,
+                "autoteile_markt_category_id": 167
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 17,
+                "name": "KONTROLLDISPLAY",
+                "code": "6034",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 22,
+                "name": "KONTROLLDISPLAY",
+                "code": "3230"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Turbo charger",
+        "german_car_part_types": [
+            {
+                "id": 17,
+                "name": "Turbolader",
+                "code": null,
+                "autoteile_markt_category_id": 841
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 18,
+                "name": "Turbolader",
+                "code": "1300",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 23,
+                "name": "TURBOAGGREGAT",
+                "code": "7255"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Power Distribution controller",
+        "german_car_part_types": [
+            {
+                "id": 18,
+                "name": "Hybrid Akku Steuerung",
+                "code": null,
+                "autoteile_markt_category_id": 1058
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 19,
+                "name": "Spændningconverter/omformer",
+                "code": "7835",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 24,
+                "name": "HYBRIDCONVERTER",
+                "code": "7295"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Alternator",
+        "german_car_part_types": [
+            {
+                "id": 19,
+                "name": "Lichtmaschine",
+                "code": null,
+                "autoteile_markt_category_id": 85
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 20,
+                "name": "Generator",
+                "code": "1720",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 25,
+                "name": "GENERATOR/STARTMOTOR HYBRID",
+                "code": "7411"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Automatic gearbox",
+        "german_car_part_types": [
+            {
+                "id": 20,
+                "name": "Getriebe Automatik",
+                "code": null,
+                "autoteile_markt_category_id": 261
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 21,
+                "name": "Gearkasse automatik",
+                "code": "2022",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 26,
+                "name": "VÄXELLÅDA TRONIC",
+                "code": "7700"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Converter / inverter - electric",
+        "german_car_part_types": [
+            {
+                "id": 21,
+                "name": "Convert / Inverter - elektrisch",
+                "code": null,
+                "autoteile_markt_category_id": 822
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 22,
+                "name": "Converter / inverter - el",
+                "code": "7850",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 27,
+                "name": "INVERTER HYBRID",
+                "code": "7835"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Front light",
+        "german_car_part_types":[
+            {
+                "id": 23,
+                "name": "Scheinwerfer",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 23,
+                "name": "Baghylde",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 28,
+                "name": "HATTHYLLA",
+                "code": "3135"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Boot base",
+        "german_car_part_types":[
+            {
+                "id": 22,
+                "name": "Hutablage",
+                "code": null,
+                "autoteile_markt_category_id": 149
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 23,
+                "name": "Baghylde",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 28,
+                "name": "HATTHYLLA",
+                "code": "3135"
+            }
+        ]
+    }
+]
