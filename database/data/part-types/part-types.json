@@ -617,5 +617,59 @@
                 "code": "7835"
             }
         ]
+    },
+    {
+        "id": 24,
+        "name": "Front light",
+        "german_car_part_types":[
+            {
+                "id": 23,
+                "name": "Scheinwerfer",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 23,
+                "name": "Baghylde",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 28,
+                "name": "HATTHYLLA",
+                "code": "3135"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Boot base",
+        "german_car_part_types":[
+            {
+                "id": 22,
+                "name": "Hutablage",
+                "code": null,
+                "autoteile_markt_category_id": 149
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 23,
+                "name": "Baghylde",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 28,
+                "name": "HATTHYLLA",
+                "code": "3135"
+            }
+        ]
     }
 ]
