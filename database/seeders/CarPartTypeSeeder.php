@@ -34,33 +34,6 @@ class CarPartTypeSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'Engine',
-
-                'german' => [
-                    [
-                        "name" => "Motor",
-                        "code" => null,
-                        "autoteile_markt_category_id" => 193,
-                    ],
-                ],
-                'danish' => [
-                    [
-                        "name" => "MOTOR",
-                        "code" => "0010",
-                        'egluit_id' => '3574'
-                    ]
-                ],
-                'swedish' => [
-                    [
-                        "id" => 1,
-                        "name" => "MOTOR BENSIN",
-                        "code" => "7201"
-                    ],
-                    [
-                        "id" => 2,
-                        "name" => "MOTOR DIESEL",
-                        "code" => "7280"
-                    ],
-                ],
             ],
             [
                 'id' => 2,
