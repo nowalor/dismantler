@@ -23,6 +23,10 @@ class AddNewNameToPartsCommand extends Command
         $parts = $this->parts();
 
         foreach($parts as $part) {
+            if($part->sbr_part_code == "7393") {
+                continue; // TODO
+            }
+
             $name = $this->partInformationService->getNameForEbay($part);
             $this->info("name: $name");
 
