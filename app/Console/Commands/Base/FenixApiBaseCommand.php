@@ -39,7 +39,7 @@ abstract class FenixApiBaseCommand extends Command
         ]);
 
         $this->sbrFilters = [
-                      /*     "7201",
+                           "7201",
                            "7280",
                            "7704",
                            "7705",
@@ -47,8 +47,8 @@ abstract class FenixApiBaseCommand extends Command
                            "7868",
                            "7860",
                            "7070",
-                           "7145",*/
-                           "7143",
+                           "7145",
+                           /* "7143",
                            "7302",
 
                      "7816",
@@ -58,7 +58,7 @@ abstract class FenixApiBaseCommand extends Command
                      "7393",
                      "7411",
                      "7700",
-                     "7835",
+                     "7835", */
     /*        "3135",
             "1020",
             "1021",
