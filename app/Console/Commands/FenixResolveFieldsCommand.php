@@ -91,10 +91,6 @@ class FenixResolveFieldsCommand extends Command
         ->get();
 
         foreach($carParts as $carPart) {
-            if($carPart->sbr_part_code == "7393") {
-                continue; // TODO
-            }
-
             if($carPart->country === 'DK') {
                 $carPartTypeId = DanishCarPartType::where('code', $carPart->dito_number)
                     ->first()
