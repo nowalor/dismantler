@@ -141,8 +141,16 @@ class FenixResolveFieldsCommand extends Command
                 $carPart->dito_number_id = $ditoNumber->id;
             }
 
-            $carPart->article_nr = $this->generateArticleNr($carPart);
+
+            $articleNr = $this->generateArticleNr($carPart);
+
+            $carPart->article_nr = $articleNr;
+            if(NewCarPart::where('article_nr', $carPart->article_nr)->exists()) {
+                continue; // TODO... handle these weird parts
+            }
+
             $carPart->car_part_type_id = $carPartTypeId;
+
 //            $carPart->name = $this->generatePartName($carPart);
 
             $carPart->save();
