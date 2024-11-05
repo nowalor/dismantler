@@ -7,7 +7,7 @@ use App\Models\NewCarPart;
 
 class PartInformationService
 {
-    public function getNameForEbay(NewCarPart $carPart): string
+    public function getNameForEbay(NewCarPart $carPart): string | null
     {
         $name = '';
 
@@ -15,7 +15,9 @@ class PartInformationService
         $germanCarPartName = $carPart->carPartType?->germanCarPartTypes()->first()->name;
 
         if(!$germanCarPartName) {
-            ""
+            $this->info("name not found for: $carPart->id");
+
+            return null;
         }
 
         if($germanCarPartName === 'Automatikgetriebe') {
