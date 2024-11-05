@@ -11,7 +11,12 @@ class PartInformationService
     {
         $name = '';
 
-        $germanCarPartName = $carPart->carPartType->germanCarPartTypes()->first()->name;
+
+        $germanCarPartName = $carPart->carPartType?->germanCarPartTypes()->first()->name;
+
+        if(!$germanCarPartName) {
+            ""
+        }
 
         if($germanCarPartName === 'Automatikgetriebe') {
             $germanCarPartName = 'ORIGINAL GETRIEBE AUTOMATIK';
