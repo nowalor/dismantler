@@ -30,6 +30,12 @@ class AddNewNameToPartsCommand extends Command
             $name = $this->partInformationService->getNameForEbay($part);
 /*            $this->info("name: $name");*/
 
+            if(!$name) {
+                $this->info("name not found for: $part->id");
+
+                continue;
+            }
+
             $part->new_name = $name;
             $part->save();
         }
