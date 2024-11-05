@@ -15,9 +15,9 @@ class PartInformationService
         $germanCarPartName = $carPart->carPartType?->germanCarPartTypes()->first()->name;
 
         if(!$germanCarPartName) {
-            $this->info("name not found for: $carPart->id");
-
             return null;
+
+            $this->info("name not found for: $carPart->id");
         }
 
         if($germanCarPartName === 'Automatikgetriebe') {
