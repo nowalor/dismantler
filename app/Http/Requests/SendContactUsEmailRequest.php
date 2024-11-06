@@ -28,6 +28,9 @@ class SendContactUsEmailRequest extends FormRequest
             'email' => 'required|email',
             'subject' => 'required|string|max:50',
             'message' => 'required|string',
+            'phone' => 'string',
+            'plate' => 'string',
+            'vin' => 'string'
         ];
     }
 }

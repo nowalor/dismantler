@@ -43,6 +43,22 @@
                     <label for="email">{{__('contact-form-email')}}</label>
                     <input required type="email" class="form-control" name="email" id="email" placeholder="{{__('contact-placeholder-email')}}">
                 </div>
+                <div class="mb-2">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+                </div>
+                @if(app()->getLocale() === 'dk')
+                <div class="mb-2">
+                    <label for="plate">Nummerplade</label>
+                    <input type="text" class="form-control" name="plate" id="plate" placeholder="Nummerplade">
+                </div>
+                @endif
+                @if(app()->getLocale() === 'ge')
+                    <div class="mb-2">
+                        <label for="vin">Fahrgestellnummer</label>
+                        <input type="text" class="form-control" name="vin" id="vin" placeholder="Fahrgestellnummer">
+                    </div>
+                @endif
                 <div class="mb-4">
                     <label for="message">{{__('contact-form-message')}}</label>
                     <textarea required class="form-control" name="message" id="message" placeholder="{{__('contact-placeholder-message')}}"

@@ -18,6 +18,13 @@ class ContactUsMail extends Mailable
     private string $senderSubject;
     private string $message;
 
+    private string | null $phone;
+
+    private string | null $plate;
+
+    private string | null $vin;
+
+
     /**
      * Create a new message instance.
      *
@@ -29,6 +36,9 @@ class ContactUsMail extends Mailable
         $this->senderName = $payload['name'];
         $this->senderSubject = $payload['subject'];
         $this->message = $payload['message'];
+        $this->plate = $payload['plate'] ?? null;
+        $this->phone = $payload['phone'] ?? null;
+        $this->vin = $payload['vin'] ?? null;
     }
 
     /**
@@ -60,6 +70,9 @@ class ContactUsMail extends Mailable
                 'senderEmail' => $this->senderEmail,
                 'senderSubject' => $this->senderSubject,
                 'message' => $this->message,
+                'plate' => $this->plate,
+                'vin' => $this->vin,
+                'phone' => $this->phone,
             ],
         );
     }
