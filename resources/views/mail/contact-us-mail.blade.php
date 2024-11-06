@@ -9,6 +9,12 @@
 
     **Subject:** {{ $senderSubject }}
 
+    **Phone:** {{ $phone }}
+
+    **Number plate:** {{ $plate }}
+
+    **Phone:** {{ $vin }}
+
     **Message:**
     {{ $message }}
 
