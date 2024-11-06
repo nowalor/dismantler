@@ -78,7 +78,9 @@ Route::get('lang/{locale}', function ($locale) {
 Route::get('faq', FaqPageController::class)->name('faq');
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');
-Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
+Route::post('contact', function() {
+    return 'hello';
+})->name('contact.send');
 
 Route::get('dismantlers', [TestController::class, 'showSelectPage']);
 Route::get('dismantlers-german', [TestController::class, 'showGermanDismantlers'])->name('german.dismantlers');
