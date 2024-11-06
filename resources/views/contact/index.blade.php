@@ -4,7 +4,7 @@
         <!-- Image section, visible only on medium and larger screens -->
         <img style="height: calc(100vh - 56px); object-fit: cover;" class="w-50 d-none d-md-block"
              src="{{ asset('img/car-banner2.jpg') }}" alt="">
-        
+
         <!-- Form section -->
         <div class="container pt-5">
             <nav aria-label="breadcrumb">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mb-2">
                     <label for="email">{{__('contact-form-subject')}}</label>
-                    <input required type="text" class="form-control" name="email" id="email" placeholder="{{__('contact-placeholder-subject')}}">
+                    <input required type="text" class="form-control" name="subject" id="email" placeholder="{{__('contact-placeholder-subject')}}">
                 </div>
                 <div class="mb-2">
                     <label for="email">{{__('contact-form-email')}}</label>
@@ -57,8 +57,8 @@
 @push('css')
 <style>
     body {
-        background-color: white !important; 
-        background-image: none !important; 
+        background-color: white !important;
+        background-image: none !important;
     }
 
     @media (max-width: 767.98px) {
