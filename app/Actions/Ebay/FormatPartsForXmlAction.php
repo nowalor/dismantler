@@ -17,7 +17,7 @@ class FormatPartsForXmlAction
         5 => '174028',
         6 => '33629',
         7 => '262244',
-        13 => '33596',
+        14 => '33596',
     ];
 
     public function __construct()
