@@ -234,7 +234,7 @@ class NewCarPart extends Model
             in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_TWO, true) => 150,
             in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_THREE, true) => 100,
             in_array($partType, GermanCarPartType::TYPES_IN_DELIVERY_OPTION_FOUR, true) => 50,
-            default => 100,
+            default => 50,
         };
 
         // Add additional cost for certain dismantle companies
