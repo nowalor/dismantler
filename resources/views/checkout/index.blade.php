@@ -135,7 +135,7 @@
                                         <i class="fa fa-credit-card"></i>
                                         Card
                                     </button>
-                                    <input type="radio" name="payment_platform" class="invisible" value="2"
+                                    <input type="radio" name="payment_platform" class="invisible" value="1"
                                            id="payment_platform_stripe">
                                 </label>
                                 or
@@ -149,7 +149,7 @@
                                         <img src="{{ asset('img/paypal-logo.png') }}" style="height: 24px;"
                                              alt="Paypal Logo">
                                     </button>
-                                    <input type="radio" name="payment_platform" class="invisible" value="1"
+                                    <input type="radio" name="payment_platform" class="invisible" value="2"
                                            id="payment_platform_paypal">
                                 </label>
                             </div>
