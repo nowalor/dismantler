@@ -209,7 +209,9 @@
 </body>
 <style>
     body {
-        background-image: url(' {{ asset('img/enginedark.jpg') }}');
+        @if(Route::currentRouteName() !== 'checkout')
+            background-image: url(' {{ asset('img/enginedark.jpg') }}');
+        @endif
         background-size: cover;
     }
 
