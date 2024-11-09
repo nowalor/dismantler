@@ -127,10 +127,10 @@
                         <h4 class="mb-3">Payment <i class="fa fa-credit-card"></i></h4>
 
 
-               {{--         <p>Pay with...</p>--}}
+           {{--             <p>Pay with...</p>--}}
 
                         <div class="mb-3" id="toggler">
-                            {{--<div class="btn-group btn-group-toggle d-flex gap-2 align-items-center"
+                      {{--      <div class="btn-group btn-group-toggle d-flex gap-2 align-items-center"
                                  data-toggle="buttons">
                                 <label data-bs-target="#StripeCollapse"
                                        data-bs-toggle="collapse"
@@ -161,13 +161,12 @@
 
                             @foreach($paymentPlatforms as $paymentPlatform)
                                 @if($paymentPlatform->name === 'Stripe')
-                                    <div
-                                        id="{{ $paymentPlatform->name }}"
-                                        class=""
-                                        data-bs-parent="#"
-                                    >
-                                        @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
-                                    </div>
+                                <div
+                                    id="{{ $paymentPlatform->name }}Collapse"
+
+                                >
+                                    @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
+                                </div>
                                 @endif
                             @endforeach
                             <input type="hidden" />
