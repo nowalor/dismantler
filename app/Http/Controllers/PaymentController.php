@@ -44,7 +44,7 @@ class PaymentController extends Controller
              'buyer_name' => $request->get('name'),
              'buyer_email' => $request->get('email'),
              'quantity' => 1,
-             'part_price' =>123,
+             'part_price' => $carPart->price_eur,
              'city' => $request->get('town'),
          ]);
 

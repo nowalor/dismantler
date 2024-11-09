@@ -9,7 +9,7 @@
                     <a href="{{ route('car-parts.index') }}">Car parts</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('car-parts.show', $carPart) }}">{{ $carPart->name }}</a>
+                    <a href="{{ route('fullview', $carPart) }}">{{ $carPart->new_name }}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Checkout</li>
             </ol>
@@ -34,15 +34,20 @@
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
-                                <h6 class="my-0">{{ $carPart->name }}</h6>
-
+                                <h6 class="my-0">  {{ Str::of($carPart->new_name)->limit(34) }}</h6>
                             </div>
-                            <span class="text-muted">€{{ $carPart->price }}</span>
+                            <span class="text-muted">€{{ $carPart->autoteile_markt_price }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Shipment</h6>
+                            </div>
+                            <span class="text-muted">€{{ $carPart->shipment }}</span>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total (EUR)</span>
-                            <strong>€{{ $carPart->price }}</strong>
+                            <strong>€{{ $carPart->autoteile_markt_price + $carPart->shipment }}</strong>
                         </li>
                     </ul>
 
@@ -167,9 +172,6 @@
                         </div>
 
                         <hr class="my-4">
-
-                        <!-- <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now
-                            €{{ $carPart->price }}</button> -->
                     </form>
                 </div>
             </div>

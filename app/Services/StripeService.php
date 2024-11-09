@@ -48,12 +48,8 @@ class StripeService
 
     public function handlePayment(Array $validated, int $orderId)
     {
-        logger($validated);
         extract($validated);
 
-        logger([
-            'value' => $value,
-        ]);
         $intent = $this->createIntent(
             $value,
             'EUR',

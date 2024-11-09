@@ -39,7 +39,7 @@
     </div>
     <div class="pt-3">
         <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now
-            €{{ $carPart->price }}</button>
+            €{{ $carPart->autoteile_markt_price + $carPart->shipment }}</button>
     </div>
 </div>
 
