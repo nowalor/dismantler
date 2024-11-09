@@ -310,7 +310,6 @@ class NewCarPart extends Model
         $this->load('sbrCode.ditoNumbers.germanDismantlers.engineTypes');
 
         return $this->sbrCode->ditoNumbers->pluck('germanDismantlers')->unique()->flatten();
-
     }
 
     /*
