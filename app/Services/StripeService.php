@@ -48,7 +48,12 @@ class StripeService
 
     public function handlePayment(Array $validated, int $orderId)
     {
+        logger($validated);
         extract($validated);
+
+        logger([
+            'value' => $value,
+        ]);
         $intent = $this->createIntent(
             $value,
             'EUR',
@@ -125,7 +130,7 @@ class StripeService
         // $confirmation->id
 
         // Send emails
-        Mail::send(new SellerPaymentSuccessfulMail());
+        Mail::send(new SellerPaymentSuccessfulMail($order));
 
         return redirect()
             ->route('checkout.success');

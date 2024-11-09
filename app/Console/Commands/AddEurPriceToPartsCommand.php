@@ -63,11 +63,11 @@ class AddEurPriceToPartsCommand extends Command
                 continue;
             }
 
-/*            $divider = $part->country === 'DK' ? 7.47 : 11.49;
+           $divider = $part->country === 'DK' ? 7.47 : 11.49;
             $price = $part->country === 'DK' ? $part->price_dkk : $part->price_sek;
 //
            $part->price_eur = $price / $divider;
-           $part->mileage = $part->country === 'DK' ? $part->mileage_km : $part->mileage_km / 10;*/
+      /*     $part->mileage = $part->country === 'DK' ? $part->mileage_km : $part->mileage_km / 10;*/
 
             $part->mileage_km = $part->mileage * 10;
             $part->save();
