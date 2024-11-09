@@ -20,17 +20,28 @@ use App\Actions\Parts\SortPartsAction;
 use Illuminate\Support\Facades\Cache;
 
 
-class CarPartController extends Controller {
+class CarPartController extends Controller
+{
 
     private const SEARCHABLE_COLUMNS = [
-        'id', 'new_name', 'quality', 'original_number',
-        'article_nr', 'mileage_km', 'model_year',
-        'engine_type', 'fuel', 'price_sek', 'sbr_car_name',
-        'gearbox_nr', 'vin'
+        'id',
+        'new_name',
+        'quality',
+        'original_number',
+        'article_nr',
+        'mileage_km',
+        'model_year',
+        'engine_type',
+        'fuel',
+        'price_sek',
+        'sbr_car_name',
+        'gearbox_nr',
+        'vin'
     ];
 
     // : View | RedirectResponse
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $parts = NewCarPart::select([
             'id',
             'name',
@@ -81,7 +92,7 @@ class CarPartController extends Controller {
         $partTypes = CarPartType::all();
         $dismantleCompanies = DismantleCompany::all();
 
-        return view('car-parts.index', compact (
+        return view('car-parts.index', compact(
             'parts',
             'partTypes',
             'dismantleCompanies',
@@ -92,70 +103,71 @@ class CarPartController extends Controller {
         ));
     }
 
-    public function searchParts(Request $request) {
-    // Retrieve the search query, part type, sorting, and filters
-    $search = $request->input('search');
-    $sort = $request->query('sort');
-    $filters = $request->input('filter', []);
-    $partType = $request->query('type_id'); // Retrieve the part type filter
+    public function searchParts(Request $request)
+    {
+        // Retrieve the search query, part type, sorting, and filters
+        $search = $request->input('search');
+        $sort = $request->query('sort');
+        $filters = $request->input('filter', []);
+        $partType = $request->query('type_id'); // Retrieve the part type filter
 
-    // Reset to the first page if filters are applied
-    if (!empty($filters) || $partType) {
-        $request->merge(['parts' => 1]);
-    }
+        // Reset to the first page if filters are applied
+        if (!empty($filters) || $partType) {
+            $request->merge(['parts' => 1]);
+        }
 
-    $type = null;
+        $type = null;
 
-    if($request->filled('type_id')) {
-        $type = CarPartType::find($request->get('type_id'));
-    }
+        if ($request->filled('type_id')) {
+            $type = CarPartType::find($request->get('type_id'));
+        }
 
-    // Begin building the query
-    $parts = NewCarPart::with([
-        'carPartType',
-        'dismantleCompany',
-        'sbrCode',
-    ]);
+        // Begin building the query
+        $parts = NewCarPart::with([
+            'carPartType',
+            'dismantleCompany',
+            'sbrCode',
+        ]);
 
 
-    if (!empty($search)) {
-        $parts->where(function ($query) use ($search) {
-            foreach (self::SEARCHABLE_COLUMNS as $column) {
-                $query->orWhere($column, 'like', "%$search%");
-            }
+        if (!empty($search)) {
+            $parts->where(function ($query) use ($search) {
+                foreach (self::SEARCHABLE_COLUMNS as $column) {
+                    $query->orWhere($column, 'like', "%$search%");
+                }
+            });
+        }
+
+        // Apply part type filter if provided
+        if (!empty($partType)) {
+            $parts->where('car_part_type_id', $partType);
+        }
+
+        // Apply additional filters dynamically
+        foreach ($filters as $key => $value) {
+            $parts->when(!empty($value), function ($query) use ($key, $value) {
+                return $query->where($key, $value);
+            });
+        }
+
+        // Apply sorting if available
+        $parts = (new SortPartsAction())->execute($parts, $sort);
+
+        // Paginate the results
+        $parts = $parts->paginate(9, ['*'], 'parts')->appends($request->query());
+
+        // Fetch related data for dropdowns or filters, with caching
+        $brands = Cache::remember('car_brands', 60, function () {
+            return CarBrand::all();
         });
-    }
 
-    // Apply part type filter if provided
-    if (!empty($partType)) {
-        $parts->where('car_part_type_id', $partType);
-    }
-
-    // Apply additional filters dynamically
-    foreach ($filters as $key => $value) {
-        $parts->when(!empty($value), function ($query) use ($key, $value) {
-            return $query->where($key, $value);
+        $partTypes = Cache::remember('car_part_types', 60, function () {
+            return CarPartType::all();
         });
-    }
 
-    // Apply sorting if available
-    $parts = (new SortPartsAction())->execute($parts, $sort);
-
-    // Paginate the results
-    $parts = $parts->paginate(9, ['*'], 'parts')->appends($request->query());
-
-    // Fetch related data for dropdowns or filters, with caching
-    $brands = Cache::remember('car_brands', 60, function () {
-        return CarBrand::all();
-    });
-
-    $partTypes = Cache::remember('car_part_types', 60, function () {
-        return CarPartType::all();
-    });
-
-    $dismantleCompanies = Cache::remember('dismantle_companies', 60, function () {
-        return DismantleCompany::all();
-    });
+        $dismantleCompanies = Cache::remember('dismantle_companies', 60, function () {
+            return DismantleCompany::all();
+        });
 
         // Return the view with the filtered data
         return view('browse-car-parts', compact(
@@ -168,19 +180,22 @@ class CarPartController extends Controller {
     }
 
 
-    public function show(CarPart $carPart) {
+    public function show(CarPart $carPart)
+    {
 
         return view('car-parts.show', compact(
             'carPart'
         ));
     }
 
-    public function update(Request $request, CarPart $carPart) {
+    public function update(Request $request, CarPart $carPart)
+    {
         //
     }
 
     // Non-Resourceful Methods
-    public function searchByCode(Request $request): mixed {
+    public function searchByCode(Request $request): mixed
+    {
         // Capture HSN, TSN, and Part Type from the request
         $hsn = $request->get('hsn');
         $tsn = $request->get('tsn');
@@ -247,7 +262,8 @@ class CarPartController extends Controller {
     }
 
 
-    private function redirectBack(array $errors): RedirectResponse {
+    private function redirectBack(array $errors): RedirectResponse
+    {
 
         request()?->flash();
 
@@ -255,81 +271,83 @@ class CarPartController extends Controller {
     }
 
 
-    public function searchByModel(Request $request): mixed {
-    // Find the Dito number
-    $dito = DitoNumber::find($request->get('dito_number_id'));
+    public function searchByModel(Request $request): mixed
+    {
+        // Find the Dito number
+        $dito = DitoNumber::find($request->get('dito_number_id'));
 
-    if(!$dito) {
-        abort(404, 'Dito number not found.');
-    }
-
-    // Find the Car Part Type if specified
-    $type = null;
-    if($request->filled('type_id') && $request->get('type_id') !== 'all') {
-        $type = CarPartType::find($request->get('type_id'));
-    }
-
-    // Sorting and filtering logic
-    $sort = $request->query('sort');
-    $filters = [];
-    foreach ($request->input('filter', []) as $key => $value) {
-        if (!empty($value)) {
-            $filters[$key] = $value;
+        if (!$dito) {
+            abort(404, 'Dito number not found.');
         }
-    }
 
-    // Execute the search
-    $results = (new SearchByModelAction())->execute(
-        model: $dito,
-        type: $type,
-        sort: $sort,
-        filters: $filters,
-        paginate: 10
-    );
+        // Find the Car Part Type if specified
+        $type = null;
+        if ($request->filled('type_id') && $request->get('type_id') !== 'all') {
+            $type = CarPartType::find($request->get('type_id'));
+        }
 
-    $parts = $results['data']['parts'];
-    $partCount = $parts->total(); // Get the total count from the paginator
-
-    // If there's a secondary search term, apply it
-    if ($request->filled('search')) {
-        $search = $request->get('search');
-
-
-        $parts = $parts->filter(function ($part) use ($search) {
-            foreach (self::SEARCHABLE_COLUMNS as $column) {
-                if (stripos($part->$column, $search) !== false) {
-                    return true;
-                }
+        // Sorting and filtering logic
+        $sort = $request->query('sort');
+        $filters = [];
+        foreach ($request->input('filter', []) as $key => $value) {
+            if (!empty($value)) {
+                $filters[$key] = $value;
             }
-            return false;
-        });
+        }
 
-        $partCount = $parts->count();
+        // Execute the search
+        $results = (new SearchByModelAction())->execute(
+            model: $dito,
+            type: $type,
+            sort: $sort,
+            filters: $filters,
+            paginate: 10
+        );
+
+        $parts = $results['data']['parts'];
+        $partCount = $parts->total(); // Get the total count from the paginator
+
+        // If there's a secondary search term, apply it
+        if ($request->filled('search')) {
+            $search = $request->get('search');
+
+
+            $parts = $parts->filter(function ($part) use ($search) {
+                foreach (self::SEARCHABLE_COLUMNS as $column) {
+                    if (stripos($part->$column, $search) !== false) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+
+            $partCount = $parts->count();
+        }
+
+        // Prepare the search parameters for display and further actions
+        $search = [
+            'dito_number_id' => $request->get('dito_number_id'),
+            'brand' => $request->get('brand'),
+            'type_id' => $request->get('type_id'),
+            'search' => $request->get('search'), // Secondary search term
+        ];
+
+        // Get all car part types
+        $partTypes = CarPartType::all();
+
+        return view('parts-model', compact(
+            'parts',
+            'search',
+            'dito',
+            'type',
+            'partTypes',
+            'partCount'
+        ));
     }
 
-    // Prepare the search parameters for display and further actions
-    $search = [
-        'dito_number_id' => $request->get('dito_number_id'),
-        'brand' => $request->get('brand'),
-        'type_id' => $request->get('type_id'),
-        'search' => $request->get('search'), // Secondary search term
-    ];
 
-    // Get all car part types
-    $partTypes = CarPartType::all();
-
-    return view('parts-model', compact(
-        'parts',
-        'search',
-        'dito',
-        'type',
-        'partTypes',
-        'partCount'
-    ));
-}
-
-
-    public function searchByOEM(Request $request) {
+    public function searchByOEM(Request $request)
+    {
         $oem = $request->get('oem');
         $engine_code = $request->get('engine_code');
         $gearbox = $request->get('gearbox');

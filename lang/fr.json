@@ -117,5 +117,9 @@
     "contact-placeholder-email": "Entrez votre email...",
     "contact-form-message": "Message",
     "contact-placeholder-message": "Entrez votre question...",
-    "contact-form-submit": "Envoyer"
+    "contact-form-submit": "Envoyer",
+
+    "//": "Search no result",
+    "search-result-missing-parts": "Certaines pièces peuvent ne pas être affichées sur le site. Vous pouvez toujours <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">nous contacter</a> pour vérifier si nous avons la pièce."
+
 }

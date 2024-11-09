@@ -3,8 +3,8 @@
 namespace App\Actions\Parts;
 
 use App\Models\NewCarPart;
-use Illuminate\Database\Eloquent\Collection;
 use App\Actions\Parts\SortPartsAction;
+use Illuminate\Support\Facades\Log;
 
 class SearchByOeAction
 {
@@ -14,58 +14,67 @@ class SearchByOeAction
         ?string $gearbox,
         ?string $search = null,
         ?string $sort = null,
-        ?string $type_id = null, // Accept type_id
+        ?string $type_id = null,
         ?int $paginate = null
     ): array {
         $partsQuery = NewCarPart::query();
-    
-        // Apply filters based on OEM, engine_code, and gearbox if provided
+
         if (!empty($oem)) {
-            $partsQuery->where('original_number', $oem);
+            $partsQuery->where('original_number', 'LIKE', "%{$oem}%");
         }
-    
+
         if (!empty($engine_code)) {
-            $partsQuery->where('engine_code', $engine_code);
+            $partsQuery->where('engine_code', 'LIKE', "%{$engine_code}%");
         }
-    
+
         if (!empty($gearbox)) {
-            $partsQuery->where('gearbox', $gearbox);
+            $partsQuery->where('gearbox', 'LIKE', "%{$gearbox}%");
         }
-    
-        // Filter by type if type_id is provided
+
         if (!empty($type_id)) {
-            $partsQuery->where('car_part_type_id', $type_id); // Assuming `car_part_type_id` is the relevant column
+            $partsQuery->where('car_part_type_id', $type_id);
         }
-    
-        // Define the searchable columns
+
         $searchableColumns = [
-            'id', 'new_name', 'quality', 'original_number',
-            'article_nr', 'mileage_km', 'model_year',
-            'engine_type', 'fuel', 'price_sek', 'sbr_car_name'
+            'id',
+            'new_name',
+            'quality',
+            'original_number',
+            'article_nr',
+            'mileage_km',
+            'model_year',
+            'engine_type',
+            'fuel',
+            'price_sek',
+            'sbr_car_name'
         ];
-    
-        // Apply the search term across the defined searchable columns
+
+        // Revised search logic for independent keyword matching
         if (!empty($search)) {
-            $partsQuery->where(function ($query) use ($search, $searchableColumns) {
-                foreach ($searchableColumns as $column) {
-                    $query->orWhere($column, 'LIKE', "%{$search}%");
+            $searchTerms = preg_split('/\s+/', trim($search));
+            $partsQuery->where(function ($query) use ($searchTerms, $searchableColumns) {
+                foreach ($searchTerms as $term) {
+                    $query->where(function ($subQuery) use ($term, $searchableColumns) {
+                        foreach ($searchableColumns as $column) {
+                            $subQuery->orWhere($column, 'LIKE', "%{$term}%");
+                        }
+                    });
                 }
             });
         }
-    
-        // Apply sorting if necessary
+
         $partsQuery = (new SortPartsAction())->execute($partsQuery, $sort);
-    
-        // Paginate results if pagination is provided, otherwise get all results
+
+        Log::info('Generated Query:', ['query' => $partsQuery->toSql(), 'bindings' => $partsQuery->getBindings()]);
+
         $parts = is_null($paginate) ? $partsQuery->get() : $partsQuery->paginate($paginate);
-    
+
         return [
             'data' => [
                 'parts' => $parts,
             ],
         ];
     }
-    
-    
-    
 }
+
+

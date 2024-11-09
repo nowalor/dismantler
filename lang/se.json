@@ -113,5 +113,9 @@
     "contact-placeholder-email": "Ange din e-postadress...",
     "contact-form-message": "Meddelande",
     "contact-placeholder-message": "Ange din fråga...",
-    "contact-form-submit": "Skicka"
+    "contact-form-submit": "Skicka",
+
+
+    "//": "Search no result",
+    "search-result-missing-parts": "Vissa delar kanske inte visas på webbplatsen. Du kan alltid <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">kontakta oss</a> för att kontrollera om vi har delen."
 }
