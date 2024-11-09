@@ -127,10 +127,10 @@
                         <h4 class="mb-3">Payment <i class="fa fa-credit-card"></i></h4>
 
 
-                        <p>Pay with...</p>
+               {{--         <p>Pay with...</p>--}}
 
                         <div class="mb-3" id="toggler">
-                            <div class="btn-group btn-group-toggle d-flex gap-2 align-items-center"
+                            {{--<div class="btn-group btn-group-toggle d-flex gap-2 align-items-center"
                                  data-toggle="buttons">
                                 <label data-bs-target="#StripeCollapse"
                                        data-bs-toggle="collapse"
@@ -157,16 +157,18 @@
                                     <input type="radio" name="payment_platform" class="invisible" value="2"
                                            id="payment_platform_paypal">
                                 </label>
-                            </div>
+                            </div>--}}
 
                             @foreach($paymentPlatforms as $paymentPlatform)
-                                <div
-                                    id="{{ $paymentPlatform->name }}Collapse"
-                                    class="collapse"
-                                    data-bs-parent="#toggler"
-                                >
-                                    @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
-                                </div>
+                                @if($paymentPlatform->name === 'Stripe')
+                                    <div
+                                        id="{{ $paymentPlatform->name }}"
+                                        class=""
+                                        data-bs-parent="#"
+                                    >
+                                        @include('components.' . strtolower($paymentPlatform->name) . '-collapse')
+                                    </div>
+                                @endif
                             @endforeach
                             <input type="hidden" />
                         </div>
