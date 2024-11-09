@@ -119,5 +119,9 @@
     "contact-placeholder-email": "Geben Sie Ihre E-Mail-Adresse ein...",
     "contact-form-message": "Nachricht",
     "contact-placeholder-message": "Geben Sie Ihre Frage ein...",
-    "contact-form-submit": "Absenden"
+    "contact-form-submit": "Absenden",
+
+    "//": "Search no result",
+    "search-result-missing-parts": "Einige Teile werden möglicherweise nicht auf der Website angezeigt. Sie können uns jederzeit <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">kontaktieren</a>, um sicherzustellen, ob wir das Teil haben."
+
 }
