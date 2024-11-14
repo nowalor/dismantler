@@ -157,7 +157,7 @@
 
                 <div class="mb-4">
                     <label for="message" class="form-label">{{ __('contact-form-message') }}</label>
-                    <textarea required class="form-control" name="message" id="message" placeholder="{{ __('contact-placeholder-message') }}" style="height: 12rem;">{{ request('part_name') ? 'Regarding ' . request('part_name') . ', Currus Connect ID: ' . request('article_nr') : '' }}</textarea>
+                    <textarea required class="form-control" name="message" id="message" placeholder="{{ __('contact-placeholder-message') }}" style="height: 12rem; resize: none;">{{ request('part_name') ? 'Regarding ' . request('part_name') . ', Currus Connect ID: ' . request('article_nr') : '' }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success w-100">{{ __('contact-form-submit') }}</button>
             </form>
