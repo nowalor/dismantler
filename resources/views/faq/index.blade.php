@@ -18,7 +18,7 @@
 
         <div class="col-10 mx-auto pt-5">
             <!-- Tab navigation for categories -->
-            <ul class="nav nav-tabs justify-content-center shadow-sm mt-2 rounded-3 p-2" id="faqTab" role="tablist">
+            <ul class="nav nav-tabs bg-light justify-content-center shadow-sm mt-2 rounded-3 p-2" id="faqTab" role="tablist">
                 @foreach($questionCategories as $index => $questionCategory)
                     <li class="nav-item" role="presentation">
                         <button class="nav-link @if($index == 0) active @endif text-success fw-bold" id="tab-{{ $index }}" data-bs-toggle="tab" href="#content-{{ $index }}" role="tab" aria-controls="content-{{ $index }}" aria-selected="{{ $index == 0 ? 'true' : 'false' }}">
@@ -79,11 +79,23 @@
             margin-bottom: 10px; 
             color: #28a745;
         }
-        .nav-tabs .nav-link {
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-        }
+    .nav-tabs .nav-link {
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-tabs .nav-link.active {
+        background-color: #28a745; /* Green background for active tab */
+        color: #fff !important;   /* White text for active tab */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for emphasis */
+    }
+
+    .nav-tabs .nav-link:not(.active):hover {
+        background-color: #e8f5e9; /* Light green background on hover */
+        color: #28a745;           /* Green text on hover */
+    }
         .breadcrumb, .list-group-item, .card {
             border: none !important;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -95,7 +107,7 @@
 @push('css')
 <style>
     body {
-        background-color: #f8f9fa !important;
+        background-color: #dce0e6 !important;
         background-image: none !important;
 
     }

@@ -54,7 +54,7 @@
 @push('css')
 <style>
     body {
-        background-color: #f8f9fa !important;
+        background-color: #f1f5f9 !important;
         background-image: none !important;
     }
     .display-4 {
