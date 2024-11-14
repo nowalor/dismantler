@@ -169,8 +169,9 @@
 @push('css')
 <style>
     body {
-        background-color: #f8f9fa !important;
+        background-color: #dce0e6 !important;
         background-image: none !important;
+        padding-bottom: 2rem;
     }
     .breadcrumb, .form-control, .alert {
         border-radius: 0.375rem;
