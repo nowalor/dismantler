@@ -1,7 +1,6 @@
 <div class="w-50 mt-2">
     <input type="hidden" name="payment_method" id="paymentMethod">
 
-
     <img src="{{ asset('img/stripe-logo.png') }}" style="height: 60px;"
          alt="Paypal Logo">
     <p class="mb-3 text-muted fw-light">Pay with credit or debit card.</p>
@@ -39,7 +38,7 @@
     </div>
     <div class="pt-3">
         <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now
-            €{{ $carPart->price }}</button>
+            €{{ $carPart->autoteile_markt_price + $carPart->shipment }}</button>
     </div>
 </div>
 
@@ -61,12 +60,6 @@
     <script>
         const form = document.getElementById('payment-form')
         const payButton = document.getElementById('payment-button')
-
-        console.log(form.elements.payment_platform)
-
-        console.log(form.elements.payment_platform.value)
-
-        console.log({{ $paymentPlatform->id }})
 
         payButton.addEventListener('click', async (e) => {
             e.preventDefault()

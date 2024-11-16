@@ -6,7 +6,7 @@
             <!-- Indicators -->
         <div class="carousel-indicators">
             @foreach($part->carPartImages as $key => $image)
-                <button type="button" data-bs-target="#partImagesCarousel-{{ $part->id }}" data-bs-slide-to="{{ $key }}" 
+                <button type="button" data-bs-target="#partImagesCarousel-{{ $part->id }}" data-bs-slide-to="{{ $key }}"
                         class="{{ $key === 0 ? 'active' : '' }}" aria-current="{{ $key === 0 ? 'true' : 'false' }}" aria-label="Slide {{ $key + 1 }}"></button>
             @endforeach
         </div>
@@ -29,12 +29,12 @@
             </a>
         </div>
     @else
-        <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image" 
+        <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image"
             style="width: 100%; max-width: 25rem; border-radius: 0.7rem; object-fit: cover;">
     @endif
     </td>
     <td class="text-white">
-        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType->name }}</p>     
+        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType->name }}</p>
     </td>
     <td class="text-white">
         @if($part->original_number)
@@ -101,6 +101,7 @@
         <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->getLocalizedPrice() }}</p>
     </td>
     <td>
+        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100 mb-2">{{__('pop-up-buy-now')}}</a>
         <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>
         <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary w-100 mb-2">
             {{__('contact-us')}}
