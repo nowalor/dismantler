@@ -158,7 +158,8 @@
                                            id="payment_platform_paypal">
                                 </label>
                             </div>--}}
-
+                            <input type="radio" name="payment_platform" class="invisible" value="1"
+                                   id="payment_platform_stripe" checked>
                             @foreach($paymentPlatforms as $paymentPlatform)
                                 @if($paymentPlatform->name === 'Stripe')
                                 <div

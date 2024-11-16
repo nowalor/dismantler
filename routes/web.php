@@ -95,7 +95,7 @@ Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem']
 Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
 // full view of individual car part
-Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('f');
+Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {

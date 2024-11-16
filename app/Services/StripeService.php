@@ -69,10 +69,15 @@ class StripeService
             '/v1/payment_intents',
             [],
             formParams: [
-                'amount' => round($value * $this->resolveFactor($currency)),
+              /*  'amount' => round($value * $this->resolveFactor($currency)),*/
+                'amount' => 100,
                 'currency' => strtolower($currency),
                 'payment_method' => $paymentMethod,
-                'confirmation_method' => 'manual',
+             /*   'confirmation_method' => 'manual',*/
+                'automatic_payment_methods' => [
+                    'enabled' => 'true',
+                    'allow_redirects' => 'never',
+                ],
             ],
         );
     }
@@ -119,7 +124,7 @@ class StripeService
                 ->withErrors('We cannot capture the payment. Try again, please.');
         }
 
-        $name = $confirmation->charges->data[0]->billing_details->name;
+    /*    $name = $confirmation->charges->data[0]->billing_details->name;*/
         $currency = strtoupper($confirmation->currency);
         $amount = $confirmation->amount / $this->resolveFactor($currency);
 
