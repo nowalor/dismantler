@@ -16,6 +16,7 @@ use App\Services\ResolveKbaFromSbrCodeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\GetUniqueManufacturerPlaintextController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +104,15 @@ Route::get('car-part-types', function () {
 
     return response()->json($carPartTypes);
 });
+
+// Fetch main categories
+Route::get('/maincategories/{id}', [CategoryController::class, 'getMainCategories']);
+
+// Fetch subcategories for a given main category
+Route::get('/subcategories/{mainCategoryId}', [CategoryController::class, 'getSubcategories']);
+
+// Fetch final categories for a given subcategory
+Route::get('/final-categories/{subCategoryId}', [CategoryController::class, 'getFinalCategories']);
 
 Route::get('service-test', function () {
     $service = new ResolveKbaFromSbrCodeService();

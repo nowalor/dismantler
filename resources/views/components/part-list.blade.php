@@ -3,44 +3,48 @@
         
         <!-- Type of Part Dropdown and Sorting Dropdown (shown on small/medium views) -->
         <div class="col-12 col-md-auto d-flex justify-content-between align-items-center mb-2 mb-md-0">
-            <!-- Type of Part Dropdown -->
-            <div class="dropdown me-2">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Type of Part
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li>
-                        <a href="{{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => null])) }}" class="dropdown-item py-1 px-2">
-                            All
-                        </a>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
-                    @foreach($partTypes as $partType)
-                    <li>
-                        <a href="
-                            @if (Route::currentRouteName() === 'car-parts.search-by-name')
-                                {{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @elseif (Route::currentRouteName() === 'car-parts.search-by-oem')
-                                {{ route('car-parts.search-by-oem', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @elseif (Route::currentRouteName() === 'car-parts.search-by-model')
-                                {{ route('car-parts.search-by-model', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @elseif (Route::currentRouteName() === 'car-parts.search-by-code')
-                                {{ route('car-parts.search-by-code', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @else
-                                #
-                            @endif
-                            " class="dropdown-item py-1 px-2">
-                            {{ __('part-types.' . $partType->name) ?? $partType->name }}
-                        </a>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
-                    @endforeach
-                </ul>
-            </div>
-            
 
-            <!-- Sorting Dropdown (visible on small/medium views) -->
-            <div class="dropdown d-block d-md-none me-2">
+
+<!-- Type of Part Dropdown -->
+<div class="dropdown type-of-part-dropdown me-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"> 
+        Type of Part
+    </button>
+    <!-- Dropdown Content -->
+    <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 600px; gap: 1rem;">
+      
+      <!-- Main Category Column (First Div) -->
+      <div class="dropdown-column" id="main-category">
+        <h6>Main Categories</h6>
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
+          @foreach($partTypes as $partType)
+          <li class="list-group-item main-category-item" data-id="{{ $partType->id }}">
+            {{ __('part-types.' . $partType->name) ?? $partType->name }}
+          </li>
+          @endforeach
+        </ul>
+      </div>
+      
+      <!-- Subcategory Column (Second Div) -->
+      <div class="dropdown-column" id="sub-category">
+        <h6>Sub Category</h6>
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
+          <!-- Dynamic content based on hovered main category -->
+        </ul>
+      </div>
+      
+      <!-- Final Category Column (Third Div) -->
+      <div class="dropdown-column" id="final-category">
+        <h6>Final Items</h6>
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
+          <!-- Dynamic content based on hovered subcategory -->
+        </ul>
+    </div>
+</div>
+
+<!-- Sorting Dropdown (visible on small/medium views) -->
+</div>
+        <div class="dropdown d-block d-md-none me-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     Sort By
                 </button>
@@ -194,15 +198,73 @@
     @endforelse
 </div>
 
+<script>
+// Event listener for main categories
+document.querySelectorAll('.main-category-item').forEach(item => {
+    item.addEventListener('mouseenter', function () {
+        const categoryId = this.getAttribute('data-id');
+        const subCategoryList = document.getElementById('sub-category').querySelector('ul');
+        subCategoryList.innerHTML = ''; // Clear previous subcategories
+
+        // AJAX call to fetch subcategories based on main category ID
+        fetch(`/api/subcategories/${categoryId}`)
+            .then(response => response.json())
+            .then(subcategories => {
+                subcategories.forEach(sub => {
+                    const subItem = document.createElement('li');
+                    subItem.classList.add('list-group-item', 'sub-category-item');
+                    subItem.setAttribute('data-id', sub.id);
+                    subItem.textContent = sub.name;
+                    subCategoryList.appendChild(subItem);
+
+                    // Event listener for subcategory items to fetch final categories
+                    subItem.addEventListener('mouseenter', function () {
+                        const subCategoryId = this.getAttribute('data-id');
+                        const finalCategoryList = document.getElementById('final-category').querySelector('ul');
+                        finalCategoryList.innerHTML = ''; // Clear previous final items
+
+                        // AJAX call to fetch final items based on subcategory ID
+                        fetch(`/api/final-categories/${subCategoryId}`)
+                            .then(response => response.json())
+                            .then(finalItems => {
+                                finalItems.forEach(finalItem => {
+                                    const finalListItem = document.createElement('li');
+                                    finalListItem.classList.add('list-group-item');
+                                    finalListItem.innerHTML = `<a href="/car-parts/search/by-name/${finalItem.id}">${finalItem.name}</a>`;
+                                    finalCategoryList.appendChild(finalListItem);
+                                });
+                            });
+                    });
+                });
+            });
+    });
+});
+</script>
+
 @push('css')
 <style>
     .dropdown-menu {
-        z-index: 1050; 
+        display: none;
+        z-index: 1100; 
+        position: absolute;
+    }
+
+    .type-of-part-dropdown:hover .dropdown-menu {
+        display: flex;
     }
 
     .search-controls {
         position: relative;
         z-index: 1000;
+    }
+
+    .dropdown-column {
+        width: 33%;
+    }
+
+    .list-group-item:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
     }
 </style>
 @endpush

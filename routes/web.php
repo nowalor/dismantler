@@ -22,8 +22,10 @@ use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\CarPartFullviewController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\TemporaryLandingPageController;
+
 
 
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
@@ -107,6 +109,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])
         ->name('admin.kba.delete-connection');
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
+    Route::resource('part-types-categories', CategoryController::class, ['as' => 'admin']);
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
         ->only(['index','show', 'store', 'destroy']);

@@ -29,6 +29,11 @@ class CarPartType extends Model
 //        return $this->hasMany(CarPart::class);
 //    }
 
+    public function subCategories() 
+    {
+        return $this->hasMany(SubCategory::class);
+    }
+
     public function germanCarPartTypes(): BelongsToMany
     {
         return $this->belongsToMany(GermanCarPartType::class);
