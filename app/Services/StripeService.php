@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\View\View;
 
 class StripeService
 {
@@ -73,11 +74,12 @@ class StripeService
                 'amount' => 100,
                 'currency' => strtolower($currency),
                 'payment_method' => $paymentMethod,
-             /*   'confirmation_method' => 'manual',*/
-                'automatic_payment_methods' => [
+                'payment_method_types' => ['card'],
+                'confirmation_method' => 'manual',
+              /*  'automatic_payment_methods' => [
                     'enabled' => 'true',
                     'allow_redirects' => 'never',
-                ],
+                ],*/
             ],
         );
     }
@@ -93,7 +95,7 @@ class StripeService
         return 100;
     }
 
-    public function handleApproval(): RedirectResponse
+    public function handleApproval(): RedirectResponse | View
     {
         if (!session()->has('paymentIntentId')) {
             return redirect()
@@ -118,9 +120,15 @@ class StripeService
             'payment_provider_id' => $confirmation->id,
         ]);
 
-        if (!$confirmation->status === 'succeeded') {
+        if ($confirmation->status === 'requires_action') {
+            $clientSecret = $confirmation->client_secret;
+
+            return view('stripe.3ds-secure')->with(['clientSecret' => $clientSecret]);
+        }
+
+        if ($confirmation->status !== 'succeeded') {
             return redirect()
-                ->route('home')
+                ->back()
                 ->withErrors('We cannot capture the payment. Try again, please.');
         }
 
