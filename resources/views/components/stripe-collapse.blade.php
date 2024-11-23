@@ -1,6 +1,10 @@
 <div class="w-50 mt-2">
     <input type="hidden" name="payment_method" id="paymentMethod">
 
+@if(session('error'))
+    {{ session('error') }}
+@endif
+
     <img src="{{ asset('img/stripe-logo.png') }}" style="height: 60px;"
          alt="Paypal Logo">
     <p class="mb-3 text-muted fw-light">Pay with credit or debit card.</p>
@@ -97,6 +101,8 @@
                     const tokenInput = document.getElementById('paymentMethod')
 
                     tokenInput.value = paymentMethod.id
+
+
                     form.submit()
                 }
             }

@@ -209,7 +209,7 @@
 </body>
 <style>
     body {
-        @if(!in_array(Route::currentRouteName(), ['checkout', 'checkout.success']))
+        @if(!in_array(Route::currentRouteName(), ['checkout', 'checkout.success', 'approval']))
             background-image: url(' {{ asset('img/enginedark.jpg') }}');
         @endif
         background-size: cover;
