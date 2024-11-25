@@ -28,7 +28,7 @@
             </div>
 
             {{-- Part list and search form --}}
-            <x-part-list :parts="$parts" :search="$search" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-model')" />
+            <x-part-list :parts="$parts" :search="$search" :partTypes="$partTypes" :mainCategories="$mainCategories" :sortRoute="route('car-parts.search-by-model')" />
 
             {{-- Pagination links --}}
             @if($parts instanceof \Illuminate\Pagination\LengthAwarePaginator)

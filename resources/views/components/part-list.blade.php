@@ -13,33 +13,25 @@
     <!-- Dropdown Content -->
     <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 600px; gap: 1rem;">
       
-      <!-- Main Category Column (First Div) -->
+      <!-- Main Category Column -->
       <div class="dropdown-column" id="main-category">
         <h6>Main Categories</h6>
         <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
-          @foreach($partTypes as $partType)
-          <li class="list-group-item main-category-item" data-id="{{ $partType->id }}">
-            {{ __('part-types.' . $partType->name) ?? $partType->name }}
-          </li>
-          @endforeach
-        </ul>
-      </div>
-      
-      <!-- Subcategory Column (Second Div) -->
-      <div class="dropdown-column" id="sub-category">
-        <h6>Sub Category</h6>
-        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
-          <!-- Dynamic content based on hovered main category -->
-        </ul>
-      </div>
-      
-      <!-- Final Category Column (Third Div) -->
-      <div class="dropdown-column" id="final-category">
-        <h6>Final Items</h6>
-        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
-          <!-- Dynamic content based on hovered subcategory -->
+            @foreach($mainCategories as $mainCategory)
+            <li class="list-group-item main-category-item" data-id="{{ $mainCategory->id }}">
+                {{ $mainCategory->name }}
+            </li>
+            @endforeach
         </ul>
     </div>
+      
+      <!-- Subcategory Column -->
+      <div class="dropdown-column" id="sub-category">
+        <h6>Sub Categories</h6>
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
+          <!-- Dynamic content for subcategories -->
+        </ul>
+      </div>
 </div>
 
 <!-- Sorting Dropdown (visible on small/medium views) -->
@@ -200,45 +192,39 @@
 
 <script>
 // Event listener for main categories
-document.querySelectorAll('.main-category-item').forEach(item => {
-    item.addEventListener('mouseenter', function () {
-        const categoryId = this.getAttribute('data-id');
-        const subCategoryList = document.getElementById('sub-category').querySelector('ul');
-        subCategoryList.innerHTML = ''; // Clear previous subcategories
+document.addEventListener('DOMContentLoaded', () => {
+    const subCategoryList = document.getElementById('sub-category').querySelector('ul');
 
-        // AJAX call to fetch subcategories based on main category ID
-        fetch(`/api/subcategories/${categoryId}`)
-            .then(response => response.json())
-            .then(subcategories => {
-                subcategories.forEach(sub => {
-                    const subItem = document.createElement('li');
-                    subItem.classList.add('list-group-item', 'sub-category-item');
-                    subItem.setAttribute('data-id', sub.id);
-                    subItem.textContent = sub.name;
-                    subCategoryList.appendChild(subItem);
+    // Clear content of a list
+    const clearList = (list) => { list.innerHTML = ''; };
 
-                    // Event listener for subcategory items to fetch final categories
-                    subItem.addEventListener('mouseenter', function () {
-                        const subCategoryId = this.getAttribute('data-id');
-                        const finalCategoryList = document.getElementById('final-category').querySelector('ul');
-                        finalCategoryList.innerHTML = ''; // Clear previous final items
+    // Add hover functionality for main categories
+    document.querySelectorAll('.main-category-item').forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            const mainCategoryId = this.getAttribute('data-id');
+            clearList(subCategoryList);
 
-                        // AJAX call to fetch final items based on subcategory ID
-                        fetch(`/api/final-categories/${subCategoryId}`)
-                            .then(response => response.json())
-                            .then(finalItems => {
-                                finalItems.forEach(finalItem => {
-                                    const finalListItem = document.createElement('li');
-                                    finalListItem.classList.add('list-group-item');
-                                    finalListItem.innerHTML = `<a href="/car-parts/search/by-name/${finalItem.id}">${finalItem.name}</a>`;
-                                    finalCategoryList.appendChild(finalListItem);
-                                });
-                            });
+            // Fetch and display subcategories for the hovered main category
+            fetch(`/api/subcategories/${mainCategoryId}`)
+                .then(response => response.json())
+                .then(subcategories => {
+                    if (!subcategories.length) {
+                        subCategoryList.innerHTML = '<li class="list-group-item">No subcategories available</li>';
+                        return;
+                    }
+
+                    subcategories.forEach(subcategory => {
+                        const subItem = document.createElement('li');
+                        subItem.classList.add('list-group-item', 'sub-category-item');
+                        subItem.setAttribute('data-id', subcategory.id);
+                        subItem.innerHTML = `<a href="/car-parts/search/by-name?type_id=${subcategory.id}">${subcategory.name}</a>`;
+                        subCategoryList.appendChild(subItem);
                     });
                 });
-            });
+        });
     });
 });
+
 </script>
 
 @push('css')
