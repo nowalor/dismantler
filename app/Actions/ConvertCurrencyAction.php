@@ -3,18 +3,18 @@
 namespace App\Actions;
 
 use Exception;
+use FreeCurrencyApi\FreeCurrencyApi\FreeCurrencyApiClient;
 use GuzzleHttp\Client;
 
 class ConvertCurrencyAction
 {
-    private Client $httpClient;
     private array $exchangeRates = [];
+
+    private FreeCurrencyApiClient $converter;
 
     public function __construct()
     {
-        $this->httpClient = new Client([
-            'base_uri' => config('services.currency_converter.api_url'),
-        ]);
+        $this->converter = new FreeCurrencyApiClient(config('services.currency_converter.api_key'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ConvertCurrencyAction
         $toCurrency = strtoupper($toCurrency);
 
         if ($fromCurrency === $toCurrency) {
-            return $amount; // No conversion needed
+            return $amount;
         }
 
         $exchangeRate = $this->getExchangeRate($fromCurrency, $toCurrency);
@@ -69,20 +69,19 @@ class ConvertCurrencyAction
      */
     private function fetchExchangeRates(string $from): void
     {
+        logger($from);
         try {
-            $response = $this->httpClient->get('latest', [
-                'query' => [
-                    'base' => $from,
-                ],
+            $response = $this->converter->latest([
+                'base_currency' => $from,
+                'currencies' => ['EUR', 'DKK', 'SEK'],
             ]);
 
-            $data = json_decode($response->getBody(), true);
 
-            if (!isset($data['rates']) || !is_array($data['rates'])) {
+            if (!isset($response['data']) || !is_array($response['data'])) {
                 throw new Exception('Invalid API response structure.');
             }
 
-            $this->exchangeRates = $data['rates'];
+            $this->exchangeRates = $response['data'];
         } catch (Exception $e) {
             throw new Exception("Failed to fetch exchange rates: " . $e->getMessage(), $e->getCode(), $e);
         }

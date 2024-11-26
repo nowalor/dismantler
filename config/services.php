@@ -75,6 +75,6 @@ return [
     ],
 
     'currency_converter' => [
-        'api_url' => env('CURRENCY_CONVERTER_API_URL'),
+        'api_key' => env('FREE_CURRENCY_CONVERTER_API_KEY'),
     ],
 ];
