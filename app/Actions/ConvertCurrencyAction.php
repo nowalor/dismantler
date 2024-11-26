@@ -4,12 +4,10 @@ namespace App\Actions;
 
 use Exception;
 use FreeCurrencyApi\FreeCurrencyApi\FreeCurrencyApiClient;
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Cache;
 
 class ConvertCurrencyAction
 {
-    private array $exchangeRates = [];
-
     private FreeCurrencyApiClient $converter;
 
     public function __construct()
@@ -54,11 +52,17 @@ class ConvertCurrencyAction
      */
     private function getExchangeRate(string $fromCurrency, string $toCurrency): float
     {
-        if (empty($this->exchangeRates)) {
-            $this->fetchExchangeRates($fromCurrency);
+        $cacheKey = "exchange-rate-{$fromCurrency}-{$toCurrency}";
+
+        $exchangeRates = Cache::remember($cacheKey, now()->addMinutes(30), function () use ($fromCurrency) {
+            return $this->fetchExchangeRates($fromCurrency);
+        });
+
+        if (!isset($exchangeRates[$toCurrency])) {
+            throw new Exception("Exchange rate for {$toCurrency} not found.");
         }
 
-        return $this->exchangeRates[$toCurrency];
+        return $exchangeRates[$toCurrency];
     }
 
     /**
@@ -67,7 +71,7 @@ class ConvertCurrencyAction
      * @return void
      * @throws Exception If the API request fails or returns invalid data.
      */
-    private function fetchExchangeRates(string $from): void
+    private function fetchExchangeRates(string $from): array
     {
         try {
             $response = $this->converter->latest([
@@ -80,7 +84,7 @@ class ConvertCurrencyAction
                 throw new Exception('Invalid API response structure.');
             }
 
-            $this->exchangeRates = $response['data'];
+            return $response['data'];
         } catch (Exception $e) {
             throw new Exception("Failed to fetch exchange rates: " . $e->getMessage(), $e->getCode(), $e);
         }
