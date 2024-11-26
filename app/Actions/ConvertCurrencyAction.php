@@ -69,7 +69,6 @@ class ConvertCurrencyAction
      */
     private function fetchExchangeRates(string $from): void
     {
-        logger($from);
         try {
             $response = $this->converter->latest([
                 'base_currency' => $from,

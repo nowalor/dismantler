@@ -47,8 +47,9 @@ class StripeService
         return json_decode($response);
     }
 
-    public function handlePayment(Array $validated, int $orderId)
+    public function handlePayment(array $validated, int $orderId)
     {
+        logger($validated);
         extract($validated);
 
         $intent = $this->createIntent(
