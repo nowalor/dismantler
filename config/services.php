@@ -72,5 +72,9 @@ return [
     'nummerplade' => [
         'api_url' => env('NUMMERPLADE_API_URL'),
         'token' => env('NUMMERPLADE_API_TOKEN'),
-    ]
+    ],
+
+    'currency_converter' => [
+        'api_url' => env('CURRENCY_CONVERTER_API_URL'),
+    ],
 ];

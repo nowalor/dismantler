@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Actions\ConvertCurrencyAction;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -255,18 +256,6 @@ class NewCarPart extends Model
         return $this->getShipmentAttribute();
     }
 
-    // including VAT + Shipping
-    public function getTotalPriceDKK() {
-        $shipmentPrice = $this->getShipmentAttribute();
-
-        $autoteileMarktPrice = $this->getAutoteileMarktPriceAttribute();
-
-        $finalPrice = $autoteileMarktPrice + $shipmentPrice;
-
-        $exchangeRate = 7.46;
-
-        return round($finalPrice * $exchangeRate);
-    }
 
     // including VAT + Shipping
     public function getTotalPriceEUR() {
@@ -279,16 +268,34 @@ class NewCarPart extends Model
         return $finalPrice;
     }
 
-    public function getLocalizedPrice() {
+    public function getLocalizedPrice() : array
+    {
         $locale = App::getLocale();
 
-        // For Danish ('dk') and Swedish ('se') locales, return the DKK price
-        if (in_array($locale, ['dk', 'se'])) {
-            return number_format($this->getTotalPriceDKK(), 2) . ' DKK';
+        $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek;
+        $from = $this->country === 'dk' ? 'dkk' : 'sek';
+        $to = 'eur';
+
+        if($locale === 'dk') {
+            $to = 'dkk';
         }
 
-        // For English ('en') and German ('ge') locales, return the EUR price
-        return number_format($this->getTotalPriceEUR(), 2) . ' EUR';
+
+        if($locale === 'se') {
+            $to = 'sek';
+        }
+
+        $convertedPrice = (new ConvertCurrencyAction())->execute(
+            ($price * 3),
+            $from,
+            $to
+        );
+
+        return [
+            'currency' => $to,
+            'price' => number_format($convertedPrice, 2),
+            'symbol' => $to === 'eur' ? '€' : $to,
+        ];
     }
 
     public function getBusinessPriceAttribute() {
@@ -338,5 +345,4 @@ class NewCarPart extends Model
     {
         return $this->hasOne(Order::class);
     }
-
 }
