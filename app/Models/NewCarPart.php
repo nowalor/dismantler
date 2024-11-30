@@ -268,7 +268,7 @@ class NewCarPart extends Model
         return $finalPrice;
     }
 
-    public function getLocalizedPrice() : array
+    public function getLocalizedPrice(): array
     {
         $locale = App::getLocale();
 
@@ -285,17 +285,141 @@ class NewCarPart extends Model
             $to = 'sek';
         }
 
+        $multiplier = $this->country === 'dk' ? $this->getDanishPartPriceMultiplier()
+            : $this->getSwedishPartPriceMultiplier();
+
         $convertedPrice = (new ConvertCurrencyAction())->execute(
-            ($price * 3),
+            $price * $multiplier,
             $from,
             $to
         );
 
         return [
             'currency' => $to,
-            'price' => number_format($convertedPrice, 2),
-            'symbol' => $to === 'eur' ? '€' : $to,
+            'price' => round($convertedPrice),
+            'symbol' => $to === 'eur' ? '€' : strtoupper($to),
         ];
+    }
+
+    private function getSwedishPartPriceMultiplier() : int
+    {
+        if($this->price_sek < 2001) {
+            return 1.4;
+        } elseif ($this->price_sek < 5000) {
+            return 1.3;
+        }
+
+        return 1.25;
+    }
+
+    private function getDanishPartPriceMultiplier()
+    {
+
+    }
+
+    public function getLocalizedShipment(): array
+    {
+        $locale = App::getLocale();
+
+        if($locale === 'dk') {
+            $symbol = 'DKK';
+            $currency = 'dkk';
+
+            if($this->car_part_type_id === 1) {
+                $price = 1500;
+
+                if($this->dismantle_company_name === 'A') {
+                    $price = $price + 750;
+                }
+
+                return [
+                    'price' => $price,
+                    'symbol' => $symbol,
+                    'currency' => $currency,
+                ];
+            }
+
+            if($this->car_part_type_id === 2) {
+                $price = 1000;
+
+              /*  if($this->dismantle_company_name === 'al') {
+                    $price = $price + 750;
+                }*/
+
+                return [
+                    'price' => $price,
+                    'currency' => $symbol,
+                ];
+            }
+        }
+
+        if($locale === 'de') {
+            $symbol = '€';
+            $currency = 'eur';
+
+            if($this->car_part_type_id === 1) {
+                $price = 200;
+
+                if(in_array($this->dismantle_company_name, [
+                    'A', // Ådalens Bildemontering AB
+                    'F', // Norrbottens Bildemontering AB
+                    'D', // Trollhättan
+                    'LI', // Lidköping
+                    'AL', // Allbildelar,
+                    'W' // Lycksele
+                ])) {
+                    $price = $price + 150;
+                }
+
+                return [
+                    'price' => $price,
+                    'symbol' => $symbol,
+                    'currency' => $currency,
+                ];
+            }
+
+            if($this->car_part_type_id === 2) {
+                $price = 150;
+
+                if(in_array($this->dismantle_company_name, [
+                    'A', // Ådalens Bildemontering AB
+                    'F', // Norrbottens Bildemontering AB
+                    'D', // Trollhättan
+                    'LI', // Lidköping
+                    'AL', // Allbildelar,
+                    'W' // Lycksele
+                ])) {
+                    $price = $price + 100;
+                }
+
+                return [
+                    'price' => $price,
+                    'symbol' => $symbol,
+                    'currency' => $currency,
+                ];
+            }
+
+            if($this->car_part_type_id === 3) {
+                $price = 100;
+
+                if(in_array($this->dismantle_company_name, [
+                    'A', // Ådalens Bildemontering AB
+                    'F', // Norrbottens Bildemontering AB
+                    'D', // Trollhättan
+                    'LI', // Lidköping
+                    'AL', // Allbildelar,
+                    'W' // Lycksele
+                ])) {
+                    $price = $price + 100;
+                }
+
+                return [
+                    'price' => $price,
+                    'symbol' => $symbol,
+                    'currency' => $currency,
+                ];
+            }
+        }
     }
 
     public function getBusinessPriceAttribute() {
