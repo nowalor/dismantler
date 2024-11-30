@@ -36,13 +36,13 @@
                             <div>
                                 <h6 class="my-0">  {{ Str::of($carPart->new_name)->limit(34) }}</h6>
                             </div>
-                            <span class="text-muted">€{{ $carPart->autoteile_markt_price }}</span>
+                            <span class="text-muted">{{ $carPart->getLocalizedPrice()['price'] . $carPart->getLocalizedPrice()['symbol']}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
                                 <h6 class="my-0">Shipment</h6>
                             </div>
-                            <span class="text-muted">€{{ $carPart->shipment }}</span>
+                           {{-- <span class="text-muted">€{{ $carPart->getLocalizedShipment()['price'] . $carPart->getLocalizedShipment()['shipment'] }}</span>--}}
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between">

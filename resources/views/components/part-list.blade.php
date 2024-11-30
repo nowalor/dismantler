@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row search-controls" style="border: 0.1rem solid #ccc; border-radius: 0.5rem; margin: 0.5rem 0; padding: 0.5rem; opacity: 0.9;">
-        
+
         <!-- Type of Part Dropdown and Sorting Dropdown (shown on small/medium views) -->
         <div class="col-12 col-md-auto d-flex justify-content-between align-items-center mb-2 mb-md-0">
             <!-- Type of Part Dropdown -->
@@ -37,7 +37,7 @@
                     @endforeach
                 </ul>
             </div>
-            
+
 
             <!-- Sorting Dropdown (visible on small/medium views) -->
             <div class="dropdown d-block d-md-none me-2">
@@ -90,7 +90,7 @@
                 {{-- Search input --}}
                 <input type="text" name="search" class="form-control" placeholder="{{__("car-search-placeholder")}}"
                        value="{{ request()->query('search') }}" style="width: 100%; max-width: 20rem;">
-                
+
                 {{-- Hidden fields to retain existing filters --}}
                 <input type="hidden" name="hsn" value="{{ request()->query('hsn', $search['hsn'] ?? '') }}">
                 <input type="hidden" name="tsn" value="{{ request()->query('tsn', $search['tsn'] ?? '') }}">
@@ -100,11 +100,11 @@
                 <input type="hidden" name="oem" value="{{ request()->query('oem') }}">
                 <input type="hidden" name="engine_code" value="{{ request()->query('engine_code') }}">
                 <input type="hidden" name="gearbox" value="{{ request()->query('gearbox') }}">
-                
+
                 {{-- Submit button --}}
                 <button type="submit" class="btn btn-primary" style="margin-left: 0.5rem;">{{__("car-search-button")}}</button>
             </form>
-        </div>              
+        </div>
     </div>
 </div>
 
@@ -173,7 +173,7 @@
                 <span class="visually-hidden">Next</span>
             </a>
         </div>
-    
+
         <div class="card-body">
             <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType->name }}</h5>
             <p class="card-text"><strong>{{ __('Original number') }}:</strong> {{ $part->original_number ?? 'N/A' }}</p>
@@ -181,9 +181,9 @@
             <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
             <p class="card-text"><strong>{{ __('Mileage') }}:</strong> {{ $part->mileage_km == 0 || $part->mileage_km == 999 ? 'Unknown' : $part->mileage_km }}</p>
             <p class="card-text"><strong>{{ __('Model Year') }}:</strong> {{ $part->model_year }}</p>
-            <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice() }}</p>
+            <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>
         </div>
-    
+
         <div class="card-body d-flex justify-content-between">
             <a href="{{ route('fullview', $part) }}" class="btn btn-primary">{{ __('View Part') }}</a>
             <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary">{{ __('Contact us') }}</a>
@@ -197,7 +197,7 @@
 @push('css')
 <style>
     .dropdown-menu {
-        z-index: 1050; 
+        z-index: 1050;
     }
 
     .search-controls {

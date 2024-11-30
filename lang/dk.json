@@ -123,12 +123,11 @@
     "contact-placeholder-phone": "Indtast dit telefonnummer...",
     "contact-form-message": "Besked",
     "contact-placeholder-message": "Indtast dit spørgsmål...",
-    "contact-form-submit": "Send",
+    "contact-form-submit": "Send"
 
     "//": "Search no result",
     "search-result-missing-parts": "Nogle dele vises muligvis ikke på hjemmesiden. Du kan altid <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">kontakte os</a> for at sikre, om vi har delen.",
 
     "find-specific-parts": "Hitta specifika delar",
     "clear-search": "Ryd søgning"
-    
 }
