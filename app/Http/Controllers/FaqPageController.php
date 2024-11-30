@@ -18,7 +18,15 @@ class FaqPageController extends Controller
         $questionCategories = array_keys($faqs);
 
         $locale = App::getLocale();
-        $folder = $locale === 'ge' ? 'GE' : 'DK'; 
+        //$folder = $locale === 'ge' ? 'GE' : 'DK'; 
+        $folder = match ($locale) {
+            'ge' => 'GE',
+            'dk' => 'DK',
+            'en' => 'EN',
+            'fr' => 'FR',
+            'se' => 'SE',
+            default => 'DK', // Fallback to DK if no match
+        };
 
         return view('faq.index', compact('questionCategories', 'faqs', 'locale', 'folder'));
     }

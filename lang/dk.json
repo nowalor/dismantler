@@ -91,11 +91,12 @@
     "about-intro": "Lær mere om Currus Connect, din betroede partner inden for bildels- og tilbehørsmarkedet.",
     "about-text-one": "Tak fordi du valgte",
     "about-text-two": "- din betroede kilde til motor dele og tilbehør.",
-    "about-text-three": "With over 30 years of experience with used spare parts, Currus-Connect has a unique expertise in this area.",
-    "about-text-four": "With a base in Copenhagen, Denmark, Currus-Connect has an extensive network of Scandinavian car recyclers and therefore access to millions of used spare parts.",
-    "about-text-five": "All spare parts are described in detail, information about chassis number, spare part number and more makes it easy for the customer to find the right spare part.",
-    "about-text-six": "If in doubt, Currus-Connect will be happy to help. The customer service speaks German, Danish, English, Norwegian and Swedish. ",
-    "about-text-seven": "All spare parts are sold with a guarantee for functionality. We look forward to being able to help you further.",
+    "about-text-three": "Med over 30 års erfaring med brugte reservedele har Currus-Connect en unik ekspertise på dette område.",
+    "about-text-four": "Med base i København, Danmark, har Currus-Connect et omfattende netværk af skandinaviske bilgenbrugere og dermed adgang til millioner af brugte reservedele.",
+    "about-text-five": "Alle reservedele er detaljeret beskrevet, oplysninger om chassisnummer, reservedelsnummer og mere gør det nemt for kunden at finde den rigtige reservedel.",
+    "about-text-six": "Hvis der er tvivl, vil Currus-Connect gerne hjælpe. Kundeservice taler tysk, dansk, engelsk, norsk og svensk.",
+    "about-text-seven": "Alle reservedele sælges med en garanti for funktionalitet. Vi ser frem til at kunne hjælpe dig videre.",
+
 
     "//": "FAQ",
     "faq-intro": "Dette er FAQ-siden. Her kan du finde en liste over ofte stillede spørgsmål. Kan du ikke finde det, du leder efter?",
@@ -108,7 +109,6 @@
     "faq-gdpr": "GDPR Politik for behandling og beskyttelse af personoplysninger",
     "faq-terms-of-sale": "Salgs- og leveringsbetingelser Currus-Connect",
 
-    "//": "Contact",
     "//": "Kontakt",
     "contact-us": "Kontakt os",
     "contact-asap": "Og vi vender tilbage til dig så hurtigt som muligt",
@@ -119,7 +119,15 @@
     "contact-placeholder-subject": "Indtast dit emne...",
     "contact-form-email": "E-mail adresse",
     "contact-placeholder-email": "Indtast din e-mail adresse...",
+    "contact-form-phone": "Telefon",
+    "contact-placeholder-phone": "Indtast dit telefonnummer...",
     "contact-form-message": "Besked",
     "contact-placeholder-message": "Indtast dit spørgsmål...",
     "contact-form-submit": "Send"
+
+    "//": "Search no result",
+    "search-result-missing-parts": "Nogle dele vises muligvis ikke på hjemmesiden. Du kan altid <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">kontakte os</a> for at sikre, om vi har delen.",
+
+    "find-specific-parts": "Hitta specifika delar",
+    "clear-search": "Ryd søgning"
 }

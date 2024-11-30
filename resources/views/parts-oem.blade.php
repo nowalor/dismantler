@@ -42,6 +42,9 @@
             </div>
             <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-oem')" />
             {{ $parts->appends(request()->query())->links() }}
+            <p class="text-center mt-3" style="color: red;">
+                {!! __('search-result-missing-parts') !!}
+            </p>
         </div>
     </div>
 </div>

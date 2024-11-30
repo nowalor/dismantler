@@ -87,14 +87,14 @@
 
     "//": "About-Us",
     "about-header": "Über uns",
-    "about-intro": "Erfahren Sie mehr über Currus Connect, Ihren vertrauenswürdigen Partner für Autoersatzteile und Zubehör.",
-    "about-text-one": "Vielen Dank, dass Sie sich für",
-    "about-text-two": "- Ihre vertrauenswürdige Quelle für Autoteile und Zubehör entschieden haben.",
-    "about-text-three": "Currus-Connect hat mit über 30 Jahren Erfahrung mit gebrauchten Ersatzteilen eine unike ekspertise in diesem Bereich.",
-    "about-text-four": "Mit Base in Kopenhagen, Dänemark, hat Currus-Connect ein umfangreiches Netzt von Scandinavischen Autoverwertern und damit Zugriff auf Millionen von gebrauchten Ersatzteilen.",
-    "about-text-five": "Alle Ersatzteile sind im Detail beschrieben, Information um Fahrgestellnummer, Ersatzteilnummer und mehr macht es dem Kunden einfach das richtige Ersatzteil zu finden.",
-    "about-text-six": "Im Zweifelsfall hilft Currus-Connect aber gerne weiter. Der Kundenservice spricht deutsch, dänisch, englisch, norwegisch und schwedisch.",
-    "about-text-seven": "Alle Ersatzteile werden mit Gewährleistung für die funktion verkauft. Wir freuen uns Ihnen weiter helfen zu dürfen.",
+    "about-intro": "Erfahren Sie mehr über Currus Connect, Ihren vertrauenswürdigen Partner im Markt für Autoteile und Zubehör.",
+    "about-text-one": "Danke, dass Sie sich für",
+    "about-text-two": "- Ihre vertrauenswürdige Quelle für Motorteile und Zubehör.",
+    "about-text-three": "Mit über 30 Jahren Erfahrung mit gebrauchten Ersatzteilen verfügt Currus-Connect über eine einzigartige Expertise in diesem Bereich.",
+    "about-text-four": "Mit Sitz in Kopenhagen, Dänemark, verfügt Currus-Connect über ein umfangreiches Netzwerk skandinavischer Autoverwerter und damit Zugang zu Millionen gebrauchter Ersatzteile.",
+    "about-text-five": "Alle Ersatzteile sind detailliert beschrieben, Informationen wie Fahrgestellnummer und Ersatzteilnummer erleichtern es dem Kunden, das richtige Ersatzteil zu finden.",
+    "about-text-six": "Bei Zweifeln hilft Currus-Connect gerne weiter. Der Kundenservice spricht Deutsch, Dänisch, Englisch, Norwegisch und Schwedisch.",
+    "about-text-seven": "Alle Ersatzteile werden mit einer Funktionsgarantie verkauft. Wir freuen uns darauf, Ihnen weiterhelfen zu können.",
 
     "//": "FAQ",
     "faq-intro": "Dies ist die FAQ-Seite. Hier finden Sie eine Liste der häufig gestellten Fragen. Finden Sie nicht, wonach Sie suchen?",
@@ -117,7 +117,15 @@
     "contact-placeholder-subject": "Geben Sie Ihren Betreff ein...",
     "contact-form-email": "E-Mail-Adresse",
     "contact-placeholder-email": "Geben Sie Ihre E-Mail-Adresse ein...",
+    "contact-form-phone": "Telefon",
+    "contact-placeholder-phone": "Geben Sie Ihre Telefonnummer ein...",
     "contact-form-message": "Nachricht",
     "contact-placeholder-message": "Geben Sie Ihre Frage ein...",
-    "contact-form-submit": "Absenden"
+    "contact-form-submit": "Absenden",
+
+    "//": "Search no result",
+    "search-result-missing-parts": "Einige Teile werden möglicherweise nicht auf der Website angezeigt. Sie können uns jederzeit <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">kontaktieren</a>, um sicherzustellen, ob wir das Teil haben.",
+
+    "find-specific-parts": "Spezifische Teile finden",
+    "clear-search": "Suche löschen"
 }

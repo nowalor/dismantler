@@ -86,6 +86,7 @@
                         @endif
                         <p><span class="fw-bold">{{ __('car-part-original') }}: </span>{{ $part->original_number }}</p>
                         <p><span class="fw-bold">{{ __('chassi-nr') }}: </span> {{ $part->vin }} </p>
+                        <p><span class="fw-bold">KBA:</span> {{ $part->kba_number }}</p>
                         <p><span class="fw-bold">{{ __('car-part-modelyear') }}: </span>{{ $part->model_year }}</p>
                         <p><span class="fw-bold">{{ __('car-part-mileage') }}:</span>
                             @if ($part->mileage_km == 999)

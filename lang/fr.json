@@ -88,22 +88,25 @@
 
     "//": "About-Us",
     "about-header": "À propos de nous",
-    "about-intro": "En savoir plus sur Currus Connect, votre partenaire de confiance pour les pièces et accessoires automobiles.",
+    "about-intro": "En savoir plus sur Currus Connect, votre partenaire de confiance dans le marché des pièces et accessoires automobiles.",
     "about-text-one": "Merci d'avoir choisi",
-    "about-text-two": "- votre source fiable pour les pièces et accessoires de véhicules motorisés.",
-    "about-text-three": "Avec plus de 30 ans d'expérience dans le domaine des pièces détachées d'occasion, Currus-Connect possède une expertise unique dans ce domaine.",
-    "about-text-four": "Basée à Copenhague, au Danemark, Currus-Connect dispose d'un vaste réseau de recycleurs de voitures scandinaves et a donc accès à des millions de pièces détachées d'occasion.",
-    "about-text-five": "Toutes les pièces de rechange sont décrites en détail, les informations sur le numéro de châssis, le numéro de pièce de rechange et bien plus encore permettent au client de trouver facilement la bonne pièce de rechange.",
+    "about-text-two": "- votre source fiable pour les pièces moteur et accessoires.",
+    "about-text-three": "Avec plus de 30 ans d'expérience dans les pièces détachées d'occasion, Currus-Connect possède une expertise unique dans ce domaine.",
+    "about-text-four": "Basé à Copenhague, au Danemark, Currus-Connect dispose d'un vaste réseau de recycleurs automobiles scandinaves, avec accès à des millions de pièces détachées d'occasion.",
+    "about-text-five": "Toutes les pièces détachées sont décrites en détail. Les informations sur le numéro de châssis, le numéro de pièce détachée, et bien plus, facilitent la recherche de la pièce adéquate.",
     "about-text-six": "En cas de doute, Currus-Connect se fera un plaisir de vous aider. Le service client parle allemand, danois, anglais, norvégien et suédois.",
     "about-text-seven": "Toutes les pièces détachées sont vendues avec une garantie de fonctionnalité. Nous sommes impatients de pouvoir vous aider davantage.",
-
+    
     "//": "FAQ",
     "faq-intro": "Voici la page FAQ. Vous y trouverez une liste de questions fréquemment posées. Vous ne trouvez pas ce que vous cherchez ?",
     "faq-email-msg": "Envoyez-nous un email.",
     "faq-question": "question",
     "faq-answer": "réponse",
-    "faq-translation_key": "",
-
+    "faq-files-intro": "Vous pouvez consulter ici des informations supplémentaires sur nos politiques concernant l'utilisation des cookies, le droit de rétractation, le RGPD ainsi que les conditions de vente et de livraison sous forme de fichiers PDF.",
+    "faq-cookies": "Currus Connect utilise des cookies sur tous les sites de l'entreprise.",
+    "faq-right-of-withdrawal": "Droit de rétractation",
+    "faq-gdpr": "Politique RGPD pour le traitement et la protection des données personnelles",
+    "faq-terms-of-sale": "Conditions de vente et de livraison de Currus-Connect",
 
     "//": "Contact",
     "contact-us": "Nous contacter",
@@ -115,7 +118,15 @@
     "contact-placeholder-subject": "Entrez votre sujet...",
     "contact-form-email": "Adresse email",
     "contact-placeholder-email": "Entrez votre email...",
+    "contact-form-phone": "Téléphone",
+    "contact-placeholder-phone": "Entrez votre numéro de téléphone...",
     "contact-form-message": "Message",
     "contact-placeholder-message": "Entrez votre question...",
-    "contact-form-submit": "Envoyer"
+    "contact-form-submit": "Envoyer",
+
+    "//": "Search no result",
+    "search-result-missing-parts": "Certaines pièces peuvent ne pas être affichées sur le site. Vous pouvez toujours <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">nous contacter</a> pour vérifier si nous avons la pièce.",
+
+    "find-specific-parts": "Trouver des pièces spécifiques",
+    "clear-search": "Effacer la recherche"
 }
