@@ -132,7 +132,8 @@ class FenixResolveCarPartImagesCommand extends Command
 //            ->whereNull('sold_at')
         /*    ->whereIn('dismantle_company_name', ['AA', 'BB', 'CC'])*/
                /* ->whereIn('car_part_type_id', [1, 2, 3, 4, 5, 6, 7])*/
-             ->whereIn('sbr_part_code',  [
+                ->whereIn('car_part_type_id', [9])
+           /*  ->whereIn('sbr_part_code',  [*/
       /*          "7201",
                 "7280",
                 "7704",
@@ -170,9 +171,9 @@ class FenixResolveCarPartImagesCommand extends Command
                 "7468",
                 "7082",
                 "4626",*/
-                "7470",
+        /*        "7470",*/
           /*      "7487"*/
-            ])
+            /*])*/
          /*       ->where('dismantle_company_name', 'h')*/
             ->where('id', '!=', 156711042137); // TODO, figure out why this one does not work
 
