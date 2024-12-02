@@ -12,11 +12,8 @@
     <img id="hsnTsnImage" src="{{ asset('hsn-tsn.jpg') }}" alt="HSN/TSN Information" class="d-none position-absolute" style="z-index: 1050; width: 92%;">
 
             @if($openForm === 'hsnTsn' && !$isSmallScreen)
-            <div class="card mt-3" style="z-index:5; height: auto;">
+            <div class="card mt-3" style="z-index:5; height: auto; background: none; border: none;">
                 <div class="card-body pt-0">
-                    <p>{{__('kba-search-info')}}</p>
-                    <p>{{__('kba-search-info-hsn') }}</p>
-                    <p>{{__('kba-search-info-tsn') }}</p>
                     <livewire:kba-search :partTypes="$partTypes"/>
                 </div>
             </div>
@@ -31,7 +28,6 @@
                     @if($openForm === 'number-plate' && !$isSmallScreen)
                         <div class="card mt-3" style="z-index:5; height: auto;">
                             <div class="card-body pt-0">
-                                <p class="pt-2"><strong>{{__('oem-search-info')}}</strong></p>
                                 <livewire:number-plate-search/>
                             </div>
                         </div>
@@ -44,25 +40,23 @@
         @endif
         @endif
 
-        <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
-            <button wire:click="openForm('model')" class="fw-semibold btn btn-success mb-3 w-100">{{__('model-search')}}</button>
-            @if($openForm === 'model' && !$isSmallScreen)
-            <div class="card mt-3" style="z-index:5; height: auto;">
-                <div class="card-body pt-0">
-                    @include('partials.errors')
-                    <p class="pt-2"><strong>{{__('model-search-info')}}</strong></p>
-                    <livewire:model-search/>
-                </div>
-            </div>
-            @endif
+<div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
+    <button wire:click="openForm('model')" class="fw-semibold btn btn-success mb-3 w-100">{{ __('model-search') }}</button>
+    @if($openForm === 'model' && !$isSmallScreen)
+    <div class="card mt-3" style="z-index: 5; height: auto; background: none; border: none;">
+        <div class="card-body p-0">
+            @include('partials.errors')
+            <livewire:model-search />
         </div>
+    </div>
+    @endif
+</div>
 
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
             <button wire:click="openForm('oem')" class="fw-semibold btn btn-success mb-3 w-100">{{__('oem-search')}}</button>
             @if($openForm === 'oem' && !$isSmallScreen)
-            <div class="card mt-3" style="z-index:5; height: auto;">
+            <div class="card mt-3" style="z-index:5; height: auto; background: none; border: none;">
                 <div class="card-body pt-0">
-                    <p class="pt-2"><strong>{{__('oem-search-info')}}</strong></p>
                     <livewire:oem-search/>
                 </div>
             </div>
@@ -74,11 +68,8 @@
             @if($openForm === 'hsnTsn')
             <div class="col-12 mb-3 text-center position-relative">
                 <button wire:click="openForm('hsnTsn')" class="fw-semibold btn btn-success mb-3 w-100">{{__('kba-search')}}</button>
-                <div class="card mt-3" style="z-index:5; height: auto;">
+                <div class="card mt-3" style="z-index:5; height: auto; background: none; border: none;">
                     <div class="card-body">
-                        <p>{{__('kba-search-info')}}</p>
-                        <p>{{__('kba-search-info-hsn')}}</p>
-                        <p>{{__('kba-search-info-tsn')}}</p>
                         <livewire:kba-search :partTypes="$partTypes"/>
                     </div>
                 </div>
@@ -86,10 +77,9 @@
             @elseif($openForm === 'model')
             <div class="col-12 mb-3 text-center">
                 <button wire:click="openForm('model')" class="fw-semibold btn btn-success mb-3 w-100">{{__('model-search')}}</button>
-                <div class="card mt-3" style="z-index:5; height: auto;">
+                <div class="card mt-3" style="z-index:5; height: auto; background: none; border: none;">
                     <div class="card-body">
                         @include('partials.errors')
-                        <p>{{__('model-search-info')}}</p>
                         <livewire:model-search/>
                     </div>
                 </div>
@@ -97,9 +87,8 @@
             @elseif($openForm === 'oem')
             <div class="col-12 mb-3 text-center">
                 <button wire:click="openForm('oem')" class="fw-semibold btn btn-success mb-3 w-100">{{__('oem-search')}}</button>
-                <div class="card mt-3" style="z-index:5; height: auto;">
+                <div class="card mt-3" style="z-index:5; height: auto; background: none; border: none;">
                     <div class="card-body">
-                        <p>{{__('oem-search-info')}}</p>
                         <livewire:oem-search/>
                     </div>
                 </div>
@@ -123,8 +112,8 @@
                 <p>{{ __('no-results-message') }}</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="closeModal()">{{ __('close-message') }}</button>
-                <a href="/contact" class="btn btn-primary">{{ __('contact-us') }}</a>
+                <button type="button" class="btn btn-danger" onclick="closeModal()">{{ __('pop-up-close') }}</button>
+                <a href="/contact" class="btn btn-success">{{ __('pop-up-contact') }}</a>
             </div>
         </div>
     </div>

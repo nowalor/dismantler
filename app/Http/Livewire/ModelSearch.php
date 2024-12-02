@@ -12,7 +12,7 @@ use Livewire\Component;
 class ModelSearch extends Component
 {
     public Collection $brands;
-    public Collection | null $models;
+    public Collection|null $models;
     public Collection $types;
 
     public int $selectedBrand = -1;
@@ -30,40 +30,63 @@ class ModelSearch extends Component
 
     public function changeBrand(): void
     {
+        // Reset Model and Type dropdowns when Brand changes
+        $this->selectedModel = -1;
+        $this->selectedType = -1;
+
+        // Load models related to the selected brand
         $brand = CarBrand::find($this->selectedBrand);
+        $this->models = $brand ? DitoNumber::where('producer', $brand->name)->get() : null;
 
-        $models = DitoNumber::where('producer', $brand->name)
-            ->get();
-
-        $this->models = $models;
+        // Reset part count
+        $this->partCount = -1;
     }
 
-    public function render(): View
+    public function updatedSelectedModel(): void
     {
-        return view('livewire.model-search');
+        // Recalculate part count whenever the model changes
+        $this->getPartCount();
+    }
+
+    public function updatedSelectedType(): void
+    {
+        // Recalculate part count whenever the type changes
+        $this->getPartCount();
     }
 
     public function getPartCount(): void
     {
-        if($this->selectedModel === -1) {
+        if ($this->selectedModel === -1) {
+            $this->partCount = -1;
             return;
         }
+
         $ditoNumber = DitoNumber::find($this->selectedModel);
+
+        if (!$ditoNumber) {
+            $this->partCount = 0;
+            return;
+        }
 
         $sbr = $ditoNumber->sbrCodes()->first();
 
-        if(!$sbr) {
+        if (!$sbr) {
+            $this->partCount = 0;
             return;
         }
 
         $countQuery = $sbr->carParts();
 
-        if($this->selectedType !== -1) {
+        if ($this->selectedType !== -1) {
             $type = CarPartType::find($this->selectedType);
-
             $countQuery->where('car_part_type_id', $type->id);
         }
 
         $this->partCount = $countQuery->count();
+    }
+
+    public function render(): View
+    {
+        return view('livewire.model-search');
     }
 }

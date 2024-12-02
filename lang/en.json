@@ -11,26 +11,18 @@
     "car-parts": "CAR PARTS",
     "browse": "BROWSE ALL",
     "kba-search": "SEARCH BY HSN + TSN",
-    "kba-search-info": " ",
-    "kba-search-info-hsn": " ",
-    "kba-search-info-tsn": " ",
     "kba-part-type": "Part of type",
     "kba-search-placeholder": "Select a type",
     "kba-search-button": "Search",
     "no-results-message": "Oops, there was no part matching your search. Maybe we can help you anyway, click here to contact us",
 
     "model-search": "SEARCH BY CAR MODEL",
-    "model-search-info": "Search by Model ",
-    "model-brand": "Brand",
-    "model-model": "Model",
-    "model-part-type": "Part of type",
     "model-brand-placeholder": "Select car brand",
     "model-model-placeholder": "Select car model",
     "model-search-placeholder": "Select a type",
     "model-search-button": "Search",
 
     "oem-search": "SEARCH BY OEM",
-    "oem-search-info": "Search by OEM",
     "oem-oem": "OEM",
     "oem-engine-code": "Engine code",
     "oem-gearbox-code": "Gearbox code",
@@ -122,6 +114,8 @@
     "search-result-missing-parts": "Some parts might not be shown on the website. You can always <a href=\"/contact\" style=\"color: red; text-decoration: underline;\">contact us</a> to make sure if we have the part.",
 
     "find-specific-parts": "Find Specific Parts",
-    "clear-search": "Clear Search"
+    "clear-search": "Clear Search",
+
+    "copyright-text": "All rights reserved."
 
 }
