@@ -11,6 +11,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
+use App\Http\Controllers\StatsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\TemporaryLandingPageController;
 
 
+Route::get('stats', [StatsController::class, 'index']);
 Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
 
 //Route::get('search-by-plate', SearchByPlateController::class);
