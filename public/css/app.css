@@ -1,0 +1,26 @@
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    font-family: 'Cooper Hewitt', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body covers the full viewport height */
+    margin: 0; /* Remove default margin */
+    height: 100%;
+    overflow: auto;
+}
+
+main {
+    flex-grow: 1; /* Push the footer to the bottom */
+    margin-bottom: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: white; /* Optional text color */
+    margin-top: auto;
+}
