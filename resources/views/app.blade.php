@@ -15,7 +15,7 @@
     <link href="https://fonts.cdnfonts.com/css/cooper-hewitt?styles=34279" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title>@yield('title')</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link rel="icon" type="image/x-icon"
         href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
     @livewireStyles
