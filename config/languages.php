@@ -6,4 +6,5 @@ return [
     'se' => ['name' => 'Svenska', 'flag' => 'se'],
     'ge' => ['name' => 'Deutsch', 'flag' => 'de'],
     'fr' => ['name' => 'Français', 'flag' => 'fr'],
+
 ];

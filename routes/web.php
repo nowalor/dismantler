@@ -89,9 +89,9 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 // Regular routes
 Route::resource('car-parts', CarPartController::class);
-Route::get('car-parts/search/by-code' , [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
-Route::get('car-parts/search/by-model' , [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
-Route::get('car-parts/search/by-oem' , [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
+Route::get('car-parts/search/by-code', [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
+Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
+Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
 Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
 // full view of individual car part
@@ -109,9 +109,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
-        ->only(['index','show', 'store', 'destroy']);
+        ->only(['index', 'show', 'store', 'destroy']);
 
-        // dashboard where admin can see how many car-parts we are uploading to ebay, autoteile-markt and hood.de - work in progress
+    // dashboard where admin can see how many car-parts we are uploading to ebay, autoteile-markt and hood.de - work in progress
     Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
 
     Route::resource('car-parts', \App\Http\Controllers\AdminCarPartController::class, ['as' => 'admin']);
@@ -157,7 +157,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 // Stripe webhooks
 Route::stripeWebhooks('marcus-webhook-test');
 
-Route::get('preview', function() {
+Route::get('preview', function () {
     $dismantleId = '123';
     $fenixId = '123';
 
