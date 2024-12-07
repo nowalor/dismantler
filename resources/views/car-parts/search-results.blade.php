@@ -9,7 +9,7 @@
                     <th scope="col">Article Number</th>
                     <th scope="col">Odometer (KM)</th>
                     <th scope="col">Model Year</th>
-                    <th scope="col">Price</th>
+     {{--               <th scope="col">Price</th>--}}
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -20,7 +20,7 @@
                         <td>{{ $part->article_nr }}</td>
                         <td>{{ $part->mileage_km }}</td>
                         <td>{{ $part->model_year }}</td>
-                        <td>{{ $part->price3 }}</td>
+    {{--                    <td>{{ $part->price3 }}</td>--}}
                         <td>
                             <a href="{{ route('fullview', ['part' => $part->id]) }}" class="btn btn-sm btn-primary">View</a>
                         </td>
