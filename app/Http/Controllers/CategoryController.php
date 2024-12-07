@@ -11,11 +11,11 @@ class CategoryController extends Controller
 
     public function index(Request $request)
     {
-        $partType = CarPartType::all();
+        $partTypes = CarPartType::all();
         $mainCategories = MainCategory::all();
 
         return view('admin.part-types-categories.index', compact(
-            'partType',
+            'partTypes',
             'mainCategories',
         ));
     }

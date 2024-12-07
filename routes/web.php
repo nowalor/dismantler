@@ -106,9 +106,9 @@ Route::get('/api/subcategories/{mainCategory}', function (MainCategory $mainCate
     return response()->json($mainCategory->carPartTypes); // Fetch subcategories (car_part_types) related to the main category
 });
 
-Route::get('/api/final-categories/{subCategory}', function (CarPartType $subCategory) {
-    return response()->json($subCategory->carParts); // Fetch final categories (car part types) related to the subcategoryfffffffffffffffffffffffffffff
-});
+/* Route::get('/api/final-categories/{subCategory}', function (CarPartType $subCategory) {
+    return response()->json($subCategory->carParts); // Fetch final categories (car part types) related to the subcategory
+}); */
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -128,10 +128,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('categories/disconnect-car-part/{mainCategory}', [CategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
     // show individual category     
     Route::get('part-types-categories/{category}', [CategoryController::class, 'show'])->name('admin.part-types-categories.show');
-
-    Route::get('/api/car-part-types/{mainCategory}', function (MainCategory $mainCategory) {
-        return $mainCategory->carPartTypes;
-    })->name('api.car-part-types');
 
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])

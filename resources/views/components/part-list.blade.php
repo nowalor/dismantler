@@ -11,12 +11,12 @@
         Type of Part
     </button>
     <!-- Dropdown Content -->
-    <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 600px; gap: 1rem;">
+    <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 26rem; gap: 4rem;">
       
       <!-- Main Category Column -->
       <div class="dropdown-column" id="main-category">
         <h6>Main Categories</h6>
-        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
             @foreach($mainCategories as $mainCategory)
             <li class="list-group-item main-category-item" data-id="{{ $mainCategory->id }}">
                 {{ $mainCategory->name }}
@@ -28,7 +28,7 @@
       <!-- Subcategory Column -->
       <div class="dropdown-column" id="sub-category">
         <h6>Sub Categories</h6>
-        <ul class="list-group list-group-flush overflow-auto" style="max-height: 300px;">
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
           <!-- Dynamic content for subcategories -->
         </ul>
       </div>
@@ -156,7 +156,7 @@
             <div class="carousel-inner">
                 @foreach($part->carPartImages as $key => $image)
                     <div class="carousel-item {{ $key === 0 ? 'active' : '' }} text-center">
-                        <img src="{{ $image->original_url }}" class="d-block img-fluid mx-auto" alt="Car part image" style="max-height: 200px; max-width: 100%; object-fit: contain; background-color: #000;">
+                        <img src="{{ $image->logoGerman() }}" class="d-block img-fluid mx-auto" alt="Car part image" style="max-height: 200px; max-width: 100%; object-fit: contain; background-color: #000;">
                     </div>
                 @endforeach
             </div>
@@ -191,12 +191,14 @@
 </div>
 
 <script>
-// Event listener for main categories
 document.addEventListener('DOMContentLoaded', () => {
     const subCategoryList = document.getElementById('sub-category').querySelector('ul');
 
     // Clear content of a list
     const clearList = (list) => { list.innerHTML = ''; };
+
+    // Get current search parameters
+    const currentParams = new URLSearchParams(window.location.search);
 
     // Add hover functionality for main categories
     document.querySelectorAll('.main-category-item').forEach(item => {
@@ -217,7 +219,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         const subItem = document.createElement('li');
                         subItem.classList.add('list-group-item', 'sub-category-item');
                         subItem.setAttribute('data-id', subcategory.id);
-                        subItem.innerHTML = `<a href="/car-parts/search/by-name?type_id=${subcategory.id}">${subcategory.name}</a>`;
+
+                        // Clone currentParams to avoid mutation
+                        const newParams = new URLSearchParams(currentParams);
+                        newParams.set('type_id', subcategory.id); // Add the type_id filter
+
+                        subItem.innerHTML = `<a href="${window.location.pathname}?${newParams.toString()}">${subcategory.name}</a>`;
                         subCategoryList.appendChild(subItem);
                     });
                 });

@@ -15,8 +15,6 @@
             <div class="card">
                 <div class="card-header">Categories</div>
                 <div class="card-body" id="categories-display">
-                    <!-- Dynamically updated category content will be displayed here -->
-                    <h5>Select a category view to display data.</h5>
                 </div>
             </div>
         </div>
@@ -30,7 +28,7 @@
 
         const mainCategories = @json($mainCategories ?? []);
         // partTypes is just our sub categories to main categories
-        const partTypes = @json($partType ?? []);
+        const partTypes = @json($partTypes ?? []);
 
         const renderCategories = (categories, type) => {
         if (!categories.length) {
@@ -44,7 +42,7 @@
                     <tr>
                         <th># ID</th>
                         <th>${type} Name</th>
-                        <th>Actions</th>
+                        ${type === 'Main Category' ? '<th>Actions</th>' : ''}
                     </tr>
                 </thead>
                 <tbody>
@@ -52,17 +50,23 @@
                         <tr>
                             <td>${category.id}</td>
                             <td>${category.name}</td>
-                            <td>
-                                <a href="/admin/part-types-categories/${category.id}" class="btn btn-primary btn-sm">View</a>
-                            </td>
+                            ${
+                                type === 'Main Category'
+                                    ? `<td>
+                                        <a href="/admin/part-types-categories/${category.id}" class="btn btn-primary btn-sm">View</a>
+                                    </td>`
+                                    : ''
+                            }
                         </tr>
                     `).join('')}
                 </tbody>
             </table>
-        `; // make sure the link to individual category uses dynamic routing once everything works
+        `;
         categoriesDisplay.innerHTML = table;
     };
 
+
+        renderCategories(mainCategories, 'Main Category');
 
         // Event listeners for buttons
         document.getElementById('show-main-categories').addEventListener('click', () => {
