@@ -12,7 +12,7 @@ class GetLocalizedPriceAction
         int $price,
         string $partType,
         string $dismantleCompany,
-    )
+    ): array
     {
         $pricesJson = Storage::get('prices.json');
 

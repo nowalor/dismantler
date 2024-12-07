@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Actions\ConvertCurrencyAction;
+use App\Actions\GetLocalizedPriceAction;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -266,6 +267,24 @@ class NewCarPart extends Model
         $finalPrice = $autoteileMarktPrice + $shipmentPrice;
 
         return $finalPrice;
+    }
+
+    // TODO, name without 'new'
+    public function newGetLocalizedPrice()
+    {
+        $locale = App::getLocale();
+
+        $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
+
+        $priceInfo =  (new GetLocalizedPriceAction())->execute(
+            $locale,
+            $this->country === 'dk' ? 'dk' : 'se',
+            $price,
+            'engine',
+            $this->dismantle_company_name,
+        );
+
+        
     }
 
     public function getLocalizedPrice(): array
