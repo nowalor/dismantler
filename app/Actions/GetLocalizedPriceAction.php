@@ -20,18 +20,22 @@ class GetLocalizedPriceAction
 
         $localizedPrices = $prices[$locale];
 
-
         $dismantleCountryPrices = $localizedPrices[$partFrom];
 
-        $currency = $dismantleCountryPrices['currency'];
+        $toCurrency = $dismantleCountryPrices['currency'];
         $symbol = $dismantleCountryPrices['symbol'];
         $vat = $dismantleCountryPrices['vat'];
 
         $multiplier = $this->getMultiplier($price, $dismantleCountryPrices['ranges']);
         $shipment = $this->getShipment($partType, $dismantleCompany, $dismantleCountryPrices['shipment']);
 
+        $fromCurrency = $locale === 'dk' ? 'dkk' : 'sek';
+
         return [
-            'currency' => $currency,
+            'currency' => [
+                'from' => $fromCurrency,
+                'to' => $toCurrency,
+            ],
             'symbol' => $symbol,
             'vat' => $vat,
             'price' => $price * $multiplier,
