@@ -98,7 +98,8 @@
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td class="text-white">
-        <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>
+        <p><span class="fw-bold">{{ __('car-part-price') }}: </span>Contact us for price</p>
+   {{--     <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>--}}
     </td>
     <td>
 {{--        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100 mb-2">{{__('pop-up-buy-now')}}</a>--}}
