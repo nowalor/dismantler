@@ -103,5 +103,6 @@
     "contact-form-submit": "Skicka in",
     "search-result-missing-parts": "Vissa delar kanske inte visas på webbplatsen. Du kan alltid <a href=\"\/kontakt\" style=\"color: red; text-decoration: underline;\">kontakta oss<\/a> för att se till att vi har delen.",
     "find-specific-parts": "Hitta specifika delar",
-    "clear-search": "Tydlig sökning"
+    "clear-search": "Tydlig sökning",
+    "copyright-text": "Alla rättigheter förbehållna."
 }

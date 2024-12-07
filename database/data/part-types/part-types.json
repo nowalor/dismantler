@@ -63,7 +63,7 @@
         "swedish_car_part_types": [
             {
                 "id": 3,
-                "name": "VÄXEL FÖRDELNINGSLÅDA",
+                "name": "VÃ„XEL FÃ–RDELNINGSLÃ…DA",
                 "code": "7704"
             }
         ]
@@ -90,12 +90,12 @@
         "swedish_car_part_types": [
             {
                 "id": 4,
-                "name": "VÄXELLÅDA TRONIC",
+                "name": "VÃ„XELLÃ…DA TRONIC",
                 "code": "7700"
             },
             {
                 "id": 5,
-                "name": "VÄXELLÅDA AUTOMAT",
+                "name": "VÃ„XELLÃ…DA AUTOMAT",
                 "code": "7705"
             }
         ]
@@ -122,7 +122,7 @@
         "swedish_car_part_types": [
             {
                 "id": 6,
-                "name": "VÄXELLÅDA MAN. 6 VXL",
+                "name": "VÃ„XELLÃ…DA MAN. 6 VXL",
                 "code": "7706"
             }
         ]
@@ -195,7 +195,7 @@
         "danish_car_part_types": [
             {
                 "id": 7,
-                "name": "BAGTØJSKLUMP",
+                "name": "BAGTÃ˜JSKLUMP",
                 "code": "2601",
                 "egluit_id": "3812"
             }
@@ -208,7 +208,7 @@
             },
             {
                 "id": 10,
-                "name": "BAKVÄXEL/DIFF.",
+                "name": "BAKVÃ„XEL/DIFF.",
                 "code": "7145"
             }
         ]
@@ -227,7 +227,7 @@
         "danish_car_part_types": [
             {
                 "id": 8,
-                "name": "ABS BREMSESÆT",
+                "name": "ABS BREMSESÃ†T",
                 "code": "3950",
                 "egluit_id": "3969"
             }
@@ -300,7 +300,7 @@
         "german_car_part_types": [
             {
                 "id": 10,
-                "name": "Elektrik Steuergerät Automatikgetr",
+                "name": "Elektrik SteuergerÃ¤t Automatikgetr",
                 "code": null,
                 "autoteile_markt_category_id": 535
             }
@@ -316,7 +316,7 @@
         "swedish_car_part_types": [
             {
                 "id": 16,
-                "name": "STYRENHET VÄXELLÅDA ",
+                "name": "STYRENHET VÃ„XELLÃ…DA ",
                 "code": "7468"
             }
         ]
@@ -362,7 +362,7 @@
         "danish_car_part_types": [
             {
                 "id": 13,
-                "name": "MULTISKÆRM",
+                "name": "MULTISKÃ†RM",
                 "code": "6034",
                 "egluit_id": "4252"
             }
@@ -370,7 +370,7 @@
         "swedish_car_part_types": [
             {
                 "id": 18,
-                "name": "BILDSKÄRM",
+                "name": "BILDSKÃ„RM",
                 "code": "4626"
             }
         ]
@@ -381,7 +381,7 @@
         "german_car_part_types": [
             {
                 "id": 13,
-                "name": "Motorsteuergerät (ECU)",
+                "name": "MotorsteuergerÃ¤t (ECU)",
                 "code": null,
                 "autoteile_markt_category_id": 534
             }
@@ -524,7 +524,7 @@
         "danish_car_part_types": [
             {
                 "id": 19,
-                "name": "Spændningconverter/omformer",
+                "name": "SpÃ¦ndningconverter/omformer",
                 "code": "7835",
                 "egluit_id": "1111"
             }
@@ -586,7 +586,7 @@
         "swedish_car_part_types": [
             {
                 "id": 26,
-                "name": "VÄXELLÅDA TRONIC",
+                "name": "VÃ„XELLÃ…DA TRONIC",
                 "code": "7700"
             }
         ]
@@ -721,7 +721,7 @@
         "swedish_car_part_types": [
             {
                 "id": 30,
-                "name": "STRÅLKASTARE",
+                "name": "STRÃ…LKASTARE",
                 "code": 1020
             }
         ]
@@ -748,7 +748,7 @@
         "swedish_car_part_types": [
             {
                 "id": 31,
-                "name": "STRÅLKASTARE VÄNSTER",
+                "name": "STRÃ…LKASTARE VÃ„NSTER",
                 "code": 1021
             }
         ]
@@ -767,7 +767,7 @@
         "danish_car_part_types": [
             {
                 "id": 27,
-                "name": "Forlygte højre",
+                "name": "Forlygte hÃ¸jre",
                 "code": "6666",
                 "egluit_id": "1111"
             }
@@ -775,7 +775,7 @@
         "swedish_car_part_types": [
             {
                 "id": 32,
-                "name": "STRÅLKASTARE HÖGER",
+                "name": "STRÃ…LKASTARE HÃ–GER",
                 "code": 1022
             }
         ]
@@ -856,7 +856,7 @@
         "swedish_car_part_types": [
             {
                 "id": 35,
-                "name": "VÄRMEREGLAGE",
+                "name": "VÃ„RMEREGLAGE",
                 "code": 3245
             }
         ]
@@ -883,7 +883,7 @@
         "swedish_car_part_types": [
             {
                 "id": 36,
-                "name": "VÄXELLÅDA 7 SPEED",
+                "name": "VÃ„XELLÃ…DA 7 SPEED",
                 "code": 4573
             }
         ]
@@ -910,7 +910,7 @@
         "swedish_car_part_types": [
             {
                 "id": 37,
-                "name": "DRIVAXEL FRAM VÄ HÖ",
+                "name": "DRIVAXEL FRAM VÃ„ HÃ–",
                 "code": 7050
             }
         ]
@@ -937,7 +937,7 @@
         "swedish_car_part_types": [
             {
                 "id": 38,
-                "name": "DRIVAXEL FRAM VÄNSTER",
+                "name": "DRIVAXEL FRAM VÃ„NSTER",
                 "code": 7051
             }
         ]
@@ -956,7 +956,7 @@
         "danish_car_part_types": [
             {
                 "id": 34,
-                "name": "Drivaksel for højre",
+                "name": "Drivaksel for hÃ¸jre",
                 "code": "6666",
                 "egluit_id": "1111"
             }
@@ -964,7 +964,7 @@
         "swedish_car_part_types": [
             {
                 "id": 39,
-                "name": "DRIVAXEL FRAM HÖGER",
+                "name": "DRIVAXEL FRAM HÃ–GER",
                 "code": 7052
             }
         ]
@@ -983,7 +983,7 @@
         "danish_car_part_types": [
             {
                 "id": 35,
-                "name": "Fortøjsdifferential 4wd",
+                "name": "FortÃ¸jsdifferential 4wd",
                 "code": "6666",
                 "egluit_id": "1111"
             }
@@ -991,6 +991,330 @@
         "swedish_car_part_types": [
             {
                 "id": 40,
+                "name": "FRAMVAGN DIFFRENTIAL",
+                "code": 7070
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Boot base",
+        "german_car_part_types": [
+            {
+                "id": 36,
+                "name": "Hutablage",
+                "code": null,
+                "autoteile_markt_category_id": 149
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 36,
+                "name": "Baghylde",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 41,
+                "name": "HATTHYLLA",
+                "code": 3135
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Front light",
+        "german_car_part_types": [
+            {
+                "id": 37,
+                "name": "Scheinwerfer",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 37,
+                "name": "Forlygte",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 42,
+                "name": "STRÅLKASTARE",
+                "code": 1020
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Front light left",
+        "german_car_part_types": [
+            {
+                "id": 38,
+                "name": "Scheinwerfer links",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 38,
+                "name": "Forlygte venstre",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 43,
+                "name": "STRÅLKASTARE VÄNSTER",
+                "code": 1021
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Front light right",
+        "german_car_part_types": [
+            {
+                "id": 39,
+                "name": "Scheinwerfer rechts",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 39,
+                "name": "Forlygte højre",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 44,
+                "name": "STRÅLKASTARE HÖGER",
+                "code": 1022
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "name": "DVD Player",
+        "german_car_part_types": [
+            {
+                "id": 40,
+                "name": "DVD Spieler",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 40,
+                "name": "DVD afspiller",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 45,
+                "name": "DVD SPELARE",
+                "code": 4638
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Navigation/parts",
+        "german_car_part_types": [
+            {
+                "id": 41,
+                "name": "Navigation/Teile",
+                "code": null,
+                "autoteile_markt_category_id": 272
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 41,
+                "name": "Gps/navigationsdele",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 46,
+                "name": "GPS NAVIGATOR",
+                "code": 3235
+            }
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Heat - regulator",
+        "german_car_part_types": [
+            {
+                "id": 42,
+                "name": "Heizungsschalter",
+                "code": null,
+                "autoteile_markt_category_id": 403
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 42,
+                "name": "Varmeregulering",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 47,
+                "name": "VÄRMEREGLAGE",
+                "code": 3245
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Gearbox 7-gear",
+        "german_car_part_types": [
+            {
+                "id": 43,
+                "name": "Getriebe 7-Gang",
+                "code": null,
+                "autoteile_markt_category_id": 851
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 43,
+                "name": "Gearkasse 7-gear",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 48,
+                "name": "VÄXELLÅDA 7 SPEED",
+                "code": 4573
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Drive shaft - front",
+        "german_car_part_types": [
+            {
+                "id": 44,
+                "name": "Antriebswelle vorne",
+                "code": null,
+                "autoteile_markt_category_id": 869
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 44,
+                "name": "Drivaksel for",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 49,
+                "name": "DRIVAXEL FRAM VÄ HÖ",
+                "code": 7050
+            }
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Drive shaft - front left",
+        "german_car_part_types": [
+            {
+                "id": 45,
+                "name": "Antriebswelle vorne links",
+                "code": null,
+                "autoteile_markt_category_id": 869
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 45,
+                "name": "Drivaksel for venstre",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 50,
+                "name": "DRIVAXEL FRAM VÄNSTER",
+                "code": 7051
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Drive shaft - front right",
+        "german_car_part_types": [
+            {
+                "id": 46,
+                "name": "Antriebswelle vorne rechts",
+                "code": null,
+                "autoteile_markt_category_id": 869
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 46,
+                "name": "Drivaksel for højre",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 51,
+                "name": "DRIVAXEL FRAM HÖGER",
+                "code": 7052
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "name": "Front axle assembly lump - 4wd",
+        "german_car_part_types": [
+            {
+                "id": 47,
+                "name": "Vorderachsdiffirential 4wd",
+                "code": null,
+                "autoteile_markt_category_id": 936
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 47,
+                "name": "Fortøjsdifferential 4wd",
+                "code": "6666",
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 52,
                 "name": "FRAMVAGN DIFFRENTIAL",
                 "code": 7070
             }

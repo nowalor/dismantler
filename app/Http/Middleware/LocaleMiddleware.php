@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class LocaleMiddleware
 {
     // List of supported locales
-    protected $supportedLocales = ['en', 'dk', 'ge', 'se', 'fr'];
+    protected $supportedLocales = ['en', 'dk', 'ge', 'se', 'fr', 'it', 'pl'];
 
     // Map browser locale codes to supported locale codes
     protected $localeMappings = [
@@ -17,6 +17,8 @@ class LocaleMiddleware
         'de' => 'ge', // Map 'de' (browser code) to 'ge'
         'sv' => 'se', // Map 'sv' (browser code) to 'se'
         'fr' => 'fr', // No change for French
+        'it' => 'it', // Map 'it' (browser code) to 'it'
+        'pl' => 'pl', // Map 'pl' (browser code) to 'pl'
     ];
 
     public function handle($request, Closure $next)
