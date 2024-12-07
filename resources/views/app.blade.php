@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+<title>Currus Connect - Home</title>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -20,6 +20,34 @@
         href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
     @livewireStyles
     @stack('css')
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "AutoPartsStore",
+          "name": "Currus Connect",
+          "url": "https://currus-connect.com",
+          "logo": "https://currus-connect.com/img/logos/white-logo-final-EN.png",
+          "image": "https://currus-connect.com/img/logos/white-logo-final-EN.png",
+          "description": "Currus Connect is your trusted source for motor vehicle parts and accessories, offering over 30 years of experience with used spare parts.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rentemestervej 67",
+            "addressLocality": "København",
+            "postalCode": "2400",
+            "addressCountry": "DK"
+          },
+          "contactPoint": [
+        {
+        "@type": "ContactPoint",
+        "telephone": "",
+        "email": "support@currus-connect.com",
+        "contactType": "Customer Support",
+        "availableLanguage": ["English", "Danish", "German", "French", "Swedish"]
+        }
+    ]
+    }
+        </script>
 </head>
 <!-- As a heading -->
 @if (auth()->user() && auth()->user()->is_admin)
