@@ -1,22 +1,35 @@
-    <form action="{{ route('car-parts.search-by-code') }}">
-        <div style="text-align: left;">
-            <!-- HSN Input -->
-            <div class="mb-3">
-                <label for="hsn" class="form-label">HSN</label>
-                <input type="text" id="hsn" class="form-control" name="hsn" value="{{ old('hsn', $search['hsn'] ?? '') }}" wire:model="hsn" maxLength="4">
-            </div>
+<form action="{{ route('car-parts.search-by-code') }}">
+    <div>
+        <!-- HSN Input with Icon -->
+        <div class="mb-3 mt-2 position-relative">
+            <input type="text" id="hsn" class="form-control" name="hsn" 
+                   value="{{ old('hsn', $search['hsn'] ?? '') }}" 
+                   wire:model="hsn" maxLength="4" 
+                   placeholder="{{ __('Enter HSN') }}" 
+                   style="border: 1px solid #ccc; border-radius: 12px; padding: 10px; padding-right: 40px;">
+            <span class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                <i class="fas fa-barcode" style="color: #ccc;"></i>
+            </span>
+        </div>
 
-            <!-- TSN Input -->
-            <div class="mb-3">
-                <label for="tsn" class="form-label">TSN</label>
-                <input type="text" id="tsn" class="form-control" name="tsn" value="{{ old('tsn', $search['tsn'] ?? '') }}" wire:model="tsn" maxLength="3">
-            </div>
+        <!-- TSN Input with Icon -->
+        <div class="mb-3 position-relative">
+            <input type="text" id="tsn" class="form-control" name="tsn" 
+                   value="{{ old('tsn', $search['tsn'] ?? '') }}" 
+                   wire:model="tsn" maxLength="3" 
+                   placeholder="{{ __('Enter TSN') }}" 
+                   style="border: 1px solid #ccc; border-radius: 12px; padding: 10px; padding-right: 40px;">
+            <span class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                <i class="fas fa-barcode" style="color: #ccc;"></i>
+            </span>
+        </div>
 
-            <!-- Part Type Selection -->
+        <!-- Part Type Dropdown -->
         <div class="mb-3">
-            <label for="part-type" class="form-label">{{__('kba-part-type')}}</label>
-            <select name="type_id" class="form-select" id="part-type" wire:model="partType">
-                <option value="-1" disabled selected>{{__('kba-search-placeholder')}}</option>
+            <select name="type_id" class="form-select" id="part-type" 
+                    wire:model="partType" 
+                    style="border: 1px solid #ccc; border-radius: 12px; padding: 10px;">
+                <option value="-1" disabled selected>{{ __('kba-search-placeholder') }}</option>
                 @foreach($partTypes as $type)
                     <option value="{{ $type->id }}" 
                         @if(isset($search['type_id']) && $type->id == $search['type_id']) selected @endif>
@@ -28,14 +41,18 @@
 
         <!-- Search Button -->
         @if(isset($partCount) && $partCount !== -1)
-            <div style="margin-top: 1rem;">
-                <button class="btn btn-primary w-100 uppercase" @if($partCount === 0) disabled @endif>
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-success text-uppercase"
+                        style="padding: 8px 20px; border-radius: 12px; background-color: #28a745; border: none; color: white;" 
+                        @if($partCount === 0) disabled @endif>
                     Search {{ $partCount }} results
                 </button>
             </div>
         @else
-            <div style="margin-top: 1rem;">
-                <button class="btn btn-primary w-100 uppercase" disabled>{{__('kba-search-button')}}</button>
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-success text-uppercase"
+                        style="padding: 8px 20px; border-radius: 12px; background-color: #28a745; border: none; color: white;" 
+                        disabled>{{ __('kba-search-button') }}</button>
             </div>
         @endif
     </div>

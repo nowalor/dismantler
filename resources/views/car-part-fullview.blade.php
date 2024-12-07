@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h3 class="fw-bold large-text">{{ $part->sbr_car_name }}</h3>
                         <h4 class="text-primary large-text">
-                            {{ $part->getLocalizedPrice() }}
+                            {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol']}}
                             <span>{{ __('vat-shipping') }}</span>
                             <a href="javascript:void(0);" onclick="showInfoPopup()">
                                 <i class="fas fa-info-circle ml-2"></i>
@@ -60,8 +60,12 @@
                             'contactButton' => __('pop-up-contact'),
                         ])
 
+                {{--        <a href="{{ route('checkout', $part) }}"
+                           class="btn btn-primary w-100 mt-4 mb-2">
+                            Buy now
+                        </a>--}}
                         <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}"
-                            class="btn btn-primary w-100 mt-4 mb-4">
+                            class="btn btn-primary w-100 mb-4">
                             {{ __('contact-us') }}
                         </a>
                         {{-- <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100 mt-4 mb-4">Checkout</a>

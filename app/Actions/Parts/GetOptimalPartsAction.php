@@ -10,7 +10,7 @@ class GetOptimalPartsAction
     public function execute(string $oem, array $includedIn = []): Collection
     {
         $cheapestPartQuery = NewCarPart::where('original_number', $oem)
-            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7])
+            ->whereIn('car_part_type_id', [1,2,3,4,5,6,7,8 ,9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
             ->orderBy('price_eur');
 
         $partWithBestMileageQuery = NewCarPart::where('original_number', $oem)
