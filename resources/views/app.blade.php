@@ -44,10 +44,10 @@
         "email": "support@currus-connect.com",
         "contactType": "Customer Support",
         "availableLanguage": ["English", "Danish", "German", "French", "Swedish"]
-        }
-    ]
+            }
+        ]
     }
-        </script>
+</script>
 </head>
 <!-- As a heading -->
 @if (auth()->user() && auth()->user()->is_admin)
