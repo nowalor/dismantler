@@ -10,7 +10,8 @@ class GetLocalizedPriceAction
         string $locale,
         string $partFrom,
         int $price,
-      /*  string $partType, */
+        string $partType,
+        string $dismantleCompany,
     )
     {
         $pricesJson = Storage::get('prices.json');
@@ -27,16 +28,18 @@ class GetLocalizedPriceAction
         $vat = $dismantleCountryPrices['vat'];
 
         $multiplier = $this->getMultiplier($price, $dismantleCountryPrices['ranges']);
+        $shipment = $this->getShipment($partType, $dismantleCompany, $dismantleCountryPrices['shipment']);
 
         return [
             'currency' => $currency,
             'symbol' => $symbol,
             'vat' => $vat,
-            'multiplier' => $multiplier,
+            'price' => $price * $multiplier,
+            'shipment' => $shipment,
         ];
     }
 
-    private function getMultiplier(int $price, array $ranges)
+    private function getMultiplier(int $price, array $ranges): float
     {
         foreach ($ranges as $range => $multiplier) {
             [$min, $max] = explode('-', $range);
@@ -49,5 +52,24 @@ class GetLocalizedPriceAction
         }
 
         return 1.5;
+     }
+
+     private function getShipment(
+         string $partType,
+         string $dismantleCompany,
+         array $shipmentInformation
+     ): array
+     {
+        $base = $shipmentInformation[$partType]['base'];
+        $additional = 0;
+
+        if(isset($shipmentInformation[$partType]['extra'][$dismantleCompany])) {
+            $additional = $shipmentInformation[$partType]['extra'][$dismantleCompany];
+        }
+        return [
+            'base' => $base,
+            'additional' => $additional,
+            'total' => $base + $additional,
+        ];
      }
 }
