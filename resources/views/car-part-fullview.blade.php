@@ -44,13 +44,13 @@
                 <div class="card shadow-sm mb-2">
                     <div class="card-body">
                         <h3 class="fw-bold large-text">{{ $part->sbr_car_name }}</h3>
-                        <h4 class="text-primary large-text">
+                {{--        <h4 class="text-primary large-text">
                             {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol']}}
                             <span>{{ __('vat-shipping') }}</span>
                             <a href="javascript:void(0);" onclick="showInfoPopup()">
                                 <i class="fas fa-info-circle ml-2"></i>
                             </a>
-                        </h4>
+                        </h4>--}}
 
                         <!--Pop up message-->
                         @include('components.pop-up', [
