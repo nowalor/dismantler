@@ -21,7 +21,7 @@
     @livewireStyles
     @stack('css')
 
-    <script src="{{ asset('js/metaData.js') }}" defer></script>
+    <script src="{{ asset('metaData.js') }}" defer></script>
 
 </head>
 <!-- As a heading -->
