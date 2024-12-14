@@ -104,53 +104,6 @@
     </nav>
 @endif
 
-{{-- <header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
-    <nav class="container d-flex justify-content-between">
-        <a href="{{ route('landingpage') }}" class="d-flex align-items-center text-decoration-none">
-            <img class="d-inline-block" src="{{ asset('currus-logo.png') }}" width="50rem" height="50rem" style="padding: 0.1rem;" />
-            <h4 class="text-white mb-0">Currus Connect</h4>
-        </a>
-
-        <!-- Toggle button for mobile view -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto gap-3">
-                <li class="nav-item">
-                    <a href="/" class="nav-link text-white">{{ __('home') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/car-parts/search/by-name?search=" class="nav-link text-white">{{ __('parts') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('about-us') }}" class="nav-link text-white">{{ __('about-us') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>
-                </li>
-            </ul>
-
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ strtoupper(App::getLocale()) }}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                    <li><a class="dropdown-item" href="{{ route('change.language', 'en') }}">English</a></li>
-                    <li><a class="dropdown-item" href="{{ route('change.language', 'dk') }}">Danish</a></li>
-                    <li><a class="dropdown-item" href="{{ route('change.language', 'se') }}">Swedish</a></li>
-                    <li><a class="dropdown-item" href="{{ route('change.language', 'ge') }}">German</a></li>
-                    <li><a class="dropdown-item" href="{{ route('change.language', 'fr') }}">French</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header> --}}
-
 <header class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <nav class="container d-flex justify-content-between">
         <a href="{{ route('landingpage') }}" class="d-flex align-items-center text-decoration-none">

@@ -16,7 +16,8 @@ use App\Services\ResolveKbaFromSbrCodeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\GetUniqueManufacturerPlaintextController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ViewCarPartTypesController;
+use App\Models\MainCategory;
 
 
 /*
@@ -40,6 +41,10 @@ Route::get('engine-types', function () {
 
     return $engineTypes;
 });
+
+// fetching part types depending on what category you're hovering
+Route::get('/subcategories/{mainCategory}', [ViewCarPartTypesController::class, 'index']);
+Route::get('/categories-with-subcategories', [ViewCarPartTypesController::class,'getAllCategories']);
 
 Route::get('for-marcus', function () {
     $parts = NewCarPart::select('sbr_car_name', 'sbr_car_code', 'engine_type')
