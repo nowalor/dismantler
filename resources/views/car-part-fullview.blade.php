@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h3 class="fw-bold large-text">{{ $part->sbr_car_name }}</h3>
                         <h4 class="text-primary large-text">
-                            {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol']}}
+                            {{ $part->full_price . $part->newGetLocalizedPrice()['symbol']}}
                             <span>{{ __('vat-shipping') }}</span>
                             <a href="javascript:void(0);" onclick="showInfoPopup()">
                                 <i class="fas fa-info-circle ml-2"></i>

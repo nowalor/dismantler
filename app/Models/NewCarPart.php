@@ -292,9 +292,17 @@ class NewCarPart extends Model
 
         return [
             'price' => round($convertedPrice, 2),
-            'testing' => $priceInfo,
+            'currency' => $priceInfo['currency']['to'],
             'symbol' => $priceInfo['symbol'],
+            'shipment' => $priceInfo['shipment'],
         ];
+    }
+
+    public function getFullPriceAttribute()
+    {
+        $price = $this->newGetLocalizedPrice();
+
+        return $price['price'] + $price['shipment']['total'];
     }
 
     public function getLocalizedPrice(): array
