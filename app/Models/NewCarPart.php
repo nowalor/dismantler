@@ -276,6 +276,11 @@ class NewCarPart extends Model
 
         $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
+        ($locale);
+        if(in_array($locale, ['se'])) {
+            $locale = 'en';
+        }
+
         $priceInfo = (new GetLocalizedPriceAction())->execute(
             $locale,
             $this->country === 'dk' ? 'dk' : 'se',
@@ -291,7 +296,7 @@ class NewCarPart extends Model
         );
 
         return [
-            'price' => round($convertedPrice, 2),
+            'price' => round($convertedPrice),
             'currency' => $priceInfo['currency']['to'],
             'symbol' => $priceInfo['symbol'],
             'shipment' => $priceInfo['shipment'],
