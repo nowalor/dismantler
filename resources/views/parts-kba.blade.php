@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <x-part-list :parts="$parts" :search="$search" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-code')"/>
+            <x-part-list :parts="$parts" :search="$search" :partTypes="$partTypes" :mainCategories="$mainCategories" :sortRoute="route('car-parts.search-by-code')"/>
             @if($parts instanceof \Illuminate\Pagination\LengthAwarePaginator)
                 {{ $parts->appends(request()->query())->links() }}
             @endif

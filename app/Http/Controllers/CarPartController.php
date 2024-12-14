@@ -18,6 +18,7 @@ use Illuminate\Http\Response;
 use Illuminate\View\View;
 use App\Actions\Parts\SortPartsAction;
 use Illuminate\Support\Facades\Cache;
+use App\Models\MainCategory;
 
 
 class CarPartController extends Controller
@@ -52,6 +53,8 @@ class CarPartController extends Controller
         ])->with('ditoNumber', 'carPartType');
 
         $kba = null;
+
+        $mainCategories = MainCategory::with('carPartTypes')->get();
 
         $brands = CarBrand::all();
 
@@ -99,7 +102,8 @@ class CarPartController extends Controller
             'kba',
             'partsDifferentCarSameEngineType',
             'brands',
-            'ditoNumber'
+            'ditoNumber',
+            'mainCategories'
         ));
     }
 
@@ -110,6 +114,7 @@ class CarPartController extends Controller
         $sort = $request->query('sort');
         $filters = $request->input('filter', []);
         $partType = $request->query('type_id'); // Retrieve the part type filter
+        $mainCategories = MainCategory::with('carPartTypes')->get();
 
         // Reset to the first page if filters are applied
         if (!empty($filters) || $partType) {
@@ -175,7 +180,8 @@ class CarPartController extends Controller
             'partTypes',
             'type',
             'dismantleCompanies',
-            'brands'
+            'brands',
+            'mainCategories'
         ));
     }
 
@@ -200,6 +206,7 @@ class CarPartController extends Controller
         $hsn = $request->get('hsn');
         $tsn = $request->get('tsn');
         $type = $request->filled('type_id') ? CarPartType::find($request->get('type_id')) : null;
+        $mainCategories = MainCategory::with('carPartTypes')->get();
 
         // Validate presence of HSN and TSN
         if (!$hsn || !$tsn) {
@@ -257,7 +264,8 @@ class CarPartController extends Controller
             'partTypes',
             'type',
             'kba',
-            'partCount'
+            'partCount',
+            'mainCategories'
         ));
     }
 
@@ -285,6 +293,8 @@ class CarPartController extends Controller
         if ($request->filled('type_id') && $request->get('type_id') !== 'all') {
             $type = CarPartType::find($request->get('type_id'));
         }
+
+        $mainCategories = MainCategory::with('carPartTypes')->get();
 
         // Sorting and filtering logic
         $sort = $request->query('sort');
@@ -341,7 +351,8 @@ class CarPartController extends Controller
             'dito',
             'type',
             'partTypes',
-            'partCount'
+            'partCount',
+            'mainCategories'
         ));
     }
 
@@ -354,6 +365,7 @@ class CarPartController extends Controller
         $search = $request->query('search'); // Capture the search term
         $sort = $request->query('sort');
         $type_id = $request->query('type_id'); // Capture the type_id from the request
+        $mainCategories = MainCategory::with('carPartTypes')->get();
 
         // Prepare the query based on filters and the search term
         $results = (new SearchByOeAction())->execute(
@@ -381,7 +393,8 @@ class CarPartController extends Controller
             'oem',
             'engine_code',
             'gearbox',
-            'partTypes'
+            'partTypes',
+            'mainCategories'
         ));
     }
 
