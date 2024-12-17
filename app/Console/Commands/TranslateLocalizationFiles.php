@@ -8,36 +8,21 @@ use GuzzleHttp\Client;
 
 class TranslateLocalizationFiles extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'localization:translate';
+    protected $description = 'Translate JSON and PHP localization files using DeepL API while preserving existing translations';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Translate JSON localization files using DeepL API and maintain formatting';
+    protected $doNotTranslateKeys = ['categories', 'question', 'answer'];
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
     public function handle()
     {
-        $sourceLang = 'en'; // Source language code
-        $deeplApiKey = env('DEEPL_TRANSLATE'); // Fetching the DeepL API key from .env
+        $sourceLang = 'en';
+        $deeplApiKey = env('DEEPL_TRANSLATE');
 
         if (!$deeplApiKey) {
-            $this->error('DeepL API key not found in .env file. Please set the DEEPL_TRANSLATE variable.');
+            $this->error('DeepL API key is missing in .env file.');
             return Command::FAILURE;
         }
 
-        // Define the target languages and their corresponding DeepL language codes
         $targetLangs = [
             'dk' => 'DA', // Danish
             'fr' => 'FR', // French
@@ -47,93 +32,157 @@ class TranslateLocalizationFiles extends Command
             'pl' => 'PL', // Polish
         ];
 
-        // Path to the source file
+        $client = new Client(['base_uri' => 'https://api-free.deepl.com/v2/']);
+
+        // 1. Translate JSON files
+        $this->translateJsonFile($sourceLang, $targetLangs, $client, $deeplApiKey);
+
+        // 2. Translate PHP array files
+        $phpFiles = ['part-types.php', 'pagination.php', 'faqs.php'];
+        foreach ($phpFiles as $phpFile) {
+            $this->translateFile($sourceLang, $phpFile, $targetLangs, $client, $deeplApiKey);
+        }
+
+        $this->info("All files have been translated successfully!");
+        return Command::SUCCESS;
+    }
+
+    protected function translateJsonFile($sourceLang, $targetLangs, $client, $apiKey)
+    {
         $sourceFilePath = base_path("lang/{$sourceLang}.json");
 
         if (!File::exists($sourceFilePath)) {
-            $this->error("Source file not found at: {$sourceFilePath}");
-            return Command::FAILURE;
+            $this->error("Source JSON file not found: {$sourceFilePath}");
+            return;
         }
 
         $sourceContent = json_decode(File::get($sourceFilePath), true);
 
-        if (empty($sourceContent)) {
-            $this->error("Source file {$sourceLang}.json is empty or invalid.");
-            return Command::FAILURE;
-        }
+        foreach ($targetLangs as $langDir => $deeplCode) {
+            $this->info("Translating JSON file to {$langDir} ({$deeplCode})...");
 
-        $client = new Client([
-            'base_uri' => 'https://api-free.deepl.com/v2/',
-        ]);
-
-        // Define a regex pattern to detect all-uppercase shortcuts
-        $shortcutPattern = '/^[A-Z]{2,}$/';
-
-        foreach ($targetLangs as $langFile => $langCode) {
-            $this->info("Processing translations for {$langFile} ({$langCode})...");
-
-            $targetFilePath = base_path("lang/{$langFile}.json");
+            $targetFilePath = base_path("lang/{$langDir}.json");
             $targetContent = File::exists($targetFilePath)
                 ? json_decode(File::get($targetFilePath), true)
                 : [];
 
-            if (is_null($targetContent)) {
-                $targetContent = [];
-            }
-
             foreach ($sourceContent as $key => $text) {
-                // Skip comments
-                if (str_starts_with($key, "//")) {
-                    $targetContent[$key] = $text;
+                if (!empty($targetContent[$key])) {
                     continue;
                 }
 
-                // If the key already exists in the target and is not empty, skip translation
-                if (isset($targetContent[$key]) && !empty($targetContent[$key])) {
-                    continue;
-                }
-
-                // Check if the text matches the shortcut pattern (e.g., "FAQ")
-                if (preg_match($shortcutPattern, $text)) {
-                    $targetContent[$key] = $text; // Preserve as-is
-                    $this->info("Preserved shortcut '{$text}' for '{$langFile}'.");
-                    continue;
-                }
-
-                try {
-                    // Translate using DeepL API
-                    $response = $client->post('translate', [
-                        'form_params' => [
-                            'auth_key' => $deeplApiKey,
-                            'text' => $text,
-                            'source_lang' => strtoupper($sourceLang),
-                            'target_lang' => $langCode,
-                        ],
-                    ]);
-
-                    $responseBody = json_decode($response->getBody(), true);
-
-                    if (!empty($responseBody['translations'][0]['text'])) {
-                        $targetContent[$key] = $responseBody['translations'][0]['text'];
-                        $this->info("Translated '{$key}' to '{$langFile}': {$targetContent[$key]}");
-                    } else {
-                        $this->error("Translation failed for '{$key}' to '{$langFile}', using English fallback.");
-                        $targetContent[$key] = $text;
-                    }
-                } catch (\Exception $e) {
-                    $this->error("Error translating key '{$key}' to '{$langFile}': " . $e->getMessage());
+                if (is_string($text)) {
+                    $translatedText = $this->translateString($text, $sourceLang, $deeplCode, $client, $apiKey);
+                    $targetContent[$key] = $translatedText ?: $text;
+                } else {
                     $targetContent[$key] = $text;
                 }
             }
 
-            // Save the updated JSON content with proper formatting
-            $formattedContent = json_encode($targetContent, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            File::put($targetFilePath, $formattedContent);
+            File::put($targetFilePath, json_encode($targetContent, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+            $this->info("JSON translation saved to {$targetFilePath}");
+        }
+    }
 
-            $this->info("Translation for {$langFile} completed and saved.");
+    protected function translateFile($sourceLang, $file, $targetLangs, $client, $apiKey)
+    {
+        $sourcePath = base_path("lang/{$sourceLang}/{$file}");
+
+        if (!File::exists($sourcePath)) {
+            $this->error("Source file not found: {$sourcePath}");
+            return;
         }
 
-        $this->info("All translations are up to date!");
-        return Command::SUCCESS;
+        $sourceArray = require $sourcePath;
+
+        foreach ($targetLangs as $langDir => $deeplCode) {
+            $this->info("Translating {$file} to {$langDir} ({$deeplCode})...");
+
+            $targetPath = base_path("lang/{$langDir}/{$file}");
+            $targetArray = File::exists($targetPath) ? (require $targetPath) : [];
+
+            $translatedArray = $this->translateContent($sourceArray, $targetArray, $sourceLang, $deeplCode, $client, $apiKey);
+
+            $phpContent = $this->exportArray($translatedArray);
+            File::ensureDirectoryExists(dirname($targetPath));
+            File::put($targetPath, $phpContent);
+
+            $this->info("Translation saved to {$targetPath}");
+        }
+    }
+
+    protected function translateContent($source, $target, $sourceLang, $targetLang, $client, $apiKey)
+    {
+        $translated = [];
+
+        foreach ($source as $key => $value) {
+            if (isset($target[$key])) {
+                $translated[$key] = $target[$key];
+            } elseif ($key === 'categories') {
+                $translated[$key] = $this->translateCategories($value, $target[$key] ?? [], $sourceLang, $targetLang, $client, $apiKey);
+            } elseif (is_string($value)) {
+                $translated[$key] = $this->translateString($value, $sourceLang, $targetLang, $client, $apiKey);
+            } elseif (is_array($value)) {
+                $translated[$key] = $this->translateContent($value, $target[$key] ?? [], $sourceLang, $targetLang, $client, $apiKey);
+            } else {
+                $translated[$key] = $value;
+            }
+        }
+
+        return $translated;
+    }
+
+    protected function translateCategories($sourceCategories, $targetCategories, $sourceLang, $targetLang, $client, $apiKey)
+    {
+        $translatedCategories = [];
+
+        foreach ($sourceCategories as $categoryKey => $items) {
+            // Translate 'General Information', 'Delivery', etc. (category keys)
+            $translatedCategoryKey = $this->translateString($categoryKey, $sourceLang, $targetLang, $client, $apiKey);
+
+            $translatedCategories[$translatedCategoryKey] = [];
+            foreach ($items as $index => $item) {
+                $translatedItem = [];
+
+                foreach ($item as $fieldKey => $fieldValue) {
+                    // Only translate values of 'question' and 'answer' keys
+                    if (in_array($fieldKey, ['question', 'answer']) && is_string($fieldValue)) {
+                        $translatedItem[$fieldKey] = $this->translateString($fieldValue, $sourceLang, $targetLang, $client, $apiKey);
+                    } else {
+                        $translatedItem[$fieldKey] = $fieldValue; // Preserve non-translatable fields
+                    }
+                }
+
+                $translatedCategories[$translatedCategoryKey][] = $translatedItem;
+            }
+        }
+
+        return $translatedCategories;
+    }
+
+    protected function translateString($text, $sourceLang, $targetLang, $client, $apiKey)
+    {
+        try {
+            $response = $client->post('translate', [
+                'form_params' => [
+                    'auth_key' => $apiKey,
+                    'text' => $text,
+                    'source_lang' => strtoupper($sourceLang),
+                    'target_lang' => $targetLang,
+                ],
+            ]);
+
+            $responseBody = json_decode($response->getBody(), true);
+            return $responseBody['translations'][0]['text'] ?? $text;
+        } catch (\Exception $e) {
+            $this->error("Error translating '{$text}': " . $e->getMessage());
+            return $text;
+        }
+    }
+
+    protected function exportArray(array $array)
+    {
+        $export = var_export($array, true);
+        return "<?php\n\nreturn {$export};\n";
     }
 }
