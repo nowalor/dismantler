@@ -16,6 +16,8 @@ use App\Services\ResolveKbaFromSbrCodeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\GetUniqueManufacturerPlaintextController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------

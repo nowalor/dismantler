@@ -20,6 +20,9 @@
         href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
     @livewireStyles
     @stack('css')
+
+    <script src="{{ asset('metaData.js') }}" defer></script>
+
 </head>
 <!-- As a heading -->
 @if (auth()->user() && auth()->user()->is_admin)
@@ -48,6 +51,10 @@
                         <li class="nav-item">
                             <a class="nav-link {{ activeMenu('admin/kba') }}"
                                 href="{{ route('admin.kba.index') }}">KBA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ activeMenu('admin/car-part-categories') }}"
+                                href="{{ route('admin.part-types-categories.index') }}">Parts Categories</a>
                         </li>
                         <!-- °<li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.car-parts.index') }}">Parts</a>
