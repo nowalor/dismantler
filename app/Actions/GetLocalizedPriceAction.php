@@ -24,6 +24,11 @@ class GetLocalizedPriceAction
 
         $localizedPrices = $prices[$locale];
 
+
+        if(!isset($localizedPrices[$partFrom])) {
+            return $this->requiresRequest();
+        }
+
         $dismantleCountryPrices = $localizedPrices[$partFrom];
 
         if(isset($dismantleCountryPrices['requires_request']) && (bool)$dismantleCountryPrices['requires_request']) {
