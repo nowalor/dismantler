@@ -57,8 +57,8 @@ Route::get('payments/success', [App\Http\Controllers\PaymentController::class, '
     ->name('checkout.success');
 
 // Checkout
-/*Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
-    ->name('checkout');*/
+Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
+    ->name('checkout');
 
 // testing remove later
 Route::get('test3', [TestController::class, 'carPartIds']);
@@ -128,7 +128,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // one mainCategory toMany subCategories
     Route::post('categories/connect-car-part/{mainCategory}', [CategoryController::class, 'connectCarPart'])->name('admin.categories.connect-car-part');
     Route::post('categories/disconnect-car-part/{mainCategory}', [CategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
-    // show individual category     
+    // show individual category
     Route::get('part-types-categories/{category}', [CategoryController::class, 'show'])->name('admin.part-types-categories.show');
 
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);

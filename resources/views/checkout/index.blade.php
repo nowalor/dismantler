@@ -1,6 +1,9 @@
 @extends('app')
 @section('title', 'Buy part now ' . $carPart->name)
 @section('content')
+    @if($carPart->getLocalizedPrice()['requires_request'])
+        <h1>Currently it's not possible to buy the part via checkout in your location. Please contact us if you are interested in buying this part</h1>
+    @else
     <div class="container pb-4 pt-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
@@ -36,12 +39,12 @@
                             <div>
                                 <h6 class="my-0">  {{ Str::of($carPart->new_name)->limit(34) }}</h6>
                             </div>
-                            <span class="text-muted">{{ $carPart->getLocalizedPrice()['price'] . $carPart->getLocalizedPrice()['symbol']}}</span>
+                            <span class="text-muted">{{ $carPart->full_price . $carPart->getLocalizedPrice()['symbol']}}</span>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total {{ $carPart->getLocalizedPrice()['symbol'] }}</span>
-                            <strong>{{ $carPart->getLocalizedPrice()['price'] . $carPart->getLocalizedPrice()['symbol']}}</strong>
+                            <strong>{{ $carPart->full_price . $carPart->getLocalizedPrice()['symbol']}}</strong>
                         </li>
                     </ul>
 
@@ -179,6 +182,8 @@
             {{ $error }}
         @endforeach
     @endif
+    @endif
+    
 @endsection
 
 @push('js')
