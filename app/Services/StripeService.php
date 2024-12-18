@@ -49,8 +49,6 @@ class StripeService
 
     public function handlePayment(array $validated, int $orderId)
     {
-        logger('validated inc');
-        logger($validated);
         extract($validated);
 
         $intent = $this->createIntent(

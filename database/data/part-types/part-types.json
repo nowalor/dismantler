@@ -2,6 +2,7 @@
     {
         "id": 1,
         "name": "Engine",
+        "json_key": "engine",
         "german_car_part_types": [
             {
                 "id": 1,
@@ -44,6 +45,7 @@
     {
         "id": 2,
         "name": "Distribution gear box",
+        "json_key": "distribution_gear_box",
         "german_car_part_types": [
             {
                 "id": 2,
@@ -71,6 +73,7 @@
     {
         "id": 3,
         "name": "Gearbox Automatic",
+        "json_key": "gearbox_automatic",
         "german_car_part_types": [
             {
                 "id": 3,
@@ -103,6 +106,7 @@
     {
         "id": 4,
         "name": "Gearbox 6 gear",
+        "json_key": "gearbox_automatic",
         "german_car_part_types": [
             {
                 "id": 4,
@@ -130,6 +134,7 @@
     {
         "id": 5,
         "name": "Particle Filter",
+        "json_key": "particle_filter",
         "german_car_part_types": [
             {
                 "id": 5,
@@ -157,6 +162,7 @@
     {
         "id": 6,
         "name": "CATALYST",
+        "json_key": "catalyst",
         "german_car_part_types": [
             {
                 "id": 6,
@@ -184,6 +190,7 @@
     {
         "id": 7,
         "name": "Differential",
+        "json_key": "differential",
         "german_car_part_types": [
             {
                 "id": 7,

@@ -41,8 +41,7 @@
             </div>
     </div>
     <div class="pt-3">
-        <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now
-            €{{ $carPart->autoteile_markt_price + $carPart->shipment }}</button>
+        <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now</button>
     </div>
 </div>
 

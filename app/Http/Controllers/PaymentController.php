@@ -37,14 +37,14 @@ class PaymentController extends Controller
 
 
          $validated = array_merge($validated, [
-             'value' => $carPart->price_eur,
+             'value' => $carPart->full_price,
              'new_car_part_id' => $carPart->id,
              'dismantle_company_id' => 1,
              'payment_platform_id' => $request->get('payment_platform'),
              'buyer_name' => $request->get('name'),
              'buyer_email' => $request->get('email'),
              'quantity' => 1,
-             'part_price' => $carPart->price_eur,
+             'part_price' => $carPart->full_price,
              'city' => $request->get('town'),
          ]);
 
