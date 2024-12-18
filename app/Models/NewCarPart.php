@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 
 
 class NewCarPart extends Model
@@ -275,15 +276,13 @@ class NewCarPart extends Model
 
         $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
-        if(in_array($locale, ['se'])) {
-            $locale = 'en';
-        }
+        $partTypeKey = $this->carPartType->json_key;
 
         $priceInfo = (new GetLocalizedPriceAction())->execute(
             $locale,
             $this->country === 'dk' ? 'dk' : 'se',
             $price,
-            'engine',
+            $partTypeKey,
             $this->dismantle_company_name,
         );
 
