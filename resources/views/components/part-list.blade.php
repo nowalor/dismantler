@@ -3,44 +3,39 @@
 
         <!-- Type of Part Dropdown and Sorting Dropdown (shown on small/medium views) -->
         <div class="col-12 col-md-auto d-flex justify-content-between align-items-center mb-2 mb-md-0">
-            <!-- Type of Part Dropdown -->
-            <div class="dropdown me-2">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Type of Part
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li>
-                        <a href="{{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => null])) }}" class="dropdown-item py-1 px-2">
-                            All
-                        </a>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
-                    @foreach($partTypes as $partType)
-                    <li>
-                        <a href="
-                            @if (Route::currentRouteName() === 'car-parts.search-by-name')
-                                {{ route('car-parts.search-by-name', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @elseif (Route::currentRouteName() === 'car-parts.search-by-oem')
-                                {{ route('car-parts.search-by-oem', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @elseif (Route::currentRouteName() === 'car-parts.search-by-model')
-                                {{ route('car-parts.search-by-model', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @elseif (Route::currentRouteName() === 'car-parts.search-by-code')
-                                {{ route('car-parts.search-by-code', array_merge(request()->query(), ['type_id' => $partType->id])) }}
-                            @else
-                                #
-                            @endif
-                            " class="dropdown-item py-1 px-2">
-                            {{ __('part-types.' . $partType->name) ?? $partType->name }}
-                        </a>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
-                    @endforeach
-                </ul>
-            </div>
 
+<!-- Type of Part Dropdown -->
+<div class="dropdown type-of-part-dropdown me-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"> 
+        Type of Part
+    </button>
+    <!-- Dropdown Content -->
+    <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 26rem; gap: 4rem;">
+      
+      <!-- Main Category Column -->
+      <div class="dropdown-column" id="main-category">
+        <h6>Main Categories</h6>
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
+            @foreach($mainCategories as $mainCategory)
+            <li class="list-group-item main-category-item" data-id="{{ $mainCategory->id }}">
+                {{ $mainCategory->name }}
+            </li>
+            @endforeach
+        </ul>
+    </div>
+      
+      <!-- Subcategory Column -->
+      <div class="dropdown-column" id="sub-category">
+        <h6>Sub Categories</h6>
+        <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
+          <!-- Dynamic content for subcategories -->
+        </ul>
+      </div>
+</div>
 
-            <!-- Sorting Dropdown (visible on small/medium views) -->
-            <div class="dropdown d-block d-md-none me-2">
+<!-- Sorting Dropdown (visible on small/medium views) -->
+</div>
+        <div class="dropdown d-block d-md-none me-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     Sort By
                 </button>
@@ -160,7 +155,7 @@
             <div class="carousel-inner">
                 @foreach($part->carPartImages as $key => $image)
                     <div class="carousel-item {{ $key === 0 ? 'active' : '' }} text-center">
-                        <img src="{{ $image->original_url }}" class="d-block img-fluid mx-auto" alt="Car part image" style="max-height: 200px; max-width: 100%; object-fit: contain; background-color: #000;">
+                        <img src="{{ $image->logoGerman() }}" class="d-block img-fluid mx-auto" alt="Car part image" style="max-height: 200px; max-width: 100%; object-fit: contain; background-color: #000;">
                     </div>
                 @endforeach
             </div>
@@ -194,15 +189,74 @@
     @endforelse
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const subCategoryList = document.getElementById('sub-category').querySelector('ul');
+
+    // Clear content of a list
+    const clearList = (list) => { list.innerHTML = ''; };
+
+    // Get current search parameters
+    const currentParams = new URLSearchParams(window.location.search);
+
+    // Add hover functionality for main categories
+    document.querySelectorAll('.main-category-item').forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            const mainCategoryId = this.getAttribute('data-id');
+            clearList(subCategoryList);
+
+            // Fetch and display subcategories for the hovered main category
+            fetch(`/api/subcategories/${mainCategoryId}`)
+                .then(response => response.json())
+                .then(subcategories => {
+                    if (!subcategories.length) {
+                        subCategoryList.innerHTML = '<li class="list-group-item">No subcategories available</li>';
+                        return;
+                    }
+
+                    subcategories.forEach(subcategory => {
+                        const subItem = document.createElement('li');
+                        subItem.classList.add('list-group-item', 'sub-category-item');
+                        subItem.setAttribute('data-id', subcategory.id);
+
+                        // Clone currentParams to avoid mutation
+                        const newParams = new URLSearchParams(currentParams);
+                        newParams.set('type_id', subcategory.id); // Add the type_id filter
+
+                        subItem.innerHTML = `<a href="${window.location.pathname}?${newParams.toString()}">${subcategory.name}</a>`;
+                        subCategoryList.appendChild(subItem);
+                    });
+                });
+        });
+    });
+});
+
+</script>
+
 @push('css')
 <style>
     .dropdown-menu {
-        z-index: 1050;
+        display: none;
+        z-index: 1100; 
+        position: absolute;
+    }
+
+    .type-of-part-dropdown:hover .dropdown-menu {
+        display: flex;
     }
 
     .search-controls {
         position: relative;
         z-index: 1000;
+    }
+
+    .dropdown-column {
+        width: 33%;
+    }
+
+    .list-group-item:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
     }
 </style>
 @endpush

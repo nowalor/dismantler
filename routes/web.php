@@ -23,8 +23,12 @@ use App\Http\Controllers\KbaController;
 use App\Http\Controllers\AdminNewCarpartController;
 use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\CarPartFullviewController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\TemporaryLandingPageController;
+use App\Models\MainCategory;
+use App\Models\CarPartType;
+
 
 
 Route::get('stats', [StatsController::class, 'index']);
@@ -99,6 +103,15 @@ Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts']
 // full view of individual car part
 Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
 
+// fetching part types depending on what category you're hovering
+Route::get('/api/subcategories/{mainCategory}', function (MainCategory $mainCategory) {
+    return response()->json($mainCategory->carPartTypes); // Fetch subcategories (car_part_types) related to the main category
+});
+
+/* Route::get('/api/final-categories/{subCategory}', function (CarPartType $subCategory) {
+    return response()->json($subCategory->carParts); // Fetch final categories (car part types) related to the subcategory
+}); */
+
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
@@ -109,6 +122,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])
         ->name('admin.kba.delete-connection');
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
+
+    // routes for establishing connections for part types
+    Route::resource('part-types-categories', CategoryController::class, ['as' => 'admin']);
+    // one mainCategory toMany subCategories
+    Route::post('categories/connect-car-part/{mainCategory}', [CategoryController::class, 'connectCarPart'])->name('admin.categories.connect-car-part');
+    Route::post('categories/disconnect-car-part/{mainCategory}', [CategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
+    // show individual category     
+    Route::get('part-types-categories/{category}', [CategoryController::class, 'show'])->name('admin.part-types-categories.show');
+
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'store', 'destroy']);

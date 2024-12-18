@@ -35,7 +35,7 @@
                 </div>
         @else
             <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
-                <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-primary mb-3 w-100">{{__('browse')}}</a>
+                <a href="/car-parts/search/by-name?search=" class="fw-semibold btn btn-success mb-3 w-100">{{__('browse')}}</a>
             </div>
         @endif
         @endif

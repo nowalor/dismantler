@@ -28,7 +28,8 @@
                     @endif
                 </div>
             </div>
-            <x-part-list :parts="$parts" :partTypes="$partTypes" :sortRoute="route('car-parts.search-by-name')"/>
+
+            <x-part-list :parts="$parts" :partTypes="$partTypes" :mainCategories="$mainCategories" :sortRoute="route('car-parts.search-by-name')"/>
             {{-- {{ $parts->appends(request()->query())->links() }} --}}
 {{-- <div class="mt-4 d-flex justify-content-center">
     <nav aria-label="Page navigation">
