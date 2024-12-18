@@ -97,8 +97,8 @@
     <td class="text-white">.
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
-    <td class="text-white">
-        <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->full_price }}{{ $part->newGetLocalizedPrice()['symbol'] }}</p>
+    <td class="text-white overflow-hidden text-nowrap">
+        <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->full_price }} @if(!$part->getLocalizedPrice()['requires_request']) {{ $part->getLocalizedPrice()['symbol'] }} @endif </p>
 
    {{--     <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>--}}
     </td>

@@ -18,9 +18,17 @@ class GetLocalizedPriceAction
 
         $prices = json_decode($pricesJson, true);
 
+        if(!isset($prices[$locale])) {
+            return $this->requiresRequest();
+        }
+
         $localizedPrices = $prices[$locale];
 
         $dismantleCountryPrices = $localizedPrices[$partFrom];
+
+        if(isset($dismantleCountryPrices['requires_request']) && (bool)$dismantleCountryPrices['requires_request']) {
+            return $this->requiresRequest();
+        }
 
         $toCurrency = $dismantleCountryPrices['currency'];
         $symbol = $dismantleCountryPrices['symbol'];
@@ -31,7 +39,9 @@ class GetLocalizedPriceAction
 
         $fromCurrency = $locale === 'dk' ? 'dkk' : 'sek';
 
+
         return [
+            'requires_request' => false,
             'currency' => [
                 'from' => $fromCurrency,
                 'to' => $toCurrency,
@@ -70,10 +80,26 @@ class GetLocalizedPriceAction
         if(isset($shipmentInformation[$partType]['extra'][$dismantleCompany])) {
             $additional = $shipmentInformation[$partType]['extra'][$dismantleCompany];
         }
+
         return [
             'base' => $base,
             'additional' => $additional,
             'total' => $base + $additional,
         ];
+     }
+
+     private function requiresRequest(): array
+     {
+         return [
+         'requires_request' => true,
+         'currency' => [
+             'from' => 9999999999,
+             'to' => 9999999999,
+         ],
+         'symbol' => 9999999999,
+         'vat' => 9999999999,
+         'price' => 9999999999,
+         'shipment' => 9999999999,
+     ];
      }
 }

@@ -269,14 +269,12 @@ class NewCarPart extends Model
         return $finalPrice;
     }
 
-    // TODO, name without 'new'
-    public function newGetLocalizedPrice()
+    public function getLocalizedPrice(): array
     {
         $locale = App::getLocale();
 
         $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
-        ($locale);
         if(in_array($locale, ['se'])) {
             $locale = 'en';
         }
@@ -296,6 +294,7 @@ class NewCarPart extends Model
         );
 
         return [
+            'requires_request' => $priceInfo['requires_request'],
             'price' => round($convertedPrice),
             'currency' => $priceInfo['currency']['to'],
             'symbol' => $priceInfo['symbol'],
@@ -303,165 +302,15 @@ class NewCarPart extends Model
         ];
     }
 
-    public function getFullPriceAttribute()
+    public function getFullPriceAttribute(): int | string
     {
-        $price = $this->newGetLocalizedPrice();
+        $price = $this->getLocalizedPrice();
+
+        if(isset($price['requires_request']) && $price['requires_request']) {
+            return 'Please contact us for the price'; // TODO, translation coming from translation file..
+        }
 
         return $price['price'] + $price['shipment']['total'];
-    }
-
-    public function getLocalizedPrice(): array
-    {
-        $locale = App::getLocale();
-
-        $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek;
-        $from = $this->country === 'dk' ? 'dkk' : 'sek';
-        $to = 'eur';
-
-        if($locale === 'dk') {
-            $to = 'dkk';
-        }
-
-
-        if($locale === 'se') {
-            $to = 'sek';
-        }
-
-        $multiplier = $this->country === 'dk' ? $this->getDanishPartPriceMultiplier()
-            : $this->getSwedishPartPriceMultiplier();
-
-        $convertedPrice = (new ConvertCurrencyAction())->execute(
-            $price * $multiplier,
-            $from,
-            $to
-        );
-
-        return [
-            'currency' => $to,
-            'price' => round($convertedPrice),
-            'symbol' => $to === 'eur' ? '€' : strtoupper($to),
-        ];
-    }
-
-    private function getSwedishPartPriceMultiplier() : int
-    {
-        if($this->price_sek < 2001) {
-            return 1.4;
-        } elseif ($this->price_sek < 5000) {
-            return 1.3;
-        }
-
-        return 1.25;
-    }
-
-    private function getDanishPartPriceMultiplier()
-    {
-
-    }
-
-    public function getLocalizedShipment(): array
-    {
-        $locale = App::getLocale();
-
-        if($locale === 'dk') {
-            $symbol = 'DKK';
-            $currency = 'dkk';
-
-            if($this->car_part_type_id === 1) {
-                $price = 1500;
-
-                if($this->dismantle_company_name === 'A') {
-                    $price = $price + 750;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-
-            if($this->car_part_type_id === 2) {
-                $price = 1000;
-
-              /*  if($this->dismantle_company_name === 'al') {
-                    $price = $price + 750;
-                }*/
-
-                return [
-                    'price' => $price,
-                    'currency' => $symbol,
-                ];
-            }
-        }
-
-        if($locale === 'de') {
-            $symbol = '€';
-            $currency = 'eur';
-
-            if($this->car_part_type_id === 1) {
-                $price = 200;
-
-                if(in_array($this->dismantle_company_name, [
-                    'A', // Ådalens Bildemontering AB
-                    'F', // Norrbottens Bildemontering AB
-                    'D', // Trollhättan
-                    'LI', // Lidköping
-                    'AL', // Allbildelar,
-                    'W' // Lycksele
-                ])) {
-                    $price = $price + 150;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-
-            if($this->car_part_type_id === 2) {
-                $price = 150;
-
-                if(in_array($this->dismantle_company_name, [
-                    'A', // Ådalens Bildemontering AB
-                    'F', // Norrbottens Bildemontering AB
-                    'D', // Trollhättan
-                    'LI', // Lidköping
-                    'AL', // Allbildelar,
-                    'W' // Lycksele
-                ])) {
-                    $price = $price + 100;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-
-            if($this->car_part_type_id === 3) {
-                $price = 100;
-
-                if(in_array($this->dismantle_company_name, [
-                    'A', // Ådalens Bildemontering AB
-                    'F', // Norrbottens Bildemontering AB
-                    'D', // Trollhättan
-                    'LI', // Lidköping
-                    'AL', // Allbildelar,
-                    'W' // Lycksele
-                ])) {
-                    $price = $price + 100;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-        }
     }
 
     public function getBusinessPriceAttribute() {
