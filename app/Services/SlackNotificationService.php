@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\NewCarPart;
+use App\Notifications\OrderSuccessWebsiteNotification;
 use App\Notifications\Slack\SlackOrderFailedNotification;
 use App\Notifications\Slack\SlackOrderSuccessNotification;
 use Illuminate\Support\Facades\Notification;
@@ -58,5 +59,14 @@ class SlackNotificationService
             config('services.slack.order_webhook_url'),
         )->notify(new SlackOrderSuccessNotification($partData, $reservationId, $reservationUuid)
        );
+    }
+
+    public function notifyOrderSuccessWebsite(NewCarPart $part): void
+    {
+        Notification::route(
+            'slack',
+            config('services.slack.order_webhook_url'),
+        )->notify(new OrderSuccessWebsiteNotification($part)
+        );
     }
 }
