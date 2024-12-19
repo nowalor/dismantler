@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Helpers\LocalizedCurrencyHelper;
 use App\Mail\SellerPaymentSuccessfulMail;
+use App\Models\NewCarPart;
 use App\Models\Order;
 use App\Notifications\PaymentSuccessfulNotification;
 use App\Traits\ConsumeExternalServiceTrait;
@@ -49,13 +51,13 @@ class StripeService
 
     public function handlePayment(array $validated, int $orderId)
     {
-        logger('validated inc');
-        logger($validated);
         extract($validated);
+
+        $currency = (new LocalizedCurrencyHelper())->currency();
 
         $intent = $this->createIntent(
             $value,
-            'EUR',
+            $currency,
             $payment_method,
         );
 
@@ -72,8 +74,7 @@ class StripeService
             '/v1/payment_intents',
             [],
             formParams: [
-              /*  'amount' => round($value * $this->resolveFactor($currency)),*/
-                'amount' => 100,
+                'amount' => round($value * $this->resolveFactor($currency)),
                 'currency' => strtolower($currency),
                 'payment_method' => $paymentMethod,
                 'payment_method_types' => ['card'],

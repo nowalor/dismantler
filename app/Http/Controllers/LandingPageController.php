@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\App;
 
 class LandingPageController extends Controller
 {
-    
+
     public function __invoke(): View
     {
         $brands = CarBrand::withCount('carParts')
@@ -22,8 +22,19 @@ class LandingPageController extends Controller
 
         $partTypes = CarPartType::all();
 
+        // Get the current locale
         $locale = App::getLocale();
-        $logoPath = config("logos.{$locale}");
+
+        // Fetch the logo configuration for the locale
+        $logoConfig = config("logos.{$locale}");
+
+        // Handle case where configuration is missing or incorrect
+        if (!$logoConfig || !isset($logoConfig['path'])) {
+            abort(500, "Logo configuration missing for locale: {$locale}");
+        }
+
+        // Extract only the path for the view
+        $logoPath = $logoConfig['path'];
 
         return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath'));
     }

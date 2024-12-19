@@ -79,7 +79,6 @@ class ConvertCurrencyAction
                 'currencies' => ['EUR', 'DKK', 'SEK'],
             ]);
 
-
             if (!isset($response['data']) || !is_array($response['data'])) {
                 throw new Exception('Invalid API response structure.');
             }

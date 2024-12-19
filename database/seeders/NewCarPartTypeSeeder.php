@@ -32,9 +32,15 @@ class NewCarPartTypeSeeder extends Seeder
         $data = json_decode($file, true);
 
         foreach ($data as $item) {
-            $carPartType = CarPartType::create([
+            $partType = [
                 'name' => $item['name'],
-            ]);
+            ];
+
+            if(isset($item['json_key'])) {
+                $partType['json_key'] = $item['json_key'];
+            }
+
+            $carPartType = CarPartType::create($partType);
 
             // Only create related types if they don't already exist
             foreach ($item['danish_car_part_types'] as $danishType) {

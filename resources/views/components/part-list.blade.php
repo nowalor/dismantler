@@ -176,7 +176,7 @@
             <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
             <p class="card-text"><strong>{{ __('Mileage') }}:</strong> {{ $part->mileage_km == 0 || $part->mileage_km == 999 ? 'Unknown' : $part->mileage_km }}</p>
             <p class="card-text"><strong>{{ __('Model Year') }}:</strong> {{ $part->model_year }}</p>
-            <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>
+          {{--  <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>--}}
         </div>
 
         <div class="card-body d-flex justify-content-between">

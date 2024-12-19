@@ -14,9 +14,9 @@
                                 $firstImage = $images->first();
                                 $otherImages = $images->skip(1); // Skip the first image and take the rest
                             @endphp
-                            <!-- Large Image Display -->
+                                    <!-- Large Image Display -->
                             <img id="mainImage" class="img-fluid rounded mb-2" src="{{ $firstImage->logoGerman() }}"
-                                alt="Car part image" style="max-width: 100%; border-radius: 1rem;">
+                                 alt="Car part image" style="max-width: 100%; border-radius: 1rem;">
 
                             <!-- Thumbnail Images -->
                             <div class="row justify-content-center">
@@ -24,16 +24,17 @@
                                     @foreach ($images as $image)
                                         <div class="p-1 thumb-container">
                                             <img class="img-thumbnail thumb" src="{{ $image->logoGerman() }}"
-                                                alt="Thumbnail {{ $loop->iteration }}" style="width: 100%; cursor: pointer;"
-                                                onclick="changeImage('{{ $image->logoGerman() }}')">
+                                                 alt="Thumbnail {{ $loop->iteration }}"
+                                                 style="width: 100%; cursor: pointer;"
+                                                 onclick="changeImage('{{ $image->logoGerman() }}')">
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
                         @else
                             <img class="img-fluid rounded mb-4"
-                                src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png"
-                                alt="Placeholder image" style="max-width: 100%; border-radius: 1rem;">
+                                 src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png"
+                                 alt="Placeholder image" style="max-width: 100%; border-radius: 1rem;">
                         @endif
                     </div>
                 </div>
@@ -45,11 +46,14 @@
                     <div class="card-body">
                         <h3 class="fw-bold large-text">{{ $part->sbr_car_name }}</h3>
                         <h4 class="text-primary large-text">
-                            {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol']}}
-                            <span>{{ __('vat-shipping') }}</span>
-                            <a href="javascript:void(0);" onclick="showInfoPopup()">
-                                <i class="fas fa-info-circle ml-2"></i>
-                            </a>
+                            {{ $part->full_price }}  @if(!$part->getLocalizedPrice()['requires_request'])
+                            {{ $part->getLocalizedPrice()['symbol'] }} @endif
+                            @if(!$part->getLocalizedPrice()['requires_request'])
+                                <span>{{ __('vat-shipping') }}</span>
+                                <a href="javascript:void(0);" onclick="showInfoPopup()">
+                                    <i class="fas fa-info-circle ml-2"></i>
+                                </a>
+                            @endif
                         </h4>
 
                         <!--Pop up message-->
@@ -60,12 +64,12 @@
                             'contactButton' => __('pop-up-contact'),
                         ])
 
-                {{--        <a href="{{ route('checkout', $part) }}"
-                           class="btn btn-primary w-100 mt-4 mb-2">
-                            Buy now
-                        </a>--}}
+                        {{--        <a href="{{ route('checkout', $part) }}"
+                                   class="btn btn-primary w-100 mt-4 mb-2">
+                                    Buy now
+                                </a>--}}
                         <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}"
-                            class="btn btn-primary w-100 mb-4">
+                           class="btn btn-primary w-100 mb-4">
                             {{ __('contact-us') }}
                         </a>
                         {{-- <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100 mt-4 mb-4">Checkout</a>
@@ -93,7 +97,7 @@
                                 <strong>{{ __('unknown-message') }}</strong>
                             @else
                                 {{ $part->mileage_km }} KM
-                            @endif
+                        @endif
                         <p><span class="fw-bold">{{ __('fuel-type') }}: </span>{{ $part->fuel }}</p>
                     </div>
                 </div>
