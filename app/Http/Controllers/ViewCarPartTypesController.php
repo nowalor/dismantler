@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarPartType;
 use Illuminate\Http\Request;
 use App\Models\MainCategory;
 use Illuminate\Http\JsonResponse;
@@ -20,6 +21,20 @@ class ViewCarPartTypesController extends Controller
         return response()->json($categories);
     }
 
+    public function getMainCategoryNames(): JsonResponse
+    {
+        $mainCategoryNames = MainCategory::allMainCategoryNames();
+
+        return response()->json($mainCategoryNames);
+    }
+
+    // sub categories is just car_part_types // CarPartType
+    public function getSubCategoryNames(): JsonResponse
+    {
+        $subCategoryNames = CarPartType::allPartTypeNames();
+
+        return response()->json($subCategoryNames);
+    }
 
 
 }

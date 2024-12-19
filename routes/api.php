@@ -45,6 +45,9 @@ Route::get('engine-types', function () {
 // fetching part types depending on what category you're hovering
 Route::get('/subcategories/{mainCategory}', [ViewCarPartTypesController::class, 'index']);
 Route::get('/categories-with-subcategories', [ViewCarPartTypesController::class,'getAllCategories']);
+Route::get('/main-categories-names', [ViewCarPartTypesController::class,'getMainCategoryNames']);
+Route::get('/sub-categories-names', [ViewCarPartTypesController::class,'getSubCategoryNames']);
+
 
 Route::get('for-marcus', function () {
     $parts = NewCarPart::select('sbr_car_name', 'sbr_car_code', 'engine_type')

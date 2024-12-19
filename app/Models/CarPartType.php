@@ -34,6 +34,10 @@ class CarPartType extends Model
         return $this->belongsToMany(MainCategory::class, 'main_category_car_part_type');
     }
 
+    public static function allPartTypeNames() {
+        return self::pluck('name');
+    }
+
     public function germanCarPartTypes(): BelongsToMany
     {
         return $this->belongsToMany(GermanCarPartType::class);
