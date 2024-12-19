@@ -298,6 +298,7 @@ class NewCarPart extends Model
             'currency' => $priceInfo['currency']['to'],
             'symbol' => $priceInfo['symbol'],
             'shipment' => $priceInfo['shipment'],
+            'vat' => $priceInfo['vat'],
         ];
     }
 
@@ -309,7 +310,7 @@ class NewCarPart extends Model
             return 'Please contact us for the price'; // TODO, translation coming from translation file..
         }
 
-        return $price['price'] + $price['shipment']['total'];
+        return ($price['price'] + $price['shipment']['total']); // * $price['vat'];
     }
 
     public function getBusinessPriceAttribute() {

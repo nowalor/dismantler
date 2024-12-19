@@ -8,6 +8,7 @@ use App\Models\NewCarPart;
 use App\Models\Order;
 use App\Models\PaymentPlatform;
 use App\Resolvers\PaymentPlatformResolver;
+use App\Services\SlackNotificationService;
 use Illuminate\View\View;
 
 class PaymentController extends Controller
@@ -57,6 +58,11 @@ class PaymentController extends Controller
 
         session()->put('paymentPlatformId', $request->get('payment_platform'));
 
+
+        // Just testing out the notification service... will probably move this code elsewhere
+       (new SlackNotificationService())->notifyOrderSuccessWebsite(
+           $carPart,
+       );
 
         return $paymentPlatform->handlePayment($validated, $order->id);
     }
