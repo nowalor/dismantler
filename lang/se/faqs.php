@@ -41,7 +41,7 @@ return array (
         'answer' => 'Vi lämnar garanti på alla våra reservdelar. Du kan läsa mer om detta i våra "Allmänna villkor för försäljning och leverans
         Currus Connect (GTC)". Om du har ett klagomål eller vill returnera den köpta reservdelen måste du kontakta oss innan du returnerar den.
         Vi kommer då att förse dig med returadressen i Danmark, Sverige eller Norge.
-        Om du skickar reservdelen till vårt kontor i Köpenhamn tillkommer ytterligare fraktkostnader, som du ansvarar för.',
+        Om du skickar reservdelen till vårt kontor i Köpenhamn tillkommer ytterligare fraktkostnader, som du själv står för.',
       ),
     ),
     'leverans' => 
