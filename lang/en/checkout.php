@@ -1,0 +1,23 @@
+<?php
+
+return [
+    'checkout' => 'Checkout',
+    'this_is_the_checkout_page_for_your_order' => 'This is the checkout page for order. After you fill in the form below with your payment and delivery information the part will be delivered to you.',
+    'delivery_information' => 'Delivery information',
+    'name' => 'Name',
+    'email' => 'Email',
+    'address' => 'Address',
+    'town' => 'Town',
+    'zip' => 'Zip',
+    'payment' => 'Payment',
+    'pay_with_credit_or_debit' => 'Pay with credit/debit card',
+    'cardholder_name' => 'Cardholder Name',
+    'cardholder_email' => 'Cardholder email',
+    'card' => 'Card',
+    'cardholder_address' => 'Cardholder address',
+    'cardholder_city' => 'Cardholder city',
+    'cardholder_postal_code' => 'Cardholder postal code',
+    'buy_now' => 'Buy now',
+    'your_cart' => 'Your cart',
+    'total' => 'Total',
+];

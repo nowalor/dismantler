@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\NewCarPartScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -53,7 +54,8 @@ class Order extends Model
 
     public function carPart(): BelongsTo
     {
-        return $this->belongsTo(NewCarPart::class, 'new_car_part_id');
+        return $this->belongsTo(NewCarPart::class, 'new_car_part_id')
+            ->withoutGlobalScope(new NewCarPartScope());
     }
 
     public function dismantleCompany(): BelongsTo
