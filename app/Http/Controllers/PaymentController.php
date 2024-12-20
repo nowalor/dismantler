@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Constants\SellerPlatform;
 use App\Http\Requests\PayRequest;
-use App\Models\CarPart;
 use App\Models\NewCarPart;
-use App\Models\Order;
 use App\Models\PaymentPlatform;
 use App\Resolvers\PaymentPlatformResolver;
 use App\Services\SlackNotificationService;
@@ -20,7 +19,7 @@ class PaymentController extends Controller
         $this->paymentPlatformResolver = $paymentPlatformResolver;
     }
 
-    public function index(NewCarPart $carPart): View
+    public function index(NewCarPart $carPart)//: View
     {
         $paymentPlatforms = PaymentPlatform::all();
 
@@ -51,6 +50,10 @@ class PaymentController extends Controller
 
 
          $order = $carPart->order()->create($validated);
+
+         $carPart->sold_at = now();
+         $carPart->sold_on_platform = SellerPlatform::CURRUS_CONNECT;
+         $carPart->save();
 
          $paymentPlatform = $this->paymentPlatformResolver
              ->resolveService($request->get('payment_platform'));

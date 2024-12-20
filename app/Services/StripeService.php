@@ -4,15 +4,10 @@ namespace App\Services;
 
 use App\Helpers\LocalizedCurrencyHelper;
 use App\Mail\SellerPaymentSuccessfulMail;
-use App\Models\NewCarPart;
 use App\Models\Order;
-use App\Notifications\PaymentSuccessfulNotification;
 use App\Traits\ConsumeExternalServiceTrait;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\View\View;
 
 class StripeService
