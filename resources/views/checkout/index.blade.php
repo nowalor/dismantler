@@ -60,7 +60,7 @@
                             <div class="col-12">
                                 <label for="checkout_name" class="form-label">{{ __('checkout.name') }}*</label>
                                 <input name="name" type="text" class="form-control" id="checkout_name"
-                                       placeholder="Please enter your name"
+                                       placeholder="{{ __('checkout.please_enter_your_name') }}"
                                        value="" required>
                                 <div class="invalid-feedback">
                                     Valid name is required.
@@ -70,7 +70,8 @@
                             <div class="col-12">
                                 <label for="checkout_email" class="form-label">{{ __('checkout.email') }}*</label>
                                 <input name="email" type="email" class="form-control" id="checkout_email"
-                                       placeholder="you@example.com">
+                                       placeholder="{{ __('checkout.email') }}"
+                                       />
                                 <div class="invalid-feedback">
                                     Please enter a valid email address.
                                 </div>
