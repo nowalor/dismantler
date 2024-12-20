@@ -13,4 +13,8 @@ class MainCategory extends Model
         return $this->belongsToMany(CarPartType::class, 'main_category_car_part_type');
     }
 
+    public static function allMainCategoryNames() {
+        return self::pluck('name');
+    }
+
 }

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('main_category_car_part_type', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('main_category_id');
-            $table->unsignedBigInteger('car_part_type_id');
+            $table->foreignId('main_category_id');
+            $table->foreignId('car_part_type_id');
             $table->timestamps();
 
             $table->foreign('main_category_id')->references('id')->on('main_categories')->onDelete('cascade');

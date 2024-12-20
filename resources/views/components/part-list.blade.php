@@ -6,12 +6,12 @@
 
 <!-- Type of Part Dropdown -->
 <div class="dropdown type-of-part-dropdown me-2">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"> 
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton">
         Type of Part
     </button>
     <!-- Dropdown Content -->
     <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 26rem; gap: 4rem;">
-      
+
       <!-- Main Category Column -->
       <div class="dropdown-column" id="main-category">
         <h6>Main Categories</h6>
@@ -23,7 +23,7 @@
             @endforeach
         </ul>
     </div>
-      
+
       <!-- Subcategory Column -->
       <div class="dropdown-column" id="sub-category">
         <h6>Sub Categories</h6>
@@ -190,59 +190,75 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
+        const dropdownButton = document.getElementById('dropdownMenuButton');
+        const dropdownMenu = document.querySelector('.type-of-part-dropdown .dropdown-menu');
+
+        dropdownButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent click propagation
+            const isVisible = dropdownMenu.style.display === 'flex';
+            dropdownMenu.style.display = isVisible ? 'none' : 'flex';
+        });
+
+        // Close the dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+
     const subCategoryList = document.getElementById('sub-category').querySelector('ul');
+    const mainCategoryList = document.getElementById('main-category').querySelectorAll('.main-category-item');
 
-    // Clear content of a list
-    const clearList = (list) => { list.innerHTML = ''; };
+    let categoryData = [];
 
-    // Get current search parameters
-    const currentParams = new URLSearchParams(window.location.search);
+    // Fetch all categories and their subcategories once
+    fetch('/api/categories-with-subcategories')
+        .then(response => response.json())
+        .then(data => {
+            categoryData = data; // Store the data for later use
+        })
+        .catch(error => console.error('Error fetching categories:', error));
 
     // Add hover functionality for main categories
-    document.querySelectorAll('.main-category-item').forEach(item => {
+    mainCategoryList.forEach(item => {
         item.addEventListener('mouseenter', function () {
             const mainCategoryId = this.getAttribute('data-id');
-            clearList(subCategoryList);
+            const mainCategory = categoryData.find(cat => cat.id === parseInt(mainCategoryId));
 
-            // Fetch and display subcategories for the hovered main category
-            fetch(`/api/subcategories/${mainCategoryId}`)
-                .then(response => response.json())
-                .then(subcategories => {
-                    if (!subcategories.length) {
-                        subCategoryList.innerHTML = '<li class="list-group-item">No subcategories available</li>';
-                        return;
-                    }
+            // Clear previous subcategories
+            subCategoryList.innerHTML = '';
 
-                    subcategories.forEach(subcategory => {
-                        const subItem = document.createElement('li');
-                        subItem.classList.add('list-group-item', 'sub-category-item');
-                        subItem.setAttribute('data-id', subcategory.id);
+            if (!mainCategory || !mainCategory.car_part_types.length) {
+                subCategoryList.innerHTML = '<li class="list-group-item">No subcategories available</li>';
+                return;
+            }
 
-                        // Clone currentParams to avoid mutation
-                        const newParams = new URLSearchParams(currentParams);
-                        newParams.set('type_id', subcategory.id); // Add the type_id filter
+            // Populate subcategories for the hovered main category
+            mainCategory.car_part_types.forEach(subcategory => {
+                const subItem = document.createElement('li');
+                subItem.classList.add('list-group-item', 'sub-category-item');
+                subItem.setAttribute('data-id', subcategory.id);
 
-                        subItem.innerHTML = `<a href="${window.location.pathname}?${newParams.toString()}">${subcategory.name}</a>`;
-                        subCategoryList.appendChild(subItem);
-                    });
-                });
+                // Update query parameters for filtering
+                const currentParams = new URLSearchParams(window.location.search);
+                currentParams.set('type_id', subcategory.id);
+
+                subItem.innerHTML = `<a href="${window.location.pathname}?${currentParams.toString()}">${subcategory.name}</a>`;
+                subCategoryList.appendChild(subItem);
+            });
         });
     });
 });
-
 </script>
+
 
 @push('css')
 <style>
     .dropdown-menu {
         display: none;
-        z-index: 1100; 
+        z-index: 1100;
         position: absolute;
-    }
-
-    .type-of-part-dropdown:hover .dropdown-menu {
-        display: flex;
     }
 
     .search-controls {

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminConnectCarPartToCategoryRequest;
 use Illuminate\Http\Request;
 use App\Models\MainCategory;
 use App\Models\CarPartType;
 
-class CategoryController extends Controller
+class AdminCategoryController extends Controller
 {
 
     public function index(Request $request)
@@ -40,9 +41,10 @@ class CategoryController extends Controller
     }
 
 
-    public function connectCarPart(MainCategory $mainCategory, Request $request)
+    public function connectCarPart(MainCategory $mainCategory, AdminConnectCarPartToCategoryRequest $request)
     {
-        $carPartTypeId = $request->input('car_part_type_id');
+        $validated = $request->validated();
+        $carPartTypeId = $validated['car_part_type_id'];
 
         if (!$mainCategory->carPartTypes()->where('car_part_types.id', $carPartTypeId)->exists()) { // Specify the table name
             $mainCategory->carPartTypes()->attach($carPartTypeId);
@@ -52,9 +54,10 @@ class CategoryController extends Controller
         return redirect()->back()->with('error', 'Car part type is already connected.');
     }
 
-    public function disconnectCarPart(MainCategory $mainCategory, Request $request)
+    public function disconnectCarPart(MainCategory $mainCategory, AdminConnectCarPartToCategoryRequest $request)
     {
-        $carPartTypeId = $request->input('car_part_type_id');
+        $validated = $request->validated();
+        $carPartTypeId = $validated['car_part_type_id'];
 
         if ($mainCategory->carPartTypes()->where('car_part_types.id', $carPartTypeId)->exists()) {
             $mainCategory->carPartTypes()->detach($carPartTypeId);
