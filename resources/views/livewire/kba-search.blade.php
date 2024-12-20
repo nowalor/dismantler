@@ -5,7 +5,7 @@
             <input type="text" id="hsn" class="form-control" name="hsn" 
                    value="{{ old('hsn', $search['hsn'] ?? '') }}" 
                    wire:model="hsn" maxLength="4" 
-                   placeholder="{{ __('Enter HSN') }}" 
+                   placeholder="Geben Sie HSN ein" 
                    style="border: 1px solid #ccc; border-radius: 12px; padding: 10px; padding-right: 40px;">
             <span class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
                 <i class="fas fa-barcode" style="color: #ccc;"></i>
@@ -17,7 +17,7 @@
             <input type="text" id="tsn" class="form-control" name="tsn" 
                    value="{{ old('tsn', $search['tsn'] ?? '') }}" 
                    wire:model="tsn" maxLength="3" 
-                   placeholder="{{ __('Enter TSN') }}" 
+                   placeholder="Geben Sie TSN ein" 
                    style="border: 1px solid #ccc; border-radius: 12px; padding: 10px; padding-right: 40px;">
             <span class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
                 <i class="fas fa-barcode" style="color: #ccc;"></i>
