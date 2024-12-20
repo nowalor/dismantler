@@ -14,6 +14,7 @@ class TranslateLocalizationFiles extends Command
     protected $description = 'Translate JSON and PHP localization files using DeepL API while preserving existing translations';
     protected array $doNotTranslateKeys = ['categories', 'question', 'answer'];
     private Client $client;
+    private string $apiKey;
 
     // Source language constant
     private const SOURCE_LANG = 'en';
@@ -23,14 +24,15 @@ class TranslateLocalizationFiles extends Command
         parent::__construct();
 
         $this->client = new Client([
-            'base_uri' => config('deepl.base_url'),
+            'base_uri' => config('services.deepl.base_url'),
         ]);
+
+        $this->apiKey = config('services.deepl.api_key');
     }
 
     public function handle(): int
     {
-        $apiKey = config('deepl.key');
-        if (!$apiKey) {
+        if (!$this->apiKey) {
             $this->error('DeepL API key is missing in the configuration file.');
             return Command::FAILURE;
         }
@@ -174,7 +176,7 @@ class TranslateLocalizationFiles extends Command
         try {
             $response = $this->client->post('translate', [
                 'form_params' => [
-                    'auth_key' => config('deepl.key'),
+                    'auth_key' => $this->apiKey,
                     'text' => $text,
                     'source_lang' => strtoupper($sourceLang),
                     'target_lang' => strtoupper($targetLang),

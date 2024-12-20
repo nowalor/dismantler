@@ -77,4 +77,9 @@ return [
     'currency_converter' => [
         'api_key' => env('FREE_CURRENCY_CONVERTER_API_KEY'),
     ],
+
+    'deepl' => [
+        'api_key' => env('DEEPL_API_KEY'),
+        'base_url' => env('DEEPL_API_BASE_URL'),
+    ],
 ];
