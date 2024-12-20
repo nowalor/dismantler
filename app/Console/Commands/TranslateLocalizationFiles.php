@@ -5,14 +5,18 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use GuzzleHttp\Client;
+use App\Enums\TargetLanguages;
+
 
 class TranslateLocalizationFiles extends Command
 {
-    protected string $signature = 'localization:translate';
-    protected string $description = 'Translate JSON and PHP localization files using DeepL API while preserving existing translations';
+    protected $signature = 'localization:translate';
+    protected $description = 'Translate JSON and PHP localization files using DeepL API while preserving existing translations';
     protected array $doNotTranslateKeys = ['categories', 'question', 'answer'];
     private Client $client;
-    private string $sourceLang;
+
+    // Source language constant
+    private const SOURCE_LANG = 'en';
 
     public function __construct()
     {
@@ -31,9 +35,7 @@ class TranslateLocalizationFiles extends Command
             return Command::FAILURE;
         }
 
-        $this->sourceLang = config('deepl.source_language', 'en');
-
-        $targetLangs = config('deepl.target_languages', []);
+        $targetLangs = TargetLanguages::getLanguages();
         if (empty($targetLangs)) {
             $this->error('No target languages are defined in the DeepL configuration.');
             return Command::FAILURE;
@@ -54,7 +56,7 @@ class TranslateLocalizationFiles extends Command
 
     protected function translateJsonFile(array $targetLangs): void
     {
-        $sourceFilePath = base_path("lang/{$this->sourceLang}.json");
+        $sourceFilePath = base_path("lang/" . self::SOURCE_LANG . ".json");
         if (!File::exists($sourceFilePath)) {
             $this->error("Source JSON file not found: {$sourceFilePath}");
             return;
@@ -75,13 +77,12 @@ class TranslateLocalizationFiles extends Command
                 : [];
 
             foreach ($sourceContent as $key => $text) {
-                // skip exsisted translation
                 if (!empty($targetContent[$key])) {
                     continue;
                 }
 
                 if (is_string($text)) {
-                    $translatedText = $this->translateString($text, $this->sourceLang, $langCode);
+                    $translatedText = $this->translateString($text, self::SOURCE_LANG, $langCode);
                     $targetContent[$key] = $translatedText ?: $text;
                 } else {
                     $targetContent[$key] = $text;
@@ -95,7 +96,7 @@ class TranslateLocalizationFiles extends Command
 
     protected function translateFile(string $file, array $targetLangs)
     {
-        $sourcePath = base_path("lang/{$this->sourceLang}/{$file}");
+        $sourcePath = base_path("lang/" . self::SOURCE_LANG . "/{$file}");
 
         if (!File::exists($sourcePath)) {
             $this->error("Source file not found: {$sourcePath}");
@@ -104,7 +105,6 @@ class TranslateLocalizationFiles extends Command
 
         $sourceArray = require $sourcePath;
 
-        // langDir is our folder value and langCode is the value deepl use
         foreach ($targetLangs as $langDir => $langCode) {
             $this->info("Translating {$file} to {$langCode}...");
 
@@ -125,22 +125,18 @@ class TranslateLocalizationFiles extends Command
         $translated = [];
 
         foreach ($source as $key => $value) {
-            // If already translated, preserve the existing translation
             if (isset($target[$key])) {
                 $translated[$key] = $target[$key];
                 continue;
             }
 
             if ($key === 'categories') {
-                // Special handling for categories
                 $translated[$key] = $this->translateCategories($value, $target[$key] ?? [], $targetLang);
             } elseif (is_string($value)) {
-                $translated[$key] = $this->translateString($value, $this->sourceLang, $targetLang);
+                $translated[$key] = $this->translateString($value, self::SOURCE_LANG, $targetLang);
             } elseif (is_array($value)) {
-                // Recursively translate arrays
                 $translated[$key] = $this->translateContent($value, $target[$key] ?? [], $targetLang);
             } else {
-                // Non-translatable value, just copy it over
                 $translated[$key] = $value;
             }
         }
@@ -153,15 +149,14 @@ class TranslateLocalizationFiles extends Command
         $translatedCategories = [];
 
         foreach ($sourceCategories as $categoryKey => $items) {
-            $translatedCategoryKey = $this->translateString($categoryKey, $this->sourceLang, $targetLang);
+            $translatedCategoryKey = $this->translateString($categoryKey, self::SOURCE_LANG, $targetLang);
 
             $translatedCategories[$translatedCategoryKey] = [];
             foreach ($items as $item) {
-
                 $translatedItem = [];
                 foreach ($item as $fieldKey => $fieldValue) {
                     if (in_array($fieldKey, ['question', 'answer'], true) && is_string($fieldValue)) {
-                        $translatedItem[$fieldKey] = $this->translateString($fieldValue, $this->sourceLang, $targetLang);
+                        $translatedItem[$fieldKey] = $this->translateString($fieldValue, self::SOURCE_LANG, $targetLang);
                     } else {
                         $translatedItem[$fieldKey] = $fieldValue;
                     }
