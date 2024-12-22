@@ -34,7 +34,7 @@
     @endif
     </td>
     <td class="text-white">
-        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType->name }}</p>
+        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType?->name }}</p>
     </td>
     <td class="text-white">
         @if($part->original_number)
