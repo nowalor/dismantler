@@ -47,7 +47,9 @@ class SearchByPlateController extends Controller
         $offset = ($page - 1) * $perPage;
 
         // Retrieve car parts with pagination
-        $carPartsQuery = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
+        $carPartsQuery = $ktype->germanDismantlers()->with('newCarParts', function($q) {
+            $q->where('country', 'dk');
+        })->get()->pluck('newCarParts')->flatten();
 
         $engineCode = $data['extended']['engine_codes'];
         $normalizedEngineCode = str_replace(' ', '', $engineCode);
