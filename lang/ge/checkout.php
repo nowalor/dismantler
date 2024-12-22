@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'checkout' => 'Kasse',
+  'this_is_the_checkout_page_for_your_order' => 'Dies ist die Kassenseite für die Bestellung. Nachdem Sie das untenstehende Formular mit Ihren Zahlungs- und Lieferinformationen ausgefüllt haben, wird das Teil an Sie geliefert.',
+  'delivery_information' => 'Informationen zur Lieferung',
+  'name' => 'Name',
+  'please_enter_your_name' => 'Bitte geben Sie Ihren Namen ein',
+  'email' => 'E-Mail',
+  'please_enter_your_email' => 'Bitte geben Sie Ihre E-Mail ein',
+  'address' => 'Adresse',
+  'town' => 'Stadt',
+  'zip' => 'Reißverschluss',
+  'payment' => 'Zahlung',
+  'pay_with_credit_or_debit' => 'Bezahlen mit Kredit-/Debitkarte',
+  'cardholder_name' => 'Name des Karteninhabers',
+  'cardholder_email' => 'E-Mail des Karteninhabers',
+  'card' => 'Karte',
+  'cardholder_address' => 'Adresse des Karteninhabers',
+  'cardholder_city' => 'Stadt des Karteninhabers',
+  'cardholder_postal_code' => 'Postleitzahl des Karteninhabers',
+  'buy_now' => 'Jetzt kaufen',
+  'your_cart' => 'Ihr Warenkorb',
+  'total' => 'Insgesamt',
+);

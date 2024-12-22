@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'checkout' => 'Kasa',
+  'this_is_the_checkout_page_for_your_order' => 'To jest strona realizacji zamówienia. Po wypełnieniu poniższego formularza z informacjami o płatności i dostawie część zostanie dostarczona.',
+  'delivery_information' => 'Informacje o dostawie',
+  'name' => 'Nazwa',
+  'please_enter_your_name' => 'Wprowadź swoje imię i nazwisko',
+  'email' => 'E-mail',
+  'please_enter_your_email' => 'Wprowadź swój adres e-mail',
+  'address' => 'Adres',
+  'town' => 'Miasto',
+  'zip' => 'Zamek błyskawiczny',
+  'payment' => 'Płatność',
+  'pay_with_credit_or_debit' => 'Płatność kartą kredytową/debetową',
+  'cardholder_name' => 'Nazwa posiadacza karty',
+  'cardholder_email' => 'Adres e-mail posiadacza karty',
+  'card' => 'Karta',
+  'cardholder_address' => 'Adres posiadacza karty',
+  'cardholder_city' => 'Miasto posiadacza karty',
+  'cardholder_postal_code' => 'Kod pocztowy posiadacza karty',
+  'buy_now' => 'Kup teraz',
+  'your_cart' => 'Twój koszyk',
+  'total' => 'Łącznie',
+);

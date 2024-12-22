@@ -18,7 +18,7 @@
         <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
             @foreach($mainCategories as $mainCategory)
             <li class="list-group-item main-category-item" data-id="{{ $mainCategory->id }}">
-                {{ $mainCategory->name }}
+                {{ __("part-types.$mainCategory->name") }}
             </li>
             @endforeach
         </ul>
@@ -244,7 +244,7 @@
                 const currentParams = new URLSearchParams(window.location.search);
                 currentParams.set('type_id', subcategory.id);
 
-                subItem.innerHTML = `<a href="${window.location.pathname}?${currentParams.toString()}">${subcategory.name}</a>`;
+                subItem.innerHTML = `<a href="${window.location.pathname}?${currentParams.toString()}">__(part-types.)</a>`;
                 subCategoryList.appendChild(subItem);
             });
         });
