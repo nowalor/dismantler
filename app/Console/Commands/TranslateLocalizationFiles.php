@@ -24,10 +24,10 @@ class TranslateLocalizationFiles extends Command
         parent::__construct();
 
         $this->client = new Client([
-            'base_uri' => config('services.deepl.base_url' ?? ''),
+            'base_uri' => config('services.deepl.base_url') ?? '',
         ]);
 
-        $this->apiKey = config('services.deepl.api_key' ?? '');
+        $this->apiKey = config('services.deepl.api_key') ?? '';
     }
 
     public function handle(): int
