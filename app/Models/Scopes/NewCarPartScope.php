@@ -17,6 +17,7 @@ class NewCarPartScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->whereNull('sold_at');
+        $builder->whereNull('sold_at')
+            ->whereNotNull('car_part_type_id');
     }
 }
