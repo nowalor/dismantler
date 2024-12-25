@@ -20,7 +20,7 @@
         href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
     @livewireStyles
     @stack('css')
-
+    
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -48,6 +48,7 @@
         ]
     }
 </script>
+
 </head>
 <!-- As a heading -->
 @if (auth()->user() && auth()->user()->is_admin)

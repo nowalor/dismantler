@@ -1,0 +1,314 @@
+[
+    {
+        "producer": "ALFA",
+        "address": "IPC D1-09 Bahnhofsplatz, Rüsselsheim am Main, 65423, DE",
+        "email": "info@alfaromeo.de",
+        "phone": "00800 3428 0000"
+    },
+    {
+        "producer": "AUDI",
+        "address": "Auto-Union-Str. 1, Ingolstadt, 85057, DE",
+        "email": "info@audi.de",
+        "phone": "+49 (0)841 89-0"
+    },
+    {
+        "producer": "Aston Martin",
+        "address": "Banbury Road, Gaydon, Warwick, CV35 0DB, Großbritannien",
+        "email": "service@currus-connect.com",
+        "phone": "+44 (0)1926 644644"
+    },
+    {
+        "producer": "BMW",
+        "address": "Gaydon",
+        "email": "kundenbetreuung@bmw.de",
+        "phone": "089 1250 160 00"
+    },
+    {
+        "producer": "BRILLIANCE",
+        "address": "Warwick",
+        "email": "cba@brillianceauto.com",
+        "phone": "(852) 2523 7227"
+    },
+    {
+        "producer": "General Motors",
+        "address": "Eschersheimer Landstraße 14, 60322 Frankfurt am Main",
+        "email": "cadillac.europe@gm.com",
+        "phone": "004528180849"
+    },
+    {
+        "producer": "DAEWOO",
+        "address": "CV35 0DB",
+        "email": "chevrolet.europe@gm.com",
+        "phone": "+41 44 828 27 00"
+    },
+    {
+        "producer": "CHEVROLET",
+        "address": "CV35 0DB",
+        "email": "chevrolet.europe@gm.com",
+        "phone": "+41 44 828 27 00"
+    },
+    {
+        "producer": "CHRYSLER",
+        "address": "Großbritannien",
+        "email": "info@fcagroup.com",
+        "phone": "(800) 543-1391"
+    },
+    {
+        "producer": "CITROEN",
+        "address": "Bahnhofsplatz -, Rüsselsheim, 65423, DE",
+        "email": "kontakt-citroen@citroen.com",
+        "phone": "06142 293 5001"
+    },
+    {
+        "producer": "DACIA",
+        "address": "Peter-Huppertz-Straße 5, Köln, 51063, DE",
+        "email": "dacia.deutschland@dacia.de",
+        "phone": "0221 / 65008500"
+    },
+    {
+        "producer": "DAEWOO",
+        "address": "Albisriederstrasse 253, Zürich, 8047, CH",
+        "email": "chevrolet.europe@gm.com",
+        "phone": "+41 44 828 27 00"
+    },
+    {
+        "producer": "DAIHATSU",
+        "address": "CANNSTATTER STRASSE 46, EF D TEILE UND SERVICE GMBH, STUTTGART, 70190, DE",
+        "email": "info@daihatsu.de",
+        "phone": "+49 (0)711 2803 2107"
+    },
+    {
+        "producer": "Dodge",
+        "address": "Landsberger Srasse 98, 80339 München",
+        "email": "info@aeceurope.com",
+        "phone": "4989215462511"
+    },
+    {
+        "producer": "FIAT",
+        "address": "Bahnhofsplatz, Rüsselsheim am Main, 65423, DE",
+        "email": "fcagroup@fiat.de",
+        "phone": "00800 3428 0000"
+    },
+    {
+        "producer": "FORD",
+        "address": "Henry-Ford-Str. 1, Köln, 50735, DE",
+        "email": "kunden@ford.com",
+        "phone": "0221 9999 2 999"
+    },
+    {
+        "producer": "HONDA",
+        "address": "Hanauer Landstr. 222-224, Niederlassung der Honda Motor Europe Ltd., Frankfurt, 60314, DE",
+        "email": "info@honda.de",
+        "phone": "069 8309 0"
+    },
+    {
+        "producer": "Hummer (GMC)",
+        "address": "GMC Customer Assistance Center",
+        "email": "service@currus-connect.com",
+        "phone": "1-800-323-9935"
+    },
+    {
+        "producer": "HYUNDAI",
+        "address": "P.O. Box 33172",
+        "email": "info@hyundai.de",
+        "phone": "069 380767101 / 102"
+    },
+    {
+        "producer": "INFINITI",
+        "address": "INFINITI vehicles, and INFINITI Retailers:",
+        "email": "questions: @InfinitiUSA",
+        "phone": ""
+    },
+    {
+        "producer": "Iveco Magirus AG",
+        "address": "Nicolaus-Otto-Straße 27, 89079 Ulm",
+        "email": "leonie.bailer@ivecogroup.com",
+        "phone": "+49 89 31771-0"
+    },
+    {
+        "producer": "ISUZU",
+        "address": "Im Weiherfeld 2, Ginsheim-Gustavsburg, 65462, DE",
+        "email": "img@isuzu.de",
+        "phone": "+49 (0) 61345580"
+    },
+    {
+        "producer": "JAGUAR",
+        "address": "Campus Kronberg 7, Kronberg, 61476, DE",
+        "email": "jaghilfe@jaguarlandrover.com",
+        "phone": "00800 3386 7049"
+    },
+    {
+        "producer": "KIA",
+        "address": "P.O. Box 685003",
+        "email": "info@kia.de",
+        "phone": "0 800 777 30 44"
+    },
+    {
+        "producer": "LADA",
+        "address": "Franklin, TN",
+        "email": "info@lada.ru",
+        "phone": "+7 8 800 700 52 32"
+    },
+    {
+        "producer": "LANCIA",
+        "address": "37068-5003",
+        "email": "info@lancia.de",
+        "phone": "80052624200"
+    },
+    {
+        "producer": "LAND ROVER",
+        "address": "Campus Kronberg 7, Kronberg, 61476, DE",
+        "email": "jaghilfe@jaguarlandrover.com",
+        "phone": "00800 3386 7049"
+    },
+    {
+        "producer": "LEXUS",
+        "address": "Toyota-Allee 2, Lexus Deutschland, Köln, 50858, DE",
+        "email": "lexus-infoservice@lexus.de",
+        "phone": "0800-520-2120"
+    },
+    {
+        "producer": "MAZDA",
+        "address": "Hitdorfer Straße 73, Leverkusen, 51371, DE",
+        "email": "info@mazda.de",
+        "phone": "02173 - 943 0"
+    },
+    {
+        "producer": "MG  ",
+        "address": "SAIC Motor Deutschland GmbH",
+        "email": "info@mgmotor.de",
+        "phone": "+49 800 5 777 222"
+    },
+    {
+        "producer": "Mercedes",
+        "address": "Mercedesstraße 120, Stuttgart, 70372, DE",
+        "email": "dialog.mb@mercedes-benz.com",
+        "phone": "+49 711 17 - 0"
+    },
+    {
+        "producer": "MINI",
+        "address": "Petuelring 130, München, 80788, DE",
+        "email": "MINIKUNDENBETREUUNG@MINI.DE",
+        "phone": "089 1250 160 60"
+    },
+    {
+        "producer": "MITSUBISHI",
+        "address": "Emil-Frey-Straße 2, Friedberg, 61169, DE",
+        "email": "info@mitsubishi-motors.de",
+        "phone": "06031 6896-0"
+    },
+    {
+        "producer": "NISSAN",
+        "address": "Kronenweg 38, Wesseling, 50389, D",
+        "email": "germany@nissan-services.eu",
+        "phone": "0800 / 58 949 87"
+    },
+    {
+        "producer": "OPEL",
+        "address": "Bahnhofsplatz, Rüsselsheim am Main, 65423, DE",
+        "email": "kontakt-opel@opel.com",
+        "phone": "06142-8729750"
+    },
+    {
+        "producer": "PEUGEOT",
+        "address": "Bahnhofsplatz, Rüsselsheim, 65423, DE",
+        "email": "kontakt-peugeot@peugeot.com",
+        "phone": "06142 293 5000"
+    },
+    {
+        "producer": "POLESTAR",
+        "address": "Polestar Performance AB, Assar Gabrielssons Väg 9, 405 31 Göteborg",
+        "email": "service@currus-connect.com",
+        "phone": "+4578723514"
+    },
+    {
+        "producer": "PORSCHE",
+        "address": "Porsche Zentrum Frankfurt, Hanauer Landstraße 220a, D-60314 Frankfurt am Main",
+        "email": "info@porsche-frankfurt.de",
+        "phone": "+49 69 405881-0"
+    },
+    {
+        "producer": "PROTON",
+        "address": "Westbound Shah Alam Expressway KM33.8, -, Subang Jaya, Selangor, 47600, MY",
+        "email": "customercare@proton.com",
+        "phone": "1-800-888-398"
+    },
+    {
+        "producer": "RENAULT",
+        "address": "Peter-Huppertz-Straße 5, Köln, 51063, DE",
+        "email": "dialog.deutschland@renault.de",
+        "phone": "0221 / 65 00 85 00"
+    },
+    {
+        "producer": "MG ROVER",
+        "address": "Marcel-Breuer-Straße 4, München, 80807, DE",
+        "email": "kunde@mgmotordeutschland.de",
+        "phone": "+49 800 5 777 222"
+    },
+    {
+        "producer": "SAAB",
+        "address": "Unternehmen aufgelöst -, Unternehmen aufgelöst, -, -, SE",
+        "email": "service@currus-connect.com",
+        "phone": "4528180849"
+    },
+    {
+        "producer": "SEAT",
+        "address": "Max-Planck-Str. 3-5, Weiterstadt, 64331, DE",
+        "email": "service@seat.de",
+        "phone": "06150 - 1855 - 0"
+    },
+    {
+        "producer": "SKODA",
+        "address": "Max-Planck-Straße 3-5, Weiterstadt, 64331, DE",
+        "email": "info@skoda-auto.de",
+        "phone": "06150/133-0"
+    },
+    {
+        "producer": "SMART",
+        "address": "smart Europe GmbH, Esslinger Straße 7, 70771 Leinfelden-Echterdingen, Deutschland",
+        "email": "eu.communications@smart.com",
+        "phone": "+49 711 5507 7020"
+    },
+    {
+        "producer": "SSANGYONG",
+        "address": "Ferdinand-Porsche-Str. 1, Köln, 51149, DE",
+        "email": "info@ssangyong.de",
+        "phone": "0800 0117117"
+    },
+    {
+        "producer": "SUBARU",
+        "address": "SUBARU Deutschland GmbH, Emil-Frey-Straße 6, 61169 Friedberg",
+        "email": "subaru@subaru.de",
+        "phone": "01805 - 911912"
+    },
+    {
+        "producer": "SUZUKI",
+        "address": "Suzuki-Allee 7, Bensheim, 64625, DE",
+        "email": "kontakt@suzuki.de",
+        "phone": "06251 5700-0"
+    },
+    {
+        "producer": "TESLA",
+        "address": "Ludwig-Prandtl-Straße 27 - 29, Berlin, 12526, DE",
+        "email": "Germany_Sales@tesla.com",
+        "phone": "+49 (0) 30 700 149 725"
+    },
+    {
+        "producer": "TOYOTA",
+        "address": "Toyota-Allee 2, Köln, 50858, DE",
+        "email": "kundenbetreuung@toyota.de",
+        "phone": "02234 - 102-1221"
+    },
+    {
+        "producer": "VOLVO",
+        "address": "Siegburger Straße 229, Köln, 50679, DE",
+        "email": "info@volvocars.com",
+        "phone": "+492219393393"
+    },
+    {
+        "producer": "VW",
+        "address": "Berliner Ring 2, Wolfsburg, 38440, DE",
+        "email": "kundenbetreuung@volkswagen.de",
+        "phone": "+49 800 - 86 55 79 24 36"
+    }
+]

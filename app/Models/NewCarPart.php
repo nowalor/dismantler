@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Actions\ConvertCurrencyAction;
+use App\Actions\GetLocalizedPriceAction;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 
 
 class NewCarPart extends Model
@@ -272,154 +274,43 @@ class NewCarPart extends Model
     {
         $locale = App::getLocale();
 
-        $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek;
-        $from = $this->country === 'dk' ? 'dkk' : 'sek';
-        $to = 'eur';
+        $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
-        if($locale === 'dk') {
-            $to = 'dkk';
-        }
+        $partTypeKey = $this->carPartType->json_key;
 
-
-        if($locale === 'se') {
-            $to = 'sek';
-        }
-
-        $multiplier = $this->country === 'dk' ? $this->getDanishPartPriceMultiplier()
-            : $this->getSwedishPartPriceMultiplier();
+        $priceInfo = (new GetLocalizedPriceAction())->execute(
+            $locale,
+            $this->country === 'dk' ? 'dk' : 'se',
+            $price,
+            $partTypeKey,
+            $this->dismantle_company_name,
+        );
 
         $convertedPrice = (new ConvertCurrencyAction())->execute(
-            $price * $multiplier,
-            $from,
-            $to
+            $priceInfo['price'], // Price with multiplier,
+            $priceInfo['currency']['from'],
+            $priceInfo['currency']['to']
         );
 
         return [
-            'currency' => $to,
+            'requires_request' => $priceInfo['requires_request'],
             'price' => round($convertedPrice),
-            'symbol' => $to === 'eur' ? '€' : strtoupper($to),
+            'currency' => $priceInfo['currency']['to'],
+            'symbol' => $priceInfo['symbol'],
+            'shipment' => $priceInfo['shipment'],
+            'vat' => $priceInfo['vat'],
         ];
     }
 
-    private function getSwedishPartPriceMultiplier() : int
+    public function getFullPriceAttribute(): int | string
     {
-        if($this->price_sek < 2001) {
-            return 1.4;
-        } elseif ($this->price_sek < 5000) {
-            return 1.3;
+        $price = $this->getLocalizedPrice();
+
+        if(isset($price['requires_request']) && $price['requires_request']) {
+            return 'Please contact us for the price'; // TODO, translation coming from translation file..
         }
 
-        return 1.25;
-    }
-
-    private function getDanishPartPriceMultiplier()
-    {
-
-    }
-
-    public function getLocalizedShipment(): array
-    {
-        $locale = App::getLocale();
-
-        if($locale === 'dk') {
-            $symbol = 'DKK';
-            $currency = 'dkk';
-
-            if($this->car_part_type_id === 1) {
-                $price = 1500;
-
-                if($this->dismantle_company_name === 'A') {
-                    $price = $price + 750;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-
-            if($this->car_part_type_id === 2) {
-                $price = 1000;
-
-              /*  if($this->dismantle_company_name === 'al') {
-                    $price = $price + 750;
-                }*/
-
-                return [
-                    'price' => $price,
-                    'currency' => $symbol,
-                ];
-            }
-        }
-
-        if($locale === 'de') {
-            $symbol = '€';
-            $currency = 'eur';
-
-            if($this->car_part_type_id === 1) {
-                $price = 200;
-
-                if(in_array($this->dismantle_company_name, [
-                    'A', // Ådalens Bildemontering AB
-                    'F', // Norrbottens Bildemontering AB
-                    'D', // Trollhättan
-                    'LI', // Lidköping
-                    'AL', // Allbildelar,
-                    'W' // Lycksele
-                ])) {
-                    $price = $price + 150;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-
-            if($this->car_part_type_id === 2) {
-                $price = 150;
-
-                if(in_array($this->dismantle_company_name, [
-                    'A', // Ådalens Bildemontering AB
-                    'F', // Norrbottens Bildemontering AB
-                    'D', // Trollhättan
-                    'LI', // Lidköping
-                    'AL', // Allbildelar,
-                    'W' // Lycksele
-                ])) {
-                    $price = $price + 100;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-
-            if($this->car_part_type_id === 3) {
-                $price = 100;
-
-                if(in_array($this->dismantle_company_name, [
-                    'A', // Ådalens Bildemontering AB
-                    'F', // Norrbottens Bildemontering AB
-                    'D', // Trollhättan
-                    'LI', // Lidköping
-                    'AL', // Allbildelar,
-                    'W' // Lycksele
-                ])) {
-                    $price = $price + 100;
-                }
-
-                return [
-                    'price' => $price,
-                    'symbol' => $symbol,
-                    'currency' => $currency,
-                ];
-            }
-        }
+        return ($price['price'] + $price['shipment']['total']) * $price['vat'];
     }
 
     public function getBusinessPriceAttribute() {

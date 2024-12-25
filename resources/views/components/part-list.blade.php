@@ -198,6 +198,7 @@
                 </a>
             </div>
 
+<<<<<<< HEAD
             <div class="card-body">
                 <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType->name }}</h5>
                 <p class="card-text"><strong>{{ __('Original number') }}:</strong>
@@ -210,6 +211,17 @@
                 <p class="card-text"><strong>{{ __('Price') }}:</strong>
                     {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>
             </div>
+=======
+        <div class="card-body">
+            <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType->name }}</h5>
+            <p class="card-text"><strong>{{ __('Original number') }}:</strong> {{ $part->original_number ?? 'N/A' }}</p>
+            <p class="card-text"><strong>{{ __('Engine type') }}:</strong> {{ $part->engine_type ?? 'N/A' }}</p>
+            <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
+            <p class="card-text"><strong>{{ __('Mileage') }}:</strong> {{ $part->mileage_km == 0 || $part->mileage_km == 999 ? 'Unknown' : $part->mileage_km }}</p>
+            <p class="card-text"><strong>{{ __('Model Year') }}:</strong> {{ $part->model_year }}</p>
+          {{--  <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>--}}
+        </div>
+>>>>>>> b412c18e9fe669d5351324741c84caff39fddae5
 
             <div class="card-body d-flex justify-content-between">
                 <a href="{{ route('fullview', $part) }}" class="btn btn-primary">{{ __('View Part') }}</a>

@@ -43,6 +43,8 @@ class TranslateLocalizationFiles extends Command
             'fr' => 'FR', // French
             'se' => 'SV', // Swedish
             'ge' => 'DE', // German
+            'it' => 'IT', // Italian
+            'pl' => 'PL', // Polish
         ];
 
         // Path to the source file
