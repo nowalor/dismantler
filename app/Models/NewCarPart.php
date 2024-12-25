@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Actions\ConvertCurrencyAction;
 use App\Actions\GetLocalizedPriceAction;
+use App\Models\Scopes\NewCarPartScope;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,13 @@ use Illuminate\Support\Str;
 class NewCarPart extends Model
 {
     use HasFactory;
+
+    protected static function booted()
+    {
+        parent::booted();
+
+        static::addGlobalScope(new NewCarPartScope());
+    }
 
     protected $fillable = [
         'article_nr',

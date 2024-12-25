@@ -1,79 +1,87 @@
 <?php
 
-return [
-    'categories' => [
-        'Generelle oplysninger' => [
-            [
-                'question' => 'Vores reservedele',
-                'answer' => 'Vores reservedele kommer fra Skandinavien: Danmark, Sverige og Norge',
-            ],
-            [
-                'question' => 'Vores priser',
-                'answer' => 'Vores priser er inklusive moms og fragt. Nej, vi giver ikke rabatter.',
-            ],
-            [
-                'question' => 'Passer den reservedel, jeg fandt, til mit køretøj?',
-                'answer' => '- Bedre kontrol end returneringsomkostninger!
-                Til vores reservedele giver vi det originale vreservedelsnummer på vores reservedel.
-                Du kan enten læse dette reservedelsnummer fra din defekte reservedel eller spørge 
-                dit værksted om denne. 
-                Du kan også altid se stelnummeret på reservedelens donorkøretøj i vores tilbud. Du 
-                kan bruge dette stelnummer til at tjekke, om det passer – spørg dit værksted.
-                Hvis du er i tvivl, kan du kontakte os med dit stelnummer og Currus-Connect ID på den
-                fundne reservedel. 
-                Vi vil så forsøge at hjælpe dig videre.
-                Husk at returomkostningerne for reservedele, der ikke passer, er for din regning!',
-            ],
-            [
-                'question' => 'Din ordre hos os',
-                'answer' => '- Du kan betale hos os med PayPal, kreditkort og bankoverførsel. Efter modtagelse af betaling afsendes reservedelen, du modtager en faktura og et tracking link.
-                Vores leveringstid er i gennemsnit mellem 3 og 6 hverdage.
-                - Det er ikke muligt at hente reservedelen hos os. Det vil blive leveret direkte til den 
-                leveringsadresse du har angivet ved din bestilling
-                - Efter afgivelse af ordren vil varerne blive afsendt med det samme, så det er ikke 
-                længere muligt at annullere ordren.  Du kan nægte at modtage forsendelsen. Når den 
-                er returneret, vil du modtage tilbagebetaling af købsprisen minus 
-                returfragtomkostningerne.',
-            ],
-            [
-                'question' => 'Garanti, returnering og reklamationer',
-                'answer' => '- Vi yder garanti på alle vores reservedele, det kan du læse mere om i vores “Salgs- og leveringsbetingelser Currus Connect ApS.” 
-                Hvis du har en reklamation eller ønsker at returnere den købte reservedel, skal du 
-                kontakte os, inden du returnerer den.
-                Så få du af os returadressen i Danmark, Sverige eller Norge. 
-                Sender du reservedelen til vores kontor i København, vil dette medføre yderligere 
-                omkostninger til fremsendelse, som også skal afholdes af dig.',
-            ],
-        ],
-        'levering' => [
-            [
-                'question' => 'Hvor lang tid tager leveringen?',
-                'answer' => 'Leveringstiden er 3-6 arbejdsdage. Hvis du bestiller før kl. 12:00, sender vi samme dag. Hvis du bestiller efter kl. 12:00, sender vi næste dag. Hvis du bestiller i en weekend eller på en helligdag, sender vi næste arbejdsdag.',
-            ],
-            [
-                'question' => 'Jeg kan ikke se mit land på listen over lande. Kan jeg stadig få levering?',
-                'answer' => 'Ja! Kontakt os venligst på service@currus-connect.com, og vi vil finde en løsning.',
-            ],
-        ],
-        'betaling' => [
-            [
-                'question' => 'Hvordan betaler jeg?',
-                'answer' => 'Du kan betale med Dankort, Visa, Mastercard, MobilePay, PayPal eller bankoverførsel.',
-            ],
-            [
-                'question' => 'Kan jeg betale med faktura?',
-                'answer' => 'Ja, du kan betale med faktura. Kontakt os venligst på service@currus-connect.com',
-            ],
-        ],
-        'returnering' => [
-            [
-                'question' => 'Kan jeg returnere min ordre?',
-                'answer' => 'Ja, du kan returnere din ordre. Kontakt os venligst på service@currus-connect.com',
-            ],
-            [
-                'question' => 'Hvor lang tid har jeg til at returnere min ordre?',
-                'answer' => 'Du har 14 dage til at returnere din ordre.',
-            ],
-        ],
-    ],
-];
+return array (
+  'categories' => 
+  array (
+    'Generel information' => 
+    array (
+      0 => 
+      array (
+        'question' => 'Vores reservedele',
+        'answer' => 'Vores reservedele kommer fra Skandinavien: Danmark, Sverige og Norge.',
+      ),
+      1 => 
+      array (
+        'question' => 'Vores priser',
+        'answer' => 'Vores priser er inklusive lovpligtig moms og forsendelse. Nej, vi tilbyder ikke rabatter',
+      ),
+      2 => 
+      array (
+        'question' => 'Passer den reservedel, jeg har fundet, til min bil?',
+        'answer' => 'Det er bedre at tjekke end at pådrage sig returomkostninger! For vores reservedele oplyser vi det originale reservedelsnummer på vores reservedel.
+        Du kan enten læse dette reservedelsnummer på din defekte del eller eventuelt spørge dit værksted.
+        Du kan altid se chassisnummeret på donorkøretøjet til reservedelen i vores tilbud.
+        Ved hjælp af dette chassisnummer kan du kontrollere kompatibiliteten med dit værksted.
+        I tvivlstilfælde kan du kontakte os med dit chassisnummer og
+        Currus-Connect ID på den reservedel, du har fundet, så vil vi forsøge at hjælpe dig.
+        Husk, at returomkostninger for reservedele, der ikke passer, er dit ansvar!',
+      ),
+      3 => 
+      array (
+        'question' => 'Din bestilling hos os',
+        'answer' => 'Du kan bestille hos os ved hjælp af PayPal, kreditkort og bankoverførsel. Efter modtagelse af betaling vil reservedelen blive sendt, og du vil modtage en
+        faktura og et link til sporing af forsendelsen. I gennemsnit er vores leveringstid mellem 3 og 6 arbejdsdage. Det er ikke muligt at afhente reservedelen hos os.
+        Den vil blive leveret direkte til den leveringsadresse, du har angivet. Når du har afgivet ordren, sendes varerne med det samme, så det er ikke længere
+        muligt at annullere ordren. Du kan nægte at tage imod forsendelsen.
+        Efter returneringen modtager du en tilbagebetaling af købsprisen minus returforsendelsesomkostningerne.',
+      ),
+      4 => 
+      array (
+        'question' => 'Garanti, returnering og reklamation',
+        'answer' => 'Vi giver garanti på alle vores reservedele. Du kan læse mere om dette i vores "Generelle vilkår og betingelser for salg og levering
+        Currus Connect (GTC)". Hvis du har en klage eller ønsker at returnere den købte reservedel, skal du kontakte os, før du returnerer den.
+        Vi vil så give dig en returadresse i Danmark, Sverige eller Norge.
+        Hvis du sender reservedelen til vores kontor i København, vil det medføre ekstra forsendelsesomkostninger, som er dit ansvar.',
+      ),
+    ),
+    'levering' => 
+    array (
+      0 => 
+      array (
+        'question' => 'Hvor lang tid tager leveringen?',
+        'answer' => 'Leveringstiden er 3-6 arbejdsdage. Hvis du bestiller før kl. 12.00, sender vi samme dag. Hvis du bestiller efter kl. 12.00, sender vi næste dag. Hvis du bestiller i en weekend eller på en helligdag, sender vi næste arbejdsdag.',
+      ),
+      1 => 
+      array (
+        'question' => 'Jeg kan ikke se mit land på listen over lande. Kan jeg stadig få en levering?',
+        'answer' => 'Ja! Kontakt os på service@currus-connect.com, så finder vi en løsning.',
+      ),
+    ),
+    'betaling' => 
+    array (
+      0 => 
+      array (
+        'question' => 'Hvordan betaler jeg?',
+        'answer' => 'Du kan betale med Dankort, Visa, Mastercard, MobilePay, PayPal eller bankoverførsel.',
+      ),
+      1 => 
+      array (
+        'question' => 'Kan jeg betale med faktura?',
+        'answer' => 'Ja, du kan betale med faktura. Kontakt os venligst på service@currus-connect.com',
+      ),
+    ),
+    'returnere' => 
+    array (
+      0 => 
+      array (
+        'question' => 'Kan jeg returnere min ordre?',
+        'answer' => 'Ja, du kan returnere din ordre. Kontakt os venligst på service@currus-connect.com.',
+      ),
+      1 => 
+      array (
+        'question' => 'Hvor lang tid har jeg til at returnere min ordre?',
+        'answer' => 'Du har 14 dage til at returnere din ordre.',
+      ),
+    ),
+  ),
+);

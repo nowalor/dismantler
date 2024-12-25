@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'checkout' => 'Checka ut',
+  'this_is_the_checkout_page_for_your_order' => 'Detta är kassasidan för beställning. När du har fyllt i formuläret nedan med betalnings- och leveransinformation kommer delen att levereras till dig.',
+  'delivery_information' => 'Information om leverans',
+  'name' => 'Namn',
+  'please_enter_your_name' => 'Vänligen ange ditt namn',
+  'email' => 'E-post',
+  'please_enter_your_email' => 'Vänligen ange din e-postadress',
+  'address' => 'Adress',
+  'town' => 'Stad',
+  'zip' => 'Dragkedja',
+  'payment' => 'Betalning',
+  'pay_with_credit_or_debit' => 'Betala med kredit-/betalkort',
+  'cardholder_name' => 'Kortinnehavarens namn',
+  'cardholder_email' => 'Kortinnehavarens e-post',
+  'card' => 'Kort',
+  'cardholder_address' => 'Kortinnehavarens adress',
+  'cardholder_city' => 'Kortinnehavarens stad',
+  'cardholder_postal_code' => 'Kortinnehavarens postnummer',
+  'buy_now' => 'Köp nu',
+  'your_cart' => 'Din varukorg',
+  'total' => 'Totalt',
+);

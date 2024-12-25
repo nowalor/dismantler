@@ -7,41 +7,41 @@
 
     <img src="{{ asset('img/stripe-logo.png') }}" style="height: 60px;"
          alt="Paypal Logo">
-    <p class="mb-3 text-muted fw-light">Pay with credit or debit card.</p>
+    <p class="mb-3 text-muted fw-light">{{ __('checkout.pay_with_credit_or_debit') }}.</p>
     <div class="mb-3">
-        <label>Cardholder name*</label>
+        <label>{{ __('checkout.cardholder_name') }}*</label>
         <input type="text" name="stripe_name" class="form-control"/>
     </div>
 
     <div class="mb-3">
-        <label>Cardholder email*</label>
+        <label>{{ __('checkout.cardholder_email') }}*</label>
         <input type="text" name="stripe_email" class="form-control"/>
     </div>
 
     <div class="mb-3">
-        <label for="card-element">Card information*</label>
+        <label for="card-element">{{ __('checkout.card') }}*</label>
         <div id="cardElement" class="form-control" style='height: 2.4em; padding-top: .7em;'>
             <!-- A Stripe Element will be inserted here. -->
         </div>
     </div>
 
     <div class="mb-3">
-        <label>Address*</label>
+        <label>{{ __('checkout.cardholder_address') }}*</label>
         <input type="text" class="form-control"/>
     </div>
 
     <div class="d-flex mb-3 gap-2">
         <div>
-            <label>City*</label>
+            <label>{{ __('checkout.cardholder_city') }}*</label>
             <input type="text" class="form-control"/>
         </div>
         <div>
-            <label>Postal code*</label>
+            <label>{{ __('checkout.cardholder_postal_code') }}*</label>
             <input type="text" class="form-control"/>
             </div>
     </div>
     <div class="pt-3">
-        <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">Buy now</button>
+        <button id="payment-button" class="w-100 btn btn-primary btn-lg" type="submit">{{ __('checkout.buy_now') }}</button>
     </div>
 </div>
 

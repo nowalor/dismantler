@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CarPartType;
 use App\Models\KType;
+use App\Models\MainCategory;
 use Illuminate\Http\Request;
 
 class SearchByPlateController extends Controller
@@ -19,7 +20,7 @@ class SearchByPlateController extends Controller
 
     public function __invoke()
     {
-        return view('searchByPlate');
+        return view('searchByPlate', compact('mainCategories'));
     }
 
     public function search(Request $request)
@@ -46,7 +47,9 @@ class SearchByPlateController extends Controller
         $offset = ($page - 1) * $perPage;
 
         // Retrieve car parts with pagination
-        $carPartsQuery = $ktype->germanDismantlers()->with('newCarParts')->get()->pluck('newCarParts')->flatten();
+        $carPartsQuery = $ktype->germanDismantlers()->with('newCarParts', function($q) {
+            $q->where('country', 'dk');
+        })->get()->pluck('newCarParts')->flatten();
 
         $engineCode = $data['extended']['engine_codes'];
         $normalizedEngineCode = str_replace(' ', '', $engineCode);
@@ -63,8 +66,10 @@ class SearchByPlateController extends Controller
         ]);
 
         $partTypes = CarPartType::all();
+        $mainCategories = MainCategory::all(); // Super annoying if we have to keep doing this everywhere, time for livewire?
 
-        return view('plate-parts', compact('parts', 'partTypes'));
+
+        return view('plate-parts', compact('parts', 'partTypes', 'mainCategories'));
     }
 
 }
