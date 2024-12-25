@@ -110,10 +110,13 @@ class NewCarPart extends Model
     public function getRawGearboxAttribute(): string {
         return $this->attributes['gearbox'];
     }
-    public function ditoNumber(): BelongsTo
+
+    // Tempararily removed this since we also have a "dito_number" field I wanted to query
+    // Will rename the field and comment back in relation if we actually need it...
+   /* public function ditoNumber(): BelongsTo
     {
         return $this->belongsTo(DitoNumber::class);
-    }
+    }*/
 
     public function getMyKbaThroughDitoAttribute()
     {
