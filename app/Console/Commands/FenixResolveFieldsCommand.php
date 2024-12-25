@@ -115,6 +115,7 @@ class FenixResolveFieldsCommand extends Command
 
             $sbrCode = SbrCode::where('sbr_code', $carPart->sbr_car_code)->first();
 
+            // Has been extracted to "FindDitoNumberFromDanishpartCode.."
             $ditoNumberCarCode = substr($carPart->danish_item_code, 0, 4);
             $ditoNumber = DitoNumber::where('dito_number', $ditoNumberCarCode)->first();
 
