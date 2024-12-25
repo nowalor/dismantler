@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'checkout' => 'Kasse',
+  'this_is_the_checkout_page_for_your_order' => 'Dette er kassesiden for bestilling. Når du har udfyldt nedenstående formular med dine betalings- og leveringsoplysninger, vil delen blive leveret til dig.',
+  'delivery_information' => 'Information om levering',
+  'name' => 'Navn',
+  'please_enter_your_name' => 'Indtast venligst dit navn',
+  'email' => 'E-mail',
+  'please_enter_your_email' => 'Indtast venligst din e-mail',
+  'address' => 'Adresse',
+  'town' => 'By',
+  'zip' => 'Lynlås',
+  'payment' => 'Betaling',
+  'pay_with_credit_or_debit' => 'Betal med kredit- eller betalingskort',
+  'cardholder_name' => 'Kortholders navn',
+  'cardholder_email' => 'Kortholders e-mail',
+  'card' => 'Kort',
+  'cardholder_address' => 'Kortholders adresse',
+  'cardholder_city' => 'Kortholderens by',
+  'cardholder_postal_code' => 'Kortholders postnummer',
+  'buy_now' => 'Køb nu',
+  'your_cart' => 'Din indkøbskurv',
+  'total' => 'I alt',
+);

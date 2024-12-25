@@ -40,6 +40,6 @@ class OrderSuccessWebsiteNotification extends Notification
 
     private function message(): string
     {
-        return 'just testing slack messages for website orders';
+        return "Somebody has bought or attempted to buy the part with the article nr: {$this->part->article_nr}";
     }
 }

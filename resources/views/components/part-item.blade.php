@@ -34,7 +34,7 @@
     @endif
     </td>
     <td class="text-white">
-        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType->name }}</p>
+        <p><span class="fw-bold"> </span>{{ $part->sbr_car_name }} <br> {{ $part->carPartType?->name }}</p>
     </td>
     <td class="text-white">
         @if($part->original_number)
@@ -99,11 +99,9 @@
     </td>
     <td class="text-white overflow-hidden text-nowrap">
         <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->full_price }} @if(!$part->getLocalizedPrice()['requires_request']) {{ $part->getLocalizedPrice()['symbol'] }} @endif </p>
-
-   {{--     <p><span class="fw-bold">{{ __('car-part-price') }}: </span>{{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>--}}
     </td>
     <td>
-{{--        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100 mb-2">{{__('pop-up-buy-now')}}</a>--}}
+        <a href="{{ route('checkout', $part) }}" class="btn btn-primary w-100 mb-2">{{__('pop-up-buy-now')}}</a>
         <a href="{{ route('fullview', $part) }}" class="btn btn-primary w-100 mb-2">{{__('car-view-part')}}</a>
         <a href="{{ route('contact', ['part_name' => $part->new_name, 'article_nr' => $part->article_nr]) }}" class="btn btn-primary w-100 mb-2">
             {{__('contact-us')}}

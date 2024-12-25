@@ -14,23 +14,21 @@
                 <li class="breadcrumb-item">
                     <a href="{{ route('fullview', $carPart) }}">{{ $carPart->new_name }}</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ __('checkout.checkout') }}</li>
             </ol>
         </nav>
         <div>
             <div class="py-5 text-center col-8 mx-auto">
                 <!--   <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
                 <img style="width: 45px;" src="{{ asset('img/check-out-icon.png') }}"/>
-                <h2>Checkout</h2>
-                <p class="text-muted fw-light">This is the checkout page for part {{$carPart->name}}. After you fill in
-                    the form below
-                    with your payment and delivery information the part will be delivered to you.</p>
+                <h2>{{ __('checkout.checkout') }}</h2>
+                <p class="text-muted fw-light">{{ __('checkout.this_is_the_checkout_page_for_your_order') }}</p>
             </div>
 
             <div class="row g-5">
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">Your cart <i class="fa fa-shopping-cart text-primary"></i>
+                        <span class="text-primary">{{ __('checkout.your_cart') }} <i class="fa fa-shopping-cart text-primary"></i>
 </span>
                         <span class="badge bg-primary rounded-pill">1</span>
                     </h4>
@@ -51,7 +49,7 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
 
-                    <h4 class="mb-3">Delivery information <i class="fa fa-car"></i>
+                    <h4 class="mb-3">{{ __('checkout.delivery_information') }} <i class="fa fa-car"></i>
                     </h4>
                     <form action="{{ route('pay', $carPart) }}" class="needs-validation" novalidate id="payment-form"
                           method="POST">
@@ -60,9 +58,9 @@
 
                         <div class="row g-3">
                             <div class="col-12">
-                                <label for="checkout_name" class="form-label">Name*</label>
+                                <label for="checkout_name" class="form-label">{{ __('checkout.name') }}*</label>
                                 <input name="name" type="text" class="form-control" id="checkout_name"
-                                       placeholder="Please enter your name"
+                                       placeholder="{{ __('checkout.please_enter_your_name') }}"
                                        value="" required>
                                 <div class="invalid-feedback">
                                     Valid name is required.
@@ -70,16 +68,17 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="checkout_email" class="form-label">Email*</label>
+                                <label for="checkout_email" class="form-label">{{ __('checkout.email') }}*</label>
                                 <input name="email" type="email" class="form-control" id="checkout_email"
-                                       placeholder="you@example.com">
+                                       placeholder="{{ __('checkout.email') }}"
+                                       />
                                 <div class="invalid-feedback">
-                                    Please enter a valid email address for shipping updates.
+                                    Please enter a valid email address.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="checkout_address" class="form-label">Address</label>
+                                <label for="checkout_address" class="form-label">{{ __('checkout.address') }}</label>
                                 <input name="address" type="text" class="form-control" id="checkout_address"
                                        placeholder="1234 Main St"
                                        required>
@@ -100,7 +99,7 @@
                             </div> -->
 
                             <div class="col-md-3">
-                                <label for="checkout_town" class="form-label">Town</label>
+                                <label for="checkout_town" class="form-label">{{ __('checkout.town') }}</label>
                                 <input name="town" type="text" class="form-control" id="checkout_town" placeholder=""
                                        required>
                                 <div class="invalid-feedback">
@@ -110,7 +109,7 @@
 
 
                             <div class="col-md-3">
-                                <label for="checkout_zip" class="form-label">Zip</label>
+                                <label for="checkout_zip" class="form-label">{{ __('checkout.zip') }}</label>
                                 <input name="zip_code" type="text" class="form-control" id="checkout_zip" placeholder=""
                                        required>
                                 <div class="invalid-feedback">
