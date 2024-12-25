@@ -12,7 +12,7 @@ class FindDitoNumberFromDanishPartCodeCommand extends Command
 
     public function handle(): int
     {
-        $parts = NewCarPart::where('name', 'DK')
+        $parts = NewCarPart::where('country', 'DK')
             ->whereNull('dito_number')
             ->whereNotNull('danish_item_code')
             ->take(10000)
