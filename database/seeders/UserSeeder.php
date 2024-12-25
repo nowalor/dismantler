@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
         // Seed one Admin user
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('@Password091'),
+            'email' => '',
+            'password' => Hash::make(''), // do we add all seeders to the .gitignore file or?
             'email_verified_at' => now(),
             'is_admin' => true,
         ]);
