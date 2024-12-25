@@ -18,9 +18,13 @@ class FindDitoNumberFromDanishPartCodeCommand extends Command
             ->take(10000)
             ->get();
 
+        $this->info($parts->count());
+
         foreach ($parts as $part) {
             $ditoNumberCarCode = substr($part->danish_item_code, 0, 4);
             $ditoNumber = DitoNumber::where('dito_number', $ditoNumberCarCode)->first();
+
+            $this->info($ditoNumberCarCode);
 
             $part->dito_number = $ditoNumber;
             $part->save();
