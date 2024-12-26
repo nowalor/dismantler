@@ -1,12 +1,13 @@
 @extends('app')
+@section('title', 'Currus-connect.com: ' . __('page-titles.home'))
 @section('content')
 
 <div class="cta">
 <div class="d-flex justify-content-center text-center mx-auto pt-4">
-    <img src="{{ asset($logoPath) }}" 
-         style="max-width: 25rem; max-height: 40rem;" 
-         class="pt-2" 
-         alt="{{ $logo['alt'] ?? 'Currus Connect Logo' }}" 
+    <img src="{{ asset($logoPath) }}"
+         style="max-width: 25rem; max-height: 40rem;"
+         class="pt-2"
+         alt="{{ $logo['alt'] ?? 'Currus Connect Logo' }}"
          title="{{ $logo['title'] ?? 'Currus Connect' }}">
 </div>
 
