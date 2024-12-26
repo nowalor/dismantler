@@ -274,7 +274,7 @@ class NewCarPart extends Model
         $carName = $this->sbr_car_name ?? '';
 
         // TODO, handle car names for danish parts
-        $partType = __('car-part-types.' . $this->carPartType->translation_key) ?? '';
+        $partType = __('car-part-types.' . $this->carPartType?->translation_key) ?? '';
 
         return "$carName $partType $this->original_number $this->engine_type";
     }
@@ -295,7 +295,7 @@ class NewCarPart extends Model
     {
         $locale = App::getLocale();
 
-        $price = $this->country === 'dk' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
+        $price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
         $partTypeKey = $this->carPartType->json_key;
 
