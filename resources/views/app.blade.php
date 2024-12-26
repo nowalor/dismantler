@@ -108,7 +108,7 @@
     <nav class="container d-flex justify-content-between">
         <a href="{{ route('landingpage') }}" class="d-flex align-items-center text-decoration-none">
             <img class="d-inline-block" src="{{ asset('currus-logo.png') }}" width="50rem" height="50rem"
-                style="padding: 0.1rem;" />
+                style="padding: 0.1rem;" alt="{{ __('alt-tags.homepage_logo_1') }}"/>
             <h4 class="text-white mb-0">Currus Connect</h4>
         </a>
 
@@ -150,7 +150,7 @@
                         <li>
                             <a class="dropdown-item" href="{{ route('change.language', $localeCode) }}">
                                 <img src="{{ asset('img/flags/' . $language['flag'] . '.png') }}" width="20"
-                                    height="15" alt="Flag" class="me-2">
+                                    height="15" alt="{{ __('alt-tags.flag') . ' ' . __("countries.{$language['flag']}")  }}" class="me-2">
                                 {{ $language['name'] }}
                             </a>
                         </li>
@@ -164,7 +164,7 @@
                     class="btn btn-secondary dropdown-toggle w-100 d-flex justify-content-center align-items-center"
                     type="button" id="languageDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="{{ asset('img/flags/' . config('languages.' . App::getLocale() . '.flag') . '.png') }}"
-                        width="20" height="15" alt="Flag" class="me-2">
+                        width="20" height="15" alt="{{ __('alt-tags.flag') . ' ' . __("countries.{$language['flag']}")  }}" class="me-2">
                     {{ config('languages.' . App::getLocale() . '.name') }}
                 </button>
                 <ul class="dropdown-menu w-100" aria-labelledby="languageDropdownMobile">

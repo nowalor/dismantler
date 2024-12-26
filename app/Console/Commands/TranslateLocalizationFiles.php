@@ -47,7 +47,18 @@ class TranslateLocalizationFiles extends Command
         $this->translateJsonFile($targetLangs);
 
         // 2. Translate PHP array files
-        $phpFiles = ['part-types.php', 'pagination.php', 'faqs.php', 'checkout.php', 'payment-success.php', 'car-part-types.php', 'page-titles.php'];
+        $phpFiles = [
+            'part-types.php',
+            'pagination.php',
+            'faqs.php',
+            'checkout.php',
+            'payment-success.php',
+            'car-part-types.php',
+            'page-titles.php',
+            'alt-tags.php',
+            'countries.php',
+        ];
+
         foreach ($phpFiles as $phpFile) {
             $this->translateFile($phpFile, $targetLangs);
         }
