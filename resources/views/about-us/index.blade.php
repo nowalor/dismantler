@@ -1,4 +1,5 @@
 @extends("app")
+@section('title', 'Currus-connect.com: ' . __('page-titles.about_us'))
 @section("content")
 
 <div class="container my-5">
@@ -16,16 +17,16 @@
         <h1 class="display-4 text-success fw-bold">{{ __('about-header') }}</h1>
         <p class="fs-6 lead text-muted">{{ __('about-intro') }}</p>
     </div>
-    
+
     <!-- Content Section -->
     <div class="container my-4 text-center" style="max-width: 65%;">
         <p class="mt-4 font-italic fs-5 text-secondary">
             {{ __('about-text-one') }} <strong class="text-success">{{ __('currus-connect') }}</strong> {{ __('about-text-two') }}
         </p>
-        
+
         <!-- Decorative Line -->
         <hr class="my-4 mx-auto" style="width: 50%; border-top: 2px solid #28a745;">
-        
+
         <!-- About Details -->
         <h5 class="mt-3 font-italic text-muted">
             {{ __('about-text-three') }}
@@ -39,7 +40,7 @@
         <h5 class="mt-3 font-italic text-muted">
             {{ __('about-text-six') }}
         </h5>
-        
+
         <!-- Guarantee Text -->
         <div class="mt-4 p-3 rounded bg-light shadow-sm">
             <h5 class="font-italic text-center text-success">

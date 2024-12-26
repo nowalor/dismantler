@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Currus-connect.com: ' . __('car-part-types.'. $part->carPartType->translation_key))
+@section('title', 'Currus-connect.com: ' . $part->pageTitle())
 @section('content')
     <div id="fullview-container" class="container pt-2 pb-3 pl-4 pr-4">
         <h1 class="large-text font-bold">{{ __('product-details') }}</h1>
@@ -16,7 +16,7 @@
                             @endphp
                                     <!-- Large Image Display -->
                             <img id="mainImage" class="img-fluid rounded mb-2" src="{{ $firstImage->logoGerman() }}"
-                                 alt="Car part image" style="max-width: 100%; border-radius: 1rem;">
+                                 alt="{{ $part->pageTitle() }}" style="max-width: 100%; border-radius: 1rem;">
 
                             <!-- Thumbnail Images -->
                             <div class="row justify-content-center">
@@ -34,7 +34,7 @@
                         @else
                             <img class="img-fluid rounded mb-4"
                                  src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png"
-                                 alt="Placeholder image" style="max-width: 100%; border-radius: 1rem;">
+                                 alt="{{ $part->pageTitle() }}" style="max-width: 100%; border-radius: 1rem;">
                         @endif
                     </div>
                 </div>

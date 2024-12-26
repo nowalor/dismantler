@@ -269,6 +269,16 @@ class NewCarPart extends Model
         return $this->getShipmentAttribute();
     }
 
+    public function pageTitle(): string
+    {
+        $carName = $this->sbr_car_name ?? '';
+
+        // TODO, handle car names for danish parts
+        $partType = __('car-part-types.' . $this->carPartType->translation_key) ?? '';
+
+        return "$carName $partType $this->original_number $this->engine_type";
+    }
+
 
     // including VAT + Shipping
     public function getTotalPriceEUR() {

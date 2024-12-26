@@ -86,6 +86,7 @@
 @endpush --}}
 
 @extends('app')
+@section('title', 'Currus-connect.com: ' . __('page-titles.contact_us'))
 @section('content')
     <!-- Banner Section with Image -->
     <div class="position-relative text-center mb-5">

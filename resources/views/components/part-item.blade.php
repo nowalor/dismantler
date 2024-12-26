@@ -15,7 +15,7 @@
                 @foreach($part->carPartImages as $key => $image)
                     <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
                         <!-- Make the image responsive using img-fluid -->
-                        <img src="{{ $image->logoGerman() }}" class="d-block w-100 img-fluid" alt="Car part image" style="border-radius: 0.7rem; object-fit: cover;">
+                        <img src="{{ $image->logoGerman() }}" class="d-block w-100 img-fluid" alt="{{ $part->pageTitle() }}" style="border-radius: 0.7rem; object-fit: cover;">
                     </div>
                 @endforeach
             </div>
@@ -29,7 +29,7 @@
             </a>
         </div>
     @else
-        <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="Placeholder image"
+        <img class="card-img-bottom mt-2 img-fluid" src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png" alt="{{ $part->pageTitle() }}"
             style="width: 100%; max-width: 25rem; border-radius: 0.7rem; object-fit: cover;">
     @endif
     </td>

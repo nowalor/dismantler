@@ -1,4 +1,5 @@
 @extends('app')
+@section('title', 'Currus-connect.com: ' . __('page-titles.faq'))
 @section('content')
     <div class="container pt-5">
         <nav aria-label="breadcrumb">
@@ -12,7 +13,7 @@
 
         <h3 class="text-center pt-4 fw-bold text-success display-6">{{ __('faq') }}</h3>
         <p class="text-center lead text-muted" style="font-size: 1.25rem;">
-            {{ __('faq-intro') }} 
+            {{ __('faq-intro') }}
             <a class="link-success fw-bold" href="{{ route('contact') }}"> <br> {{ __('faq-email-msg') }}</a>
         </p>
 
@@ -51,9 +52,9 @@
                 <h3 class="text-center pb-4 text-success fw-bold" style="font-size: 1.5rem;">{{ __('faq-files-intro') }}</h3>
                 <div class="row">
                     @foreach ([
-                        'cookies' => __('faq-cookies'), 
-                        'fortrydelsesret' => __('faq-right-of-withdrawal'), 
-                        'gdpr' => __('faq-gdpr'), 
+                        'cookies' => __('faq-cookies'),
+                        'fortrydelsesret' => __('faq-right-of-withdrawal'),
+                        'gdpr' => __('faq-gdpr'),
                         'leveringsbetingelser' => __('faq-terms-of-sale')
                     ] as $doc => $title)
                         <div class="col-md-6 mb-4">
@@ -73,10 +74,10 @@
 
     <style>
         .faq-question {
-            font-style: italic; 
-            font-weight: bold; 
+            font-style: italic;
+            font-weight: bold;
             font-size: 1.2rem;
-            margin-bottom: 10px; 
+            margin-bottom: 10px;
             color: #28a745;
         }
     .nav-tabs .nav-link {
