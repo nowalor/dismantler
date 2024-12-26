@@ -7,7 +7,7 @@
     <img src="{{ asset($logoPath) }}"
          style="max-width: 25rem; max-height: 40rem;"
          class="pt-2"
-         alt="{{ $logo['alt'] ?? 'Currus Connect Logo' }}"
+         alt="{{ __('alt-tags.homepage_logo_2') }}"
          title="{{ $logo['title'] ?? 'Currus Connect' }}">
 </div>
 
