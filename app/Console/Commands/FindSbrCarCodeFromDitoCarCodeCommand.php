@@ -32,6 +32,9 @@ class FindSbrCarCodeFromDitoCarCodeCommand extends Command
     {
         $parts = NewCarPart::where('country', 'DK')
             ->whereNotNull('dito_number_id')
+            ->whereHas('ditoNumber', function ($query) {
+                $query->whereHas('sbrCodes');
+            })
             ->whereNull('sbr_car_code')
             ->take(100)
             ->get();
