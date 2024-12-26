@@ -15,6 +15,10 @@ class FindSbrCarCodeFromDitoCarCodeCommand extends Command
         $parts = $this->parts();
 
         foreach ($parts as $part) {
+            if(!isset($part->ditoNumber?->sbrCodes[0])) {
+                continue;
+            }
+
             $part->sbr_code_id = $part->ditoNumber?->sbrCodes[0]?->id;
             $part->sbr_car_code = $part->ditoNumber?->sbrPartCodes[0]?->sbr_code;
 
