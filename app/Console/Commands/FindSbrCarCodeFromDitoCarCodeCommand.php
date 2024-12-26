@@ -14,7 +14,12 @@ class FindSbrCarCodeFromDitoCarCodeCommand extends Command
     {
         $parts = $this->parts();
 
-        foreach ($parts as $part) {}
+        foreach ($parts as $part) {
+            $part->sbr_code_id = $part->ditoNumber?->sbrCodes[0]?->id;
+            $part->sbr_car_code = $part->ditoNumber?->sbrPartCodes[0]?->sbr_code;
+
+            $part->save();
+        }
 
         return Command::SUCCESS;
     }
@@ -24,7 +29,7 @@ class FindSbrCarCodeFromDitoCarCodeCommand extends Command
         $parts = NewCarPart::where('country', 'DK')
             ->whereNotNull('dito_number_id')
             ->whereNull('sbr_car_code')
-            ->get();
+            ->take(100);
 
         return $parts;
     }
