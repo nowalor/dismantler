@@ -37,7 +37,7 @@ class FindCarPartTypeIdForDanishPartsCommand extends Command
 
     private function parts(): Collection
     {
-        $parts = NewCarPart::where('country', 'dk')->whereNull('car_part_type_id')->whereNotNull('dito_number')->get();
+        $parts = NewCarPart::where('country', 'DK')->whereNull('car_part_type_id')->whereNotNull('dito_number')->get();
 
         return $parts;
     }
