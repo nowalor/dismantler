@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
-<title>Currus Connect - Home</title>
 <head>
+    <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> --}}
     <link href="https://fonts.cdnfonts.com/css/cooper-hewitt?styles=34279" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <title>@yield('title')</title>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link rel="icon" type="image/x-icon"
         href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
     @livewireStyles
     @stack('css')
-    
+
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",

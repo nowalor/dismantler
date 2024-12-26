@@ -1,6 +1,7 @@
 @extends('app')
 
-@section('title', 'Currus Connect - Browse all')
+@section('title', 'Currus-connect.com: ' . __('page-titles.search_all'))
+
 
 @section('content')
 <div class="d-flex flex-column" style="min-height: 100vh opacity: .85; background-image: url('/img/enginedark.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat; ">
