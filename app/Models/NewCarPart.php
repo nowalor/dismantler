@@ -68,7 +68,7 @@ class NewCarPart extends Model
         'is_live_on_hood',
         'external_part_type_id',
         'country',
-        'dito_number',
+        'dito_number_part_code',
         'danish_item_code',
         'mileage',
     ];

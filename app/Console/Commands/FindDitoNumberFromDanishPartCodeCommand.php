@@ -27,7 +27,7 @@ class FindDitoNumberFromDanishPartCodeCommand extends Command
 
             //$this->info($ditoNumberCarCode);
 
-            $part->dito_number = $ditoNumberPartCode;
+            $part->dito_number_part_code = $ditoNumberPartCode;
 
             if($ditoNumber) {
                 $this->info($ditoNumber->id);
