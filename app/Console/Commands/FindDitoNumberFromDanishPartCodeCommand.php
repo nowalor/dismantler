@@ -13,7 +13,7 @@ class FindDitoNumberFromDanishPartCodeCommand extends Command
     public function handle(): int
     {
         $parts = NewCarPart::where('name', 'DK')
-            ->whereNull('dito_number')
+            ->whereNotNull('dito_number')
             ->whereNotNull('danish_item_code')
             ->take(10000)
             ->get();
@@ -21,12 +21,12 @@ class FindDitoNumberFromDanishPartCodeCommand extends Command
         $this->info($parts->count());
 
         foreach ($parts as $part) {
-            $ditoNumberCarCode = substr($part->danish_item_code, 0, 4);
-            $ditoNumber = DitoNumber::where('dito_number', $ditoNumberCarCode)->first();
+            $ditoNumberPartCode = substr($part->danish_item_code, 4, 4);
+            //$ditoNumber = DitoNumber::where('dito_number', $ditoNumberCarCode)->first();
 
-            $this->info($ditoNumberCarCode);
+            //$this->info($ditoNumberCarCode);
 
-            $part->dito_number = $ditoNumber;
+            $part->dito_number = $ditoNumberPartCode;
             $part->save();
         }
 
