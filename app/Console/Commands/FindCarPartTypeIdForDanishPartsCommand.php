@@ -16,14 +16,14 @@ class FindCarPartTypeIdForDanishPartsCommand extends Command
         $parts = $this->parts();
 
         foreach($parts as $part) {
-            $carPartTypeId = DanishCarPartType::where('code', $part->dito_number)
+            $carPartTypeId = DanishCarPartType::where('code', $part->dito_number_part_code)
                 ->first()
                 ?->carPartTypes
                 ?->first()
                 ?->id;
 
             if(!$carPartTypeId) {
-                $this->info("$part->dito_number not found!");
+                $this->info("$part->dito_number_part_code not found!");
 
                 continue;
             }
@@ -39,7 +39,7 @@ class FindCarPartTypeIdForDanishPartsCommand extends Command
     {
         $parts = NewCarPart::where('country', 'DK')
             ->whereNull('car_part_type_id')
-            ->whereNotNull('dito_number')
+            ->whereNotNull('dito_number_part_code')
             ->get();
 
         return $parts;
