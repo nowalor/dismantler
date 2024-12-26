@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class NewCarPartTypeSeeder extends Seeder
 {
@@ -34,6 +35,8 @@ class NewCarPartTypeSeeder extends Seeder
         foreach ($data as $item) {
             $partType = [
                 'name' => $item['name'],
+                // Underscore version of name without special characters
+                'translation_key' =>  Str::slug($item['name'], '_'),
             ];
 
             if(isset($item['json_key'])) {

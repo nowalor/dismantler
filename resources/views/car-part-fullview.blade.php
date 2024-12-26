@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Currus Connect - Car Parts')
+@section('title', 'Currus-connect.com: ' . __('car-part-types.'. $part->carPartType->translation_key))
 @section('content')
     <div id="fullview-container" class="container pt-2 pb-3 pl-4 pr-4">
         <h1 class="large-text font-bold">{{ __('product-details') }}</h1>

@@ -175,6 +175,7 @@
 <!-- table turns into cards on small views -->
 <div class="d-md-none">
     @forelse($parts as $part)
+        <h1>{{ __("car-part-types.{$part->carPartType->translation_key}") }}</h1>
         <div class="card mb-3 bg-light text-dark" style="width: 100%;">
             <div id="carousel-{{ $part->id }}" class="carousel slide bg-dark" data-bs-ride="carousel">
                 <div class="carousel-inner">
