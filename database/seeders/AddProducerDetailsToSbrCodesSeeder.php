@@ -22,9 +22,10 @@ class AddProducerDetailsToSbrCodesSeeder extends Seeder
 
         foreach($data as $item) {
             SbrCode::where('name', 'like', "%{$item['producer']}%")->update([
-               'producer_address' => $item['address'],
-               'producer_email' => $item['email'],
-               'producer_phone' => $item['phone'],
+                'producer' => $item['producer'],
+                'producer_address' => $item['address'],
+                'producer_email' => $item['email'],
+                'producer_phone' => $item['phone'],
             ]);
         }
     }

@@ -101,6 +101,15 @@ class FormatPartsForXmlAction
                         'customFields' => $this->getCustomFields($part),
                     ],
                 ],
+                'regulatory' => [
+                    'manufacturer' => [
+                        'companyName' => $part->sbrCode->producer,
+                        'addressLine1' => $part->sbrCode->producer_address,
+                        'phone' => $part->sbrCode->producer_phone,
+                        'email' => $part->sbrCode->producer_email,
+                    ]
+                ],
+
                 'inventory' => [
                     'totalShipToHomeQuantity' => '1',
                 ],
@@ -171,10 +180,6 @@ class FormatPartsForXmlAction
         // New
         $fields['customField'][] = ['name' => 'Hersteller', 'value' => $this->getProducer($part)];
         $fields['customField'][] = ['name' => 'Modell', 'value' => $this->getBrand($part)];
-
-        $fields['customField'][] = ['name' => 'ProducerAddress', 'value' => $part->sbrCode->producer_address];
-        $fields['customField'][] = ['name' => 'ProducerEmail', 'value' => $part->sbrCode->producer_email];
-        $fields['customField'][] = ['name' => 'ProducerPhone', 'value' => $part->sbrCode->producer_phone];
 
         return $fields;
     }
