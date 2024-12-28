@@ -23,7 +23,7 @@ class DeleteProductCommand extends Command
             fileName: "$xmlName.xml",
         );
 
-        //NewCarPart::where('is_live_on_ebay', true)->update(['is_live_on_ebay' => false]);
+        NewCarPart::where('is_live_on_ebay', true)->update(['is_live_on_ebay' => false]);
 
         return Command::SUCCESS;
     }
