@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Session;
 class LocaleMiddleware
 {
     // List of supported locales
-    protected $supportedLocales = ['en', 'dk', 'ge', 'se', 'fr', 'it', 'pl'];
+    protected $supportedLocales = ['en', 'da', 'de', 'sv', 'fr', 'it', 'pl'];
 
     // Map browser locale codes to supported locale codes
     protected $localeMappings = [
-        'da' => 'dk', // Map 'da' (browser code) to 'dk'
+        'da' => 'da', // Map 'da' (browser code) to 'da'
         'de' => 'ge', // Map 'de' (browser code) to 'ge'
-        'sv' => 'se', // Map 'sv' (browser code) to 'se'
+        'sv' => 'sv', // Map 'sv' (browser code) to 'sv'
         'fr' => 'fr', // No change for French
         'it' => 'it', // Map 'it' (browser code) to 'it'
         'pl' => 'pl', // Map 'pl' (browser code) to 'pl'

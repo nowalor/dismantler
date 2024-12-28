@@ -10,6 +10,7 @@ use App\Http\Controllers\FaqPageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
+use App\Http\Controllers\TestLangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
@@ -23,8 +24,7 @@ use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\LandingPageController;
-
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 //Route::get('search-by-plate', SearchByPlateController::class);
@@ -54,23 +54,24 @@ Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
 // currently using this for now until currusConnect production ready
 //Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
 
-Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
 Route::get('browse', [CarPartController::class, 'searchParts'])->name("browse");
 
-Route::get('lang/{locale}', function ($locale) {
-    if (in_array($locale, ['en', 'ge', 'fr', 'dk', 'se', 'it', 'pl'])) {
-        session(['locale' => $locale]);
-    }
-    return redirect()->back();
-})->name('change.language');
-
-Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
-    Route::get('faq', FaqPageController::class)->name('faq');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(), 
+    'middleware' => [
+        'localeSessionRedirect',
+        'localizationRedirect',
+        'localeViewPath',
+    ]
+], function () {
+    Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
+    Route::get('faq', [FaqPageController::class, 'index'])->name('faq');
+    Route::get('contact', ContactPageController::class)->name('contact');
+    Route::get('test-lang', TestLangController::class)->name('test-lang');
 });
 
 
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
-Route::get('contact', ContactPageController::class)->name('contact');
 Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
@@ -103,7 +104,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('categories/connect-car-part/{mainCategory}', [AdminCategoryController::class, 'connectCarPart'])->name('admin.categories.connect-car-part');
     Route::post('categories/disconnect-car-part/{mainCategory}', [AdminCategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
     // show individual category
-    Route::get('part-types-categories/{category}', [AdminCategoryController::class, 'show'])->name('admin.part-types-categories.show');
+    //Route::get('part-types-categories/{category}', [AdminCategoryController::class, 'show'])->name('admin.part-types-categories.show');
 
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])

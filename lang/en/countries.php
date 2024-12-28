@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'dk' => 'Denmark',
+    'da' => 'Denmark',
     'fr' => 'France',
     'de' => 'Germany',
     'it' => 'Italy',
     'pl' => 'Poland',
-    'se' => 'Sweden',
+    'sv' => 'Sweden',
     'gb' => 'England',
 ];

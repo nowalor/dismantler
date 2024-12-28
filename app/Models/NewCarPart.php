@@ -300,7 +300,7 @@ class NewCarPart extends Model
 
         $priceInfo = (new GetLocalizedPriceAction())->execute(
             $locale,
-            $this->country === 'dk' ? 'dk' : 'se',
+            $this->country === 'da' ? 'da' : 'sv',
             $price,
             $partTypeKey,
             $this->dismantle_company_name,

@@ -21,7 +21,7 @@
         </div>
 
         @else
-        @if(App::getLocale() === 'dk')
+        @if(App::getLocale() === 'da')
                 <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
                     <button wire:click="openForm('number-plate')" class="fw-semibold btn btn-success mb-3 w-100">{{__('number-plate-search')}}</button>
 

@@ -48,7 +48,7 @@ class SearchByPlateController extends Controller
 
         // Retrieve car parts with pagination
         $carPartsQuery = $ktype->germanDismantlers()->with('newCarParts', function($q) {
-            $q->where('country', 'dk');
+            $q->where('country', 'da');
         })->get()->pluck('newCarParts')->flatten();
 
         $engineCode = $data['extended']['engine_codes'];

@@ -47,7 +47,7 @@
                     <label for="phone">Phone</label>
                     <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                 </div>
-                @if(app()->getLocale() === 'dk')
+                @if(app()->getLocale() === 'da')
                 <div class="mb-2">
                     <label for="plate">Nummerplade</label>
                     <input type="text" class="form-control" name="plate" id="plate" placeholder="Nummerplade">
@@ -142,7 +142,7 @@
                     <input type="text" class="form-control" name="phone" id="phone" placeholder="{{ __('contact-placeholder-phone') }}">
                 </div>
 
-                @if(app()->getLocale() === 'dk')
+                @if(app()->getLocale() === 'da')
                     <div class="mb-3">
                         <label for="plate" class="form-label">Nummerplade</label>
                         <input type="text" class="form-control" name="plate" id="plate" placeholder="Nummerplade">

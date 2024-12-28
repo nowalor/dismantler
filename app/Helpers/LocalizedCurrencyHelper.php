@@ -13,8 +13,8 @@ class LocalizedCurrencyHelper
          */
         $currencyMapper = [
             'ge' => 'eur',
-            'dk'  => 'dkk',
-            'se' => 'sek',
+            'da'  => 'dkk',
+            'sv' => 'sek',
             'pl' => 'eur',
             'fr' => 'eur',
             'it' => 'eur'
