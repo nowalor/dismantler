@@ -92,8 +92,8 @@ class FormatPartsForXmlAction
                         'shippingPolicyName' => 'Kostenloser Versand',
                         // Add other distribution details
                         'pricingDetails' => [
-                            'listPrice' => $part->full_price * 1.1,
-                            'strikeThroughPrice' => $part->full_price * 1.1,
+                            'listPrice' => $part->ebayPrice('ge'),
+                            'strikeThroughPrice' => $part->ebayPrice('ge'),
 //                            'minimumAdvertisedPrice' => '18.18465',
 //                            'minimumAdvertisedPriceHandling' => '',
                         ],
