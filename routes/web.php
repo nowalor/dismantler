@@ -7,11 +7,9 @@ use App\Http\Controllers\AdminEngineTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
-use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
-use App\Http\Controllers\StatsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
@@ -25,25 +23,15 @@ use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\TemporaryLandingPageController;
 
 
 
-Route::get('stats', [StatsController::class, 'index']);
-Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
 
 //Route::get('search-by-plate', SearchByPlateController::class);
-Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
-
+// Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
-
-Route::get('test-parts', [TestController::class, 'testingParts']);
-
-
-Route::get('engine-type-engine-alias', \App\Http\Controllers\EngineTypeEngineAliasController::class);
-
 // Payment routes
 Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
     ->name('pay');
@@ -58,8 +46,6 @@ Route::get('payments/success', [App\Http\Controllers\PaymentController::class, '
 Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
     ->name('checkout');
 
-// testing remove later
-Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
@@ -78,15 +64,14 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 })->name('change.language');
 
+Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
+    Route::get('faq', FaqPageController::class)->name('faq');
+});
 
-Route::get('faq', FaqPageController::class)->name('faq');
+
 Route::get('about-us', AboutUsPageController::class)->name('about-us');
 Route::get('contact', ContactPageController::class)->name('contact');
 Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
-
-Route::get('dismantlers', [TestController::class, 'showSelectPage']);
-Route::get('dismantlers-german', [TestController::class, 'showGermanDismantlers'])->name('german.dismantlers');
-Route::get('dismantlers-danish', [TestController::class, 'showDanishiDsmantlers'])->name('danish.dismantlers');
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -170,17 +155,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 // Stripe webhooks
 Route::stripeWebhooks('marcus-webhook-test');
 
-Route::get('preview', function () {
-    $dismantleId = '123';
-    $fenixId = '123';
-
-    return view('emails.reservation', compact('dismantleId', 'fenixId'));
-});
-
-
-// TEST HOOD TEMPLATE
-Route::get('hood/{part}', function (\App\Models\NewCarPart $part) {
-    $data = (new \App\Actions\GetTemplateInfoAction())->execute($part);
-
-    return view('hood', compact('part', 'data'));
-});
