@@ -27,14 +27,14 @@ class FaqSeeder extends Seeder
             [
                 'question_category' => Faq::CATEGORY_DELIVERY,
                 'question' => "I don't see my country in the list of countries. Can I still get a delivery?",
-                'answer' => 'Yes! Please contact us at service@autoteile.dk and we will find a solution.',
+                'answer' => 'Yes! Please contact us at service@autoteile.da and we will find a solution.',
                 'translation_key' => 'country_not_in_list_can_i_still_get_delivery',
                 'translation_value' => 'please_contact_us_if_your_country_is_not_in_list'
             ],
             [
                 'question_category' => Faq::CATEGORY_DELIVERY,
                 'question' => 'I did not receive my order. What should I do?',
-                'answer' => 'Please contact us at service@autoteile.dk and we will find a solution.',
+                'answer' => 'Please contact us at service@autoteile.da and we will find a solution.',
                 'translation_key' => 'did_not_receive_order_what_should_i_do',
                 'translation_value' => 'please_contact_us_if_you_did_not_receive_order'
             ],

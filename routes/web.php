@@ -7,11 +7,10 @@ use App\Http\Controllers\AdminEngineTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
-use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
-use App\Http\Controllers\StatsController;
+use App\Http\Controllers\TestLangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LoginController;
@@ -25,41 +24,14 @@ use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\TemporaryLandingPageController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-
-
-Route::get('stats', [StatsController::class, 'index']);
-Route::get('preview-template/{carPart}', \App\Http\Controllers\PreviewEbayTemplateController::class);
 
 //Route::get('search-by-plate', SearchByPlateController::class);
-Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
-
+// Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
-
-Route::get('test-parts', [TestController::class, 'testingParts']);
-
-
-Route::get('engine-type-engine-alias', \App\Http\Controllers\EngineTypeEngineAliasController::class);
-
-// Payment routes
-Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
-    ->name('pay');
-Route::get('payments/approval', [App\Http\Controllers\PaymentController::class, 'approval'])
-    ->name('approval');
-Route::get('payments/cancelled', [App\Http\Controllers\PaymentController::class, 'cancelled'])
-    ->name('cancelled');
-Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
-    ->name('checkout.success');
-
-// Checkout
-Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
-    ->name('checkout');
-
-// testing remove later
-Route::get('test3', [TestController::class, 'carPartIds']);
 
 // Payment routes end
 
@@ -68,38 +40,51 @@ Route::get('test3', [TestController::class, 'carPartIds']);
 // currently using this for now until currusConnect production ready
 //Route::get('', [TemporaryLandingPageController::class, 'TemporaryLandingPageView'])->name('home');
 
-Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
 Route::get('browse', [CarPartController::class, 'searchParts'])->name("browse");
 
-Route::get('lang/{locale}', function ($locale) {
-    if (in_array($locale, ['en', 'ge', 'fr', 'dk', 'se', 'it', 'pl'])) {
-        session(['locale' => $locale]);
-    }
-    return redirect()->back();
-})->name('change.language');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [
+        'localeSessionRedirect',
+        'localizationRedirect',
+        'localeViewPath',
+    ]
+], function () {
+    Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
+    Route::get('faq', [FaqPageController::class, 'index'])->name('faq');
+    Route::get('contact', ContactPageController::class)->name('contact');
+    Route::get('test-lang', TestLangController::class)->name('test-lang');
 
+    Route::get('about-us', AboutUsPageController::class)->name('about-us');
+    Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
 
-Route::get('faq', FaqPageController::class)->name('faq');
-Route::get('about-us', AboutUsPageController::class)->name('about-us');
-Route::get('contact', ContactPageController::class)->name('contact');
-Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
+    Route::post('login', [LoginController::class, 'login'])->name('login');
 
-Route::get('dismantlers', [TestController::class, 'showSelectPage']);
-Route::get('dismantlers-german', [TestController::class, 'showGermanDismantlers'])->name('german.dismantlers');
-Route::get('dismantlers-danish', [TestController::class, 'showDanishiDsmantlers'])->name('danish.dismantlers');
+    // Regular routes
+    Route::resource('car-parts', CarPartController::class);
+    Route::get('car-parts/search/by-code', [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
+    Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
+    Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
+    Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
-Route::post('login', [LoginController::class, 'login'])->name('login');
+    // Payment routes
+    Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
+        ->name('pay');
+    Route::get('payments/approval', [App\Http\Controllers\PaymentController::class, 'approval'])
+        ->name('approval');
+    Route::get('payments/cancelled', [App\Http\Controllers\PaymentController::class, 'cancelled'])
+        ->name('cancelled');
+    Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
+        ->name('checkout.success');
 
-// Regular routes
-Route::resource('car-parts', CarPartController::class);
-Route::get('car-parts/search/by-code', [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
-Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
-Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
-Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
+// Checkout
+    Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
+        ->name('checkout');
 
 // full view of individual car part
-Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
+    Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
+});
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -118,7 +103,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('categories/connect-car-part/{mainCategory}', [AdminCategoryController::class, 'connectCarPart'])->name('admin.categories.connect-car-part');
     Route::post('categories/disconnect-car-part/{mainCategory}', [AdminCategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
     // show individual category
-    Route::get('part-types-categories/{category}', [AdminCategoryController::class, 'show'])->name('admin.part-types-categories.show');
+    //Route::get('part-types-categories/{category}', [AdminCategoryController::class, 'show'])->name('admin.part-types-categories.show');
 
     Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
     Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])
@@ -170,17 +155,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 // Stripe webhooks
 Route::stripeWebhooks('marcus-webhook-test');
 
-Route::get('preview', function () {
-    $dismantleId = '123';
-    $fenixId = '123';
-
-    return view('emails.reservation', compact('dismantleId', 'fenixId'));
-});
-
-
-// TEST HOOD TEMPLATE
-Route::get('hood/{part}', function (\App\Models\NewCarPart $part) {
-    $data = (new \App\Actions\GetTemplateInfoAction())->execute($part);
-
-    return view('hood', compact('part', 'data'));
-});

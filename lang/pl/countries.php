@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'dk' => 'Dania',
+  'da' => 'Dania',
   'fr' => 'Francja',
   'de' => 'Niemcy',
   'it' => 'Włochy',
   'pl' => 'Polska',
-  'se' => 'Szwecja',
+  'sv' => 'Szwecja',
   'gb' => 'Anglia',
 );

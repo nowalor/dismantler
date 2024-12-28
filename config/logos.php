@@ -2,9 +2,9 @@
 
 // return [
 //     'en' => '/img/logos/white-logo-final-EN.png',
-//     'dk' => '/img/logos/white-logo-final-DK.png',
-//     'se' => '/img/logos/white-logo-final-DK.png',
-//     'ge' => '/img/logos/white-logo-final-GE.png',
+//     'da' => '/img/logos/white-logo-final-DK.png',
+//     'sv' => '/img/logos/white-logo-final-DK.png',
+//     'de' => '/img/logos/white-logo-final-GE.png',
 //     'fr' => '/img/logos/white-logo-final-EN.png',
 //     'it' => '/img/logos/white-logo-final-IT.png',
 //     'pl' => '/img/logos/white-logo-final-PL.png',
@@ -17,17 +17,17 @@ return [
         'alt' => 'Currus Connect - Used Spare Parts in English',
         'title' => 'Currus Connect - Reliable Used Spare Parts Provider',
     ],
-    'dk' => [
+    'da' => [
         'path' => '/img/logos/currus-connect-brugte-reservedele-dansk.png',
         'alt' => 'Currus Connect - Brugte Reservedele på Dansk',
         'title' => 'Currus Connect - Pålidelige Brugte Reservedele',
     ],
-    'se' => [
+    'sv' => [
         'path' => '/img/logos/currus-connect-begagnade-bildelar-svensk.png',
         'alt' => 'Currus Connect - Begagnade Bildelar på Svenska',
         'title' => 'Currus Connect - Pålitliga Begagnade Bildelar',
     ],
-    'ge' => [
+    'de' => [
         'path' => '/img/logos/currus-connect-gebrauchte-erdatzteile-deutsch.png',
         'alt' => 'Currus Connect - Gebrauchte Ersatzteile auf Deutsch',
         'title' => 'Currus Connect - Zuverlässige Gebrauchte Ersatzteile',

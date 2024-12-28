@@ -15,38 +15,38 @@ class FenixDismantler
             ],
             'A' => [
                 'full_name' => 'Ådalens Bildemontering AB',
-                'email' => 'jorgen@adalens.se',
+                'email' => 'jorgen@adalens.sv',
                 'code' => 'A',
             ],
             'BO' => [
                 'full_name' => 'Borås Bildemontering AB',
                 'code' => 'BO',
-                'email' => 'info@borasbildemontering.se',
+                'email' => 'info@borasbildemontering.sv',
             ],
             'F' => [
                 'full_name' => 'Norrbottens Bildemontering AB',
                 'code' => 'F',
-                'email' => 'info@nbd.se',
+                'email' => 'info@nbd.sv',
             ],
             'N' => [
                 'full_name' => 'Jönköpings bildemontering',
                 'code' => 'N',
-                'email' => 'info@jb-bildemo.se',
+                'email' => 'info@jb-bildemo.sv',
             ],
             'AL' => [
                 'full_name' => 'Allbildelar',
                 'code' => 'AL',
-                'email' => 'nicolas.ronnegard@allbildelar.se',
+                'email' => 'nicolas.ronnegard@allbildelar.sv',
             ],
             'S' => [
                 'full_name' => 'Kungsåra',
                 'code' => 'S',
-                'email' => 'info@kungsarabildemo.se',
+                'email' => 'info@kungsarabildemo.sv',
             ],
             'GB' => [
               'full_name' => 'Gåresta',
               'code' => 'GB',
-              'email' => 'info.lkp@bildelslager.se',
+              'email' => 'info.lkp@bildelslager.sv',
             ],
 //            'LI' => [
 //              'full_name' => ''  ,

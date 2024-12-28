@@ -142,17 +142,17 @@
             <div class="dropdown ms-5 d-none d-md-block">
                 <button class="btn btn-secondary w-100 d-flex justify-content-center align-items-center"
                     type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('img/flags/' . config('languages.' . App::getLocale() . '.flag') . '.png') }}"
+                    <img src="{{ asset('img/flags/' . LaravelLocalization::getCurrentLocale() . '.png') }}"
                         width="20" height="15" alt="Flag" class="me-2">
-                    {{ config('languages.' . App::getLocale() . '.name') }}
+                    {{ config('languages.' . LaravelLocalization::getCurrentLocale() . '.name') }}
                 </button>
                 <ul class="dropdown-menu w-100" aria-labelledby="languageDropdown">
-                    @foreach (config('languages') as $localeCode => $language)
+                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $language)
                         <li>
-                            <a class="dropdown-item" href="{{ route('change.language', $localeCode) }}">
-                                <img src="{{ asset('img/flags/' . $language['flag'] . '.png') }}" width="20"
-                                    height="15" alt="{{ __('alt-tags.flag') . ' ' . __("countries.{$language['flag']}")  }}" class="me-2">
-                                {{ $language['name'] }}
+                            <a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
+                                <img src="{{ asset('img/flags/' . $localeCode . '.png') }}" width="20"
+                                    height="15" alt="{{ __('alt-tags.flag') . ' ' . __("countries.{$localeCode}")  }}" class="me-2">
+                                {{ Str::title($language['native']) }}
                             </a>
                         </li>
                     @endforeach
@@ -164,17 +164,17 @@
                 <button
                     class="btn btn-secondary dropdown-toggle w-100 d-flex justify-content-center align-items-center"
                     type="button" id="languageDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('img/flags/' . config('languages.' . App::getLocale() . '.flag') . '.png') }}"
-                        width="20" height="15" alt="{{ __('alt-tags.flag') . ' ' . __("countries.{$language['flag']}")  }}" class="me-2">
-                    {{ config('languages.' . App::getLocale() . '.name') }}
+                    <img src="{{ asset('img/flags/' .  LaravelLocalization::getCurrentLocale() . '.png')}}"
+                        width="20" height="15" alt="{{ __('alt-tags.flag') . ' ' . __("countries.$localeCode")  }}" class="me-2">
+                    {{ config('languages.' . LaravelLocalization::getCurrentLocale() . '.name') }}
                 </button>
                 <ul class="dropdown-menu w-100" aria-labelledby="languageDropdownMobile">
-                    @foreach (config('languages') as $localeCode => $language)
+                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $language)
                         <li>
-                            <a class="dropdown-item" href="{{ route('change.language', $localeCode) }}">
-                                <img src="{{ asset('img/flags/' . $language['flag'] . '.png') }}" width="20"
+                            <a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
+                                <img src="{{ asset('img/flags/' . $localeCode . '.png') }}" width="20"
                                     height="15" alt="Flag">
-                                {{ $language['name'] }}
+                                {{ Str::title($language['native']) }}
                             </a>
                         </li>
                     @endforeach

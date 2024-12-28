@@ -42,7 +42,7 @@ class GetLocalizedPriceAction
         $multiplier = $this->getMultiplier($price, $dismantleCountryPrices['ranges']);
         $shipment = $this->getShipment($partType, $dismantleCompany, $dismantleCountryPrices['shipment']);
 
-        $fromCurrency = $locale === 'dk' ? 'dkk' : 'sek';
+        $fromCurrency = $locale === 'da' ? 'dkk' : 'sek';
 
 
         return [

@@ -8,6 +8,7 @@ use App\Models\ManufacturerText;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\App;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class LandingPageController extends Controller
 {
@@ -23,7 +24,7 @@ class LandingPageController extends Controller
         $partTypes = CarPartType::all();
 
         // Get the current locale
-        $locale = App::getLocale();
+        $locale = LaravelLocalization::getCurrentLocale();
 
         // Fetch the logo configuration for the locale
         $logoConfig = config("logos.{$locale}");

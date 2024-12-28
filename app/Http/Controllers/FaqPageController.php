@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Faq;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\App;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class FaqPageController extends Controller
 {
@@ -17,14 +18,14 @@ class FaqPageController extends Controller
         // Get the categories (keys of the faqs array)
         $questionCategories = array_keys($faqs);
 
-        $locale = App::getLocale();
-        //$folder = $locale === 'ge' ? 'GE' : 'DK'; 
+        $locale = LaravelLocalization::getCurrentLocale();
+        //$folder = $locale === 'de' ? 'GE' : 'DK';
         $folder = match ($locale) {
-            'ge' => 'GE',
-            'dk' => 'DK',
+            'de' => 'DE',
+            'da' => 'DA',
             'en' => 'EN',
             'fr' => 'FR',
-            'se' => 'SE',
+            'sv' => 'SV',
             default => 'DK', // Fallback to DK if no match
         };
 

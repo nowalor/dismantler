@@ -14,10 +14,10 @@ enum TargetLanguages: string
     public static function getLanguages(): array
     {
         return [
-            'dk' => self::DK->value,
+            'da' => self::DK->value,
             'fr' => self::FR->value,
-            'se' => self::SE->value,
-            'ge' => self::GE->value,
+            'sv' => self::SE->value,
+            'de' => self::GE->value,
             'it' => self::IT->value,
             'pl' => self::PL->value,
         ];
