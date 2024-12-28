@@ -32,20 +32,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)
     ->only(['show', 'destroy']);
-// Payment routes
-Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
-    ->name('pay');
-Route::get('payments/approval', [App\Http\Controllers\PaymentController::class, 'approval'])
-    ->name('approval');
-Route::get('payments/cancelled', [App\Http\Controllers\PaymentController::class, 'cancelled'])
-    ->name('cancelled');
-Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
-    ->name('checkout.success');
-
-// Checkout
-Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
-    ->name('checkout');
-
 
 // Payment routes end
 
@@ -57,7 +43,7 @@ Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
 Route::get('browse', [CarPartController::class, 'searchParts'])->name("browse");
 
 Route::group([
-    'prefix' => LaravelLocalization::setLocale(), 
+    'prefix' => LaravelLocalization::setLocale(),
     'middleware' => [
         'localeSessionRedirect',
         'localizationRedirect',
@@ -68,24 +54,37 @@ Route::group([
     Route::get('faq', [FaqPageController::class, 'index'])->name('faq');
     Route::get('contact', ContactPageController::class)->name('contact');
     Route::get('test-lang', TestLangController::class)->name('test-lang');
-});
 
+    Route::get('about-us', AboutUsPageController::class)->name('about-us');
+    Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
 
-Route::get('about-us', AboutUsPageController::class)->name('about-us');
-Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
+    Route::post('login', [LoginController::class, 'login'])->name('login');
 
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('auth.show-login');
-Route::post('login', [LoginController::class, 'login'])->name('login');
+    // Regular routes
+    Route::resource('car-parts', CarPartController::class);
+    Route::get('car-parts/search/by-code', [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
+    Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
+    Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
+    Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
-// Regular routes
-Route::resource('car-parts', CarPartController::class);
-Route::get('car-parts/search/by-code', [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
-Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
-Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
-Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
+    // Payment routes
+    Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
+        ->name('pay');
+    Route::get('payments/approval', [App\Http\Controllers\PaymentController::class, 'approval'])
+        ->name('approval');
+    Route::get('payments/cancelled', [App\Http\Controllers\PaymentController::class, 'cancelled'])
+        ->name('cancelled');
+    Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
+        ->name('checkout.success');
+
+// Checkout
+    Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
+        ->name('checkout');
 
 // full view of individual car part
-Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
+    Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
+});
 
 // Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {

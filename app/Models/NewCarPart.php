@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 class NewCarPart extends Model
@@ -289,8 +290,10 @@ class NewCarPart extends Model
     public function getLocalizedPrice($locale = null): array
     {
         if(!$locale) {
-            $locale = App::getLocale();
+            $locale = LaravelLocalization::getCurrentLocale();
         }
+
+        logger($locale);
 
         $price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 

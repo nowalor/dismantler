@@ -1,7 +1,7 @@
 <div class="container mt-2">
     <div class="row justify-content-center gap-3">
 
-        @if(App::getLocale() === 'ge')
+        @if(\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getCurrentLocale() === 'de')
         <div class="col-lg-3 col-md-4 col-12 mb-3 text-center position-relative">
         <button wire:click="openForm('hsnTsn')"
             class="fw-semibold btn btn-success mb-3 w-100 hsnTsnButton"

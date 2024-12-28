@@ -7,5 +7,5 @@ return [
     'it' => 'Italy',
     'pl' => 'Poland',
     'sv' => 'Sweden',
-    'gb' => 'England',
+    'en' => 'England',
 ];

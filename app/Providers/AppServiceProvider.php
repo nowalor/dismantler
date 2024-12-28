@@ -31,9 +31,5 @@ class AppServiceProvider extends ServiceProvider
         // Existing bootstrapping code
         Paginator::useBootstrap();
         Order::observe(OrderObserver::class);
-
-        // Set the application locale based on the session or use the default locale
-        $locale = Session::get('locale', config('app.locale'));
-        App::setLocale($locale);
     }
 }

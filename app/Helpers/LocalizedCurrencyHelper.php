@@ -12,7 +12,7 @@ class LocalizedCurrencyHelper
          * TODO, use an enum or class const or smth..
          */
         $currencyMapper = [
-            'ge' => 'eur',
+            'de' => 'eur',
             'da'  => 'dkk',
             'sv' => 'sek',
             'pl' => 'eur',

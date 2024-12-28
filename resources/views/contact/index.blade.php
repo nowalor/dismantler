@@ -53,7 +53,7 @@
                     <input type="text" class="form-control" name="plate" id="plate" placeholder="Nummerplade">
                 </div>
                 @endif
-                @if(app()->getLocale() === 'ge')
+                @if(app()->getLocale() === 'de')
                     <div class="mb-2">
                         <label for="vin">Fahrgestellnummer</label>
                         <input type="text" class="form-control" name="vin" id="vin" placeholder="Fahrgestellnummer">
@@ -149,7 +149,7 @@
                     </div>
                 @endif
 
-                @if(app()->getLocale() === 'ge')
+                @if(app()->getLocale() === 'de')
                     <div class="mb-3">
                         <label for="vin" class="form-label">Fahrgestellnummer</label>
                         <input type="text" class="form-control" name="vin" id="vin" placeholder="Fahrgestellnummer">

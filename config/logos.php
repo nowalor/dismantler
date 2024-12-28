@@ -4,7 +4,7 @@
 //     'en' => '/img/logos/white-logo-final-EN.png',
 //     'da' => '/img/logos/white-logo-final-DK.png',
 //     'sv' => '/img/logos/white-logo-final-DK.png',
-//     'ge' => '/img/logos/white-logo-final-GE.png',
+//     'de' => '/img/logos/white-logo-final-GE.png',
 //     'fr' => '/img/logos/white-logo-final-EN.png',
 //     'it' => '/img/logos/white-logo-final-IT.png',
 //     'pl' => '/img/logos/white-logo-final-PL.png',
@@ -27,7 +27,7 @@ return [
         'alt' => 'Currus Connect - Begagnade Bildelar på Svenska',
         'title' => 'Currus Connect - Pålitliga Begagnade Bildelar',
     ],
-    'ge' => [
+    'de' => [
         'path' => '/img/logos/currus-connect-gebrauchte-erdatzteile-deutsch.png',
         'alt' => 'Currus Connect - Gebrauchte Ersatzteile auf Deutsch',
         'title' => 'Currus Connect - Zuverlässige Gebrauchte Ersatzteile',
