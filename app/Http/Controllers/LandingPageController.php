@@ -8,7 +8,7 @@ use App\Models\ManufacturerText;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\App;
-use Mcamara\LaravelLocalization\LaravelLocalization;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class LandingPageController extends Controller
 {
