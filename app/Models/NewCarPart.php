@@ -210,10 +210,6 @@ class NewCarPart extends Model
         return round(((($priceSek / $divider)) * 1.19));
     }
 
-    public function getEbayPriceAttribute(): float
-    {
-        return 1.1 * $this->getAutoteileMarktPriceAttribute();
-    }
 
     // price in EUR
     public function getAutoteileMarktPriceWithShipping() {
@@ -290,9 +286,11 @@ class NewCarPart extends Model
         return $finalPrice;
     }
 
-    public function getLocalizedPrice(): array
+    public function getLocalizedPrice($locale = null): array
     {
-        $locale = App::getLocale();
+        if(!$locale) {
+            $locale = App::getLocale();
+        }
 
         $price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
@@ -331,6 +329,18 @@ class NewCarPart extends Model
         }
 
         return ($price['price'] + $price['shipment']['total']) * $price['vat'];
+    }
+
+    public function ebayPrice(string $locale): int | null
+    {
+        $price = $this->getLocalizedPrice($locale);
+
+        if(isset($price['requires_request']) && $price['requires_request']) {
+            return null;
+        }
+
+        return (($price['price'] + $price['shipment']['total']) * $price['vat']) * 1.1;
+
     }
 
     public function getBusinessPriceAttribute() {

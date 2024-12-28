@@ -54,9 +54,8 @@ class CreateXmlCommand extends Command
         $originalNumbers = NewCarPart::
         //whereIn('car_part_type_id', [1])
         /*whereIn('car_part_type_id', [1, 2,3,4,5,6, 14])*/
-      /*  whereIn('car_part_type_id', [1, 2,3,4,5,6, 14])*/
-       /* whereIn('car_part_type_id', [10, 11, 12, 13, 14, 15])*/
-        whereIn('car_part_type_id', [2, 3])
+        whereIn('car_part_type_id', [1, 2,3,4,5,6, 14])
+    /*    whereIn('car_part_type_id', [2, 3])*/
             ->whereHas('sbrCode', function ($query) {
                 $query->whereNotNull('producer');
             })
