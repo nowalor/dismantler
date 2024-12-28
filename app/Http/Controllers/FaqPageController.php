@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Faq;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\App;
-use Mcamara\LaravelLocalization\LaravelLocalization;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class FaqPageController extends Controller
 {
