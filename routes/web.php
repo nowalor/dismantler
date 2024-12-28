@@ -51,7 +51,7 @@ Route::group([
     ]
 ], function () {
     Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
-    Route::get('faq', [FaqPageController::class, 'index'])->name('faq');
+    Route::get('faq', FaqPageController::class)->name('faq');
     Route::get('contact', ContactPageController::class)->name('contact');
     Route::get('test-lang', TestLangController::class)->name('test-lang');
 
