@@ -26,7 +26,6 @@ class RemoveSoldPartsCommand extends Command
         foreach ($dismantleCompanyIds as $companyId) {
             for ($i = 0; $i < 199999; $i++) {
                 $response = $this->fetchPage($i, $companyId);
-                $this->info($response);
 
                 if (empty($response)) {
                     Log::info("Broke on page $i");
@@ -40,6 +39,7 @@ class RemoveSoldPartsCommand extends Command
                     ->pluck('id');
 
                     foreach($partIdsFromAPI as $partId) {
+                        $this->info($partId);
                         $part = NewCarPart::whereNull('sold_at')
                             ->where('original_id', $partId)
                             ->first();
