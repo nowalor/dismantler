@@ -26,6 +26,7 @@ class RemoveSoldPartsCommand extends Command
         foreach ($dismantleCompanyIds as $companyId) {
             for ($i = 0; $i < 199999; $i++) {
                 $response = $this->fetchPage($i, $companyId);
+                $this->info($response);
 
                 if (empty($response)) {
                     Log::info("Broke on page $i");
