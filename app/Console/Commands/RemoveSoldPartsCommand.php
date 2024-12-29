@@ -72,7 +72,7 @@ class RemoveSoldPartsCommand extends Command
         $variables = [
             'input' => [
                 'companyId' => $companyId,
-                'dateHourBack' => 1,
+                'dateHourBack' => 10000,
                 'maxRows' => 1000000000,
                 'pageNumber' => $page,
                 'pageSize' => 1000,
