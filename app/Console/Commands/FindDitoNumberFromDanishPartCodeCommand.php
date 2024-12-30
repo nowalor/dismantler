@@ -15,7 +15,7 @@ class FindDitoNumberFromDanishPartCodeCommand extends Command
         $parts = NewCarPart::where('country', 'DK')
             ->whereNull('dito_number_id')
             ->whereNotNull('danish_item_code')
-            ->take(10000)
+/*            ->take(10000)*/
             ->get();
 
         $this->info($parts->count());
