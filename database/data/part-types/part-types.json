@@ -2,7 +2,6 @@
     {
         "id": 1,
         "name": "Engine",
-        "json_key": "engine",
         "german_car_part_types": [
             {
                 "id": 1,
@@ -45,7 +44,6 @@
     {
         "id": 2,
         "name": "Distribution gear box",
-        "json_key": "distribution_gear_box",
         "german_car_part_types": [
             {
                 "id": 2,
@@ -65,7 +63,7 @@
         "swedish_car_part_types": [
             {
                 "id": 3,
-                "name": "VÃ„XEL FÃ–RDELNINGSLÃ…DA",
+                "name": "VÄXEL FÖRDELNINGSLÅDA",
                 "code": "7704"
             }
         ]
@@ -73,7 +71,6 @@
     {
         "id": 3,
         "name": "Gearbox Automatic",
-        "json_key": "gearbox_automatic",
         "german_car_part_types": [
             {
                 "id": 3,
@@ -93,12 +90,12 @@
         "swedish_car_part_types": [
             {
                 "id": 4,
-                "name": "VÃ„XELLÃ…DA TRONIC",
+                "name": "VÄXELLÅDA TRONIC",
                 "code": "7700"
             },
             {
                 "id": 5,
-                "name": "VÃ„XELLÃ…DA AUTOMAT",
+                "name": "VÄXELLÅDA AUTOMAT",
                 "code": "7705"
             }
         ]
@@ -106,7 +103,6 @@
     {
         "id": 4,
         "name": "Gearbox 6 gear",
-        "json_key": "gearbox_automatic",
         "german_car_part_types": [
             {
                 "id": 4,
@@ -126,7 +122,7 @@
         "swedish_car_part_types": [
             {
                 "id": 6,
-                "name": "VÃ„XELLÃ…DA MAN. 6 VXL",
+                "name": "VÄXELLÅDA MAN. 6 VXL",
                 "code": "7706"
             }
         ]
@@ -134,7 +130,6 @@
     {
         "id": 5,
         "name": "Particle Filter",
-        "json_key": "particle_filter",
         "german_car_part_types": [
             {
                 "id": 5,
@@ -162,7 +157,6 @@
     {
         "id": 6,
         "name": "CATALYST",
-        "json_key": "catalyst",
         "german_car_part_types": [
             {
                 "id": 6,
@@ -190,7 +184,6 @@
     {
         "id": 7,
         "name": "Differential",
-        "json_key": "differential",
         "german_car_part_types": [
             {
                 "id": 7,
@@ -202,7 +195,7 @@
         "danish_car_part_types": [
             {
                 "id": 7,
-                "name": "BAGTÃ˜JSKLUMP",
+                "name": "BAGTØJSKLUMP",
                 "code": "2601",
                 "egluit_id": "3812"
             }
@@ -215,7 +208,7 @@
             },
             {
                 "id": 10,
-                "name": "BAKVÃ„XEL/DIFF.",
+                "name": "BAKVÄXEL/DIFF.",
                 "code": "7145"
             }
         ]
@@ -234,7 +227,7 @@
         "danish_car_part_types": [
             {
                 "id": 8,
-                "name": "ABS BREMSESÃ†T",
+                "name": "ABS BREMSESÆT",
                 "code": "3950",
                 "egluit_id": "3969"
             }
@@ -307,7 +300,7 @@
         "german_car_part_types": [
             {
                 "id": 10,
-                "name": "Elektrik SteuergerÃ¤t Automatikgetr",
+                "name": "Elektrik Steuergerät Automatikgetr",
                 "code": null,
                 "autoteile_markt_category_id": 535
             }
@@ -323,7 +316,7 @@
         "swedish_car_part_types": [
             {
                 "id": 16,
-                "name": "STYRENHET VÃ„XELLÃ…DA ",
+                "name": "STYRENHET VÄXELLÅDA ",
                 "code": "7468"
             }
         ]
@@ -369,7 +362,7 @@
         "danish_car_part_types": [
             {
                 "id": 13,
-                "name": "MULTISKÃ†RM",
+                "name": "MULTISKÆRM",
                 "code": "6034",
                 "egluit_id": "4252"
             }
@@ -377,7 +370,7 @@
         "swedish_car_part_types": [
             {
                 "id": 18,
-                "name": "BILDSKÃ„RM",
+                "name": "BILDSKÄRM",
                 "code": "4626"
             }
         ]
@@ -388,7 +381,7 @@
         "german_car_part_types": [
             {
                 "id": 13,
-                "name": "MotorsteuergerÃ¤t (ECU)",
+                "name": "Motorsteuergerät (ECU)",
                 "code": null,
                 "autoteile_markt_category_id": 534
             }
@@ -531,7 +524,7 @@
         "danish_car_part_types": [
             {
                 "id": 19,
-                "name": "SpÃ¦ndningconverter/omformer",
+                "name": "Spændningconverter/omformer",
                 "code": "7835",
                 "egluit_id": "1111"
             }
@@ -593,7 +586,7 @@
         "swedish_car_part_types": [
             {
                 "id": 26,
-                "name": "VÃ„XELLÃ…DA TRONIC",
+                "name": "VÄXELLÅDA TRONIC",
                 "code": "7700"
             }
         ]
@@ -626,254 +619,208 @@
         ]
     },
     {
-        "id": 24,
-        "name": "Front light",
+        "id": 23,
+        "name": "Inlet pipe",
+        "translation_key": "inlet_pipe",
         "german_car_part_types": [
             {
-                "id": 23,
-                "name": "Scheinwerfer",
+                "id": 22,
+                "name": "Ansaugschlauch",
                 "code": null,
-                "autoteile_markt_category_id": 664
+                "autoteile_markt_category_id": 484
             }
         ],
         "danish_car_part_types": [
             {
                 "id": 23,
-                "name": "Baghylde",
-                "code": "6666",
+                "name": "TURBO/INTERCOOLER SLANGER",
+                "code": 1303,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
                 "id": 28,
-                "name": "HATTHYLLA",
-                "code": "3135"
+                "name": "LADDLUFT/INTERCOOLERRÖR/SLANG",
+                "code": 7259
             }
         ]
     },
     {
-        "id": 23,
-        "name": "Boot base",
+        "id": 24,
+        "name": "Vacuum Valve",
+        "translation_key": "vacuum_valve",
         "german_car_part_types": [
             {
-                "id": 22,
-                "name": "Hutablage",
+                "id": 23,
+                "name": "Vakuum ventil",
                 "code": null,
-                "autoteile_markt_category_id": 149
+                "autoteile_markt_category_id": 656
             }
         ],
         "danish_car_part_types": [
             {
-                "id": 23,
-                "name": "Baghylde",
-                "code": "6666",
+                "id": 24,
+                "name": "VAKUUMDÅSE DIVERSE",
+                "code": 1470,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 28,
-                "name": "HATTHYLLA",
-                "code": "3135"
+                "id": 29,
+                "name": "FÖRDELARE-VAKUUMREGULATOR",
+                "code": 7301
             }
         ]
     },
     {
         "id": 25,
-        "name": "Boot base",
+        "name": "Gearbox oil pump",
+        "translation_key": "gearbox_oil_pump",
         "german_car_part_types": [
             {
                 "id": 24,
-                "name": "Hutablage",
+                "name": "Getriebe Ölpumpe",
                 "code": null,
-                "autoteile_markt_category_id": 149
+                "autoteile_markt_category_id": 824
             }
         ],
         "danish_car_part_types": [
             {
-                "id": 24,
-                "name": "Baghylde",
-                "code": "6666",
+                "id": 25,
+                "name": "OLIEPUMPE",
+                "code": 1801,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 29,
-                "name": "HATTHYLLA",
-                "code": 3135
+                "id": 30,
+                "name": "OLJEPUMP VÄXELLÅDA",
+                "code": 4633
             }
         ]
     },
     {
         "id": 26,
-        "name": "Front light",
+        "name": "AC kontrolunit",
+        "translation_key": "ac_kontrolunit",
         "german_car_part_types": [
             {
                 "id": 25,
-                "name": "Scheinwerfer",
+                "name": "Steuergerät Klima",
                 "code": null,
-                "autoteile_markt_category_id": 664
+                "autoteile_markt_category_id": 533
             }
         ],
         "danish_car_part_types": [
             {
-                "id": 25,
-                "name": "Forlygte",
-                "code": "6666",
+                "id": 26,
+                "name": "AIRCOND. BOX",
+                "code": 1963,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 30,
-                "name": "STRÃ…LKASTARE",
-                "code": 1020
+                "id": 31,
+                "name": "AC STYRENHET/MANÖVERENHET",
+                "code": 8008
             }
         ]
     },
     {
         "id": 27,
-        "name": "Front light left",
+        "name": "Manuel gearbox 4-gear",
+        "translation_key": "manuel_gearbox_4_gear",
         "german_car_part_types": [
             {
                 "id": 26,
-                "name": "Scheinwerfer links",
+                "name": "Schaltgetriebe 4-Gang",
                 "code": null,
-                "autoteile_markt_category_id": 664
+                "autoteile_markt_category_id": 852
             }
         ],
         "danish_car_part_types": [
             {
-                "id": 26,
-                "name": "Forlygte venstre",
-                "code": "6666",
+                "id": 27,
+                "name": "GEARKASSE 4 GEAR",
+                "code": 2014,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 31,
-                "name": "STRÃ…LKASTARE VÃ„NSTER",
-                "code": 1021
+                "id": 32,
+                "name": "VÄXELLÅDA MAN. 4 VXL",
+                "code": 7701
             }
         ]
     },
     {
         "id": 28,
-        "name": "Front light right",
+        "name": "Manuel gearbox 5-gear",
+        "translation_key": "manuel_gearbox_5_gear",
         "german_car_part_types": [
             {
                 "id": 27,
-                "name": "Scheinwerfer rechts",
+                "name": "Schaltgetriebe 5-Gang",
                 "code": null,
-                "autoteile_markt_category_id": 664
+                "autoteile_markt_category_id": 852
             }
         ],
         "danish_car_part_types": [
             {
-                "id": 27,
-                "name": "Forlygte hÃ¸jre",
-                "code": "6666",
+                "id": 28,
+                "name": "GEARKASSE 5 GEAR",
+                "code": 2015,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 32,
-                "name": "STRÃ…LKASTARE HÃ–GER",
-                "code": 1022
+                "id": 33,
+                "name": "VÄXELLÅDA MAN. 5 VXL",
+                "code": 7702
             }
         ]
     },
     {
         "id": 29,
-        "name": "DVD Player",
+        "name": "Manuel gearbox with overdrive",
+        "translation_key": "manuel_gearbox_with_overdrive",
         "german_car_part_types": [
             {
                 "id": 28,
-                "name": "DVD Spieler",
+                "name": "Schaltgetriebe mit El-overdrive",
                 "code": null,
-                "autoteile_markt_category_id": 429
+                "autoteile_markt_category_id": 852
             }
         ],
         "danish_car_part_types": [
             {
-                "id": 28,
-                "name": "DVD afspiller",
-                "code": "6666",
+                "id": 29,
+                "name": "OVERGEAR",
+                "code": 2018,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 33,
-                "name": "DVD SPELARE",
-                "code": 4638
+                "id": 34,
+                "name": "VÄXELLÅDA MAN. MED EL. ÖVERVÄXEL",
+                "code": 7703
             }
         ]
     },
     {
         "id": 30,
-        "name": "Navigation/parts",
-        "german_car_part_types": [
-            {
-                "id": 29,
-                "name": "Navigation/Teile",
-                "code": null,
-                "autoteile_markt_category_id": 272
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 29,
-                "name": "Gps/navigationsdele",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 34,
-                "name": "GPS NAVIGATOR",
-                "code": 3235
-            }
-        ]
-    },
-    {
-        "id": 31,
-        "name": "Heat - regulator",
-        "german_car_part_types": [
-            {
-                "id": 30,
-                "name": "Heizungsschalter",
-                "code": null,
-                "autoteile_markt_category_id": 403
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 30,
-                "name": "Varmeregulering",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 35,
-                "name": "VÃ„RMEREGLAGE",
-                "code": 3245
-            }
-        ]
-    },
-    {
-        "id": 32,
         "name": "Gearbox 7-gear",
+        "translation_key": "gearbox_7_gear",
         "german_car_part_types": [
             {
-                "id": 31,
+                "id": 29,
                 "name": "Getriebe 7-Gang",
                 "code": null,
                 "autoteile_markt_category_id": 851
@@ -881,350 +828,27 @@
         ],
         "danish_car_part_types": [
             {
-                "id": 31,
-                "name": "Gearkasse 7-gear",
-                "code": "6666",
+                "id": 30,
+                "name": "GEARKASSE 6 GEAR",
+                "code": 2026,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
-            {
-                "id": 36,
-                "name": "VÃ„XELLÃ…DA 7 SPEED",
-                "code": 4573
-            }
-        ]
-    },
-    {
-        "id": 33,
-        "name": "Drive shaft - front",
-        "german_car_part_types": [
-            {
-                "id": 32,
-                "name": "Antriebswelle vorne",
-                "code": null,
-                "autoteile_markt_category_id": 869
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 32,
-                "name": "Drivaksel for",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 37,
-                "name": "DRIVAXEL FRAM VÃ„ HÃ–",
-                "code": 7050
-            }
-        ]
-    },
-    {
-        "id": 34,
-        "name": "Drive shaft - front left",
-        "german_car_part_types": [
-            {
-                "id": 33,
-                "name": "Antriebswelle vorne links",
-                "code": null,
-                "autoteile_markt_category_id": 869
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 33,
-                "name": "Drivaksel for venstre",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 38,
-                "name": "DRIVAXEL FRAM VÃ„NSTER",
-                "code": 7051
-            }
-        ]
-    },
-    {
-        "id": 35,
-        "name": "Drive shaft - front right",
-        "german_car_part_types": [
-            {
-                "id": 34,
-                "name": "Antriebswelle vorne rechts",
-                "code": null,
-                "autoteile_markt_category_id": 869
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 34,
-                "name": "Drivaksel for hÃ¸jre",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 39,
-                "name": "DRIVAXEL FRAM HÃ–GER",
-                "code": 7052
-            }
-        ]
-    },
-    {
-        "id": 36,
-        "name": "Front axle assembly lump - 4wd",
-        "german_car_part_types": [
             {
                 "id": 35,
-                "name": "Vorderachsdiffirential 4wd",
-                "code": null,
-                "autoteile_markt_category_id": 936
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 35,
-                "name": "FortÃ¸jsdifferential 4wd",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 40,
-                "name": "FRAMVAGN DIFFRENTIAL",
-                "code": 7070
-            }
-        ]
-    },
-    {
-        "id": 37,
-        "name": "Boot base",
-        "german_car_part_types": [
-            {
-                "id": 36,
-                "name": "Hutablage",
-                "code": null,
-                "autoteile_markt_category_id": 149
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 36,
-                "name": "Baghylde",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 41,
-                "name": "HATTHYLLA",
-                "code": 3135
-            }
-        ]
-    },
-    {
-        "id": 38,
-        "name": "Front light",
-        "german_car_part_types": [
-            {
-                "id": 37,
-                "name": "Scheinwerfer",
-                "code": null,
-                "autoteile_markt_category_id": 664
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 37,
-                "name": "Forlygte",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 42,
-                "name": "STRÅLKASTARE",
-                "code": 1020
-            }
-        ]
-    },
-    {
-        "id": 39,
-        "name": "Front light left",
-        "german_car_part_types": [
-            {
-                "id": 38,
-                "name": "Scheinwerfer links",
-                "code": null,
-                "autoteile_markt_category_id": 664
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 38,
-                "name": "Forlygte venstre",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 43,
-                "name": "STRÅLKASTARE VÄNSTER",
-                "code": 1021
-            }
-        ]
-    },
-    {
-        "id": 40,
-        "name": "Front light right",
-        "german_car_part_types": [
-            {
-                "id": 39,
-                "name": "Scheinwerfer rechts",
-                "code": null,
-                "autoteile_markt_category_id": 664
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 39,
-                "name": "Forlygte højre",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 44,
-                "name": "STRÅLKASTARE HÖGER",
-                "code": 1022
-            }
-        ]
-    },
-    {
-        "id": 41,
-        "name": "DVD Player",
-        "german_car_part_types": [
-            {
-                "id": 40,
-                "name": "DVD Spieler",
-                "code": null,
-                "autoteile_markt_category_id": 429
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 40,
-                "name": "DVD afspiller",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 45,
-                "name": "DVD SPELARE",
-                "code": 4638
-            }
-        ]
-    },
-    {
-        "id": 42,
-        "name": "Navigation/parts",
-        "german_car_part_types": [
-            {
-                "id": 41,
-                "name": "Navigation/Teile",
-                "code": null,
-                "autoteile_markt_category_id": 272
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 41,
-                "name": "Gps/navigationsdele",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 46,
-                "name": "GPS NAVIGATOR",
-                "code": 3235
-            }
-        ]
-    },
-    {
-        "id": 43,
-        "name": "Heat - regulator",
-        "german_car_part_types": [
-            {
-                "id": 42,
-                "name": "Heizungsschalter",
-                "code": null,
-                "autoteile_markt_category_id": 403
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 42,
-                "name": "Varmeregulering",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 47,
-                "name": "VÄRMEREGLAGE",
-                "code": 3245
-            }
-        ]
-    },
-    {
-        "id": 44,
-        "name": "Gearbox 7-gear",
-        "german_car_part_types": [
-            {
-                "id": 43,
-                "name": "Getriebe 7-Gang",
-                "code": null,
-                "autoteile_markt_category_id": 851
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 43,
-                "name": "Gearkasse 7-gear",
-                "code": "6666",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 48,
                 "name": "VÄXELLÅDA 7 SPEED",
                 "code": 4573
             }
         ]
     },
     {
-        "id": 45,
+        "id": 31,
         "name": "Drive shaft - front",
+        "translation_key": "drive_shaft___front",
         "german_car_part_types": [
             {
-                "id": 44,
+                "id": 30,
                 "name": "Antriebswelle vorne",
                 "code": null,
                 "autoteile_markt_category_id": 869
@@ -1232,26 +856,27 @@
         ],
         "danish_car_part_types": [
             {
-                "id": 44,
-                "name": "Drivaksel for",
-                "code": "6666",
+                "id": 31,
+                "name": "TRÆKAKSEL FOR ENS",
+                "code": 2400,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 49,
+                "id": 36,
                 "name": "DRIVAXEL FRAM VÄ HÖ",
                 "code": 7050
             }
         ]
     },
     {
-        "id": 46,
+        "id": 32,
         "name": "Drive shaft - front left",
+        "translation_key": "drive_shaft___front_left",
         "german_car_part_types": [
             {
-                "id": 45,
+                "id": 31,
                 "name": "Antriebswelle vorne links",
                 "code": null,
                 "autoteile_markt_category_id": 869
@@ -1259,26 +884,27 @@
         ],
         "danish_car_part_types": [
             {
-                "id": 45,
-                "name": "Drivaksel for venstre",
-                "code": "6666",
+                "id": 32,
+                "name": "TRÆKAKSEL FOR V.",
+                "code": 2401,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 50,
+                "id": 37,
                 "name": "DRIVAXEL FRAM VÄNSTER",
                 "code": 7051
             }
         ]
     },
     {
-        "id": 47,
+        "id": 33,
         "name": "Drive shaft - front right",
+        "translation_key": "drive_shaft___front_right",
         "german_car_part_types": [
             {
-                "id": 46,
+                "id": 32,
                 "name": "Antriebswelle vorne rechts",
                 "code": null,
                 "autoteile_markt_category_id": 869
@@ -1286,26 +912,27 @@
         ],
         "danish_car_part_types": [
             {
-                "id": 46,
-                "name": "Drivaksel for højre",
-                "code": "6666",
+                "id": 33,
+                "name": "TRÆKAKSEL FOR H.",
+                "code": 2402,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
-                "id": 51,
+                "id": 38,
                 "name": "DRIVAXEL FRAM HÖGER",
                 "code": 7052
             }
         ]
     },
     {
-        "id": 48,
+        "id": 34,
         "name": "Front axle assembly lump - 4wd",
+        "translation_key": "front_axle_assembly_lump___4wd",
         "german_car_part_types": [
             {
-                "id": 47,
+                "id": 33,
                 "name": "Vorderachsdiffirential 4wd",
                 "code": null,
                 "autoteile_markt_category_id": 936
@@ -1313,17 +940,3733 @@
         ],
         "danish_car_part_types": [
             {
+                "id": 34,
+                "name": "FORTØJSKLUMP 4WD",
+                "code": 2551,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 39,
+                "name": "FRAMVAGN DIFFRENTIAL",
+                "code": 7070
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Transmission parts",
+        "translation_key": "transmission_parts",
+        "german_car_part_types": [
+            {
+                "id": 34,
+                "name": "Transmission diverse",
+                "code": null,
+                "autoteile_markt_category_id": 824
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 35,
+                "name": "GEARDELE DIVERSE",
+                "code": 2990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 40,
+                "name": "TRANSMISSION ÖVRIGT",
+                "code": 7799
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "name": " Steering ",
+        "translation_key": "_steering_",
+        "german_car_part_types": [
+            {
+                "id": 35,
+                "name": "Lenkgetriebe mekanisch",
+                "code": null,
+                "autoteile_markt_category_id": 110
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 36,
+                "name": "TANDSTANG",
+                "code": 3090,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 41,
+                "name": "STYRVÄXEL/SNÄCKA MEKANISK",
+                "code": 7040
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Steering servo",
+        "translation_key": "steering_servo",
+        "german_car_part_types": [
+            {
+                "id": 36,
+                "name": "Lenkgetriebe servo",
+                "code": null,
+                "autoteile_markt_category_id": 110
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 37,
+                "name": "TANDSTANG SERVO",
+                "code": 3091,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 42,
+                "name": "STYRVÄXEL/SNÄCKA HYDRAULISK",
+                "code": 7041
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Servopump",
+        "translation_key": "servopump",
+        "german_car_part_types": [
+            {
+                "id": 37,
+                "name": "Servopumpe mekanisch",
+                "code": null,
+                "autoteile_markt_category_id": 859
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 38,
+                "name": "SERVOPUMPE",
+                "code": 3130,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 43,
+                "name": "STYRSERVOPUMP MEKANISK",
+                "code": 7055
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Servopipe",
+        "translation_key": "servopipe",
+        "german_car_part_types": [
+            {
+                "id": 38,
+                "name": "Servoschlange/Rohr",
+                "code": null,
+                "autoteile_markt_category_id": 111
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 39,
+                "name": "SERVOSLANGER",
+                "code": 3133,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 44,
+                "name": "STYRSERVOSLANG/RÖR",
+                "code": 7062
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "name": "air suspension front",
+        "translation_key": "air_suspension_front",
+        "german_car_part_types": [
+            {
+                "id": 39,
+                "name": "Luftfederung vorne",
+                "code": null,
+                "autoteile_markt_category_id": 680
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 40,
+                "name": "LUFTAFJD.PUDE",
+                "code": 3410,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 45,
+                "name": "FJÄDRING NIVÅREGLERING FRAM",
+                "code": 7068
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "name": "air suspension bag",
+        "translation_key": "air_suspension_bag",
+        "german_car_part_types": [
+            {
+                "id": 40,
+                "name": "Luftfederung hinten",
+                "code": null,
+                "autoteile_markt_category_id": 680
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 41,
+                "name": "LUFTAFJD.PUDE",
+                "code": 3410,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 46,
+                "name": "FJÄDRING NIVÅREGLERING BAK",
+                "code": 7069
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Brake caliper drive",
+        "translation_key": "brake_caliper_drive",
+        "german_car_part_types": [
+            {
+                "id": 41,
+                "name": "Bremssattel Motor",
+                "code": null,
+                "autoteile_markt_category_id": 323
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 42,
+                "name": "ABS BREMSEDELE",
+                "code": 3953,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
                 "id": 47,
-                "name": "Fortøjsdifferential 4wd",
-                "code": "6666",
+                "name": "BROMSOKSMOTOR / STÄLLMOTOR BAK VÄ",
+                "code": 7637
+            }
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Airbag - sensor",
+        "translation_key": "airbag___sensor",
+        "german_car_part_types": [
+            {
+                "id": 42,
+                "name": "Airbagfühler",
+                "code": null,
+                "autoteile_markt_category_id": 130
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 43,
+                "name": "AIRBAG FØLER",
+                "code": 3982,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 48,
+                "name": "AIRBAG KROCKSENSOR",
+                "code": 8078
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Hood lock",
+        "translation_key": "hood_lock",
+        "german_car_part_types": [
+            {
+                "id": 43,
+                "name": "Motorhauben Schloss",
+                "code": null,
+                "autoteile_markt_category_id": 1081
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 44,
+                "name": "HJELMLÅS",
+                "code": 4065,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 49,
+                "name": "HUVSPÄRR",
+                "code": 1064
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Side spoiler set",
+        "translation_key": "side_spoiler_set",
+        "german_car_part_types": [
+            {
+                "id": 44,
+                "name": "Schwellerschürze set",
+                "code": null,
+                "autoteile_markt_category_id": 68
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 45,
+                "name": "FRONTSPOILER",
+                "code": 4071,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 50,
+                "name": "KJOLPAKET",
+                "code": 3062
+            }
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Side spoiler right",
+        "translation_key": "side_spoiler_right",
+        "german_car_part_types": [
+            {
+                "id": 45,
+                "name": "Schwellerschürze rechts",
+                "code": null,
+                "autoteile_markt_category_id": 68
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 46,
+                "name": "SIDESKØRTER",
+                "code": 4073,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 51,
+                "name": "SIDOKJOL HÖ",
+                "code": 3058
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Side spoiler left",
+        "translation_key": "side_spoiler_left",
+        "german_car_part_types": [
+            {
+                "id": 46,
+                "name": "Schwellerschürze links",
+                "code": null,
+                "autoteile_markt_category_id": 68
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 47,
+                "name": "SIDESKØRTER",
+                "code": 4073,
                 "egluit_id": "1111"
             }
         ],
         "swedish_car_part_types": [
             {
                 "id": 52,
-                "name": "FRAMVAGN DIFFRENTIAL",
-                "code": 7070
+                "name": "SIDOKJOL VÄ",
+                "code": 3059
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "name": "Fod step",
+        "translation_key": "fod_step",
+        "german_car_part_types": [
+            {
+                "id": 47,
+                "name": "Fusstrin",
+                "code": null,
+                "autoteile_markt_category_id": 68
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 48,
+                "name": "TRINBRÆT",
+                "code": 4275,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 53,
+                "name": "FOTSTEG",
+                "code": 3095
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "name": "Lighting control unit",
+        "translation_key": "lighting_control_unit",
+        "german_car_part_types": [
+            {
+                "id": 48,
+                "name": "Steuergerät Scheinwerfer",
+                "code": null,
+                "autoteile_markt_category_id": 524
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 49,
+                "name": "DØR VB 4DØRS",
+                "code": 4343,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 54,
+                "name": "STYRENHET STRÅLKASTARE",
+                "code": 7310
+            }
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Door lock",
+        "translation_key": "door_lock",
+        "german_car_part_types": [
+            {
+                "id": 49,
+                "name": "Türschloss",
+                "code": null,
+                "autoteile_markt_category_id": 67
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 50,
+                "name": "DØRLÅS",
+                "code": 4380,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 55,
+                "name": "LÅSKISTA/DÖRRLÅS",
+                "code": 3010
+            }
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Sidedoor mounting right",
+        "translation_key": "sidedoor_mounting_right",
+        "german_car_part_types": [
+            {
+                "id": 50,
+                "name": "Schiebetür Schiene rechts",
+                "code": null,
+                "autoteile_markt_category_id": 1084
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 51,
+                "name": "SKYDEDØRSSKINNE",
+                "code": 4523,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 56,
+                "name": "GLIDSKENA SKJUTDÖRR HÖ",
+                "code": 3056
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "name": "Sidedoor mounting left",
+        "translation_key": "sidedoor_mounting_left",
+        "german_car_part_types": [
+            {
+                "id": 51,
+                "name": "Schiebetür Schiene links",
+                "code": null,
+                "autoteile_markt_category_id": 1084
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 52,
+                "name": "SKYDEDØRSSKINNE",
+                "code": 4523,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 57,
+                "name": "GLIDSKENA SKJUTDÖRR VÄ",
+                "code": 3057
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "name": "Skibox bagseat",
+        "translation_key": "skibox_bagseat",
+        "german_car_part_types": [
+            {
+                "id": 52,
+                "name": "Skifach Rücksitz",
+                "code": null,
+                "autoteile_markt_category_id": 1076
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 53,
+                "name": "BAGAGERUMSBUND",
+                "code": 4571,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 58,
+                "name": "INREDNING SKIDFACK BAKSÄTE",
+                "code": 3134
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "name": "Side spoiler set",
+        "translation_key": "side_spoiler_set",
+        "german_car_part_types": [
+            {
+                "id": 53,
+                "name": "Schwellerschürze set",
+                "code": null,
+                "autoteile_markt_category_id": 68
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 54,
+                "name": "KALECHE",
+                "code": 4652,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 59,
+                "name": "CAB. STÄLLNING/SUFLETT",
+                "code": 3061
+            }
+        ]
+    },
+    {
+        "id": 55,
+        "name": "Hardtopp",
+        "translation_key": "hardtopp",
+        "german_car_part_types": [
+            {
+                "id": 54,
+                "name": "Hardtopp",
+                "code": null,
+                "autoteile_markt_category_id": 55
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 55,
+                "name": "HARDTOP",
+                "code": 4653,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 60,
+                "name": "HARDTOPP",
+                "code": 3060
+            }
+        ]
+    },
+    {
+        "id": 56,
+        "name": "Sunroof",
+        "translation_key": "sunroof",
+        "german_car_part_types": [
+            {
+                "id": 55,
+                "name": "Sonnendach",
+                "code": null,
+                "autoteile_markt_category_id": 948
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 56,
+                "name": "SOLTAG ORG.",
+                "code": 4670,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 61,
+                "name": "TAKLUCKA",
+                "code": 3040
+            }
+        ]
+    },
+    {
+        "id": 57,
+        "name": "Sunroof engine",
+        "translation_key": "sunroof_engine",
+        "german_car_part_types": [
+            {
+                "id": 56,
+                "name": "Sonnendach Motor",
+                "code": null,
+                "autoteile_markt_category_id": 878
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 57,
+                "name": "SOLTAGSMOTOR",
+                "code": 4672,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 62,
+                "name": "TAKLUCKSMOTOR",
+                "code": 3046
+            }
+        ]
+    },
+    {
+        "id": 58,
+        "name": "Concertible roof engine",
+        "translation_key": "concertible_roof_engine",
+        "german_car_part_types": [
+            {
+                "id": 57,
+                "name": "Kalechemotor ",
+                "code": null,
+                "autoteile_markt_category_id": 436
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 58,
+                "name": "KALECHE MOTOR",
+                "code": 4673,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 63,
+                "name": "CAB. MOTOR",
+                "code": 3063
+            }
+        ]
+    },
+    {
+        "id": 59,
+        "name": "Conroller tire pressur",
+        "translation_key": "conroller_tire_pressur",
+        "german_car_part_types": [
+            {
+                "id": 58,
+                "name": "Reifendruck Sensor",
+                "code": null,
+                "autoteile_markt_category_id": 364
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 59,
+                "name": "DÆKTRYK FØLER",
+                "code": 5206,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 64,
+                "name": "SENSOR TPMS / DÄCKKONTROLL",
+                "code": 7491
+            }
+        ]
+    },
+    {
+        "id": 60,
+        "name": "Steering cover",
+        "translation_key": "steering_cover",
+        "german_car_part_types": [
+            {
+                "id": 59,
+                "name": "Ratstamm Abdeckung",
+                "code": null,
+                "autoteile_markt_category_id": 109
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 60,
+                "name": "NAVKAPSEL",
+                "code": 5250,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 65,
+                "name": "RATTKÅPA/KÅPOR",
+                "code": 3240
+            }
+        ]
+    },
+    {
+        "id": 61,
+        "name": "Screen lift engine",
+        "translation_key": "screen_lift_engine",
+        "german_car_part_types": [
+            {
+                "id": 60,
+                "name": "Fensterheber Motor",
+                "code": null,
+                "autoteile_markt_category_id": 923
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 61,
+                "name": "RUDEMOTOR",
+                "code": 5600,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 66,
+                "name": "FÖNSTERHISSMOTOR",
+                "code": 3025
+            }
+        ]
+    },
+    {
+        "id": 62,
+        "name": "Door handle front left",
+        "translation_key": "door_handle_front_left",
+        "german_car_part_types": [
+            {
+                "id": 61,
+                "name": "Handgriff aussen links",
+                "code": null,
+                "autoteile_markt_category_id": 75
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 62,
+                "name": "HÅNDTAG UDVENDIG",
+                "code": 5700,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 67,
+                "name": "DÖRRHANDTAG YTTRE VÄ",
+                "code": 3007
+            }
+        ]
+    },
+    {
+        "id": 63,
+        "name": "Door handle front right",
+        "translation_key": "door_handle_front_right",
+        "german_car_part_types": [
+            {
+                "id": 62,
+                "name": "Handgriff aussen rechts",
+                "code": null,
+                "autoteile_markt_category_id": 75
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 63,
+                "name": "HÅNDTAG UDVENDIG",
+                "code": 5700,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 68,
+                "name": "DÖRRHANDTAG YTTRE HÖ",
+                "code": 3008
+            }
+        ]
+    },
+    {
+        "id": 64,
+        "name": "Armrest",
+        "translation_key": "armrest",
+        "german_car_part_types": [
+            {
+                "id": 63,
+                "name": "Armlehne",
+                "code": null,
+                "autoteile_markt_category_id": 1076
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 64,
+                "name": "HÅNDTAG INDVENDIG",
+                "code": 5710,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 69,
+                "name": "INREDNING TAKKONSOL",
+                "code": 3136
+            }
+        ]
+    },
+    {
+        "id": 65,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 64,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 163
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 65,
+                "name": "SPEEDOMETER",
+                "code": 6013,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 70,
+                "name": "INSTRUMENT BRÄNSLE/TEMP",
+                "code": 3222
+            }
+        ]
+    },
+    {
+        "id": 66,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 65,
+                "name": "Diverse Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 167
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 66,
+                "name": "UDETEMPERATUR MÅLER",
+                "code": 6025,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 71,
+                "name": "INSTRUMENT YTTERTEMP.",
+                "code": 3219
+            }
+        ]
+    },
+    {
+        "id": 67,
+        "name": "Sun sensor",
+        "translation_key": "sun_sensor",
+        "german_car_part_types": [
+            {
+                "id": 66,
+                "name": "Sonnenlicht Sensor",
+                "code": null,
+                "autoteile_markt_category_id": 88
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 67,
+                "name": "REGNSENSOR",
+                "code": 6026,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 72,
+                "name": "SOLSENSOR/SKYMNINGSSENSOR",
+                "code": 4619
+            }
+        ]
+    },
+    {
+        "id": 68,
+        "name": "Rain sensor",
+        "translation_key": "rain_sensor",
+        "german_car_part_types": [
+            {
+                "id": 67,
+                "name": "Regen Sensor",
+                "code": null,
+                "autoteile_markt_category_id": 365
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 68,
+                "name": "REGNSENSOR",
+                "code": 6026,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 73,
+                "name": "SENSOR REGN/IMMA",
+                "code": 7843
+            }
+        ]
+    },
+    {
+        "id": 69,
+        "name": "Navigation/parts",
+        "translation_key": "navigation_parts",
+        "german_car_part_types": [
+            {
+                "id": 68,
+                "name": "Navigation/Teile",
+                "code": null,
+                "autoteile_markt_category_id": 272
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 69,
+                "name": "NAVIGATION",
+                "code": 6045,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 74,
+                "name": "GPS NAVIGATOR",
+                "code": 3235
+            }
+        ]
+    },
+    {
+        "id": 70,
+        "name": "Autopilot control unit",
+        "translation_key": "autopilot_control_unit",
+        "german_car_part_types": [
+            {
+                "id": 69,
+                "name": "Autopilot Steuergerät",
+                "code": null,
+                "autoteile_markt_category_id": 361
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 70,
+                "name": "FARTPILOT BOKS",
+                "code": 6052,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 75,
+                "name": "STYRENHET AUTOPILOT",
+                "code": 3236
+            }
+        ]
+    },
+    {
+        "id": 71,
+        "name": "Driving writer",
+        "translation_key": "driving_writer",
+        "german_car_part_types": [
+            {
+                "id": 70,
+                "name": "Fahrtschreiber",
+                "code": null,
+                "autoteile_markt_category_id": 1058
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 71,
+                "name": "LYGTEJUSTERINGSMOTOR",
+                "code": 6213,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 76,
+                "name": "FÄRDSKRIVARE",
+                "code": 1710
+            }
+        ]
+    },
+    {
+        "id": 72,
+        "name": "Sensor, Xenon Headlight range adjustment",
+        "translation_key": "sensor__xenon_headlight_range_adjustment",
+        "german_car_part_types": [
+            {
+                "id": 71,
+                "name": "Sensor - Lichteinstellung Xenon",
+                "code": null,
+                "autoteile_markt_category_id": 380
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 72,
+                "name": "XENON / LED DELE",
+                "code": 6216,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 77,
+                "name": "GIVARE XENON/LJUSHÖJDSREGLERING",
+                "code": 7508
+            }
+        ]
+    },
+    {
+        "id": 73,
+        "name": "Indicator - front left",
+        "translation_key": "indicator___front_left",
+        "german_car_part_types": [
+            {
+                "id": 72,
+                "name": "Blinker vorne links",
+                "code": null,
+                "autoteile_markt_category_id": 576
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 73,
+                "name": "BLINKLYGTE FOR",
+                "code": 6281,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 78,
+                "name": "BLINKERS FRAM VÄNSTER",
+                "code": 1031
+            }
+        ]
+    },
+    {
+        "id": 74,
+        "name": "Indicator - front right",
+        "translation_key": "indicator___front_right",
+        "german_car_part_types": [
+            {
+                "id": 73,
+                "name": "Blinker vorne rechts",
+                "code": null,
+                "autoteile_markt_category_id": 576
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 74,
+                "name": "BLINKLYGTE FOR",
+                "code": 6281,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 79,
+                "name": "BLINKERS FRAM HÖGER",
+                "code": 1032
+            }
+        ]
+    },
+    {
+        "id": 75,
+        "name": "Position light left front",
+        "translation_key": "position_light_left_front",
+        "german_car_part_types": [
+            {
+                "id": 74,
+                "name": "Positionslicht vorne links",
+                "code": null,
+                "autoteile_markt_category_id": 671
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 75,
+                "name": "POSITIONSLYGTE",
+                "code": 6283,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 80,
+                "name": "POSITIONSLJUS FRAM VÄ",
+                "code": 1037
+            }
+        ]
+    },
+    {
+        "id": 76,
+        "name": "Position light right front",
+        "translation_key": "position_light_right_front",
+        "german_car_part_types": [
+            {
+                "id": 75,
+                "name": "Positionslicht vorne rechts",
+                "code": null,
+                "autoteile_markt_category_id": 671
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 76,
+                "name": "POSITIONSLYGTE",
+                "code": 6283,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 81,
+                "name": "POSITIONSLJUS FRAM HÖ",
+                "code": 1038
+            }
+        ]
+    },
+    {
+        "id": 77,
+        "name": "Radiator - air internal",
+        "translation_key": "radiator___air_internal",
+        "german_car_part_types": [
+            {
+                "id": 76,
+                "name": "Klimakühler innen",
+                "code": null,
+                "autoteile_markt_category_id": 826
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 77,
+                "name": "VARMEELEMENT",
+                "code": 6350,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 82,
+                "name": "VÄRME CELLPAKET/VATTEN",
+                "code": 8030
+            }
+        ]
+    },
+    {
+        "id": 78,
+        "name": "Heat - regulator",
+        "translation_key": "heat___regulator",
+        "german_car_part_types": [
+            {
+                "id": 77,
+                "name": "Heizungsschalter",
+                "code": null,
+                "autoteile_markt_category_id": 403
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 78,
+                "name": "VARMEREGULERING",
+                "code": 6380,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 83,
+                "name": "VÄRMEREGLAGE",
+                "code": 3245
+            }
+        ]
+    },
+    {
+        "id": 79,
+        "name": "Relay - radiator fan",
+        "translation_key": "relay___radiator_fan",
+        "german_car_part_types": [
+            {
+                "id": 78,
+                "name": "Relais - Kühlerlüfter",
+                "code": null,
+                "autoteile_markt_category_id": 340
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 79,
+                "name": "KONTAKT ELRUDE",
+                "code": 6506,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 84,
+                "name": "STYRENHET/RELÄ KYLFLÄKT",
+                "code": 7403
+            }
+        ]
+    },
+    {
+        "id": 80,
+        "name": "Fog light - rear/reflex",
+        "translation_key": "fog_light___rear_reflex",
+        "german_car_part_types": [
+            {
+                "id": 79,
+                "name": "Nebelschlußleuchte/Reflektor",
+                "code": null,
+                "autoteile_markt_category_id": 652
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 80,
+                "name": "KONTAKT LYGTE JUSTERING",
+                "code": 6510,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 85,
+                "name": "DIMLJUS/REFLEX BAK",
+                "code": 4616
+            }
+        ]
+    },
+    {
+        "id": 81,
+        "name": "Rear hood muffle",
+        "translation_key": "rear_hood_muffle",
+        "german_car_part_types": [
+            {
+                "id": 80,
+                "name": "Heckklappen Dämfer/öffner",
+                "code": null,
+                "autoteile_markt_category_id": 62
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 81,
+                "name": "KONTAKT DIVERSE",
+                "code": 6519,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 86,
+                "name": "BAKLUCKEÖPPNARE",
+                "code": 5007
+            }
+        ]
+    },
+    {
+        "id": 82,
+        "name": "Outside camera",
+        "translation_key": "outside_camera",
+        "german_car_part_types": [
+            {
+                "id": 81,
+                "name": "Aussen Kamera",
+                "code": null,
+                "autoteile_markt_category_id": 705
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 82,
+                "name": "BAK KAMERA",
+                "code": 6522,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 87,
+                "name": "KAMERA UTVÄNDIG",
+                "code": 5054
+            }
+        ]
+    },
+    {
+        "id": 83,
+        "name": "Camera inside",
+        "translation_key": "camera_inside",
+        "german_car_part_types": [
+            {
+                "id": 82,
+                "name": "Indvendige Kamera",
+                "code": null,
+                "autoteile_markt_category_id": 825
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 83,
+                "name": "DIVERSE KAMERA",
+                "code": 6524,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 88,
+                "name": "ÖVERVAKNINGSKAMERA INVÄNDIG",
+                "code": 3144
+            }
+        ]
+    },
+    {
+        "id": 84,
+        "name": "Relay - wiper",
+        "translation_key": "relay___wiper",
+        "german_car_part_types": [
+            {
+                "id": 83,
+                "name": "Wischerrelais",
+                "code": null,
+                "autoteile_markt_category_id": 339
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 84,
+                "name": "VISKERBOKS",
+                "code": 6581,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 89,
+                "name": "STYRENHET/RELÄ TORKARE",
+                "code": 7418
+            }
+        ]
+    },
+    {
+        "id": 85,
+        "name": "Door cylinder",
+        "translation_key": "door_cylinder",
+        "german_car_part_types": [
+            {
+                "id": 84,
+                "name": "Türschloss",
+                "code": null,
+                "autoteile_markt_category_id": 67
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 85,
+                "name": "LÅSESÆT",
+                "code": 6703,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 90,
+                "name": "LÅSSATS/DÖRRAR",
+                "code": 3009
+            }
+        ]
+    },
+    {
+        "id": 86,
+        "name": "Door cylinder",
+        "translation_key": "door_cylinder",
+        "german_car_part_types": [
+            {
+                "id": 85,
+                "name": "Türschloss",
+                "code": null,
+                "autoteile_markt_category_id": 67
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 86,
+                "name": "LÅSECYLINDER",
+                "code": 6720,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 91,
+                "name": "LÅSCYLINDER/CYLINDRAR",
+                "code": 3004
+            }
+        ]
+    },
+    {
+        "id": 87,
+        "name": "Vacuum pump",
+        "translation_key": "vacuum_pump",
+        "german_car_part_types": [
+            {
+                "id": 86,
+                "name": "Unterdruckpumpe",
+                "code": null,
+                "autoteile_markt_category_id": 656
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 87,
+                "name": "CENTRALLÅS VACCUM",
+                "code": 6722,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 92,
+                "name": "VAKUUMPUMP",
+                "code": 7270
+            }
+        ]
+    },
+    {
+        "id": 88,
+        "name": "Central lock - pump",
+        "translation_key": "central_lock___pump",
+        "german_car_part_types": [
+            {
+                "id": 87,
+                "name": "Zentralverriegelung Pumpe",
+                "code": null,
+                "autoteile_markt_category_id": 527
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 88,
+                "name": "CENTRALLÅS VACCUM",
+                "code": 6722,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 93,
+                "name": "CENTRALLÅS VAKUUMPUMP",
+                "code": 7428
+            }
+        ]
+    },
+    {
+        "id": 89,
+        "name": "air suspension conrol box",
+        "translation_key": "air_suspension_conrol_box",
+        "german_car_part_types": [
+            {
+                "id": 88,
+                "name": "Luftfederung Steuereinheit",
+                "code": null,
+                "autoteile_markt_category_id": 1069
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 89,
+                "name": "RELÆ DIVERSE",
+                "code": 6789,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 94,
+                "name": "STYRENHET FJÄDRING / NIVÅ LUFTBÄLG",
+                "code": 7078
+            }
+        ]
+    },
+    {
+        "id": 90,
+        "name": "Pdc control unit (park distance control)",
+        "translation_key": "pdc_control_unit__park_distance_control_",
+        "german_car_part_types": [
+            {
+                "id": 89,
+                "name": "Steuergerät PDC (Park Distance Control)",
+                "code": null,
+                "autoteile_markt_category_id": 530
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 90,
+                "name": "RELÆ DIVERSE",
+                "code": 6789,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 95,
+                "name": "STYRENHET PARKERINGSHJÄLP",
+                "code": 7484
+            }
+        ]
+    },
+    {
+        "id": 91,
+        "name": "Frontseat engine",
+        "translation_key": "frontseat_engine",
+        "german_car_part_types": [
+            {
+                "id": 90,
+                "name": "Vordersitz Motor",
+                "code": null,
+                "autoteile_markt_category_id": 1076
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 91,
+                "name": "SÆDEREGULERINGSMOTOR",
+                "code": 7075,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 96,
+                "name": "INRED.STOL REGLERMOTOR FR",
+                "code": 3106
+            }
+        ]
+    },
+    {
+        "id": 92,
+        "name": "Backseat engine",
+        "translation_key": "backseat_engine",
+        "german_car_part_types": [
+            {
+                "id": 91,
+                "name": "Rücksitz Motor",
+                "code": null,
+                "autoteile_markt_category_id": 1076
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 92,
+                "name": "SÆDEREGULERINGSMOTOR",
+                "code": 7075,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 97,
+                "name": "INRED.STOL REGLERMOTOR BA",
+                "code": 3107
+            }
+        ]
+    },
+    {
+        "id": 93,
+        "name": "Ekstra seat",
+        "translation_key": "ekstra_seat",
+        "german_car_part_types": [
+            {
+                "id": 92,
+                "name": "Ekstra Sitz",
+                "code": null,
+                "autoteile_markt_category_id": 152
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 93,
+                "name": "EKSTRA STOL/SÆDE",
+                "code": 7102,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 98,
+                "name": "INREDNING EXTRASÄTE",
+                "code": 3108
+            }
+        ]
+    },
+    {
+        "id": 94,
+        "name": "Head rest",
+        "translation_key": "head_rest",
+        "german_car_part_types": [
+            {
+                "id": 93,
+                "name": "Kopftstütze",
+                "code": null,
+                "autoteile_markt_category_id": 897
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 94,
+                "name": "NAKKESTØTTE",
+                "code": 7171,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 99,
+                "name": "INREDNING NACKSTÖD",
+                "code": 3132
+            }
+        ]
+    },
+    {
+        "id": 95,
+        "name": "Armrest",
+        "translation_key": "armrest",
+        "german_car_part_types": [
+            {
+                "id": 94,
+                "name": "Armlehne",
+                "code": null,
+                "autoteile_markt_category_id": 1076
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 95,
+                "name": "ARMLÆN",
+                "code": 7180,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 100,
+                "name": "INREDNING ARMSTÖD",
+                "code": 3133
+            }
+        ]
+    },
+    {
+        "id": 96,
+        "name": "Cup holder",
+        "translation_key": "cup_holder",
+        "german_car_part_types": [
+            {
+                "id": 95,
+                "name": "Tassenhalter",
+                "code": null,
+                "autoteile_markt_category_id": 1076
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 96,
+                "name": "KOP HOLDER",
+                "code": 7215,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 101,
+                "name": "MUGGHÅLLARE",
+                "code": 3211
+            }
+        ]
+    },
+    {
+        "id": 97,
+        "name": "Sunscreen",
+        "translation_key": "sunscreen",
+        "german_car_part_types": [
+            {
+                "id": 96,
+                "name": "Sonnenblende",
+                "code": null,
+                "autoteile_markt_category_id": 154
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 97,
+                "name": "SOLSKÆRM",
+                "code": 7272,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 102,
+                "name": "SOLSKYDD",
+                "code": 3130
+            }
+        ]
+    },
+    {
+        "id": 98,
+        "name": "Ceiling light roof",
+        "translation_key": "ceiling_light_roof",
+        "german_car_part_types": [
+            {
+                "id": 97,
+                "name": "Innenbeleuchtung Himmel",
+                "code": null,
+                "autoteile_markt_category_id": 954
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 98,
+                "name": "LOFTSLYS",
+                "code": 7273,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 103,
+                "name": "INNERBELYSNING",
+                "code": 3128
+            }
+        ]
+    },
+    {
+        "id": 99,
+        "name": "Ceiling light door",
+        "translation_key": "ceiling_light_door",
+        "german_car_part_types": [
+            {
+                "id": 98,
+                "name": "Innenbeleuchtung Tür",
+                "code": null,
+                "autoteile_markt_category_id": 954
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 99,
+                "name": "LOFTSLYS",
+                "code": 7273,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 104,
+                "name": "INNERBELYSNING DÖRRBELYSNING",
+                "code": 3129
+            }
+        ]
+    },
+    {
+        "id": 100,
+        "name": "Boot base",
+        "translation_key": "boot_base",
+        "german_car_part_types": [
+            {
+                "id": 99,
+                "name": "Hutablage",
+                "code": null,
+                "autoteile_markt_category_id": 149
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 100,
+                "name": "BAGHYLDE",
+                "code": 7300,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 105,
+                "name": "HATTHYLLA",
+                "code": 3135
+            }
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Hat rack/defence",
+        "translation_key": "hat_rack_defence",
+        "german_car_part_types": [
+            {
+                "id": 100,
+                "name": "Hutablage/Lastschutz",
+                "code": null,
+                "autoteile_markt_category_id": 149
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 101,
+                "name": "HATTEHYLDE",
+                "code": 7301,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 106,
+                "name": "LASTFÖRSKJUTNINGSSKYDD/GALLER",
+                "code": 3150
+            }
+        ]
+    },
+    {
+        "id": 102,
+        "name": "Dogdefence",
+        "translation_key": "dogdefence",
+        "german_car_part_types": [
+            {
+                "id": 101,
+                "name": "Hundegitter",
+                "code": null,
+                "autoteile_markt_category_id": 128
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 102,
+                "name": "HUNDEGITTER",
+                "code": 7336,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 107,
+                "name": "HUNDGALLER/GRIND/BUR",
+                "code": 3148
+            }
+        ]
+    },
+    {
+        "id": 103,
+        "name": "Bottommat",
+        "translation_key": "bottommat",
+        "german_car_part_types": [
+            {
+                "id": 102,
+                "name": "Bodenmatte",
+                "code": null,
+                "autoteile_markt_category_id": 139
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 103,
+                "name": "BUNDMÅTTE",
+                "code": 7350,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 108,
+                "name": "MATTA",
+                "code": 3138
+            }
+        ]
+    },
+    {
+        "id": 104,
+        "name": "Radio / Stereo",
+        "translation_key": "radio___stereo",
+        "german_car_part_types": [
+            {
+                "id": 103,
+                "name": "Radio / Stereo",
+                "code": null,
+                "autoteile_markt_category_id": 271
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 104,
+                "name": "RADIO",
+                "code": 7450,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 109,
+                "name": "RADIO / STEREO  ",
+                "code": 7810
+            }
+        ]
+    },
+    {
+        "id": 105,
+        "name": "Adj. Engine frontlight",
+        "translation_key": "adj__engine_frontlight",
+        "german_car_part_types": [
+            {
+                "id": 104,
+                "name": "Scheinwerfer Regulerings Motor",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 105,
+                "name": "HØJTTALER",
+                "code": 7452,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 110,
+                "name": "STRÅLKAST.AUT.JUST.MOTOR",
+                "code": 1039
+            }
+        ]
+    },
+    {
+        "id": 106,
+        "name": "Engine sound speeker",
+        "translation_key": "engine_sound_speeker",
+        "german_car_part_types": [
+            {
+                "id": 105,
+                "name": "Motorsound Lautsprecher",
+                "code": null,
+                "autoteile_markt_category_id": 270
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 106,
+                "name": "HØJTTALER",
+                "code": 7452,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 111,
+                "name": "HÖGTALARE MOTORLJUD EL-BIL",
+                "code": 1094
+            }
+        ]
+    },
+    {
+        "id": 107,
+        "name": "DVD Player",
+        "translation_key": "dvd_player",
+        "german_car_part_types": [
+            {
+                "id": 106,
+                "name": "DVD Spieler",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 107,
+                "name": "RADIO MED CD",
+                "code": 7458,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 112,
+                "name": "DVD SPELARE",
+                "code": 4638
+            }
+        ]
+    },
+    {
+        "id": 108,
+        "name": "Navigation/parts",
+        "translation_key": "navigation_parts",
+        "german_car_part_types": [
+            {
+                "id": 107,
+                "name": "Navigation diverse",
+                "code": null,
+                "autoteile_markt_category_id": 702
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 108,
+                "name": "RADIO TILBEHØR",
+                "code": 7459,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 113,
+                "name": "DVD TAKMONTERAD",
+                "code": 7808
+            }
+        ]
+    },
+    {
+        "id": 109,
+        "name": "Hifi kable",
+        "translation_key": "hifi_kable",
+        "german_car_part_types": [
+            {
+                "id": 108,
+                "name": "Verkablung Hifi",
+                "code": null,
+                "autoteile_markt_category_id": 428
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 109,
+                "name": "RADIO TILBEHØR",
+                "code": 7459,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 114,
+                "name": "RADIO / STEREO KABELHÄRVA",
+                "code": 7809
+            }
+        ]
+    },
+    {
+        "id": 110,
+        "name": "Radio / Stereo parts",
+        "translation_key": "radio___stereo_parts",
+        "german_car_part_types": [
+            {
+                "id": 109,
+                "name": "Radio / Stereo diverse",
+                "code": null,
+                "autoteile_markt_category_id": 428
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 110,
+                "name": "RADIO TILBEHØR",
+                "code": 7459,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 115,
+                "name": "RADIO / STEREO ÖVRIGT",
+                "code": 7817
+            }
+        ]
+    },
+    {
+        "id": 111,
+        "name": "Wing mirror left manuel",
+        "translation_key": "wing_mirror_left_manuel",
+        "german_car_part_types": [
+            {
+                "id": 110,
+                "name": "Seitenspiegel links mekanisch",
+                "code": null,
+                "autoteile_markt_category_id": 853
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 111,
+                "name": "SIDESPEJL",
+                "code": 7501,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 116,
+                "name": "SPEGEL YTTRE JUSTERBAR VÄ",
+                "code": 3041
+            }
+        ]
+    },
+    {
+        "id": 112,
+        "name": "Wing mirror right manuel",
+        "translation_key": "wing_mirror_right_manuel",
+        "german_car_part_types": [
+            {
+                "id": 111,
+                "name": "Seitenspiegel rechts mekanisch",
+                "code": null,
+                "autoteile_markt_category_id": 853
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 112,
+                "name": "SIDESPEJL",
+                "code": 7501,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 117,
+                "name": "SPEGEL YTTRE JUSTERBAR HÖ",
+                "code": 3042
+            }
+        ]
+    },
+    {
+        "id": 113,
+        "name": "Front light glas left",
+        "translation_key": "front_light_glas_left",
+        "german_car_part_types": [
+            {
+                "id": 112,
+                "name": "Scheinwerferglas links",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 113,
+                "name": "SIDESPEJL LØS GLAS",
+                "code": 7502,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 118,
+                "name": "STRÅLKASTARGLAS VÄ",
+                "code": 1026
+            }
+        ]
+    },
+    {
+        "id": 114,
+        "name": "Front light glas right",
+        "translation_key": "front_light_glas_right",
+        "german_car_part_types": [
+            {
+                "id": 113,
+                "name": "Scheinwerferglas rechts",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 114,
+                "name": "SIDESPEJL LØS GLAS",
+                "code": 7502,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 119,
+                "name": "STRÅLKASTARGLAS HÖ",
+                "code": 1027
+            }
+        ]
+    },
+    {
+        "id": 115,
+        "name": "Wing mirror left el",
+        "translation_key": "wing_mirror_left_el",
+        "german_car_part_types": [
+            {
+                "id": 114,
+                "name": "Seitenspiegel links elektrisch",
+                "code": null,
+                "autoteile_markt_category_id": 853
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 115,
+                "name": "SIDESPEJL EL",
+                "code": 7503,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 120,
+                "name": "SPEGEL YTTRE EL VÄ",
+                "code": 3043
+            }
+        ]
+    },
+    {
+        "id": 116,
+        "name": "Wing mirror right el",
+        "translation_key": "wing_mirror_right_el",
+        "german_car_part_types": [
+            {
+                "id": 115,
+                "name": "Seitenspiegel rechts elektrisch",
+                "code": null,
+                "autoteile_markt_category_id": 853
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 116,
+                "name": "SIDESPEJL EL",
+                "code": 7503,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 121,
+                "name": "SPEGEL YTTRE EL HÖ",
+                "code": 3044
+            }
+        ]
+    },
+    {
+        "id": 117,
+        "name": "Rear view mirror - internal",
+        "translation_key": "rear_view_mirror___internal",
+        "german_car_part_types": [
+            {
+                "id": 116,
+                "name": "Innenspiegel",
+                "code": null,
+                "autoteile_markt_category_id": 146
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 117,
+                "name": "BAKSPEJL INDVENDIG",
+                "code": 7510,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 122,
+                "name": "SPEGEL INVÄNDIG",
+                "code": 3145
+            }
+        ]
+    },
+    {
+        "id": 118,
+        "name": "Seat bælt ekstra seat",
+        "translation_key": "seat_b_lt_ekstra_seat",
+        "german_car_part_types": [
+            {
+                "id": 117,
+                "name": "Sicherheitsgurt ekstra Sitz",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 118,
+                "name": "SIKKERHEDSSELER FOR",
+                "code": 7600,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 123,
+                "name": "SÄKERHETSBÄLTE EXTRASÄTE",
+                "code": 3119
+            }
+        ]
+    },
+    {
+        "id": 119,
+        "name": "Seat belts - front, left",
+        "translation_key": "seat_belts___front__left",
+        "german_car_part_types": [
+            {
+                "id": 118,
+                "name": "Sicherheitsgurt vorne links",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 119,
+                "name": "SIKKERHEDSSELER FOR",
+                "code": 7600,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 124,
+                "name": "SÄKERHETSBÄLTE FRAM VÄ",
+                "code": 3121
+            }
+        ]
+    },
+    {
+        "id": 120,
+        "name": "Seat belts - front",
+        "translation_key": "seat_belts___front",
+        "german_car_part_types": [
+            {
+                "id": 119,
+                "name": "Sicherheitsgurt vorne",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 120,
+                "name": "SIKKERHEDSSELER FOR",
+                "code": 7600,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 125,
+                "name": "SÄKERHETSBÄLTSATS FRAM",
+                "code": 3125
+            }
+        ]
+    },
+    {
+        "id": 121,
+        "name": "Seat belts - front, right",
+        "translation_key": "seat_belts___front__right",
+        "german_car_part_types": [
+            {
+                "id": 120,
+                "name": "Sicherheitsgurt vorne rechts",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 121,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 126,
+                "name": "SÄKERHETSBÄLTE FRAM HÖ",
+                "code": 3122
+            }
+        ]
+    },
+    {
+        "id": 122,
+        "name": "Seat belts - bag, left",
+        "translation_key": "seat_belts___bag__left",
+        "german_car_part_types": [
+            {
+                "id": 121,
+                "name": "Sicherheitsgurt hinten links",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 122,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 127,
+                "name": "SÄKERHETSBÄLTE BAK VÄ",
+                "code": 3123
+            }
+        ]
+    },
+    {
+        "id": 123,
+        "name": "Seat belts - bag, right",
+        "translation_key": "seat_belts___bag__right",
+        "german_car_part_types": [
+            {
+                "id": 122,
+                "name": "Sicherheitsgurt hinten rechts",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 123,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 128,
+                "name": "SÄKERHETSBÄLTE BAK HÖ",
+                "code": 3124
+            }
+        ]
+    },
+    {
+        "id": 124,
+        "name": "Seat belts - bag",
+        "translation_key": "seat_belts___bag",
+        "german_car_part_types": [
+            {
+                "id": 123,
+                "name": "Sicherheitsgurt hinten",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 124,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 129,
+                "name": "SÄKERHETSBÄLTSATS BAK",
+                "code": 3126
+            }
+        ]
+    },
+    {
+        "id": 125,
+        "name": "Seat belts - bag, middel",
+        "translation_key": "seat_belts___bag__middel",
+        "german_car_part_types": [
+            {
+                "id": 124,
+                "name": "Sicherheitsgurt hinten Mitte",
+                "code": null,
+                "autoteile_markt_category_id": 429
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 125,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 130,
+                "name": "SÄKERHETSBÄLTE BAK MITT",
+                "code": 3127
+            }
+        ]
+    },
+    {
+        "id": 126,
+        "name": "Seat belt adjustment",
+        "translation_key": "seat_belt_adjustment",
+        "german_car_part_types": [
+            {
+                "id": 125,
+                "name": "Sicherheitsgurt Justering",
+                "code": null,
+                "autoteile_markt_category_id": 947
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 126,
+                "name": "SELESTRAMMER",
+                "code": 7612,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 131,
+                "name": "SÄKERHETSBÄLTESJUSTERING",
+                "code": 3160
+            }
+        ]
+    },
+    {
+        "id": 127,
+        "name": "Front hood muffle",
+        "translation_key": "front_hood_muffle",
+        "german_car_part_types": [
+            {
+                "id": 126,
+                "name": "Dämpfer Motorhaube",
+                "code": null,
+                "autoteile_markt_category_id": 771
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 127,
+                "name": "FRONTHJELMSDÆMPER",
+                "code": 7670,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 132,
+                "name": "GASFJÄDER MOTORHUV",
+                "code": 1072
+            }
+        ]
+    },
+    {
+        "id": 128,
+        "name": "Hood muffle",
+        "translation_key": "hood_muffle",
+        "german_car_part_types": [
+            {
+                "id": 127,
+                "name": "Dämpfer  ",
+                "code": null,
+                "autoteile_markt_category_id": 712
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 128,
+                "name": "FRONTHJELMSDÆMPER",
+                "code": 7670,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 133,
+                "name": "GASFJÄDER ÖVRIGT",
+                "code": 3096
+            }
+        ]
+    },
+    {
+        "id": 129,
+        "name": "Hood muffle",
+        "translation_key": "hood_muffle",
+        "german_car_part_types": [
+            {
+                "id": 128,
+                "name": "Dämpfer  ",
+                "code": null,
+                "autoteile_markt_category_id": 712
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 129,
+                "name": "FRONTHJELMSDÆMPER",
+                "code": 7670,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 134,
+                "name": "GASFJÄDER FLAKLOCK/FLAKKÅPA",
+                "code": 3097
+            }
+        ]
+    },
+    {
+        "id": 130,
+        "name": "Fog light - front",
+        "translation_key": "fog_light___front",
+        "german_car_part_types": [
+            {
+                "id": 129,
+                "name": "Nebelscheinwerfer",
+                "code": null,
+                "autoteile_markt_category_id": 30
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 130,
+                "name": "TÅGELYGTE FOR",
+                "code": 7701,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 135,
+                "name": "DIMLJUS/VARSELLJUS FRAM",
+                "code": 1030
+            }
+        ]
+    },
+    {
+        "id": 131,
+        "name": "High Volt charger",
+        "translation_key": "high_volt_charger",
+        "german_car_part_types": [
+            {
+                "id": 130,
+                "name": "Hochspannung Batterilader",
+                "code": null,
+                "autoteile_markt_category_id": 80
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 131,
+                "name": "EL_HØJSP:KABEL MOTOR-INVERTER",
+                "code": 7850,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 136,
+                "name": "BATTERILADDARE HÖGSPÄNNING",
+                "code": 7833
+            }
+        ]
+    },
+    {
+        "id": 132,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 131,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 160
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 132,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 137,
+                "name": "INSTRUMENT HAST",
+                "code": 3221
+            }
+        ]
+    },
+    {
+        "id": 133,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 132,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 170
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 133,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 138,
+                "name": "INSTRUMENT TEMP.",
+                "code": 3223
+            }
+        ]
+    },
+    {
+        "id": 134,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 133,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 167
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 134,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 139,
+                "name": "INSTRUMENT VARVR.",
+                "code": 3224
+            }
+        ]
+    },
+    {
+        "id": 135,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 134,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 166
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 135,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 140,
+                "name": "INSTRUMENT OLJET.",
+                "code": 3225
+            }
+        ]
+    },
+    {
+        "id": 136,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 135,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 169
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 136,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 141,
+                "name": "INSTRUMENT VOLTM.",
+                "code": 3226
+            }
+        ]
+    },
+    {
+        "id": 137,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 136,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 169
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 137,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 142,
+                "name": "INSTRUMENT AMPERE",
+                "code": 3227
+            }
+        ]
+    },
+    {
+        "id": 138,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 137,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 168
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 138,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 143,
+                "name": "INSTRUMENT KLOCKA",
+                "code": 3228
+            }
+        ]
+    },
+    {
+        "id": 139,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 138,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 167
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 139,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 144,
+                "name": "INSTRUMENT VÄXLINGSINDIKATOR",
+                "code": 3231
+            }
+        ]
+    },
+    {
+        "id": 140,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 139,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 167
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 140,
+                "name": "TILBEHØR DIVERSE",
+                "code": 7990,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 145,
+                "name": "INSTRUMENT ÖVRIGT",
+                "code": 3299
+            }
+        ]
+    },
+    {
+        "id": 141,
+        "name": "Refrigerator",
+        "translation_key": "refrigerator",
+        "german_car_part_types": [
+            {
+                "id": 140,
+                "name": "Kühlschrank",
+                "code": null,
+                "autoteile_markt_category_id": 128
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 141,
+                "name": "CAMPER UDSTYR",
+                "code": 9954,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 146,
+                "name": "KYLSKÅP",
+                "code": 9709
+            }
+        ]
+    },
+    {
+        "id": 142,
+        "name": "Pressur messure",
+        "translation_key": "pressur_messure",
+        "german_car_part_types": [
+            {
+                "id": 141,
+                "name": "Diverse Druckmesser",
+                "code": null,
+                "autoteile_markt_category_id": 1038
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 142,
+                "name": "RENS EGR/TURBO",
+                "code": 9977,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 147,
+                "name": "VAKUUM/EKONOM/TURBOTRYCKMÄTARE",
+                "code": 3217
+            }
+        ]
+    },
+    {
+        "id": 143,
+        "name": "Suspension kompressor",
+        "translation_key": "suspension_kompressor",
+        "german_car_part_types": [
+            {
+                "id": 142,
+                "name": "Luftfederung Kompressor",
+                "code": null,
+                "autoteile_markt_category_id": 1069
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 143,
+                "name": "KOMPRESSORPUMPE",
+                "code": 1980,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 144,
+                "name": "LUFTAFJ.PUMPE",
+                "code": 3411,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 148,
+                "name": "KOMPRESSOR STÖT/LUFTFJÄDRING",
+                "code": 7064
+            }
+        ]
+    },
+    {
+        "id": 144,
+        "name": "Steering",
+        "translation_key": "steering",
+        "german_car_part_types": [
+            {
+                "id": 143,
+                "name": "Lenkgetriebe",
+                "code": null,
+                "autoteile_markt_category_id": 110
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 145,
+                "name": "TANDSTANG SERVO",
+                "code": 3091,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 146,
+                "name": "TANDSTANG SERVO SÆT",
+                "code": 3092,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 147,
+                "name": "TANDSTANG SERVO BAG",
+                "code": 3094,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 149,
+                "name": "STYRSNÄCKA SERVO",
+                "code": 4558
+            }
+        ]
+    },
+    {
+        "id": 145,
+        "name": "Wishbone - rear",
+        "translation_key": "wishbone___rear",
+        "german_car_part_types": [
+            {
+                "id": 144,
+                "name": "Tragarm hinten",
+                "code": null,
+                "autoteile_markt_category_id": 641
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 148,
+                "name": "BÆREARM BAG ENS",
+                "code": 3300,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 149,
+                "name": "BÆREARM BAG V",
+                "code": 3301,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 150,
+                "name": "BÆREARM BAG H.",
+                "code": 3302,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 150,
+                "name": "BAKRAM / FÄSTBALK / TVÄRBALK",
+                "code": 7124
+            }
+        ]
+    },
+    {
+        "id": 146,
+        "name": "Roof shackle",
+        "translation_key": "roof_shackle",
+        "german_car_part_types": [
+            {
+                "id": 145,
+                "name": "Dachreling",
+                "code": null,
+                "autoteile_markt_category_id": 951
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 151,
+                "name": "TAGRENDELISTE",
+                "code": 4655,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 152,
+                "name": "TAGBØJLE",
+                "code": 4658,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 151,
+                "name": "TAKRELING/TAKRÄCKE",
+                "code": 3039
+            }
+        ]
+    },
+    {
+        "id": 147,
+        "name": "Screen lift manuel",
+        "translation_key": "screen_lift_manuel",
+        "german_car_part_types": [
+            {
+                "id": 146,
+                "name": "Fensterheber manuel",
+                "code": null,
+                "autoteile_markt_category_id": 923
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 153,
+                "name": "RUDEREGULATOR 2DØRS",
+                "code": 5601,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 154,
+                "name": "RUDEKABEL 2DØRS",
+                "code": 5603,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 155,
+                "name": "RUDEREGULATOR 4DØRS",
+                "code": 5604,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 156,
+                "name": "RUDEREGULATOR SÆT",
+                "code": 5607,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 152,
+                "name": "FÖNSTERHISSATS MANUELL",
+                "code": 7423
+            }
+        ]
+    },
+    {
+        "id": 148,
+        "name": "Screen kable",
+        "translation_key": "screen_kable",
+        "german_car_part_types": [
+            {
+                "id": 147,
+                "name": "Fensterheber",
+                "code": null,
+                "autoteile_markt_category_id": 923
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 157,
+                "name": "RUDEREGULATOR 2DØRS",
+                "code": 5601,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 158,
+                "name": "RUDEKABEL 2DØRS",
+                "code": 5603,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 159,
+                "name": "RUDEREGULATOR 4DØRS",
+                "code": 5604,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 160,
+                "name": "RUDEREGULATOR SÆT",
+                "code": 5607,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 153,
+                "name": "FÖNSTERHISSMEKANISM",
+                "code": 3023
+            }
+        ]
+    },
+    {
+        "id": 149,
+        "name": "Screen lift electric",
+        "translation_key": "screen_lift_electric",
+        "german_car_part_types": [
+            {
+                "id": 148,
+                "name": "Fensterheber elektrisch ",
+                "code": null,
+                "autoteile_markt_category_id": 923
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 161,
+                "name": "RUDEREGULATOR 2DØRS",
+                "code": 5601,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 162,
+                "name": "RUDEKABEL 2DØRS",
+                "code": 5603,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 163,
+                "name": "RUDEREGULATOR 4DØRS",
+                "code": 5604,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 164,
+                "name": "RUDEREGULATOR SÆT",
+                "code": 5607,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 154,
+                "name": "FÖNSTERHISS EL KOMPL.",
+                "code": 3024
+            }
+        ]
+    },
+    {
+        "id": 150,
+        "name": "Front light",
+        "translation_key": "front_light",
+        "german_car_part_types": [
+            {
+                "id": 149,
+                "name": "Scheinwerfer",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 165,
+                "name": "FORLYGTE RUND",
+                "code": 6201,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 166,
+                "name": "FORLYGTE FIRKANTET",
+                "code": 6203,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 167,
+                "name": "FORLYGTE DOBBELT",
+                "code": 6205,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 155,
+                "name": "STRÅLKASTARE",
+                "code": 1020
+            }
+        ]
+    },
+    {
+        "id": 151,
+        "name": "Front light left",
+        "translation_key": "front_light_left",
+        "german_car_part_types": [
+            {
+                "id": 150,
+                "name": "Scheinwerfer links",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 168,
+                "name": "FORLYGTE RUND",
+                "code": 6201,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 169,
+                "name": "FORLYGTE FIRKANTET",
+                "code": 6203,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 170,
+                "name": "FORLYGTE DOBBELT",
+                "code": 6205,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 156,
+                "name": "STRÅLKASTARE VÄNSTER",
+                "code": 1021
+            }
+        ]
+    },
+    {
+        "id": 152,
+        "name": "Front light right",
+        "translation_key": "front_light_right",
+        "german_car_part_types": [
+            {
+                "id": 151,
+                "name": "Scheinwerfer rechts",
+                "code": null,
+                "autoteile_markt_category_id": 664
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 171,
+                "name": "FORLYGTE RUND",
+                "code": 6201,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 172,
+                "name": "FORLYGTE FIRKANTET",
+                "code": 6203,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 173,
+                "name": "FORLYGTE DOBBELT",
+                "code": 6205,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 157,
+                "name": "STRÅLKASTARE HÖGER",
+                "code": 1022
+            }
+        ]
+    },
+    {
+        "id": 153,
+        "name": "Reverse light right side",
+        "translation_key": "reverse_light_right_side",
+        "german_car_part_types": [
+            {
+                "id": 152,
+                "name": "Rückleuchte Heckklappe rechts",
+                "code": null,
+                "autoteile_markt_category_id": 944
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 174,
+                "name": "BAGLYGTE SEDAN",
+                "code": 6231,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 175,
+                "name": "BAGLYGTE COUPE",
+                "code": 6233,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 176,
+                "name": "BAGLYGTE VAN",
+                "code": 6235,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 177,
+                "name": "BAGLYGTE 3+5DØRS",
+                "code": 6237,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 158,
+                "name": "BAKLJUS BAKLUCKA HÖ",
+                "code": 5048
+            }
+        ]
+    },
+    {
+        "id": 154,
+        "name": "Seat set",
+        "translation_key": "seat_set",
+        "german_car_part_types": [
+            {
+                "id": 153,
+                "name": "Sitzganitur",
+                "code": null,
+                "autoteile_markt_category_id": 152
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 178,
+                "name": "INDTRÆK 2DØRS",
+                "code": 7010,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 179,
+                "name": "INDTRÆK COUPE",
+                "code": 7011,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 180,
+                "name": "INDTRÆK 3DØRS",
+                "code": 7012,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 181,
+                "name": "INDTRÆK 4DØRS",
+                "code": 7013,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 182,
+                "name": "INDTRÆK 5DØRS",
+                "code": 7014,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 183,
+                "name": "INDTRÆK 2DØRS STC.",
+                "code": 7015,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 184,
+                "name": "INDTRÆK 4DØRS STC.",
+                "code": 7016,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 185,
+                "name": "INDTRÆK BUS",
+                "code": 7017,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 159,
+                "name": "INREDNING KOMP.",
+                "code": 3110
+            }
+        ]
+    },
+    {
+        "id": 155,
+        "name": "Instruments",
+        "translation_key": "instruments",
+        "german_car_part_types": [
+            {
+                "id": 154,
+                "name": "Diverse  Instrumente",
+                "code": null,
+                "autoteile_markt_category_id": 167
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 186,
+                "name": "MIDTERKONSOL",
+                "code": 7210,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 187,
+                "name": "KARDANBOKS",
+                "code": 7230,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 160,
+                "name": "INSTRUMENTKONSOLL GOLV",
+                "code": 3229
+            }
+        ]
+    },
+    {
+        "id": 156,
+        "name": "Seat belts - middel, left",
+        "translation_key": "seat_belts___middel__left",
+        "german_car_part_types": [
+            {
+                "id": 155,
+                "name": "Sicherheitsgurt Mitte links",
+                "code": null,
+                "autoteile_markt_category_id": 947
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 188,
+                "name": "SIKKERHEDSSELER FOR",
+                "code": 7600,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 189,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 161,
+                "name": "SÄKERHETSBÄLTE MITTRE VÄ",
+                "code": 3161
+            }
+        ]
+    },
+    {
+        "id": 157,
+        "name": "Seat belts - middel, right",
+        "translation_key": "seat_belts___middel__right",
+        "german_car_part_types": [
+            {
+                "id": 156,
+                "name": "Sicherheitsgurt Mitte rechts",
+                "code": null,
+                "autoteile_markt_category_id": 947
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 190,
+                "name": "SIKKERHEDSSELER FOR",
+                "code": 7600,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 191,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 162,
+                "name": "SÄKERHETSBÄLTE MITTRE HÖ",
+                "code": 3162
+            }
+        ]
+    },
+    {
+        "id": 158,
+        "name": "Seat belts - middel, middel",
+        "translation_key": "seat_belts___middel__middel",
+        "german_car_part_types": [
+            {
+                "id": 157,
+                "name": "Sicherheitsgurt Mite/Mitte",
+                "code": null,
+                "autoteile_markt_category_id": 947
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 192,
+                "name": "SIKKERHEDSSELER FOR",
+                "code": 7600,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 193,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 163,
+                "name": "SÄKERHETSBÄLTE MITTRE MITT",
+                "code": 3163
+            }
+        ]
+    },
+    {
+        "id": 159,
+        "name": "Seat belts - front, middel",
+        "translation_key": "seat_belts___front__middel",
+        "german_car_part_types": [
+            {
+                "id": 158,
+                "name": "Sicherheitsgurt vorne Mitte",
+                "code": null,
+                "autoteile_markt_category_id": 947
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 194,
+                "name": "SIKKERHEDSSELER FOR",
+                "code": 7600,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 195,
+                "name": "SIKKERHEDSELER BAG",
+                "code": 7610,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 164,
+                "name": "SÄKERHETSBÄLTE FRAM MITT",
+                "code": 3164
             }
         ]
     }
