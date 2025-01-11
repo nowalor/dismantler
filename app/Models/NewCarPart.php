@@ -293,8 +293,6 @@ class NewCarPart extends Model
             $locale = LaravelLocalization::getCurrentLocale();
         }
 
-        logger($locale);
-
         $price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
         $partTypeKey = $this->carPartType->json_key;

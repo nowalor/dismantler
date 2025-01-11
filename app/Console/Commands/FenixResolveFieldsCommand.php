@@ -125,7 +125,6 @@ class FenixResolveFieldsCommand extends Command
                 $sbrCode = $ditoNumber->sbrCodes()->first(); // Should have special cases when one dito maps to 2x sbr codes?
 
                 if($sbrCode) {
-                    logger($sbrCode);
                     $carPart->sbr_car_code = $sbrCode->sbr_code;
                     $carPart->sbr_car_name = $sbrCode->name;
                     $carPart->sbr_code_id = $sbrCode->id;

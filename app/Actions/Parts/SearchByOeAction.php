@@ -64,9 +64,7 @@ class SearchByOeAction
         }
 
         $partsQuery = (new SortPartsAction())->execute($partsQuery, $sort);
-
-        Log::info('Generated Query:', ['query' => $partsQuery->toSql(), 'bindings' => $partsQuery->getBindings()]);
-
+        
         $parts = is_null($paginate) ? $partsQuery->get() : $partsQuery->paginate($paginate);
 
         return [
