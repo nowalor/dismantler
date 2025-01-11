@@ -121,6 +121,8 @@ class FenixResolveCarPartImagesCommand extends Command
                 $query->whereNull('image_name_blank_logo');
             }])
             ->with('carPartImages')
+            ->whereNotNull('dismantle_company_name')
+            ->where('dismantle_company_name', '!=', '')
 //            ->where('dismantle_company_name', 'A')
 //            ->whereNotNull('engine_code')
          /*   ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)*/
@@ -186,8 +188,6 @@ class FenixResolveCarPartImagesCommand extends Command
         foreach ($carParts as $carPart) {
             if(!isset($dismantlers[$carPart->dismantle_company_name])) {
                 $this->info("Could not find: {$carPart->dismantle_company_name}");
-
-                logger("Could not find: {$carPart->dismantle_company_name}");
 
                 continue;
             }

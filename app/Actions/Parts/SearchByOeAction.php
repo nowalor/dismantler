@@ -64,7 +64,7 @@ class SearchByOeAction
         }
 
         $partsQuery = (new SortPartsAction())->execute($partsQuery, $sort);
-        
+
         $parts = is_null($paginate) ? $partsQuery->get() : $partsQuery->paginate($paginate);
 
         return [
