@@ -198,7 +198,7 @@
                 </a>
             </div>
         <div class="card-body">
-            <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType->name }}</h5>
+            <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType?->name }}</h5>
             <p class="card-text"><strong>{{ __('Original number') }}:</strong> {{ $part->original_number ?? 'N/A' }}</p>
             <p class="card-text"><strong>{{ __('Engine type') }}:</strong> {{ $part->engine_type ?? 'N/A' }}</p>
             <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
