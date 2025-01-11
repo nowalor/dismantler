@@ -295,6 +295,20 @@ class NewCarPart extends Model
 
         $price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
+        // TODO, handle it in another way, like not querying these parts in the first place...
+        if(!$this->carPartType) {
+            $priceInfo = (new GetLocalizedPriceAction())->requiresRequest();
+
+            return [
+                'requires_request' => $priceInfo['requires_request'],
+                'price' => 999999999999999999,
+                'currency' => $priceInfo['currency']['to'],
+                'symbol' => $priceInfo['symbol'],
+                'shipment' => $priceInfo['shipment'],
+                'vat' => $priceInfo['vat'],
+            ];
+        }
+
         $partTypeKey = $this->carPartType->json_key;
 
         $priceInfo = (new GetLocalizedPriceAction())->execute(

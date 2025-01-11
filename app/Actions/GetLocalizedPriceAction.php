@@ -93,7 +93,7 @@ class GetLocalizedPriceAction
         ];
      }
 
-     private function requiresRequest(): array
+     public function requiresRequest(): array
      {
          return [
          'requires_request' => true,
