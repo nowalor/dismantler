@@ -24,11 +24,6 @@ class GetLocalizedPriceAction
 
         $localizedPrices = $prices[$locale];
 
-        if($price === 9000) {
-            logger($locale);
-            logger($localizedPrices);
-        }
-
 
         if(!isset($localizedPrices[$partFrom])) {
             return $this->requiresRequest();
@@ -47,7 +42,7 @@ class GetLocalizedPriceAction
         $multiplier = $this->getMultiplier($price, $dismantleCountryPrices['ranges']);
         $shipment = $this->getShipment($partType, $dismantleCompany, $dismantleCountryPrices['shipment']);
 
-        $fromCurrency = $locale === 'da' ? 'dkk' : 'sek';
+        $fromCurrency = $partFrom === 'da' ? 'dkk' : 'sek'; // Currently only have parts from sweden and denmark
 
 
         return [
