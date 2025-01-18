@@ -24,8 +24,10 @@ class GetLocalizedPriceAction
 
         $localizedPrices = $prices[$locale];
 
-        logger($locale);
-        logger($localizedPrices);
+        if($price === 9000) {
+            logger($locale);
+            logger($localizedPrices);
+        }
 
 
         if(!isset($localizedPrices[$partFrom])) {
