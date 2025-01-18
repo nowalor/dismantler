@@ -15,13 +15,17 @@ class LandingPageController extends Controller
 
     public function __invoke(): View
     {
-        $brands = CarBrand::withCount('carParts')
+
+        // quick question when code reviewed
+        /* $brands = CarBrand::withCount('carParts')
             ->having('car_parts_count', '>', 0)
-            ->get();
+            ->get(); */
 
         $plainTexts = ManufacturerText::all();
 
         $partTypes = CarPartType::all();
+
+        $brands = CarBrand::all();
 
         // Get the current locale
         $locale = LaravelLocalization::getCurrentLocale();
@@ -37,7 +41,11 @@ class LandingPageController extends Controller
         // Extract only the path for the view
         $logoPath = $logoConfig['path'];
 
-        return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath'));
+        return view('landingPage', compact(
+            'brands',
+            'plainTexts',
+            'partTypes',
+            'logoPath'));
     }
 
 }
