@@ -74,6 +74,11 @@ class NewCarPart extends Model
         'mileage',
     ];
 
+    public function getRouteKey()
+    {
+        return 'really-weird-route-key' . $this->id;
+    }
+
     public function carPartType(): BelongsTo {
         return $this->belongsTo(CarPartType::class);
     }

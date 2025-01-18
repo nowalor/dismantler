@@ -24,6 +24,9 @@ class GetLocalizedPriceAction
 
         $localizedPrices = $prices[$locale];
 
+        logger($locale);
+        logger($localizedPrices);
+
 
         if(!isset($localizedPrices[$partFrom])) {
             return $this->requiresRequest();

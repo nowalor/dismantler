@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             CommericalNameSeeder::class,
             DataProviderSeeder::class,
             PaymentPlatformSeeder::class,
-            CarPartTypeSeeder::class,
+            NewCarPartTypeSeeder::class,
 
             CarBrandSeeder::class, // Needs to be before DitoNumberSeeder
 
