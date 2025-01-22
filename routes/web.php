@@ -51,6 +51,7 @@ Route::group([
     ]
 ], function () {
     Route::get('', LandingPageController::class)->name("landingpage"); // homepage with new design
+    Route::get('/brands/{slug}/models', [LandingPageController::class, 'showModels'])->name('brands.models');
     Route::get('faq', FaqPageController::class)->name('faq');
     Route::get('contact', ContactPageController::class)->name('contact');
     Route::get('test-lang', TestLangController::class)->name('test-lang');

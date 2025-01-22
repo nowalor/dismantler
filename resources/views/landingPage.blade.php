@@ -25,11 +25,14 @@
         <ul id="brand-list" class="d-flex list-unstyled flex-wrap p-2">
             @foreach ($brands as $index => $brand)
                 <li class="brand-item {{ $index >= 7 ? 'd-none' : '' }} p-2 bg-white rounded">
-                    <img src="{{ $brand->image }}" alt="{{ $brand->name }} brand logo" class="img-fluid"
-                        style="width: 11rem; height: 8.2rem; object-fit: contain; border: 1px solid #ddd;">
+                    <a href="{{ route('brands.models', ['slug' => $brand->slug]) }}" style="text-decoration: none;">
+                        <img src="{{ $brand->image }}" alt="{{ $brand->name }} brand logo" class="img-fluid"
+                            style="width: 11rem; height: 8.2rem; object-fit: contain; border: 1px solid #ddd;">
+                    </a>
                 </li>
             @endforeach
         </ul>
+
     </div>
     <div class="d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-light" id="load-more">Click to view more car brands</button>

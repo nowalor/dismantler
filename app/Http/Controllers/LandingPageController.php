@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\App;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Models\DitoNumber;
 
 class LandingPageController extends Controller
 {
@@ -46,6 +47,17 @@ class LandingPageController extends Controller
             'plainTexts',
             'partTypes',
             'logoPath'));
+    }
+
+    public function showModels($slug) {
+
+        $brand = CarBrand::where('slug', $slug)->firstOrFail();
+        $models = DitoNumber::where('producer', $brand->name)->get();
+
+        return view('brands.models', compact(
+            'brand',
+            'models'
+        ));
     }
 
 }
