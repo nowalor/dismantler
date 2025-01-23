@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Currus-connect.com: ' . __('page-titles.home'))
+@section('title', 'Currus-connect.com: ' . __('{{ $brand->name }}'))
 @section('content')
 
 <div class="container my-4 pt-4 bg-white rounded shadow">
@@ -8,10 +8,9 @@
         @foreach ($models as $model)
             <div class="col-md-4 mb-4 d-flex justify-content-center">
                 <div class="p-3 border rounded bg-light text-center shadow-sm w-100" style="max-width: 300px;">
-                    <h5 class="mb-0 text-dark">{{ $model->new_name }}</h5>
-                    @if($model->new_name === old('model'))
-                        <span class="badge bg-success mt-2">Selected</span>
-                    @endif
+                    <a href="{{ route('brands.categories', ['slug' => $brand->slug, 'modelId' => $model->id]) }}" class="text-dark text-decoration-none">
+                        <h5 class="mb-0">{{ $model->new_name }}</h5>
+                    </a>
                 </div>
             </div>
         @endforeach

@@ -10,13 +10,12 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\App;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Models\DitoNumber;
+use App\Models\MainCategory;
 
 class LandingPageController extends Controller
 {
-
     public function __invoke(): View
     {
-
         // quick question when code reviewed
         /* $brands = CarBrand::withCount('carParts')
             ->having('car_parts_count', '>', 0)
@@ -42,22 +41,30 @@ class LandingPageController extends Controller
         // Extract only the path for the view
         $logoPath = $logoConfig['path'];
 
-        return view('landingPage', compact(
-            'brands',
-            'plainTexts',
-            'partTypes',
-            'logoPath'));
+        return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath'));
     }
 
-    public function showModels($slug) {
-
+    public function showModels($slug)
+    {
         $brand = CarBrand::where('slug', $slug)->firstOrFail();
-        $models = DitoNumber::where('producer', $brand->name)->get();
 
-        return view('brands.models', compact(
-            'brand',
-            'models'
-        ));
+        $models = DitoNumber::where('producer', $brand->name)
+            ->whereHas('sbrCodes.carParts') // Ensure models have related car parts
+            ->get();
+
+        return view('brands.models', compact('brand', 'models'));
     }
 
+    public function categoriesForBrandModel($slug, $modelId)
+    {
+        $brand = CarBrand::where('slug', $slug)->firstOrFail(); // find the brand first
+
+        $model = DitoNumber::findOrFail($modelId); // find all models for that given brand
+
+        $sbrIds = $model->sbrCodes()->pluck('id'); // find
+
+        $mainCategories = MainCategory::with('carPartTypes')->get();
+
+        return view('brands.categories', compact('brand', 'model', 'mainCategories', 'sbrIds'));
+    }
 }
