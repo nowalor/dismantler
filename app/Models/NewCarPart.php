@@ -74,11 +74,6 @@ class NewCarPart extends Model
         'mileage',
     ];
 
-    public function getRouteKey()
-    {
-        return 'really-weird-route-key' . $this->id;
-    }
-
     public function carPartType(): BelongsTo {
         return $this->belongsTo(CarPartType::class);
     }
@@ -359,7 +354,7 @@ class NewCarPart extends Model
             return null;
         }
 
-        return (($price['price'] + $price['shipment']['total']) * $price['vat']) * 1.1;
+        return (($price['price'] + $price['shipment']['total']) * $price['vat']);
 
     }
 
