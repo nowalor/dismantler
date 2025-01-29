@@ -378,7 +378,7 @@ class CarPartTypeSeeder extends Seeder
             ['id' => 13, 'name' => 'Styrenhet ABS', 'code' => '7475'],
             ['id' => 14, 'name' => 'ABS hydraulaggerat', 'code' => '7645'],
             ['id' => 15, 'name' => 'Instrument Komb', 'code' => '3220'],
-            ['id' => 16, 'name' => 'STYRENHET VÄXELLÅDA ', 'code' => '7468'],
+            ['id' => 16, 'name' => 'STYRENHET VÄXELLÅDA', 'code' => '7468'],
             ['id' => 17, 'name' => 'STYRSERVOPUMP ELEKTRISK', 'code' => '7082'],
             ['id' => 18, 'name' => 'BILDSKÄRM', 'code' => '4626'],
 
@@ -390,7 +390,7 @@ class CarPartTypeSeeder extends Seeder
             ['id' => 23, 'name' => 'TURBOAGGREGAT', 'code' => '7255'],
             ['id' => 24, 'name' => 'HYBRIDCONVERTER', 'code' => '7295'],
             ['id' => 25, 'name' => 'GENERATOR/STARTMOTOR HYBRID', 'code' => '7411'],
-            ['id' => 26, 'name' => 'VÄXELLÅDA TRONIC', 'code' => '7700'],
+            ['id' => 26, 'name' => 'VÄXELLÅDA TRONIC', 'code' => '7700'], // why is there a duplicate of id 4 = 7700 on line 367 in this document?
             ['id' => 27, 'name' => 'INVERTER HYBRID', 'code' => '7835'],
 
             ['id' => 28, 'name' => 'HATTHYLLA', 'code' => '3135'],
