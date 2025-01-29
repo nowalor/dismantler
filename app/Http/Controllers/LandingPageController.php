@@ -57,14 +57,35 @@ class LandingPageController extends Controller
 
     public function categoriesForBrandModel($slug, $modelId)
     {
-        $brand = CarBrand::where('slug', $slug)->firstOrFail(); // find the brand first
+        $brand = CarBrand::where('slug', $slug)->firstOrFail();
 
-        $model = DitoNumber::findOrFail($modelId); // find all models for that given brand
+        // get the selected model (DitoNumber)
+        $model = DitoNumber::findOrFail($modelId);
 
-        $sbrIds = $model->sbrCodes()->pluck('id'); // find
+        // get all sbrCode IDs connected with this model
+        $sbrIds = $model->sbrCodes()->pluck('id');
 
-        $mainCategories = MainCategory::with('carPartTypes')->get();
+        // 4. Eager-load MainCategories with their CarPartTypes (subcategories)
+        //    and count the parts that match the model's SbrCode IDs.
+        $mainCategories = MainCategory::with([
+            'carPartTypes' => function ($query) use ($sbrIds) {
+                // Count how many parts each subcategory has for this model
+                $query
+                    ->withCount([
+                        'carParts as part_count' => function ($subQuery) use ($sbrIds) {
+                            $subQuery->whereIn('sbr_code_id', $sbrIds);
+                        },
+                    ])
+                    // Eager-load the actual parts for each subcategory,
+                    // filtered by the model's sbr_code IDs
+                    ->with([
+                        'carParts' => function ($subQuery) use ($sbrIds) {
+                            $subQuery->whereIn('sbr_code_id', $sbrIds);
+                        },
+                    ]);
+            },
+        ])->get();
 
-        return view('brands.categories', compact('brand', 'model', 'mainCategories', 'sbrIds'));
+        return view('brands.categories', compact('brand', 'model', 'mainCategories'));
     }
 }
