@@ -51,12 +51,11 @@
         let visibleCount = 7; // Initially visible items
 
         loadMoreButton.addEventListener('click', function() {
-            // Show 14 more items
-            const nextItems = brandItems.slice(visibleCount, visibleCount + 14);
+            const nextItems = brandItems.slice(visibleCount, visibleCount + 67);
             nextItems.forEach(item => item.classList.remove('d-none'));
 
             // Update the count of visible items
-            visibleCount += 14;
+            visibleCount += 67;
 
             // Hide the button if all items are visible
             if (visibleCount >= brandItems.length) {
@@ -72,11 +71,14 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
-        margin: 0 auto;
-        padding: 0;
+        max-width: calc(7 * 12rem);
+        /* Adjust width for 7 items per row */
     }
 
     .brand-item {
+        width: 11rem;
+        /* Ensure consistent size */
+        height: auto;
         background-color: white;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
