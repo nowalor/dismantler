@@ -68,8 +68,12 @@ Route::group([
     Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
     Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
+    // routes for brands / categories on landingPage
     Route::get('/brands/{slug}/models', [LandingPageController::class, 'showModels'])->name('brands.models');
     Route::get('/brands/{slug}/{modelId}/categories', [LandingPageController::class, 'categoriesForBrandModel'])->name('brands.categories');
+
+    Route::get('/categories/{name}/{id}', [LandingPageController::class, 'showCategories'])->name('categories.show');
+
 
     // Payment routes
     Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])

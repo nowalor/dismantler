@@ -2,6 +2,13 @@
 @section('title', 'Currus-connect.com: ' . __('page-titles.home'))
 @section('content')
 
+@php
+    /* the "/" in some of the category names creating parsing issues with the
+    will create a slug for maincategories / carPartTypes instead of using category->name*/
+    use Illuminate\Support\Str;
+@endphp
+
+
     <div class="cta">
         <div class="d-flex justify-content-center text-center mx-auto pt-4">
             <img src="{{ asset($logoPath) }}" style="max-width: 25rem; max-height: 40rem;" class="pt-2"
@@ -17,25 +24,55 @@
         <livewire:search-forms />
     </div>
 
-    <div class="d-flex justify-content-center align-items-center mt-3 text-white">
-        <h1>Car Brands</h1>
+    <div id="car-brand-seo">
+        <div class="d-flex justify-content-center align-items-center mt-3 text-white">
+            <h1>Brands</h1>
+        </div>
+        <div class="d-flex justify-content-center">
+            <ul id="brand-list" class="d-flex list-unstyled flex-wrap p-2">
+                @foreach ($brands as $index => $brand)
+                    <li class="brand-item {{ $index >= 7 ? 'd-none' : '' }} p-2 bg-white rounded">
+                        <a href="{{ route('brands.models', ['slug' => $brand->slug]) }}" style="text-decoration: none;">
+                            <img src="{{ $brand->image }}" alt="{{ $brand->name }} brand logo" class="img-fluid"
+                                style="width: 11rem; height: 8.2rem; object-fit: contain; border: 1px solid #ddd;">
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+            <button type="button" class="btn btn-light" id="load-more">Click to view more car brands</button>
+        </div>
     </div>
 
-    <div class="d-flex justify-content-center">
-        <ul id="brand-list" class="d-flex list-unstyled flex-wrap p-2">
-            @foreach ($brands as $index => $brand)
-                <li class="brand-item {{ $index >= 7 ? 'd-none' : '' }} p-2 bg-white rounded">
-                    <a href="{{ route('brands.models', ['slug' => $brand->slug]) }}" style="text-decoration: none;">
-                        <img src="{{ $brand->image }}" alt="{{ $brand->name }} brand logo" class="img-fluid"
-                            style="width: 11rem; height: 8.2rem; object-fit: contain; border: 1px solid #ddd;">
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+    <hr class="my-4" style="height: 4px; border: none; background-color: #ddd;">
 
-    </div>
-    <div class="d-flex justify-content-center mt-3">
-        <button type="button" class="btn btn-light" id="load-more">Click to view more car brands</button>
+    <div id="car-parts-seo" class="py-8">
+        <div class="container">
+            <div class="text-center mt-4 mb-2">
+                <h1 class="text-white">Categories</h1>
+            </div>
+            <div class="row bg-white border rounded p-4" style="border: 2px solid #ddd;">
+                @foreach ($mainCategories as $category)
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <a href="{{ route('categories.show', ['name' => Str::slug($category->name), 'id' => $category->id]) }}" class="text-decoration-none text-reset">
+                                <div class="card-body text-center">
+                                    @if(!empty($category->image))
+                                        <img src="{{ asset($category->image) }}"
+                                             alt="{{ $category->name }} image"
+                                             class="img-fluid mb-3"
+                                             style="width: 100%; max-height: 150px; object-fit: contain; border: 1px solid #ddd;">
+                                    @endif
+                                    <h5 class="card-title">{{ $category->name }}</h5>
+                                    <p class="card-text">{{ $category->new_car_parts_count }} parts</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </div>
 
     {{-- Question for Nikulas: Why can't I pass the $brands data into my component? --}}

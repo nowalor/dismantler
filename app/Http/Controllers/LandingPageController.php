@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\App;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Models\DitoNumber;
 use App\Models\MainCategory;
+use App\Models\NewCarPart;
 
 class LandingPageController extends Controller
 {
@@ -27,6 +28,8 @@ class LandingPageController extends Controller
 
         $brands = CarBrand::all();
 
+        $mainCategories = MainCategory::withPartsCount()->get();
+
         // Get the current locale
         $locale = LaravelLocalization::getCurrentLocale();
 
@@ -41,7 +44,7 @@ class LandingPageController extends Controller
         // Extract only the path for the view
         $logoPath = $logoConfig['path'];
 
-        return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath'));
+        return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath', 'mainCategories'));
     }
 
     public function showModels($slug)
@@ -87,5 +90,12 @@ class LandingPageController extends Controller
         ])->get();
 
         return view('brands.categories', compact('brand', 'model', 'mainCategories'));
+    }
+
+    public function showCategories($name, $id)
+    {
+        $mainCategory = MainCategory::with('carPartTypes')->findOrFail($id);
+
+        return view('categories.show', compact('mainCategory'));
     }
 }
