@@ -13,7 +13,7 @@ return new class extends Migration {
     public function up()
     {
         Schema::table('main_categories', function (Blueprint $table) {
-            $table->string('translation_key')->nullable();
+            $table->string('name')->unique()->change();
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration {
     public function down()
     {
         Schema::table('main_categories', function (Blueprint $table) {
-            $table->dropColumn('translation_key');
+            $table->dropUnique(['name']);
         });
     }
 };

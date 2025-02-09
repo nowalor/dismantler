@@ -10,14 +10,6 @@ class MainCategorySeeder extends Seeder
 {
     public function run()
     {
-        // Temporarily disable foreign key constraints
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
-        DB::table('main_category_car_part_type')->truncate();
-        DB::table('main_categories')->truncate();
-
-        // Re-enable foreign key constraints
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         $categories = [
             'Exhaust system',
             'Axle drive',
@@ -43,10 +35,10 @@ class MainCategorySeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            DB::table('main_categories')->insert([
-                'name' => $category,
-                'translation_key' => Str::slug($category, '_'),
-            ]);
+            DB::table('main_categories')->updateOrInsert(
+                ['name' => $category],
+                ['translation_key' => Str::slug($category, '_')]
+            );
         }
     }
 }
