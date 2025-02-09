@@ -25,6 +25,7 @@ use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\LandingPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\BlogController;
 
 
 //Route::get('search-by-plate', SearchByPlateController::class);
@@ -78,11 +79,11 @@ Route::group([
     Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
         ->name('checkout.success');
 
-// Checkout
+    // Checkout
     Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
         ->name('checkout');
 
-// full view of individual car part
+    // full view of individual car part
     Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
 });
 
@@ -96,6 +97,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])
         ->name('admin.kba.delete-connection');
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
+
+    //blog
+    Route::resource('blogs', BlogController::class, ['as' => 'admin']);
 
     // routes for establishing connections for part types
     Route::resource('part-types-categories', AdminCategoryController::class, ['as' => 'admin']);
