@@ -255,10 +255,14 @@ class FenixResolveCarPartImagesCommand extends Command
                     return Command::FAILURE;
                 } finally {
                     if (isset($tempImagePath) && file_exists($tempImagePath)) {
+                        $this->info('couldnt unlink');
+
                         unlink($tempImagePath);
                     }
 
                     if (isset($tempFilePath) && file_exists($tempFilePath)) {
+                        $this->info('couldnt unlink');
+
                         unlink($tempFilePath);
                     }
 
