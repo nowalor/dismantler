@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'exhaust_system' => 'Udstødningssystem',
+  'axle_drive' => 'Akseldrev',
+  'axle_suspension' => 'Affjedring af akslen',
+  'towing_device_attachments' => 'Bugseringsudstyr / tilbehør',
+  'lighting' => 'Belysning',
+  'brake_system' => 'Bremsesystem',
+  'electronic_parts' => 'Elektroniske dele',
+  'suspension' => 'Ophængning',
+  'transmission' => 'Transmission',
+  'information_communication_systems' => 'Informations- og kommunikationssystemer',
+  'interior_equipment' => 'Indvendigt udstyr',
+  'instruments' => 'Instrumenter',
+  'air_conditioning' => 'Klimaanlæg',
+  'mirrors' => 'Spejle',
+  'fuel_supply_system' => 'Brændstofforsyningssystem',
+  'cooling' => 'Køling',
+  'steering' => 'Styring',
+  'engine' => 'Motor',
+  'wheel_drive' => 'Hjultræk',
+  'windshield_washer_system' => 'System til vask af forrude',
+  'ignition_glow_system' => 'Tænding/glødesystem',
+);
