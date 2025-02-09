@@ -255,21 +255,21 @@ class FenixResolveCarPartImagesCommand extends Command
                     return Command::FAILURE;
                 } finally {
                     if (isset($tempImagePath) && file_exists($tempImagePath)) {
-                        $this->info('couldnt unlink');
-
-                        unlink($tempImagePath);
+                        if (!unlink($tempImagePath)) {
+                            $this->error("Failed to delete: $tempImagePath");
+                        } else {
+                            $this->info("Deleted temp file: $tempImagePath");
+                        }
                     }
 
                     if (isset($tempFilePath) && file_exists($tempFilePath)) {
-                        $this->info('couldnt unlink');
-
-                        unlink($tempFilePath);
+                        if (!unlink($tempFilePath)) {
+                            $this->error("Failed to delete: $tempFilePath");
+                        } else {
+                            $this->info("Deleted temp file: $tempFilePath");
+                        }
                     }
-
-
                 }
-
-
             }
         }
 
