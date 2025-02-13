@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,8 +12,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('danish_car_part_types', function (Blueprint $table) {
-            $table->dropColumn('translation_key');
+        Schema::table('main_categories', function (Blueprint $table) {
+            $table->string('translation_key')->nullable();
         });
     }
 
@@ -25,8 +24,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('danish_car_part_types', function (Blueprint $table) {
-            //
+        Schema::table('main_categories', function (Blueprint $table) {
+            $table->dropColumn('translation_key');
         });
     }
 };

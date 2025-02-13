@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'exhaust_system' => 'Exhaust system',
+    'axle_drive' => 'Axle drive',
+    'axle_suspension' => 'Axle suspension',
+    'towing_device_attachments' => 'Towing device / attachments',
+    'lighting' => 'Lighting',
+    'brake_system' => 'Brake system',
+    'electronic_parts' => 'Electronic parts',
+    'suspension' => 'Suspension',
+    'transmission' => 'Transmission',
+    'information_communication_systems' => 'Information / communication systems',
+    'interior_equipment' => 'Interior equipment',
+    'instruments' => 'Instruments',
+    'air_conditioning' => 'Air conditioning',
+    'mirrors' => 'Mirrors',
+    'fuel_supply_system' => 'Fuel supply system',
+    'cooling' => 'Cooling',
+    'steering' => 'Steering',
+    'engine' => 'Engine',
+    'wheel_drive' => 'Wheel drive',
+    'windshield_washer_system' => 'Windshield washer system',
+    'ignition_glow_system' => 'Ignition / glow system',
+];

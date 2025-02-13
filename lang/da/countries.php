@@ -7,5 +7,5 @@ return array (
   'it' => 'Italien',
   'pl' => 'Polen',
   'sv' => 'Sverige',
-  'gb' => 'England',
+  'en' => 'England',
 );

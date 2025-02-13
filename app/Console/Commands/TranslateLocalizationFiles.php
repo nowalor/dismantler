@@ -57,6 +57,7 @@ class TranslateLocalizationFiles extends Command
             'page-titles.php',
             'alt-tags.php',
             'countries.php',
+            'main-categories.php'
         ];
 
         foreach ($phpFiles as $phpFile) {
