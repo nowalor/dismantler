@@ -287,7 +287,6 @@
     });
 </script>
 
-
 @push('css')
     <style>
         .dropdown-menu {

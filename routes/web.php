@@ -72,8 +72,10 @@ Route::group([
     Route::get('/brands/{slug}/models', [LandingPageController::class, 'showModels'])->name('brands.models');
     Route::get('/brands/{slug}/{modelId}/categories', [LandingPageController::class, 'categoriesForBrandModel'])->name('brands.categories');
 
-    Route::get('/categories/{name}/{id}', [LandingPageController::class, 'showCategories'])->name('categories.show');
-
+    Route::get('/categories/{name}/{id}/subcategories', [LandingPageController::class, 'showSubCategories'])->name('categories.show');
+    Route::get('/subcategories/{name}/{id}/brands', [LandingPageController::class, 'showBrandsForSubcategories'])->name('subcategories.brands');
+    Route::get('/subcategories/{subCategoryName}/{subCategoryId}/brands/{brandName}/{brandId}/models', [LandingPageController::class, 'showModelsForSubCategoryAndBrand'])->name('subcategories.brands.models');
+    Route::get('/subcategories/{subCategoryName}/{subCategoryId}/brands/{brandName}/{brandId}/models/{modelName}/{modelId}/search', [LandingPageController::class, 'searchCarParts'])->name('subcategories.brands.models.search');
 
     // Payment routes
     Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])

@@ -12,6 +12,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Models\DitoNumber;
 use App\Models\MainCategory;
 use App\Models\NewCarPart;
+use Illuminate\Support\Str;
 
 class LandingPageController extends Controller
 {
@@ -92,10 +93,50 @@ class LandingPageController extends Controller
         return view('brands.categories', compact('brand', 'model', 'mainCategories'));
     }
 
-    public function showCategories($name, $id)
+    public function showSubCategories($name, $id)
     {
         $mainCategory = MainCategory::with('carPartTypes')->findOrFail($id);
 
-        return view('categories.show', compact('mainCategory'));
+        return view('categories.subcategories', compact('mainCategory'));
+    }
+
+    public function showBrandsForSubCategories($name, $id)
+    {
+        // Retrieve the sub-category (for URL/slug validation if needed)
+        $subCategory = CarPartType::findOrFail($id);
+
+        // Retrieve all car brands (no filtering)
+        $brands = CarBrand::all();
+
+        return view('subcategories.brands', compact('subCategory', 'brands'));
+    }
+
+    public function showModelsForSubCategoryAndBrand($subCategoryName, $subCategoryId, $brandName, $brandId)
+    {
+        $subCategory = CarPartType::where('id', $subCategoryId)->where('name', $subCategoryName)->firstOrFail();
+        $brand = CarBrand::where('id', $brandId)->where('name', $brandName)->firstOrFail();
+
+        $models = DitoNumber::where('producer', $brand->name)
+            ->whereHas('sbrCodes.carParts', function ($query) use ($subCategoryId) {
+                $query->where('car_part_type_id', $subCategoryId);
+            })
+            ->get();
+
+        return view('subcategories.brands.models', compact('subCategory', 'brand', 'models'));
+    }
+
+    public function searchCarParts($subCategoryName, $subCategoryId, $brandName, $brandId, $modelName, $modelId)
+    {
+        $subCategory = CarPartType::where('id', $subCategoryId)->where('name', $subCategoryName)->firstOrFail();
+        $brand = CarBrand::where('id', $brandId)->where('name', $brandName)->firstOrFail();
+        $model = DitoNumber::where('id', $modelId)->where('new_name', $modelName)->firstOrFail();
+
+        $carParts = NewCarPart::where('car_part_type_id', $subCategoryId)
+            ->whereHas('sbrCode', function ($query) use ($modelId) {
+                $query->where('dito_number_id', $modelId);
+            })
+            ->get();
+
+        return view('subcategories.brands.models.search', compact('subCategory', 'brand', 'model', 'carParts'));
     }
 }
