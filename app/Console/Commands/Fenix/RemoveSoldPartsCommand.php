@@ -40,8 +40,8 @@ class RemoveSoldPartsCommand extends Command
             'id',
             'original_id',
             'article_nr',
-        ])->get();
-        
+        ])->get()->toArray();
+
         $this->handleSoldParts($parts);
 
         return Command::SUCCESS;
