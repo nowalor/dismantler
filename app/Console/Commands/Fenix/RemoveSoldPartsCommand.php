@@ -73,7 +73,7 @@ class RemoveSoldPartsCommand extends Command
             fileName: "$xmlName.xml",
         );
 
-        NewCarPart::whereIn('id', array_column($parts, 'id'))->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);
+        NewCarPart::whereIn('id', array_column($parts, 'id'))->update(['sold_at' => now(), 'sold_on_platform' => 'fenix']);
 
         // HOOD
         (new \App\Actions\Hood\DeletePartsAction())->execute(collect($parts));
