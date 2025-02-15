@@ -7,6 +7,7 @@ use App\Actions\Ebay\FtpFileUploadAction;
 use App\Integration\FenixClientInterface;
 use App\Models\NewCarPart;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class RemoveSoldPartsCommand extends Command
@@ -34,7 +35,9 @@ class RemoveSoldPartsCommand extends Command
             'as',
         ];
 
-        $partIds = $client->getRemovedParts($dismantlers, '2025-02-10T10:41:07.945Z');
+        $timestamp = Carbon::now()->subMinutes(15)->format('Y-m-d\TH:i:s.v\Z');
+
+        $partIds = $client->getRemovedParts($dismantlers, $timestamp);
 
         foreach ($partIds as $partId) {
             $this->info($partId);
