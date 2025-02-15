@@ -53,7 +53,7 @@ class FenixApiClient implements FenixClientInterface
 
             $data = json_decode((string)$response->getBody(), true);
 
-            $partIds[] = array_merge($partIds, $data);
+            $partIds = array_merge($partIds, $data);
         }
 
         return $partIds;
