@@ -95,6 +95,8 @@ class RemoveSoldPartsCommand extends Command
 
         $rows = [];
         foreach ($parts as $part) {
+            $this->info('Removing part: ' . $part['article_nr']);
+
             $rows[] = [
                 $part['article_nr'],
                 0,
