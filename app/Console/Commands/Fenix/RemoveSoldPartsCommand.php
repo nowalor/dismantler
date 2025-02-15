@@ -42,8 +42,6 @@ class RemoveSoldPartsCommand extends Command
             'article_nr',
         ])->get()->toArray();
 
-        logger(array_column($parts, 'id'));
-
         $this->handleSoldParts($parts);
 
         return Command::SUCCESS;
@@ -60,6 +58,9 @@ class RemoveSoldPartsCommand extends Command
 
     private function handleSoldParts(array $parts): void
     {
+        $this->info('handle sold parts');
+        $this->info(count($parts));
+
         // This is all for autoteile-markt
         $this->generateCsv($parts);
         Storage::disk('ftp')->put('update.csv', file_get_contents(base_path('public/exports/update.csv')));
