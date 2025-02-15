@@ -25,7 +25,7 @@ class NewCarPart extends Model
     {
         parent::booted();
 
-        static::addGlobalScope(new NewCarPartScope());
+       /* static::addGlobalScope(new NewCarPartScope());*/
     }
 
     protected $fillable = [
