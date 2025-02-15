@@ -36,7 +36,11 @@ class RemoveSoldPartsCommand extends Command
 
         $partIds = $client->getRemovedParts($dismantlers, '2025-02-10T10:41:07.945Z');
 
-        $parts = NewCarPart::whereIn('original_id', $partIds)->whereNull('sold_at')->select([
+        foreach ($partIds as $partId) {
+            $this->info($partId);
+        }
+
+        $parts = NewCarPart::whereIn('original_id', $partIds)->select([
             'id',
             'original_id',
             'article_nr',
@@ -73,7 +77,7 @@ class RemoveSoldPartsCommand extends Command
             fileName: "$xmlName.xml",
         );
 
-        NewCarPart::whereIn('id', array_column($parts, 'id'))->update(['sold_at' => now(), 'sold_on_platform' => 'fenix']);
+        NewCarPart::whereIn('id', array_column($parts, 'id'))->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);
 
         // HOOD
         (new \App\Actions\Hood\DeletePartsAction())->execute(collect($parts));
