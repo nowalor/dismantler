@@ -35,6 +35,8 @@ class RemoveSoldPartsCommand extends Command
         ];
 
         $partIds = $client->getRemovedParts($dismantlers, '2025-02-10T10:41:07.945Z');
+        logger($partIds);
+        die();
 
         $parts = NewCarPart::whereIn('original_id', $partIds)->whereNull('sold_at')->select([
             'id',
