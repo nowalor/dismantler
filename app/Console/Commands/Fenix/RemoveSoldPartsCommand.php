@@ -42,6 +42,8 @@ class RemoveSoldPartsCommand extends Command
             'article_nr',
         ])->get()->toArray();
 
+        logger(array_column($parts, 'id'));
+
         $this->handleSoldParts($parts);
 
         return Command::SUCCESS;
@@ -70,9 +72,7 @@ class RemoveSoldPartsCommand extends Command
             fileName: "$xmlName.xml",
         );
 
-        foreach ($parts as $part) {
-            NewCarPart::where('id', $part['id'])->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);
-        }
+        NewCarPart::whereIn('id', array_column($parts, 'id'))->update(['is_live' => false, 'sold_at' => now(), 'sold_on_platform' => 'fenix']);
 
         // HOOD
         (new \App\Actions\Hood\DeletePartsAction())->execute(collect($parts));
