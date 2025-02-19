@@ -17,7 +17,6 @@
                             class="text-dark text-decoration-none">
                             <h5 class="mb-0">{{ $brand->name }}</h5>
                         </a>
-
                     </div>
                 </div>
             @endforeach
