@@ -55,6 +55,9 @@ Route::group([
     Route::get('contact', ContactPageController::class)->name('contact');
     Route::get('test-lang', TestLangController::class)->name('test-lang');
 
+    Route::get('/newsletter', [\App\Http\Controllers\NewsletterSigneeController::class, 'index'])->name('newsletter.index');
+    Route::post('/newsletter', [\App\Http\Controllers\NewsletterSigneeController::class, 'store'])->name('newsletter.store');
+
     Route::get('about-us', AboutUsPageController::class)->name('about-us');
     Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
 
