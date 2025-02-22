@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminEngineTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
+use App\Http\Controllers\NewsletterSigneeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
@@ -128,6 +129,10 @@ Route::group([
     Route::resource('export-parts', \App\Http\Controllers\AdminExportPartsController::class, ['as' => 'admin'])
         ->only(['index', 'show'])
         ->parameter('export-parts', 'carPart');
+
+
+    Route::get('newsletter', [\App\Http\Controllers\AdminNewsletterController::class, 'index'])->name('admin.newsletter.index');
+    Route::post('newsletter/mark-as-seen', [\App\Http\Controllers\AdminNewsletterController::class, 'markAsSeen'])->name('admin.newsletter.mark-as-seen');
 
     Route::resource('orders', \App\Http\Controllers\AdminOrderController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'update', 'destroy',]);
