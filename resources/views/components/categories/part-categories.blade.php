@@ -1,7 +1,7 @@
 <div id="car-parts-seo" class="py-10">
     <div class="container">
         <div class="text-center mt-4 mb-2">
-            <h1 class="text-white">Categories</h1>
+            <h1 class="text-white">{{ __("categories") }}</h1>
         </div>
         <div class="row bg-white border rounded pl-2 pr-2 pt-2 pb-2" style="border: 2px solid #ddd;">
             @foreach ($mainCategories as $mainCategory)

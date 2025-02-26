@@ -2,7 +2,7 @@
 
 <div id="car-brand-seo" class="pb-4">
     <div class="d-flex justify-content-center align-items-center mt-3 text-white">
-        <h1>Brands</h1>
+        <h1>{{ __('brands') }}</h1>
     </div>
     <div class="d-flex justify-content-center">
         <ul id="brand-list" class="d-flex list-unstyled flex-wrap p-2">
@@ -17,7 +17,7 @@
         </ul>
     </div>
     <div class="d-flex justify-content-center mt-3">
-        <button type="button" class="btn btn-light" id="load-more">Click to view more car brands</button>
+        <button type="button" class="btn btn-light" id="load-more">{{ __("Models") }}</button>
     </div>
 </div>
 

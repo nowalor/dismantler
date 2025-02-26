@@ -1,11 +1,11 @@
 @extends('app')
 
-@section('title', 'Parts for ' . $brand->name . ' - ' . $model->new_name)
+@section('title', __('parts-for') . ' ' . $brand->name . ' - ' . $model->new_name)
 
 @section('content')
 <div class="container my-4 pt-4 bg-white rounded shadow">
     <h1 class="text-center text-primary mb-4">
-        Parts for {{ $brand->name }} - {{ $model->new_name }}
+        {{ __('parts-for') }} {{ $brand->name }} - {{ $model->new_name }}
     </h1>
 
     <div class="row justify-content-center">
