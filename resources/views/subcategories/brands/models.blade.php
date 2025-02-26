@@ -16,7 +16,6 @@
                             class="text-dark text-decoration-none">
                             <h5 class="mb-0">{{ $model->new_name }}</h5>
                         </a>
-
                     </div>
                 </div>
             @endforeach

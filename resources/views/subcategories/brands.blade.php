@@ -9,10 +9,8 @@
                 <div class="col-md-4 mb-4 d-flex justify-content-center">
                     <div class="p-3 border rounded bg-light text-center shadow-sm w-100" style="max-width: 300px;">
                         <a href="{{ route('subcategories.brands.models', [
-                            'subCategoryName' => Str::slug($subCategory->name),
-                            'subCategoryId' => $subCategory->id,
-                            'brandName' => Str::slug($brand->name),
-                            'brandId' => $brand->id,
+                            'subCategory' => $subCategory,
+                            'brand' => $brand,
                         ]) }}"
                             class="text-dark text-decoration-none">
                             <h5 class="mb-0">{{ $brand->name }}</h5>

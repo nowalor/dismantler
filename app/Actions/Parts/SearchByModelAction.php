@@ -16,8 +16,6 @@ class SearchByModelAction
         array $filters = [] // New parameter for filters
     ): array {
         $sbr = $model->sbrCodes()->first();
-
-        
         $partQuery = $sbr->carParts();
 
         if ($type) {

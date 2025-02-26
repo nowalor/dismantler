@@ -8,7 +8,7 @@
         <ul id="brand-list" class="d-flex list-unstyled flex-wrap p-2">
             @foreach ($brands as $index => $brand)
                 <li class="brand-item {{ $index >= 7 ? 'd-none' : '' }} p-2 bg-white rounded">
-                    <a href="{{ route('brands.models', ['slug' => $brand->slug]) }}" style="text-decoration: none;">
+                    <a href="{{ route('brands.models', ['brand' => $brand]) }}" style="text-decoration: none;">
                         <img src="{{ $brand->image }}" alt="{{ $brand->name }} brand logo" class="img-fluid"
                              style="width: 11rem; height: 8.2rem; object-fit: contain; border: 1px solid #ddd;">
                     </a>
