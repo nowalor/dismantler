@@ -15,12 +15,9 @@ class AdminNewsletterController extends Controller
 
         $showAll = $request->has('type') && $request->type === 'all';
 
-        if($showAll) {
-            $query->whereNotNull('seen_at');
-        } else {
+        if(!$showAll) {
             $query->whereNull('seen_at');
         }
-
         $signees = $query->get();
 
         return view('admin.newsletter.index', compact('signees', 'showAll'));
