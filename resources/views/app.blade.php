@@ -95,6 +95,10 @@
                                href="{{ route('admin.kba.index') }}">KBA</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{ activeMenu('admin/newsletter') }}"
+                               href="{{ route('admin.newsletter.index') }}">Newsletter</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ activeMenu('admin/car-part-categories') }}"
                                href="{{ route('admin.part-types-categories.index') }}">Parts Categories</a>
                         </li>

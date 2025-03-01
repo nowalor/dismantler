@@ -48,7 +48,7 @@ class TranslateLocalizationFiles extends Command
 
         // 2. Translate PHP array files
         $phpFiles = [
-            'part-types.php',
+         /*   'part-types.php',
             'pagination.php',
             'faqs.php',
             'checkout.php',
@@ -57,7 +57,8 @@ class TranslateLocalizationFiles extends Command
             'page-titles.php',
             'alt-tags.php',
             'countries.php',
-            'main-categories.php'
+            'main-categories.php'*/
+            'newsletter.php',
         ];
 
         foreach ($phpFiles as $phpFile) {
@@ -187,6 +188,7 @@ class TranslateLocalizationFiles extends Command
 
     protected function translateString(string $text, string $sourceLang, string $targetLang)
     {
+        sleep(1);
         logger("Translating '{$text}' from {$sourceLang} to {$targetLang}");
 
         try {
