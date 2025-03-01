@@ -133,7 +133,7 @@ abstract class FenixApiBaseCommand extends Command
         $parts = [];
 
         $stopTime = \Carbon\Carbon::createFromTime(7, 30);
-        if (\Carbon\Carbon::now()->greaterThanOrEqualTo($stopTime)) {
+        if (\Carbon\Carbon::now()->greaterThanOrEqualTo($stopTime) && config('app.env') === 'production') {
             logger('The allowed time to run this command has passed.');
             die();
         }
@@ -147,7 +147,7 @@ abstract class FenixApiBaseCommand extends Command
         for ($skip = 0; $skip < $count + $increment; $skip += $increment) {
             // Doing this check in the loop as well since we might be in here for a while...
             $stopTime = \Carbon\Carbon::createFromTime(7, 30);
-            if (\Carbon\Carbon::now()->greaterThanOrEqualTo($stopTime)) {
+            if (\Carbon\Carbon::now()->greaterThanOrEqualTo($stopTime) && config('app.env') === 'production') {
                 logger('The allowed time to run this command has passed.');
                 die();
             }
