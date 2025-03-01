@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsPageController;
 use App\Http\Controllers\AdminConnectMultipleKbaToEngineTypeController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminEngineTypeController;
+use App\Http\Controllers\BrandModelCarPartTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\NewsletterSigneeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
+use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\TestLangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -24,6 +26,7 @@ use App\Http\Controllers\AdminNewCarpartController;
 use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\BrandModelController;
 use App\Http\Controllers\LandingPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -71,6 +74,15 @@ Route::group([
     Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
     Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
     Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
+
+    Route::get('/brands/{brand:slug}/models', [BrandModelController::class, 'index'])->name('brands.models');
+    Route::get('/brands/{brand:slug}/{model}/categories', [BrandModelCarPartTypeController::class, 'index'])->name('brands.categories');
+
+    Route::get('/categories/{mainCategory:slug}/subcategories', [SubcategoryController::class, 'index'])->name('categories.show');
+    Route::get('/subcategories/{subCategory:slug}/brands', [SubcategoryController::class, 'showBrandsForSubcategories'])->name('subcategories.brands');
+    Route::get('/subcategories/{subCategory:slug}/brands/{brand:slug}/models', [SubcategoryController::class, 'showModelsForSubCategoryAndBrand'])
+    ->name('subcategories.brands.models')
+    ->withoutScopedBindings();
 
     // Payment routes
     Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])

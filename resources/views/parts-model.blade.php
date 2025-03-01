@@ -13,11 +13,11 @@
                             <p class="mb-0 mt-0">
                                 <strong>{{ __('model-brand') }}:</strong> {{ $dito->producer }} |
                                 <strong>{{ __('model-model') }}:</strong> {{ $dito->new_name }}
-                                
+
                                 @if($type && !empty($type->name))
                                     | <strong>{{ __('model-part-type') }}:</strong> {{ $type->name }}
                                 @endif
-                                
+
                                 @if(!empty($search['search']))
                                     | <strong>Search:</strong> {{ $search['search'] }}
                                 @endif

@@ -41,6 +41,8 @@
 
                 <!-- Sorting Dropdown (visible on small/medium views) -->
             </div>
+
+
             <div class="dropdown d-block d-md-none me-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -289,7 +291,6 @@
         });
     });
 </script>
-
 
 @push('css')
     <style>
