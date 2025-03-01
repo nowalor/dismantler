@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('newsletter_signees', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('seen_at')->nullable();
             $table->timestamps();

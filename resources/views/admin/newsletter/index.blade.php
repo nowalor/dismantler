@@ -29,6 +29,7 @@
                         <thead>
                         <tr>
                             <th># ID</th>
+                            <th>Name</th>
                             <th>Email</th>
                             <th>Status</th>
                         </tr>
@@ -37,6 +38,7 @@
                         @foreach($signees as $signee)
                             <tr>
                                 <td>{{ $signee->id }}</td>
+                                <td>{{ $signee->name }}</td>
                                 <td>{{ $signee->email }}</td>
                                <td>
                                    @if($signee->seen_at)

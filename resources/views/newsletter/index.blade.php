@@ -11,13 +11,20 @@
                 @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ __('newsletter.newsletter_thank_you_for_signing_up') }}
+                        <a href="{{ route('landingpage') }}"> {{ __('newsletter.newsletter_go_back_to_homepage') }}</a>
                     </div>
                 @endif
                 <form action="{{ route('newsletter.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
+                        <label for="name" class="form-label">{{ __('newsletter.newsletter_name') }}</label>
+                        <input id="name" type="text" name="name" class="form-control"
+                               placeholder="{{ __('newsletter.newsletter_name') }}" >
+                    </div>
+
+                    <div class="mb-3">
                         <label for="email" class="form-label">{{ __('newsletter.newsletter_email') }}*</label>
-                        <input required type="email" name="email" class="form-control"
+                        <input id="email" required type="email" name="email" class="form-control"
                                placeholder="{{ __('newsletter.newsletter_email') }}" >
                         <div class="form-text">{{ __('newsletter.newsletter_well_never_share') }}</div>
                     </div>
