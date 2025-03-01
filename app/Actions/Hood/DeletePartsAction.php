@@ -84,7 +84,7 @@ class DeletePartsAction
 
         foreach ($parts as $part) {
             $itemNode = $itemsNode->addChild('item');
-            $itemNode->addChild('itemNumber', $part->article_nr);
+            $itemNode->addChild('itemNumber', $part['article_nr']);
 
             $part->is_live_on_hood = false;
             $part->save();

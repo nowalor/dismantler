@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Integration\FenixApiClient;
+use App\Integration\FenixClientInterface;
 use App\Models\Order;
 use App\Observers\OrderObserver;
 use Illuminate\Support\Facades\App;
@@ -18,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(FenixClientInterface::class, FenixApiClient::class);
     }
 
     /**

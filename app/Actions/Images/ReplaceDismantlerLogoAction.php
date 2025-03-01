@@ -24,11 +24,6 @@ class ReplaceDismantlerLogoAction
         $tempImagePath = tempnam(sys_get_temp_dir(), 'image');
         file_put_contents($tempImagePath, $imageContents);
 
-
-        // Temporary save the image to validate MIME type
-        $tempImagePath = tempnam(sys_get_temp_dir(), 'image');
-        file_put_contents($tempImagePath, $imageContents);
-
         // Check if the downloaded file is a supported image
         $mimeType = mime_content_type($tempImagePath);
         if (!in_array($mimeType, ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'])) {

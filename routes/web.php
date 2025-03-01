@@ -90,16 +90,24 @@ Route::group([
     Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
         ->name('checkout.success');
 
-// Checkout
+    // Checkout
     Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
         ->name('checkout');
 
-// full view of individual car part
+    // full view of individual car part
     Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
 });
 
 // Admin routes
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+Route::group([
+    'prefix' => LaravelLocalization::setLocale() . '/admin',
+    'middleware' => [
+        'localeSessionRedirect',
+        'localizationRedirect',
+        'localeViewPath',
+        'admin', // Ensure this middleware is working correctly
+    ]
+], function () {
     Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
     Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
     //Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
