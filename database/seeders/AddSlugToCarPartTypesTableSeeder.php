@@ -15,10 +15,13 @@ class AddSlugToCarPartTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        // Retrieve all car part types
-        $carPartTypes = DB::table('car_part_types')->get();
+        // Retrieve all car part types where slug is NULL or empty
+        $carPartTypes = DB::table('car_part_types')
+            ->whereNull('slug') // Ensure slug is missing
+            ->orWhere('slug', '') // Ensure slug is an empty string
+            ->get();
 
-        // Iterate over each car part type and update its slug
+        // Iterate over each car part type and update only if slug is missing
         foreach ($carPartTypes as $carPartType) {
             DB::table('car_part_types')
                 ->where('id', $carPartType->id)
@@ -26,5 +29,8 @@ class AddSlugToCarPartTypesTableSeeder extends Seeder
                     'slug' => Str::slug($carPartType->name)
                 ]);
         }
+
+        // Output a message in the console for debugging
+        $this->command->info('Slugs updated successfully for missing entries.');
     }
 }

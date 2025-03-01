@@ -8,7 +8,7 @@
             @foreach ($mainCategory->carPartTypes as $subCategory)
                 <div class="col-md-4 mb-4 d-flex justify-content-center">
                     <div class="p-3 border rounded bg-light text-center shadow-sm w-100" style="max-width: 300px;">
-                        <a href="{{ route('subcategories.brands', $subCategory) }}" class="text-dark text-decoration-none">
+                        <a href="{{ route('subcategories.brands', ["sub-category" => $subCategory->slug]) }}" class="text-dark text-decoration-none">
                             <h5 class="mb-0">{{ $subCategory->name }}</h5>
                         </a>
                     </div>
