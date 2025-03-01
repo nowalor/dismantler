@@ -8,6 +8,7 @@ use App\Http\Controllers\BrandModelCarPartTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
+use App\Http\Controllers\NewsletterSigneeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
@@ -57,6 +58,9 @@ Route::group([
     Route::get('faq', FaqPageController::class)->name('faq');
     Route::get('contact', ContactPageController::class)->name('contact');
     Route::get('test-lang', TestLangController::class)->name('test-lang');
+
+    Route::get('/newsletter', [\App\Http\Controllers\NewsletterSigneeController::class, 'index'])->name('newsletter.index');
+    Route::post('/newsletter', [\App\Http\Controllers\NewsletterSigneeController::class, 'store'])->name('newsletter.store');
 
     Route::get('about-us', AboutUsPageController::class)->name('about-us');
     Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
@@ -137,6 +141,10 @@ Route::group([
     Route::resource('export-parts', \App\Http\Controllers\AdminExportPartsController::class, ['as' => 'admin'])
         ->only(['index', 'show'])
         ->parameter('export-parts', 'carPart');
+
+
+    Route::get('newsletter', [\App\Http\Controllers\AdminNewsletterController::class, 'index'])->name('admin.newsletter.index');
+    Route::post('newsletter/mark-as-seen', [\App\Http\Controllers\AdminNewsletterController::class, 'markAsSeen'])->name('admin.newsletter.mark-as-seen');
 
     Route::resource('orders', \App\Http\Controllers\AdminOrderController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'update', 'destroy',]);
