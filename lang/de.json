@@ -104,5 +104,10 @@
     "search-result-missing-parts": "Einige Teile sind möglicherweise nicht auf der Website aufgeführt. Sie können jederzeit <a href=\"\/kontakt\" style=\"color: red; text-decoration: underline;\">Kontakt mit uns aufnehmen<\/a>, um sicherzustellen, dass wir das Teil haben.",
     "find-specific-parts": "Spezifische Teile finden",
     "clear-search": "Suche löschen",
-    "copyright-text": "Alle Rechte vorbehalten."
+    "copyright-text": "Alle Rechte vorbehalten.",
+    "car-brands": "Automarken",
+    "brands": "Marken",
+    "models": "Modelle",
+    "categories": "Kategorien",
+    "parts-for": "Teile für"
 }

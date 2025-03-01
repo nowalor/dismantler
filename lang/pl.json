@@ -95,5 +95,10 @@
     "search-result-missing-parts": "Niektóre części mogą nie być widoczne na stronie internetowej. Zawsze możesz <a href=\"\/contact\" style=\"color: red; text-decoration: underline;\">skontaktować się z nami<\/a>, aby upewnić się, czy mamy daną część.",
     "find-specific-parts": "Znajdź określone części",
     "clear-search": "Wyczyść wyszukiwanie",
-    "copyright-text": "Wszelkie prawa zastrzeżone."
+    "copyright-text": "Wszelkie prawa zastrzeżone.",
+    "car-brands": "Car Brands",
+    "brands": "Marki",
+    "models": "Modele",
+    "categories": "Kategorie",
+    "parts-for": "Części do"
 }
