@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 use App\Models\MainCategory;
 use Illuminate\View\View;
 
+/**
+     * Display the main categories and their car part types for a given brand and model.
+     *
+     * @param CarBrand   $brand The car brand selected in the BrandModelController's index view.
+     * @param DitoNumber $model We display all models for given brand, if they have car part types.
+     *
+     * @return View Returns the view displaying all fx models for given brand.
+     */
 class BrandModelCarPartTypeController extends Controller
 {
     public function index(CarBrand $brand, DitoNumber $model): View
