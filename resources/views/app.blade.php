@@ -150,6 +150,9 @@
                     <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('newsletter.index') }}" class="nav-link text-white">{{ __('newsletter') }}</a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>
                 </li>
             </ul>

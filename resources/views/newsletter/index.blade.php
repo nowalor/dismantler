@@ -8,6 +8,11 @@
         <div class="card">
             <div class="card-header">Sign up </div>
             <div class="card-body">
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        Thank you for signing up. You have been added to the currus-connect newsletter.
+                    </div>
+                @endif
                 <form action="{{ route('newsletter.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
