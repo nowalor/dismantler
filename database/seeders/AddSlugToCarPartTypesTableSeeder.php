@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str; // Import the Str helper
+use Illuminate\Support\Str;
 
 class AddSlugToCarPartTypesTableSeeder extends Seeder
 {
@@ -17,20 +17,31 @@ class AddSlugToCarPartTypesTableSeeder extends Seeder
     {
         // Retrieve all car part types where slug is NULL or empty
         $carPartTypes = DB::table('car_part_types')
-            ->whereNull('slug') // Ensure slug is missing
-            ->orWhere('slug', '') // Ensure slug is an empty string
+            ->whereNull('slug')
+            ->orWhere('slug', '')
             ->get();
 
-        // Iterate over each car part type and update only if slug is missing
+        // Iterate over each car part type
         foreach ($carPartTypes as $carPartType) {
-            DB::table('car_part_types')
-                ->where('id', $carPartType->id)
-                ->update([
-                    'slug' => Str::slug($carPartType->name)
-                ]);
+            $slug = Str::slug($carPartType->name);
+
+            // Check if this slug already exists in the table
+            $existingSlug = DB::table('car_part_types')
+                ->where('slug', $slug)
+                ->exists();
+
+            if (!$existingSlug) {
+                // Update the record only if the slug is unique
+                DB::table('car_part_types')
+                    ->where('id', $carPartType->id)
+                    ->update(['slug' => $slug]);
+
+                $this->command->info("Slug '{$slug}' added for ID {$carPartType->id}");
+            } else {
+                $this->command->warn("Skipping ID {$carPartType->id} - Slug '{$slug}' already exists.");
+            }
         }
 
-        // Output a message in the console for debugging
-        $this->command->info('Slugs updated successfully for missing entries.');
+        $this->command->info('Slug seeding completed.');
     }
 }
