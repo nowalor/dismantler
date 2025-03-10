@@ -1,0 +1,1 @@
+<p>show an article... might make only this for both user and admin</p>

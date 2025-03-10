@@ -29,6 +29,7 @@ use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\BrandModelController;
 use App\Http\Controllers\LandingPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\BlogController;
 
 
 //Route::get('search-by-plate', SearchByPlateController::class);
@@ -120,6 +121,11 @@ Route::group([
     Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])
         ->name('admin.kba.delete-connection');
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
+
+    //blog
+    Route::resource('blogs', BlogController::class, ['as' => 'admin']);
+    Route::get('/blogs/tag/{tag}', [BlogController::class, 'filterByTag'])->name('blogs.byTag');
+
 
     // routes for establishing connections for part types
     Route::resource('part-types-categories', AdminCategoryController::class, ['as' => 'admin']);
