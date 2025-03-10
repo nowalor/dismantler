@@ -249,22 +249,27 @@ class FenixResolveCarPartImagesCommand extends Command
                     //$image->priority = $carImageNumber;
                     $image->save();
 
-                    if (file_exists($tempImagePath)) {
-                        unlink($tempImagePath);
-                    }
-
-                    if (file_exists($tempFilePath)) {
-                        unlink($tempFilePath);
-                    }
-//
-//
 
                 } catch (Exception $e) {
                     $this->error('Directory creation failed: ' . $e->getMessage());
                     return Command::FAILURE;
+                } finally {
+                    if (isset($tempImagePath) && file_exists($tempImagePath)) {
+                        if (!unlink($tempImagePath)) {
+                            $this->error("Failed to delete: $tempImagePath");
+                        } else {
+                            $this->info("Deleted temp file: $tempImagePath");
+                        }
+                    }
+
+                    if (isset($tempFilePath) && file_exists($tempFilePath)) {
+                        if (!unlink($tempFilePath)) {
+                            $this->error("Failed to delete: $tempFilePath");
+                        } else {
+                            $this->info("Deleted temp file: $tempFilePath");
+                        }
+                    }
                 }
-
-
             }
         }
 

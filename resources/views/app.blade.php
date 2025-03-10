@@ -23,11 +23,7 @@
     @endforeach
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-    {{--
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link href="https://fonts.cdnfonts.com/css/cooper-hewitt?styles=34279" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
@@ -78,53 +74,55 @@
                 <a class="navbar-brand" href="#">Admin</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="" id="navbarNav">
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}"
-                                    href="{{ route('admin.export-parts.index') }}">EGLUIT parts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-danger nav-link {{ activeMenu('admin/dito-numbers') }}"
-                                    href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ activeMenu('admin/kba') }}"
-                                    href="{{ route('admin.kba.index') }}">KBA</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ activeMenu('admin/car-part-categories') }}"
-                                    href="{{ route('admin.part-types-categories.index') }}">Parts Categories</a>
-                            </li>
-                            <!-- °<li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.car-parts.index') }}">Parts</a>
-                    </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.new-parts') }}">Parts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.information') }}">Information</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="text-danger nav-link {{ activeMenu('admin/sbr-codes') }}"
-                                    href="{{ route('admin.sbr-codes.index') }}">SBR</a>
-                            </li>
-                            <li class="nav-item">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="text-danger nav-link {{ activeMenu('admin/export-parts') }}"
+                               href="{{ route('admin.export-parts.index') }}">EGLUIT parts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.engine-types.index') }}" class="nav-link">Engine Types</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-danger nav-link {{ activeMenu('admin/dito-numbers') }}"
+                               href="{{ route('admin.dito-numbers.index') }}">Dito numbers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ activeMenu('admin/kba') }}"
+                               href="{{ route('admin.kba.index') }}">KBA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ activeMenu('admin/newsletter') }}"
+                               href="{{ route('admin.newsletter.index') }}">Newsletter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ activeMenu('admin/car-part-categories') }}"
+                               href="{{ route('admin.part-types-categories.index') }}">Parts Categories</a>
+                        </li>
+                        <!-- °<li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.car-parts.index') }}">Parts</a>
+                </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.new-parts') }}">Parts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.information') }}">Information</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-danger nav-link {{ activeMenu('admin/sbr-codes') }}"
+                               href="{{ route('admin.sbr-codes.index') }}">SBR</a>
+                        </li>
+                        <li class="nav-item">
                                 <a class="text-danger nav-link {{ activeMenu('admin/blogs') }}"
                                     href="{{ route('admin.blogs.index') }}">Blog</a>
-                            </li>
-
-                        </ul>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -144,24 +142,28 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-3">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link text-white">{{ __('home') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/car-parts/search/by-name?search=" class="nav-link text-white">{{ __('parts') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('about-us') }}" class="nav-link text-white">{{ __('about-us') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>
-                    </li>
-                </ul>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-3">
+                <li class="nav-item">
+                    <a href="/" class="nav-link text-white">{{ __('home') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/car-parts/search/by-name?search=" class="nav-link text-white">{{ __('parts') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('about-us') }}" class="nav-link text-white">{{ __('about-us') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('newsletter.index') }}" class="nav-link text-white">{{ __('newsletter') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>
+                </li>
+            </ul>
 
                 <!-- Language dropdown for larger screens (not crowded for better button visibility) -->
                 <div class="dropdown ms-5 d-none d-md-block">
@@ -210,9 +212,21 @@
         </nav>
     </header>
 
-    <main class="flex-grow-1">
-        @yield('content')
-    </main>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7D5KSW306"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L7D5KSW306');
+</script>
+
+<main class="flex-grow-1">
+    @yield('content')
+</main>
+
 
     <footer class="text-white text-center py-3">
         <p>&copy; {{ date('Y') }} Currus Connect. {{ __('copyright-text') }}</p>

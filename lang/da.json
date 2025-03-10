@@ -95,5 +95,11 @@
     "search-result-missing-parts": "Nogle dele vises muligvis ikke på hjemmesiden. Du kan altid <a href=\"\/kontakt\" style=\"color: red; text-decoration: underline;\">kontakte os<\/a> for at sikre dig, at vi har delen.",
     "find-specific-parts": "Find specifikke dele",
     "clear-search": "Ryd søgning",
-    "copyright-text": "Alle rettigheder forbeholdes."
+    "copyright-text": "Alle rettigheder forbeholdes.",
+    "newsletter": "Nyhedsbrev",
+    "car-brands": "Bilmærker",
+    "brands": "Mærker",
+    "models": "Modeller",
+    "categories": "Kategorier",
+    "parts-for": "Dele til"
 }

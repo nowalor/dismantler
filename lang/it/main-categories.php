@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'exhaust_system' => 'Sistema di scarico',
+  'axle_drive' => 'Trasmissione ad asse',
+  'axle_suspension' => 'Sospensione dell\'asse',
+  'towing_device_attachments' => 'Dispositivo di traino/attrezzature',
+  'lighting' => 'Illuminazione',
+  'brake_system' => 'Sistema frenante',
+  'electronic_parts' => 'Parti elettroniche',
+  'suspension' => 'Sospensione',
+  'transmission' => 'Trasmissione',
+  'information_communication_systems' => 'Sistemi di informazione/comunicazione',
+  'interior_equipment' => 'Equipaggiamento interno',
+  'instruments' => 'Strumenti',
+  'air_conditioning' => 'Aria condizionata',
+  'mirrors' => 'Specchi',
+  'fuel_supply_system' => 'Sistema di alimentazione del carburante',
+  'cooling' => 'Raffreddamento',
+  'steering' => 'Sterzo',
+  'engine' => 'Motore',
+  'wheel_drive' => 'Trazione a ruote',
+  'windshield_washer_system' => 'Sistema di lavaggio del parabrezza',
+  'ignition_glow_system' => 'Sistema di accensione/incandescenza',
+);
