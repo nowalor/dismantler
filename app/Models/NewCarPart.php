@@ -25,7 +25,7 @@ class NewCarPart extends Model
     {
         parent::booted();
 
-        static::addGlobalScope(new NewCarPartScope());
+       static::addGlobalScope(new NewCarPartScope());
     }
 
     protected $fillable = [
@@ -354,7 +354,7 @@ class NewCarPart extends Model
             return null;
         }
 
-        return (($price['price'] + $price['shipment']['total']) * $price['vat']) * 1.1;
+        return (($price['price'] + $price['shipment']['total']) * $price['vat']);
 
     }
 

@@ -48,7 +48,7 @@ class TranslateLocalizationFiles extends Command
 
         // 2. Translate PHP array files
         $phpFiles = [
-            'part-types.php',
+         /*   'part-types.php',
             'pagination.php',
             'faqs.php',
             'checkout.php',
@@ -57,6 +57,8 @@ class TranslateLocalizationFiles extends Command
             'page-titles.php',
             'alt-tags.php',
             'countries.php',
+            'main-categories.php'*/
+            'newsletter.php',
         ];
 
         foreach ($phpFiles as $phpFile) {
@@ -138,7 +140,9 @@ class TranslateLocalizationFiles extends Command
         $translated = [];
 
         foreach ($source as $key => $value) {
+            logger("Processing key: {$key}");
             if (isset($target[$key])) {
+                logger("Skipping '{$key}' as it already exists.");
                 $translated[$key] = $target[$key];
                 continue;
             }
@@ -184,6 +188,9 @@ class TranslateLocalizationFiles extends Command
 
     protected function translateString(string $text, string $sourceLang, string $targetLang)
     {
+        sleep(1);
+        logger("Translating '{$text}' from {$sourceLang} to {$targetLang}");
+
         try {
             $response = $this->client->post('translate', [
                 'form_params' => [
@@ -195,6 +202,7 @@ class TranslateLocalizationFiles extends Command
             ]);
 
             $responseBody = json_decode($response->getBody(), true);
+            logger("API Response: " . json_encode($responseBody));
             return $responseBody['translations'][0]['text'] ?? $text;
         } catch (\Exception $e) {
             $this->error("Error translating '{$text}': " . $e->getMessage());

@@ -4,12 +4,15 @@ use App\Http\Controllers\AboutUsPageController;
 use App\Http\Controllers\AdminConnectMultipleKbaToEngineTypeController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminEngineTypeController;
+use App\Http\Controllers\BrandModelCarPartTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
+use App\Http\Controllers\NewsletterSigneeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
+use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\TestLangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -23,6 +26,7 @@ use App\Http\Controllers\AdminNewCarpartController;
 use App\Http\Controllers\browseCarParts;
 use App\Http\Controllers\CarPartFullviewController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\BrandModelController;
 use App\Http\Controllers\LandingPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -55,6 +59,9 @@ Route::group([
     Route::get('contact', ContactPageController::class)->name('contact');
     Route::get('test-lang', TestLangController::class)->name('test-lang');
 
+    Route::get('/newsletter', [\App\Http\Controllers\NewsletterSigneeController::class, 'index'])->name('newsletter.index');
+    Route::post('/newsletter', [\App\Http\Controllers\NewsletterSigneeController::class, 'store'])->name('newsletter.store');
+
     Route::get('about-us', AboutUsPageController::class)->name('about-us');
     Route::post('contact', SendContactUsEmailController::class)->name('contact.send');
 
@@ -68,6 +75,15 @@ Route::group([
     Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
     Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
+    Route::get('/brands/{brand:slug}/models', [BrandModelController::class, 'index'])->name('brands.models');
+    Route::get('/brands/{brand:slug}/{model}/categories', [BrandModelCarPartTypeController::class, 'index'])->name('brands.categories');
+
+    Route::get('/categories/{mainCategory:slug}/subcategories', [SubcategoryController::class, 'index'])->name('categories.show');
+    Route::get('/subcategories/{subCategory:slug}/brands', [SubcategoryController::class, 'showBrandsForSubcategories'])->name('subcategories.brands');
+    Route::get('/subcategories/{subCategory:slug}/brands/{brand:slug}/models', [SubcategoryController::class, 'showModelsForSubCategoryAndBrand'])
+    ->name('subcategories.brands.models')
+    ->withoutScopedBindings();
+
     // Payment routes
     Route::post('products/{carPart}/payments/pay', [PaymentController::class, 'pay'])
         ->name('pay');
@@ -78,16 +94,24 @@ Route::group([
     Route::get('payments/success', [App\Http\Controllers\PaymentController::class, 'success'])
         ->name('checkout.success');
 
-// Checkout
+    // Checkout
     Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])
         ->name('checkout');
 
-// full view of individual car part
+    // full view of individual car part
     Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
 });
 
 // Admin routes
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+Route::group([
+    'prefix' => LaravelLocalization::setLocale() . '/admin',
+    'middleware' => [
+        'localeSessionRedirect',
+        'localizationRedirect',
+        'localeViewPath',
+        'admin', // Ensure this middleware is working correctly
+    ]
+], function () {
     Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
     Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
     //Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
@@ -117,6 +141,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('export-parts', \App\Http\Controllers\AdminExportPartsController::class, ['as' => 'admin'])
         ->only(['index', 'show'])
         ->parameter('export-parts', 'carPart');
+
+
+    Route::get('newsletter', [\App\Http\Controllers\AdminNewsletterController::class, 'index'])->name('admin.newsletter.index');
+    Route::post('newsletter/mark-as-seen', [\App\Http\Controllers\AdminNewsletterController::class, 'markAsSeen'])->name('admin.newsletter.mark-as-seen');
 
     Route::resource('orders', \App\Http\Controllers\AdminOrderController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'update', 'destroy',]);

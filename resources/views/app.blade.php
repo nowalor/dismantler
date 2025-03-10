@@ -93,6 +93,10 @@
                                href="{{ route('admin.kba.index') }}">KBA</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{ activeMenu('admin/newsletter') }}"
+                               href="{{ route('admin.newsletter.index') }}">Newsletter</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ activeMenu('admin/car-part-categories') }}"
                                href="{{ route('admin.part-types-categories.index') }}">Parts Categories</a>
                         </li>
@@ -146,6 +150,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('faq') }}" class="nav-link text-white">{{ __('faq') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('newsletter.index') }}" class="nav-link text-white">{{ __('newsletter') }}</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('contact') }}" class="nav-link text-white">{{ __('contact') }}</a>

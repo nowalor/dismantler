@@ -7,6 +7,8 @@
     "faq": "FAQ",
     "contact": "Contact",
     "language": "Language",
+    "newsletter": "Newsletter",
+    "car-brands": "Car Brands",
 
     "car-parts": "CAR PARTS",
     "browse": "BROWSE ALL",
@@ -15,6 +17,10 @@
     "kba-search-placeholder": "Select a type",
     "kba-search-button": "Search",
     "no-results-message": "Oops, there was no part matching your search. Maybe we can help you anyway, click here to contact us",
+    "brands": "Brands",
+    "models": "Models",
+    "categories": "Categories",
+    "parts-for": "Parts for",
 
     "model-search": "SEARCH BY CAR MODEL",
     "model-brand-placeholder": "Select car brand",

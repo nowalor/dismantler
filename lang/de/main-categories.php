@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'exhaust_system' => 'Auspuffanlage',
+  'axle_drive' => 'Achsenantrieb',
+  'axle_suspension' => 'Achsaufhängung',
+  'towing_device_attachments' => 'Abschleppvorrichtung / Anbaugeräte',
+  'lighting' => 'Beleuchtung',
+  'brake_system' => 'Bremssystem',
+  'electronic_parts' => 'Elektronische Teile',
+  'suspension' => 'Aufhängung',
+  'transmission' => 'Übertragung',
+  'information_communication_systems' => 'Informations-/Kommunikationssysteme',
+  'interior_equipment' => 'Innenausstattung',
+  'instruments' => 'Instrumente',
+  'air_conditioning' => 'Klimatisierung',
+  'mirrors' => 'Spiegel',
+  'fuel_supply_system' => 'Kraftstoffversorgungssystem',
+  'cooling' => 'Kühlung',
+  'steering' => 'Lenkung',
+  'engine' => 'Motor',
+  'wheel_drive' => 'Radantrieb',
+  'windshield_washer_system' => 'Windschutzscheibenwaschanlage',
+  'ignition_glow_system' => 'Zündung/Glühanlage',
+);

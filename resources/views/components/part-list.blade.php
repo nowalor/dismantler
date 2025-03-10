@@ -19,7 +19,7 @@
                         <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
                             @foreach ($mainCategories as $mainCategory)
                                 <li class="list-group-item main-category-item" data-id="{{ $mainCategory->id }}">
-                                    {{ $mainCategory->name }}
+                                    {{ __("main-categories.$mainCategory->translation_key") }}
                                 </li>
                             @endforeach
                         </ul>
@@ -30,12 +30,19 @@
                         <h6>Sub Categories</h6>
                         <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
                             <!-- Dynamic content for subcategories -->
+                            @foreach ($partTypes as $partType)
+                                <li class="list-group-item sub-category-item" data-id="{{ $partType->id }}">
+                                    {{ __("car-part-types.$partType->translation_key") }}
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
                 <!-- Sorting Dropdown (visible on small/medium views) -->
             </div>
+
+
             <div class="dropdown d-block d-md-none me-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -284,7 +291,6 @@
         });
     });
 </script>
-
 
 @push('css')
     <style>

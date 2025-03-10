@@ -356,7 +356,6 @@ class CarPartController extends Controller
         ));
     }
 
-
     public function searchByOEM(Request $request)
     {
         $oem = $request->get('oem');
