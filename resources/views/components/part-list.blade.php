@@ -252,7 +252,7 @@
         let categoryData = [];
 
         // Fetch all categories and their subcategories once
-        fetch('/api/categories-with-subcategories')
+        fetch('/categories-with-subcategories')
             .then(response => response.json())
             .then(data => {
                 categoryData = data; // Store the data for later use
