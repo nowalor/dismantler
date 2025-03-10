@@ -100,6 +100,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     //blog
     Route::resource('blogs', BlogController::class, ['as' => 'admin']);
+    Route::get('/blogs/tag/{tag}', [BlogController::class, 'filterByTag'])->name('blogs.byTag');
+
 
     // routes for establishing connections for part types
     Route::resource('part-types-categories', AdminCategoryController::class, ['as' => 'admin']);
