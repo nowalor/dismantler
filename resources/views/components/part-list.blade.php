@@ -204,15 +204,17 @@
                     <span class="visually-hidden">Next</span>
                 </a>
             </div>
-        <div class="card-body">
-            <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType?->name }}</h5>
-            <p class="card-text"><strong>{{ __('Original number') }}:</strong> {{ $part->original_number ?? 'N/A' }}</p>
-            <p class="card-text"><strong>{{ __('Engine type') }}:</strong> {{ $part->engine_type ?? 'N/A' }}</p>
-            <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
-            <p class="card-text"><strong>{{ __('Mileage') }}:</strong> {{ $part->mileage_km == 0 || $part->mileage_km == 999 ? 'Unknown' : $part->mileage_km }}</p>
-            <p class="card-text"><strong>{{ __('Model Year') }}:</strong> {{ $part->model_year }}</p>
-          {{--  <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>--}}
-        </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType?->name }}</h5>
+                <p class="card-text"><strong>{{ __('Original number') }}:</strong>
+                    {{ $part->original_number ?? 'N/A' }}</p>
+                <p class="card-text"><strong>{{ __('Engine type') }}:</strong> {{ $part->engine_type ?? 'N/A' }}</p>
+                <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
+                <p class="card-text"><strong>{{ __('Mileage') }}:</strong>
+                    {{ $part->mileage_km == 0 || $part->mileage_km == 999 ? 'Unknown' : $part->mileage_km }}</p>
+                <p class="card-text"><strong>{{ __('Model Year') }}:</strong> {{ $part->model_year }}</p>
+                {{--  <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p> --}}
+            </div>
 
             <div class="card-body d-flex justify-content-between">
                 <a href="{{ route('fullview', $part) }}" class="btn btn-primary">{{ __('View Part') }}</a>
@@ -261,34 +263,35 @@
         mainCategoryList.forEach(item => {
             item.addEventListener('mouseenter', function() {
                 const mainCategoryId = this.getAttribute('data-id');
-                const mainCategory = categoryData.find(cat => cat.id === parseInt(
-                    mainCategoryId));
+                const mainCategory = categoryData.find(
+                    cat => cat.id === parseInt(mainCategoryId)
+                );
 
-                // Clear previous subcategories
                 subCategoryList.innerHTML = '';
 
                 if (!mainCategory || !mainCategory.car_part_types.length) {
-                    subCategoryList.innerHTML =
-                        '<li class="list-group-item">No subcategories available</li>';
+                    subCategoryList.innerHTML = '<li>No subcategories available</li>';
                     return;
                 }
 
-                // Populate subcategories for the hovered main category
                 mainCategory.car_part_types.forEach(subcategory => {
                     const subItem = document.createElement('li');
                     subItem.classList.add('list-group-item', 'sub-category-item');
                     subItem.setAttribute('data-id', subcategory.id);
 
-                    // Update query parameters for filtering
+                    // Build your query params
                     const currentParams = new URLSearchParams(window.location.search);
                     currentParams.set('type_id', subcategory.id);
 
-                    subItem.innerHTML =
-                        `<a href="${window.location.pathname}?${currentParams.toString()}">${subcategory.name}</a>`;
+                    // Use the localized name
+                    subItem.innerHTML = `<a href="${window.location.pathname}?${currentParams.toString()}">
+                ${subcategory.translated_name}
+            </a>`;
                     subCategoryList.appendChild(subItem);
                 });
             });
         });
+
     });
 </script>
 
