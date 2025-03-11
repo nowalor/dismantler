@@ -8,14 +8,16 @@
             <!-- Type of Part Dropdown -->
             <div class="dropdown type-of-part-dropdown me-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton">
-                    Type of Part
+                    {{ __('type-of-part') }}
                 </button>
                 <!-- Dropdown Content -->
                 <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 26rem; gap: 4rem;">
 
                     <!-- Main Category Column -->
                     <div class="dropdown-column" id="main-category">
-                        <h6>Main Categories</h6>
+                        <h6>
+                            {{ __('main-category') }}
+                        </h6>
                         <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
                             @foreach ($mainCategories as $mainCategory)
                                 <li class="list-group-item main-category-item" data-id="{{ $mainCategory->id }}">
@@ -27,7 +29,7 @@
 
                     <!-- Subcategory Column -->
                     <div class="dropdown-column" id="sub-category">
-                        <h6>Sub Categories</h6>
+                        <h6>{{ __('sub-category') }}</h6>
                         <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
                             <!-- Dynamic content for subcategories -->
                             @foreach ($partTypes as $partType)
@@ -91,7 +93,7 @@
             <!-- Reset Search Button -->
             <a href="/car-parts/search/by-name" class="btn btn-primary"
                 style="padding: 0.36rem 0.8rem; font-size: 1rem;">
-                Reset Search
+                {{ __('reset-search') }}
             </a>
         </div>
 

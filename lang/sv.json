@@ -101,5 +101,11 @@
     "brands": "Varumärken",
     "models": "Modeller",
     "categories": "Kategorier",
-    "parts-for": "Delar till"
+    "parts-for": "Delar till",
+    "main-category": "Huvudkategorier",
+    "sub-category": "Underkategorier",
+    "type-of-part": "Typ av del",
+    "reset-search": "Återställ sökning",
+    "select-brand": "Välj ett varumärke",
+    "select-model": "Välj en modell"
 }

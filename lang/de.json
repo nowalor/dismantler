@@ -110,5 +110,11 @@
     "brands": "Marken",
     "models": "Modelle",
     "categories": "Kategorien",
-    "parts-for": "Teile für"
+    "parts-for": "Teile für",
+    "main-category": "Hauptkategorien",
+    "sub-category": "Unterkategorien",
+    "type-of-part": "Art des Teils",
+    "reset-search": "Suche zurücksetzen",
+    "select-brand": "Wählen Sie eine Marke",
+    "select-model": "Wählen Sie ein Modell"
 }

@@ -37,11 +37,18 @@
     "number-plate-search": "SEARCH BY NUMBERPLATE",
     "number-plate": "Numberplate",
 
+
+    "main-category": "Main Categories",
+    "sub-category": "Sub Categories",
+    "type-of-part": "Type of Part",
+    "reset-search": "Reset Search",
     "your-search": "Your search",
     "car-parts-header": "Results",
     "car-search-placeholder": "AUDI A4 ...",
     "car-search-button": "Search",
     "car-search-errormessage": "No parts were found matching this query",
+    "select-brand": "Select a Brand",
+    "select-model": "Select a Model",
 
     "car-part-information": "Part information",
     "car-info-name": "Name",

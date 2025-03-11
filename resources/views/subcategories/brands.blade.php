@@ -1,9 +1,9 @@
 @extends('app')
-@section('title', 'Select a Brand for ' . $subCategory->name)
+@section('title', 'Select a Brand for ' . __("car-part-types.$subCategory->translation_key"))
 @section('content')
 
     <div class="container my-4 pt-4 bg-white rounded shadow">
-        <h1 class="text-center text-primary mb-4">{{ $subCategory->name }} - Select a Brand</h1>
+        <h1 class="text-center text-primary mb-4">{{ __("car-part-types.$subCategory->translation_key") }} - {{ __('select-brand') }}</h1>
         <div class="row justify-content-center">
             @foreach ($brands as $brand)
                 <div class="col-md-4 mb-4 d-flex justify-content-center">
