@@ -2,7 +2,7 @@
 
 return array (
   'exhaust_system' => 'Udstødningssystem',
-  'axle_drive' => 'Akseldrev',
+  'axle_drive' => 'Undervogn/Akseldrev',
   'axle_suspension' => 'Affjedring af akslen',
   'towing_device_attachments' => 'Bugseringsudstyr / tilbehør',
   'lighting' => 'Belysning',
@@ -14,7 +14,7 @@ return array (
   'interior_equipment' => 'Indvendigt udstyr',
   'instruments' => 'Instrumenter',
   'air_conditioning' => 'Klimaanlæg',
-  'mirrors' => 'Spejle',
+  'mirrors' => 'Lygter/Spejle',
   'fuel_supply_system' => 'Brændstofforsyningssystem',
   'cooling' => 'Køling',
   'steering' => 'Styring',
