@@ -3,21 +3,24 @@
         <div class="text-center mt-4 mb-2">
             <h1 class="text-white">{{ __("categories") }}</h1>
         </div>
-        <div class="row bg-white border rounded pl-2 pr-2 pt-2 pb-2" style="border: 2px solid #ddd;">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             @foreach ($mainCategories as $mainCategory)
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="col">
                     <div class="card h-100 shadow-sm">
                         <a href="{{ route('categories.show', ['mainCategory' => Str::slug($mainCategory->name), 'id' => $mainCategory->id]) }}" class="text-decoration-none text-reset">
+
+                            {{-- Image Cap with Placeholder --}}
+                            <img src="{{ !empty($mainCategory->image) ? asset($mainCategory->image) : 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png' }}"
+                                 alt="{{ __("main-categories.$mainCategory->translation_key") }} image"
+                                 class="card-img-top"
+                                 style="width: 100%; max-height: 200px; object-fit: cover; border-bottom: 1px solid #ddd;">
+
+                            {{-- Card Body --}}
                             <div class="card-body text-center">
-                                @if(!empty($mainCategory->image))
-                                    <img src="{{ asset($mainCategory->image) }}"
-                                         alt="{{ __("main-categories.$mainCategory->translation_key") }} image"
-                                         class="img-fluid mb-3"
-                                         style="width: 100%; max-height: 150px; object-fit: contain; border: 1px solid #ddd;">
-                                @endif
                                 <h5 class="card-title">{{ __("main-categories.$mainCategory->translation_key") }}</h5>
                                 <p class="card-text">{{ $mainCategory->new_car_parts_count }} {{ __('parts') }}</p>
                             </div>
+
                         </a>
                     </div>
                 </div>
