@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
 use Parsedown;
 
@@ -12,14 +13,14 @@ class Blog extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'content', 'published_at', 'image'];
-    protected $dates = ['published_at'];
 
-    public function tags()
+    public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class, 'blog_tag');
+        return $this->belongsToMany(Tag::class);
+
     }
 
-    public function syncTags($tagNames)
+    public function syncTags(?string $tagNames): void
     {
         if (is_null($tagNames) || trim($tagNames) === '') {
             $this->tags()->detach();
@@ -30,8 +31,9 @@ class Blog extends Model
         $tagIds = [];
 
         foreach ($tagNamesArray as $name) {
-            if (!$name)
+            if (!$name) {
                 continue;
+            }
             $tag = Tag::firstOrCreate(['name' => $name]);
             $tagIds[] = $tag->id;
         }
@@ -39,29 +41,15 @@ class Blog extends Model
         $this->tags()->sync($tagIds);
     }
 
-    public function getParsedContentAttribute()
+    public function getParsedContentAttribute(): string
     {
         $parsedown = new Parsedown();
         $parsedown->setSafeMode(true);
+
         $content = $parsedown->text($this->content);
-        // Modify links to open in new tab
+
+        // Make links open in new tabs
         return str_replace('<a ', '<a target="_blank" rel="noopener noreferrer" ', $content);
     }
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function ($blog) {
-            // When a blog is deleted, also remove its image from Spaces
-            if ($blog->image) {
-                // Use the same CDN endpoint used when building the image URL:
-                $cdnBase = rtrim(env('DO_CDN_ENDPOINT'), '/') . '/';
-                $relativePath = str_replace($cdnBase, '', $blog->image);
-                Storage::disk('do')->delete($relativePath);
-
-            }
-
-        });
-    }
 }

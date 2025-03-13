@@ -29,7 +29,7 @@ use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\BrandModelController;
 use App\Http\Controllers\LandingPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminBlogController;
 
 
 //Route::get('search-by-plate', SearchByPlateController::class);
@@ -123,8 +123,8 @@ Route::group([
     Route::resource('kba', KbaController::class, ['as' => 'admin']);
 
     //blog
-    Route::resource('blogs', BlogController::class, ['as' => 'admin']);
-    Route::get('/blogs/tag/{tag}', [BlogController::class, 'filterByTag'])->name('blogs.byTag');
+    Route::resource('blogs', AdminBlogController::class, ['as' => 'admin']);
+    Route::get('/blogs/tag/{tag}', [AdminBlogController::class, 'filterByTag'])->name('blogs.byTag');
 
 
     // routes for establishing connections for part types
