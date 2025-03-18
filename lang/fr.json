@@ -105,10 +105,16 @@
     "find-specific-parts": "Trouver des pièces spécifiques",
     "clear-search": "Recherche claire",
     "copyright-text": "Tous droits réservés.",
-    "newsletter": "Bulletin d'information"
+    "newsletter": "Bulletin d'information",
     "car-brands": "Marques de voitures",
     "brands": "Marques",
     "models": "Modèles",
     "categories": "Catégories",
-    "parts-for": "Pièces pour"
+    "parts-for": "Pièces pour",
+    "main-category": "Catégories principales",
+    "sub-category": "Sous-catégories",
+    "type-of-part": "Type de pièce",
+    "reset-search": "Réinitialiser la recherche",
+    "select-brand": "Sélectionner une marque",
+    "select-model": "Sélectionner un modèle"
 }

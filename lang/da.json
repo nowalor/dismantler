@@ -101,5 +101,11 @@
     "brands": "Mærker",
     "models": "Modeller",
     "categories": "Kategorier",
-    "parts-for": "Dele til"
+    "parts-for": "Dele til",
+    "main-category": "Hovedkategorier",
+    "sub-category": "Underkategorier",
+    "type-of-part": "Type af del",
+    "reset-search": "Nulstil søgning",
+    "select-brand": "Vælg et mærke",
+    "select-model": "Vælg en model"
 }

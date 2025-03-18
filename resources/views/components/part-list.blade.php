@@ -8,14 +8,16 @@
             <!-- Type of Part Dropdown -->
             <div class="dropdown type-of-part-dropdown me-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton">
-                    Type of Part
+                    {{ __('type-of-part') }}
                 </button>
                 <!-- Dropdown Content -->
                 <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="width: 26rem; gap: 4rem;">
 
                     <!-- Main Category Column -->
                     <div class="dropdown-column" id="main-category">
-                        <h6>Main Categories</h6>
+                        <h6>
+                            {{ __('main-category') }}
+                        </h6>
                         <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
                             @foreach ($mainCategories as $mainCategory)
                                 <li class="list-group-item main-category-item" data-id="{{ $mainCategory->id }}">
@@ -27,7 +29,7 @@
 
                     <!-- Subcategory Column -->
                     <div class="dropdown-column" id="sub-category">
-                        <h6>Sub Categories</h6>
+                        <h6>{{ __('sub-category') }}</h6>
                         <ul class="list-group list-group-flush overflow-auto" style="max-height: 19rem; width: 12rem;">
                             <!-- Dynamic content for subcategories -->
                             @foreach ($partTypes as $partType)
@@ -91,7 +93,7 @@
             <!-- Reset Search Button -->
             <a href="/car-parts/search/by-name" class="btn btn-primary"
                 style="padding: 0.36rem 0.8rem; font-size: 1rem;">
-                Reset Search
+                {{ __('reset-search') }}
             </a>
         </div>
 
@@ -204,15 +206,17 @@
                     <span class="visually-hidden">Next</span>
                 </a>
             </div>
-        <div class="card-body">
-            <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType?->name }}</h5>
-            <p class="card-text"><strong>{{ __('Original number') }}:</strong> {{ $part->original_number ?? 'N/A' }}</p>
-            <p class="card-text"><strong>{{ __('Engine type') }}:</strong> {{ $part->engine_type ?? 'N/A' }}</p>
-            <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
-            <p class="card-text"><strong>{{ __('Mileage') }}:</strong> {{ $part->mileage_km == 0 || $part->mileage_km == 999 ? 'Unknown' : $part->mileage_km }}</p>
-            <p class="card-text"><strong>{{ __('Model Year') }}:</strong> {{ $part->model_year }}</p>
-          {{--  <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p>--}}
-        </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ $part->sbr_car_name }} - {{ $part->carPartType?->name }}</h5>
+                <p class="card-text"><strong>{{ __('Original number') }}:</strong>
+                    {{ $part->original_number ?? 'N/A' }}</p>
+                <p class="card-text"><strong>{{ __('Engine type') }}:</strong> {{ $part->engine_type ?? 'N/A' }}</p>
+                <p class="card-text"><strong>{{ __('Gearbox') }}:</strong> {{ $part->gearbox ?? 'N/A' }}</p>
+                <p class="card-text"><strong>{{ __('Mileage') }}:</strong>
+                    {{ $part->mileage_km == 0 || $part->mileage_km == 999 ? 'Unknown' : $part->mileage_km }}</p>
+                <p class="card-text"><strong>{{ __('Model Year') }}:</strong> {{ $part->model_year }}</p>
+                {{--  <p class="card-text"><strong>{{ __('Price') }}:</strong> {{ $part->getLocalizedPrice()['price'] . $part->getLocalizedPrice()['symbol'] }}</p> --}}
+            </div>
 
             <div class="card-body d-flex justify-content-between">
                 <a href="{{ route('fullview', $part) }}" class="btn btn-primary">{{ __('View Part') }}</a>
@@ -250,7 +254,7 @@
         let categoryData = [];
 
         // Fetch all categories and their subcategories once
-        fetch('/api/categories-with-subcategories')
+        fetch('/categories-with-subcategories')
             .then(response => response.json())
             .then(data => {
                 categoryData = data; // Store the data for later use
@@ -261,34 +265,35 @@
         mainCategoryList.forEach(item => {
             item.addEventListener('mouseenter', function() {
                 const mainCategoryId = this.getAttribute('data-id');
-                const mainCategory = categoryData.find(cat => cat.id === parseInt(
-                    mainCategoryId));
+                const mainCategory = categoryData.find(
+                    cat => cat.id === parseInt(mainCategoryId)
+                );
 
-                // Clear previous subcategories
                 subCategoryList.innerHTML = '';
 
                 if (!mainCategory || !mainCategory.car_part_types.length) {
-                    subCategoryList.innerHTML =
-                        '<li class="list-group-item">No subcategories available</li>';
+                    subCategoryList.innerHTML = '<li>No subcategories available</li>';
                     return;
                 }
 
-                // Populate subcategories for the hovered main category
                 mainCategory.car_part_types.forEach(subcategory => {
                     const subItem = document.createElement('li');
                     subItem.classList.add('list-group-item', 'sub-category-item');
                     subItem.setAttribute('data-id', subcategory.id);
 
-                    // Update query parameters for filtering
+                    // Build your query params
                     const currentParams = new URLSearchParams(window.location.search);
                     currentParams.set('type_id', subcategory.id);
 
-                    subItem.innerHTML =
-                        `<a href="${window.location.pathname}?${currentParams.toString()}">${subcategory.name}</a>`;
+                    // Use the localized name
+                    subItem.innerHTML = `<a href="${window.location.pathname}?${currentParams.toString()}">
+                ${subcategory.translated_name}
+            </a>`;
                     subCategoryList.appendChild(subItem);
                 });
             });
         });
+
     });
 </script>
 

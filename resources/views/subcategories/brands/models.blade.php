@@ -1,9 +1,9 @@
 @extends('app')
-@section('title', 'Select a Model for ' . $brand->name)
+@section('title', __('select-model') . ' ' . $brand->name)
 @section('content')
 
     <div class="container my-4 pt-4 bg-white rounded shadow">
-        <h1 class="text-center text-primary mb-4">{{ $brand->name }} - Select a Model</h1>
+        <h1 class="text-center text-primary mb-4">{{ $brand->name }} - {{ __('select-model') }}</h1>
         <div class="row justify-content-center">
             @foreach ($models as $model)
                 <div class="col-md-4 mb-4 d-flex justify-content-center">

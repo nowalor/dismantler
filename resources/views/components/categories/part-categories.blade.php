@@ -11,12 +11,12 @@
                             <div class="card-body text-center">
                                 @if(!empty($mainCategory->image))
                                     <img src="{{ asset($mainCategory->image) }}"
-                                         alt="{{ $mainCategory->name }} image"
+                                         alt="{{ __("main-categories.$mainCategory->translation_key") }} image"
                                          class="img-fluid mb-3"
                                          style="width: 100%; max-height: 150px; object-fit: contain; border: 1px solid #ddd;">
                                 @endif
-                                <h5 class="card-title">{{ $mainCategory->name }}</h5>
-                                <p class="card-text">{{ $mainCategory->new_car_parts_count }} parts</p>
+                                <h5 class="card-title">{{ __("main-categories.$mainCategory->translation_key") }}</h5>
+                                <p class="card-text">{{ $mainCategory->new_car_parts_count }} {{ __('parts') }}</p>
                             </div>
                         </a>
                     </div>
