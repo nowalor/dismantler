@@ -14,7 +14,7 @@ class UpdateBlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'sometimes|string|max:255',
+            'title' => 'sometimes|string',
             'content' => 'sometimes|string',
             'published_at' => 'sometimes|date',
             'tags' => 'nullable|string',

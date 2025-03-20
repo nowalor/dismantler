@@ -7,12 +7,10 @@
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 blog-header">
             <h2 class="text-white fw-bold mb-3 mb-md-0">Blog Dashboard</h2>
 
-            <!-- Search Input (no form submit, we rely on JavaScript for AJAX) -->
+            <!-- Search Input -->
             <div class="d-flex align-items-center gap-2">
                 <input id="search-bar" type="text" name="search" value="{{ request('search') }}"
                     class="form-control search-bar" placeholder="Search blogs...">
-
-                <!-- Create Blog Button -->
                 <a href="{{ route('admin.blogs.create') }}" class="btn btn-success btn-sm">
                     <i class="bi bi-plus-lg"></i> Create Blog
                 </a>
@@ -27,9 +25,22 @@
             </div>
         @endif
 
-        <!-- Container that we'll replace on AJAX calls -->
+        <!-- Tag Filter Header -->
+        @if(request('tag'))
+            <div class="d-flex justify-content-center">
+                <div class="alert alert-info d-inline-flex align-items-center p-2">
+                    <span class="text-dark fw-bold mb-0 d-flex align-items-center">Filtering by tag:</span>
+                    <span class="badge bg-success px-3 py-1 ms-1 d-flex align-items-center"
+                        style="position: relative; top: 2px;">
+                        {{ request('tag') }}
+                    </span>
+                    <a href="{{ route('admin.blogs.index') }}" class="btn btn-danger px-3 py-1 fw-bold ms-3">Clear filter</a>
+                </div>
+            </div>
+        @endif
+
+        <!-- Blog List Container (Dynamically Updated by AJAX) -->
         <div id="blog-container">
-            <!-- Blog List -->
             <div id="blog-list">
                 @forelse ($blogs as $blog)
                     <div class="card blog-card mb-3">
@@ -41,37 +52,34 @@
                                         style="max-width: 80%; height: auto;">
                                 </div>
                             @endif
+
                             <!-- Limited Content Preview -->
                             <div class="blog-content text-muted small">
                                 {!! Str::limit($blog->parsed_content, 250, '...') !!}
                                 <a href="{{ route('admin.blogs.show', $blog->id) }}" class="text-success fw-bold">Read more</a>
                             </div>
 
-
-
-
+                            <!-- Tags -->
                             <p class="mb-1"><strong>Tags:</strong>
                                 <span class="blog-tags">
                                     @if ($blog->tags->count() > 0)
                                         @foreach ($blog->tags as $tag)
-                                            <a href="{{ route('blogs.byTag', ['tag' => $tag->name]) }}"
+                                            <a href="{{ route('admin.blogs.index', ['tag' => $tag->name]) }}"
                                                 class="badge tag-style me-1 text-decoration-none">
                                                 {{ $tag->name }}
-                                        </a> @endforeach
+                                            </a>
+                                        @endforeach
                                     @else
                                         <span class="text-muted">No tags</span>
                                     @endif
                                 </span>
                             </p>
 
-
-                            <p class="mb-1">
-                                <strong>Publish Date:</strong>
+                            <p class="mb-1"><strong>Publish Date:</strong>
                                 {{ optional($blog->published_at)->format('Y-m-d') }}
                             </p>
 
-                            <p class="mb-1">
-                                <strong>Status:</strong>
+                            <p class="mb-1"><strong>Status:</strong>
                                 @if ($blog->published_at > now())
                                     <span class="badge bg-warning text-dark">Upcoming</span>
                                 @else
@@ -79,6 +87,7 @@
                                 @endif
                             </p>
 
+                            <!-- Actions -->
                             <div class="mt-3 d-flex flex-wrap gap-2">
                                 <a href="{{ route('admin.blogs.show', $blog->id) }}" class="btn btn-success btn-sm">
                                     <i class="bi bi-eye"></i> View
@@ -98,7 +107,7 @@
                         </div>
                     </div>
                 @empty
-                    <p>No blogs found.</p>
+                    <p class="text-center text-danger">No blogs found</p>
                 @endforelse
             </div>
 
@@ -109,7 +118,7 @@
         </div>
     </div>
 
-    <!-- AJAX Script for live searching and pagination -->
+    <!-- AJAX for Live Search & Tag Filtering -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const searchBar = document.getElementById('search-bar');
@@ -117,28 +126,23 @@
             let searchTimer;
 
             function fetchBlogs(searchTerm, page = 1) {
-                let url;
-
-                // ✅ Detect if we are on the tag-filtered page or the blog dashboard
-                if (window.location.pathname.includes('/tags/')) {
-                    // We are on a tag-filtered page (filtered_blogs.blade.php)
-                    url = "{{ request()->routeIs('blogs.byTag') ? route('blogs.byTag', ['tag' => $tagName ?? '']) : route('admin.blogs.index') }}?";
-                } else {
-                    // We are on the main dashboard (index.blade.php)
-                    url = "{{ route('admin.blogs.index') }}?";
-                }
+                let url = "{{ route('admin.blogs.index') }}?";
 
                 if (searchTerm) {
                     url += 'search=' + encodeURIComponent(searchTerm) + '&';
                 }
+
+                if (window.location.search.includes('tag=')) {
+                    const tag = new URLSearchParams(window.location.search).get('tag');
+                    url += 'tag=' + encodeURIComponent(tag) + '&';
+                }
+
                 url += 'page=' + page;
 
                 fetch(url, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                    }
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 })
-                    .then(response => response.json()) // Expect JSON response
+                    .then(response => response.json())
                     .then(data => {
                         const parser = new DOMParser();
                         const doc = parser.parseFromString(data.html, 'text/html');
@@ -153,7 +157,6 @@
                     .catch(error => console.error('Error fetching blogs:', error));
             }
 
-            // Live search
             searchBar.addEventListener('input', function () {
                 clearTimeout(searchTimer);
                 searchTimer = setTimeout(() => {
@@ -161,10 +164,8 @@
                 }, 500);
             });
 
-            // Intercept pagination link clicks
             function rebindPaginationLinks() {
                 const paginationLinks = blogContainer.querySelectorAll('.pagination a');
-
                 paginationLinks.forEach(link => {
                     link.addEventListener('click', function (event) {
                         event.preventDefault();
@@ -177,7 +178,6 @@
 
             rebindPaginationLinks();
         });
-
     </script>
 
     <style>

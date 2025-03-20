@@ -15,7 +15,42 @@ class AdminBlogController extends Controller
 {
     public function index(Request $request): View|JsonResponse
     {
-        return $this->searchBlogs($request);
+        // Start query
+        $query = Blog::latest();
+
+        // Check if filtering by tag
+        if ($request->filled('tag')) {
+            $tagName = $request->input('tag');
+            $tag = Tag::where('name', $tagName)->first();
+
+            if ($tag) {
+                $query = $tag->blogs()->latest();
+            }
+        }
+
+        // Check if searching
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'LIKE', "%{$search}%")
+                    ->orWhere('content', 'LIKE', "%{$search}%")
+                    ->orWhereHas('tags', function ($tagQuery) use ($search) {
+                        $tagQuery->where('name', 'LIKE', "%{$search}%");
+                    });
+            });
+        }
+
+        // Paginate results
+        $blogs = $query->paginate(5);
+
+        // Return JSON for AJAX requests (Live Search / Pagination)
+        if ($request->ajax()) {
+            return response()->json([
+                'html' => view('admin.blogs.index', compact('blogs'))->render(),
+            ]);
+        }
+
+        return view('admin.blogs.index', compact('blogs'));
     }
 
     public function create(): View
@@ -89,39 +124,6 @@ class AdminBlogController extends Controller
     public function filterByTag(Request $request, string $tagName): View|JsonResponse
     {
         return $this->searchBlogs($request, $tagName);
-    }
-
-    public function searchBlogs(Request $request, ?string $tagName = null): View|JsonResponse
-    {
-        if ($tagName) {
-            $tag = Tag::where('name', $tagName)->firstOrFail();
-            $query = $tag->blogs()->latest();
-            $viewName = 'admin.blogs.filtered-blogs';
-        } else {
-            $query = Blog::latest();
-            $viewName = 'admin.blogs.index';
-        }
-
-        if ($request->filled('search')) {
-            $search = $request->input('search');
-            $query->where(function ($q) use ($search) {
-                $q->where('title', 'LIKE', "%{$search}%")
-                    ->orWhere('content', 'LIKE', "%{$search}%")
-                    ->orWhereHas('tags', function ($tagQuery) use ($search) {
-                        $tagQuery->where('name', 'LIKE', "%{$search}%");
-                    });
-            });
-        }
-
-        $blogs = $query->paginate(5);
-
-        if ($request->ajax()) {
-            return response()->json([
-                'html' => view($viewName, compact('blogs', 'tagName'))->render(),
-            ]);
-        }
-
-        return view($viewName, compact('blogs', 'tagName'));
     }
 
     private function handleTags(Request $request, Blog $blog): void
