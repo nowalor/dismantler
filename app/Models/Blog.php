@@ -13,6 +13,9 @@ class Blog extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'content', 'published_at', 'image'];
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
 
     public function tags(): BelongsToMany
     {
@@ -52,4 +55,8 @@ class Blog extends Model
         return str_replace('<a ', '<a target="_blank" rel="noopener noreferrer" ', $content);
     }
 
+    public function getFormattedPublishedAtAttribute()
+    {
+        return $this->published_at ? $this->published_at->format('Y-m-d') : null;
+    }
 }

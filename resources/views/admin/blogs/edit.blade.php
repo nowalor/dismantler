@@ -70,7 +70,7 @@
                     <div class="mb-3">
                         <label for="published_at" class="form-label fw-bold">Publish Date</label>
                         <input type="date" name="published_at" class="form-control form-control-lg"
-                            value="{{ old('published_at', $blog->published_at->format('Y-m-d')) }}" required>
+                            value="{{ old('published_at', $blog->formatted_published_at ?? '') }}">
                     </div>
 
                     <!-- Submit Button -->
