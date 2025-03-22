@@ -3,7 +3,7 @@
         <div class="text-center mt-4 mb-2">
             <h1 class="text-white">{{ __("categories") }}</h1>
         </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-3">
             @foreach ($mainCategories as $mainCategory)
                 <div class="col">
                     <div class="card h-100 shadow-sm">
@@ -13,7 +13,7 @@
                             <img src="{{ !empty($mainCategory->image) ? asset($mainCategory->image) : 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png' }}"
                                  alt="{{ __("main-categories.$mainCategory->translation_key") }} image"
                                  class="card-img-top"
-                                 style="width: 100%; max-height: 200px; object-fit: cover; border-bottom: 1px solid #ddd;">
+                                 style="width: 100%; max-height: 120px; object-fit: cover; border-bottom: 1px solid #ddd;">
 
                             {{-- Card Body --}}
                             <div class="card-body text-center">
