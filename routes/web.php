@@ -30,6 +30,7 @@ use App\Http\Controllers\BrandModelController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ViewCarPartTypesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\AdminBlogController;
 
 //Route::get('search-by-plate', SearchByPlateController::class);
 // Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
@@ -119,6 +120,10 @@ Route::group(
         Route::post('kba/storeConnection/{kba}', [KbaController::class, 'storeConnectionToEngineType'])->name('admin.kba.store-connection');
         Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])->name('admin.kba.delete-connection');
         Route::resource('kba', KbaController::class, ['as' => 'admin']);
+      
+          //blog
+        Route::resource('blogs', AdminBlogController::class, ['as' => 'admin']);
+        Route::get('/blogs/tag/{tag}', [AdminBlogController::class, 'filterByTag'])->name('blogs.byTag');
 
         // routes for establishing connections for part types
         Route::resource('part-types-categories', AdminCategoryController::class, ['as' => 'admin']);
