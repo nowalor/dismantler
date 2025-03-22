@@ -1234,34 +1234,7 @@
             }
         ]
     },
-    {
-        "id": 45,
-        "name": "Side spoiler set",
-        "translation_key": "side_spoiler_set",
-        "german_car_part_types": [
-            {
-                "id": 44,
-                "name": "Schwellerschürze set",
-                "code": null,
-                "autoteile_markt_category_id": 68
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 45,
-                "name": "FRONTSPOILER",
-                "code": 4071,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 50,
-                "name": "KJOLPAKET",
-                "code": 3062
-            }
-        ]
-    },
+
     {
         "id": 46,
         "name": "Side spoiler right",
@@ -1483,34 +1456,6 @@
                 "id": 58,
                 "name": "INREDNING SKIDFACK BAKSÄTE",
                 "code": 3134
-            }
-        ]
-    },
-    {
-        "id": 54,
-        "name": "Side spoiler set",
-        "translation_key": "side_spoiler_set",
-        "german_car_part_types": [
-            {
-                "id": 53,
-                "name": "Schwellerschürze set",
-                "code": null,
-                "autoteile_markt_category_id": 68
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 54,
-                "name": "KALECHE",
-                "code": 4652,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 59,
-                "name": "CAB. STÄLLNING/SUFLETT",
-                "code": 3061
             }
         ]
     },
@@ -1767,90 +1712,6 @@
         ]
     },
     {
-        "id": 64,
-        "name": "Armrest",
-        "translation_key": "armrest",
-        "german_car_part_types": [
-            {
-                "id": 63,
-                "name": "Armlehne",
-                "code": null,
-                "autoteile_markt_category_id": 1076
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 64,
-                "name": "HÅNDTAG INDVENDIG",
-                "code": 5710,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 69,
-                "name": "INREDNING TAKKONSOL",
-                "code": 3136
-            }
-        ]
-    },
-    {
-        "id": 65,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 64,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 163
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 65,
-                "name": "SPEEDOMETER",
-                "code": 6013,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 70,
-                "name": "INSTRUMENT BRÄNSLE/TEMP",
-                "code": 3222
-            }
-        ]
-    },
-    {
-        "id": 66,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 65,
-                "name": "Diverse Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 167
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 66,
-                "name": "UDETEMPERATUR MÅLER",
-                "code": 6025,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 71,
-                "name": "INSTRUMENT YTTERTEMP.",
-                "code": 3219
-            }
-        ]
-    },
-    {
         "id": 67,
         "name": "Sun sensor",
         "translation_key": "sun_sensor",
@@ -1906,34 +1767,7 @@
             }
         ]
     },
-    {
-        "id": 69,
-        "name": "Navigation/parts",
-        "translation_key": "navigation_parts",
-        "german_car_part_types": [
-            {
-                "id": 68,
-                "name": "Navigation/Teile",
-                "code": null,
-                "autoteile_markt_category_id": 272
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 69,
-                "name": "NAVIGATION",
-                "code": 6045,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 74,
-                "name": "GPS NAVIGATOR",
-                "code": 3235
-            }
-        ]
-    },
+
     {
         "id": 70,
         "name": "Autopilot control unit",
@@ -2355,62 +2189,6 @@
         ]
     },
     {
-        "id": 85,
-        "name": "Door cylinder",
-        "translation_key": "door_cylinder",
-        "german_car_part_types": [
-            {
-                "id": 84,
-                "name": "Türschloss",
-                "code": null,
-                "autoteile_markt_category_id": 67
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 85,
-                "name": "LÅSESÆT",
-                "code": 6703,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 90,
-                "name": "LÅSSATS/DÖRRAR",
-                "code": 3009
-            }
-        ]
-    },
-    {
-        "id": 86,
-        "name": "Door cylinder",
-        "translation_key": "door_cylinder",
-        "german_car_part_types": [
-            {
-                "id": 85,
-                "name": "Türschloss",
-                "code": null,
-                "autoteile_markt_category_id": 67
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 86,
-                "name": "LÅSECYLINDER",
-                "code": 6720,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 91,
-                "name": "LÅSCYLINDER/CYLINDRAR",
-                "code": 3004
-            }
-        ]
-    },
-    {
         "id": 87,
         "name": "Vacuum pump",
         "translation_key": "vacuum_pump",
@@ -2631,34 +2409,6 @@
                 "id": 99,
                 "name": "INREDNING NACKSTÖD",
                 "code": 3132
-            }
-        ]
-    },
-    {
-        "id": 95,
-        "name": "Armrest",
-        "translation_key": "armrest",
-        "german_car_part_types": [
-            {
-                "id": 94,
-                "name": "Armlehne",
-                "code": null,
-                "autoteile_markt_category_id": 1076
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 95,
-                "name": "ARMLÆN",
-                "code": 7180,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 100,
-                "name": "INREDNING ARMSTÖD",
-                "code": 3133
             }
         ]
     },
@@ -2998,34 +2748,7 @@
             }
         ]
     },
-    {
-        "id": 108,
-        "name": "Navigation/parts",
-        "translation_key": "navigation_parts",
-        "german_car_part_types": [
-            {
-                "id": 107,
-                "name": "Navigation diverse",
-                "code": null,
-                "autoteile_markt_category_id": 702
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 108,
-                "name": "RADIO TILBEHØR",
-                "code": 7459,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 113,
-                "name": "DVD TAKMONTERAD",
-                "code": 7808
-            }
-        ]
-    },
+
     {
         "id": 109,
         "name": "Hifi kable",
@@ -3558,62 +3281,8 @@
             }
         ]
     },
-    {
-        "id": 128,
-        "name": "Hood muffle",
-        "translation_key": "hood_muffle",
-        "german_car_part_types": [
-            {
-                "id": 127,
-                "name": "Dämpfer  ",
-                "code": null,
-                "autoteile_markt_category_id": 712
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 128,
-                "name": "FRONTHJELMSDÆMPER",
-                "code": 7670,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 133,
-                "name": "GASFJÄDER ÖVRIGT",
-                "code": 3096
-            }
-        ]
-    },
-    {
-        "id": 129,
-        "name": "Hood muffle",
-        "translation_key": "hood_muffle",
-        "german_car_part_types": [
-            {
-                "id": 128,
-                "name": "Dämpfer  ",
-                "code": null,
-                "autoteile_markt_category_id": 712
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 129,
-                "name": "FRONTHJELMSDÆMPER",
-                "code": 7670,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 134,
-                "name": "GASFJÄDER FLAKLOCK/FLAKKÅPA",
-                "code": 3097
-            }
-        ]
-    },
+
+
     {
         "id": 130,
         "name": "Fog light - front",
@@ -3667,258 +3336,6 @@
                 "id": 136,
                 "name": "BATTERILADDARE HÖGSPÄNNING",
                 "code": 7833
-            }
-        ]
-    },
-    {
-        "id": 132,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 131,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 160
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 132,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 137,
-                "name": "INSTRUMENT HAST",
-                "code": 3221
-            }
-        ]
-    },
-    {
-        "id": 133,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 132,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 170
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 133,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 138,
-                "name": "INSTRUMENT TEMP.",
-                "code": 3223
-            }
-        ]
-    },
-    {
-        "id": 134,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 133,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 167
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 134,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 139,
-                "name": "INSTRUMENT VARVR.",
-                "code": 3224
-            }
-        ]
-    },
-    {
-        "id": 135,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 134,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 166
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 135,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 140,
-                "name": "INSTRUMENT OLJET.",
-                "code": 3225
-            }
-        ]
-    },
-    {
-        "id": 136,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 135,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 169
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 136,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 141,
-                "name": "INSTRUMENT VOLTM.",
-                "code": 3226
-            }
-        ]
-    },
-    {
-        "id": 137,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 136,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 169
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 137,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 142,
-                "name": "INSTRUMENT AMPERE",
-                "code": 3227
-            }
-        ]
-    },
-    {
-        "id": 138,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 137,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 168
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 138,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 143,
-                "name": "INSTRUMENT KLOCKA",
-                "code": 3228
-            }
-        ]
-    },
-    {
-        "id": 139,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 138,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 167
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 139,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 144,
-                "name": "INSTRUMENT VÄXLINGSINDIKATOR",
-                "code": 3231
-            }
-        ]
-    },
-    {
-        "id": 140,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 139,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 167
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 140,
-                "name": "TILBEHØR DIVERSE",
-                "code": 7990,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 145,
-                "name": "INSTRUMENT ÖVRIGT",
-                "code": 3299
             }
         ]
     },
@@ -4497,40 +3914,6 @@
                 "id": 159,
                 "name": "INREDNING KOMP.",
                 "code": 3110
-            }
-        ]
-    },
-    {
-        "id": 155,
-        "name": "Instruments",
-        "translation_key": "instruments",
-        "german_car_part_types": [
-            {
-                "id": 154,
-                "name": "Diverse  Instrumente",
-                "code": null,
-                "autoteile_markt_category_id": 167
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 186,
-                "name": "MIDTERKONSOL",
-                "code": 7210,
-                "egluit_id": "1111"
-            },
-            {
-                "id": 187,
-                "name": "KARDANBOKS",
-                "code": 7230,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 160,
-                "name": "INSTRUMENTKONSOLL GOLV",
-                "code": 3229
             }
         ]
     },
