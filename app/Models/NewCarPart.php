@@ -287,16 +287,28 @@ class NewCarPart extends Model
         return $finalPrice;
     }
 
-    public function getLocalizedPrice($locale = null): array
+    public function getLocalizedPrice($browsingCountry = null): array
     {
-        if(!$locale) {
-            $locale = LaravelLocalization::getCurrentLocale();
+         if(!$browsingCountry) {
+            $browsingCountry = session('browsing_country', 'de');
         }
 
-        $price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
+        switch ($browsingCountry) {
+            case 'da':
+                $price = $this->price_dkk;
+                $priceSource = 'da';
+                break;
+            default:
+                // For all non-Danish browsing countries, use Swedish prices
+                $price = $this->price_sek;
+                $priceSource = 'sv';
+                break;
+        }
+
+        //$price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
         // TODO, handle it in another way, like not querying these parts in the first place...
-        if(!$this->carPartType) {
+        if(!$this->carPartType || !$price) {
             $priceInfo = (new GetLocalizedPriceAction())->requiresRequest();
 
             return [
@@ -312,8 +324,8 @@ class NewCarPart extends Model
         $partTypeKey = $this->carPartType->json_key;
 
         $priceInfo = (new GetLocalizedPriceAction())->execute(
-            $locale,
-            $this->country === 'da' ? 'da' : 'sv',
+            $browsingCountry,
+            $priceSource,
             $price,
             $partTypeKey,
             $this->dismantle_company_name,

@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -181,6 +180,34 @@
                                         alt="{{ __('alt-tags.flag') . ' ' . __("countries.{$localeCode}")  }}" class="me-2">
                                     {{ Str::title($language['native']) }}
                                 </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                {{-- Browsing country dropdown --}}
+                <div class="dropdown ms-3 d-none d-md-block">
+                    <button class="btn btn-secondary w-100 d-flex justify-content-center align-items-center"
+                        type="button" id="countryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        @php
+                            $selectedCountry = session('browsing_country') ?? 'de';
+                        @endphp
+                        <img src="{{ asset('img/flags/' . strtolower($selectedCountry) . '.png') }}"
+                            width="20" height="15" alt="Flag" class="me-2">
+                        {{ __("countries.{$selectedCountry}") }}
+                    </button>
+                    <ul class="dropdown-menu w-100" aria-labelledby="countryDropdown">
+                        @foreach (['da', 'de', 'fr', 'pl', 'sv'] as $countryCode)
+                            <li>
+                                <form method="POST" action="{{ route('setBrowsingCountry') }}">
+                                    @csrf
+                                    <input type="hidden" name="country" value="{{ $countryCode }}">
+                                    <button type="submit" class="dropdown-item d-flex align-items-center w-100">
+                                        <img src="{{ asset('img/flags/' . strtolower($countryCode) . '.png') }}"
+                                            width="20" height="15" class="me-2">
+                                        {{ __("countries.{$countryCode}") }}
+                                    </button>
+                                </form>
                             </li>
                         @endforeach
                     </ul>
