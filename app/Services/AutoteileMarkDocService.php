@@ -88,7 +88,7 @@ class AutoteileMarkDocService
 //            'price' => $carPart->autoteile_markt_price,
 //            'price_b2b' => $carPart->autoteile_markt_business_price,
             'price' => $carPart->ebayPrice('de'),
-            'price_b2b' =>  $carPart->ebayPrice('de') * 1.095,
+            'price_b2b' =>  $carPart->ebayPrice('de') * 0.95,
             'bulky' => 1, // Customers can order in bulk and save on delivery costs
             'delivery' => $carPart->shipment,
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
