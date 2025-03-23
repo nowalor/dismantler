@@ -2,7 +2,10 @@
 
 namespace App\Integration;
 
+use App\Integration\Types\FenixCarPart;
+use App\Integration\Types\FenixCarPartImage;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class FenixApiClient implements FenixClientInterface
 {
@@ -36,6 +39,51 @@ class FenixApiClient implements FenixClientInterface
           ],
         ]);
     }
+
+
+    /**
+     * @return FenixCarPart[]
+     * @throws GuzzleException
+     */
+    public function getAllParts(string $dismantler, ?string $dateFrom = null, ?string $dateTo = null): array
+    {
+        if (!$dateFrom) {
+            $dateFrom = now()->subWeek();
+        }
+
+        if (!$dateTo) {
+            $dateTo = now();
+        }
+
+        $parts = [];
+        $skip = 0;
+        $take = 1000;
+
+        do {
+            $response = $this->client()->request('GET', "$this->apiUrl/Fenix/GetAllParts", [
+                'query' => [
+                    'avd' => $dismantler,
+                    'dateFrom' => $dateFrom,
+                    'dateTo' => $dateTo,
+                    'skip' => $skip,
+                    'take' => $take,
+                ],
+            ]);
+
+            $data = json_decode((string) $response->getBody(), true);
+
+            foreach ($data['parts'] as $part) {
+                $parts[] = FenixCarPart::fromData($part);
+            }
+
+            $skip += $take;
+            $totalCount = $data['count'] ?? 0;
+
+        } while ($skip < $totalCount);
+
+        return $parts;
+    }
+
 
     public function getRemovedParts(array $dismantlers, string $changedDate): array
     {
