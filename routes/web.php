@@ -32,8 +32,8 @@ use App\Http\Controllers\ViewCarPartTypesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\AdminBlogController;
 
-//Route::get('search-by-plate', SearchByPlateController::class);
-// Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
+Route::get('search-by-plate', SearchByPlateController::class);
+Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
 
 Route::resource('reservations', \App\Http\Controllers\ReservationController::class)->only(['show', 'destroy']);
 
@@ -120,7 +120,7 @@ Route::group(
         Route::post('kba/storeConnection/{kba}', [KbaController::class, 'storeConnectionToEngineType'])->name('admin.kba.store-connection');
         Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])->name('admin.kba.delete-connection');
         Route::resource('kba', KbaController::class, ['as' => 'admin']);
-      
+
           //blog
         Route::resource('blogs', AdminBlogController::class, ['as' => 'admin']);
         Route::get('/blogs/tag/{tag}', [AdminBlogController::class, 'filterByTag'])->name('blogs.byTag');
