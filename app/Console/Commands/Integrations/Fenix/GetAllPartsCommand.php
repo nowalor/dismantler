@@ -14,6 +14,7 @@ class GetAllPartsCommand extends Command
     public function handle(): int
     {
 
+        // TODO, figure out how to call this on a schedule for every dismantler, with propper from and to dates to make sure we get all the parts...
    /*     foreach(FenixDismantlerEnum::cases() as $dismantlerCode) {*/
             $parts = $this->client()->getAllParts('A');
 
