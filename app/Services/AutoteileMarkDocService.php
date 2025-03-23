@@ -87,10 +87,10 @@ class AutoteileMarkDocService
 //            'price' => $carPart->autoteile_markt_price,
 //            'price' => $carPart->autoteile_markt_price,
 //            'price_b2b' => $carPart->autoteile_markt_business_price,
-            'price' => $carPart->ebayPrice('de'),
-            'price_b2b' =>  $carPart->ebayPrice('de') * 0.95,
+            'price' => $carPart->getLocalizedPrice('de')['price'] * 1.1,
+            'price_b2b' =>  $carPart->getLocalizedPrice('de')['price'] * 1.05,
             'bulky' => 1, // Customers can order in bulk and save on delivery costs
-            'delivery' => $carPart->shipment,
+            'delivery' => $carPart->getLocalizedPrice('de')['shipment'] * 1.05,
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
             'properties' => $this->resolveProperties($carPart),
         ];
