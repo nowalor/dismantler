@@ -10,9 +10,9 @@
         <livewire:search-forms />
     </div>
 
-{{--    <x-brands.car-brands-slider :brands="$brands" />
+    <x-brands.car-brands-slider :brands="$brands" />
 
-    <x-categories.part-categories :mainCategories="$mainCategories" />--}}
+    <x-categories.part-categories :mainCategories="$mainCategories" />
 
 @endsection
 
