@@ -289,23 +289,17 @@ class NewCarPart extends Model
 
     public function getLocalizedPrice($browsingCountry = null): array
     {
-         if(!$browsingCountry) {
+        if (!$browsingCountry) {
             $browsingCountry = session('browsing_country', 'de');
         }
 
-        switch ($browsingCountry) {
-            case 'da':
-                $price = $this->price_dkk;
-                $priceSource = 'da';
-                break;
-            default:
-                // For all non-Danish browsing countries, use Swedish prices
-                $price = $this->price_sek;
-                $priceSource = 'sv';
-                break;
+        if ($browsingCountry === 'da' && $price = $this->price_dkk) {
+            $price = $this->price_dkk;
+            $priceSource = 'da';
+        } else {
+            $price = $this->price_sek;
+            $priceSource = 'sv';
         }
-
-        //$price = $this->country === 'DK' ? $this->price_dkk : $this->price_sek; // $this->country = country the part is from
 
         // TODO, handle it in another way, like not querying these parts in the first place...
         if(!$this->carPartType || !$price) {
