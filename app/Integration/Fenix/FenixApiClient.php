@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Integration;
+namespace App\Integration\Fenix;
 
-use App\Integration\Types\FenixCarPart;
+use App\Integration\Fenix\Types\FenixCarPart;
 use App\Integration\Types\FenixCarPartImage;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;

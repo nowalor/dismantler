@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Integration;
+namespace App\Integration\Fenix;
 
 interface FenixClientInterface
 {

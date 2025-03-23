@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands\Integrations\Fenix;
 
-use App\Integration\FenixClientInterface;
 use Illuminate\Console\Command;
+use App\Enums\FenixDismantlerEnum;
+use App\Integration\Fenix\FenixClientInterface;
+use App\Integration\Fenix\Actions\SaveFenixDtoInDbAction;
 
 class GetAllPartsCommand extends Command
 {
@@ -11,13 +13,14 @@ class GetAllPartsCommand extends Command
 
     public function handle(): int
     {
-        $parts = $this->client()->getAllParts('A', );
 
-        logger($parts);
-        foreach($parts as $part) {
+   /*     foreach(FenixDismantlerEnum::cases() as $dismantlerCode) {*/
+            $parts = $this->client()->getAllParts('A');
 
-        }
-
+            foreach ($parts as $part) {
+                (new SaveFenixDtoInDbAction)->execute($part);
+            }
+        /*}*/
         return Command::SUCCESS;
 
     }
