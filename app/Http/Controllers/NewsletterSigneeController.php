@@ -16,9 +16,13 @@ class NewsletterSigneeController extends Controller
 
     public function store(NewsletterSignupRequest $request): RedirectResponse
     {
+        // including the recaptcha_token, but database doesn't have a recaptcha_token column
         $validated = $request->validated();
 
-        NewsLetterSignee::create($validated);
+        // only including name and email before saving
+        $data = collect($validated)->only(['name', 'email'])->toArray();
+
+        NewsLetterSignee::create($data);
 
         return back()->with('success', 'Thanks for signing up!');
     }
