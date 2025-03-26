@@ -3,9 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Contracts\Validation\Validator;
+use ReCaptcha\ReCaptcha as GoogleReCaptcha;
+use App\Traits\ValidatesRecaptcha;
 class SendContactUsEmailRequest extends FormRequest
 {
+    use ValidatesRecaptcha;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -30,7 +33,15 @@ class SendContactUsEmailRequest extends FormRequest
             'message' => 'required|string',
             'phone' => 'string',
             'plate' => 'string',
-            'vin' => 'string'
+            'vin' => 'string',
+            'recaptcha_token' => 'required|string',
         ];
+    }
+    // recaptcha v3
+    public function withValidator(Validator $validator): void
+    {
+        $validator->after(function (Validator $validator) {
+            $this->addRecaptchaValidation($validator);
+        });
     }
 }

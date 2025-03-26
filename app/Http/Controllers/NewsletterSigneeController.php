@@ -14,11 +14,12 @@ class NewsletterSigneeController extends Controller
         return view('newsletter.index');
     }
 
+
     public function store(NewsletterSignupRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
+        $data = $request->safe()->only(['name', 'email']);
 
-        NewsLetterSignee::create($validated);
+        NewsLetterSignee::create($data);
 
         return back()->with('success', 'Thanks for signing up!');
     }
