@@ -28,19 +28,22 @@
         <!-- Intro Text -->
         <div class="text-center mt-4 mb-4">
             <p class="lead text-muted" style="font-size: 1.25rem;">{{ __('contact-asap') }}</p>
-            <p class="fw-light text-muted">{{ __('contact-before') }} <a href="{{ route('faq') }}"
-                    class="link-success fw-bold">{{ __('FAQ') }}</a></p>
+            <p class="fw-light text-muted">
+                {{ __('contact-before') }}
+                <a href="{{ route('faq') }}" class="link-success fw-bold">{{ __('FAQ') }}</a>
+            </p>
         </div>
 
         <!-- Contact Form -->
         <div class="col-12 col-md-8 mx-auto pt-3">
-            <form action="{{ route('contact.send') }}" method="POST" class="p-4 bg-light rounded-3 shadow-lg">
+            <form id="contact-form" action="{{ route('contact.send') }}" method="POST"
+                class="p-4 bg-light rounded-3 shadow-lg">
                 @csrf
 
-                @if(session()->has('message'))
+                @if (session()->has('message'))
                     <div class="alert alert-success">{{ session()->get('message') }}</div>
                 @endif
-                @if(session()->has('error'))
+                @if (session()->has('error'))
                     <div class="alert alert-danger">{{ session()->get('error') }}</div>
                 @endif
 
@@ -86,17 +89,17 @@
                         style="height: 12rem; resize: none;">{{ request('part_name') ? 'Regarding ' . request('part_name') . ', Currus Connect ID: ' . request('article_nr') : '' }}</textarea>
                 </div>
 
-                <!-- ✅ reCAPTCHA v3 hidden token -->
                 <input type="hidden" name="recaptcha_token" id="recaptcha_token">
 
-                <!-- ✅ reCAPTCHA error message -->
                 @if ($errors->has('recaptcha_token'))
                     <div class="alert alert-danger mb-3">
                         {{ $errors->first('recaptcha_token') }}
                     </div>
                 @endif
 
-                <button type="submit" class="btn btn-success w-100">{{ __('contact-form-submit') }}</button>
+                <button type="submit" class="btn btn-success w-100">
+                    {{ __('contact-form-submit') }}
+                </button>
             </form>
         </div>
     </div>
@@ -130,41 +133,23 @@
         }
     </style>
 
+    <!-- Load reCAPTCHA v3 -->
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('recaptcha.api_site_key') }}"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const form = document.querySelector('form');
             const tokenField = document.getElementById('recaptcha_token');
             const siteKey = "{{ config('recaptcha.api_site_key') }}";
 
-            if (!form || !tokenField || !siteKey) {
-                console.warn("reCAPTCHA setup incomplete.");
-                return;
-            }
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault(); // Stop immediate submission
-                console.log('reCAPTCHA v3: requesting token...');
-
-                grecaptcha.ready(function () {
-                    grecaptcha.execute(siteKey, { action: 'contact' })
-                        .then(function (token) {
-                            if (!token) {
-                                alert('reCAPTCHA failed to generate a token. Please reload and try again.');
-                                return;
-                            }
-
-                            console.log('reCAPTCHA v3 token received');
-                            tokenField.value = token;
-                            form.submit();
-                        })
-                        .catch(function (error) {
-                            console.error('reCAPTCHA error:', error);
-                            alert('Google reCAPTCHA failed. Please refresh the page and try again.');
-                        });
-                });
+            grecaptcha.ready(function () {
+                grecaptcha.execute(siteKey, { action: 'contact' })
+                    .then(function (token) {
+                        tokenField.value = token;
+                    })
+                    .catch(function (error) {
+                        console.error('reCAPTCHA error:', error);
+                    });
             });
         });
     </script>
-
 @endsection

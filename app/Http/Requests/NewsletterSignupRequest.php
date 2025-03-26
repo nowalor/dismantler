@@ -5,9 +5,12 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use ReCaptcha\ReCaptcha as GoogleReCaptcha;
+use App\Traits\ValidatesRecaptcha;
+
 
 class NewsletterSignupRequest extends FormRequest
 {
+    use ValidatesRecaptcha;
     public function authorize()
     {
         return true;
@@ -25,15 +28,7 @@ class NewsletterSignupRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator) {
-            $recaptcha = new GoogleReCaptcha(config('recaptcha.api_secret_key'));
-
-            $response = $recaptcha
-                ->setExpectedAction('newsletter')
-                ->verify($this->recaptcha_token, $this->ip());
-
-            if (!$response->isSuccess()) {
-                $validator->errors()->add('recaptcha_token', __('reCAPTCHA verification failed. Please try again.'));
-            }
+            $this->addRecaptchaValidation($validator);
         });
     }
 }

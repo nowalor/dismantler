@@ -5,9 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use ReCaptcha\ReCaptcha as GoogleReCaptcha;
-
+use App\Traits\ValidatesRecaptcha;
 class SendContactUsEmailRequest extends FormRequest
 {
+    use ValidatesRecaptcha;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -40,17 +41,7 @@ class SendContactUsEmailRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator) {
-            $recaptchaToken = $this->recaptcha_token;
-            $recaptchaSecret = config('recaptcha.api_secret_key');
-
-            $recaptcha = new GoogleReCaptcha($recaptchaSecret);
-            $response = $recaptcha
-                ->setExpectedAction('contact') // MUST match the JS action
-                ->verify($recaptchaToken, $this->ip());
-
-            if (!$response->isSuccess()) {
-                $validator->errors()->add('recaptcha_token', __('reCAPTCHA verification failed. Please try again.'));
-            }
+            $this->addRecaptchaValidation($validator);
         });
     }
 }
