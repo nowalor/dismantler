@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 class GetLocalizedPriceAction
 {
     public function execute(
-        string $locale,
+        string $browsingCountry,
         string $partFrom,
         int $price,
         string $partType,
@@ -18,11 +18,11 @@ class GetLocalizedPriceAction
 
         $prices = json_decode($pricesJson, true);
 
-        if(!isset($prices[$locale])) {
+        if(!isset($prices[$browsingCountry])) {
             return $this->requiresRequest();
         }
 
-        $localizedPrices = $prices[$locale];
+        $localizedPrices = $prices[$browsingCountry];
 
 
         if(!isset($localizedPrices[$partFrom])) {
