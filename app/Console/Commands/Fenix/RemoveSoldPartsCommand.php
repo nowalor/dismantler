@@ -4,7 +4,7 @@ namespace App\Console\Commands\Fenix;
 
 use App\Actions\Ebay\CreateDeleteXmlAction;
 use App\Actions\Ebay\FtpFileUploadAction;
-use App\Integration\FenixClientInterface;
+use App\Integration\Fenix\FenixClientInterface;
 use App\Models\NewCarPart;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
