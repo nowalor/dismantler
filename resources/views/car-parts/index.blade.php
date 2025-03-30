@@ -4,7 +4,7 @@
     <div class="container mx-auto pt-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Car parts</li>
             </ol>
         </nav>
@@ -51,7 +51,8 @@
                 <div class="card">
                     <h5 class="card-header">Filters</h5>
                     <div class="card-body">
-                        <form action="{{ route('car-parts.index') }}">
+                        {{-- this route no longer exists --}}
+                        {{-- <form action="{{ route('car-parts.index') }}">
                             <div>
                                 <div>
                                     <label for="brand">Car model</label>
@@ -109,7 +110,7 @@
                             <button class="btn btn-primary mt-3">Search</button>
                             <a href="{{ route('car-parts.index') }}" class="btn btn-warning text-white mt-3">Clear
                                 filters</a>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
             </div>
@@ -152,9 +153,10 @@
                                             <span class="fw-bold">Brand:</span> {{ $part->ditoNumber->brand ?? 'Information missing'}}
                                         </p>
 
-                                        <a href="{{ route('car-parts.show', $part) }}"
+                                        {{-- Route no longer exists --}}
+                                        {{-- <a href="{{ route('car-parts.show', $part) }}"
                                            class="btn btn-primary w-100 mt-3">View
-                                            part</a>
+                                            part</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -196,9 +198,10 @@
                                             <span class="fw-bold">Condition:</span> {{ $part->condition }}
                                         </p>
 
-                                        <a href="{{ route('car-parts.show', $part) }}"
+                                        {{-- route no longer exists --}}
+                                        {{-- <a href="{{ route('car-parts.show', $part) }}"
                                            class="btn btn-primary w-100 mt-3">View
-                                            part</a>
+                                            part</a> --}}
                                     </div>
                                 </div>
                             </div>
