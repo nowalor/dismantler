@@ -107,5 +107,6 @@
     "type-of-part": "Typ części",
     "reset-search": "Zresetuj wyszukiwanie",
     "select-brand": "Wybierz markę",
-    "select-model": "Wybierz model"
+    "select-model": "Wybierz model",
+    "shipping": "Wysyłka"
 }
