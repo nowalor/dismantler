@@ -47,7 +47,6 @@ class CarPartController extends Controller
             'id',
             'name',
             'original_number',
-            'price3',
             'engine_type',
             'car_part_type_id'
         ])->with('ditoNumber', 'carPartType');
