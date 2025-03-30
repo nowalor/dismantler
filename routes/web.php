@@ -32,7 +32,6 @@ use App\Http\Controllers\ViewCarPartTypesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\BrowsingCountryController;
-use Illuminate\Http\Request;
 
 //Route::get('search-by-plate', SearchByPlateController::class);
 // Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');

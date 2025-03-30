@@ -3,20 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FilterBrowsingCountryRequest;
+use Illuminate\Http\RedirectResponse;
 
 class BrowsingCountryController extends Controller
 {
-    public function filter(FilterBrowsingCountryRequest $request): mixed
+    public function filter(FilterBrowsingCountryRequest $request): RedirectResponse
     {
-
         $validated = $request->validated();
-
-        if ($validated) {
-            session(['browsing_country' => $request->input('country')]);
-        } else {
-            $request->messages();
-        }
-
+        session(['browsing_country' => $validated['country']]);
 
         return back();
     }

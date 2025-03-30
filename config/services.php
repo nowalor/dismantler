@@ -84,6 +84,6 @@ return [
     ],
 
     'google' => [
-        'gtag_key' => env('GOOGLE_G_TAG_KEY'),
+        'gtag_key' => env('GOOGLE_TAG_KEY'),
     ]
 ];
