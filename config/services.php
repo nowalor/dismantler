@@ -82,4 +82,8 @@ return [
         'api_key' => env('DEEPL_API_KEY', ''),
         'base_url' => env('DEEPL_API_BASE_URL', ''),
     ],
+
+    'google' => [
+        'gtag_key' => env('GOOGLE_TAG_KEY'),
+    ]
 ];

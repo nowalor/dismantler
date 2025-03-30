@@ -31,6 +31,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ViewCarPartTypesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\AdminBlogController;
+use App\Http\Controllers\BrowsingCountryController;
 
 Route::get('search-by-plate', SearchByPlateController::class);
 Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
@@ -96,6 +97,9 @@ Route::group(
 
         // Checkout
         Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])->name('checkout');
+
+        // Set browsing country
+        Route::post('/browsing-country/filter', [BrowsingCountryController::class, 'filter'])->name('setBrowsingCountry');
 
         // full view of individual car part
         Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
