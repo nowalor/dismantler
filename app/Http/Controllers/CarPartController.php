@@ -46,7 +46,7 @@ class CarPartController extends Controller
         $parts = NewCarPart::select([
             'id',
             'name',
-            'oem_number',
+            'original_number',
             'price3',
             'engine_type',
             'car_part_type_id'
