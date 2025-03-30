@@ -295,7 +295,7 @@
 
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7D5KSW306"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google.gtag_key') }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -304,7 +304,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-L7D5KSW306');
+        gtag('config', '{{ config('services.google.gtag_key') }}');
     </script>
 
     <main class="flex-grow-1">

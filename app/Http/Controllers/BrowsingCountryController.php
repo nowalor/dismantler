@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\FilterBrowsingCountryRequest;
 
 class BrowsingCountryController extends Controller
 {
-    public function index(Request $request)
+    public function filter(FilterBrowsingCountryRequest $request): mixed
     {
-        $request->validate([
-            'country' => 'required|string|in:da,de,fr,pl,sv', // only allowed countries
-        ]);
 
-        session(['browsing_country' => $request->input('country')]);
+        $validated = $request->validated();
+
+        if ($validated) {
+            session(['browsing_country' => $request->input('country')]);
+        } else {
+            $request->messages();
+        }
+
 
         return back();
     }

@@ -100,7 +100,7 @@ Route::group(
         Route::get('car-parts/{carPart}/checkout', [PaymentController::class, 'index'])->name('checkout');
 
         // Set browsing country
-        Route::post('/set-browsing-country', [BrowsingCountryController::class, 'index'])->name('setBrowsingCountry');
+        Route::post('/browsing-country/filter', [BrowsingCountryController::class, 'filter'])->name('setBrowsingCountry');
 
         // full view of individual car part
         Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
