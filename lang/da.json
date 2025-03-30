@@ -107,5 +107,6 @@
     "type-of-part": "Type af del",
     "reset-search": "Nulstil søgning",
     "select-brand": "Vælg et mærke",
-    "select-model": "Vælg en model"
+    "select-model": "Vælg en model",
+    "shipping": "Forsendelse"
 }

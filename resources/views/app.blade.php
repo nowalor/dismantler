@@ -154,7 +154,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-3" style="font-size: large;">
+                <ul class="navbar-nav ms-auto gap-3" style="font-size: medium;">
                     <li class="nav-item">
                         <a href="/" class="nav-link text-white">{{ __('home') }}</a>
                     </li>
@@ -179,7 +179,7 @@
 
                 <!-- Language dropdown for larger screens (not crowded for better button visibility) -->
                 <div class="dropdown ms-5 d-none d-md-block" style="padding-bottom: 0.3rem;">
-                    <label for="language" style="display: flex; justify-content: center; color: white; font-size: small; padding-bottom: 0.2rem;">Language</label>
+                    <label for="language" style="display: flex; justify-content: center; color: white; font-size: small; padding-bottom: 0.2rem;">{{ __('language') }}</label>
                     <button class="btn btn-secondary w-100 d-flex justify-content-center align-items-center"
                         type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false"
                         style="padding: 0.25rem 0.5rem;">
@@ -205,7 +205,7 @@
 
                 {{-- Browsing country dropdown --}}
                 <div class="dropdown ms-3 d-none d-md-block" style="padding-bottom: 0.3rem;">
-                    <label for="browsingCountry" style="display: flex; justify-content: center; color: white; font-size: small; padding-bottom: 0.2rem;">Shipping</label>
+                    <label for="browsingCountry" style="display: flex; justify-content: center; color: white; font-size: small; padding-bottom: 0.2rem;">{{ __('shipping') }}</label>
                     <button class="btn btn-secondary w-100 d-flex justify-content-center align-items-center"
                         type="button" id="countryDropdown" data-bs-toggle="dropdown" aria-expanded="false"
                         style="padding: 0.25rem 0.5rem;">
@@ -237,6 +237,7 @@
 
                 <!-- Language dropdown for mobile devices (larger button and larger spacing) -->
                 <div class="dropdown ms-auto mt-4 d-block d-md-none">
+                    <label for="language" style="display: flex; justify-content: center; color: white; font-size: small; padding-bottom: 0.2rem;">{{ __('language') }}</label>
                     <button
                         class="btn btn-secondary dropdown-toggle w-100 d-flex justify-content-center align-items-center"
                         type="button" id="languageDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
@@ -261,6 +262,7 @@
 
                 <!-- Browsing country dropdown for mobile devices -->
                 <div class="dropdown ms-auto mt-4 d-block d-md-none">
+                    <label for="browsingCountry" style="display: flex; justify-content: center; color: white; font-size: small; padding-bottom: 0.2rem;">{{ __('shipping') }}</label>
                     <button
                         class="btn btn-secondary dropdown-toggle w-100 d-flex justify-content-center align-items-center"
                         type="button" id="countryDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">

@@ -116,5 +116,6 @@
     "type-of-part": "Art des Teils",
     "reset-search": "Suche zurücksetzen",
     "select-brand": "Wählen Sie eine Marke",
-    "select-model": "Wählen Sie ein Modell"
+    "select-model": "Wählen Sie ein Modell",
+    "shipping": "Versand"
 }
