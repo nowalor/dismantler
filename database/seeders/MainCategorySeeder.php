@@ -13,25 +13,18 @@ class MainCategorySeeder extends Seeder
         $categories = [
             'Exhaust system',
             'Axle drive',
-            'Axle suspension',
-            'Towing device / attachments',
             'Lighting',
             'Brake system',
             'Electronic parts',
-            'Suspension',
             'Transmission',
             'Information / communication systems',
             'Interior equipment',
             'Instruments',
             'Air conditioning',
             'Mirrors',
-            'Fuel supply system',
             'Cooling',
             'Steering',
             'Engine',
-            'Wheel drive',
-            'Windshield washer system',
-            'Ignition / glow system',
         ];
 
         foreach ($categories as $category) {
