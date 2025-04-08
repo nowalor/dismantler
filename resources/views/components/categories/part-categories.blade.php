@@ -3,7 +3,7 @@
         <div class="text-center mt-4 mb-2">
             <h1 class="text-white">{{ __("categories") }}</h1>
         </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-3">
+        <div class="flex justify-content-center row row-cols-1 row-cols-md-2 row-cols-lg-6 g-3">
             @foreach ($mainCategories as $mainCategory)
                 <div class="col">
                     <div class="card h-100 shadow-sm">
@@ -20,7 +20,6 @@
                                 <h5 class="card-title">{{ __("main-categories.$mainCategory->translation_key") }}</h5>
                                 <p class="card-text">{{ $mainCategory->new_car_parts_count }} {{ __('parts') }}</p>
                             </div>
-
                         </a>
                     </div>
                 </div>
