@@ -2,12 +2,10 @@
 
 namespace App\Providers;
 
-use App\Integration\FenixApiClient;
-use App\Integration\FenixClientInterface;
+use App\Integration\Fenix\FenixApiClient;
+use App\Integration\Fenix\FenixClientInterface;
 use App\Models\Order;
 use App\Observers\OrderObserver;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
