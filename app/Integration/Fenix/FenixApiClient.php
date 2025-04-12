@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Integration;
+namespace App\Integration\Fenix;
 
+use App\Integration\Fenix\Types\FenixCarPart;
+use App\Integration\Types\FenixCarPartImage;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class FenixApiClient implements FenixClientInterface
 {
@@ -36,6 +39,61 @@ class FenixApiClient implements FenixClientInterface
           ],
         ]);
     }
+
+
+    /**
+     * @return FenixCarPart[]
+     * @throws GuzzleException
+     */
+    public function getAllParts(string $dismantler, ?string $dateFrom = null, ?string $dateTo = null): array
+    {
+        if (!$dateFrom) {
+            $dateFrom = now()->subWeek();
+        }
+
+        if (!$dateTo) {
+            $dateTo = now();
+        }
+
+        try {
+            $page = 1;
+            $pageSize = 1000;
+            $parts = [];
+            $totalCount = null;
+
+            do {
+                $query = http_build_query([
+                    'avd' => $dismantler,
+                    'dateFrom' => $dateFrom,
+                    'dateTo' => $dateTo,
+                    'pageNumber' => $page,
+                    'pageSize' => $pageSize,
+                    'getReservations' => 'false',
+                ], '', '&', PHP_QUERY_RFC3986);
+
+                $url = "$this->apiUrl/Fenix/GetAllParts?" . $query;
+
+                $response = $this->client()->request('GET', $url);
+                $data = json_decode((string)$response->getBody(), true);
+
+                $totalCount ??= $data['count'] ?? null;
+
+                foreach ($data['parts'] as $part) {
+                    $parts[] = FenixCarPart::fromData($part);
+                }
+
+                $page++;
+            } while (count($parts) < $totalCount);
+        } catch (\Throwable $e) {
+            logger('failed to import parts');
+            logger($e->getMessage());
+            die();
+        }
+
+        return $parts;
+    }
+
+
 
     public function getRemovedParts(array $dismantlers, string $changedDate): array
     {
