@@ -38,6 +38,12 @@ class SaveFenixDtoInDbAction
             ]
         );
 
+        if (!$newPart->wasRecentlyCreated) {
+            // Log or dump skipped ones for debugging
+            logger('Skipped part (already existed): ' . $part->original_id);
+        }
+
+
         if ($newPart->wasRecentlyCreated && !empty($part->images)) {
             $this->uploadImages($part->images, $newPart->id);
         }

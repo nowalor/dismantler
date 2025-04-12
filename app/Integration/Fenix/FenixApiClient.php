@@ -55,34 +55,44 @@ class FenixApiClient implements FenixClientInterface
             $dateTo = now();
         }
 
-        $parts = [];
-        $skip = 0;
-        $take = 1000;
+        try {
+            $page = 1;
+            $pageSize = 1000;
+            $parts = [];
+            $totalCount = null;
 
-        do {
-            $response = $this->client()->request('GET', "$this->apiUrl/Fenix/GetAllParts", [
-                'query' => [
+            do {
+                $query = http_build_query([
                     'avd' => $dismantler,
                     'dateFrom' => $dateFrom,
                     'dateTo' => $dateTo,
-                    'skip' => $skip,
-                    'take' => $take,
-                ],
-            ]);
+                    'pageNumber' => $page,
+                    'pageSize' => $pageSize,
+                    'getReservations' => 'false',
+                ], '', '&', PHP_QUERY_RFC3986);
 
-            $data = json_decode((string) $response->getBody(), true);
+                $url = "$this->apiUrl/Fenix/GetAllParts?" . $query;
 
-            foreach ($data['parts'] as $part) {
-                $parts[] = FenixCarPart::fromData($part);
-            }
+                $response = $this->client()->request('GET', $url);
+                $data = json_decode((string)$response->getBody(), true);
 
-            $skip += $take;
-            $totalCount = $data['count'] ?? 0;
+                $totalCount ??= $data['count'] ?? null;
 
-        } while ($skip < $totalCount);
+                foreach ($data['parts'] as $part) {
+                    $parts[] = FenixCarPart::fromData($part);
+                }
+
+                $page++;
+            } while (count($parts) < $totalCount);
+        } catch (\Throwable $e) {
+            logger('failed to import parts');
+            logger($e->getMessage());
+            die();
+        }
 
         return $parts;
     }
+
 
 
     public function getRemovedParts(array $dismantlers, string $changedDate): array
