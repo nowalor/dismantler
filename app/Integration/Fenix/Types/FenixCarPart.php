@@ -48,7 +48,7 @@ class FenixCarPart
 
         $car = $data['Car'] ?? [];
 
-        $carPart->sbr_car_name = $data['SbrCarName'] ?? null;
+        $carPart->sbr_car_name = $car['SbrCarName'] ?? null;
         $carPart->engine_code = $car['EngineCode1'] ?? null;
         $carPart->engine_type = $car['EngineType'] ?? null;
         $carPart->body_name = $car['BodyName'] ?? null;
