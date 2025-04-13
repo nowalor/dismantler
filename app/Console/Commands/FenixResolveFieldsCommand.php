@@ -89,6 +89,7 @@ class FenixResolveFieldsCommand extends Command
             "7487"
         ])*/
             ::whereNull('article_nr')
+            ->whereNull('country')
             ->take(2500)
         ->get();
 
