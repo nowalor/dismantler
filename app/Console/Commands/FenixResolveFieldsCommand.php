@@ -112,7 +112,7 @@ class FenixResolveFieldsCommand extends Command
 
                 if(!$carPartTypeId) {
                     $this->info("Failed, $carPart->sbr_part_code");
-                    exit;
+                    continue;
                 }
             }
 
