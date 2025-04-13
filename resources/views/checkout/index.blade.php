@@ -9,7 +9,7 @@
             <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('car-parts.index') }}">Car parts</a>
+                    <a href="{{ route('car-parts.search-by-name') }}">Car parts</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="{{ route('fullview', $carPart) }}">{{ $carPart->new_name }}</a>
