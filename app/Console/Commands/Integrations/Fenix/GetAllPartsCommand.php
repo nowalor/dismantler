@@ -33,6 +33,8 @@ class GetAllPartsCommand extends Command
             ->pluck('original_id')
             ->all();
 
+        logger('Existing ids:', $existingIds);
+
         $newParts = collect($parts)->reject(fn($part) => in_array($part->original_id, $existingIds))->values();
 
         $mappedParts = $newParts->map(fn($part) => [
