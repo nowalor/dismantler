@@ -69,7 +69,7 @@ class GetAllPartsCommand extends Command
         }
 
         // Logic for this could be nicer in the future...
-        $isLastDismantler = $importInfo->dismantler === FenixDismantlerEnum::AS->value;
+        $isLastDismantler = $importInfo->dismantler === FenixDismantlerEnum::H->value;
 
         if ($isLastDismantler) {
             // First dismantler from the enum going back a week

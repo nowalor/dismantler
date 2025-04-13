@@ -17,7 +17,7 @@ enum FenixDismantlerEnum: string
     case D = 'D';
     case VI = 'VI';
     case H = 'H';
-    case AS = 'AS';
+/*    case AS = 'AS';*/
 
     public static function next(string | null $current): self
     {
