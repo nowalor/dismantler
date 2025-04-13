@@ -94,7 +94,7 @@
             <p><span class="fw-bold">{{__('car-part-mileage')}}: </span>{{ $part->mileage_km }}</p>
         @endif
     </td>
-    <td class="text-white">.
+    <td class="text-white">
         <p><span class="fw-bold">{{__("car-part-modelyear")}}: </span>{{ $part->model_year }}</p>
     </td>
     <td class="text-white overflow-hidden text-nowrap">
