@@ -22,7 +22,7 @@ class GetAllPartsCommand extends Command
         if(!$importInfo) {
             $importInfo = FenixPartImport::create([
                 'dismantler' => FenixDismantlerEnum::W->value,
-                'from_date' => now()->subWeek(),
+                'from_date' => now()->subDay(),
                 'to_date' => now(),
             ]);
         }
@@ -75,8 +75,8 @@ class GetAllPartsCommand extends Command
             // First dismantler from the enum going back a week
             FenixPartImport::create([
                 'dismantler' => FenixDismantlerEnum::W->value,
-                'from_date' => Carbon::parse($importInfo->from_date)->subWeek(),
-                'to_date' => Carbon::parse($importInfo->to_date)->subWeek(),
+                'from_date' => Carbon::parse($importInfo->from_date)->subDay(),
+                'to_date' => Carbon::parse($importInfo->to_date)->subDay(),
             ]);
         } else {
             // Save the information about the dismantler we just got the info for
