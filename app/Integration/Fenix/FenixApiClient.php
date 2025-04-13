@@ -42,7 +42,6 @@ class FenixApiClient implements FenixClientInterface
 
 
     /**
-     * @return FenixCarPart[]
      * @throws GuzzleException
      */
     public function getAllParts(string $dismantler, ?string $dateFrom = null, ?string $dateTo = null): array
@@ -59,6 +58,7 @@ class FenixApiClient implements FenixClientInterface
             $page = 1;
             $pageSize = 1000;
             $parts = [];
+            $images = [];
             $totalCount = null;
 
             do {
@@ -80,6 +80,13 @@ class FenixApiClient implements FenixClientInterface
 
                 foreach ($data['parts'] as $part) {
                     $parts[] = FenixCarPart::fromData($part);
+
+                    foreach($part['Images'] as $image) {
+                        $images[] = [
+                            'original_url' => $image['Url'],
+                            'article_nr_at_carbreaker' => $image['ArticleNumberAtCarbreaker'],
+                        ];
+                    }
                 }
 
                 $page++;
@@ -90,7 +97,7 @@ class FenixApiClient implements FenixClientInterface
             die();
         }
 
-        return $parts;
+        return [$parts, $images];
     }
 
 
