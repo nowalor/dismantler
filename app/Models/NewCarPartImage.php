@@ -11,7 +11,7 @@ class NewCarPartImage extends Model
     use HasFactory;
 
     protected $fillable = [
-        'original_url', // 
+        'original_url',
         'image_name',
         'new_car_part_id',
         'image_name_blank_logo',
@@ -20,6 +20,7 @@ class NewCarPartImage extends Model
         'new_logo_german',
         'new_logo_danish',
         'new_logo_english',
+        'article_nr_at_carbreaker',
     ];
 
     public $timestamps = false;

@@ -26,7 +26,6 @@ class FenixCarPart
     public ?string $dismantled_at = null;
     public ?string $originally_created_at = null;
 
-    public array $images = [];
 
     public static function fromData(array $data): self
     {
@@ -44,7 +43,6 @@ class FenixCarPart
         $carPart->dismantle_company_name = $data['CarBreaker'] ?? null;
         $carPart->article_nr_at_dismantler = $data['ArticleNumberAtCarbreaker'] ?? null;
         $carPart->originally_created_at = $data['CreatedDate'] ?? null;
-        $carPart->images = $data['Images'] ?? [];
 
         $car = $data['Car'] ?? [];
 
