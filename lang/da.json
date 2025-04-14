@@ -108,5 +108,10 @@
     "reset-search": "Nulstil søgning",
     "select-brand": "Vælg et mærke",
     "select-model": "Vælg en model",
-    "shipping": "Forsendelse"
+    "shipping": "Forsendelse",
+    "recent-blogs": "Seneste Blogs",
+    "blog-homepage-button": "Forside",
+    "back-to-homepage": "Tilbage til forsiden",
+    "blog-no-image": "Intet billede",
+    "read-more-blogs": "Læs mere om det"
 }

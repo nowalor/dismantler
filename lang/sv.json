@@ -108,5 +108,10 @@
     "reset-search": "Återställ sökning",
     "select-brand": "Välj ett varumärke",
     "select-model": "Välj en modell",
-    "shipping": "Frakt"
+    "shipping": "Frakt",
+    "recent-blogs": "Senaste bloggar",
+    "blog-homepage-button": "Startsida",
+    "back-to-homepage": "Tillbaka till startsidan",
+    "blog-no-image": "Ingen bild",
+    "read-more-blogs": "Läs mer"
 }

@@ -32,6 +32,8 @@ use App\Http\Controllers\ViewCarPartTypesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\BrowsingCountryController;
+use App\Http\Controllers\BlogController;
+use App\Models\Blog;
 
 Route::get('search-by-plate', SearchByPlateController::class);
 Route::get('search-by-plate', [SearchByPlateController::class, 'search'])->name('search-by-plate');
@@ -53,6 +55,7 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ],
     function () {
+        Route::get('/blogs/{blog}', [BlogController::class, 'show'])->name('blogs.show');
         Route::get('', LandingPageController::class)->name('landingpage'); // homepage with new design
         Route::get('faq', FaqPageController::class)->name('faq');
         Route::get('contact', ContactPageController::class)->name('contact');
@@ -125,7 +128,7 @@ Route::group(
         Route::post('kba/delete/Connection/{kba}', [KbaController::class, 'deleteConnectionToEngineType'])->name('admin.kba.delete-connection');
         Route::resource('kba', KbaController::class, ['as' => 'admin']);
 
-          //blog
+        //blog
         Route::resource('blogs', AdminBlogController::class, ['as' => 'admin']);
         Route::get('/blogs/tag/{tag}', [AdminBlogController::class, 'filterByTag'])->name('blogs.byTag');
 
@@ -136,7 +139,7 @@ Route::group(
         Route::post('categories/disconnect-car-part/{mainCategory}', [AdminCategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
         // show individual category
         //Route::get('part-types-categories/{category}', [AdminCategoryController::class, 'show'])->name('admin.part-types-categories.show');
-
+    
         Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
         Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])->only(['index', 'show', 'store', 'destroy']);
 

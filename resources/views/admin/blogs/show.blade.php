@@ -41,10 +41,21 @@
         </div>
 
         <div class="text-center mt-4">
-            <a href="{{ route('admin.blogs.index') }}" class="btn btn-secondary">
-                <i class="bi bi-arrow-left"></i> Back to Blogs
-            </a>
+            @if(auth()->check() && auth()->user()->is_admin)
+                <a href="{{ url('/') }}" class="btn btn-secondary me-3">
+                    <i class="bi bi-arrow-left"></i> Homepage
+                </a>
+                <a href="{{ route('admin.blogs.index') }}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Blogs
+                </a>
+            @else
+                <a href="{{ url('/') }}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> {{ __('back-to-homepage') }}
+                </a>
+            @endif
         </div>
+
+
     </div>
 
     <!-- Custom Styling -->

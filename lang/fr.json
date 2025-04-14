@@ -117,5 +117,10 @@
     "reset-search": "Réinitialiser la recherche",
     "select-brand": "Sélectionner une marque",
     "select-model": "Sélectionner un modèle",
-    "shipping": "Expédition"
+    "shipping": "Expédition",
+    "recent-blogs": "Blogs récents",
+    "blog-homepage-button": "Accueil",
+    "back-to-homepage": "Retour à l'accueil",
+    "blog-no-image": "Pas d'image",
+    "read-more-blogs": "En savoir plus"
 }

@@ -117,5 +117,10 @@
     "reset-search": "Suche zurücksetzen",
     "select-brand": "Wählen Sie eine Marke",
     "select-model": "Wählen Sie ein Modell",
-    "shipping": "Versand"
+    "shipping": "Versand",
+    "recent-blogs": "Neueste Blogs",
+    "blog-homepage-button": "Startseite",
+    "back-to-homepage": "Zurück zur Startseite",
+    "blog-no-image": "Kein Bild",
+    "read-more-blogs": "Mehr lesen"
 }

@@ -21,6 +21,18 @@
                     @csrf
                     @method('PUT')
 
+                    <!-- Language Dropdown -->
+                    <div class="mb-3">
+                        <label for="language" class="form-label fw-bold">Language</label>
+                        <select name="language" class="form-select" required>
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $lang)
+                                <option value="{{ $localeCode }}" {{ $blog->language === $localeCode ? 'selected' : '' }}>
+                                    {{ Str::title($lang['native']) }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <!-- Image Upload -->
                     <div class="mb-3">
                         <label for="image" class="form-label fw-bold">Upload New Image</label>

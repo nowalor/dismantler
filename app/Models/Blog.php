@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
+
 use Parsedown;
 
 class Blog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'published_at', 'image'];
+    protected $fillable = ['title', 'content', 'published_at', 'image', 'language'];
     protected $casts = [
         'published_at' => 'datetime',
     ];
