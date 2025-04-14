@@ -28,18 +28,23 @@
         <hr class="my-4 mx-auto" style="width: 50%; border-top: 2px solid #28a745;">
 
         <!-- About Details -->
-        <h5 class="mt-3 font-italic text-muted">
+        <h5 class="pt-2 font-italic text-muted">
             {{ __('about-text-three') }}
-        </h5>
-        <h5 class="mt-3 font-italic text-muted">
             {{ __('about-text-four') }}
         </h5>
-        <h5 class="mt-3 font-italic text-muted">
+
+        <h5 class="pt-2 font-italic text-muted">
             {{ __('about-text-five') }}
-        </h5>
-        <h5 class="mt-3 font-italic text-muted">
             {{ __('about-text-six') }}
+            {{ __('about-text-seven') }}
         </h5>
+
+        <h5 class="pt-2">
+            {{ __('about-text-eight') }}
+            <br>
+            {{ __('about-text-nine') }}
+        </h5>
+
 
         <!-- Guarantee Text -->
         <div class="mt-4 p-3 rounded bg-light shadow-sm">

@@ -46,7 +46,8 @@ class FenixResolveFieldsCommand extends Command
 //            ->get();
 
 
-        $carParts = NewCarPart::whereIn('sbr_part_code', [
+        $carParts = NewCarPart
+            /*::whereIn('sbr_part_code', [
             "7201",
             "7280",
             "7704",
@@ -86,8 +87,10 @@ class FenixResolveFieldsCommand extends Command
             "4626",
             "7470",
             "7487"
-        ])
-            ->whereNull('article_nr')
+        ])*/
+            ::whereNull('article_nr')
+            ->whereNull('country')
+            ->take(2500)
         ->get();
 
         foreach($carParts as $carPart) {
@@ -109,7 +112,7 @@ class FenixResolveFieldsCommand extends Command
 
                 if(!$carPartTypeId) {
                     $this->info("Failed, $carPart->sbr_part_code");
-                    exit;
+                    continue;
                 }
             }
 

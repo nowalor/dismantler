@@ -59,7 +59,6 @@ Route::group(
         Route::get('', LandingPageController::class)->name('landingpage'); // homepage with new design
         Route::get('faq', FaqPageController::class)->name('faq');
         Route::get('contact', ContactPageController::class)->name('contact');
-        Route::get('test-lang', TestLangController::class)->name('test-lang');
 
         // fetching part types depending on what category you're hovering
         Route::get('/subcategories/{mainCategory}', [ViewCarPartTypesController::class, 'index']);
@@ -77,7 +76,6 @@ Route::group(
         Route::post('login', [LoginController::class, 'login'])->name('login');
 
         // Regular routes
-        Route::resource('car-parts', CarPartController::class);
         Route::get('car-parts/search/by-code', [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
         Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
         Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');

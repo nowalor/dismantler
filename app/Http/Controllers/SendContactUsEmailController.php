@@ -19,7 +19,7 @@ class SendContactUsEmailController extends Controller
                 ->send(new ContactUsMail($validated));
 
             return redirect()->back()->withMessage('Email has been sent successfully');
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             logger($e->getMessage());
 
             return redirect()->back()->withError('Something went wrong, you can just write to us at service@currus-connect.com');

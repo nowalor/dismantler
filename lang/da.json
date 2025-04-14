@@ -109,9 +109,14 @@
     "select-brand": "Vælg et mærke",
     "select-model": "Vælg en model",
     "shipping": "Forsendelse",
+
     "recent-blogs": "Seneste Blogs",
     "blog-homepage-button": "Forside",
     "back-to-homepage": "Tilbage til forsiden",
     "blog-no-image": "Intet billede",
     "read-more-blogs": "Læs mere om det"
+
+    "about-text-eight": "Du kan nå os via vores danske telefonnummer (+45) 77 34 38 77",
+    "about-text-nine": "Eller via vores tyske telefonnummer (+49) 05 14 47 45 99 81"
+
 }
