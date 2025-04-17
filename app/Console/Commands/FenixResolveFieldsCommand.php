@@ -96,7 +96,7 @@ class FenixResolveFieldsCommand extends Command
              */
             ->whereNull('fields_resolved_at')
             ->whereNull('country')
-            ->take(2500)
+            ->take(3500)
         ->get();
 
         foreach($carParts as $carPart) {

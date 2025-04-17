@@ -185,7 +185,7 @@ class FenixResolveCarPartImagesCommand extends Command
 
 
         $this->info("Count left: {$carPartsQuery->count()}}");
-        $carParts = $carPartsQuery->take(1000)->get();
+        $carParts = $carPartsQuery->take(1250)->get();
 
         foreach ($carParts as $carPart) {
             if(!isset($dismantlers[$carPart->dismantle_company_name])) {
