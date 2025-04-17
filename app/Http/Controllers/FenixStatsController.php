@@ -29,12 +29,20 @@ class FenixStatsController extends Controller
             ->distinct()
             ->count('sbr_part_code');
 
+        $resolvedPartsWithProcessedImages = NewCarPart::with('carPartImages')
+            ->whereNotNull('fields_resolved_at')
+            ->whereNotNull('article_nr')
+            ->whereHas('carPartImages', function($query) {
+                $query->whereNotNull('new_logo_danish');
+            })->count();
+
         return [
             'resolvedParts' => $resolvedParts,
             'sellableParts' => $sellableParts,
             'unSellableParts' => $unSellableParts,
-            'unSellablePartTypes' => $unSellablePartTypes,
-            'unSellablePartTypeCounts ' => $unSellablePartTypeCounts
+     /*       'unSellablePartTypes' => $unSellablePartTypes,*/
+            'resolvedPartsWithProcessedImages' => $resolvedPartsWithProcessedImages,
+            'unSellablePartTypeCounts ' => $unSellablePartTypeCounts,
         ];
     }
 }
