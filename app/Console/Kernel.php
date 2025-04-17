@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
         //$schedule->command('german:parts:seed')->dailyAt('18:59');
           $schedule->command('hood:export')->dailyAt('11:23');
           $schedule->command('fenix:resolve-images')->everyTenMinutes();
-        $schedule->command('fenix:get-all-parts')->everyFiveMinutes();
+        $schedule->command('fenix:get-all-parts')->everyThreeMinutes();
         $schedule->command('fenix-images:find-car-part-id')->everyTenMinutes();
         $schedule->command('fenix:resolve-fields')->everyTenMinutes();
 

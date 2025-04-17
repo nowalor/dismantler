@@ -36,7 +36,7 @@
     @yield('js')
     <style>
         body {
-            @if (!in_array(Route::currentRouteName(), ['checkout', 'checkout.success', 'approval']))
+            @if (!in_array(Route::currentRouteName(), ['checkout', 'checkout.success', 'approval', 'fenix.stats']))
                 background-image: url(' {{ asset('img/enginedark.jpg') }}');
             @endif
             background-size: cover;

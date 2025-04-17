@@ -17,11 +17,11 @@ class FenixStatsController extends Controller
             ->whereNull('article_nr')
             ->count();
 
-        $unSellablePartTypes = NewCarPart::whereNotNull('fields_resolved_at')
+/*        $unSellablePartTypes = NewCarPart::whereNotNull('fields_resolved_at')
             ->whereNull('article_nr')
             ->select('sbr_part_code')
             ->distinct()
-            ->pluck('sbr_part_code');
+            ->pluck('sbr_part_code');*/
 
         $unSellablePartTypeCounts = NewCarPart::whereNotNull('fields_resolved_at')
             ->whereNull('article_nr')
@@ -36,13 +36,15 @@ class FenixStatsController extends Controller
                 $query->whereNotNull('new_logo_german');
             })->count();
 
-        return [
+        $stats =  [
             'resolvedParts' => $resolvedParts,
             'sellableParts' => $sellableParts,
             'unSellableParts' => $unSellableParts,
-     /*       'unSellablePartTypes' => $unSellablePartTypes,*/
+            /*       'unSellablePartTypes' => $unSellablePartTypes,*/
             'sellable' => $sellablePartsWithProcessedImage,
             'unSellablePartTypeCounts ' => $unSellablePartTypeCounts,
         ];
+
+        return view('admin.fenix.stats', compact('stats'));
     }
 }
