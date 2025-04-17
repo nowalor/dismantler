@@ -123,7 +123,8 @@ class FenixResolveCarPartImagesCommand extends Command
             ->with('carPartImages')
             ->whereNotNull('dismantle_company_name')
             ->where('dismantle_company_name', '!=', '')
-            ->whereNotNull('article_nr_at_carbreaker') // Only processing the new parts at the moment :)
+            ->whereNotNull('article_nr')
+            ->whereNotNull('fields_resolved_at')
 //            ->where('dismantle_company_name', 'A')
 //            ->whereNotNull('engine_code')
          /*   ->whereIn('external_part_type_id', CarPart::CAR_PART_TYPE_IDS_TO_INCLUDE)*/
