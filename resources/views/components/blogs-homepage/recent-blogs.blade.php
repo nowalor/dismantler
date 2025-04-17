@@ -5,7 +5,7 @@
         <div class="carousel-inner">
             @foreach($recentBlogs->chunk(3) as $chunkIndex => $chunk)
                 <div class="carousel-item {{ $chunkIndex === 0 ? 'active' : '' }}">
-                    <div class="row g-4 px-3">
+                    <div class="row g-4 px-3 justify-content-center">
                         @foreach($chunk as $blog)
                             <div class="col-md-4 d-flex">
                                 <div class="card blog-card shadow-sm border-0 w-100 h-100 rounded-4">
