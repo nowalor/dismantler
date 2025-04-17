@@ -49,7 +49,7 @@ class CarPartController extends Controller
             'original_number',
             'engine_type',
             'car_part_type_id'
-        ])->with('ditoNumber', 'carPartType');
+        ])->with('ditoNumber', 'carPartType')->whereNull('country');
 
         $kba = null;
 
@@ -131,7 +131,7 @@ class CarPartController extends Controller
             'carPartType',
             'dismantleCompany',
             'sbrCode',
-        ]);
+        ])->whereNull('country');
 
 
         if (!empty($search)) {
