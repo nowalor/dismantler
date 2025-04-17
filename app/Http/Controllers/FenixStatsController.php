@@ -33,7 +33,7 @@ class FenixStatsController extends Controller
             ->whereNotNull('fields_resolved_at')
             ->whereNotNull('article_nr')
             ->whereHas('carPartImages', function($query) {
-                $query->whereNotNull('new_logo_danish');
+                $query->whereNotNull('new_logo_german');
             })->count();
 
         return [
