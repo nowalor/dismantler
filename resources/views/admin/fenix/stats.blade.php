@@ -18,6 +18,27 @@
                    </span>
                     <span class="fw-lighter fst-italic">{{ $stats['sellableParts'] }}</span>
                 </p>
+
+                <p>
+                   <span class="fw-bolder">
+                       Unsellable parts:
+                   </span>
+                    <span class="fw-lighter fst-italic">{{ $stats['unSellableParts'] }}</span>
+                </p>
+
+                <p>
+                   <span class="fw-bolder">
+                       Sellable with processed image:
+                   </span>
+                    <span class="fw-lighter fst-italic">{{ $stats['sellable'] }}</span>
+                </p>
+
+               <p>
+                   <span class="fw-bolder">
+                       Unsellable sbr part codes(to decrease add more part types to excel):
+                   </span>
+                    <span class="fw-lighter fst-italic">{{ $stats['unSellablePartTypeCounts'] }}</span>
+                </p>
             </div>
         </div>
     </div>
