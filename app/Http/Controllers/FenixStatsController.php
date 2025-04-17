@@ -54,4 +54,25 @@ class FenixStatsController extends Controller
 
         return view('admin.fenix.part-types');
     }
+
+    /*
+    * Show a list of part types we should add to our excel to be able to sell
+    */
+    public function partTypesWeHave()
+    {
+        $unSellablePartTypes = NewCarPart::whereNotNull('fields_resolved_at')
+            ->with('carPartType')
+            ->whereNotNull('article_nr')
+            ->select('car_part_type_id', DB::raw('COUNT(*) as count'))
+            ->groupBy('car_part_type_id')
+            ->orderByDesc('count')
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->carPartType->name ?? 'Unknown' => $item->count];
+            });
+
+        return $unSellablePartTypes;
+
+        return view('admin.fenix.part-types');
+    }
 }
