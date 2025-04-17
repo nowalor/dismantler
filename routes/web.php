@@ -8,6 +8,7 @@ use App\Http\Controllers\BrandModelCarPartTypeController;
 use App\Http\Controllers\CarPartController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FaqPageController;
+use App\Http\Controllers\FenixStatsController;
 use App\Http\Controllers\NewsletterSigneeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
@@ -116,6 +117,8 @@ Route::group(
         ],
     ],
     function () {
+        Route::get('fenix/stats', [FenixStatsController::class, 'index'])->name('fenix.stats');
+
         Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
         Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');
         //Route::resource('dito-numbers', AdminDitoNumbersController::class, ['as' => 'admin']);
