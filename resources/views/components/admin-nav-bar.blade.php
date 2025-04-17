@@ -51,6 +51,11 @@
                         <a class="text-danger nav-link {{ activeMenu('admin/blogs') }}"
                             href="{{ route('admin.blogs.index') }}">Blog</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="text-danger nav-link {{ activeMenu('admin/blogs') }}"
+                           href="{{ route('admin.fenix.stats') }}">Fenix stats!</a>
+                    </li>
                 </ul>
             </div>
         </div>

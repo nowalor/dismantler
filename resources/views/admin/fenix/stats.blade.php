@@ -35,11 +35,19 @@
 
                <p>
                    <span class="fw-bolder">
-                       Unsellable sbr part codes(to decrease add more part types to excel):
+                       Unsellable part types(to decrease add more part types to excel):
                    </span>
                    <a href="{{ route('admin.fenix.part-types') }}">
                        <span class="fw-lighter fst-italic">{{ $stats['unSellablePartTypeCounts'] }}</span>
                    </a>
+                </p>
+                <p>
+                   <span class="fw-bolder">
+                       Sellable part types:
+                   </span>
+                    <a href="{{ route('admin.fenix.part-types-we-have') }}">
+                        <span class="fw-lighter fst-italic">{{ $stats['sellablePartTypeCount'] }}</span>
+                    </a>
                 </p>
             </div>
         </div>

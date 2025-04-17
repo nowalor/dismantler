@@ -20,6 +20,11 @@ class FenixStatsController extends Controller
             ->distinct()
             ->count('sbr_part_code');
 
+        $sellablePartTypeCount = NewCarPart::whereNotNull('fields_resolved_at')
+            ->whereNotNull('article_nr')
+            ->distinct()
+            ->count('car_part_type_id');
+
         $sellablePartsWithProcessedImage = NewCarPart::whereNotNull('fields_resolved_at')
             ->whereNotNull('article_nr')
             ->whereHas('carPartImages', function($query) {
@@ -33,6 +38,7 @@ class FenixStatsController extends Controller
             'unSellableParts' => $aggregates->unsellable_parts,
             'sellable' => $sellablePartsWithProcessedImage,
             'unSellablePartTypeCounts' => $unSellablePartTypeCounts,
+            'sellablePartTypeCount' => $sellablePartTypeCount,
         ];
 
         return view('admin.fenix.stats', compact('stats'));
