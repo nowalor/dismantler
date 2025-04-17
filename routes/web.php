@@ -117,7 +117,8 @@ Route::group(
         ],
     ],
     function () {
-        Route::get('fenix/stats', [FenixStatsController::class, 'index'])->name('fenix.stats');
+        Route::get('fenix/stats', [FenixStatsController::class, 'index'])->name('admin.fenix.stats');
+        Route::get('fenix/stats/part-types', [FenixStatsController::class, 'partTypes'])->name('admin.fenix.part-types');
 
         Route::get('', AdminHomepageController::class)->name('admin.dito-numbers.index');
         Route::get('dito-numbers/{ditoNumber}/filter', [AdminDitoNumbersController::class, 'filter'])->name('admin.dito-numbers.filter');

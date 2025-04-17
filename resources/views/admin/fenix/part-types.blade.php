@@ -3,14 +3,14 @@
 @section('content')
     <div class="col-6 mx-auto pt-4">
         <div class="card">
-            <div class="card-header">Statistics</div>
-            <div class="card-body">
-               <p>
+            <div class="card-header">Part types</div>
+          {{--  <div class="card-body">
+                <p>
                    <span class="fw-bolder">
                        Processed parts:
                    </span>
-                   <span class="fw-lighter fst-italic">{{ $stats['resolvedParts'] }}</span>
-               </p>
+                    <span class="fw-lighter fst-italic">{{ $stats['resolvedParts'] }}</span>
+                </p>
 
                 <p>
                    <span class="fw-bolder">
@@ -33,15 +33,15 @@
                     <span class="fw-lighter fst-italic">{{ $stats['sellable'] }}</span>
                 </p>
 
-               <p>
+                <p>
                    <span class="fw-bolder">
                        Unsellable sbr part codes(to decrease add more part types to excel):
                    </span>
-                   <a href="{{ route('admin.fenix.part-types') }}">
-                       <span class="fw-lighter fst-italic">{{ $stats['unSellablePartTypeCounts'] }}</span>
-                   </a>
+                    <a href="{{ route('admin.fenix.part-types') }}">
+                        <span class="fw-lighter fst-italic">{{ $stats['unSellablePartTypeCounts'] }}</span>
+                    </a>
                 </p>
             </div>
-        </div>
+        </div>--}}
     </div>
 @endsection

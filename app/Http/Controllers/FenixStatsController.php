@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewCarPart;
+use Illuminate\Support\Facades\DB;
 
 class FenixStatsController extends Controller
 {
-
     public function index()
     {
         $aggregates = NewCarPart::selectRaw("
@@ -38,4 +38,20 @@ class FenixStatsController extends Controller
         return view('admin.fenix.stats', compact('stats'));
     }
 
+    /*
+     * Show a list of part types we should add to our excel to be able to sell
+     */
+    public function partTypes()
+    {
+        $unSellablePartTypes = NewCarPart::whereNotNull('fields_resolved_at')
+            ->whereNull('article_nr')
+            ->select('sbr_part_code', DB::raw('COUNT(*) as count'))
+            ->groupBy('sbr_part_code')
+            ->orderByDesc('count')
+            ->get();
+
+        return $unSellablePartTypes;
+
+        return view('admin.fenix.part-types');
+    }
 }
