@@ -42,8 +42,7 @@ class FindCarPartIdForImageCommand extends Command
         collect($updates)->chunk(500)->each(function ($chunk) {
             foreach ($chunk as $update) {
                 NewCarPartImage::where('id', $update['id'])->update([
-                    'new_car_part_i
-                    d' => $update['new_car_part_id'],
+                    'new_car_part_id' => $update['new_car_part_id'],
                 ]);
             }
         });

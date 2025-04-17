@@ -89,11 +89,20 @@ class FenixResolveFieldsCommand extends Command
             "7487"
         ])*/
             ::whereNull('article_nr')
+            /*
+             * Important field that has a timestamp of when we tried to process this part
+             * If we were unable to it will not be null but article_nr will be null
+             * Then we can just try to process it again in the future when we have more information :)
+             */
+            ->whereNull('fields_resolved_at')
             ->whereNull('country')
             ->take(2500)
         ->get();
 
         foreach($carParts as $carPart) {
+            $carPart->fields_resolved_at = now();
+            $carPart->save();
+
             if($carPart->country === 'DK') {
                 $carPartTypeId = DanishCarPartType::where('code', $carPart->dito_number)
                     ->first()
@@ -112,6 +121,7 @@ class FenixResolveFieldsCommand extends Command
 
                 if(!$carPartTypeId) {
                     $this->info("Failed, $carPart->sbr_part_code");
+
                     continue;
                 }
             }
