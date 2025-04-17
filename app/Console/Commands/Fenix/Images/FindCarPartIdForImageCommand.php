@@ -14,7 +14,7 @@ class FindCarPartIdForImageCommand extends Command
     {
         $images = NewCarPartImage::whereNull('new_car_part_id')
             ->whereNotNull('article_nr_at_carbreaker')
-            ->take(5000)
+            ->take(7500)
             ->get();
 
         if ($images->isEmpty()) {
