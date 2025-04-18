@@ -44,8 +44,8 @@ class GetAllPartsCommand extends Command
                 return false;
             }
 
-            if ($price <= 0) {
-                logger("Skipping part with price <= 0: " . json_encode($part));
+            if ($price < 0) {
+                logger("Skipping part with price < 0: " . json_encode($part));
                 return false;
             }
 
