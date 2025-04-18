@@ -38,11 +38,11 @@ class GetAllPartsCommand extends Command
         $parts = collect($parts)->filter(function ($part) {
             $price = $part->price_sek;
 
-            // Log and skip invalid prices
+       /*     // Log and skip invalid prices
             if (!is_numeric($price)) {
                 logger("Skipping part with non-numeric price: " . json_encode($part));
                 return false;
-            }
+            }*/
 
             if ($price < 0) {
                 logger("Skipping part with price < 0: " . json_encode($part));
