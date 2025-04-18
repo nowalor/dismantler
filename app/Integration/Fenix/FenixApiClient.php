@@ -79,6 +79,21 @@ class FenixApiClient implements FenixClientInterface
                 $totalCount ??= $data['count'] ?? null;
 
                 foreach ($data['parts'] as $part) {
+                    if(gettype($part['Price']) !== 'integer' && gettype($part['Price']) !== 'double') {
+                        logger("Price not working: " . $part['Price']);
+                        continue;
+                    }
+
+                    if ($part['Price'] <= 0) {
+                        logger("Price not working, less then 0: " . $part['Price']);
+                        continue;
+                    }
+
+                    if($part['Price'] >= 99999999.99) {
+                        logger("Price not working, to high: " . $part['Price']);
+                        continue;
+                    }
+
                     $parts[] = FenixCarPart::fromData($part);
 
                     foreach($part['Images'] as $image) {
