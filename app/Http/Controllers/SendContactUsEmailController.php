@@ -14,6 +14,7 @@ class SendContactUsEmailController extends Controller
 
         $validated = $request->validated();
 
+
         try {
             Mail::to('service@currus-connect.com')
                 ->send(new ContactUsMail($validated));

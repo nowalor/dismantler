@@ -32,8 +32,8 @@ class SendContactUsEmailRequest extends FormRequest
             'subject' => 'required|string|max:50',
             'message' => 'required|string',
             'phone' => 'string',
-            'plate' => 'string',
-            'vin' => 'string',
+            'plate' => 'sometimes|string|nullable',
+            'vin' => 'sometimes|string',
             'recaptcha_token' => 'required|string',
         ];
     }
