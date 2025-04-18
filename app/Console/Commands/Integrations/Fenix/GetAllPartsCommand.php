@@ -35,6 +35,28 @@ class GetAllPartsCommand extends Command
 
         logger('Existing ids:', $existingIds);
 
+        $parts = collect($parts)->filter(function ($part) {
+            $price = $part->price_sek;
+
+            // Log and skip invalid prices
+            if (!is_numeric($price)) {
+                logger("Skipping part with non-numeric price: " . json_encode($part));
+                return false;
+            }
+
+            if ($price <= 0) {
+                logger("Skipping part with price <= 0: " . json_encode($part));
+                return false;
+            }
+
+            if ($price >= 99999999.99) {
+                logger("Skipping part with very high price: " . json_encode($part));
+                return false;
+            }
+
+            return true;
+        })->values()->all();
+
         $newParts = collect($parts)->reject(fn($part) => in_array($part->original_id, $existingIds))->values();
 
         $mappedParts = $newParts->map(fn($part) => [
