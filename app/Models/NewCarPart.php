@@ -311,7 +311,7 @@ class NewCarPart extends Model
                 'price' => 999999999999999999,
                 'currency' => $priceInfo['currency']['to'],
                 'symbol' => $priceInfo['symbol'],
-                'shipment' => $priceInfo['shipment']['total'],
+                'shipment' => $priceInfo['shipment'],
                 'vat' => $priceInfo['vat'],
             ];
         }
