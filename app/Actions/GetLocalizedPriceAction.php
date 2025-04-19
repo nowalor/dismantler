@@ -44,7 +44,6 @@ class GetLocalizedPriceAction
 
         $fromCurrency = $partFrom === 'da' ? 'dkk' : 'sek'; // Currently only have parts from sweden and denmark
 
-
         return [
             'requires_request' => false,
             'currency' => [

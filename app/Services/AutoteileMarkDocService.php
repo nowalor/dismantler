@@ -72,6 +72,9 @@ class AutoteileMarkDocService
             ];
         })->toArray();
 
+        $delivery = $carPart->getLocalizedPrice('de')['shipment']['total'] * 1.05;
+        $finalDelivery = $delivery >= 150 ? $delivery : 150;
+
         $formattedPart = [
             'cat_id' => $this->resolveCategoryId($carPart),
             'article_nr' => $carPart->article_nr,
@@ -90,7 +93,7 @@ class AutoteileMarkDocService
             'price' => $carPart->getLocalizedPrice('de')['price'] * 1.1,
             'price_b2b' =>  $carPart->getLocalizedPrice('de')['price'] * 1.05,
             'bulky' => 1, // Customers can order in bulk and save on delivery costs
-            'delivery' => $carPart->getLocalizedPrice('de')['shipment']['total'] * 1.05,
+            'delivery' => $finalDelivery,
             'delivery_time' => $carPart->dismantle_company_name === 'F' ? '7-10' : '3-6',
             'properties' => $this->resolveProperties($carPart),
         ];
