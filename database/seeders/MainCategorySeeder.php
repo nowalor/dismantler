@@ -11,34 +11,33 @@ class MainCategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'Exhaust system',
-            'Axle drive',
-            'Axle suspension',
-            'Towing device / attachments',
-            'Lighting',
+            'Body parts',
+            'Fuel system',
+            'Audio/Communication system',
             'Brake system',
+            'Gearbox/Transmission',
+            'Chassis/Steering',
+            'Cooling/Heating/Aircon',
+            'Switches/Relays/Sensor',
+            'Looks/Locking system',
+            'Wipers',
+            'Interior',
             'Electronic parts',
-            'Suspension',
-            'Transmission',
-            'Information / communication systems',
-            'Interior equipment',
+            'Lights/Mirrors',
+            'Engine/Engine parts',
+            'Exhaust system',
             'Instruments',
-            'Air conditioning',
-            'Mirrors',
-            'Fuel supply system',
-            'Cooling',
-            'Steering',
-            'Engine',
-            'Wheel drive',
-            'Windshield washer system',
-            'Ignition / glow system',
         ];
 
+        //DB::table('main_category_car_part_type')->delete();
+        //DB::table('main_categories')->delete();
+
         foreach ($categories as $category) {
-            DB::table('main_categories')->updateOrInsert(
-                ['name' => $category],
-                ['translation_key' => Str::slug($category, '_')]
-            );
+            DB::table('main_categories')->insert([
+                'name' => $category,
+                'translation_key' => Str::slug($category, '_'),
+                'slug' => Str::slug($category),
+            ]);
         }
     }
 }
