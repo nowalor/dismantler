@@ -1,3 +1,4 @@
+@if($recentBlogs->isNotEmpty())
 <div class="container py-5 position-relative">
     <h2 class="text-center text-white display-5 fw-semibold mb-5">{{ __('recent-blogs') }}</h2>
 
@@ -61,7 +62,7 @@
         @endif
     </div>
 </div>
-
+@endif
 <style>
     .blog-card {
         border-radius: 1rem;
