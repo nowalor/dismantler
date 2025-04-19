@@ -32,7 +32,7 @@ use App\Http\Controllers\ViewCarPartTypesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\BrowsingCountryController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PublicBlogArticleController;
 use App\Models\Blog;
 
 Route::get('search-by-plate', SearchByPlateController::class);
@@ -55,7 +55,6 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ],
     function () {
-        Route::get('/blogs/{blog}', [BlogController::class, 'show'])->name('blogs.show');
         Route::get('', LandingPageController::class)->name('landingpage'); // homepage with new design
         Route::get('faq', FaqPageController::class)->name('faq');
         Route::get('contact', ContactPageController::class)->name('contact');
@@ -104,6 +103,10 @@ Route::group(
 
         // full view of individual car part
         Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
+
+        // public blog article
+        Route::get('/blogs/{blog}', [PublicBlogArticleController::class, 'show'])->name('blogs.show');
+
     },
 );
 
