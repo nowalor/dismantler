@@ -984,8 +984,8 @@
     },
     {
         "id": 36,
-        "name": " Steering ",
-        "translation_key": "_steering_",
+        "name": "Steering ",
+        "translation_key": "steering_",
         "german_car_part_types": [
             {
                 "id": 35,
@@ -1234,7 +1234,6 @@
             }
         ]
     },
-
     {
         "id": 46,
         "name": "Side spoiler right",
@@ -1767,7 +1766,6 @@
             }
         ]
     },
-
     {
         "id": 70,
         "name": "Autopilot control unit",
@@ -2748,7 +2746,6 @@
             }
         ]
     },
-
     {
         "id": 109,
         "name": "Hifi kable",
@@ -3281,8 +3278,6 @@
             }
         ]
     },
-
-
     {
         "id": 130,
         "name": "Fog light - front",
@@ -4050,6 +4045,506 @@
                 "id": 164,
                 "name": "SÄKERHETSBÄLTE FRAM MITT",
                 "code": 3164
+            }
+        ]
+    },
+    {
+        "id": 161,
+        "name": "Seat belt buckle",
+        "translation_key": "seat_belt_buckle",
+        "german_car_part_types": [
+            {
+                "id": 160,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 197,
+                "name": "SELEHOLDER",
+                "code": 7613,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 198,
+                "name": "SELESTRAMMER",
+                "code": 7612,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 166,
+                "name": "SÄKERHETSBÄLTESLÅS/STOPP",
+                "code": 3120
+            }
+        ]
+    },
+    {
+        "id": 162,
+        "name": "Window lift switch",
+        "translation_key": "window_lift_switch",
+        "german_car_part_types": [
+            {
+                "id": 161,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 199,
+                "name": "KONTAKT RUDEHEJS",
+                "code": 6508,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 167,
+                "name": "STRÖMSTÄLLARE ELHISS",
+                "code": 7448
+            }
+        ]
+    },
+    {
+        "id": 163,
+        "name": "Rear parking sensor",
+        "translation_key": "rear_parking_sensor",
+        "german_car_part_types": [
+            {
+                "id": 162,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 9999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 200,
+                "name": "BAK SENSOR",
+                "code": 6521,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 168,
+                "name": "PARKERINGSHJÄLP BACKSENSOR",
+                "code": 5025
+            }
+        ]
+    },
+    {
+        "id": 164,
+        "name": "Ignition coil",
+        "translation_key": "ignition_coil",
+        "german_car_part_types": [
+            {
+                "id": 163,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 201,
+                "name": "TÆNDSPOLE",
+                "code": 1580,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 202,
+                "name": "TÆNDSPOLE EL",
+                "code": 1581,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 169,
+                "name": "TÄNDSPOLE",
+                "code": 7450
+            }
+        ]
+    },
+    {
+        "id": 165,
+        "name": "Light switch",
+        "translation_key": "light_switch",
+        "german_car_part_types": [
+            {
+                "id": 164,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 203,
+                "name": "KONTAKT LYS",
+                "code": 6502,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 204,
+                "name": "KONTAKT LYS/VISK",
+                "code": 6503,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 170,
+                "name": "STRÖMSTÄLLARE LJUS",
+                "code": 7446
+            }
+        ]
+    },
+    {
+        "id": 166,
+        "name": "Throttle body",
+        "translation_key": "throttle_body",
+        "german_car_part_types": [
+            {
+                "id": 165,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 205,
+                "name": "SPJÆLDHUS",
+                "code": 1405,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 171,
+                "name": "INJ.SPJÄLLHUS",
+                "code": 7275
+            }
+        ]
+    },
+    {
+        "id": 167,
+        "name": "Control module – miscellaneous",
+        "translation_key": "control_module___miscellaneous",
+        "german_car_part_types": [
+            {
+                "id": 166,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 206,
+                "name": "RELÆ DIVERSE",
+                "code": 6789,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 172,
+                "name": "STYRENHET ÖVRIGT",
+                "code": 7498
+            }
+        ]
+    },
+    {
+        "id": 168,
+        "name": "Door hinges",
+        "translation_key": "door_hinges",
+        "german_car_part_types": [
+            {
+                "id": 167,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 207,
+                "name": "STENPLADE",
+                "code": 4080,
+                "egluit_id": "1111"
+            },
+            {
+                "id": 208,
+                "name": "AFDÆKNINGSPLADER UND.BIL",
+                "code": 4081,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 173,
+                "name": "DÖRRGÅNGJÄRN",
+                "code": 3003
+            }
+        ]
+    },
+    {
+        "id": 169,
+        "name": "Rear screen wiper engine",
+        "translation_key": "rear_screen_wiper_engine",
+        "german_car_part_types": [
+            {
+                "id": 168,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 209,
+                "name": "BAGRUDEVISKERMOTOR",
+                "code": 6600,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 174,
+                "name": "TORKARMOTOR BAKLUCKA",
+                "code": 7416
+            }
+        ]
+    },
+    {
+        "id": 170,
+        "name": "Front screen wiper engine",
+        "translation_key": "front_screen_wiper_engine",
+        "german_car_part_types": [
+            {
+                "id": 169,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 210,
+                "name": "VISKERMOTOR",
+                "code": 6550,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 175,
+                "name": "TORKARMOTOR VINDRUTA",
+                "code": 7415
+            }
+        ]
+    },
+    {
+        "id": 171,
+        "name": "Lambda probe",
+        "translation_key": "lambda_probe",
+        "german_car_part_types": [
+            {
+                "id": 170,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 211,
+                "name": "LAMBDASONDE",
+                "code": 1287,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 176,
+                "name": "INJ.LAMBDASOND",
+                "code": 7463
+            }
+        ]
+    },
+    {
+        "id": 172,
+        "name": "Nozzle",
+        "translation_key": "nozzle",
+        "german_car_part_types": [
+            {
+                "id": 171,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 212,
+                "name": "DYSE",
+                "code": 1442,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 177,
+                "name": "INJ.SPRIDARE",
+                "code": 7251
+            }
+        ]
+    },
+    {
+        "id": 173,
+        "name": "Door stop",
+        "translation_key": "door_stop",
+        "german_car_part_types": [
+            {
+                "id": 172,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 213,
+                "name": "DØRSTOP",
+                "code": 4374,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 178,
+                "name": "DÖRRSTOPP",
+                "code": 3015
+            }
+        ]
+    },
+    {
+        "id": 174,
+        "name": "Rear bumper - untreated",
+        "translation_key": "rear_bumper___untreated",
+        "german_car_part_types": [
+            {
+                "id": 173,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 214,
+                "name": "KOFANGERSTIVER",
+                "code": 5130,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 179,
+                "name": "STÖTFÅNGARFÄSTE BAK HÖ",
+                "code": 5094
+            }
+        ]
+    },
+    {
+        "id": 175,
+        "name": "Wing mirror - switch",
+        "translation_key": "wing_mirror___switch",
+        "german_car_part_types": [
+            {
+                "id": 174,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 215,
+                "name": "KONTAKT SIDESPEJL",
+                "code": 7505,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 180,
+                "name": "STRÖMSTÄLLARE SPEGEL",
+                "code": 7449
+            }
+        ]
+    },
+    {
+        "id": 176,
+        "name": "Air flow meter",
+        "translation_key": "air_flow_meter",
+        "german_car_part_types": [
+            {
+                "id": 175,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 216,
+                "name": "LUFTMÆNGDEMÅLER",
+                "code": 1434,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 181,
+                "name": "INJ.LUFTMASSAMÄTARE",
+                "code": 7247
+            }
+        ]
+    },
+    {
+        "id": 177,
+        "name": "Headlight washer cylinder",
+        "translation_key": "headlight_washer_cylinder",
+        "german_car_part_types": [
+            {
+                "id": 176,
+                "name": "Replace",
+                "code": null,
+                "autoteile_markt_category_id": 99999999
+            }
+        ],
+        "danish_car_part_types": [
+            {
+                "id": 217,
+                "name": "SPRINKLERDYSE",
+                "code": 6608,
+                "egluit_id": "1111"
+            }
+        ],
+        "swedish_car_part_types": [
+            {
+                "id": 182,
+                "name": "SPOLARMUNSTYCKE STRÅLKASTARE",
+                "code": 1044
             }
         ]
     }

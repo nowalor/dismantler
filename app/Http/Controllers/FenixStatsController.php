@@ -32,6 +32,10 @@ class FenixStatsController extends Controller
             })
             ->count();
 
+        $sellablePercentage = $aggregates->resolved_parts > 0
+            ? round(($aggregates->sellable_parts / $aggregates->resolved_parts) * 100, 2)
+            : 0;
+
         $stats = [
             'resolvedParts' => $aggregates->resolved_parts,
             'sellableParts' => $aggregates->sellable_parts,
@@ -39,6 +43,7 @@ class FenixStatsController extends Controller
             'sellable' => $sellablePartsWithProcessedImage,
             'unSellablePartTypeCounts' => $unSellablePartTypeCounts,
             'sellablePartTypeCount' => $sellablePartTypeCount,
+            'sellablePercentage' => $sellablePercentage,
         ];
 
         return view('admin.fenix.stats', compact('stats'));

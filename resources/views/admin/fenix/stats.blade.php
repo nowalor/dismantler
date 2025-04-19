@@ -49,6 +49,15 @@
                         <span class="fw-lighter fst-italic">{{ $stats['sellablePartTypeCount'] }}</span>
                     </a>
                 </p>
+
+                <p>
+                   <span class="fw-bolder">
+                       Percentage of parts that is sellable %:
+                   </span>
+                    <a href="{{ route('admin.fenix.part-types-we-have') }}">
+                        <span class="fw-lighter fst-italic">{{ $stats['sellablePercentage'] }} %</span>
+                    </a>
+                </p>
             </div>
         </div>
     </div>
