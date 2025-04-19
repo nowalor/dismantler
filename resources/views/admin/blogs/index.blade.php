@@ -5,12 +5,28 @@
     <div class="container py-4">
         <!-- Blog Dashboard Header -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 blog-header">
-            <h2 class="text-white fw-bold mb-3 mb-md-0">Blog Dashboard</h2>
+            <h2 class="text-white fw-bold mb-3 mb-md-0">Dashboard</h2>
 
-            <!-- Search Input -->
-            <div class="d-flex align-items-center gap-2">
+            <!-- Tools: Language, Search & Create -->
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+                <!-- Language Filter -->
+                <form method="GET" id="language-filter-form" class="m-0">
+                    <select name="lang" onchange="document.getElementById('language-filter-form').submit()"
+                        class="form-select form-select-sm" style="width: 140px; font-size: 0.85rem;">
+                        <option value="">All Languages</option>
+                        @foreach(LaravelLocalization::getSupportedLocales() as $code => $lang)
+                            <option value="{{ $code }}" {{ request('lang') === $code ? 'selected' : '' }}>
+                                {{ Str::title($lang['native']) }}
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
+
+                <!-- Search -->
                 <input id="search-bar" type="text" name="search" value="{{ request('search') }}"
                     class="form-control search-bar" placeholder="Search blogs...">
+
+                <!-- Create Blog -->
                 <a href="{{ route('admin.blogs.create') }}" class="btn btn-success btn-sm">
                     <i class="bi bi-plus-lg"></i> Create Blog
                 </a>
@@ -87,6 +103,11 @@
                                 @endif
                             </p>
 
+                            <p class="mb-1"><strong>Language:</strong>
+                                <span class="badge bg-secondary text-uppercase">
+                                    {{ $blog->language }}
+                                </span>
+                            </p>
                             <!-- Actions -->
                             <div class="mt-3 d-flex flex-wrap gap-2">
                                 <a href="{{ route('admin.blogs.show', $blog->id) }}" class="btn btn-success btn-sm">

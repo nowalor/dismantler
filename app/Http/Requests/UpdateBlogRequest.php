@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateBlogRequest extends FormRequest
 {
@@ -19,6 +21,11 @@ class UpdateBlogRequest extends FormRequest
             'published_at' => 'sometimes|date',
             'tags' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'language' => [
+                'required',
+                'string',
+                Rule::in(array_keys(LaravelLocalization::getSupportedLocales())),
+            ],
         ];
     }
 }

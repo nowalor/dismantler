@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\CarBrand;
 use App\Models\CarPartType;
 use App\Models\ManufacturerText;
@@ -37,10 +38,16 @@ class LandingPageController extends Controller
 
         $brands = CarBrand::all();
 
+
         $mainCategories = MainCategory::withPartsCount()->get();
 
         // Get the current locale
         $locale = LaravelLocalization::getCurrentLocale();
+
+        $recentBlogs = Blog::where('language', $locale)
+            ->where('published_at', '<=', now())
+            ->latest()
+            ->get();
 
         // Fetch the logo configuration for the locale
         $logoConfig = config("logos.{$locale}");
@@ -53,7 +60,7 @@ class LandingPageController extends Controller
         // Extract only the path for the view
         $logoPath = $logoConfig['path'];
 
-        return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath', 'mainCategories'));
+        return view('landingPage', compact('brands', 'plainTexts', 'partTypes', 'logoPath', 'mainCategories', 'recentBlogs'));
     }
 
 }

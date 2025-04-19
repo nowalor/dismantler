@@ -16,7 +16,15 @@ class AdminBlogController extends Controller
     public function index(Request $request): View|JsonResponse
     {
         // Start query
-        $query = Blog::latest();
+        $query = Blog::query();
+
+        if ($request->filled('lang')) {
+            $query->where('language', $request->input('lang'));
+        }
+
+        $query->latest();
+
+
 
         // Check if filtering by tag
         if ($request->filled('tag')) {
@@ -61,6 +69,7 @@ class AdminBlogController extends Controller
     public function store(StoreBlogRequest $request): RedirectResponse
     {
         $blogData = $request->validated();
+        $blogData['language'] = $request->input('language', app()->getLocale());
 
         if ($request->hasFile('image')) {
             $blogData['image'] = app(UploadBlogImageAction::class)->execute(

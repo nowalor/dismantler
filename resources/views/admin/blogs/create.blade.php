@@ -15,6 +15,18 @@
                 <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <!-- Language Dropdown -->
+                    <div class="mb-3">
+                        <label for="language" class="form-label fw-bold">Language</label>
+                        <select name="language" class="form-select" required>
+                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <option value="{{ $localeCode }}" {{ $localeCode === app()->getLocale() ? 'selected' : '' }}>
+                                    {{ Str::title($properties['native']) }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <!-- Image Upload -->
                     <div class="mb-3">
                         <label for="image" class="form-label">Upload Image</label>
