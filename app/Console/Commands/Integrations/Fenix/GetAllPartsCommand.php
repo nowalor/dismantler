@@ -29,9 +29,15 @@ class GetAllPartsCommand extends Command
 
         [$parts, $images] = $this->client()->getAllParts($importInfo->dismantler, $importInfo->from_date, $importInfo->to_date);
 
-        $existingIds = NewCarPart::whereIn('original_id', collect($parts)->pluck('original_id'))
-            ->pluck('original_id')
-            ->all();
+        $originalIds = collect($parts)->pluck('original_id');
+        $existingIds = collect();
+
+        $originalIds->chunk(500)->each(function ($chunk) use (&$existingIds) {
+            $ids = NewCarPart::whereIn('original_id', $chunk)->pluck('original_id');
+            $existingIds = $existingIds->merge($ids);
+        });
+
+        $existingIds = $existingIds->all();
 
         logger('Existing ids:', $existingIds);
 
