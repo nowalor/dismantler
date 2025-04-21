@@ -14,6 +14,8 @@
 
     <x-categories.part-categories :mainCategories="$mainCategories" />
 
+    <x-blogs-homepage.recent-blogs :recentBlogs="$recentBlogs" />
+
 @endsection
 
 

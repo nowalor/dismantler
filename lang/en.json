@@ -131,6 +131,14 @@
     "find-specific-parts": "Find Specific Parts",
     "clear-search": "Clear Search",
 
-    "copyright-text": "All rights reserved."
+    "copyright-text": "All rights reserved.",
+
+
+    "recent-blogs": "Recent Blogs",
+    "blog-homepage-button": "Homepage",
+    "back-to-homepage": "Back to Homepage",
+    "blog-no-image": "No Image",
+    "read-more-blogs": "Read more",
+    "blog-published-on": "Published on"
 
 }
