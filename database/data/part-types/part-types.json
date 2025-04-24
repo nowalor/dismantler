@@ -4187,7 +4187,7 @@
                 "id": 162,
                 "name": 999999999,
                 "code": null,
-                "autoteile_markt_category_id": " "
+                "autoteile_markt_category_id": 9999999
             }
         ],
         "danish_car_part_types": [
@@ -5324,7 +5324,7 @@
                 "id": 202,
                 "name": "Tür Steuergerät",
                 "code": null,
-                "autoteile_markt_category_id": " "
+                "autoteile_markt_category_id": 9999999
             }
         ],
         "danish_car_part_types": [
@@ -5380,7 +5380,7 @@
                 "id": 204,
                 "name": "Sensor Temperatur / Druck - Auspuff",
                 "code": null,
-                "autoteile_markt_category_id": " "
+                "autoteile_markt_category_id": 9999999
             }
         ],
         "danish_car_part_types": [
@@ -5932,7 +5932,7 @@
                 "id": 222,
                 "name": "Display",
                 "code": null,
-                "autoteile_markt_category_id": " "
+                "autoteile_markt_category_id": 9999999
             }
         ],
         "danish_car_part_types": [
@@ -6028,7 +6028,7 @@
                 "id": 225,
                 "name": "Steuergerät diverse",
                 "code": null,
-                "autoteile_markt_category_id": " "
+                "autoteile_markt_category_id": 9999999
             }
         ],
         "danish_car_part_types": [
