@@ -28,6 +28,7 @@
         "livewire/livewire": "^2.12",
         "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^2.0",
+        "sentry/sentry-laravel": "^4.13",
         "spatie/laravel-stripe-webhooks": "^3.2",
         "symfony/browser-kit": "^6.4"
     },
