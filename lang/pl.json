@@ -109,14 +109,22 @@
     "select-brand": "Wybierz markę",
     "select-model": "Wybierz model",
     "shipping": "Wysyłka",
-
     "recent-blogs": "Najnowsze blogi",
     "blog-homepage-button": "Strona główna",
     "back-to-homepage": "Powrót do strony głównej",
     "blog-no-image": "Brak obrazu",
     "read-more-blogs": "Czytaj więcej",
-
     "about-text-eight": "Można się z nami skontaktować pod naszym duńskim numerem telefonu (+45) 77 34 38 77",
-    "about-text-nine": "Lub za pośrednictwem naszego niemieckiego numeru telefonu (+49) 05 14 47 45 99 81"
-
+    "about-text-nine": "Lub za pośrednictwem naszego niemieckiego numeru telefonu (+49) 05 14 47 45 99 81",
+    "blog-published-on": "Opublikowano na",
+    "footer-company-info": "Informacje o firmie",
+    "footer-vat": "VAT",
+    "footer-management": "Zarządzanie",
+    "footer-company-name": "Currus Connect ApS",
+    "footer-contact": "Kontakt",
+    "footer-customer-service": "Obsługa klienta",
+    "footer-email": "E-mail",
+    "footer-office-hours": "Godziny pracy",
+    "footer-monday": "Poniedziałek",
+    "footer-friday": "Piątek"
 }

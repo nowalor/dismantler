@@ -118,14 +118,22 @@
     "select-brand": "Sélectionner une marque",
     "select-model": "Sélectionner un modèle",
     "shipping": "Expédition",
-
     "recent-blogs": "Blogs récents",
     "blog-homepage-button": "Accueil",
     "back-to-homepage": "Retour à l'accueil",
     "blog-no-image": "Pas d'image",
     "read-more-blogs": "En savoir plus",
-
     "about-text-eight": "Vous pouvez nous contacter via notre numéro de téléphone danois (+45) 77 34 38 77",
-    "about-text-nine": "Ou par notre numéro de téléphone allemand (+49) 05 14 47 45 99 81"
-
+    "about-text-nine": "Ou par notre numéro de téléphone allemand (+49) 05 14 47 45 99 81",
+    "blog-published-on": "Publié le",
+    "footer-company-info": "Informations sur l'entreprise",
+    "footer-vat": "TVA",
+    "footer-management": "Gestion",
+    "footer-company-name": "Currus Connect ApS",
+    "footer-contact": "Contact",
+    "footer-customer-service": "Service clientèle",
+    "footer-email": "Courriel",
+    "footer-office-hours": "Heures de bureau",
+    "footer-monday": "Lundi",
+    "footer-friday": "Vendredi"
 }

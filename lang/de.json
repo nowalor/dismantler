@@ -118,14 +118,22 @@
     "select-brand": "Wählen Sie eine Marke",
     "select-model": "Wählen Sie ein Modell",
     "shipping": "Versand",
-
     "recent-blogs": "Neueste Blogs",
     "blog-homepage-button": "Startseite",
     "back-to-homepage": "Zurück zur Startseite",
     "blog-no-image": "Kein Bild",
     "read-more-blogs": "Mehr lesen",
-
     "about-text-eight": "Sie können uns über unsere dänische Telefonnummer (+45) 77 34 38 77 erreichen.",
-    "about-text-nine": "Oder über unsere deutsche Rufnummer (+49) 05 14 47 45 99 81"
-
+    "about-text-nine": "Oder über unsere deutsche Rufnummer (+49) 05 14 47 45 99 81",
+    "blog-published-on": "Veröffentlicht am",
+    "footer-company-info": "Infos zum Unternehmen",
+    "footer-vat": "MEHRWERTSTEUER",
+    "footer-management": "Verwaltung",
+    "footer-company-name": "Currus Connect ApS",
+    "footer-contact": "Kontakt",
+    "footer-customer-service": "Kundenbetreuung",
+    "footer-email": "E-Mail",
+    "footer-office-hours": "Bürozeiten",
+    "footer-monday": "Montag",
+    "footer-friday": "Freitag"
 }
