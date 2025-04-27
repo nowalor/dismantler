@@ -67,6 +67,10 @@ Route::get('car-brands', function () {
     return $brands;
 });
 
+Route::get('production-dates', function () {
+    return DitoNumber::distinct('producer')->pluck('production_date');
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
