@@ -18,88 +18,88 @@ class MainCategoryImageSeeder extends Seeder
             [
                 // body parts
                 'image' => '',
-                'id' => 43,
+                'name' => 'Body parts',
             ],
             [
                 // fuel system
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/tank.png',
-                'id' => 44,
+                'name' => 'Fuel system',
             ],
             [
                 // audio/communication system
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png',
-                'id' => 45,
+                'name' => 'Audio/communication system',
             ],
             [
                 // brake system
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/break.png',
-                'id' => 46,
+                'name' => 'Brake system',
             ],
             [
                 // gearbox/transmission
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png',
-                'id' => 47,
+                'name' => 'Gearbox/transmission',
             ],
             [
                 // chassis/steering
                 'image' => '',
-                'id' => 48,
+                'name' => 'Chassis/steering',
             ],
             [
                 // cooling/heating/aircon
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/air-conditioner.png',
-                'id' => 49,
+                'name' => 'Cooling/heating/aircon',
             ],
             [
                 // switches/relays/sensor
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/switch.png',
-                'id' => 50,
+                'name' => 'Switches/relays/sensor',
             ],
             [
                 // looks/locking system
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/look.png',
-                'id' => 51,
+                'name' => 'Looks/locking system',
             ],
             [
                 // wipers
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/wiper.png',
-                'id' => 52,
+                'name' => 'Wipers',
             ],
             [
                 // interior
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png',
-                'id' => 53,
+                'name' => 'Interior',
             ],
             [
                 // electronic parts
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png',
-                'id' => 54,
+                'name' => 'Electronic parts',
             ],
             [
                 // lights/mirrors
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png',
-                'id' => 55,
+                'name' => 'Lights/mirrors',
             ],
             [
                 // engine/engine parts
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png',
-                'id' => 56,
+                'name' => 'Engine/engine parts',
             ],
             [
                 // exhaust system
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/exhaust-system.png',
-                'id' => 57,
+                'name' => 'Exhaust system',
             ],
             [
                 // instruments
                 'image' => 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/instruments.png',
-                'id' => 58,
+                'name' => 'Instruments',
             ]
         ];
 
         foreach ($mainCategoryImages as $image) {
             DB::table('main_categories')
-                ->where('id', $image['id'])
+                ->where('name', $image['name'])
                 ->update(['image' => $image['image']]);
         }
     }
