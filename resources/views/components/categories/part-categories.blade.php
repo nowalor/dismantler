@@ -7,8 +7,6 @@
             @foreach ($mainCategories as $mainCategory)
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <pre>{{ var_dump($mainCategory->image) }}</pre>
-
                         <a href="{{ route('categories.show', ['mainCategory' => Str::slug($mainCategory->name), 'id' => $mainCategory->id]) }}"
                             class="text-decoration-none text-reset">
                             <img src="{{ !empty($mainCategory->image)
