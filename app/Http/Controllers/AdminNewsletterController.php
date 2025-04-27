@@ -15,7 +15,7 @@ class AdminNewsletterController extends Controller
 
         $showAll = $request->has('type') && $request->type === 'all';
 
-        if(!$showAll) {
+        if (!$showAll) {
             $query->whereNull('seen_at');
         }
         $signees = $query->get();
@@ -29,4 +29,13 @@ class AdminNewsletterController extends Controller
 
         return redirect()->back();
     }
+
+    public function delete(int $id): RedirectResponse
+    {
+        $signee = NewsletterSignee::findOrFail($id);
+        $signee->delete();
+
+        return redirect()->back()->with('success', 'Signee deleted successfully.');
+    }
+
 }
