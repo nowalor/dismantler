@@ -13,7 +13,7 @@
         <div class="col-12 pt-4 text-white">
             <h5>Select view</h5>
             <div class="d-flex gap-2 pt-2 pb-2">
-                <a href="{{ route('admin.newsletter.index', ['type' => 'new']) }}" class="btn btn-primary"
+                <a href="{{ route('admin.newsletter.index', ['type' => 'new']) }}" class="btn btn-success"
                     id="show-main-categories">New</a>
                 <a href="{{ route('admin.newsletter.index', ['type' => 'all']) }}" class="btn btn-primary"
                     id="show-main-categories">All</a>
