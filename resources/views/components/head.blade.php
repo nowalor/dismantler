@@ -1,7 +1,7 @@
 <head>
     <!-- Google Tag Manager -->
     <script>
-        (function(w, d, s, l, i) {
+        (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
                 'gtm.start': new Date().getTime(),
@@ -24,8 +24,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="p:domain_verify" content="0abcbed29ec87ed8ceaa56be1b1b7e42" />
     @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-        <link rel="alternate" hreflang="{{ $localeCode }}"
-            href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}" />
+        <link rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}" />
     @endforeach
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -34,8 +33,8 @@
     <link href="https://fonts.cdnfonts.com/css/cooper-hewitt?styles=34279" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-    <link rel="icon" type="image/x-icon"
-        href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     @livewireStyles
     @stack('css')
 
@@ -68,6 +67,6 @@
     </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8JFMF2L" height="0" width="0"
-        style="display:none;visibility:hidden"></iframe></noscript>
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 </head>
