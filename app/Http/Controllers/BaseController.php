@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\CarPartType;
 use App\Models\CarBrand;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
 
 class BaseController extends Controller
 {
-    public $partTypes;
-    public $carBrands;
+    public Collection $partTypes;
+    public Collection $carBrands;
 
     public function __construct()
     {
