@@ -16,7 +16,7 @@
                                 : 'https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png' }}"
                                 alt="{{ __('main-categories.' . $mainCategory->translation_key) }} image"
                                 class="card-img-top"
-                                style="width: 100%; max-height: 120px; object-fit: cover; border-bottom: 1px solid #ddd;">
+                                style="width: 100%; max-height: 10rem; object-fit: contain; border-bottom: 1px solid #ddd;">
 
                             <div class="card-body text-center">
                                 <h5 class="card-title">{{ __("main-categories.$mainCategory->translation_key") }}</h5>
