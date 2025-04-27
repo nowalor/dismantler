@@ -11,7 +11,7 @@ class MainCategory extends Model
 {
 
     use HasFactory;
-
+    
     /**
      * The many-to-many relationship with CarPartType.
      */
