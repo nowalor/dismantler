@@ -9,6 +9,9 @@ class FenixStatsController extends Controller
 {
     public function index()
     {
+        $fenixPartsCount = NewCarPart::whereNull('country')
+            ->count();
+
         $aggregates = NewCarPart::selectRaw("
             SUM(CASE WHEN fields_resolved_at IS NOT NULL THEN 1 ELSE 0 END) AS resolved_parts,
             SUM(CASE WHEN fields_resolved_at IS NOT NULL AND article_nr IS NOT NULL THEN 1 ELSE 0 END) AS sellable_parts,
@@ -37,6 +40,7 @@ class FenixStatsController extends Controller
             : 0;
 
         $stats = [
+            'fenixPartsCount' => $fenixPartsCount,
             'resolvedParts' => $aggregates->resolved_parts,
             'sellableParts' => $aggregates->sellable_parts,
             'unSellableParts' => $aggregates->unsellable_parts,
