@@ -12,10 +12,12 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    if (!Schema::hasColumn('car_brands', 'slug')) {
-        Schema::table('car_brands', function (Blueprint $table) {
-            $table->string('slug')->nullable();
-        });
+    {
+        if (!Schema::hasColumn('car_brands', 'slug')) {
+            Schema::table('car_brands', function (Blueprint $table) {
+                $table->string('slug')->nullable();
+            });
+        }
     }
 
     /**
