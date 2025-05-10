@@ -13,6 +13,7 @@ use App\Http\Controllers\NewsletterSigneeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
+use App\Http\Controllers\SeoTestController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\TestLangController;
 use Illuminate\Support\Facades\Route;
@@ -103,7 +104,11 @@ Route::group(
         Route::post('/browsing-country/filter', [BrowsingCountryController::class, 'filter'])->name('setBrowsingCountry');
 
         // full view of individual car part
-        Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
+        Route::get('car-parts/{part}', [CarPartFullviewController::class, 'index'])->name('fullview');
+     /*   Route::get('part-types/{partType}/brands/{brand}/models/{model}/oem/{oem}/car-parts/{part}', [CarPartFullviewController::class, 'index'])
+            ->name('car-parts.show');*/
+
+        Route::get('car-parts-test/{carPart}', SeoTestController::class)->name('car-parts.show-test');
 
         // public blog article
         Route::get('/blogs/{blog}', [PublicBlogArticleController::class, 'show'])->name('blogs.show');
@@ -145,7 +150,7 @@ Route::group(
         Route::post('categories/disconnect-car-part/{mainCategory}', [AdminCategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
         // show individual category
         //Route::get('part-types-categories/{category}', [AdminCategoryController::class, 'show'])->name('admin.part-types-categories.show');
-    
+
         Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
         Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])->only(['index', 'show', 'store', 'destroy']);
 

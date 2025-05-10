@@ -46,53 +46,59 @@ class StandardizeDitoNumberProductionDates extends Command
             return null;
         }
 
-        $input = str_replace(['–', '—'], '-', strtolower(trim($input)));
+        $input = strtolower(trim($input));
+        $input = str_replace(['–', '—'], '-', $input);
 
-        // Trash values
-        if (preg_match('/[^0-9><\-]/', $input) && !preg_match('/(jan|feb|mar|apr|maj|jun|jul|aug|sep|okt|nov|dec)/', $input)) {
-            return null;
+        // Clean corrupted year values (e.g., 20013)
+        $input = preg_replace_callback('/\d{5}/', function ($match) {
+            return substr($match[0], 0, 4); // trim to 4-digit year
+        }, $input);
+
+        // Handle: YY-mon or YYYY-mon ➝ e.g. 05-nov, 2005-nov
+        if (preg_match('/^(\d{2,4})-(jan|feb|mar|apr|maj|jun|jul|aug|sep|okt|nov|dec)$/', $input, $matches)) {
+            $year = $this->normalizeYear($matches[1]);
+            return "{$year}>";
         }
 
-        // Fix common typos
-        $input = str_replace(['20015', '20014', '1017'], ['2015', '2014', '2017'], $input);
+        // Fix mixed formats like: 97>02, 97-02>, etc.
+        if (preg_match('/^(\d{2,4})[->]+(\d{2,4})$/', $input, $matches)) {
+            $start = $this->normalizeYear($matches[1]);
+            $end = $this->normalizeYear($matches[2]);
+            return "{$start}-{$end}";
+        }
 
-        // Months just drop (keep the year part only)
+        // Month cleanup (after we've handled valid ones above)
         $months = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
-        foreach ($months as $month) {
-            $input = str_replace($month, '', $input);
-        }
+        $input = str_replace($months, '', $input);
+        $input = preg_replace('/[^0-9><-]/', '', $input);
 
-        $input = preg_replace('/[^0-9><-]/', '', $input); // Strip any remaining unwanted chars
-
-        // Now parse
+        // Year range
         if (preg_match('/^(\d{2,4})-(\d{2,4})$/', $input, $matches)) {
             $start = $this->normalizeYear($matches[1]);
             $end = $this->normalizeYear($matches[2]);
             return "{$start}-{$end}";
         }
 
+        // Single year with >
         if (preg_match('/^(\d{2,4})>$/', $input, $matches)) {
-            $start = $this->normalizeYear($matches[1]);
-            return "{$start}>";
+            return $this->normalizeYear($matches[1]) . '>';
         }
 
+        // Single year
         if (preg_match('/^(\d{2,4})$/', $input, $matches)) {
-            $start = $this->normalizeYear($matches[1]);
-            return "{$start}>";
+            return $this->normalizeYear($matches[1]) . '>';
         }
 
-        return null;
+        return null; // anything we couldn't handle
     }
 
     protected function normalizeYear($year)
     {
-        if (strlen($year) == 2) {
-            if (intval($year) > 30) { // e.g. 89 -> 1989
-                return '19' . $year;
-            } else {
-                return '20' . $year;
-            }
+        $year = (int) $year;
+        if ($year < 100) {
+            return $year > 30 ? 1900 + $year : 2000 + $year;
         }
         return $year;
     }
+
 }

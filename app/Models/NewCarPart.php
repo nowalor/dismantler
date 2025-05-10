@@ -75,6 +75,45 @@ class NewCarPart extends Model
         'fields_resolved_at',
     ];
 
+    public function getRouteKey(): string
+    {
+        $route = '';
+
+        $dito = $this->sbrCode?->ditoNumbers()->first();
+
+        if($dito) {
+            $route .= "{$dito->route_key}-";
+        }
+
+        /*
+        * Didn't want to bother with going through translation files for the first version of the SEO URLS
+        * but it's probably worth it to do it in the future...
+        */
+      /*  if($this->car_part_type_id) {
+            $route .= "{$this->carPartType->translation_key}-";
+        }*/
+
+        if($this->original_number && strlen($this->original_number) > 2) {
+            $route .= "$this->original_number-";
+        }
+
+        $route .= "$this->id";
+
+        return $route;
+    }
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        // Example input: "opel/models/opel-2011/51629"
+        $segments = explode('-', $value);
+        $id = end($segments);
+
+        logger('id inc');
+        logger($id);
+
+        return static::findOrFail($id);
+    }
+
     public function carPartType(): BelongsTo {
         return $this->belongsTo(CarPartType::class);
     }
