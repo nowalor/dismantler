@@ -139,6 +139,17 @@
     "back-to-homepage": "Back to Homepage",
     "blog-no-image": "No Image",
     "read-more-blogs": "Read more",
-    "blog-published-on": "Published on"
+    "blog-published-on": "Published on",
 
+    
+    "footer-company-info": "Company Info",
+    "footer-vat": "VAT",
+    "footer-management": "Management",
+    "footer-company-name": "Currus Connect ApS",
+    "footer-contact": "Contact",
+    "footer-customer-service": "Customer Service",
+    "footer-email": "Email",
+    "footer-office-hours": "Office Hours",
+    "footer-monday": "Monday",
+    "footer-friday": "Friday"
 }

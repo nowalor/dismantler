@@ -19,6 +19,6 @@ class DitoNumberSbrCodeSeeder extends Seeder
         $file = File::get("database/data/dito-sbr-code.json");
         $data = json_decode($file, true);
 
-            DB::table('dito_number_sbr_code')->insert($data);
+        DB::table('dito_number_sbr_code')->insert($data);
     }
 }

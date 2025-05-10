@@ -109,14 +109,22 @@
     "select-brand": "Välj ett varumärke",
     "select-model": "Välj en modell",
     "shipping": "Frakt",
-
     "recent-blogs": "Senaste bloggar",
     "blog-homepage-button": "Startsida",
     "back-to-homepage": "Tillbaka till startsidan",
     "blog-no-image": "Ingen bild",
     "read-more-blogs": "Läs mer",
-
     "about-text-eight": "Du kan nå oss via vårt danska telefonnummer (+45) 77 34 38 77",
-    "about-text-nine": "Eller via vårt tyska telefonnummer (+49) 05 14 47 45 99 81"
-
+    "about-text-nine": "Eller via vårt tyska telefonnummer (+49) 05 14 47 45 99 81",
+    "blog-published-on": "Publicerad på",
+    "footer-company-info": "Företagsinformation",
+    "footer-vat": "MOMS",
+    "footer-management": "Förvaltning",
+    "footer-company-name": "Currus Connect ApS",
+    "footer-contact": "Kontakt",
+    "footer-customer-service": "Kundservice",
+    "footer-email": "E-post",
+    "footer-office-hours": "Öppettider på kontoret",
+    "footer-monday": "Måndag",
+    "footer-friday": "Fredag"
 }
