@@ -13,7 +13,6 @@ use App\Http\Controllers\NewsletterSigneeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SearchByPlateController;
 use App\Http\Controllers\SendContactUsEmailController;
-use App\Http\Controllers\SeoTestController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\TestLangController;
 use Illuminate\Support\Facades\Route;
@@ -105,10 +104,6 @@ Route::group(
 
         // full view of individual car part
         Route::get('car-parts/{part}', [CarPartFullviewController::class, 'index'])->name('fullview');
-     /*   Route::get('part-types/{partType}/brands/{brand}/models/{model}/oem/{oem}/car-parts/{part}', [CarPartFullviewController::class, 'index'])
-            ->name('car-parts.show');*/
-
-        Route::get('car-parts-test/{carPart}', SeoTestController::class)->name('car-parts.show-test');
 
         // public blog article
         Route::get('/blogs/{blog}', [PublicBlogArticleController::class, 'show'])->name('blogs.show');

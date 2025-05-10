@@ -104,17 +104,14 @@ class NewCarPart extends Model
 
     public function resolveRouteBinding($value, $field = null)
     {
-        // Example input: "opel/models/opel-2011/51629"
         $segments = explode('-', $value);
         $id = end($segments);
-
-        logger('id inc');
-        logger($id);
 
         return static::findOrFail($id);
     }
 
-    public function carPartType(): BelongsTo {
+    public function carPartType(): BelongsTo
+    {
         return $this->belongsTo(CarPartType::class);
     }
 
