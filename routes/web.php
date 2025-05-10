@@ -103,7 +103,7 @@ Route::group(
         Route::post('/browsing-country/filter', [BrowsingCountryController::class, 'filter'])->name('setBrowsingCountry');
 
         // full view of individual car part
-        Route::get('car-parts/{part}/fullview', [CarPartFullviewController::class, 'index'])->name('fullview');
+        Route::get('car-parts/{part}', [CarPartFullviewController::class, 'index'])->name('fullview');
 
         // public blog article
         Route::get('/blogs/{blog}', [PublicBlogArticleController::class, 'show'])->name('blogs.show');
@@ -145,7 +145,7 @@ Route::group(
         Route::post('categories/disconnect-car-part/{mainCategory}', [AdminCategoryController::class, 'disconnectCarPart'])->name('admin.categories.disconnect-car-part');
         // show individual category
         //Route::get('part-types-categories/{category}', [AdminCategoryController::class, 'show'])->name('admin.part-types-categories.show');
-    
+
         Route::resource('sbr-codes', \App\Http\Controllers\AdminSbrCodeController::class, ['as' => 'admin']);
         Route::resource('dito-numbers.sbr-codes', \App\Http\Controllers\AdminDitoNumberSbrCodeController::class, ['as' => 'admin'])->only(['index', 'show', 'store', 'destroy']);
 

@@ -20,6 +20,7 @@ class DitoNumber extends Model
         'dito_number',
         'is_not_interesting',
         'is_selection_completed',
+        'route_key',
     ];
 
     public function sbrCodes(): BelongsToMany
