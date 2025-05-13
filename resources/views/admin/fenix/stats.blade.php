@@ -5,6 +5,13 @@
         <div class="card">
             <div class="card-header">Statistics</div>
             <div class="card-body">
+                <p>
+                   <span class="fw-bolder">
+                       Fenix parts:
+                   </span>
+                    <span class="fw-lighter fst-italic">{{ $stats['fenixPartsCount'] }}</span>
+                </p>
+
                <p>
                    <span class="fw-bolder">
                        Processed parts:
