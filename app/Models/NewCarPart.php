@@ -75,6 +75,24 @@ class NewCarPart extends Model
         'fields_resolved_at',
     ];
 
+    
+    public function getBreadcrumbData()
+    {
+        $ditoNumbers = $this->sbrCode?->ditoNumbers;
+        $firstDitoNumber = $ditoNumbers?->first();
+
+        return (object) [
+            'producer_id' => $firstDitoNumber?->car_brand_id,
+            'producer' => $firstDitoNumber?->producer,
+            'dito_number_id' => $firstDitoNumber?->id,
+            'car_name' => $this->sbr_car_name,
+            'car_part_type_id' => $this->car_part_type_id,
+            'car_part_type' => $this->carPartType?->name,
+            'original_number' => $this->original_number,
+            'mileage_km' => $this->mileage_km,
+        ];
+    }
+    
     public function getRouteKey(): string
     {
         $route = '';
