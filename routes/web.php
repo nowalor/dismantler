@@ -160,6 +160,8 @@ Route::group(
 
         Route::get('newsletter', [\App\Http\Controllers\AdminNewsletterController::class, 'index'])->name('admin.newsletter.index');
         Route::post('newsletter/mark-as-seen', [\App\Http\Controllers\AdminNewsletterController::class, 'markAsSeen'])->name('admin.newsletter.mark-as-seen');
+        Route::delete('/admin/newsletter/{signee}', [\App\Http\Controllers\AdminNewsletterController::class, 'destroy'])->name('admin.newsletter.destroy');
+
 
         Route::resource('orders', \App\Http\Controllers\AdminOrderController::class, ['as' => 'admin'])->only(['index', 'show', 'update', 'destroy']);
 
