@@ -1,7 +1,51 @@
+@php
+    $breadcrumb = $part->getBreadcrumbData();
+    $showBreadcrumb = isset(
+        $breadcrumb->producer, 
+        $breadcrumb->producer_id, 
+        $breadcrumb->dito_number_id, 
+        $breadcrumb->car_name, 
+        $breadcrumb->car_part_type_id, 
+        $breadcrumb->car_part_type);
+@endphp
+
 @extends('app')
 @section('title', 'Currus-connect.com: ' . $part->pageTitle())
 @section('content')
     <div id="fullview-container" class="container pt-2 pb-3 pl-4 pr-4">
+        @if ($showBreadcrumb)
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-left">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('car-parts.search-by-name', [
+                            'search' => $breadcrumb->producer
+                        ]) }}">
+                            {{ $breadcrumb->producer }}
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('car-parts.search-by-model', [
+                            'brand' => $breadcrumb->producer_id, 
+                            'dito_number_id' => $breadcrumb->dito_number_id
+                        ]) }}">
+                            {{ $breadcrumb->car_name }}
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('car-parts.search-by-model', [
+                            'brand' => $breadcrumb->producer_id, 
+                            'dito_number_id' => $breadcrumb->dito_number_id, 
+                            'type_id' => $breadcrumb->car_part_type_id
+                        ]) }}">
+                            {{ $breadcrumb->car_name . ' ' . $breadcrumb->car_part_type }}</a>
+                        </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {{ $breadcrumb->car_name . ' ' . $breadcrumb->car_part_type . ' ' . 
+                           $breadcrumb->original_number . ' ' . $breadcrumb->mileage_km . ' km' }}
+                    </li>
+                </ol>
+            </nav>
+        @endif
         <h1 class="large-text font-bold">{{ __('product-details') }}</h1>
         <div class="row">
             <!-- Product Image Gallery -->
