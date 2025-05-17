@@ -75,13 +75,106 @@ class NewCarPart extends Model
         'fields_resolved_at',
     ];
 
+    public function prepareCheckoutBreadcrumbs(): array | null
+    {
+        $carPartBreadcrumbs = $this->prepareCarPartBreadcrumbs();
+
+        $breadcrumbs = [];
+
+        $breadcrumbs[0] = [
+            'name' => 'Home',
+            'route' => route('landingpage')
+        ];
+
+        $breadcrumbs[1] = [
+            'name' => 'Car parts',
+            'route' => route('car-parts.search-by-name')
+        ];
+
+        if ($carPartBreadcrumbs) {
+            // brand
+            $breadcrumbs[2] = $carPartBreadcrumbs[0];
+
+            // brand + model
+            $breadcrumbs[3] = $carPartBreadcrumbs[1];
+
+            // brand + model + car part name
+            $breadcrumbs[4] = $carPartBreadcrumbs[2];
+
+            // oem
+            $breadcrumbs[5] = $carPartBreadcrumbs[3];
+        }
+
+        // brand + model + car part name + original number + mileage
+        $breadcrumbs[count($breadcrumbs)] = [
+            'name' => $this->new_name,
+            'route' => route('fullview', $this),
+        ];
+
+        $breadcrumbs[count($breadcrumbs)] = [
+            'name' => __('checkout.checkout'),
+            'route' => null,
+        ];
+        
+        return $breadcrumbs;
+    }
     
-    public function getBreadcrumbData()
+    public function prepareCarPartBreadcrumbs(): array | null
+    {
+        $rawBreadcrumb = $this->prepareBreadcrumbData();
+
+        if (!$rawBreadcrumb) {
+            return null;
+        }
+
+        $breadcrumbs = [];
+        
+        // brand
+        $breadcrumbs[0] = [
+            'name' => $rawBreadcrumb->producer,
+            'route' => route('car-parts.search-by-name', [
+                'search' => $rawBreadcrumb->producer,])
+        ];
+
+        // brand + model
+        $breadcrumbs[1] = [
+            'name' => $rawBreadcrumb->car_name,
+            'route' => route('car-parts.search-by-model', [
+                'brand' => $rawBreadcrumb->producer_id,
+                'dito_number_id' => $rawBreadcrumb->dito_number_id,])
+        ];
+
+        // brand + model + car part name
+        $breadcrumbs[2] = [
+            'name' => $rawBreadcrumb->car_name . ' ' . $rawBreadcrumb->car_part_type,
+            'route' => route('car-parts.search-by-model', [
+                'brand' => $rawBreadcrumb->producer_id,
+                'dito_number_id' => $rawBreadcrumb->dito_number_id,
+                'type_id' => $rawBreadcrumb->car_part_type_id,])
+        ];
+
+         // original number
+        $breadcrumbs[3] = [
+            'name' => $rawBreadcrumb->original_number,
+            'route' => route('car-parts.search-by-oem', [
+                'oem' => $rawBreadcrumb->original_number,])
+        ];
+
+        // brand + model + car part name + original number + mileage
+        $breadcrumbs[4] = [
+            'name' => $rawBreadcrumb->car_name . ' ' . $rawBreadcrumb->car_part_type . ' ' . $rawBreadcrumb->original_number . ' ' . $rawBreadcrumb->mileage_km . 'KM',
+            'route' => null
+        ];
+
+        return $breadcrumbs;
+    }
+
+    public function prepareBreadcrumbData(): object | null
     {
         $ditoNumbers = $this->sbrCode?->ditoNumbers;
         $firstDitoNumber = $ditoNumbers?->first();
 
-        return (object) [
+        $rawBreadcrumb = (object) [
             'producer_id' => $firstDitoNumber?->car_brand_id,
             'producer' => $firstDitoNumber?->producer,
             'dito_number_id' => $firstDitoNumber?->id,
@@ -91,7 +184,16 @@ class NewCarPart extends Model
             'original_number' => $this->original_number,
             'mileage_km' => $this->mileage_km,
         ];
+
+        foreach ($rawBreadcrumb as $value) {
+            if ($value === null) {
+                return null;
+            }
+        }
+
+        return $rawBreadcrumb;
     }
+
     
     public function getRouteKey(): string
     {

@@ -19,7 +19,12 @@ class CarPartFullviewController extends Controller
             return redirect()->to($canonical, 301);
         }
 
-        return view('car-part-fullview', compact('part'));
+        $breadcrumbs = $part->prepareCarPartBreadcrumbs();
+
+        return view('car-part-fullview', compact(
+            'part', 
+            'breadcrumbs', 
+        ));
     }
 
 

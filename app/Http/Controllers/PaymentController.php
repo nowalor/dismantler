@@ -23,10 +23,12 @@ class PaymentController extends Controller
     {
         $paymentPlatforms = PaymentPlatform::all();
 
+        $checkoutBreadcrumbs = $carPart->prepareCheckoutBreadcrumbs();
 
         return view('checkout.index', compact(
             'carPart',
             'paymentPlatforms',
+            'checkoutBreadcrumbs',
         ));
     }
 

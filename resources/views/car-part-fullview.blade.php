@@ -1,48 +1,23 @@
-@php
-    $breadcrumb = $part->getBreadcrumbData();
-    $showBreadcrumb = isset(
-        $breadcrumb->producer, 
-        $breadcrumb->producer_id, 
-        $breadcrumb->dito_number_id, 
-        $breadcrumb->car_name, 
-        $breadcrumb->car_part_type_id, 
-        $breadcrumb->car_part_type);
-@endphp
-
 @extends('app')
 @section('title', 'Currus-connect.com: ' . $part->pageTitle())
 @section('content')
     <div id="fullview-container" class="container pt-2 pb-3 pl-4 pr-4">
-        @if ($showBreadcrumb)
+        @if($breadcrumbs)
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-left">
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('car-parts.search-by-name', [
-                            'search' => $breadcrumb->producer
-                        ]) }}">
-                            {{ $breadcrumb->producer }}
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('car-parts.search-by-model', [
-                            'brand' => $breadcrumb->producer_id, 
-                            'dito_number_id' => $breadcrumb->dito_number_id
-                        ]) }}">
-                            {{ $breadcrumb->car_name }}
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('car-parts.search-by-model', [
-                            'brand' => $breadcrumb->producer_id, 
-                            'dito_number_id' => $breadcrumb->dito_number_id, 
-                            'type_id' => $breadcrumb->car_part_type_id
-                        ]) }}">
-                            {{ $breadcrumb->car_name . ' ' . $breadcrumb->car_part_type }}</a>
-                        </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        {{ $breadcrumb->car_name . ' ' . $breadcrumb->car_part_type . ' ' . 
-                           $breadcrumb->original_number . ' ' . $breadcrumb->mileage_km . ' km' }}
-                    </li>
+                    @foreach ($breadcrumbs as $breadcrumb)
+                        @if ($loop->last)
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $part->new_name ?? $breadcrumb['name'] }}
+                            </li>
+                        @else
+                            <li class="breadcrumb-item">
+                                <a href="{{ $breadcrumb['route'] }}">
+                                    {{ $breadcrumb['name'] }}
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ol>
             </nav>
         @endif

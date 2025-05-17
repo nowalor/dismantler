@@ -1,12 +1,3 @@
-@php
-    $breadcrumb = $carPart->getBreadcrumbData();
-    $showProducerModelBreadcrumb = isset(
-        $breadcrumb->producer, 
-        $breadcrumb->producer_id, 
-        $breadcrumb->dito_number_id, 
-        $breadcrumb->car_name);
-@endphp
-
 @extends('app')
 @section('title', 'Buy part now ' . $carPart->name)
 @section('content')
@@ -16,32 +7,19 @@
     <div class="container pb-4 pt-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                @if (!$showProducerModelBreadcrumb)
-                    <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('car-parts.search-by-name') }}">Car parts</a>
-                    </li>
-                @else
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('car-parts.search-by-name', [
-                            'search' => $breadcrumb->producer
-                        ]) }}">
-                            {{ $breadcrumb->producer }}
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('car-parts.search-by-model', [
-                            'brand' => $breadcrumb->producer_id, 
-                            'dito_number_id' => $breadcrumb->dito_number_id
-                        ]) }}">
-                            {{ $breadcrumb->car_name }}
-                        </a>
-                    </li>
-                @endif
-                <li class="breadcrumb-item">
-                    <a href="{{ route('fullview', $carPart) }}">{{ $carPart->new_name }}</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('checkout.checkout') }}</li>
+                @foreach ($checkoutBreadcrumbs as $breadcrumb)
+                    @if ($loop->last)
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{ $breadcrumb['name'] }}
+                        </li>
+                    @else
+                        <li class="breadcrumb-item">
+                            <a href="{{ $breadcrumb['route'] }}">
+                                {{ $breadcrumb['name'] }}
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
             </ol>
         </nav>
         <div>
