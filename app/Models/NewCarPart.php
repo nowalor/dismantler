@@ -180,7 +180,7 @@ class NewCarPart extends Model
             'dito_number_id' => $firstDitoNumber?->id,
             'car_name' => $this->sbr_car_name,
             'car_part_type_id' => $this->car_part_type_id,
-            'car_part_type' => $this->carPartType?->name,
+            'car_part_type' => __('car-part-types.' . $this->carPartType?->translation_key) ?? '',
             'original_number' => $this->original_number,
             'mileage_km' => $this->mileage_km,
         ];
