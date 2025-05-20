@@ -6,15 +6,9 @@ use App\Models\Blog;
 use App\Models\CarBrand;
 use App\Models\CarPartType;
 use App\Models\ManufacturerText;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\App;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Models\DitoNumber;
 use App\Models\MainCategory;
-use App\Models\NewCarPart;
-use Illuminate\Support\Str;
-
 
 class LandingPageController extends Controller
 {
@@ -37,7 +31,6 @@ class LandingPageController extends Controller
         $partTypes = CarPartType::all();
 
         $brands = CarBrand::all();
-
 
         $mainCategories = MainCategory::withPartsCount()->get();
 
