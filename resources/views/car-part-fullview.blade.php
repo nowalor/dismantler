@@ -107,7 +107,9 @@
                         @elseif($part->quality == 'M')
                             <p><strong>M </strong>{{ __('car-quality-M') }}</p>
                         @endif
-                        <p><span class="fw-bold">{{ __('car-part-original') }}: </span>{{ $part->original_number }}</p>
+                        <p><span class="fw-bold">{{ __('car-part-original') }}: </span>
+                            <a href=" {{ route('car-parts.search-by-oem', $part->original_number) }}">{{ $part->original_number }}</a>
+                        </p>
                         <p><span class="fw-bold">{{ __('chassi-nr') }}: </span> {{ $part->vin }} </p>
                         <p><span class="fw-bold">KBA:</span> {{ $part->kba_number }}</p>
                         <p><span class="fw-bold">{{ __('car-part-modelyear') }}: </span>{{ $part->model_year }}</p>

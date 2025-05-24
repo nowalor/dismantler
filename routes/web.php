@@ -57,6 +57,7 @@ Route::group(
     ],
     function () {
         Route::get('', LandingPageController::class)->name('landingpage'); // homepage with new design
+        Route::get('home', LandingPageController::class)->name('landingpage'); // homepage with new design
         Route::get('faq', FaqPageController::class)->name('faq');
         Route::get('contact', ContactPageController::class)->name('contact');
 
@@ -78,11 +79,11 @@ Route::group(
         // Regular routes
         Route::get('car-parts/search/by-code', [CarPartController::class, 'searchByCode'])->name('car-parts.search-by-code');
         Route::get('car-parts/search/by-model', [CarPartController::class, 'searchByModel'])->name('car-parts.search-by-model');
-        Route::get('car-parts/search/by-oem', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
+        Route::get('car-parts/oem/{oem?}', [CarPartController::class, 'searchByOem'])->name('car-parts.search-by-oem');
         Route::get('car-parts/search/by-name', [CarPartController::class, 'searchParts'])->name('car-parts.search-by-name');
 
-        Route::get('/brands/{brand:slug}/models', [BrandModelController::class, 'index'])->name('brands.models');
-        Route::get('/brands/{brand:slug}/{model}/categories', [BrandModelCarPartTypeController::class, 'index'])->name('brands.categories');
+        Route::get('/brands/{brand}/models', [BrandModelController::class, 'index'])->name('brands.models');
+        Route::get('/brands/{brand}/{model}/categories', [BrandModelCarPartTypeController::class, 'index'])->name('brands.categories');
 
         Route::get('/categories/{mainCategory:slug}/subcategories', [SubcategoryController::class, 'index'])->name('categories.show');
         Route::get('/subcategories/{subCategory:slug}/brands', [SubcategoryController::class, 'showBrandsForSubcategories'])->name('subcategories.brands');

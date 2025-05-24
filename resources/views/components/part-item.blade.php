@@ -40,7 +40,7 @@
         @if($part->original_number)
             <p>
                 <span class="fw-bold">{{__('car-part-original')}}: </span>
-                <a href="{{ request()->fullUrlWithQuery(['filter[original_number]' => $part->original_number]) }}" class="text-white">
+                <a href="{{ route('car-parts.search-by-oem', $part->original_number) }}" class="text-white">
                     {{ $part->original_number }}
                 </a>
             </p>

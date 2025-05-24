@@ -565,33 +565,6 @@
         ]
     },
     {
-        "id": 21,
-        "name": "Automatic gearbox",
-        "german_car_part_types": [
-            {
-                "id": 20,
-                "name": "Getriebe Automatik",
-                "code": null,
-                "autoteile_markt_category_id": 261
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 21,
-                "name": "Gearkasse automatik",
-                "code": "2022",
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 26,
-                "name": "VÄXELLÅDA TRONIC",
-                "code": "7700"
-            }
-        ]
-    },
-    {
         "id": 22,
         "name": "Converter / inverter - electric",
         "german_car_part_types": [
@@ -984,7 +957,7 @@
     },
     {
         "id": 36,
-        "name": "Steering ",
+        "name": "Steering",
         "translation_key": "_steering_",
         "german_car_part_types": [
             {
@@ -3425,46 +3398,6 @@
         ]
     },
     {
-        "id": 144,
-        "name": "Steering",
-        "translation_key": "steering",
-        "german_car_part_types": [
-            {
-                "id": 143,
-                "name": "Lenkgetriebe",
-                "code": null,
-                "autoteile_markt_category_id": 110
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 145,
-                "name": "TANDSTANG SERVO",
-                "code": 3091,
-                "egluit_id": "1111"
-            },
-            {
-                "id": 146,
-                "name": "TANDSTANG SERVO SÆT",
-                "code": 3092,
-                "egluit_id": "1111"
-            },
-            {
-                "id": 147,
-                "name": "TANDSTANG SERVO BAG",
-                "code": 3094,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 149,
-                "name": "STYRSNÄCKA SERVO",
-                "code": 4558
-            }
-        ]
-    },
-    {
         "id": 145,
         "name": "Wishbone - rear",
         "translation_key": "wishbone___rear",
@@ -5885,7 +5818,7 @@
     },
     {
         "id": 222,
-        "name": "Bagdoor right ",
+        "name": "Bagdoor right",
         "translation_key": "bagdoor_right_",
         "german_car_part_types": [
             {
@@ -6653,7 +6586,7 @@
     },
     {
         "id": 246,
-        "name": "Switch   ",
+        "name": "Switch",
         "translation_key": "switch___",
         "german_car_part_types": [
             {
@@ -6916,34 +6849,6 @@
         ]
     },
     {
-        "id": 255,
-        "name": " Steering ",
-        "translation_key": "_steering_",
-        "german_car_part_types": [
-            {
-                "id": 254,
-                "name": "Lenkgetriebe mekanisch",
-                "code": null,
-                "autoteile_markt_category_id": 110
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 319,
-                "name": "TANDSTANG",
-                "code": 3090,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 268,
-                "name": "STYRVÄXEL/SNÄCKA MEKANISK",
-                "code": 7040
-            }
-        ]
-    },
-    {
         "id": 256,
         "name": "Kontakt Audio",
         "translation_key": "kontakt_audio",
@@ -7112,34 +7017,6 @@
         ]
     },
     {
-        "id": 262,
-        "name": "Wishbone - rear, right",
-        "translation_key": "wishbone___rear__right",
-        "german_car_part_types": [
-            {
-                "id": 261,
-                "name": "Radnabe hinten rechts",
-                "code": null,
-                "autoteile_markt_category_id": 99999999
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 326,
-                "name": "SPINDEL BAG H",
-                "code": 3582,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 275,
-                "name": "HJULLAGERHUS-SPINDEL HÖ B",
-                "code": 7132
-            }
-        ]
-    },
-    {
         "id": 263,
         "name": "Rear hood hinges right",
         "translation_key": "rear_hood_hinges_right",
@@ -7192,34 +7069,6 @@
                 "id": 277,
                 "name": "STÖTFÅNGARBEKLÄDNAD BAK",
                 "code": 5033
-            }
-        ]
-    },
-    {
-        "id": 265,
-        "name": "Wishbone - rear, left",
-        "translation_key": "wishbone___rear__left",
-        "german_car_part_types": [
-            {
-                "id": 264,
-                "name": "Radnabe hinten links",
-                "code": null,
-                "autoteile_markt_category_id": 99999999
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 329,
-                "name": "SPINDEL BAG V",
-                "code": 3581,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 278,
-                "name": "HJULLAGERHUS-SPINDEL VÄ B",
-                "code": 7131
             }
         ]
     },
@@ -7386,7 +7235,7 @@
     },
     {
         "id": 272,
-        "name": "High voltare kable ",
+        "name": "High voltare kable",
         "translation_key": "high_voltare_kable_",
         "german_car_part_types": [
             {
@@ -7420,7 +7269,7 @@
     },
     {
         "id": 273,
-        "name": "Switches ",
+        "name": "Switches",
         "translation_key": "switches_",
         "german_car_part_types": [
             {
@@ -7510,7 +7359,7 @@
     },
     {
         "id": 276,
-        "name": "Door window screen front  ",
+        "name": "Door window screen front",
         "translation_key": "door_window_screen_front__",
         "german_car_part_types": [
             {
@@ -7531,7 +7380,7 @@
     },
     {
         "id": 277,
-        "name": "Wishbone - front upper left ",
+        "name": "Wishbone - front upper left",
         "translation_key": "wishbone___front_upper_left_",
         "german_car_part_types": [
             {
@@ -7587,7 +7436,7 @@
     },
     {
         "id": 279,
-        "name": "Door window screen  bag  ",
+        "name": "Door window screen  bag",
         "translation_key": "door_window_screen__bag__",
         "german_car_part_types": [
             {
@@ -7743,34 +7592,6 @@
                 "id": 297,
                 "name": "RELÄ GLÖDNING DIESEL",
                 "code": 7417
-            }
-        ]
-    },
-    {
-        "id": 285,
-        "name": "Bumper strengthener front ",
-        "translation_key": "bumper_strengthener_front_",
-        "german_car_part_types": [
-            {
-                "id": 284,
-                "name": "Stoßstangenhalter vorne",
-                "code": null,
-                "autoteile_markt_category_id": null
-            }
-        ],
-        "danish_car_part_types": [
-            {
-                "id": 348,
-                "name": "FORKOFANGER INDV.",
-                "code": 5020,
-                "egluit_id": "1111"
-            }
-        ],
-        "swedish_car_part_types": [
-            {
-                "id": 298,
-                "name": "STÖTFÅNGARFÄSTE FRAM HÖ",
-                "code": 1098
             }
         ]
     },
@@ -7952,7 +7773,7 @@
     },
     {
         "id": 291,
-        "name": "Cabin div. ",
+        "name": "Cabin div.",
         "translation_key": "cabin_div__",
         "german_car_part_types": [
             {
@@ -7973,7 +7794,7 @@
     },
     {
         "id": 292,
-        "name": "Sprinkler  ",
+        "name": "Sprinkler",
         "translation_key": "sprinkler__",
         "german_car_part_types": [
             {

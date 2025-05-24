@@ -355,33 +355,35 @@ class CarPartController extends Controller
         ));
     }
 
-    public function searchByOEM(Request $request)
+    public function searchByOEM(Request $request, string $oem = null)
     {
-        $oem = $request->get('oem');
+        // If no route parameter, but OEM is present in query, redirect
+        if (!$oem && $request->filled('oem')) {
+            $redirectOem = $request->query('oem');
+            $queryParams = $request->except('oem'); // Keep all others
+
+            return redirect()->route('car-parts.search-by-oem', ['oem' => $redirectOem] + $queryParams);
+        }
+
         $engine_code = $request->get('engine_code');
         $gearbox = $request->get('gearbox');
-        $search = $request->query('search'); // Capture the search term
+        $search = $request->query('search');
         $sort = $request->query('sort');
-        $type_id = $request->query('type_id'); // Capture the type_id from the request
+        $type_id = $request->query('type_id');
+
         $mainCategories = MainCategory::with('carPartTypes')->get();
 
-        // Prepare the query based on filters and the search term
         $results = (new SearchByOeAction())->execute(
             oem: $oem,
             engine_code: $engine_code,
             gearbox: $gearbox,
-            search: $search, // Pass the search term
-            sort: $sort, // Pass the sort parameter
-            type_id: $type_id, // Pass the type_id
+            search: $search,
+            sort: $sort,
+            type_id: $type_id,
             paginate: 10,
         );
 
-        $type = null;
-
-        if ($request->filled('type_id')) {
-            $type = CarPartType::find($request->get('type_id'));
-        }
-
+        $type = $request->filled('type_id') ? CarPartType::find($type_id) : null;
         $parts = $results['data']['parts'];
         $partTypes = CarPartType::all();
 
@@ -395,6 +397,7 @@ class CarPartController extends Controller
             'mainCategories'
         ));
     }
+
 
     public function searchByNumberPlate()
     {

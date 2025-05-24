@@ -37,7 +37,10 @@ class NewCarPartTypeSeeder extends Seeder
                 'name' => $item['name'],
                 // Underscore version of name without special characters
                 'translation_key' =>  Str::slug($item['name'], '_'),
+                'slug' =>  Str::slug($item['name'], '-'),
             ];
+
+            logger($item['id']);
 
             if(isset($item['json_key'])) {
                 $partType['json_key'] = $item['json_key'];
