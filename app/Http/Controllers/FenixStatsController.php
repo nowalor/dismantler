@@ -12,7 +12,8 @@ class FenixStatsController extends Controller
         $aggregates = NewCarPart::selectRaw("
             SUM(CASE WHEN fields_resolved_at IS NOT NULL THEN 1 ELSE 0 END) AS resolved_parts,
             SUM(CASE WHEN fields_resolved_at IS NOT NULL AND article_nr IS NOT NULL THEN 1 ELSE 0 END) AS sellable_parts,
-            SUM(CASE WHEN fields_resolved_at IS NOT NULL AND article_nr IS NULL THEN 1 ELSE 0 END) AS unsellable_parts
+            SUM(CASE WHEN fields_resolved_at IS NOT NULL AND article_nr IS NULL THEN 1 ELSE 0 END) AS unsellable_parts,
+            SUM(CASE WHEN country IS NULL THEN 1 ELSE 0 END) AS fenix_parts_count
         ")->first();
 
         $unSellablePartTypeCounts = NewCarPart::whereNotNull('fields_resolved_at')
@@ -37,6 +38,7 @@ class FenixStatsController extends Controller
             : 0;
 
         $stats = [
+            'fenixPartsCount' => $aggregates->fenix_parts_count,
             'resolvedParts' => $aggregates->resolved_parts,
             'sellableParts' => $aggregates->sellable_parts,
             'unSellableParts' => $aggregates->unsellable_parts,
