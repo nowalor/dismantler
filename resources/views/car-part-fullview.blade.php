@@ -2,6 +2,25 @@
 @section('title', 'Currus-connect.com: ' . $part->pageTitle())
 @section('content')
     <div id="fullview-container" class="container pt-2 pb-3 pl-4 pr-4">
+        @if($breadcrumbs)
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-left">
+                    @foreach ($breadcrumbs as $breadcrumb)
+                        @if ($loop->last)
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $part->new_name ?? $breadcrumb['name'] }}
+                            </li>
+                        @else
+                            <li class="breadcrumb-item">
+                                <a href="{{ $breadcrumb['route'] }}">
+                                    {{ $breadcrumb['name'] }}
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ol>
+            </nav>
+        @endif
         <h1 class="large-text font-bold">{{ __('product-details') }}</h1>
         <div class="row">
             <!-- Product Image Gallery -->

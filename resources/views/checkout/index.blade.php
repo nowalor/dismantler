@@ -7,14 +7,19 @@
     <div class="container pb-4 pt-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href=" {{ route('landingpage') }} ">Home</a></li>
-                <li class="breadcrumb-item">
-                    <a href="{{ route('car-parts.search-by-name') }}">Car parts</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="{{ route('fullview', $carPart) }}">{{ $carPart->new_name }}</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('checkout.checkout') }}</li>
+                @foreach ($checkoutBreadcrumbs as $breadcrumb)
+                    @if ($loop->last)
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{ $breadcrumb['name'] }}
+                        </li>
+                    @else
+                        <li class="breadcrumb-item">
+                            <a href="{{ $breadcrumb['route'] }}">
+                                {{ $breadcrumb['name'] }}
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
             </ol>
         </nav>
         <div>
