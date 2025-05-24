@@ -33,7 +33,12 @@ class SearchByKbaAction {
                     $query->where('id', $type->id);
                 }
             })
-            ->with('carPartImages');
+            ->with([
+                'carPartImages',
+                'sbrCode',
+                'ditoNumber',
+                'carPartType'
+            ]);
 
         // Convert BelongsToMany to Builder
         $partsQuery = $partsQuery->getQuery(); // Ensure this is the query builder

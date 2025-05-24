@@ -13,6 +13,13 @@ class CarPartFullviewController extends Controller
     public function index(
         NewCarPart $part,
     ) {
+        $part->load([
+            'carPartImages',
+            'sbrCode',
+            'ditoNumber',
+            'carPartType'
+        ]);
+
         $canonical = route('fullview', $part);
 
         if (request()->fullUrl() !== $canonical) {
@@ -22,8 +29,8 @@ class CarPartFullviewController extends Controller
         $breadcrumbs = $part->prepareCarPartBreadcrumbs();
 
         return view('car-part-fullview', compact(
-            'part', 
-            'breadcrumbs', 
+            'part',
+            'breadcrumbs',
         ));
     }
 

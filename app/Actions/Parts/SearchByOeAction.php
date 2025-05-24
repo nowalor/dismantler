@@ -17,7 +17,12 @@ class SearchByOeAction
         ?string $type_id = null,
         ?int $paginate = null
     ): array {
-        $partsQuery = NewCarPart::query();
+        $partsQuery = NewCarPart::query()->with([
+            'carPartImages',
+            'sbrCode',
+            'ditoNumber',
+            'carPartType'
+        ]);
 
         if (!empty($oem)) {
             $partsQuery->where('original_number', 'LIKE', "%{$oem}%");

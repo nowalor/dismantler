@@ -25,6 +25,13 @@ class PaymentController extends Controller
 
         $checkoutBreadcrumbs = $carPart->prepareCheckoutBreadcrumbs();
 
+        $carPart->load([
+            'carPartImages',
+            'sbrCode',
+            'ditoNumber',
+            'carPartType'
+        ]);
+
         return view('checkout.index', compact(
             'carPart',
             'paymentPlatforms',

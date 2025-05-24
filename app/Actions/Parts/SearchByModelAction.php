@@ -16,7 +16,15 @@ class SearchByModelAction
         array $filters = [] // New parameter for filters
     ): array {
         $sbr = $model->sbrCodes()->first();
-        $partQuery = $sbr->carParts()->whereNull('country');
+        $partQuery = $sbr
+            ->carParts()
+            ->with([
+                'carPartImages',
+                'sbrCode',
+                'ditoNumber',
+                'carPartType'
+            ])
+            ->whereNull('country');
 
         if ($type) {
             $partQuery->where('car_part_type_id', $type->id);
