@@ -125,6 +125,11 @@
             </div>
         </div>
 
+        <div class="d-flex justify-content-between align-items-center my-3">
+            <div>{{ $part->findOptimalParts() }}</div>
+            <div>The cheapest has id: </div>
+            <div>The least used</div>
+        </div>
         <!-- Additional Information -->
         <div class="row mt-4">
             <div class="col-12">

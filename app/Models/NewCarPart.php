@@ -14,7 +14,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class NewCarPart extends Model
@@ -74,6 +76,60 @@ class NewCarPart extends Model
         'mileage',
         'fields_resolved_at',
     ];
+
+    public function findOptimalParts(): Collection|null
+    {
+        if (!$this->isValidForBestMatch())
+        {
+            return null;
+        }
+
+        $parts = new Collection();
+
+        $cheapestPart = $this->baseOptimalPartsQuery()
+            ->where('price_sek', '<', $this->price_sek)
+            ->orderBy('price_sek')
+            ->where('mileage_km', 'REGEXP', '^[0-9]+$')
+            ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
+            ->first();
+
+        $partWithBestMileage = $this->baseOptimalPartsQuery()
+            ->where('mileage_km', 'REGEXP', '^[0-9]+$')
+            ->whereRaw('CAST(mileage_km AS UNSIGNED) < CAST(? AS UNSIGNED)', [$this->mileage_km])
+            ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
+            ->orderBy('price_sek')
+            ->first();
+
+        if ($cheapestPart) {
+            $parts->push($cheapestPart);
+        }
+
+        if ($partWithBestMileage && (!$cheapestPart || $partWithBestMileage->id !== $cheapestPart->id))
+        {
+            $parts->push($partWithBestMileage);
+        }
+
+        return $parts;
+    }
+
+        private function baseOptimalPartsQuery(): Builder
+    {
+        return self::where('id', '!=', $this->id)
+            ->where('original_number', $this->original_number)
+            ->where('car_part_type_id', $this->car_part_type_id)
+            ->where('mileage_km', '!=', 0);
+    }
+
+    private function isValidForBestMatch(): bool
+    {
+        return self::whereNotNull('original_number')
+            ->where('original_number', '!=', '')
+            ->where('original_number', '!=', '-')
+            ->whereNotNull('car_part_type_id')
+            ->where('car_part_type_id', '!=', '')
+            ->where('id', $this->id)
+            ->exists();
+    }
 
     public function prepareCheckoutBreadcrumbs(): array | null
     {
