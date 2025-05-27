@@ -27,10 +27,12 @@ class CarPartFullviewController extends Controller
         }
 
         $breadcrumbs = $part->prepareCarPartBreadcrumbs();
+        $relevantParts = $part->findRelevantParts();
 
         return view('car-part-fullview', compact(
             'part',
             'breadcrumbs',
+            'relevantParts',
         ));
     }
 
