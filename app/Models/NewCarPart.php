@@ -77,7 +77,7 @@ class NewCarPart extends Model
         'fields_resolved_at',
     ];
 
-    public function findOptimalParts(): Collection|null
+    public function findRelevantParts(): Collection|null
     {
         if (!$this->isValidForBestMatch())
         {
@@ -86,14 +86,14 @@ class NewCarPart extends Model
 
         $parts = new Collection();
 
-        $cheapestPart = $this->baseOptimalPartsQuery()
+        $cheapestPart = $this->baseRelevantPartsQuery()
             ->where('price_sek', '<', $this->price_sek)
             ->orderBy('price_sek')
             ->where('mileage_km', 'REGEXP', '^[0-9]+$')
             ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
             ->first();
 
-        $partWithBestMileage = $this->baseOptimalPartsQuery()
+        $partWithBestMileage = $this->baseRelevantPartsQuery()
             ->where('mileage_km', 'REGEXP', '^[0-9]+$')
             ->whereRaw('CAST(mileage_km AS UNSIGNED) < CAST(? AS UNSIGNED)', [$this->mileage_km])
             ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
@@ -101,18 +101,20 @@ class NewCarPart extends Model
             ->first();
 
         if ($cheapestPart) {
+            $cheapestPart->label = __('cheapest-similar-part');
             $parts->push($cheapestPart);
         }
 
         if ($partWithBestMileage && (!$cheapestPart || $partWithBestMileage->id !== $cheapestPart->id))
         {
+            $partWithBestMileage->label = __('best-mileage-similar-part');
             $parts->push($partWithBestMileage);
         }
 
         return $parts;
     }
 
-        private function baseOptimalPartsQuery(): Builder
+        private function baseRelevantPartsQuery(): Builder
     {
         return self::where('id', '!=', $this->id)
             ->where('original_number', $this->original_number)
