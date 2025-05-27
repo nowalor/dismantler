@@ -125,11 +125,93 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center my-3">
-            <div>{{ $part->findOptimalParts() }}</div>
-            <div>The cheapest has id: </div>
-            <div>The least used</div>
-        </div>
+        <!-- Relevant Parts -->
+        @if (!empty($relevantParts))
+            <h2 class="large-text font-bold my-3 pt-2">{{ __('similar-parts') }}</h2>
+            <div class="row">
+                @foreach ($relevantParts as $relevantPart)
+                    <div class="col-md-6 pt-2">
+                        <div class="card shadow-sm mb-2">
+                            <div class="card-body">
+                                <h6 class="pb-2">{{ $relevantPart->label }}</h6>
+                                <!-- <h6 class="mb-1">{{ $relevantPart->id }}</h6>  test -->
+                                @if ($relevantPart->carPartImages->count())
+                                    @php
+                                        $images = $relevantPart->carPartImages;
+                                        $firstImage = $images->first();
+                                        $otherImages = $images->skip(1);
+                                    @endphp
+                                            <!-- Large Image Display -->
+                                    <img class="img-fluid rounded mb-2" src="{{ $firstImage->logoGerman() }}"
+                                        alt="{{ $relevantPart->pageTitle() }}" style="max-width: 100%; border-radius: 1rem;">
+                                @else
+                                    <img class="img-fluid rounded mb-4"
+                                        src="https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/placeholder-car-parts.png"
+                                        alt="{{ $relevantPart->pageTitle() }}" style="max-width: 100%; border-radius: 1rem;">
+                                @endif
+                                <h3 class="fw-bold large-text">{{ $relevantPart->sbr_car_name }}</h3>
+                                <h4 class="text-primary large-text">
+                                    {{ $relevantPart->full_price }}  @if(!$relevantPart->getLocalizedPrice()['requires_request'])
+                                    {{ $relevantPart->getLocalizedPrice()['symbol'] }} @endif
+                                    @if(!$relevantPart->getLocalizedPrice()['requires_request'])
+                                        <span>{{ __('vat-shipping') }}</span>
+                                        <a href="javascript:void(0);" onclick="showInfoPopup()">
+                                            <i class="fas fa-info-circle ml-2"></i>
+                                        </a>
+                                    @endif
+                                </h4>
+                                <!--Pop up message-->
+                                @include('components.pop-up', [
+                                    'title' => __('vat-infoTitle'),
+                                    'message' => __('vat-infoDescription'),
+                                    'closeButton' => __('pop-up-close'),
+                                    'contactButton' => __('pop-up-contact'),
+                                ])
+
+                                <a href="{{ route('checkout', $relevantPart) }}" class="btn btn-primary w-100 mb-2">
+                                    {{ __('pop-up-buy-now') }}
+                                </a>
+                                <a href="{{ route('fullview', $relevantPart) }}" class="btn btn-primary w-100 mb-2">
+                                    {{ __('car-view-part') }}
+                                </a>
+                                <a href="{{ route('contact', ['part_name' => $relevantPart->new_name, 'article_nr' => $relevantPart->article_nr]) }}" class="btn btn-primary w-100 mb-4">
+                                    {{ __('contact-us') }}
+                                </a>
+
+                                <p><span class="fw-bold">Currus Connect ID: </span>{{ $relevantPart->article_nr }}</p>
+                                <p><span class="fw-bold">{{ __('type-of-spare') }}: </span>{{ __('used-part') }}</p>
+                                <p><span class="fw-bold">{{ __('car-part-engine-type') }}: </span>{{ $relevantPart->engine_type }}</p>
+                                <p><span class="fw-bold">{{ __('car-info-gearbox') }}: </span>{{ $relevantPart->gearbox_nr }}</p>
+                                <p><span class="fw-bold">{{ __('car-info-quality') }}: </span>{{ $relevantPart->quality }}</p>
+                                @if ($relevantPart->quality == 'A+')
+                                    <p><strong>A+ </strong>{{ __('car-quality-A+') }}</p>
+                                @elseif($relevantPart->quality == 'A')
+                                    <p><strong>A </strong>{{ __('car-quality-A') }}</p>
+                                @elseif($relevantPart->quality == 'A*')
+                                    <p><strong>A* </strong>{{ __('car-quality-A*') }}</p>
+                                @elseif($relevantPart->quality == 'M')
+                                    <p><strong>M </strong>{{ __('car-quality-M') }}</p>
+                                @endif
+                                <p><span class="fw-bold">{{ __('car-part-original') }}: </span>
+                                    <a href=" {{ route('car-parts.search-by-oem', $relevantPart->original_number) }}">{{ $relevantPart->original_number }}</a>
+                                </p>
+                                <p><span class="fw-bold">{{ __('chassi-nr') }}: </span> {{ $relevantPart->vin }} </p>
+                                <p><span class="fw-bold">KBA:</span> {{ $relevantPart->kba_number }}</p>
+                                <p><span class="fw-bold">{{ __('car-part-modelyear') }}: </span>{{ $relevantPart->model_year }}</p>
+                                <p><span class="fw-bold">{{ __('car-part-mileage') }}:</span>
+                                    @if ($relevantPart->mileage_km === '0')
+                                        <strong>{{ __('unknown-message') }}</strong>
+                                    @else
+                                        {{ $relevantPart->mileage_km }} KM
+                                @endif
+                                <p><span class="fw-bold">{{ __('fuel-type') }}: </span>{{ $relevantPart->fuel }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
         <!-- Additional Information -->
         <div class="row mt-4">
             <div class="col-12">
