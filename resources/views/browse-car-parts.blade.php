@@ -40,7 +40,7 @@
     </nav>
 </div> --}}
 
-{{ $parts->links('vendor.pagination.bootstrap-5') }}
+{{ $parts->links('pagination::simple-bootstrap-5') }}
         </div>
 
     </div>
