@@ -24,8 +24,7 @@ class ExportPartsAsCsvCommand extends Command
     {
         $parts = NewCarPart::with([
             'carPartType.germanCarPartTypes',
-            'my_kba',
-            'sbrCode.ditoNumbers',
+            'sbrCode.ditoNumbers.germanDismantlers.engineTypes',
             'ditoNumber',
             'carPartImages',
         ])
