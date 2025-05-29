@@ -89,7 +89,7 @@ class CarPartController extends BaseController
 
         $parts = $parts
             ->with('carPartImages')
-            ->paginate(9, pageName: 'parts');
+            ->simplePaginate(9, pageName: 'parts');
 
         $partTypes = $this->sharedData['carPartTypes'];
         $dismantleCompanies = $this->sharedData['dismantleCompanies'];
@@ -157,7 +157,7 @@ class CarPartController extends BaseController
         $parts = (new SortPartsAction())->execute($parts, $sort);
 
         // Paginate the results
-        $parts = $parts->paginate(9, ['*'], 'parts')->appends($request->query());
+        $parts = $parts->simplePaginate(9, ['*'], 'parts')->appends($request->query());
 
         // Fetch related data for dropdowns or filters, with caching
         $brands = $this->sharedData['carBrands'];
