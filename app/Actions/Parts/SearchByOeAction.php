@@ -61,7 +61,7 @@ class SearchByOeAction
                 foreach ($searchTerms as $term) {
                     $query->where(function ($subQuery) use ($term, $searchableColumns) {
                         foreach ($searchableColumns as $column) {
-                            $subQuery->orWhere($column, 'LIKE', "%{$term}%");
+                            $subQuery->orWhere($column, 'LIKE', "{$term}%");
                         }
                     });
                 }
