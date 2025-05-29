@@ -31,6 +31,10 @@ class BaseController extends LaravelController
             return DismantleCompany::all();
         });
 
+        $this->sharedData['mainCategoriesWithParts'] = Cache::remember('main_categories_with_parts', 86400, function () {
+            return MainCategory::with('carPartTypes')->get();
+        });
+
         // You can share with all views automatically if you want
         view()->share($this->sharedData);
     }

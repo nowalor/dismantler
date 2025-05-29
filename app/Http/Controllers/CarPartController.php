@@ -53,9 +53,9 @@ class CarPartController extends BaseController
 
         $kba = null;
 
-        $mainCategories = MainCategory::with('carPartTypes')->get();
+        $mainCategories = $this->sharedData['mainCategoriesWithParts'];
 
-        $brands = CarBrand::all();
+        $brands = $this->sharedData['carBrands'];
 
         $ditoNumber = null;
 
@@ -112,7 +112,7 @@ class CarPartController extends BaseController
         $sort = $request->query('sort');
         $filters = $request->input('filter', []);
         $partType = $request->query('type_id'); // Retrieve the part type filter
-        $mainCategories = MainCategory::with('carPartTypes')->get();
+        $mainCategories = $this->sharedData['mainCategoriesWithParts'];
 
         // Reset to the first page if filters are applied
         if (!empty($filters) || $partType) {
@@ -160,17 +160,11 @@ class CarPartController extends BaseController
         $parts = $parts->paginate(9, ['*'], 'parts')->appends($request->query());
 
         // Fetch related data for dropdowns or filters, with caching
-        $brands = Cache::remember('car_brands', 60, function () {
-            return CarBrand::all();
-        });
+        $brands = $this->sharedData['carBrands'];
 
-        $partTypes = Cache::remember('car_part_types', 60, function () {
-            return CarPartType::all();
-        });
+        $partTypes =  $this->sharedData['carPartTypes'];
 
-        $dismantleCompanies = Cache::remember('dismantle_companies', 60, function () {
-            return DismantleCompany::all();
-        });
+        $dismantleCompanies = $this->sharedData['dismantleCompanies'];
 
         // Return the view with the filtered data
         return view('browse-car-parts', compact(
@@ -204,7 +198,7 @@ class CarPartController extends BaseController
         $hsn = $request->get('hsn');
         $tsn = $request->get('tsn');
         $type = $request->filled('type_id') ? CarPartType::find($request->get('type_id')) : null;
-        $mainCategories = MainCategory::with('carPartTypes')->get();
+        $mainCategories = $this->sharedData['mainCategoriesWithParts'];
 
         // Validate presence of HSN and TSN
         if (!$hsn || !$tsn) {
@@ -253,7 +247,7 @@ class CarPartController extends BaseController
             'search' => $request->get('search'), // Include the new search term
         ];
 
-        $partTypes = CarPartType::all();
+        $partTypes = $this->sharedData['carPartTypes'];
 
         // Return the view with the updated parts and search parameters
         return view('parts-kba', compact(
@@ -292,7 +286,7 @@ class CarPartController extends BaseController
             $type = CarPartType::find($request->get('type_id'));
         }
 
-        $mainCategories = MainCategory::with('carPartTypes')->get();
+        $mainCategories = $this->sharedData['mainCategoriesWithParts'];
 
         // Sorting and filtering logic
         $sort = $request->query('sort');
@@ -341,7 +335,7 @@ class CarPartController extends BaseController
         ];
 
         // Get all car part types
-        $partTypes = CarPartType::all();
+        $partTypes = $this->sharedData['carPartTypes'];
 
         return view('parts-model', compact(
             'parts',
@@ -370,7 +364,7 @@ class CarPartController extends BaseController
         $sort = $request->query('sort');
         $type_id = $request->query('type_id');
 
-        $mainCategories = MainCategory::with('carPartTypes')->get();
+        $mainCategories = $this->sharedData['mainCategoriesWithParts'];
 
         $results = (new SearchByOeAction())->execute(
             oem: $oem,
@@ -384,7 +378,7 @@ class CarPartController extends BaseController
 
         $type = $request->filled('type_id') ? CarPartType::find($type_id) : null;
         $parts = $results['data']['parts'];
-        $partTypes = CarPartType::all();
+        $partTypes = $this->sharedData['carBrands'];
 
         return view('parts-oem', compact(
             'parts',
