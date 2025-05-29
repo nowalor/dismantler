@@ -27,8 +27,10 @@ class ExportPartsAsCsvCommand extends Command
             'sbrCode.ditoNumbers.germanDismantlers.engineTypes',
             'ditoNumber',
             'carPartImages',
+            'sbrCode',
         ])
             ->whereNotNull('engine_code')
+            ->whereHas('sbrCode')
             ->where('quality', '!=', 'M')
             ->whereNotNull('new_name')
             ->whereNotNull('article_nr')
