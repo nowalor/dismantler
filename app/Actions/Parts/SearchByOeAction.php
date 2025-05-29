@@ -25,15 +25,15 @@ class SearchByOeAction
         ]);
 
         if (!empty($oem)) {
-            $partsQuery->where('original_number', 'LIKE', "%{$oem}%");
+            $partsQuery->where('original_number', 'LIKE', "{$oem}%");
         }
 
         if (!empty($engine_code)) {
-            $partsQuery->where('engine_code', 'LIKE', "%{$engine_code}%");
+            $partsQuery->where('engine_code', 'LIKE', "{$engine_code}%");
         }
 
         if (!empty($gearbox)) {
-            $partsQuery->where('gearbox', 'LIKE', "%{$gearbox}%");
+            $partsQuery->where('gearbox', 'LIKE', "{$gearbox}%");
         }
 
         if (!empty($type_id)) {
