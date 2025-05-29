@@ -8,6 +8,7 @@ use App\Models\NewCarPart;
 use App\Models\PaymentPlatform;
 use App\Resolvers\PaymentPlatformResolver;
 use App\Services\SlackNotificationService;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class PaymentController extends Controller
@@ -21,7 +22,9 @@ class PaymentController extends Controller
 
     public function index(NewCarPart $carPart)//: View
     {
-        $paymentPlatforms = PaymentPlatform::all();
+        $paymentPlatforms = Cache::rememberForever('payment_platforms', function () {
+            return PaymentPlatform::all();
+        });
 
         $checkoutBreadcrumbs = $carPart->prepareCheckoutBreadcrumbs();
 

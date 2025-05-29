@@ -3,6 +3,7 @@
 namespace App\Resolvers;
 
 use App\Models\PaymentPlatform;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 class PaymentPlatformResolver
@@ -11,7 +12,9 @@ class PaymentPlatformResolver
 
     public function __construct()
     {
-        $this->paymentPlatforms = PaymentPlatform::all();
+        $this->paymentPlatforms = Cache::rememberForever('payment_platforms', function () {
+            return PaymentPlatform::all();
+        });
     }
 
     public function resolveService($paymentPlatformId)
