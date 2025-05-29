@@ -33,18 +33,18 @@ class SearchByModelAction
         foreach ($filters as $key => $value) {
             switch ($key) {
                 case 'original_number':
-                    $partQuery->where('original_number', 'LIKE', "%{$value}%");
+                    $partQuery->where('original_number', 'LIKE', "{$value}%");
                     break;
                 case 'article_nr':
-                    $partQuery->where('article_nr', 'LIKE', "%{$value}%");
+                    $partQuery->where('article_nr', 'LIKE', "{$value}%");
                     break;
                 case 'engine_type':
-                    $partQuery->where('engine_type', 'LIKE', "%{$value}%");
+                    $partQuery->where('engine_type', 'LIKE', "{$value}%");
                     break;
                 case 'gearbox':
                     $partQuery->where(function ($query) use ($value) {
-                        $query->where('subgroup', 'LIKE', "%{$value}%")
-                              ->orWhere('gearbox', 'LIKE', "%{$value}%");
+                        $query->where('subgroup', 'LIKE', "{$value}%")
+                              ->orWhere('gearbox', 'LIKE', "{$value}%");
                     });
                     break;
             }

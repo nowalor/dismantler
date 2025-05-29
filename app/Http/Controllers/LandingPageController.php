@@ -16,7 +16,7 @@ use App\Models\NewCarPart;
 use Illuminate\Support\Str;
 
 
-class LandingPageController extends Controller
+class LandingPageController extends BaseController
 {
 
     /**
@@ -32,11 +32,11 @@ class LandingPageController extends Controller
             ->having('car_parts_count', '>', 0)
             ->get(); */
 
-        $plainTexts = ManufacturerText::all();
+        $plainTexts = $this->sharedData['mainCategories'];
 
-        $partTypes = CarPartType::all();
+        $partTypes = $this->sharedData['carPartTypes'];
 
-        $brands = CarBrand::all();
+        $brands = $this->sharedData['carBrands'];
 
 
         $mainCategories = MainCategory::withPartsCount()->get();

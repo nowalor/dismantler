@@ -7,7 +7,7 @@ use App\Models\KType;
 use App\Models\MainCategory;
 use Illuminate\Http\Request;
 
-class SearchByPlateController extends Controller
+class SearchByPlateController extends BaseController
 {
     private string $apiUrl;
     private string $apiToken;
@@ -65,9 +65,8 @@ class SearchByPlateController extends Controller
             'query' => $request->query(),
         ]);
 
-        $partTypes = CarPartType::all();
-        $mainCategories = MainCategory::all(); // Super annoying if we have to keep doing this everywhere, time for livewire?
-
+        $partTypes = $this->sharedData['carPartTypes'];
+        $mainCategories = $this->sharedData['mainCategories']; // Super annoying if we have to keep doing this everywhere, time for livewire?
 
         return view('plate-parts', compact('parts', 'partTypes', 'mainCategories'));
     }

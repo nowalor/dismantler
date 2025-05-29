@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\MainCategory;
 
 
-class CarPartController extends Controller
+class CarPartController extends BaseController
 {
 
     private const SEARCHABLE_COLUMNS = [
@@ -91,9 +91,8 @@ class CarPartController extends Controller
             ->with('carPartImages')
             ->paginate(9, pageName: 'parts');
 
-        $partTypes = CarPartType::all();
-        $dismantleCompanies = DismantleCompany::all();
-
+        $partTypes = $this->sharedData['carPartTypes'];
+        $dismantleCompanies = $this->sharedData['dismantleCompanies'];
         return view('car-parts.index', compact(
             'parts',
             'partTypes',

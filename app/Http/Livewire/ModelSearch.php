@@ -6,6 +6,7 @@ use App\Models\CarBrand;
 use App\Models\CarPartType;
 use App\Models\DitoNumber;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -23,9 +24,8 @@ class ModelSearch extends Component
 
     public function mount(): void
     {
-        $this->brands = CarBrand::all();
-        $this->models = null;
-        $this->types = CarPartType::all();
+        $this->brands = Cache::remember('car_brands', 86400, fn () => CarBrand::all());
+        $this->types = Cache::remember('car_part_types', 86400, fn () => CarPartType::all());
     }
 
     public function changeBrand(): void
