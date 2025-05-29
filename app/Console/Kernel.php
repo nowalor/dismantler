@@ -29,8 +29,10 @@ class Kernel extends ConsoleKernel
         $schedule->command('fenix:get-all-parts')->everyThreeMinutes();
         $schedule->command('fenix-images:find-car-part-id')->everyTenMinutes();
         $schedule->command('fenix:resolve-fields')->everyFiveMinutes();
-/*        $schedule->command('autoteile-markt:export')->everyTenMinutes();
-        $schedule->command('autoteile-markt:upload-parts')->dailyAt('12:00');*/
+        $schedule->command('cache:warmup')->dailyAt('04:00'); // Off-peak time
+
+        /*        $schedule->command('autoteile-markt:export')->everyTenMinutes();
+                $schedule->command('autoteile-markt:upload-parts')->dailyAt('12:00');*/
 
          //$schedule->command('egluit:purge-parts')->dailyAt('16:08');
     }
