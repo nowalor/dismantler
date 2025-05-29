@@ -148,6 +148,7 @@ class AutoteileMarkDocService
             Fahrgestellnummer: $carPart->vin \n
             Baujahr: $carPart->model_year \n
             Kbas: $kbaString \n
+            Produktsicherheit (GPSR): {$carPart->sbrCode->producer}  - {$carPart->sbrCode->address} - {$carPart->sbrCode->phone} - {$carPart->sbrCode->email}
         ";
 
         return $description;
