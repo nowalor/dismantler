@@ -10,18 +10,15 @@ use App\Models\CarPart;
 use App\Models\CarPartType;
 use App\Models\DismantleCompany;
 use App\Models\DitoNumber;
-use App\Models\GermanDismantler;
 use App\Models\NewCarPart;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
 use App\Actions\Parts\SortPartsAction;
 use Illuminate\Support\Facades\Cache;
 use App\Models\MainCategory;
 
 
-class CarPartController extends Controller
+class CarPartController extends BaseController
 {
 
     private const SEARCHABLE_COLUMNS = [
@@ -54,8 +51,6 @@ class CarPartController extends Controller
         $kba = null;
 
         $mainCategories = MainCategory::with('carPartTypes')->get();
-
-        $brands = CarBrand::all();
 
         $ditoNumber = null;
 
@@ -91,12 +86,10 @@ class CarPartController extends Controller
             ->with('carPartImages')
             ->paginate(9, pageName: 'parts');
 
-        $partTypes = CarPartType::all();
         $dismantleCompanies = DismantleCompany::all();
 
         return view('car-parts.index', compact(
             'parts',
-            'partTypes',
             'dismantleCompanies',
             'kba',
             'partsDifferentCarSameEngineType',
@@ -126,7 +119,6 @@ class CarPartController extends Controller
             $type = CarPartType::find($request->get('type_id'));
         }
 
-        // Begin building the query
         $parts = NewCarPart::with([
             'carPartType',
             'dismantleCompany',
@@ -165,9 +157,6 @@ class CarPartController extends Controller
             return CarBrand::all();
         });
 
-        $partTypes = Cache::remember('car_part_types', 60, function () {
-            return CarPartType::all();
-        });
 
         $dismantleCompanies = Cache::remember('dismantle_companies', 60, function () {
             return DismantleCompany::all();
@@ -176,7 +165,6 @@ class CarPartController extends Controller
         // Return the view with the filtered data
         return view('browse-car-parts', compact(
             'parts',
-            'partTypes',
             'type',
             'dismantleCompanies',
             'brands',
@@ -254,13 +242,11 @@ class CarPartController extends Controller
             'search' => $request->get('search'), // Include the new search term
         ];
 
-        $partTypes = CarPartType::all();
 
         // Return the view with the updated parts and search parameters
         return view('parts-kba', compact(
             'parts',
             'search',
-            'partTypes',
             'type',
             'kba',
             'partCount',
@@ -341,15 +327,11 @@ class CarPartController extends Controller
             'search' => $request->get('search'), // Secondary search term
         ];
 
-        // Get all car part types
-        $partTypes = CarPartType::all();
-
         return view('parts-model', compact(
             'parts',
             'search',
             'dito',
             'type',
-            'partTypes',
             'partCount',
             'mainCategories'
         ));
@@ -385,7 +367,6 @@ class CarPartController extends Controller
 
         $type = $request->filled('type_id') ? CarPartType::find($type_id) : null;
         $parts = $results['data']['parts'];
-        $partTypes = CarPartType::all();
 
         return view('parts-oem', compact(
             'parts',
@@ -393,7 +374,6 @@ class CarPartController extends Controller
             'oem',
             'engine_code',
             'gearbox',
-            'partTypes',
             'mainCategories'
         ));
     }
