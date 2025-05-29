@@ -15,23 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('parts-we-sold:resolve')->everyMinute(); // Check our sales on fenix
-        // $schedule->command('ebay:orders')->everyMinute(); // Check our sales on ebay
-        $schedule->command('fenix:add-new-parts')->dailyAt('00:00');
-//        $schedule->command('file-storage:purge')->everyFifteenMinutes();
-       $schedule->command('fenix:remove-sold-parts')->everyFifteenMinutes();
-/*        $schedule->command('fenix:resolve-images-ebay')->everyTenMinutes();*/
-           $schedule->command('fenix:fetch')->dailyAt('19:00'); // Get the parts from fenix
-        //$schedule->command('german:parts:seed')->dailyAt('18:59');
-          $schedule->command('hood:export')->dailyAt('11:23');
-       /*   $schedule->command('fenix:resolve-images')->everyTenMinutes();*/
-        $schedule->command('fenix:get-all-parts')->everyThreeMinutes();
-        $schedule->command('fenix-images:find-car-part-id')->everyTenMinutes();
-        $schedule->command('fenix:resolve-fields')->everyFiveMinutes();
-/*        $schedule->command('autoteile-markt:export')->everyTenMinutes();
-        $schedule->command('autoteile-markt:upload-parts')->dailyAt('12:00');*/
-
-         //$schedule->command('egluit:purge-parts')->dailyAt('16:08');
+       
     }
 
     /**
