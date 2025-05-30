@@ -112,6 +112,10 @@ Route::get('car-part-types', function () {
     return response()->json($carPartTypes);
 });
 
+Route::get('for-seeder', function() {
+    return CarPartType::with('mainCategories')->get();
+});
+
 Route::get('service-test', function () {
     $service = new ResolveKbaFromSbrCodeService();
 
