@@ -35,15 +35,16 @@ class DatabaseSeeder extends Seeder
             EngineTypeGermanDismantlerSeeder::class,
 
             SbrCodeSeeder::class,
-            DitoNumberSbrCodeSeeder::class
+            DitoNumberSbrCodeSeeder::class,
+            FenixTestPartSeeder::class
 
 
-//            EngineTypeSeeder::class,
+            //            EngineTypeSeeder::class,
 //            EngineTypeGermanDismantlerSeeder::class,
 //            DismantleCompanySeeder::class,
 ////            CarPartSeeder::class,
         ]);
-//        \Artisan::call('k-type:find-kba'); // Find k-type -> kba connections
+        //        \Artisan::call('k-type:find-kba'); // Find k-type -> kba connections
 
         // \App\Models\User::factory(10)->create();
 
