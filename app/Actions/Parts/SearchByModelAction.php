@@ -19,7 +19,9 @@ class SearchByModelAction
         $partQuery = $sbr
             ->carParts()
             ->with([
-                'carPartImages',
+                'carPartImages' => function ($query) {
+                    $query->whereNotNull('new_logo_german');
+                },
                 'sbrCode',
                 'ditoNumber',
                 'carPartType'

@@ -88,7 +88,9 @@ class CarPartController extends BaseController
         }
 
         $parts = $parts
-            ->with('carPartImages')
+            ->with('carPartImages', function($query) {
+                $query->whereNotNull('new_logo_german');
+            })
             ->cursorPaginate(50);
 
         $partTypes = $this->sharedData['carPartTypes'];

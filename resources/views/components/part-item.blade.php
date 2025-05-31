@@ -1,6 +1,6 @@
 <tr>
     <td>
-        @if ($part->carPartImages->count())
+        @if (count($part->carPartImages) > 0)
         <div id="partImagesCarousel-{{ $part->id }}" class="carousel slide mt-2" data-bs-ride="carousel" style="width: 100%; max-width: 20rem; border-radius: 0.7rem;">
 
             <!-- Indicators -->

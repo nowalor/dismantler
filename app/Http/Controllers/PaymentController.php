@@ -29,7 +29,9 @@ class PaymentController extends Controller
         $checkoutBreadcrumbs = $carPart->prepareCheckoutBreadcrumbs();
 
         $carPart->load([
-            'carPartImages',
+            'carPartImages' => function ($query) {
+                $query->whereNotNull('new_logo_german');
+            },
             'sbrCode',
             'ditoNumber',
             'carPartType'
