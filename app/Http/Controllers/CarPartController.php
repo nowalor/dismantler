@@ -89,7 +89,7 @@ class CarPartController extends BaseController
 
         $parts = $parts
             ->with('carPartImages')
-            ->simplePaginate(9, pageName: 'parts');
+            ->cursorPaginate(50);
 
         $partTypes = $this->sharedData['carPartTypes'];
         $dismantleCompanies = $this->sharedData['dismantleCompanies'];
