@@ -66,9 +66,6 @@
     "vat-shipping": "Inkl. MwSt. & Versand",
     "vat-infoTitle": "Infos",
     "vat-infoDescription": "Der Preis beinhaltet 19% deutsche Mehrwertsteuer und den Versand nach Deutschland. Für andere Empfängerländer, bitte kontaktieren Sie uns für Frachtpreis",
-    "similar-parts": "",
-    "cheapest-similar-part": "",
-    "best-mileage-similar-part": "",
     "pop-up-buy-now": "Jetzt kaufen",
     "pop-up-close": "Schließen Sie",
     "pop-up-contact": "Kontakt",
@@ -138,5 +135,8 @@
     "footer-email": "E-Mail",
     "footer-office-hours": "Bürozeiten",
     "footer-monday": "Montag",
-    "footer-friday": "Freitag"
+    "footer-friday": "Freitag",
+    "similar-parts": "Ähnliche Ersatzteile, die Ihrer Suche entsprechen",
+    "cheapest-similar-part": "Billigstes ähnliches Teil",
+    "best-mileage-similar-part": "Ähnliches Teil mit der besten Laufleistung"
 }

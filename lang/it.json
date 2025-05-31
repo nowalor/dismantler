@@ -57,9 +57,6 @@
     "vat-shipping": "IVA e spedizione incluse",
     "vat-infoTitle": "Info",
     "vat-infoDescription": "Il prezzo include l'IVA tedesca del 19% e la spedizione in Germania. Per altri paesi destinatari, si prega di contattarci per il prezzo del trasporto.",
-    "similar-parts": "",
-    "cheapest-similar-part": "",
-    "best-mileage-similar-part": "",
     "pop-up-buy-now": "Acquista ora",
     "pop-up-close": "Chiudere",
     "pop-up-contact": "Contattateci",
@@ -129,5 +126,8 @@
     "footer-email": "Email",
     "footer-office-hours": "Orario d'ufficio",
     "footer-monday": "Lunedì",
-    "footer-friday": "Venerdì"
+    "footer-friday": "Venerdì",
+    "similar-parts": "Ricambi simili che corrispondono alla vostra ricerca",
+    "cheapest-similar-part": "Parte simile più economica",
+    "best-mileage-similar-part": "Parte simile con il miglior chilometraggio"
 }

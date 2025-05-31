@@ -57,9 +57,6 @@
     "vat-shipping": "Łącznie z VAT i wysyłką",
     "vat-infoTitle": "Info",
     "vat-infoDescription": "Cena zawiera 19% niemieckiego podatku VAT i koszty wysyłki do Niemiec. W przypadku innego kraju odbiorcy prosimy o kontakt w celu ustalenia ceny frachtu",
-    "similar-parts": "",
-    "cheapest-similar-part": "",
-    "best-mileage-similar-part": "",
     "pop-up-buy-now": "Kup teraz",
     "pop-up-close": "Zamknij",
     "pop-up-contact": "Skontaktuj się z nami",
@@ -129,5 +126,8 @@
     "footer-email": "E-mail",
     "footer-office-hours": "Godziny pracy",
     "footer-monday": "Poniedziałek",
-    "footer-friday": "Piątek"
+    "footer-friday": "Piątek",
+    "similar-parts": "Podobne części zamienne pasujące do wyszukiwania",
+    "cheapest-similar-part": "Najtańsza podobna część",
+    "best-mileage-similar-part": "Podobna część z najlepszym przebiegiem"
 }

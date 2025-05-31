@@ -66,9 +66,6 @@
     "vat-shipping": "TVA et frais de port inclus",
     "vat-infoTitle": "Info",
     "vat-infoDescription": "Le prix comprend la TVA allemande de 19 % et les frais d'expédition vers l'Allemagne. Pour les autres pays destinataires, veuillez nous contacter pour connaître le prix du transport.",
-    "similar-parts": "",
-    "cheapest-similar-part": "",
-    "best-mileage-similar-part": "",
     "pop-up-buy-now": "Acheter",
     "pop-up-close": "Fermer",
     "pop-up-contact": "Contactez nous",
@@ -138,5 +135,8 @@
     "footer-email": "Courriel",
     "footer-office-hours": "Heures de bureau",
     "footer-monday": "Lundi",
-    "footer-friday": "Vendredi"
+    "footer-friday": "Vendredi",
+    "similar-parts": "Pièces détachées similaires correspondant à votre recherche",
+    "cheapest-similar-part": "Pièce similaire la moins chère",
+    "best-mileage-similar-part": "Pièce similaire avec le meilleur kilométrage"
 }

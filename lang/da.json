@@ -57,9 +57,6 @@
     "vat-shipping": "Inkl. moms og forsendelse",
     "vat-infoTitle": "Info",
     "vat-infoDescription": "Prisen inkluderer 19% tysk moms og forsendelse til Tyskland. For andre modtagerlande, kontakt os venligst for fragtpris.",
-    "similar-parts": "",
-    "cheapest-similar-part": "",
-    "best-mileage-similar-part": "",
     "pop-up-buy-now": "Køb nu",
     "pop-up-close": "Luk",
     "pop-up-contact": "Kontakt os",
@@ -129,5 +126,8 @@
     "footer-email": "E-mail",
     "footer-office-hours": "Kontortid",
     "footer-monday": "Mandag",
-    "footer-friday": "Fredag"
+    "footer-friday": "Fredag",
+    "similar-parts": "Lignende reservedele, der matcher din søgning",
+    "cheapest-similar-part": "Billigste lignende del",
+    "best-mileage-similar-part": "Lignende del med det bedste kilometertal"
 }
