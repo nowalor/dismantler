@@ -50,7 +50,7 @@ class SearchByKbaAction {
         $paginate = $paginate ?? 10; // Default to 10 if paginate is null
 
         // Paginate the query, not the collection
-        $parts = $partsQuery->simplePaginate($paginate); // This ensures pagination
+        $parts = $partsQuery->cursorPaginate($paginate); // This ensures pagination
 
         if ($parts->isEmpty()) {
             return [

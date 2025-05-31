@@ -211,7 +211,7 @@ class CarPartController extends BaseController
             tsn: $tsn,
             type: $type,
             sort: $request->query('sort'),
-            paginate: 10 // Ensure we paginate results here
+            paginate: 50
         );
 
         if (!$response['success']) {
@@ -303,7 +303,7 @@ class CarPartController extends BaseController
             type: $type,
             sort: $sort,
             filters: $filters,
-            paginate: 10
+            paginate: 50
         );
 
         $parts = $results['data']['parts'];
