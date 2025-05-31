@@ -14,7 +14,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class NewCarPart extends Model
@@ -74,6 +76,51 @@ class NewCarPart extends Model
         'mileage',
         'fields_resolved_at',
     ];
+
+    public function findCheapestSimilarPart(): ?self
+    {
+        if (!$this->isValidForBestMatch()) {
+            return null;
+        }
+
+        return $this->baseSimilarPartsQuery()
+            ->where('price_sek', '<', $this->price_sek)
+            ->orderBy('price_sek')
+            ->where('mileage_km', 'REGEXP', '^[0-9]+$')
+            ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
+            ->first();
+    }
+
+    public function findBestMileageSimilarPart(): ?self
+    {
+        if (!$this->isValidForBestMatch()) {
+            return null;
+        }
+
+        return $this->baseSimilarPartsQuery()
+            ->where('mileage_km', 'REGEXP', '^[0-9]+$')
+            ->whereRaw('CAST(mileage_km AS UNSIGNED) < CAST(? AS UNSIGNED)', [$this->mileage_km])
+            ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
+            ->orderBy('price_sek')
+            ->first();
+    }
+
+    private function baseSimilarPartsQuery(): Builder
+    {
+        return self::query()
+            ->where('id', '!=', $this->id)
+            ->where('original_number', $this->original_number)
+            ->where('car_part_type_id', $this->car_part_type_id)
+            ->where('mileage_km', '!=', 0);
+    }
+
+    private function isValidForBestMatch(): bool
+    {
+        return !empty($this->original_number) &&
+            !empty($this->car_part_type_id) &&
+            ($this->original_number !== '-') &&
+            ($this->original_number !== 'UTAN NR.');
+    }
 
     public function prepareCheckoutBreadcrumbs(): array | null
     {

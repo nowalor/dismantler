@@ -85,6 +85,10 @@
     "vat-infoTitle": "Info",
     "vat-infoDescription": "The price includes VAT and shipping. For other recipient country, please contact us for freight price",
 
+    "similar-parts": "Similar spare parts that match your search",
+    "cheapest-similar-part": "Cheapest similar part",
+    "best-mileage-similar-part": "Similar part with the best mileage",
+    
     "pop-up-buy-now": "Buy now",
     "pop-up-close": "Close",
     "pop-up-contact": "Contact us",
