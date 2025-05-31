@@ -16,6 +16,7 @@ class SearchByPlateController extends BaseController
     {
         $this->apiUrl = config('services.nummerplade.api_url');
         $this->apiToken = config('services.nummerplade.token');
+        parent::__construct();
     }
 
     public function __invoke()
@@ -66,7 +67,7 @@ class SearchByPlateController extends BaseController
         ]);
 
         $partTypes = $this->sharedData['carPartTypes'];
-        $mainCategories = $this->sharedData['mainCategories']; // Super annoying if we have to keep doing this everywhere, time for livewire?
+        $mainCategories = $this->sharedData['mainCategories'];
 
         return view('plate-parts', compact('parts', 'partTypes', 'mainCategories'));
     }
