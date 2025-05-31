@@ -181,7 +181,7 @@ class FenixResolveCarPartImagesCommand extends Command
          /*       ->where('dismantle_company_name', 'h')*/
             ->where('id', '!=', 156711042137); // TODO, figure out why this one does not work
 
-//        $carParts = NewCarPart::where('id', 32960)->get();
+////        $carParts = NewCarPart::where('id', 32960)->get();
 
 
         $this->info("Count left: {$carPartsQuery->count()}}");

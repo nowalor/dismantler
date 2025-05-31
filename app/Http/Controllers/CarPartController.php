@@ -307,7 +307,6 @@ class CarPartController extends BaseController
         );
 
         $parts = $results['data']['parts'];
-        $partCount = $parts->total(); // Get the total count from the paginator
 
         // If there's a secondary search term, apply it
         if ($request->filled('search')) {
@@ -322,8 +321,6 @@ class CarPartController extends BaseController
                 }
                 return false;
             });
-
-            $partCount = $parts->count();
         }
 
         // Prepare the search parameters for display and further actions
@@ -343,7 +340,6 @@ class CarPartController extends BaseController
             'dito',
             'type',
             'partTypes',
-            'partCount',
             'mainCategories'
         ));
     }
