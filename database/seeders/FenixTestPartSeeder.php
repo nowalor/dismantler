@@ -16,13 +16,13 @@ class FenixTestPartSeeder extends Seeder
         $chunkSize = 10000;
         $target = 1000000;
 
-        $this->command->warn('🚨 Deleting old dummy data...');
+        $this->command->warn('Deleting old dummy data...');
         NewCarPart::where('country', 'dummy')->delete();
 
-        $this->command->info("🚀 Starting to seed {$target} dummy parts...");
+        $this->command->info("Starting to seed {$target} dummy parts...");
 
         for ($i = 0; $i < ($target / $chunkSize); $i++) {
-            $this->command->info("⏳ Seeding batch " . ($i + 1));
+            $this->command->info("Seeding batch " . ($i + 1));
 
             $timestamp = now();
             $parts = [];
