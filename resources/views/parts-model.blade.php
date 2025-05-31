@@ -31,9 +31,10 @@
             <x-part-list :parts="$parts" :search="$search" :partTypes="$partTypes" :mainCategories="$mainCategories" :sortRoute="route('car-parts.search-by-model')" />
 
             {{-- Pagination links --}}
-            @if($parts instanceof \Illuminate\Pagination\LengthAwarePaginator)
+     {{--       @if($parts instanceof \Illuminate\Pagination\LengthAwarePaginator)
                 {{ $parts->appends(request()->query())->links() }}
-            @endif
+            @endif--}}
+            {{ $parts->links() }}
         </div>
     </div>
 </div>
