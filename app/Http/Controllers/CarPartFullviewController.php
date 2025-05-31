@@ -27,12 +27,14 @@ class CarPartFullviewController extends Controller
         }
 
         $breadcrumbs = $part->prepareCarPartBreadcrumbs();
-        $relevantParts = $part->findRelevantParts();
+        $cheapestSimilarPart = $part->findCheapestSimilarPart();
+        $bestMileageSimilarPart = $part->findBestMileageSimilarPart();
 
         return view('car-part-fullview', compact(
             'part',
             'breadcrumbs',
-            'relevantParts',
+            'cheapestSimilarPart',
+            'bestMileageSimilarPart',
         ));
     }
 
