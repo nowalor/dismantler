@@ -157,7 +157,7 @@ class CarPartController extends BaseController
         $parts = (new SortPartsAction())->execute($parts, $sort);
 
         // Paginate the results
-        $parts = $parts->simplePaginate(9, ['*'], 'parts')->appends($request->query());
+        $parts = $parts->cursorPaginate(50)->appends($request->query());
 
         // Fetch related data for dropdowns or filters, with caching
         $brands = $this->sharedData['carBrands'];
