@@ -77,46 +77,38 @@ class NewCarPart extends Model
         'fields_resolved_at',
     ];
 
-    public function findRelevantParts(): Collection|null
+    public function findCheapestSimilarPart(): ?self
     {
-        if (!$this->isValidForBestMatch())
-        {
+        if (!$this->isValidForBestMatch()) {
             return null;
         }
 
-        $parts = new Collection();
-
-        $cheapestPart = $this->baseRelevantPartsQuery()
+        return $this->baseSimilarPartsQuery()
             ->where('price_sek', '<', $this->price_sek)
             ->orderBy('price_sek')
             ->where('mileage_km', 'REGEXP', '^[0-9]+$')
             ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
             ->first();
+    }
 
-        $partWithBestMileage = $this->baseRelevantPartsQuery()
+    public function findBestMileageSimilarPart(): ?self
+    {
+        if (!$this->isValidForBestMatch()) {
+            return null;
+        }
+
+        return $this->baseSimilarPartsQuery()
             ->where('mileage_km', 'REGEXP', '^[0-9]+$')
             ->whereRaw('CAST(mileage_km AS UNSIGNED) < CAST(? AS UNSIGNED)', [$this->mileage_km])
             ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
             ->orderBy('price_sek')
             ->first();
-
-        if ($cheapestPart) {
-            $cheapestPart->label = __('cheapest-similar-part');
-            $parts->push($cheapestPart);
-        }
-
-        if ($partWithBestMileage && (!$cheapestPart || $partWithBestMileage->id !== $cheapestPart->id))
-        {
-            $partWithBestMileage->label = __('best-mileage-similar-part');
-            $parts->push($partWithBestMileage);
-        }
-
-        return $parts;
     }
 
-        private function baseRelevantPartsQuery(): Builder
+    private function baseSimilarPartsQuery(): Builder
     {
-        return self::where('id', '!=', $this->id)
+        return self::query()
+            ->where('id', '!=', $this->id)
             ->where('original_number', $this->original_number)
             ->where('car_part_type_id', $this->car_part_type_id)
             ->where('mileage_km', '!=', 0);
@@ -124,13 +116,10 @@ class NewCarPart extends Model
 
     private function isValidForBestMatch(): bool
     {
-        return self::whereNotNull('original_number')
-            ->where('original_number', '!=', '')
-            ->where('original_number', '!=', '-')
-            ->whereNotNull('car_part_type_id')
-            ->where('car_part_type_id', '!=', '')
-            ->where('id', $this->id)
-            ->exists();
+        return !empty($this->original_number) &&
+            !empty($this->car_part_type_id) &&
+            ($this->original_number !== '-') &&
+            ($this->original_number !== 'UTAN NR.');
     }
 
     public function prepareCheckoutBreadcrumbs(): array | null
