@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Currus-connect.com: ' . $part->pageTitle())
+@section('title', $part->pageTitle())
 @section('content')
     <div id="fullview-container" class="container pt-2 pb-3 pl-4 pr-4">
         @if($breadcrumbs)
@@ -21,7 +21,7 @@
                 </ol>
             </nav>
         @endif
-        <h1 class="large-text font-bold">{{ __('product-details') }}</h1>
+        <h1 class="large-text font-bold">{{ $part->pageTitle() }}</h1>
         <div class="row">
             <!-- Product Image Gallery -->
             <div class="col-md-6 text-center pt-2">
