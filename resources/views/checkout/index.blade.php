@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Buy part now ' . $carPart->name)
+@section('title', "Checkout - {$part->pageTitle()}")
 @section('content')
     @if($carPart->getLocalizedPrice()['requires_request'])
         <h1>Currently it's not possible to buy the part via checkout in your location. Please contact us if you are interested in buying this part</h1>

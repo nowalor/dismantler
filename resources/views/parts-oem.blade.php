@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Parts - OEM Search')
+@section('title', "OEM: {$oem}")
 
 @section('content')
 <div class="d-flex flex-column" style="min-height: 100vh; background-image: url('/img/enginedark.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
