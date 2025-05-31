@@ -82,7 +82,7 @@ class SearchByModelAction
 
         $parts = is_null($paginate)
             ? $partQuery->get()
-            : $partQuery->paginate($paginate)->withQueryString();
+            : $partQuery->simplePaginate($paginate)->withQueryString();
 
         return [
             'success' => true,
