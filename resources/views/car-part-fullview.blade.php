@@ -125,6 +125,25 @@
             </div>
         </div>
 
+        <!-- Cheapest and/or Best mileage part -->
+        @if ($cheapestSimilarPart || $bestMileageSimilarPart)
+            <h2 class="large-text font-bold my-3 pt-2">{{ __('similar-parts') }}</h2>
+            <div class="row">
+                @if($cheapestSimilarPart)
+                    @include('components.cards.similar-part-card', [
+                    'carPart' => $cheapestSimilarPart,
+                    'cardTitle' => __('cheapest-similar-part')
+                ])
+                @endif
+                @if($bestMileageSimilarPart)
+                    @include('components.cards.similar-part-card', [
+                    'carPart' => $bestMileageSimilarPart,
+                    'cardTitle' => __('best-mileage-similar-part')
+                ])
+                @endif
+            </div>
+        @endif
+
         <!-- Additional Information -->
         <div class="row mt-4">
             <div class="col-12">

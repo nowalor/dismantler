@@ -126,5 +126,8 @@
     "footer-email": "E-post",
     "footer-office-hours": "Öppettider på kontoret",
     "footer-monday": "Måndag",
-    "footer-friday": "Fredag"
+    "footer-friday": "Fredag",
+    "similar-parts": "Liknande reservdelar som matchar din sökning",
+    "cheapest-similar-part": "Billigaste liknande del",
+    "best-mileage-similar-part": "Liknande del med bäst körsträcka"
 }
