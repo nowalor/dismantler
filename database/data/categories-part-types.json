@@ -1,0 +1,4109 @@
+[
+{
+"id": 1,
+"name": "Engine",
+"json_key": "default",
+"translation_key": "engine",
+"slug": null,
+"main_categories": [
+{
+"id": 35,
+"name": "Engine/Engine parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png",
+"slug": "engineengine-parts",
+"translation_key": "engineengine_parts",
+"pivot": {
+"car_part_type_id": 1,
+"main_category_id": 35
+}
+}
+]
+},
+{
+"id": 2,
+"name": "Distribution gear box",
+"json_key": "default",
+"translation_key": "distribution_gear_box",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 2,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 3,
+"name": "Gearbox Automatic",
+"json_key": "default",
+"translation_key": "gearbox_automatic",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 3,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 4,
+"name": "Gearbox 6 gear",
+"json_key": "default",
+"translation_key": "gearbox_6_gear",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 4,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 5,
+"name": "Particle Filter",
+"json_key": "default",
+"translation_key": "particle_filter",
+"slug": null,
+"main_categories": [
+{
+"id": 22,
+"name": "Body parts",
+"image": "",
+"slug": "body-parts",
+"translation_key": "body_parts",
+"pivot": {
+"car_part_type_id": 5,
+"main_category_id": 22
+}
+},
+{
+"id": 35,
+"name": "Engine/Engine parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png",
+"slug": "engineengine-parts",
+"translation_key": "engineengine_parts",
+"pivot": {
+"car_part_type_id": 5,
+"main_category_id": 35
+}
+},
+{
+"id": 36,
+"name": "Exhaust system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/exhaust-system.png",
+"slug": "exhaust-system",
+"translation_key": "exhaust_system",
+"pivot": {
+"car_part_type_id": 5,
+"main_category_id": 36
+}
+}
+]
+},
+{
+"id": 6,
+"name": "CATALYST",
+"json_key": "default",
+"translation_key": "catalyst",
+"slug": null,
+"main_categories": [
+{
+"id": 35,
+"name": "Engine/Engine parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png",
+"slug": "engineengine-parts",
+"translation_key": "engineengine_parts",
+"pivot": {
+"car_part_type_id": 6,
+"main_category_id": 35
+}
+},
+{
+"id": 36,
+"name": "Exhaust system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/exhaust-system.png",
+"slug": "exhaust-system",
+"translation_key": "exhaust_system",
+"pivot": {
+"car_part_type_id": 6,
+"main_category_id": 36
+}
+}
+]
+},
+{
+"id": 7,
+"name": "Differential",
+"json_key": "default",
+"translation_key": "differential",
+"slug": null,
+"main_categories": [
+{
+"id": 27,
+"name": "Chassis/Steering",
+"image": "",
+"slug": "chassissteering",
+"translation_key": "chassissteering",
+"pivot": {
+"car_part_type_id": 7,
+"main_category_id": 27
+}
+}
+]
+},
+{
+"id": 8,
+"name": "Break Unit ABS",
+"json_key": "default",
+"translation_key": "break_unit_abs",
+"slug": null,
+"main_categories": [
+{
+"id": 25,
+"name": "Brake system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/break.png",
+"slug": "brake-system",
+"translation_key": "brake_system",
+"pivot": {
+"car_part_type_id": 8,
+"main_category_id": 25
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 8,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 9,
+"name": "ABS Hydraulic unit",
+"json_key": "default",
+"translation_key": "abs_hydraulic_unit",
+"slug": null,
+"main_categories": [
+{
+"id": 25,
+"name": "Brake system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/break.png",
+"slug": "brake-system",
+"translation_key": "brake_system",
+"pivot": {
+"car_part_type_id": 9,
+"main_category_id": 25
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 9,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 10,
+"name": "Instrument comb",
+"json_key": "default",
+"translation_key": "instrument_comb",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 10,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 11,
+"name": "Steering unit gearbox",
+"json_key": "default",
+"translation_key": "steering_unit_gearbox",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 11,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 12,
+"name": "Power steering pump electric",
+"json_key": "default",
+"translation_key": "power_steering_pump_electric",
+"slug": null,
+"main_categories": [
+{
+"id": 27,
+"name": "Chassis/Steering",
+"image": "",
+"slug": "chassissteering",
+"translation_key": "chassissteering",
+"pivot": {
+"car_part_type_id": 12,
+"main_category_id": 27
+}
+}
+]
+},
+{
+"id": 13,
+"name": "Monitor",
+"json_key": "default",
+"translation_key": "monitor",
+"slug": null,
+"main_categories": [
+{
+"id": 24,
+"name": "Audio/Communication system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png",
+"slug": "audiocommunication-system",
+"translation_key": "audiocommunication_system",
+"pivot": {
+"car_part_type_id": 13,
+"main_category_id": 24
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 13,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 14,
+"name": "Engine control unit (ECU)",
+"json_key": "default",
+"translation_key": "engine_control_unit_ecu",
+"slug": null,
+"main_categories": [
+{
+"id": 23,
+"name": "Fuel system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/tank.png",
+"slug": "fuel-system",
+"translation_key": "fuel_system",
+"pivot": {
+"car_part_type_id": 14,
+"main_category_id": 23
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 14,
+"main_category_id": 33
+}
+},
+{
+"id": 35,
+"name": "Engine/Engine parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png",
+"slug": "engineengine-parts",
+"translation_key": "engineengine_parts",
+"pivot": {
+"car_part_type_id": 14,
+"main_category_id": 35
+}
+}
+]
+},
+{
+"id": 15,
+"name": "Engine control unit Diesel (ECU)",
+"json_key": "default",
+"translation_key": "engine_control_unit_diesel_ecu",
+"slug": null,
+"main_categories": [
+{
+"id": 23,
+"name": "Fuel system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/tank.png",
+"slug": "fuel-system",
+"translation_key": "fuel_system",
+"pivot": {
+"car_part_type_id": 15,
+"main_category_id": 23
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 15,
+"main_category_id": 33
+}
+},
+{
+"id": 35,
+"name": "Engine/Engine parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png",
+"slug": "engineengine-parts",
+"translation_key": "engineengine_parts",
+"pivot": {
+"car_part_type_id": 15,
+"main_category_id": 35
+}
+}
+]
+},
+{
+"id": 16,
+"name": "Radio CD /Multimediapanel",
+"json_key": "default",
+"translation_key": "radio_cd_multimediapanel",
+"slug": null,
+"main_categories": [
+{
+"id": 24,
+"name": "Audio/Communication system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png",
+"slug": "audiocommunication-system",
+"translation_key": "audiocommunication_system",
+"pivot": {
+"car_part_type_id": 16,
+"main_category_id": 24
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 16,
+"main_category_id": 33
+}
+},
+{
+"id": 37,
+"name": "Instruments",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/instruments.png",
+"slug": "instruments",
+"translation_key": "instruments",
+"pivot": {
+"car_part_type_id": 16,
+"main_category_id": 37
+}
+}
+]
+},
+{
+"id": 17,
+"name": "Control Display",
+"json_key": "default",
+"translation_key": "control_display",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 17,
+"main_category_id": 33
+}
+},
+{
+"id": 37,
+"name": "Instruments",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/instruments.png",
+"slug": "instruments",
+"translation_key": "instruments",
+"pivot": {
+"car_part_type_id": 17,
+"main_category_id": 37
+}
+}
+]
+},
+{
+"id": 18,
+"name": "Turbo charger",
+"json_key": "default",
+"translation_key": "turbo_charger",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 19,
+"name": "Power Distribution controller",
+"json_key": "default",
+"translation_key": "power_distribution_controller",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 19,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 20,
+"name": "Alternator",
+"json_key": "default",
+"translation_key": "alternator",
+"slug": null,
+"main_categories": [
+{
+"id": 35,
+"name": "Engine/Engine parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png",
+"slug": "engineengine-parts",
+"translation_key": "engineengine_parts",
+"pivot": {
+"car_part_type_id": 20,
+"main_category_id": 35
+}
+}
+]
+},
+{
+"id": 21,
+"name": "Automatic gearbox",
+"json_key": "default",
+"translation_key": "automatic_gearbox",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 21,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 22,
+"name": "Converter / inverter - electric",
+"json_key": "default",
+"translation_key": "converter_inverter_electric",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 22,
+"main_category_id": 33
+}
+},
+{
+"id": 35,
+"name": "Engine/Engine parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/car-engine.png",
+"slug": "engineengine-parts",
+"translation_key": "engineengine_parts",
+"pivot": {
+"car_part_type_id": 22,
+"main_category_id": 35
+}
+}
+]
+},
+{
+"id": 23,
+"name": "Inlet pipe",
+"json_key": "default",
+"translation_key": "inlet_pipe",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 24,
+"name": "Vacuum Valve",
+"json_key": "default",
+"translation_key": "vacuum_valve",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 25,
+"name": "Gearbox oil pump",
+"json_key": "default",
+"translation_key": "gearbox_oil_pump",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 25,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 26,
+"name": "AC kontrolunit",
+"json_key": "default",
+"translation_key": "ac_kontrolunit",
+"slug": null,
+"main_categories": [
+{
+"id": 28,
+"name": "Cooling/Heating/Aircon",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/air-conditioner.png",
+"slug": "coolingheatingaircon",
+"translation_key": "coolingheatingaircon",
+"pivot": {
+"car_part_type_id": 26,
+"main_category_id": 28
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 26,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 27,
+"name": "Manuel gearbox 4-gear",
+"json_key": "default",
+"translation_key": "manuel_gearbox_4_gear",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 27,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 28,
+"name": "Manuel gearbox 5-gear",
+"json_key": "default",
+"translation_key": "manuel_gearbox_5_gear",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 28,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 29,
+"name": "Manuel gearbox with overdrive",
+"json_key": "default",
+"translation_key": "manuel_gearbox_with_overdrive",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 29,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 30,
+"name": "Gearbox 7-gear",
+"json_key": "default",
+"translation_key": "gearbox_7_gear",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 30,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 31,
+"name": "Drive shaft - front",
+"json_key": "default",
+"translation_key": "drive_shaft_front",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 32,
+"name": "Drive shaft - front left",
+"json_key": "default",
+"translation_key": "drive_shaft_front_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 33,
+"name": "Drive shaft - front right",
+"json_key": "default",
+"translation_key": "drive_shaft_front_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 34,
+"name": "Front axle assembly lump - 4wd",
+"json_key": "default",
+"translation_key": "front_axle_assembly_lump_4wd",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 35,
+"name": "Transmission parts",
+"json_key": "default",
+"translation_key": "transmission_parts",
+"slug": null,
+"main_categories": [
+{
+"id": 26,
+"name": "Gearbox/Transmission",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/gearkasse.png",
+"slug": "gearboxtransmission",
+"translation_key": "gearboxtransmission",
+"pivot": {
+"car_part_type_id": 35,
+"main_category_id": 26
+}
+}
+]
+},
+{
+"id": 36,
+"name": "Steering ",
+"json_key": "default",
+"translation_key": "steering",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 37,
+"name": "Steering servo",
+"json_key": "default",
+"translation_key": "steering_servo",
+"slug": null,
+"main_categories": [
+{
+"id": 27,
+"name": "Chassis/Steering",
+"image": "",
+"slug": "chassissteering",
+"translation_key": "chassissteering",
+"pivot": {
+"car_part_type_id": 37,
+"main_category_id": 27
+}
+}
+]
+},
+{
+"id": 38,
+"name": "Servopump",
+"json_key": "default",
+"translation_key": "servopump",
+"slug": null,
+"main_categories": [
+{
+"id": 27,
+"name": "Chassis/Steering",
+"image": "",
+"slug": "chassissteering",
+"translation_key": "chassissteering",
+"pivot": {
+"car_part_type_id": 38,
+"main_category_id": 27
+}
+}
+]
+},
+{
+"id": 39,
+"name": "Servopipe",
+"json_key": "default",
+"translation_key": "servopipe",
+"slug": null,
+"main_categories": [
+{
+"id": 27,
+"name": "Chassis/Steering",
+"image": "",
+"slug": "chassissteering",
+"translation_key": "chassissteering",
+"pivot": {
+"car_part_type_id": 39,
+"main_category_id": 27
+}
+}
+]
+},
+{
+"id": 40,
+"name": "air suspension front",
+"json_key": "default",
+"translation_key": "air_suspension_front",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 41,
+"name": "air suspension bag",
+"json_key": "default",
+"translation_key": "air_suspension_bag",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 42,
+"name": "Brake caliper drive",
+"json_key": "default",
+"translation_key": "brake_caliper_drive",
+"slug": null,
+"main_categories": [
+{
+"id": 25,
+"name": "Brake system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/break.png",
+"slug": "brake-system",
+"translation_key": "brake_system",
+"pivot": {
+"car_part_type_id": 42,
+"main_category_id": 25
+}
+}
+]
+},
+{
+"id": 43,
+"name": "Airbag - sensor",
+"json_key": "default",
+"translation_key": "airbag_sensor",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 43,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 44,
+"name": "Hood lock",
+"json_key": "default",
+"translation_key": "hood_lock",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 45,
+"name": "Side spoiler right",
+"json_key": "default",
+"translation_key": "side_spoiler_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 46,
+"name": "Side spoiler left",
+"json_key": "default",
+"translation_key": "side_spoiler_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 47,
+"name": "Fod step",
+"json_key": "default",
+"translation_key": "fod_step",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 48,
+"name": "Lighting control unit",
+"json_key": "default",
+"translation_key": "lighting_control_unit",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 48,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 49,
+"name": "Door lock",
+"json_key": "default",
+"translation_key": "door_lock",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 50,
+"name": "Sidedoor mounting right",
+"json_key": "default",
+"translation_key": "sidedoor_mounting_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 51,
+"name": "Sidedoor mounting left",
+"json_key": "default",
+"translation_key": "sidedoor_mounting_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 52,
+"name": "Skibox bagseat",
+"json_key": "default",
+"translation_key": "skibox_bagseat",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 52,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 53,
+"name": "Hardtopp",
+"json_key": "default",
+"translation_key": "hardtopp",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 54,
+"name": "Sunroof",
+"json_key": "default",
+"translation_key": "sunroof",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 54,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 55,
+"name": "Sunroof engine",
+"json_key": "default",
+"translation_key": "sunroof_engine",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 55,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 56,
+"name": "Concertible roof engine",
+"json_key": "default",
+"translation_key": "concertible_roof_engine",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 56,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 57,
+"name": "Conroller tire pressur",
+"json_key": "default",
+"translation_key": "conroller_tire_pressur",
+"slug": null,
+"main_categories": [
+{
+"id": 29,
+"name": "Switches/Relays/Sensor",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/switch.png",
+"slug": "switchesrelayssensor",
+"translation_key": "switchesrelayssensor",
+"pivot": {
+"car_part_type_id": 57,
+"main_category_id": 29
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 57,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 58,
+"name": "Steering cover",
+"json_key": "default",
+"translation_key": "steering_cover",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 59,
+"name": "Screen lift engine",
+"json_key": "default",
+"translation_key": "screen_lift_engine",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 59,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 60,
+"name": "Door handle front left",
+"json_key": "default",
+"translation_key": "door_handle_front_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 61,
+"name": "Door handle front right",
+"json_key": "default",
+"translation_key": "door_handle_front_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 62,
+"name": "Sun sensor",
+"json_key": "default",
+"translation_key": "sun_sensor",
+"slug": null,
+"main_categories": [
+{
+"id": 29,
+"name": "Switches/Relays/Sensor",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/switch.png",
+"slug": "switchesrelayssensor",
+"translation_key": "switchesrelayssensor",
+"pivot": {
+"car_part_type_id": 62,
+"main_category_id": 29
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 62,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 63,
+"name": "Rain sensor",
+"json_key": "default",
+"translation_key": "rain_sensor",
+"slug": null,
+"main_categories": [
+{
+"id": 29,
+"name": "Switches/Relays/Sensor",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/switch.png",
+"slug": "switchesrelayssensor",
+"translation_key": "switchesrelayssensor",
+"pivot": {
+"car_part_type_id": 63,
+"main_category_id": 29
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 63,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 64,
+"name": "Autopilot control unit",
+"json_key": "default",
+"translation_key": "autopilot_control_unit",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 64,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 65,
+"name": "Driving writer",
+"json_key": "default",
+"translation_key": "driving_writer",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 65,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 66,
+"name": "Sensor, Xenon Headlight range adjustment",
+"json_key": "default",
+"translation_key": "sensor_xenon_headlight_range_adjustment",
+"slug": null,
+"main_categories": [
+{
+"id": 29,
+"name": "Switches/Relays/Sensor",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/switch.png",
+"slug": "switchesrelayssensor",
+"translation_key": "switchesrelayssensor",
+"pivot": {
+"car_part_type_id": 66,
+"main_category_id": 29
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 66,
+"main_category_id": 33
+}
+},
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 66,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 67,
+"name": "Indicator - front left",
+"json_key": "default",
+"translation_key": "indicator_front_left",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 67,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 68,
+"name": "Indicator - front right",
+"json_key": "default",
+"translation_key": "indicator_front_right",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 68,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 69,
+"name": "Position light left front",
+"json_key": "default",
+"translation_key": "position_light_left_front",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 69,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 70,
+"name": "Position light right front",
+"json_key": "default",
+"translation_key": "position_light_right_front",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 70,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 71,
+"name": "Radiator - air internal",
+"json_key": "default",
+"translation_key": "radiator_air_internal",
+"slug": null,
+"main_categories": [
+{
+"id": 28,
+"name": "Cooling/Heating/Aircon",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/air-conditioner.png",
+"slug": "coolingheatingaircon",
+"translation_key": "coolingheatingaircon",
+"pivot": {
+"car_part_type_id": 71,
+"main_category_id": 28
+}
+}
+]
+},
+{
+"id": 72,
+"name": "Heat - regulator",
+"json_key": "default",
+"translation_key": "heat_regulator",
+"slug": null,
+"main_categories": [
+{
+"id": 28,
+"name": "Cooling/Heating/Aircon",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/air-conditioner.png",
+"slug": "coolingheatingaircon",
+"translation_key": "coolingheatingaircon",
+"pivot": {
+"car_part_type_id": 72,
+"main_category_id": 28
+}
+}
+]
+},
+{
+"id": 73,
+"name": "Relay - radiator fan",
+"json_key": "default",
+"translation_key": "relay_radiator_fan",
+"slug": null,
+"main_categories": [
+{
+"id": 28,
+"name": "Cooling/Heating/Aircon",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/air-conditioner.png",
+"slug": "coolingheatingaircon",
+"translation_key": "coolingheatingaircon",
+"pivot": {
+"car_part_type_id": 73,
+"main_category_id": 28
+}
+},
+{
+"id": 29,
+"name": "Switches/Relays/Sensor",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/switch.png",
+"slug": "switchesrelayssensor",
+"translation_key": "switchesrelayssensor",
+"pivot": {
+"car_part_type_id": 73,
+"main_category_id": 29
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 73,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 74,
+"name": "Fog light - rear/reflex",
+"json_key": "default",
+"translation_key": "fog_light_rearreflex",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 74,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 75,
+"name": "Rear hood muffle",
+"json_key": "default",
+"translation_key": "rear_hood_muffle",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 75,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 76,
+"name": "Outside camera",
+"json_key": "default",
+"translation_key": "outside_camera",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 76,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 77,
+"name": "Camera inside",
+"json_key": "default",
+"translation_key": "camera_inside",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 77,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 78,
+"name": "Relay - wiper",
+"json_key": "default",
+"translation_key": "relay_wiper",
+"slug": null,
+"main_categories": [
+{
+"id": 29,
+"name": "Switches/Relays/Sensor",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/switch.png",
+"slug": "switchesrelayssensor",
+"translation_key": "switchesrelayssensor",
+"pivot": {
+"car_part_type_id": 78,
+"main_category_id": 29
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 78,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 79,
+"name": "Vacuum pump",
+"json_key": "default",
+"translation_key": "vacuum_pump",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 80,
+"name": "Central lock - pump",
+"json_key": "default",
+"translation_key": "central_lock_pump",
+"slug": null,
+"main_categories": [
+{
+"id": 30,
+"name": "Looks/Locking system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/look.png",
+"slug": "lookslocking-system",
+"translation_key": "lookslocking_system",
+"pivot": {
+"car_part_type_id": 80,
+"main_category_id": 30
+}
+}
+]
+},
+{
+"id": 81,
+"name": "air suspension conrol box",
+"json_key": "default",
+"translation_key": "air_suspension_conrol_box",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 82,
+"name": "Pdc control unit (park distance control)",
+"json_key": "default",
+"translation_key": "pdc_control_unit_park_distance_control",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 82,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 83,
+"name": "Frontseat engine",
+"json_key": "default",
+"translation_key": "frontseat_engine",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 83,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 84,
+"name": "Backseat engine",
+"json_key": "default",
+"translation_key": "backseat_engine",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 84,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 85,
+"name": "Ekstra seat",
+"json_key": "default",
+"translation_key": "ekstra_seat",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 85,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 86,
+"name": "Head rest",
+"json_key": "default",
+"translation_key": "head_rest",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 86,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 87,
+"name": "Cup holder",
+"json_key": "default",
+"translation_key": "cup_holder",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 87,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 88,
+"name": "Sunscreen",
+"json_key": "default",
+"translation_key": "sunscreen",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 88,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 89,
+"name": "Ceiling light roof",
+"json_key": "default",
+"translation_key": "ceiling_light_roof",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 89,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 90,
+"name": "Ceiling light door",
+"json_key": "default",
+"translation_key": "ceiling_light_door",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 90,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 91,
+"name": "Boot base",
+"json_key": "default",
+"translation_key": "boot_base",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 92,
+"name": "Hat rack/defence",
+"json_key": "default",
+"translation_key": "hat_rackdefence",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 92,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 93,
+"name": "Dogdefence",
+"json_key": "default",
+"translation_key": "dogdefence",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 93,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 94,
+"name": "Bottommat",
+"json_key": "default",
+"translation_key": "bottommat",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 94,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 95,
+"name": "Radio / Stereo",
+"json_key": "default",
+"translation_key": "radio_stereo",
+"slug": null,
+"main_categories": [
+{
+"id": 24,
+"name": "Audio/Communication system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png",
+"slug": "audiocommunication-system",
+"translation_key": "audiocommunication_system",
+"pivot": {
+"car_part_type_id": 95,
+"main_category_id": 24
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 95,
+"main_category_id": 33
+}
+},
+{
+"id": 37,
+"name": "Instruments",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/instruments.png",
+"slug": "instruments",
+"translation_key": "instruments",
+"pivot": {
+"car_part_type_id": 95,
+"main_category_id": 37
+}
+}
+]
+},
+{
+"id": 96,
+"name": "Adj. Engine frontlight",
+"json_key": "default",
+"translation_key": "adj_engine_frontlight",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 97,
+"name": "Engine sound speeker",
+"json_key": "default",
+"translation_key": "engine_sound_speeker",
+"slug": null,
+"main_categories": [
+{
+"id": 24,
+"name": "Audio/Communication system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png",
+"slug": "audiocommunication-system",
+"translation_key": "audiocommunication_system",
+"pivot": {
+"car_part_type_id": 97,
+"main_category_id": 24
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 97,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 98,
+"name": "DVD Player",
+"json_key": "default",
+"translation_key": "dvd_player",
+"slug": null,
+"main_categories": [
+{
+"id": 24,
+"name": "Audio/Communication system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png",
+"slug": "audiocommunication-system",
+"translation_key": "audiocommunication_system",
+"pivot": {
+"car_part_type_id": 98,
+"main_category_id": 24
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 98,
+"main_category_id": 33
+}
+},
+{
+"id": 37,
+"name": "Instruments",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/instruments.png",
+"slug": "instruments",
+"translation_key": "instruments",
+"pivot": {
+"car_part_type_id": 98,
+"main_category_id": 37
+}
+}
+]
+},
+{
+"id": 99,
+"name": "Hifi kable",
+"json_key": "default",
+"translation_key": "hifi_kable",
+"slug": null,
+"main_categories": [
+{
+"id": 24,
+"name": "Audio/Communication system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png",
+"slug": "audiocommunication-system",
+"translation_key": "audiocommunication_system",
+"pivot": {
+"car_part_type_id": 99,
+"main_category_id": 24
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 99,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 100,
+"name": "Radio / Stereo parts",
+"json_key": "default",
+"translation_key": "radio_stereo_parts",
+"slug": null,
+"main_categories": [
+{
+"id": 24,
+"name": "Audio/Communication system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/audio-system.png",
+"slug": "audiocommunication-system",
+"translation_key": "audiocommunication_system",
+"pivot": {
+"car_part_type_id": 100,
+"main_category_id": 24
+}
+},
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 100,
+"main_category_id": 33
+}
+},
+{
+"id": 37,
+"name": "Instruments",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/instruments.png",
+"slug": "instruments",
+"translation_key": "instruments",
+"pivot": {
+"car_part_type_id": 100,
+"main_category_id": 37
+}
+}
+]
+},
+{
+"id": 101,
+"name": "Wing mirror left manuel",
+"json_key": "default",
+"translation_key": "wing_mirror_left_manuel",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 101,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 102,
+"name": "Wing mirror right manuel",
+"json_key": "default",
+"translation_key": "wing_mirror_right_manuel",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 102,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 103,
+"name": "Front light glas left",
+"json_key": "default",
+"translation_key": "front_light_glas_left",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 103,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 104,
+"name": "Front light glas right",
+"json_key": "default",
+"translation_key": "front_light_glas_right",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 104,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 105,
+"name": "Wing mirror left el",
+"json_key": "default",
+"translation_key": "wing_mirror_left_el",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 105,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 106,
+"name": "Wing mirror right el",
+"json_key": "default",
+"translation_key": "wing_mirror_right_el",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 106,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 107,
+"name": "Rear view mirror - internal",
+"json_key": "default",
+"translation_key": "rear_view_mirror_internal",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 107,
+"main_category_id": 32
+}
+},
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 107,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 108,
+"name": "Seat bælt ekstra seat",
+"json_key": "default",
+"translation_key": "seat_baelt_ekstra_seat",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 108,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 109,
+"name": "Seat belts - front, left",
+"json_key": "default",
+"translation_key": "seat_belts_front_left",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 109,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 110,
+"name": "Seat belts - front",
+"json_key": "default",
+"translation_key": "seat_belts_front",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 110,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 111,
+"name": "Seat belts - front, right",
+"json_key": "default",
+"translation_key": "seat_belts_front_right",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 111,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 112,
+"name": "Seat belts - bag, left",
+"json_key": "default",
+"translation_key": "seat_belts_bag_left",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 112,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 113,
+"name": "Seat belts - bag, right",
+"json_key": "default",
+"translation_key": "seat_belts_bag_right",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 113,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 114,
+"name": "Seat belts - bag",
+"json_key": "default",
+"translation_key": "seat_belts_bag",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 114,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 115,
+"name": "Seat belts - bag, middel",
+"json_key": "default",
+"translation_key": "seat_belts_bag_middel",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 115,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 116,
+"name": "Seat belt adjustment",
+"json_key": "default",
+"translation_key": "seat_belt_adjustment",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 116,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 117,
+"name": "Front hood muffle",
+"json_key": "default",
+"translation_key": "front_hood_muffle",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 118,
+"name": "Fog light - front",
+"json_key": "default",
+"translation_key": "fog_light_front",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 118,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 119,
+"name": "High Volt charger",
+"json_key": "default",
+"translation_key": "high_volt_charger",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 119,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 120,
+"name": "Refrigerator",
+"json_key": "default",
+"translation_key": "refrigerator",
+"slug": null,
+"main_categories": [
+{
+"id": 28,
+"name": "Cooling/Heating/Aircon",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/air-conditioner.png",
+"slug": "coolingheatingaircon",
+"translation_key": "coolingheatingaircon",
+"pivot": {
+"car_part_type_id": 120,
+"main_category_id": 28
+}
+},
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 120,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 121,
+"name": "Pressur messure",
+"json_key": "default",
+"translation_key": "pressur_messure",
+"slug": null,
+"main_categories": [
+{
+"id": 33,
+"name": "Electronic parts",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/electronic-parts.png",
+"slug": "electronic-parts",
+"translation_key": "electronic_parts",
+"pivot": {
+"car_part_type_id": 121,
+"main_category_id": 33
+}
+}
+]
+},
+{
+"id": 122,
+"name": "Suspension kompressor",
+"json_key": "default",
+"translation_key": "suspension_kompressor",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 123,
+"name": "Steering",
+"json_key": "default",
+"translation_key": "steering",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 124,
+"name": "Wishbone - rear",
+"json_key": "default",
+"translation_key": "wishbone_rear",
+"slug": null,
+"main_categories": [
+{
+"id": 27,
+"name": "Chassis/Steering",
+"image": "",
+"slug": "chassissteering",
+"translation_key": "chassissteering",
+"pivot": {
+"car_part_type_id": 124,
+"main_category_id": 27
+}
+}
+]
+},
+{
+"id": 125,
+"name": "Roof shackle",
+"json_key": "default",
+"translation_key": "roof_shackle",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 126,
+"name": "Screen lift manuel",
+"json_key": "default",
+"translation_key": "screen_lift_manuel",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 127,
+"name": "Screen kable",
+"json_key": "default",
+"translation_key": "screen_kable",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 128,
+"name": "Screen lift electric",
+"json_key": "default",
+"translation_key": "screen_lift_electric",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 129,
+"name": "Front light",
+"json_key": "default",
+"translation_key": "front_light",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 129,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 130,
+"name": "Front light left",
+"json_key": "default",
+"translation_key": "front_light_left",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 130,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 131,
+"name": "Front light right",
+"json_key": "default",
+"translation_key": "front_light_right",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 131,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 132,
+"name": "Reverse light right side",
+"json_key": "default",
+"translation_key": "reverse_light_right_side",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 132,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 133,
+"name": "Seat set",
+"json_key": "default",
+"translation_key": "seat_set",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 133,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 134,
+"name": "Seat belts - middel, left",
+"json_key": "default",
+"translation_key": "seat_belts_middel_left",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 134,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 135,
+"name": "Seat belts - middel, right",
+"json_key": "default",
+"translation_key": "seat_belts_middel_right",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 135,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 136,
+"name": "Seat belts - middel, middel",
+"json_key": "default",
+"translation_key": "seat_belts_middel_middel",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 136,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 137,
+"name": "Seat belts - front, middel",
+"json_key": "default",
+"translation_key": "seat_belts_front_middel",
+"slug": null,
+"main_categories": [
+{
+"id": 32,
+"name": "Interior",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/interior.png",
+"slug": "interior",
+"translation_key": "interior",
+"pivot": {
+"car_part_type_id": 137,
+"main_category_id": 32
+}
+}
+]
+},
+{
+"id": 138,
+"name": "Instruments",
+"json_key": "default",
+"translation_key": "instruments",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 139,
+"name": "Seat belt buckle",
+"json_key": "default",
+"translation_key": "seat_belt_buckle",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 140,
+"name": "Window lift switch",
+"json_key": "default",
+"translation_key": "window_lift_switch",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 141,
+"name": "Rear parking sensor",
+"json_key": "default",
+"translation_key": "rear_parking_sensor",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 142,
+"name": "Ignition coil",
+"json_key": "default",
+"translation_key": "ignition_coil",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 142,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 143,
+"name": "Light switch",
+"json_key": "default",
+"translation_key": "light_switch",
+"slug": null,
+"main_categories": [
+{
+"id": 23,
+"name": "Fuel system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/tank.png",
+"slug": "fuel-system",
+"translation_key": "fuel_system",
+"pivot": {
+"car_part_type_id": 143,
+"main_category_id": 23
+}
+}
+]
+},
+{
+"id": 144,
+"name": "Throttle body",
+"json_key": "default",
+"translation_key": "throttle_body",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 145,
+"name": "Control module – miscellaneous",
+"json_key": "default",
+"translation_key": "control_module_miscellaneous",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 146,
+"name": "Door hinges",
+"json_key": "default",
+"translation_key": "door_hinges",
+"slug": null,
+"main_categories": [
+{
+"id": 31,
+"name": "Wipers",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/wiper.png",
+"slug": "wipers",
+"translation_key": "wipers",
+"pivot": {
+"car_part_type_id": 146,
+"main_category_id": 31
+}
+}
+]
+},
+{
+"id": 147,
+"name": "Rear screen wiper engine",
+"json_key": "default",
+"translation_key": "rear_screen_wiper_engine",
+"slug": null,
+"main_categories": [
+{
+"id": 31,
+"name": "Wipers",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/wiper.png",
+"slug": "wipers",
+"translation_key": "wipers",
+"pivot": {
+"car_part_type_id": 147,
+"main_category_id": 31
+}
+}
+]
+},
+{
+"id": 148,
+"name": "Front screen wiper engine",
+"json_key": "default",
+"translation_key": "front_screen_wiper_engine",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 149,
+"name": "Lambda probe",
+"json_key": "default",
+"translation_key": "lambda_probe",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 150,
+"name": "Nozzle",
+"json_key": "default",
+"translation_key": "nozzle",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 151,
+"name": "Door stop",
+"json_key": "default",
+"translation_key": "door_stop",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 152,
+"name": "Rear bumper - untreated",
+"json_key": "default",
+"translation_key": "rear_bumper_untreated",
+"slug": null,
+"main_categories": [
+{
+"id": 34,
+"name": "Lights/Mirrors",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/lights-mirrors.png",
+"slug": "lightsmirrors",
+"translation_key": "lightsmirrors",
+"pivot": {
+"car_part_type_id": 152,
+"main_category_id": 34
+}
+}
+]
+},
+{
+"id": 153,
+"name": "Wing mirror - switch",
+"json_key": "default",
+"translation_key": "wing_mirror_switch",
+"slug": null,
+"main_categories": [
+{
+"id": 23,
+"name": "Fuel system",
+"image": "https://currus-connect.fra1.cdn.digitaloceanspaces.com/img/main-category-images/tank.png",
+"slug": "fuel-system",
+"translation_key": "fuel_system",
+"pivot": {
+"car_part_type_id": 153,
+"main_category_id": 23
+}
+}
+]
+},
+{
+"id": 154,
+"name": "Air flow meter",
+"json_key": "default",
+"translation_key": "air_flow_meter",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 155,
+"name": "Headlight washer cylinder",
+"json_key": "default",
+"translation_key": "headlight_washer_cylinder",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 156,
+"name": "AC pump",
+"json_key": "default",
+"translation_key": "ac_pump",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 157,
+"name": "Brake caliper - front right",
+"json_key": "default",
+"translation_key": "brake_caliper_front_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 158,
+"name": "Horn",
+"json_key": "default",
+"translation_key": "horn",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 159,
+"name": "Brake caliper - bag right",
+"json_key": "default",
+"translation_key": "brake_caliper_bag_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 160,
+"name": "Front parking sensor",
+"json_key": "default",
+"translation_key": "front_parking_sensor",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 161,
+"name": "Brake caliper - front left",
+"json_key": "default",
+"translation_key": "brake_caliper_front_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 162,
+"name": "Brake caliper - bag left",
+"json_key": "default",
+"translation_key": "brake_caliper_bag_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 163,
+"name": "Wiring",
+"json_key": "default",
+"translation_key": "wiring",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 164,
+"name": "Radiator fan electrical",
+"json_key": "default",
+"translation_key": "radiator_fan_electrical",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 165,
+"name": "Wiper arm",
+"json_key": "default",
+"translation_key": "wiper_arm",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 166,
+"name": "Radiator hood",
+"json_key": "default",
+"translation_key": "radiator_hood",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 167,
+"name": "Front shock left",
+"json_key": "default",
+"translation_key": "front_shock_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 168,
+"name": "Hub hinges",
+"json_key": "default",
+"translation_key": "hub_hinges",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 169,
+"name": "Front shock right",
+"json_key": "default",
+"translation_key": "front_shock_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 170,
+"name": "Tank cover",
+"json_key": "default",
+"translation_key": "tank_cover",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 171,
+"name": "Shock absorber - rear",
+"json_key": "default",
+"translation_key": "shock_absorber_rear",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 172,
+"name": "Frontparts",
+"json_key": "default",
+"translation_key": "frontparts",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 173,
+"name": "Inside wing plastic",
+"json_key": "default",
+"translation_key": "inside_wing_plastic",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 174,
+"name": "Rear spring - coil",
+"json_key": "default",
+"translation_key": "rear_spring_coil",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 175,
+"name": "Speakers",
+"json_key": "default",
+"translation_key": "speakers",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 176,
+"name": "Starter",
+"json_key": "default",
+"translation_key": "starter",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 177,
+"name": "Handle - outside",
+"json_key": "default",
+"translation_key": "handle_outside",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 178,
+"name": "Wishbone - rear left",
+"json_key": "default",
+"translation_key": "wishbone_rear_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 179,
+"name": "Spindle - front right",
+"json_key": "default",
+"translation_key": "spindle_front_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 180,
+"name": "Wishbone - rear right",
+"json_key": "default",
+"translation_key": "wishbone_rear_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 181,
+"name": "Door Control Module",
+"json_key": "default",
+"translation_key": "door_control_module",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 182,
+"name": "ABS sensor",
+"json_key": "default",
+"translation_key": "abs_sensor",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 183,
+"name": "Sensor temperature / pressure - exhaust",
+"json_key": "default",
+"translation_key": "sensor_temperature_pressure_exhaust",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 184,
+"name": "Spindle - front left",
+"json_key": "default",
+"translation_key": "spindle_front_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 185,
+"name": "Bagdoor left",
+"json_key": "default",
+"translation_key": "bagdoor_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 186,
+"name": "Wiper pump",
+"json_key": "default",
+"translation_key": "wiper_pump",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 187,
+"name": "Spindle - rear",
+"json_key": "default",
+"translation_key": "spindle_rear",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 188,
+"name": "Switch - hazzard",
+"json_key": "default",
+"translation_key": "switch_hazzard",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 189,
+"name": "Wishbone - front low right",
+"json_key": "default",
+"translation_key": "wishbone_front_low_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 190,
+"name": "Carrier, brake caliper",
+"json_key": "default",
+"translation_key": "carrier_brake_caliper",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 191,
+"name": "Air conditioning pipe / hose",
+"json_key": "default",
+"translation_key": "air_conditioning_pipe_hose",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 192,
+"name": "Wiper arm back",
+"json_key": "default",
+"translation_key": "wiper_arm_back",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 193,
+"name": "Front member",
+"json_key": "default",
+"translation_key": "front_member",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 194,
+"name": "Wishbone - front low left",
+"json_key": "default",
+"translation_key": "wishbone_front_low_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 195,
+"name": "Switch seat heat",
+"json_key": "default",
+"translation_key": "switch_seat_heat",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 196,
+"name": "Frontdoor right",
+"json_key": "default",
+"translation_key": "frontdoor_right",
+"slug": null,
+"main_categories": [
+{
+"id": 22,
+"name": "Body parts",
+"image": "",
+"slug": "body-parts",
+"translation_key": "body_parts",
+"pivot": {
+"car_part_type_id": 196,
+"main_category_id": 22
+}
+}
+]
+},
+{
+"id": 197,
+"name": "Wiper tank",
+"json_key": "default",
+"translation_key": "wiper_tank",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 198,
+"name": "Switch - combi",
+"json_key": "default",
+"translation_key": "switch_combi",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 199,
+"name": "Rear spoiler",
+"json_key": "default",
+"translation_key": "rear_spoiler",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 200,
+"name": "Bagdoor right ",
+"json_key": "default",
+"translation_key": "bagdoor_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 201,
+"name": "Display",
+"json_key": "default",
+"translation_key": "display",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 202,
+"name": "Airbag - frame ring",
+"json_key": "default",
+"translation_key": "airbag_frame_ring",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 203,
+"name": "Frontdoor left",
+"json_key": "default",
+"translation_key": "frontdoor_left",
+"slug": null,
+"main_categories": [
+{
+"id": 22,
+"name": "Body parts",
+"image": "",
+"slug": "body-parts",
+"translation_key": "body_parts",
+"pivot": {
+"car_part_type_id": 203,
+"main_category_id": 22
+}
+}
+]
+},
+{
+"id": 204,
+"name": "Electrical parts various",
+"json_key": "default",
+"translation_key": "electrical_parts_various",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 205,
+"name": "Speeder pedal",
+"json_key": "default",
+"translation_key": "speeder_pedal",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 206,
+"name": "Bumper strengthener front",
+"json_key": "default",
+"translation_key": "bumper_strengthener_front",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 207,
+"name": "Bumper strengthener bag",
+"json_key": "default",
+"translation_key": "bumper_strengthener_bag",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 208,
+"name": "Wiper linkage",
+"json_key": "default",
+"translation_key": "wiper_linkage",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 209,
+"name": "Fuel pump",
+"json_key": "default",
+"translation_key": "fuel_pump",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 210,
+"name": "EGR valve",
+"json_key": "default",
+"translation_key": "egr_valve",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 211,
+"name": "Water pump",
+"json_key": "default",
+"translation_key": "water_pump",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 212,
+"name": "Brake light",
+"json_key": "default",
+"translation_key": "brake_light",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 213,
+"name": "Heater fan",
+"json_key": "default",
+"translation_key": "heater_fan",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 214,
+"name": "Rear hood van",
+"json_key": "default",
+"translation_key": "rear_hood_van",
+"slug": null,
+"main_categories": [
+{
+"id": 22,
+"name": "Body parts",
+"image": "",
+"slug": "body-parts",
+"translation_key": "body_parts",
+"pivot": {
+"car_part_type_id": 214,
+"main_category_id": 22
+}
+}
+]
+},
+{
+"id": 215,
+"name": "Alu felge",
+"json_key": "default",
+"translation_key": "alu_felge",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 216,
+"name": "Switch - wiper",
+"json_key": "default",
+"translation_key": "switch_wiper",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 217,
+"name": "Fuse box",
+"json_key": "default",
+"translation_key": "fuse_box",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 218,
+"name": "Switch - electrical screen",
+"json_key": "default",
+"translation_key": "switch_electrical_screen",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 219,
+"name": "Rear light",
+"json_key": "default",
+"translation_key": "rear_light",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 220,
+"name": "Alu felge set",
+"json_key": "default",
+"translation_key": "alu_felge_set",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 221,
+"name": "Propeller shaft",
+"json_key": "default",
+"translation_key": "propeller_shaft",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 222,
+"name": "Rear shaft - right",
+"json_key": "default",
+"translation_key": "rear_shaft_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 223,
+"name": "Engine Mount bracket",
+"json_key": "default",
+"translation_key": "engine_mount_bracket",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 224,
+"name": "Switch   ",
+"json_key": "default",
+"translation_key": "switch",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 225,
+"name": "Antenna",
+"json_key": "default",
+"translation_key": "antenna",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 226,
+"name": "Dust shield front",
+"json_key": "default",
+"translation_key": "dust_shield_front",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 227,
+"name": "Turbo cooler fan",
+"json_key": "default",
+"translation_key": "turbo_cooler_fan",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 228,
+"name": "Air filter",
+"json_key": "default",
+"translation_key": "air_filter",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 229,
+"name": "Bumper grille",
+"json_key": "default",
+"translation_key": "bumper_grille",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 230,
+"name": "Front casing",
+"json_key": "default",
+"translation_key": "front_casing",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 231,
+"name": "Brake - booster",
+"json_key": "default",
+"translation_key": "brake_booster",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 232,
+"name": "Cabin heater",
+"json_key": "default",
+"translation_key": "cabin_heater",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 233,
+"name": " Steering ",
+"json_key": "default",
+"translation_key": "steering",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 234,
+"name": "Kontakt Audio",
+"json_key": "default",
+"translation_key": "kontakt_audio",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 235,
+"name": "Radiator manuel gearboks",
+"json_key": "default",
+"translation_key": "radiator_manuel_gearboks",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 236,
+"name": "Hood",
+"json_key": "default",
+"translation_key": "hood",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 237,
+"name": "Mirrow glas right",
+"json_key": "default",
+"translation_key": "mirrow_glas_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 238,
+"name": "Front cowling",
+"json_key": "default",
+"translation_key": "front_cowling",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 239,
+"name": "Sensor polution",
+"json_key": "default",
+"translation_key": "sensor_polution",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 240,
+"name": "Wishbone - rear, right",
+"json_key": "default",
+"translation_key": "wishbone_rear_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 241,
+"name": "Rear hood hinges right",
+"json_key": "default",
+"translation_key": "rear_hood_hinges_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 242,
+"name": "Rear bumper - tyre mountings",
+"json_key": "default",
+"translation_key": "rear_bumper_tyre_mountings",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 243,
+"name": "Wishbone - rear, left",
+"json_key": "default",
+"translation_key": "wishbone_rear_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 244,
+"name": "Front grid",
+"json_key": "default",
+"translation_key": "front_grid",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 245,
+"name": "Door window screen bag right",
+"json_key": "default",
+"translation_key": "door_window_screen_bag_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 246,
+"name": "Mirror glass",
+"json_key": "default",
+"translation_key": "mirror_glass",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 247,
+"name": "Control unit - towbar",
+"json_key": "default",
+"translation_key": "control_unit_towbar",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 248,
+"name": "Relais",
+"json_key": "default",
+"translation_key": "relais",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 249,
+"name": "Wishbone - rear upper right",
+"json_key": "default",
+"translation_key": "wishbone_rear_upper_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 250,
+"name": "High voltare kable ",
+"json_key": "default",
+"translation_key": "high_voltare_kable",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 251,
+"name": "Switches ",
+"json_key": "default",
+"translation_key": "switches",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 252,
+"name": "Pressure solenoid valve",
+"json_key": "default",
+"translation_key": "pressure_solenoid_valve",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 253,
+"name": "Trailer knob",
+"json_key": "default",
+"translation_key": "trailer_knob",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 254,
+"name": "Door window screen front  ",
+"json_key": "default",
+"translation_key": "door_window_screen_front",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 255,
+"name": "Wishbone - front upper left ",
+"json_key": "default",
+"translation_key": "wishbone_front_upper_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 256,
+"name": "Unsp. parts",
+"json_key": "default",
+"translation_key": "unsp_parts",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 257,
+"name": "Door window screen  bag  ",
+"json_key": "default",
+"translation_key": "door_window_screen_bag",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 258,
+"name": "Radiator autom. gearbox",
+"json_key": "default",
+"translation_key": "radiator_autom_gearbox",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 259,
+"name": "Flywheel - automatic",
+"json_key": "default",
+"translation_key": "flywheel_automatic",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 260,
+"name": "Rear view mirror - el.",
+"json_key": "default",
+"translation_key": "rear_view_mirror_el",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 261,
+"name": "Central lock",
+"json_key": "default",
+"translation_key": "central_lock",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 262,
+"name": "Relay - preheater",
+"json_key": "default",
+"translation_key": "relay_preheater",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 263,
+"name": "Bumper strengthener front ",
+"json_key": "default",
+"translation_key": "bumper_strengthener_front",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 264,
+"name": "Sprinkler container",
+"json_key": "default",
+"translation_key": "sprinkler_container",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 265,
+"name": "Karosseri",
+"json_key": "default",
+"translation_key": "karosseri",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 266,
+"name": "Mud guards",
+"json_key": "default",
+"translation_key": "mud_guards",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 267,
+"name": "Rear hood",
+"json_key": "default",
+"translation_key": "rear_hood",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 268,
+"name": "Handle - exterior",
+"json_key": "default",
+"translation_key": "handle_exterior",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 269,
+"name": "Cabin div. ",
+"json_key": "default",
+"translation_key": "cabin_div",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 270,
+"name": "Sprinkler  ",
+"json_key": "default",
+"translation_key": "sprinkler",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 271,
+"name": "Switch - door",
+"json_key": "default",
+"translation_key": "switch_door",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 272,
+"name": "Rear axle assembly",
+"json_key": "default",
+"translation_key": "rear_axle_assembly",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 273,
+"name": "List",
+"json_key": "default",
+"translation_key": "list",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 274,
+"name": "Wishbone - front upper right",
+"json_key": "default",
+"translation_key": "wishbone_front_upper_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 275,
+"name": "Contact - Parking brake",
+"json_key": "default",
+"translation_key": "contact_parking_brake",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 276,
+"name": "towing eye",
+"json_key": "default",
+"translation_key": "towing_eye",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 277,
+"name": "Sensors - various",
+"json_key": "default",
+"translation_key": "sensors_various",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 278,
+"name": "Accelerator pedal",
+"json_key": "default",
+"translation_key": "accelerator_pedal",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 279,
+"name": "Rear member",
+"json_key": "default",
+"translation_key": "rear_member",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 280,
+"name": "Heater tap",
+"json_key": "default",
+"translation_key": "heater_tap",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 281,
+"name": "Front parts",
+"json_key": "default",
+"translation_key": "front_parts",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 282,
+"name": "Rim - fittings",
+"json_key": "default",
+"translation_key": "rim_fittings",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 283,
+"name": "Stabilizer front",
+"json_key": "default",
+"translation_key": "stabilizer_front",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 284,
+"name": "Heating element",
+"json_key": "default",
+"translation_key": "heating_element",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 285,
+"name": "Front wing right",
+"json_key": "default",
+"translation_key": "front_wing_right",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 286,
+"name": "Wishbone - front upper",
+"json_key": "default",
+"translation_key": "wishbone_front_upper",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 287,
+"name": "Engine shield",
+"json_key": "default",
+"translation_key": "engine_shield",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 288,
+"name": "Engine Mounting / Engine Mount bracket",
+"json_key": "default",
+"translation_key": "engine_mounting_engine_mount_bracket",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 289,
+"name": "Impact absorber, bu,ber",
+"json_key": "default",
+"translation_key": "impact_absorber_buber",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 290,
+"name": "Manifold inlet",
+"json_key": "default",
+"translation_key": "manifold_inlet",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 291,
+"name": "Start contact",
+"json_key": "default",
+"translation_key": "start_contact",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 292,
+"name": "Electric fittings",
+"json_key": "default",
+"translation_key": "electric_fittings",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 293,
+"name": "flywheel - manuel",
+"json_key": "default",
+"translation_key": "flywheel_manuel",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 294,
+"name": "Tailgate control unit",
+"json_key": "default",
+"translation_key": "tailgate_control_unit",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 295,
+"name": "Gear-box member",
+"json_key": "default",
+"translation_key": "gear_box_member",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 296,
+"name": "Front wing left",
+"json_key": "default",
+"translation_key": "front_wing_left",
+"slug": null,
+"main_categories": []
+},
+{
+"id": 297,
+"name": "Injection nozzle pipe",
+"json_key": "default",
+"translation_key": "injection_nozzle_pipe",
+"slug": null,
+"main_categories": []
+}
+]
