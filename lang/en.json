@@ -79,7 +79,7 @@
     "type-of-spare": "Type of spare part",
     "used-part": "Used",
     "chassi-nr": "Chassi number",
-    "uknown-message": "Unknown",
+    "unknown-message": "Unknown",
     "fuel-type": "Fuel type",
     "vat-shipping": "Incl. VAT & shipping",
     "vat-infoTitle": "Info",
@@ -88,6 +88,8 @@
     "similar-parts": "Similar spare parts that match your search",
     "cheapest-similar-part": "Cheapest similar part",
     "best-mileage-similar-part": "Similar part with the best mileage",
+
+    "relevant-car-parts": "Relevant car parts",
     
     "pop-up-buy-now": "Buy now",
     "pop-up-close": "Close",

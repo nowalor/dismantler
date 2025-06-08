@@ -61,7 +61,7 @@
     "type-of-spare": "Art des Ersatzteils",
     "used-part": "Gebraucht",
     "chassi-nr": "Chassi-Nummer",
-    "uknown-message": "Unbekannt",
+    "unknown-message": "Unbekannt",
     "fuel-type": "Kraftstofftyp",
     "vat-shipping": "Inkl. MwSt. & Versand",
     "vat-infoTitle": "Infos",
@@ -138,5 +138,6 @@
     "footer-friday": "Freitag",
     "similar-parts": "Ähnliche Ersatzteile, die Ihrer Suche entsprechen",
     "cheapest-similar-part": "Billigstes ähnliches Teil",
-    "best-mileage-similar-part": "Ähnliches Teil mit der besten Laufleistung"
+    "best-mileage-similar-part": "Ähnliches Teil mit der besten Laufleistung",
+    "relevant-car-parts": "Relevante Autoteile"
 }

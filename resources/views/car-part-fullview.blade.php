@@ -144,6 +144,18 @@
             </div>
         @endif
 
+        <!-- Relevant car parts -->
+        @if ($relevantParts->isNotEmpty())
+            <h2 class="large-text font-bold my-3 pt-2">{{ __('relevant-car-parts') }}</h2>
+            <div class="horizontal-scroll-container">
+                @foreach ($relevantParts as $relevantPart)
+                    @include('components.cards.similar-part-card', [
+                        'carPart' => $relevantPart,
+                    ])
+                @endforeach
+            </div>
+        @endif
+
         <!-- Additional Information -->
         <div class="row mt-4">
             <div class="col-12">
@@ -192,6 +204,29 @@
 
     .thumb:hover {
         opacity: 0.7;
+    }
+
+    .horizontal-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        scroll-behavior: smooth;
+        margin-right: calc(-.5 * var(--bs-gutter-x));
+        margin-left: calc(-.5 * var(--bs-gutter-x));
+    }
+
+    .horizontal-scroll-container > * {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
     }
 </style>
 

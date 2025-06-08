@@ -52,7 +52,7 @@
     "type-of-spare": "Type af reservedel",
     "used-part": "Brugt",
     "chassi-nr": "Chassi-nummer",
-    "uknown-message": "Ukendt",
+    "unknown-message": "Ukendt",
     "fuel-type": "Brændstoftype",
     "vat-shipping": "Inkl. moms og forsendelse",
     "vat-infoTitle": "Info",
@@ -129,5 +129,6 @@
     "footer-friday": "Fredag",
     "similar-parts": "Lignende reservedele, der matcher din søgning",
     "cheapest-similar-part": "Billigste lignende del",
-    "best-mileage-similar-part": "Lignende del med det bedste kilometertal"
+    "best-mileage-similar-part": "Lignende del med det bedste kilometertal",
+    "relevant-car-parts": "Relevante bildele"
 }
