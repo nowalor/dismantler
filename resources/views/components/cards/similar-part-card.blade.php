@@ -1,4 +1,4 @@
-<div class="col-md-6 pt-2">
+<div class="col-12 col-md-6 pt-2">
     <div class="card shadow-sm mb-2">
         <div class="card-body">
             @isset($cardTitle)
