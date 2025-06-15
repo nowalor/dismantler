@@ -126,5 +126,8 @@
     "footer-email": "E-mail",
     "footer-office-hours": "Kontortid",
     "footer-monday": "Mandag",
-    "footer-friday": "Fredag"
+    "footer-friday": "Fredag",
+    "similar-parts": "Lignende reservedele, der matcher din søgning",
+    "cheapest-similar-part": "Billigste lignende del",
+    "best-mileage-similar-part": "Lignende del med det bedste kilometertal"
 }
