@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Database\Eloquent\Builder;
-
+use Illuminate\Support\Facades\DB;
 
 class NewCarPart extends Model
 {
@@ -77,6 +77,96 @@ class NewCarPart extends Model
         'fields_resolved_at',
     ];
 
+    public function findRelevantParts(): Collection
+    {
+        $oemParts = $this->findRelevantPartsOem();
+
+        if ($oemParts->count() >= 20) {
+            return $oemParts;
+        }
+
+        $sbrCarCodeParts = $this->findRelevantPartsSbrCarCode();
+
+        $combinedOemAndSbrCarCodeParts = $oemParts
+            ->merge($sbrCarCodeParts)
+            ->unique('id')
+            ->take(30);
+
+        if ($combinedOemAndSbrCarCodeParts->count() >= 20) {
+            return $combinedOemAndSbrCarCodeParts;
+        }
+
+        $sbrPartCodeParts = $this->findRelevantPartsSbrPartCode();
+        
+        $fallback = $combinedOemAndSbrCarCodeParts
+            ->merge($sbrPartCodeParts)
+            ->unique('id')
+            ->take(30);
+        
+        return $fallback;
+    }
+
+    private function findRelevantPartsSbrPartCode(): Collection
+    {
+        if(!$this->sbr_part_code || !$this->sbr_car_code)
+        {
+            return collect();
+        }
+
+        // All parts with the same sbr_part_code
+        $relevantParts = self::query()
+            ->where('id', '!=', $this->id)
+            ->where('sbr_car_code', $this->sbr_car_code)
+            ->where('sbr_part_code', $this->sbr_part_code)
+            ->take(30)
+            ->get();
+
+        return $relevantParts;
+    }
+
+    private function findRelevantPartsSbrCarCode(): Collection
+    {
+        if (!$this->car_part_type_id || !$this->sbr_car_code)
+        {
+            return collect();
+        }
+
+        // All parts with the same sbr_car_code and main categories as the current part
+        $mainCategoriesIds = $this->carPartType?->mainCategories?->pluck('id')->all();
+        $associatesCarPartTypeIds = !empty($mainCategoriesIds)
+            ? DB::table('main_category_car_part_type')
+                ->whereIn('main_category_id', $mainCategoriesIds)
+                ->pluck('car_part_type_id')
+                ->unique()
+                ->values()
+                ->all()
+            : [];
+
+        if (empty($associatesCarPartTypeIds)) {
+            return collect();
+        }
+
+        $relevantParts = self::query()
+            ->where('id', '!=', $this->id)
+            ->where('sbr_car_code', $this->sbr_car_code)
+            ->whereIn('car_part_type_id', $associatesCarPartTypeIds)
+            ->get();
+
+        return $relevantParts;
+    }
+
+    private function findRelevantPartsOem(): Collection
+    {
+        if (!$this->isValidForBestMatch()) {
+            return collect();
+        }
+        
+        // All parts with the same original_number and car_part_type_id
+        $relevantParts = $this->baseSimilarPartsQuery()->get();
+
+        return $relevantParts;
+    }
+
     public function findCheapestSimilarPart(): ?self
     {
         if (!$this->isValidForBestMatch()) {
@@ -84,6 +174,7 @@ class NewCarPart extends Model
         }
 
         return $this->baseSimilarPartsQuery()
+            ->where('mileage_km', '!=', 0)
             ->where('price_sek', '<', $this->price_sek)
             ->orderBy('price_sek')
             ->where('mileage_km', 'REGEXP', '^[0-9]+$')
@@ -98,6 +189,7 @@ class NewCarPart extends Model
         }
 
         return $this->baseSimilarPartsQuery()
+            ->where('mileage_km', '!=', 0)
             ->where('mileage_km', 'REGEXP', '^[0-9]+$')
             ->whereRaw('CAST(mileage_km AS UNSIGNED) < CAST(? AS UNSIGNED)', [$this->mileage_km])
             ->orderByRaw('CAST(mileage_km AS UNSIGNED)')
@@ -110,8 +202,7 @@ class NewCarPart extends Model
         return self::query()
             ->where('id', '!=', $this->id)
             ->where('original_number', $this->original_number)
-            ->where('car_part_type_id', $this->car_part_type_id)
-            ->where('mileage_km', '!=', 0);
+            ->where('car_part_type_id', $this->car_part_type_id);
     }
 
     private function isValidForBestMatch(): bool

@@ -1,7 +1,9 @@
-<div class="col-md-6 pt-2">
+<div class="col-12 col-md-6 pt-2">
     <div class="card shadow-sm mb-2">
         <div class="card-body">
-            <h6 class="pb-2">{{ $cardTitle }}</h6>
+            @isset($cardTitle)
+                <h6 class="pb-2">{{ $cardTitle }}</h6>
+            @endisset
             @if ($carPart->carPartImages->count())
                 @php
                     $images = $carPart->carPartImages;
