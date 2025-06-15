@@ -85,18 +85,30 @@ class NewCarPart extends Model
             return $oemParts;
         }
 
-        $carCodeParts = $this->findRelevantPartsSbrCarCode();
+        $sbrCarCodeParts = $this->findRelevantPartsSbrCarCode();
 
-        if ($carCodeParts->count() >= 20) {
-            return $carCodeParts;
+        $combinedOemAndSbrCarCodeParts = $oemParts
+            ->merge($sbrCarCodeParts)
+            ->unique('id')
+            ->take(30);
+
+        if ($combinedOemAndSbrCarCodeParts->count() >= 20) {
+            return $combinedOemAndSbrCarCodeParts;
         }
 
-        return $this->findRelevantPartsSbrPartCode();
+        $sbrPartCodeParts = $this->findRelevantPartsSbrPartCode();
+        
+        $fallback = $combinedOemAndSbrCarCodeParts
+            ->merge($sbrPartCodeParts)
+            ->unique('id')
+            ->take(30);
+        
+        return $fallback;
     }
 
     private function findRelevantPartsSbrPartCode(): Collection
     {
-        if(!$this->sbr_part_code)
+        if(!$this->sbr_part_code || !$this->sbr_car_code)
         {
             return collect();
         }
@@ -104,6 +116,7 @@ class NewCarPart extends Model
         // All parts with the same sbr_part_code
         $relevantParts = self::query()
             ->where('id', '!=', $this->id)
+            ->where('sbr_car_code', $this->sbr_car_code)
             ->where('sbr_part_code', $this->sbr_part_code)
             ->take(30)
             ->get();
