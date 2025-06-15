@@ -35,7 +35,9 @@ class DatabaseSeeder extends Seeder
             EngineTypeGermanDismantlerSeeder::class,
 
             SbrCodeSeeder::class,
-            DitoNumberSbrCodeSeeder::class
+            DitoNumberSbrCodeSeeder::class,
+
+            MainCategoryCarPartTypePivotSeeder::class, // after tables main_categories and car_part_types are seeded
 
 
 //            EngineTypeSeeder::class,
