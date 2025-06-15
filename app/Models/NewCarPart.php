@@ -101,13 +101,10 @@ class NewCarPart extends Model
             return collect();
         }
 
-        $excludedIds = $this->cheapestAndBestMileagePartsIds();
-
         // All parts with the same sbr_part_code
         $relevantParts = self::query()
             ->where('id', '!=', $this->id)
             ->where('sbr_part_code', $this->sbr_part_code)
-            ->when(!empty($excludedIds), fn($query) => $query->whereNotIn('id', $excludedIds))
             ->take(30)
             ->get();
 
@@ -136,52 +133,25 @@ class NewCarPart extends Model
             return collect();
         }
 
-        $excludedIds = $this->cheapestAndBestMileagePartsIds();
-
         $relevantParts = self::query()
             ->where('id', '!=', $this->id)
             ->where('sbr_car_code', $this->sbr_car_code)
             ->whereIn('car_part_type_id', $associatesCarPartTypeIds)
-            ->when(!empty($excludedIds), fn($query) => $query->whereNotIn('id', $excludedIds))
             ->get();
 
         return $relevantParts;
     }
-
 
     private function findRelevantPartsOem(): Collection
     {
         if (!$this->isValidForBestMatch()) {
             return collect();
         }
-
-        $excludedIds = $this->cheapestAndBestMileagePartsIds();
         
         // All parts with the same original_number and car_part_type_id
-        $relevantParts = $this->baseSimilarPartsQuery()
-            ->when(!empty($excludedIds), fn($query) => $query->whereNotIn('id', $excludedIds))
-            ->get();
+        $relevantParts = $this->baseSimilarPartsQuery()->get();
 
         return $relevantParts;
-    }
-
-    private function cheapestAndBestMileagePartsIds(): array
-    {
-        if (!$this->isValidForBestMatch()) {
-            return [];
-        }
-
-        $excludedIds = [];
-
-        if ($cheapest = $this->findCheapestSimilarPart()) {
-            $excludedIds[] = $cheapest->id;
-        }
-
-        if ($bestMileage = $this->findBestMileageSimilarPart()) {
-            $excludedIds[] = $bestMileage->id;
-        }
-
-        return $excludedIds;
     }
 
     public function findCheapestSimilarPart(): ?self
